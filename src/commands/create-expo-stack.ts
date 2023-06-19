@@ -13,7 +13,7 @@ const command: GluegunCommand = {
         const askName = {
           type: 'input',
           name: 'name',
-          message: 'What is your project named?',
+          message: 'What do you want to name your project? (my-expo-app)',
         }
         const { name } = await prompt.ask(askName)
         projectName = name
@@ -24,14 +24,33 @@ const command: GluegunCommand = {
         true
       )
 
+      if (useTypescript) {
+        print.success('Good call, now using TypeScript! 🚀')
+      } else {
+        print.success(`Got it, we'll use JavaScript.`)
+      }
+
       const useExpoRouter = await prompt.confirm(
         'Would you like to include navigation via Expo Router (recommended)?',
         true
       )
+
+      if (useExpoRouter) {
+        print.success(`Great, we'll set up a Tab Navigator!`)
+      } else {
+        print.success(`No problem, skipping navigation for now.`)
+      }
+
       const useNativewind = await prompt.confirm(
-        'Would you like to use NativeWind with this project?',
+        'Would you like to use NativeWind (Tailwind for RN) with this project?',
         true
       )
+
+      if (useNativewind) {
+        print.success(`You'll be styling with ease using Tailwind.`)
+      } else {
+        print.success(`Sounds good, you can use StyleSheet instead.`)
+      }
 
       const githubRepo = 'https://github.com/danstepanov/create-expo-stack.git'
       let branch = 'blank'
@@ -66,16 +85,18 @@ const command: GluegunCommand = {
         branch = 'blank'
       }
 
-      print.info(`Cloning the ${branch} template of ${githubRepo}...`)
+      print.info(`Initializing your project...`)
       await system.run(
         `git clone --single-branch --branch ${branch} ${githubRepo} ${projectName} && cd ${projectName} && git branch -m ${branch} main && git remote remove origin`
       )
-      print.success(
-        `Success! Now, just run "cd ${projectName}" followed by "yarn && yarn ios" or "npm i && npm run ios" to start working on your project! 🎉`
-      )
+      print.success('Success! 🎉 Now, just run the following to get started: ')
+      print.info(`cd ${projectName}`)
+      print.info('yarn')
+      print.info('yarn ios')
     } catch (error) {
-      print.error(
-        `Failed to create project 😢 Please open an issue at https://github.com/danstepanov/create-expo-stack`
+      print.error(`Oops, unable to create your project 😢`)
+      print.info(
+        `\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
       )
     }
   },
