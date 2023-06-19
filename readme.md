@@ -12,6 +12,8 @@ To get started, use npx to run the CLI tool. You will be prompted to opt into th
 
 `npx create-expo-stack@latest`
 
+![](https://github.com/danstepanov/create-expo-stack/assets/5482800/9338f907-3a42-4fbb-ad16-eb4edd2439bb)
+
 ## Tech Stack for the templates
 
 Currently, all of the [templates](https://github.com/danstepanov/create-expo-stack) use the same versions of the following libraries. Not all of the templates include all of the libraries, but they are all available for use.
