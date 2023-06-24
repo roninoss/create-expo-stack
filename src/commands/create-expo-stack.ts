@@ -7,6 +7,11 @@ const command: GluegunCommand = {
     const { print, parameters, system, prompt } = toolbox
 
     let projectName = parameters.first
+    let useExpoRouter = false
+    let useReactNavigation = false
+    let navigation = ''
+    let navigationType = ''
+    let branch = 'blank'
 
     try {
       if (!projectName) {
@@ -19,6 +24,7 @@ const command: GluegunCommand = {
         projectName = name
       }
 
+      // Ask about TypeScript
       const useTypescript = await prompt.confirm(
         'Would you like to use TypeScript with this project?',
         true
@@ -27,16 +33,37 @@ const command: GluegunCommand = {
       if (useTypescript) {
         print.success('Good call, now using TypeScript! 🚀')
       } else {
-        print.success(`Got it, we'll use JavaScript.`)
+        print.success(`Wrong answer, we're gonna use Typescript.`)
       }
 
-      const useExpoRouter = await prompt.confirm(
-        'Would you like to include navigation via Expo Router (recommended)?',
-        true
-      )
+      // Ask about navigation
+      const askNavigation = {
+        type: 'select',
+        name: 'navigationSelect',
+        message: 'What would you like to use for Navigation?',
+        choices: ['React Navigation', 'Expo Router', 'None'],
+      }
 
-      if (useExpoRouter) {
-        print.success(`Great, we'll set up a Tab Navigator!`)
+      const askNavigationType = {
+        type: 'select',
+        name: 'navigationTypeSelect',
+        message: 'What type of navigation would you like to use?',
+        choices: ['Stack', 'Tab'],
+      }
+
+      const { navigationSelect } = await prompt.ask(askNavigation)
+
+      if (navigationSelect !== 'None') {
+        const { navigationTypeSelect } = await prompt.ask(askNavigationType)
+        navigationType = navigationTypeSelect.toLowerCase()
+        if (navigationSelect === 'React Navigation') {
+          useReactNavigation = true
+          navigation = 'react-navigation'
+        } else {
+          useExpoRouter = true
+          navigation = 'expo-router'
+        }
+        print.success(`Great, we'll use ${navigationSelect}!`)
       } else {
         print.success(`No problem, skipping navigation for now.`)
       }
@@ -53,39 +80,19 @@ const command: GluegunCommand = {
       }
 
       const githubRepo = 'https://github.com/danstepanov/create-expo-stack.git'
-      let branch = 'blank'
 
-      if (useTypescript && useExpoRouter && useNativewind) {
-        branch = 'with-typescript-navigation-nativewind'
-      }
-
-      if (!useTypescript) {
-        if (useExpoRouter && useNativewind) {
-          branch = 'with-navigation-nativewind'
-        } else if (useExpoRouter) {
-          branch = 'with-navigation'
-        } else if (useNativewind) {
-          branch = 'with-nativewind'
-        }
-      }
-
-      if (!useExpoRouter) {
-        if (useNativewind) {
-          branch = 'with-typescript-nativewind'
-        } else if (useTypescript) {
-          branch = 'with-typescript'
-        }
-      }
-
-      if (!useNativewind && useTypescript && useExpoRouter) {
-        branch = 'with-typescript-navigation'
-      }
-
-      if (!useTypescript && !useExpoRouter && !useNativewind) {
-        branch = 'blank'
+      if (!useExpoRouter && !useReactNavigation && !useNativewind) {
+        branch = 'base'
+      } else if (!useExpoRouter && !useReactNavigation && useNativewind) {
+        branch = 'with-typescript-nativewind'
+      } else if (useNativewind) {
+        branch = `with-typescript-${navigation}-${navigationType}-nativewind`
+      } else {
+        branch = `with-typescript-${navigation}-${navigationType}`
       }
 
       print.info(`Initializing your project...`)
+
       await system.run(
         `git clone --single-branch --branch ${branch} ${githubRepo} ${projectName} && cd ${projectName} && git branch -m ${branch} main && git remote remove origin`
       )
