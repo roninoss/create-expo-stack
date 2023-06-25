@@ -12,7 +12,7 @@ To get started, use npx to run the CLI tool. You will be prompted to opt into th
 
 `npx create-expo-stack@latest`
 
-![](https://github.com/danstepanov/create-expo-stack/assets/5482800/9338f907-3a42-4fbb-ad16-eb4edd2439bb)
+![](https://github.com/danstepanov/create-expo-stack/assets/5482800/1f7d9e88-9e81-42a2-9d4f-d9d32035e89a)
 
 ## Tech Stack for the templates
 
