@@ -51,3 +51,32 @@ Contributions are welcome! Please open a pull request or an issue if you would l
 Getting up-to-speed on a new framework can be cumbersome. If you find that you need to move more quickly, I may be available to help.
 
 If you'd like help with your React Native/Expo app or are just looking for a technical advisor to guide you along your journey, [let's chat](https://twitter.com/danstepanov).
+
+## Contributors ✨
+
+Thanks go to these wonderful people:
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://onlydans.gg/">
+          <img src="https://pbs.twimg.com/profile_images/1669495865478885376/7hWQn7ub_400x400.jpg" width="100px;" alt="Dan Stepanov"/>
+          <br />
+          <sub>
+            <b>Dan Stepanov</b>
+          </sub>
+        </a>
+      </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://aodhan.netlify.app/">
+          <img src="https://pbs.twimg.com/profile_images/1472990183993888772/3X5J4d9__400x400.png" width="100px;" alt="Aodhan Hamilton"/>
+          <br />
+          <sub>
+            <b>Aodhan Hamilton</b>
+          </sub>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
