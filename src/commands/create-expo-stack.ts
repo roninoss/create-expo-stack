@@ -1,39 +1,92 @@
 import { GluegunCommand } from 'gluegun'
+// import { type } from 'os';
+
+const DEFAULT_APP_NAME = "my-expo-app";
+
+interface CliFlags {
+  noGit: boolean;
+  noInstall: boolean;
+  importAlias: string;
+}
+
+const availablePackages = ["nativewind", "react-navigation", "expo-router"];
+
+type NavigationTypes = "stack" | "tab" | {};
+
+type AvailablePackages = {
+  name: (typeof availablePackages)[number];
+  options: NavigationTypes;
+}
+
+interface CliResults {
+  projectName: string;
+  packages: AvailablePackages[];
+  flags: CliFlags;
+}
+
+const defaultOptions: CliResults = {
+  projectName: DEFAULT_APP_NAME,
+  packages: [
+    {
+      name: "nativewind",
+      options: {}
+    },
+    {
+      name: "expo-router",
+      options: {
+        navigationType: "stack"
+      }
+    }
+  ],
+  flags: {
+    noGit: false,
+    noInstall: false,
+    importAlias: "~/",
+  },
+};
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
-  description: 'Create an expo app, the right way.',
+  description: 'A CLI to create a new Expo project with the stack of your choice.',
   run: async (toolbox) => {
-    const { print, parameters, system, prompt } = toolbox
+    const {
+      parameters,
+      template: { generate },
+      print: { info, success },
+      prompt: { ask, confirm }
+    } = toolbox
 
-    let projectName = parameters.first
-    let useExpoRouter = false
-    let useReactNavigation = false
-    let navigation = ''
-    let navigationType = ''
-    let branch = 'blank'
+    async function runCLI(): Promise<CliResults> {
 
-    try {
-      if (!projectName) {
+      // Set the default options
+      let cliResults = defaultOptions;
+
+      // Set the app name if it was passed in via the initial command
+      if (parameters.first) {
+        cliResults.projectName = parameters.first;
+      }
+
+      // If the user didn't pass in a name, ask them for one
+      if (!parameters.first) {
         const askName = {
           type: 'input',
           name: 'name',
           message: 'What do you want to name your project? (my-expo-app)',
         }
-        const { name } = await prompt.ask(askName)
-        projectName = name
+        const { name } = await ask(askName)
+        cliResults.projectName = name
       }
 
       // Ask about TypeScript
-      const useTypescript = await prompt.confirm(
+      const useTypescript = await confirm(
         'Would you like to use TypeScript with this project?',
         true
       )
 
       if (useTypescript) {
-        print.success('Good call, now using TypeScript! 🚀')
+        success('Good call, now using TypeScript! 🚀')
       } else {
-        print.success(`Wrong answer, we're gonna use Typescript.`)
+        success(`Wrong answer, we're gonna use Typescript.`)
       }
 
       // Ask about navigation
@@ -51,62 +104,99 @@ const command: GluegunCommand = {
         choices: ['Stack', 'Tab'],
       }
 
-      const { navigationSelect } = await prompt.ask(askNavigation)
+      const { navigationSelect } = await ask(askNavigation)
 
       if (navigationSelect !== 'None') {
-        const { navigationTypeSelect } = await prompt.ask(askNavigationType)
-        navigationType = navigationTypeSelect.toLowerCase()
+        const { navigationTypeSelect } = await ask(askNavigationType);
         if (navigationSelect === 'React Navigation') {
-          useReactNavigation = true
-          navigation = 'react-navigation'
+          cliResults.packages.push({ name: "react-navigation", options: navigationTypeSelect });
         } else {
-          useExpoRouter = true
-          navigation = 'expo-router'
+          cliResults.packages.push({ name: "expo-router", options: navigationTypeSelect });
         }
-        print.success(`Great, we'll use ${navigationSelect}!`)
+        success(`Great, we'll use ${navigationSelect}!`)
       } else {
-        print.success(`No problem, skipping navigation for now.`)
+        success(`No problem, skipping navigation for now.`)
       }
 
-      const useNativewind = await prompt.confirm(
+      const useNativewind = await confirm(
         'Would you like to use NativeWind (Tailwind for RN) with this project?',
         true
       )
 
       if (useNativewind) {
-        print.success(`You'll be styling with ease using Tailwind.`)
+        cliResults.packages.push({ name: "nativewind", options: {} });
+        success(`You'll be styling with ease using Tailwind.`)
       } else {
-        print.success(`Sounds good, you can use StyleSheet instead.`)
+        success(`Sounds good, you can use StyleSheet instead.`)
       }
 
-      const githubRepo = 'https://github.com/danstepanov/create-expo-stack.git'
+      return cliResults;
+    }
 
-      if (!useExpoRouter && !useReactNavigation && !useNativewind) {
-        branch = 'base'
-      } else if (!useExpoRouter && !useReactNavigation && useNativewind) {
-        branch = 'with-typescript-nativewind'
-      } else if (useNativewind) {
-        branch = `with-typescript-${navigation}-${navigationType}-nativewind`
-      } else {
-        branch = `with-typescript-${navigation}-${navigationType}`
-      }
+    async function generateProject(projectName: string, activeFiles: string[]): Promise<void> {
+      info(``)
+      info(`Initializing your project...`)
+      info(``)
 
-      print.info(`Initializing your project...`)
+      await Promise.all(activeFiles);
 
-      await system.run(
-        `git clone --single-branch --branch ${branch} ${githubRepo} ${projectName} && cd ${projectName} && git branch -m ${branch} main && git remote remove origin`
-      )
-      print.success('Success! 🎉 Now, just run the following to get started: ')
-      print.info(`cd ${projectName}`)
-      print.info('yarn')
-      print.info('yarn ios')
+      success('Success! 🎉 Now, just run the following to get started: ')
+      info(``)
+      info(`cd ${projectName}`)
+      info('yarn')
+      info('yarn ios')
+    }
+
+    try {
+      const { projectName, packages, flags } = await runCLI()
+
+      // for (const file of templateFiles) {
+      //   await toolbox.template.generate({
+      //     template: `${projectName}/${file}`,
+      //     target: `${projectName}/${file.replace('.ejs', '')}`,
+      //     props: { projectName, ourLogic },
+      //   })
+      // }
+
+      const files = [
+        'base/assets/adaptive-icon.png',
+        'base/assets/favicon.png',
+        'base/assets/icon.png',
+        'base/assets/splash.png',
+        'base/tsconfig.json',
+        'app.json.ejs',
+        'App.tsx.ejs',
+        'babel.config.js.ejs',
+        'package.json.ejs',
+      ];
+
+      let activeFiles = [];
+
+      activeFiles = files.reduce((prev, file) => {
+        const template = file;
+
+        const target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '');
+
+        const gen = generate({ template, target, props: { projectName, packages, flags } });
+
+        return prev.concat([gen]);
+      }, activeFiles)
+
+      // TODO: add expo router files if needed
+
+      // TODO: add react navigation files if needed
+
+      // TODO: add nativewind files if needed
+
+      await generateProject(projectName, activeFiles);
+
     } catch (error) {
-      print.error(`Oops, unable to create your project 😢`)
-      print.info(
+      error(`Oops, something went wrong while creating your project 😢`)
+      info(
         `\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
       )
     }
   },
 }
 
-module.exports = command
+export default command;
