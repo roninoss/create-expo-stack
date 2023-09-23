@@ -8,7 +8,7 @@ interface CliFlags {
   importAlias: string;
 }
 
-const availablePackages = ["nativewind", "react-navigation", "expo-router"];
+const availablePackages = ["nativewind", "react-navigation", "expo-router"] as const;
 
 type NavigationTypes = "stack" | "tab" | {};
 
