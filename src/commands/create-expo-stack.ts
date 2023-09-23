@@ -1,5 +1,4 @@
-import { GluegunCommand } from 'gluegun'
-// import { type } from 'os';
+import { GluegunCommand, system } from 'gluegun'
 
 const DEFAULT_APP_NAME = "my-expo-app";
 
@@ -76,6 +75,8 @@ const command: GluegunCommand = {
         const { name } = await ask(askName)
         cliResults.projectName = name
       }
+      // Clear packages
+      cliResults.packages = [];
 
       // Ask about TypeScript
       const useTypescript = await confirm(
@@ -109,9 +110,9 @@ const command: GluegunCommand = {
       if (navigationSelect !== 'None') {
         const { navigationTypeSelect } = await ask(askNavigationType);
         if (navigationSelect === 'React Navigation') {
-          cliResults.packages.push({ name: "react-navigation", options: navigationTypeSelect });
+          cliResults.packages.push({ name: "react-navigation", options: navigationTypeSelect.toLowerCase() });
         } else {
-          cliResults.packages.push({ name: "expo-router", options: navigationTypeSelect });
+          cliResults.packages.push({ name: "expo-router", options: navigationTypeSelect.toLowerCase() });
         }
         success(`Great, we'll use ${navigationSelect}!`)
       } else {
@@ -133,65 +134,91 @@ const command: GluegunCommand = {
       return cliResults;
     }
 
-    async function generateProject(projectName: string, activeFiles: string[]): Promise<void> {
-      info(``)
-      info(`Initializing your project...`)
-      info(``)
-
-      await Promise.all(activeFiles);
-
-      success('Success! 🎉 Now, just run the following to get started: ')
-      info(``)
-      info(`cd ${projectName}`)
-      info('yarn')
-      info('yarn ios')
+    function userWantsPackage(packageName: string, packages: AvailablePackages[]): boolean {
+      return packages.find((p) => p.name === packageName) ? true : false;
     }
 
     try {
       const { projectName, packages, flags } = await runCLI()
 
-      // for (const file of templateFiles) {
-      //   await toolbox.template.generate({
-      //     template: `${projectName}/${file}`,
-      //     target: `${projectName}/${file.replace('.ejs', '')}`,
-      //     props: { projectName, ourLogic },
-      //   })
-      // }
+      const userWantsNativewind = userWantsPackage("nativewind", packages);
 
-      const files = [
+      const baseFiles = [
         'base/assets/adaptive-icon.png',
         'base/assets/favicon.png',
         'base/assets/icon.png',
         'base/assets/splash.png',
         'base/tsconfig.json',
-        'app.json.ejs',
-        'App.tsx.ejs',
-        'babel.config.js.ejs',
-        'package.json.ejs',
+        'base/app.json.ejs',
+        'base/App.tsx.ejs',
+        'base/babel.config.js.ejs',
+        'base/package.json.ejs',
       ];
 
-      let activeFiles = [];
+      let files = [
+        ...baseFiles,
+      ];
 
-      activeFiles = files.reduce((prev, file) => {
+      // add nativewind files if needed
+      // modify base files with nativewind specifications
+      // files to modify
+      // - babel.config.js.ejs
+      // - App.tsx.ejs
+      // - package.json.ejs
+      if (userWantsNativewind) {
+        const nativewindFiles = [
+          'packages/nativewind/tailwind.config.js.ejs',
+          'packages/nativewind/app.d.ts',
+        ];
+
+        files = [
+          ...files,
+          ...nativewindFiles,
+        ];
+      };
+
+      let formattedFiles = [];
+
+      formattedFiles = files.reduce((prev, file) => {
         const template = file;
 
-        const target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '');
+        const target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '').replace('packages/nativewind/', '');
 
-        const gen = generate({ template, target, props: { projectName, packages, flags } });
+        const gen = generate({ template, target, props: { projectName, packages, flags, userWantsNativewind } });
 
         return prev.concat([gen]);
-      }, activeFiles)
+      }, formattedFiles)
 
+      
       // TODO: add expo router files if needed
 
       // TODO: add react navigation files if needed
 
-      // TODO: add nativewind files if needed
+      info(``)
+      info(`Initializing your project...`)
+      info(``)
 
-      await generateProject(projectName, activeFiles);
+      await Promise.all(formattedFiles);
+
+      info(``)
+      info(`Installing dependencies...`)
+      info(``)
+
+      // install with yarn or npm i
+      const yarnOrNpm = system.which('yarn') ? 'yarn' : 'npm'
+      await system.spawn(`cd ${projectName} && ${yarnOrNpm} install --silent`, {
+        shell: true,
+        stdio: 'inherit',
+      })
+
+      success('Success! 🎉 Now, just run the following to get started: ')
+      info(``)
+      info(`cd ${projectName}`)
+      info('yarn ios')
 
     } catch (error) {
-      error(`Oops, something went wrong while creating your project 😢`)
+      // clean up and delete all files
+      info(`Oops, something went wrong while creating your project 😢`)
       info(
         `\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
       )
