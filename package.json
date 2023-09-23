@@ -15,9 +15,10 @@
     "clean-build": "rm -rf ./build",
     "compile": "tsc -p .",
     "copy-templates": "copyfiles ./src/templates/* ./build/templates",
-    "build": "yarn clean-build && yarn compile && yarn copy-templates",
+    "build": "yarn clean-build && yarn compile && yarn copy-templates && yarn lint-templates",
     "prepublishOnly": "yarn build",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
+    "lint-templates": "ejslint ./src/templates",
     "test": "jest",
     "watch": "jest --watch",
     "snapupdate": "jest --updateSnapshot",
@@ -32,6 +33,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "ejs-lint": "^2.0.0",
     "gluegun": "latest"
   },
   "devDependencies": {

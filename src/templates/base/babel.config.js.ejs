@@ -1,0 +1,10 @@
+module.exports = function(api) {
+  api.cache(true);
+  let plugins = [];
+  <% if (props.userWantsNativewind) { %>plugins.push("nativewind/babel")
+  <% } %>
+  return {
+    presets: ['babel-preset-expo'],
+    plugins: plugins,
+  };
+};
