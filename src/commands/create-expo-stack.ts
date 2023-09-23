@@ -206,7 +206,7 @@ const command: GluegunCommand = {
 
       // install with yarn or npm i
       const yarnOrNpm = system.which('yarn') ? 'yarn' : 'npm'
-      await system.spawn(`cd ${projectName} && ${yarnOrNpm} install --silent`, {
+      await system.spawn(`cd ${projectName} && ${yarnOrNpm} install --silent && ${yarnOrNpm} run --quiet format`, {
         shell: true,
         stdio: 'inherit',
       })
@@ -215,6 +215,7 @@ const command: GluegunCommand = {
       info(``)
       info(`cd ${projectName}`)
       info('yarn ios')
+      info(``)
 
     } catch (error) {
       // clean up and delete all files

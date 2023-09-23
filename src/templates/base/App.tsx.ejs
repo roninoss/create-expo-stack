@@ -1,35 +1,41 @@
 import React from 'react';
-<% if (props.userWantsNativewind) {%> import { Text, View } from 'react-native'; <% } else {%> import { StyleSheet, Text, View } from 'react-native'; <% } %>
-import { StatusBar } from 'expo-status-bar';
+
 <% if (props.userWantsNativewind) {%>
-export default function App() {
-  return (
-    <View className={styles.container} %>>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = {
-  container: 'flex flex-1 items-center justify-center bg-white',
-};
+  import { Text, View } from 'react-native';
 <% } else {%>
-export default function App() {
-  return (
-    <View style={styles.container} %>>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  import { StyleSheet, Text, View } from 'react-native';
+<% } %>
+import { StatusBar } from 'expo-status-bar';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+<% if (props.userWantsNativewind) {%>
+  export default function App() {
+    return (
+      <View className={styles.container} %>>
+        <Text>Open up App.tsx to start working on your app!</Text>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
+
+  const styles = {
+    container: 'flex flex-1 items-center justify-center bg-white',
+  };
+<% } else {%>
+  export default function App() {
+    return (
+      <View style={styles.container} %>>
+        <Text>Open up App.tsx to start working on your app!</Text>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
 <% } %>
