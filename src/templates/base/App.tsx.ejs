@@ -1,13 +1,13 @@
 import React from 'react';
 
-<% if (props.userWantsNativewind) {%>
+<% if (props.useNativewind) {%>
   import { Text, View } from 'react-native';
 <% } else {%>
   import { StyleSheet, Text, View } from 'react-native';
 <% } %>
 import { StatusBar } from 'expo-status-bar';
 
-<% if (props.userWantsNativewind) {%>
+<% if (props.useNativewind) {%>
   export default function App() {
     return (
       <View className={styles.container} %>>
