@@ -1,32 +1,54 @@
-import { StyleSheet, Text, View } from "react-native";
+<% if (props.useNativewind) { %>
+  import { Text, View } from "react-native";
+<% } else { %>
+  import { StyleSheet, Text, View } from "react-native";
+<% } %>
 
 import EditScreenInfo from "../components/edit-screen-info";
 
 export default function TabOneScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} />
-      <EditScreenInfo path="src/screens/two.tsx" />
-    </View>
-  );
+  <% if (props.useNativewind) { %>
+    return (
+      <View className={styles.container}>
+        <Text className={styles.title}>Tab One</Text>
+        <View className={styles.separator} />
+        <EditScreenInfo path="src/screens/one.tsx" />
+      </View>
+    );
+  <% } else { %>
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Tab Two</Text>
+        <View style={styles.separator} />
+        <EditScreenInfo path="src/screens/two.tsx" />
+      </View>
+    );
+  <% } %>
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    flex: 1,
-    justifyContent: "center",
-  },
-  separator: {
-    backgroundColor: "gray",
-    height: 1,
-    marginVertical: 30,
-    opacity: 0.25,
-    width: "80%",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  }
-});
+<% if (props.useNativewind) { %>
+  const styles = {
+    container: "items-center flex-1 justify-center",
+    separator: "h-[1px] my-7 w-4/5 bg-gray-200",
+    title: "text-xl font-bold"
+  };
+<% } else { %>
+  const styles = StyleSheet.create({
+    container: {
+      alignItems: "center",
+      flex: 1,
+      justifyContent: "center",
+    },
+    separator: {
+      backgroundColor: "gray",
+      height: 1,
+      marginVertical: 30,
+      opacity: 0.25,
+      width: "80%",
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: "bold",
+    }
+  });
+<% } %>

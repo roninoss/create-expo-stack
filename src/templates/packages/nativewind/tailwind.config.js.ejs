@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./App.{js,ts,tsx}"],
+    <% if (props.navigationPackage?.name === "react-navigation") { %>
+      content: ["./App.{js,ts,tsx}", "./src/**/*.{js,ts,tsx}"],
+    <% } else { %>
+      content: ["./App.{js,ts,tsx}"],
+    <% } %>
     theme: {
       extend: {},
     },
