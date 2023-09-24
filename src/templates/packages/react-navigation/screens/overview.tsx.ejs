@@ -1,67 +1,97 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+<% if (props.useNativewind) { %>
+  import { Text, TouchableOpacity, View } from "react-native";
+<% } else { %>
+  import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+<% } %>
 import { RootStackParamList } from "../navigation";
 
 type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, "Overview">;
 
 export default function Overview() {
   const navigation = useNavigation<OverviewScreenNavigationProps>();
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <View>
-          <Text style={styles.title}>Hello World</Text>
-          <Text style={styles.subtitle}>This is the first page of your app.</Text>
+  <% if (props.useNativewind) { %>
+    return (
+      <View className={styles.container}>
+        <View className={styles.main}>
+          <View>
+            <Text className={styles.title}>Hello World</Text>
+            <Text className={styles.subtitle}>This is the first page of your app.</Text>
+          </View>
+          <TouchableOpacity className={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
+            <Text className={styles.buttonText}>Show Details</Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
-          <Text style={styles.buttonText}>Show Details</Text>
-        </TouchableOpacity>
       </View>
-    </View>
-  );
+    )
+  <% } else { %>
+    return (
+      <View style={styles.container}>
+        <View style={styles.main}>
+          <View>
+            <Text style={styles.title}>Hello World</Text>
+            <Text style={styles.subtitle}>This is the first page of your app.</Text>
+          </View>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
+            <Text style={styles.buttonText}>Show Details</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  <% } %>
 }
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    backgroundColor: "#6366F1",
-    borderRadius: 24,
-    elevation: 5,
-    flexDirection: "row",
-    justifyContent: "center",
-    padding: 16,
-    shadowColor: "#000",
-    shadowOffset: {
-      height: 2,
-      width: 0
+<% if (props.useNativewind) { %>
+  const styles = {
+    button: "items-center bg-indigo-500 rounded-[28px] shadow-md p-4",
+    buttonText: "text-white text-lg font-semibold text-center",
+    container: "flex-1 p-6",
+    main: "flex-1 max-w-[960] justify-between",
+    title: "text-[64px] font-bold",
+    subtitle: "text-4xl text-gray-700",
+  };
+<% } else { %>
+  const styles = StyleSheet.create({
+    button: {
+      alignItems: "center",
+      backgroundColor: "#6366F1",
+      borderRadius: 24,
+      elevation: 5,
+      flexDirection: "row",
+      justifyContent: "center",
+      padding: 16,
+      shadowColor: "#000",
+      shadowOffset: {
+        height: 2,
+        width: 0
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84
-  },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "600",
-    textAlign: "center",
-  },
-  container: {
-    flex: 1,
-    padding: 24,
-  },
-  main: {
-    flex: 1,
-    maxWidth: 960,
-    marginHorizontal: "auto",
-    justifyContent: "space-between",
-  },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    color: "#38434D",
-    fontSize: 36,
-  }
-});
+    buttonText: {
+      color: "#FFFFFF",
+      fontSize: 16,
+      fontWeight: "600",
+      textAlign: "center",
+    },
+    container: {
+      flex: 1,
+      padding: 24,
+    },
+    main: {
+      flex: 1,
+      maxWidth: 960,
+      marginHorizontal: "auto",
+      justifyContent: "space-between",
+    },
+    title: {
+      fontSize: 64,
+      fontWeight: "bold",
+    },
+    subtitle: {
+      color: "#38434D",
+      fontSize: 36,
+    }
+  });
+<% } %>
