@@ -2,7 +2,7 @@ module.exports = function(api) {
   api.cache(true);
   let plugins = [];
   
-  <% if (props.userWantsNativewind) { %>
+  <% if (props.useNativewind) { %>
     plugins.push("nativewind/babel")
   <% } %>
   

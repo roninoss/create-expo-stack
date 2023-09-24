@@ -14,6 +14,7 @@ type NavigationTypes = "stack" | "tab" | {};
 
 type AvailablePackages = {
   name: (typeof availablePackages)[number];
+  type: "navigation" | "styling";
   options: NavigationTypes;
 }
 
@@ -28,10 +29,12 @@ const defaultOptions: CliResults = {
   packages: [
     {
       name: "nativewind",
+      type: "styling",
       options: {}
     },
     {
       name: "expo-router",
+      type: "navigation",
       options: {
         navigationType: "stack"
       }
@@ -110,9 +113,9 @@ const command: GluegunCommand = {
       if (navigationSelect !== 'None') {
         const { navigationTypeSelect } = await ask(askNavigationType);
         if (navigationSelect === 'React Navigation') {
-          cliResults.packages.push({ name: "react-navigation", options: navigationTypeSelect.toLowerCase() });
+          cliResults.packages.push({ name: "react-navigation", type: 'navigation', options: navigationTypeSelect.toLowerCase() });
         } else {
-          cliResults.packages.push({ name: "expo-router", options: navigationTypeSelect.toLowerCase() });
+          cliResults.packages.push({ name: "expo-router", type: 'navigation', options: navigationTypeSelect.toLowerCase() });
         }
         success(`Great, we'll use ${navigationSelect}!`)
       } else {
@@ -125,7 +128,7 @@ const command: GluegunCommand = {
       )
 
       if (useNativewind) {
-        cliResults.packages.push({ name: "nativewind", options: {} });
+        cliResults.packages.push({ name: "nativewind", type: 'styling', options: {} });
         success(`You'll be styling with ease using Tailwind.`)
       } else {
         success(`Sounds good, you can use StyleSheet instead.`)
@@ -134,14 +137,15 @@ const command: GluegunCommand = {
       return cliResults;
     }
 
-    function userWantsPackage(packageName: string, packages: AvailablePackages[]): boolean {
+    function usePackage(packageName: string, packages: AvailablePackages[]): boolean {
       return packages.find((p) => p.name === packageName) ? true : false;
     }
 
     try {
       const { projectName, packages, flags } = await runCLI()
 
-      const userWantsNativewind = userWantsPackage("nativewind", packages);
+      const useNativewind = usePackage("nativewind", packages);
+      const navigationPackage = packages.find((p) => p.type === "navigation") || undefined;
 
       const baseFiles = [
         'base/assets/adaptive-icon.png',
@@ -161,11 +165,7 @@ const command: GluegunCommand = {
 
       // add nativewind files if needed
       // modify base files with nativewind specifications
-      // files to modify
-      // - babel.config.js.ejs
-      // - App.tsx.ejs
-      // - package.json.ejs
-      if (userWantsNativewind) {
+      if (useNativewind) {
         const nativewindFiles = [
           'packages/nativewind/tailwind.config.js.ejs',
           'packages/nativewind/app.d.ts',
@@ -177,22 +177,72 @@ const command: GluegunCommand = {
         ];
       };
 
+      // add react navigation files if needed
+      // modify base files with react navigation specifications
+      if (navigationPackage?.name === "react-navigation") {
+        let reactNavigationFiles = [
+          'packages/react-navigation/App.tsx.ejs',
+          'packages/react-navigation/navigation/index.tsx.ejs',
+        ];
+        // if it's a stack, add the stack files) {
+        if (navigationPackage.options === "stack") {
+          reactNavigationFiles = [
+            ...reactNavigationFiles,
+            'packages/react-navigation/screens/details.tsx.ejs',
+            'packages/react-navigation/screens/overview.tsx.ejs',
+          ];
+        } else {
+          reactNavigationFiles = [
+            ...reactNavigationFiles,
+            'packages/react-navigation/components/edit-screen-info.tsx.ejs',
+            'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
+            'packages/react-navigation/screens/modal.tsx.ejs',
+            'packages/react-navigation/screens/one.tsx.ejs',
+            'packages/react-navigation/screens/two.tsx.ejs',
+          ];
+        }
+
+        // Remove the base App.tsx.ejs file since we'll be using the one from react-navigation
+        files = files.filter((file) => file !== 'base/App.tsx.ejs');
+
+        files = [
+          ...files,
+          ...reactNavigationFiles,
+        ];
+      }
+
       let formattedFiles = [];
 
       formattedFiles = files.reduce((prev, file) => {
         const template = file;
 
-        const target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '').replace('packages/nativewind/', '');
+        let target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '')
 
-        const gen = generate({ template, target, props: { projectName, packages, flags, userWantsNativewind } });
+        if (useNativewind) {
+          target = target.replace('packages/nativewind/', '');
+        }
+
+        if (navigationPackage?.name === "react-navigation") {
+          target = target.replace('packages/react-navigation/App.tsx', 'App.tsx');
+          target = target.replace('packages/react-navigation/', 'src/');
+        }
+
+        const gen = generate({
+          template,
+          target,
+          props: {
+            projectName,
+            packages,
+            flags,
+            useNativewind,
+            navigationPackage,
+          },
+        });
 
         return prev.concat([gen]);
       }, formattedFiles)
 
-      
       // TODO: add expo router files if needed
-
-      // TODO: add react navigation files if needed
 
       info(``)
       info(`Initializing your project...`)
