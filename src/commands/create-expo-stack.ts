@@ -321,6 +321,7 @@ const command: GluegunCommand = {
 
       success('Success! 🎉 Now, just run the following to get started: ')
       info(``)
+      info(`cd ${projectName}`)
       info('yarn ios')
       info(``)
 
