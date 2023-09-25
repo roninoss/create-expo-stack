@@ -152,7 +152,7 @@ const command: GluegunCommand = {
         'base/assets/favicon.png',
         'base/assets/icon.png',
         'base/assets/splash.png',
-        'base/tsconfig.json',
+        'base/tsconfig.json.ejs',
         'base/app.json.ejs',
         'base/App.tsx.ejs',
         'base/babel.config.js.ejs',
@@ -192,6 +192,7 @@ const command: GluegunCommand = {
             'packages/react-navigation/screens/overview.tsx.ejs',
           ];
         } else {
+          // it's a tab navigator
           reactNavigationFiles = [
             ...reactNavigationFiles,
             'packages/react-navigation/components/edit-screen-info.tsx.ejs',
@@ -211,6 +212,38 @@ const command: GluegunCommand = {
         ];
       }
 
+      // add expo router files if needed
+      // modify base files with expo router specifications
+      if (navigationPackage?.name === "expo-router") {
+        let expoRouterFiles = [
+          'packages/expo-router/app/_layout.tsx.ejs',
+          'packages/expo-router/app/details.tsx.ejs',
+          'packages/expo-router/app/index.tsx.ejs',
+          'packages/expo-router/expo-env.d.ts',
+          'packages/expo-router/metro.config.js',
+          'packages/expo-router/index.ts'
+        ];
+        // if it's a stack, add the stack files) {
+        if (navigationPackage.options === "stack") {
+          expoRouterFiles = [
+            ...expoRouterFiles,
+          ];
+        } else {
+          // it's a tab navigator
+          expoRouterFiles = [
+            ...expoRouterFiles,
+          ];
+        }
+
+        // Remove the base App.tsx.ejs file since we'll be using index.tsx from expo-router
+        files = files.filter((file) => file !== 'base/App.tsx.ejs');
+
+        files = [
+          ...files,
+          ...expoRouterFiles,
+        ];
+      }
+
       let formattedFiles = [];
 
       formattedFiles = files.reduce((prev, file) => {
@@ -225,6 +258,10 @@ const command: GluegunCommand = {
         if (navigationPackage?.name === "react-navigation") {
           target = target.replace('packages/react-navigation/App.tsx', 'App.tsx');
           target = target.replace('packages/react-navigation/', 'src/');
+        }
+
+        if (navigationPackage?.name === "expo-router") {
+          target = target.replace('packages/expo-router/', '');
         }
 
         const gen = generate({
@@ -270,6 +307,7 @@ const command: GluegunCommand = {
     } catch (error) {
       // clean up and delete all files
       info(`Oops, something went wrong while creating your project 😢`)
+      console.log(error)
       info(
         `\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
       )
