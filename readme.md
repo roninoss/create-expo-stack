@@ -61,7 +61,7 @@ Thanks go to these wonderful people:
     <tr>
       <td align="center" valign="top" width="14.28%">
         <a href="https://onlydans.gg/">
-          <img src="https://pbs.twimg.com/profile_images/1669495865478885376/7hWQn7ub_400x400.jpg" width="100px;" alt="Dan Stepanov"/>
+          <img src="https://pbs.twimg.com/profile_images/1689473757713514496/8fQrCrBx_400x400.jpg" width="100px;" alt="Dan Stepanov"/>
           <br />
           <sub>
             <b>Dan Stepanov</b>
