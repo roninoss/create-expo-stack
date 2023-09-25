@@ -1,18 +1,32 @@
 import { Feather } from "@expo/vector-icons";
 import { Stack, useRouter } from "expo-router";
-import { Text, TouchableOpacity, View } from "react-native";
+<% if (props.useNativewind) { %>
+  import { Text, TouchableOpacity, View } from "react-native";
+<% } else { %>
+  import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+<% } %>
 
 export default function Layout() {
   const router = useRouter();
-
-  const BackButton = () => (
-    <TouchableOpacity onPress={router.back}>
-      <View className={styles.backButton}>
-        <Feather name="chevron-left" size={16} color="#007AFF" />
-        <Text className={styles.backButtonText}>Back</Text>
-      </View>
-    </TouchableOpacity>
-  );
+  <% if (props.useNativewind) { %>
+    const BackButton = () => (
+      <TouchableOpacity onPress={router.back}>
+        <View className={styles.backButton}>
+          <Feather name="chevron-left" size={16} color="#007AFF" />
+          <Text className={styles.backButtonText}>Back</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  <% } else { %>
+    const BackButton = () => (
+      <TouchableOpacity onPress={router.back}>
+        <View style={styles.backButton}>
+          <Feather name="chevron-left" size={16} color="#007AFF" />
+          <Text style={styles.backButtonText}>Back</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  <% } %>
 
   return (
     <Stack>
@@ -24,7 +38,19 @@ export default function Layout() {
   );
 }
 
-const styles = {
-  backButton: "flex-row",
-  backButtonText: "text-blue-500 ml-1",
-};
+<% if (props.useNativewind) { %>
+  const styles = {
+    backButton: "flex-row",
+    backButtonText: "text-blue-500 ml-1",
+  };
+<% } else { %>
+  const styles = StyleSheet.create({
+    backButton: {
+      flexDirection: "row",
+    },
+    backButtonText: {
+      color: "#007AFF",
+      marginLeft: 4,
+    },
+  });
+<% } %>
