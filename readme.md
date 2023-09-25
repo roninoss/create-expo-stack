@@ -77,6 +77,15 @@ Thanks go to these wonderful people:
           </sub>
         </a>
       </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://twitter.com/trashh_dev">
+          <img src="https://pbs.twimg.com/profile_images/1598959528518643713/aWdwBYxv_400x400.jpg" width="100px;" alt="Chris Bautista"/>
+          <br />
+          <sub>
+            <b>Chris Bautista</b>
+          </sub>
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>
