@@ -10,7 +10,7 @@ interface CliFlags {
 
 const availablePackages = ["nativewind", "react-navigation", "expo-router"] as const;
 
-type NavigationTypes = "stack" | "tab" | {};
+type NavigationTypes = "stack" | "tabs" | {};
 
 type AvailablePackages = {
   name: (typeof availablePackages)[number];
@@ -105,7 +105,7 @@ const command: GluegunCommand = {
         type: 'select',
         name: 'navigationTypeSelect',
         message: 'What type of navigation would you like to use?',
-        choices: ['Stack', 'Tab'],
+        choices: ['Stack', 'Tabs'],
       }
 
       const { navigationSelect } = await ask(askNavigation)
@@ -216,9 +216,6 @@ const command: GluegunCommand = {
       // modify base files with expo router specifications
       if (navigationPackage?.name === "expo-router") {
         let expoRouterFiles = [
-          'packages/expo-router/app/_layout.tsx.ejs',
-          'packages/expo-router/app/details.tsx.ejs',
-          'packages/expo-router/app/index.tsx.ejs',
           'packages/expo-router/expo-env.d.ts',
           'packages/expo-router/metro.config.js',
           'packages/expo-router/index.ts'
@@ -227,11 +224,20 @@ const command: GluegunCommand = {
         if (navigationPackage.options === "stack") {
           expoRouterFiles = [
             ...expoRouterFiles,
+            'packages/expo-router/stack/app/_layout.tsx.ejs',
+            'packages/expo-router/stack/app/details.tsx.ejs',
+            'packages/expo-router/stack/app/index.tsx.ejs',
           ];
         } else {
           // it's a tab navigator
           expoRouterFiles = [
             ...expoRouterFiles,
+            'packages/expo-router/tabs/app/(tabs)/_layout.tsx.ejs',
+            'packages/expo-router/tabs/app/(tabs)/index.tsx.ejs',
+            'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
+            'packages/expo-router/tabs/app/_layout.tsx.ejs',
+            'packages/expo-router/tabs/app/modal.tsx.ejs',
+            'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs',
           ];
         }
 
@@ -262,6 +268,12 @@ const command: GluegunCommand = {
 
         if (navigationPackage?.name === "expo-router") {
           target = target.replace('packages/expo-router/', '');
+          if (navigationPackage.options === "stack") {
+            target = target.replace('stack/', '');
+          }
+          if (navigationPackage.options === "tabs") {
+            target = target.replace('tabs/', '');
+          }
         }
 
         const gen = generate({
