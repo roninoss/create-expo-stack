@@ -141,6 +141,16 @@ const command: GluegunCommand = {
       return packages.find((p) => p.name === packageName) ? true : false;
     }
 
+    function getPackageManager(): 'npm' | 'yarn' | 'pnpm' {
+      if (options.npm) return 'npm';
+      if (options.yarn) return 'yarn';
+      if (options.pnpm) return 'pnpm';
+
+      if (system.which('npm')) return 'npm'
+      if (system.which('pnpm')) return 'pnpm'
+      if (system.which('yarn')) return 'yarn'
+    }
+
     try {
       // Set the default options
       let cliResults: CliResults = defaultOptions;
@@ -316,14 +326,17 @@ const command: GluegunCommand = {
 
       await Promise.all(formattedFiles);
 
+      
+      // check if npm option is set, otherwise set based on what the system is configure to use
+      const packageManager = getPackageManager();
+
       if (!options.noInstall && !flags.noInstall) {
         info(``)
-        info(`Installing dependencies...`)
+        info(`Installing dependencies using ${packageManager}...`)
         info(``)
 
         // install with yarn or npm i
-        const yarnOrNpm = system.which('yarn') ? 'yarn' : 'npm'
-        await system.spawn(`cd ${projectName} && ${yarnOrNpm} install --silent && ${yarnOrNpm} run --quiet format`, {
+        await system.spawn(`cd ${projectName} && ${packageManager} install --silent && ${packageManager} run --quiet format`, {
           shell: true,
           stdio: 'inherit',
         })
@@ -344,8 +357,16 @@ const command: GluegunCommand = {
       success('Success! 🎉 Now, just run the following to get started: ')
       info(``)
       info(`cd ${projectName}`)
-      if (options.noInstall) info('yarn install')
-      info('yarn ios')
+      if (packageManager === 'npm') {
+        if (options.noInstall) info('npm install')
+        info('npm run ios')
+      } else if (packageManager === 'pnpm') {
+        if (options.noInstall) info('pnpm install')
+        info('pnpm run ios')
+      } else {
+        if (options.noInstall) info('yarn install')
+        info('yarn ios')
+      }
       info(``)
 
     } catch (error) {
