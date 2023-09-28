@@ -26,20 +26,7 @@ interface CliResults {
 
 const defaultOptions: CliResults = {
   projectName: DEFAULT_APP_NAME,
-  packages: [
-    {
-      name: "nativewind",
-      type: "styling",
-      options: {}
-    },
-    {
-      name: "expo-router",
-      type: "navigation",
-      options: {
-        navigationType: "stack"
-      }
-    }
-  ],
+  packages: [],
   flags: {
     noGit: false,
     noInstall: false,
@@ -178,10 +165,28 @@ const command: GluegunCommand = {
       } else {
         
         // if the options object contains the default key, skip running the CLI
-        if (!options.default) {
+        if ((options.default !== undefined && !options.default) || !options.nonInteractive) {
           //  Run the CLI to prompt the user for input
           cliResults = await runCLI()
         }
+
+        // [Internal] Update the cliResults with the options passed in via the command
+        // This is used for testing purposes only
+        if (options.reactNavigation) {
+          // Add react-navigation package
+          cliResults.packages.push({ name: "react-navigation", type: 'navigation', options: {
+            navigationType: options.tabs ? "tabs" : "stack" }});
+        }
+        if (options.expoRouter) {
+          // Add expo-router package
+          cliResults.packages.push({ name: "expo-router", type: 'navigation', options: {
+            navigationType: options.tabs ? "tabs" : "stack" }});
+        }
+        if (options.nativewind) {
+          // Add nativewind package
+          cliResults.packages.push({ name: "nativewind", type: 'styling', options: {} });
+        }
+
 
         // Destructure the results but set the projectName if the first param is passed in
         if (first) {
