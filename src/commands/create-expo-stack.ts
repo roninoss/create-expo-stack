@@ -155,219 +155,243 @@ const command: GluegunCommand = {
       // Set the default options
       let cliResults: CliResults = defaultOptions;
 
-      // if the options object contains the default key, skip running the CLI
-      if (!options.default) {
-        //  Run the CLI to prompt the user for input
-        cliResults = await runCLI()
-      }
-
-      // Destructure the results but set the projectName if the first param is passed in
-      if (first) {
-        cliResults.projectName = first;
-      }
-
-      const { projectName, packages, flags } = cliResults;
-      
-      // Define props to be passed into the templates
-      const useNativewind = usePackage("nativewind", packages);
-      const navigationPackage = packages.find((p) => p.type === "navigation") || undefined;
-
-      // Define the files common to all templates to be generated
-      const baseFiles = [
-        'base/assets/adaptive-icon.png',
-        'base/assets/favicon.png',
-        'base/assets/icon.png',
-        'base/assets/splash.png',
-        'base/tsconfig.json.ejs',
-        'base/app.json.ejs',
-        'base/App.tsx.ejs',
-        'base/babel.config.js.ejs',
-        'base/package.json.ejs',
-        'base/.gitignore.ejs',
-      ];
-
-      let files = [
-        ...baseFiles,
-      ];
-
-      // add nativewind files if needed
-      // modify base files with nativewind specifications
-      if (useNativewind) {
-        const nativewindFiles = [
-          'packages/nativewind/tailwind.config.js.ejs',
-          'packages/nativewind/app.d.ts',
-        ];
-
-        files = [
-          ...files,
-          ...nativewindFiles,
-        ];
-      };
-
-      // add react navigation files if needed
-      // modify base files with react navigation specifications
-      if (navigationPackage?.name === "react-navigation") {
-        let reactNavigationFiles = [
-          'packages/react-navigation/App.tsx.ejs',
-          'packages/react-navigation/navigation/index.tsx.ejs',
-        ];
-        // if it's a stack, add the stack files) {
-        if (navigationPackage.options === "stack") {
-          reactNavigationFiles = [
-            ...reactNavigationFiles,
-            'packages/react-navigation/screens/details.tsx.ejs',
-            'packages/react-navigation/screens/overview.tsx.ejs',
-          ];
-        } else {
-          // it's a tab navigator
-          reactNavigationFiles = [
-            ...reactNavigationFiles,
-            'packages/react-navigation/components/edit-screen-info.tsx.ejs',
-            'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
-            'packages/react-navigation/screens/modal.tsx.ejs',
-            'packages/react-navigation/screens/one.tsx.ejs',
-            'packages/react-navigation/screens/two.tsx.ejs',
-          ];
-        }
-
-        // Remove the base App.tsx.ejs file since we'll be using the one from react-navigation
-        files = files.filter((file) => file !== 'base/App.tsx.ejs');
-
-        files = [
-          ...files,
-          ...reactNavigationFiles,
-        ];
-      }
-
-      // add expo router files if needed
-      // modify base files with expo router specifications
-      if (navigationPackage?.name === "expo-router") {
-        let expoRouterFiles = [
-          'packages/expo-router/expo-env.d.ts',
-          'packages/expo-router/metro.config.js',
-          'packages/expo-router/index.ts'
-        ];
-        // if it's a stack, add the stack files) {
-        if (navigationPackage.options === "stack") {
-          expoRouterFiles = [
-            ...expoRouterFiles,
-            'packages/expo-router/stack/app/_layout.tsx.ejs',
-            'packages/expo-router/stack/app/details.tsx.ejs',
-            'packages/expo-router/stack/app/index.tsx.ejs',
-          ];
-        } else {
-          // it's a tab navigator
-          expoRouterFiles = [
-            ...expoRouterFiles,
-            'packages/expo-router/tabs/app/(tabs)/_layout.tsx.ejs',
-            'packages/expo-router/tabs/app/(tabs)/index.tsx.ejs',
-            'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
-            'packages/expo-router/tabs/app/_layout.tsx.ejs',
-            'packages/expo-router/tabs/app/modal.tsx.ejs',
-            'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs',
-          ];
-        }
-
-        // Remove the base App.tsx.ejs file since we'll be using index.tsx from expo-router
-        files = files.filter((file) => file !== 'base/App.tsx.ejs');
-
-        files = [
-          ...files,
-          ...expoRouterFiles,
-        ];
-      }
-
-      // Once all the files are defined, format and generate them
-      let formattedFiles = [];
-
-      formattedFiles = files.reduce((prev, file) => {
-        const template = file;
-
-        let target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '')
-
-        if (useNativewind) {
-          target = target.replace('packages/nativewind/', '');
-        }
-
-        if (navigationPackage?.name === "react-navigation") {
-          target = target.replace('packages/react-navigation/App.tsx', 'App.tsx');
-          target = target.replace('packages/react-navigation/', 'src/');
-        }
-
-        if (navigationPackage?.name === "expo-router") {
-          target = target.replace('packages/expo-router/', '');
-          if (navigationPackage.options === "stack") {
-            target = target.replace('stack/', '');
+      // Check if user wants to create an opinionated stack prior to running the configurable CLI
+      if (options.ignite) {
+        let projectName;
+        if (!first) {
+          const askName = {
+            type: 'input',
+            name: 'name',
+            message: 'What do you want to name your project? (myExpoApp)',
           }
-          if (navigationPackage.options === "tabs") {
-            target = target.replace('tabs/', '');
-          }
+          const { name } = await ask(askName)
+          projectName = name
+        } else {
+          projectName = first;
         }
-
-        const gen = generate({
-          template,
-          target,
-          props: {
-            projectName,
-            packages,
-            flags,
-            useNativewind,
-            navigationPackage,
-          },
+        
+        success('Running Ignite CLI to create an opinionated stack...')
+        info(`npx ignite-cli@latest new ${projectName}${options.default && ` --yes`}`)
+        await system.spawn(`npx ignite-cli@latest new ${projectName}${options.default && ` --yes`}`, {
+          shell: true,
+          stdio: 'inherit',
         });
-
-        return prev.concat([gen]);
-      }, formattedFiles)
-
-      // Output the results to the user
-      info(``)
-      info(`Initializing your project...`)
-      info(``)
-
-      await Promise.all(formattedFiles);
-
-      
-      // check if npm option is set, otherwise set based on what the system is configure to use
-      const packageManager = getPackageManager();
-
-      if (!options.noInstall && !flags.noInstall) {
-        info(``)
-        info(`Installing dependencies using ${packageManager}...`)
-        info(``)
-
-        // install with yarn or npm i
-        await system.spawn(`cd ${projectName} && ${packageManager} install --silent && ${packageManager} run --quiet format`, {
-          shell: true,
-          stdio: 'inherit',
-        })
-      }
-
-      if (!options.noGit && !flags.noGit) {
-        info(``)
-        info(`Initializing git...`)
-        info(``)
-
-        // initialize git repo and add first commit
-        await system.spawn(`cd ${projectName} && git init --quiet && git add . && git commit -m "Initial commit" -m "Generated by create-expo-stack 2.0.0." --quiet`, {
-          shell: true,
-          stdio: 'inherit',
-        })
-      };
-
-      success('Success! 🎉 Now, just run the following to get started: ')
-      info(``)
-      info(`cd ${projectName}`)
-      if (packageManager === 'npm') {
-        if (options.noInstall) info('npm install')
-        info('npm run ios')
-      } else if (packageManager === 'pnpm') {
-        if (options.noInstall) info('pnpm install')
-        info('pnpm run ios')
       } else {
-        if (options.noInstall) info('yarn install')
-        info('yarn ios')
+        
+        // if the options object contains the default key, skip running the CLI
+        if (!options.default) {
+          //  Run the CLI to prompt the user for input
+          cliResults = await runCLI()
+        }
+
+        // Destructure the results but set the projectName if the first param is passed in
+        if (first) {
+          cliResults.projectName = first;
+        }
+
+        const { projectName, packages, flags } = cliResults;
+        
+        // Define props to be passed into the templates
+        const useNativewind = usePackage("nativewind", packages);
+        const navigationPackage = packages.find((p) => p.type === "navigation") || undefined;
+
+        // Define the files common to all templates to be generated
+        const baseFiles = [
+          'base/assets/adaptive-icon.png',
+          'base/assets/favicon.png',
+          'base/assets/icon.png',
+          'base/assets/splash.png',
+          'base/tsconfig.json.ejs',
+          'base/app.json.ejs',
+          'base/App.tsx.ejs',
+          'base/babel.config.js.ejs',
+          'base/package.json.ejs',
+          'base/.gitignore.ejs',
+        ];
+
+        let files = [
+          ...baseFiles,
+        ];
+
+        // add nativewind files if needed
+        // modify base files with nativewind specifications
+        if (useNativewind) {
+          const nativewindFiles = [
+            'packages/nativewind/tailwind.config.js.ejs',
+            'packages/nativewind/app.d.ts',
+          ];
+
+          files = [
+            ...files,
+            ...nativewindFiles,
+          ];
+        };
+
+        // add react navigation files if needed
+        // modify base files with react navigation specifications
+        if (navigationPackage?.name === "react-navigation") {
+          let reactNavigationFiles = [
+            'packages/react-navigation/App.tsx.ejs',
+            'packages/react-navigation/navigation/index.tsx.ejs',
+          ];
+          // if it's a stack, add the stack files) {
+          if (navigationPackage.options === "stack") {
+            reactNavigationFiles = [
+              ...reactNavigationFiles,
+              'packages/react-navigation/screens/details.tsx.ejs',
+              'packages/react-navigation/screens/overview.tsx.ejs',
+            ];
+          } else {
+            // it's a tab navigator
+            reactNavigationFiles = [
+              ...reactNavigationFiles,
+              'packages/react-navigation/components/edit-screen-info.tsx.ejs',
+              'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
+              'packages/react-navigation/screens/modal.tsx.ejs',
+              'packages/react-navigation/screens/one.tsx.ejs',
+              'packages/react-navigation/screens/two.tsx.ejs',
+            ];
+          }
+
+          // Remove the base App.tsx.ejs file since we'll be using the one from react-navigation
+          files = files.filter((file) => file !== 'base/App.tsx.ejs');
+
+          files = [
+            ...files,
+            ...reactNavigationFiles,
+          ];
+        }
+
+        // add expo router files if needed
+        // modify base files with expo router specifications
+        if (navigationPackage?.name === "expo-router") {
+          let expoRouterFiles = [
+            'packages/expo-router/expo-env.d.ts',
+            'packages/expo-router/metro.config.js',
+            'packages/expo-router/index.ts'
+          ];
+          // if it's a stack, add the stack files) {
+          if (navigationPackage.options === "stack") {
+            expoRouterFiles = [
+              ...expoRouterFiles,
+              'packages/expo-router/stack/app/_layout.tsx.ejs',
+              'packages/expo-router/stack/app/details.tsx.ejs',
+              'packages/expo-router/stack/app/index.tsx.ejs',
+            ];
+          } else {
+            // it's a tab navigator
+            expoRouterFiles = [
+              ...expoRouterFiles,
+              'packages/expo-router/tabs/app/(tabs)/_layout.tsx.ejs',
+              'packages/expo-router/tabs/app/(tabs)/index.tsx.ejs',
+              'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
+              'packages/expo-router/tabs/app/_layout.tsx.ejs',
+              'packages/expo-router/tabs/app/modal.tsx.ejs',
+              'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs',
+            ];
+          }
+
+          // Remove the base App.tsx.ejs file since we'll be using index.tsx from expo-router
+          files = files.filter((file) => file !== 'base/App.tsx.ejs');
+
+          files = [
+            ...files,
+            ...expoRouterFiles,
+          ];
+        }
+
+        // Once all the files are defined, format and generate them
+        let formattedFiles = [];
+
+        formattedFiles = files.reduce((prev, file) => {
+          const template = file;
+
+          let target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '')
+
+          if (useNativewind) {
+            target = target.replace('packages/nativewind/', '');
+          }
+
+          if (navigationPackage?.name === "react-navigation") {
+            target = target.replace('packages/react-navigation/App.tsx', 'App.tsx');
+            target = target.replace('packages/react-navigation/', 'src/');
+          }
+
+          if (navigationPackage?.name === "expo-router") {
+            target = target.replace('packages/expo-router/', '');
+            if (navigationPackage.options === "stack") {
+              target = target.replace('stack/', '');
+            }
+            if (navigationPackage.options === "tabs") {
+              target = target.replace('tabs/', '');
+            }
+          }
+
+          const gen = generate({
+            template,
+            target,
+            props: {
+              projectName,
+              packages,
+              flags,
+              useNativewind,
+              navigationPackage,
+            },
+          });
+
+          return prev.concat([gen]);
+        }, formattedFiles)
+
+        // Output the results to the user
+        info(``)
+        info(`Initializing your project...`)
+        info(``)
+
+        await Promise.all(formattedFiles);
+
+        
+        // check if npm option is set, otherwise set based on what the system is configure to use
+        const packageManager = getPackageManager();
+
+        if (!options.noInstall && !flags.noInstall) {
+          info(``)
+          info(`Installing dependencies using ${packageManager}...`)
+          info(``)
+
+          // install with yarn or npm i
+          await system.spawn(`cd ${projectName} && ${packageManager} install --silent && ${packageManager} run --quiet format`, {
+            shell: true,
+            stdio: 'inherit',
+          })
+        }
+
+        if (!options.noGit && !flags.noGit) {
+          info(``)
+          info(`Initializing git...`)
+          info(``)
+
+          // initialize git repo and add first commit
+          await system.spawn(`cd ${projectName} && git init --quiet && git add . && git commit -m "Initial commit" -m "Generated by create-expo-stack 2.0.0." --quiet`, {
+            shell: true,
+            stdio: 'inherit',
+          })
+        };
+
+        success('Success! 🎉 Now, just run the following to get started: ')
+        info(``)
+        info(`cd ${projectName}`)
+        if (packageManager === 'npm') {
+          if (options.noInstall) info('npm install')
+          info('npm run ios')
+        } else if (packageManager === 'pnpm') {
+          if (options.noInstall) info('pnpm install')
+          info('pnpm run ios')
+        } else {
+          if (options.noInstall) info('yarn install')
+          info('yarn ios')
+        }
+        info(``)
       }
-      info(``)
 
     } catch (error) {
       // TODO: delete all files
