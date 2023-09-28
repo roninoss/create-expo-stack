@@ -171,7 +171,6 @@ const command: GluegunCommand = {
         }
         
         success('Running Ignite CLI to create an opinionated stack...')
-        info(`npx ignite-cli@latest new ${projectName}${options.default && ` --yes`}`)
         await system.spawn(`npx ignite-cli@latest new ${projectName}${options.default && ` --yes`}`, {
           shell: true,
           stdio: 'inherit',
