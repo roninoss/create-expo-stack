@@ -14,12 +14,12 @@ const packageManagers = [`npm`, `yarn`, `pnpm`]
 
 test(`outputs version`, async () => {
   const output = await cli(`--version`)
-  expect(output).toContain(`2.0.5`)
+  expect(output).toContain(`2.0.6`)
 })
 
 test(`outputs help`, async () => {
   const output = await cli(`--help`)
-  expect(output).toContain(`2.0.5`)
+  expect(output).toContain(`2.0.6`)
 })
 
 for (const packageManager of packageManagers) {
