@@ -1,4 +1,5 @@
 import { GluegunCommand, system } from 'gluegun'
+import { getUserPackageManager } from '../utilities/getUserPackageManager';
 
 const DEFAULT_APP_NAME = "my-expo-app";
 
@@ -128,14 +129,15 @@ const command: GluegunCommand = {
       return packages.find((p) => p.name === packageName) ? true : false;
     }
 
+    // TODO: add bun support
     function getPackageManager(): 'npm' | 'yarn' | 'pnpm' {
       if (options.npm) return 'npm';
       if (options.yarn) return 'yarn';
       if (options.pnpm) return 'pnpm';
 
-      if (system.which('npm')) return 'npm'
-      if (system.which('pnpm')) return 'pnpm'
-      if (system.which('yarn')) return 'yarn'
+      const packageManager = getUserPackageManager();
+      
+      return packageManager
     }
 
     try {
