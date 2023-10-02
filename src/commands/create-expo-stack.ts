@@ -375,7 +375,7 @@ const command: GluegunCommand = {
 
           const gen = generate({
             template,
-            target,
+            target: './' + target,
             props: {
               projectName,
               packages,
