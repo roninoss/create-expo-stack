@@ -4,7 +4,9 @@ import figlet = require("figlet");
 
 // import { getUserPackageManager } from '../utilities/getUserPackageManager';
 
-const DEFAULT_APP_NAME = "my-expo-app";
+const DEFAULT_APP_NAME = "myExpoApp";
+
+const TITLE_TEXT = "create expo stack";
 
 interface CliFlags {
   noGit: boolean;
@@ -153,7 +155,7 @@ const command: GluegunCommand = {
     async function renderTitle() {
       const cesGradient = gradient(Object.values(poimandresTheme));
 
-      await figlet.text('create expo stack', {
+      await figlet.text(TITLE_TEXT, {
         font: "Standard",
         horizontalLayout: "default",
         verticalLayout: "default",
@@ -189,7 +191,7 @@ const command: GluegunCommand = {
           const askName = {
             type: 'input',
             name: 'name',
-            message: 'What do you want to name your project? (myExpoApp)',
+            message: `What do you want to name your project? (${DEFAULT_APP_NAME})`,
           }
           const { name } = await ask(askName)
           projectName = name
@@ -392,7 +394,6 @@ const command: GluegunCommand = {
         info(``)
 
         await Promise.all(formattedFiles);
-
         
         // check if npm option is set, otherwise set based on what the system is configure to use
         // const packageManager = getPackageManager();

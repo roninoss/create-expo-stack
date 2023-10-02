@@ -1,6 +1,6 @@
 {
   "name": "create-expo-stack",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "create-expo-stack CLI",
   "private": false,
   "types": "build/types/types.d.ts",
@@ -14,7 +14,7 @@
   "scripts": {
     "clean-build": "rm -rf ./build",
     "compile": "tsc -p .",
-    "copy-templates": "copyfiles ./src/templates/* ./build/templates",
+    "copy-templates": "copyfiles -u 2 \"./src/templates/**/*\" ./build/templates",
     "build": "yarn clean-build && yarn compile && yarn copy-templates && yarn lint-templates",
     "prepublishOnly": "yarn build",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
