@@ -1,6 +1,6 @@
 {
   "name": "create-expo-stack",
-  "version": "2.0.15",
+  "version": "2.0.17",
   "description": "create-expo-stack CLI",
   "private": false,
   "types": "build/types/types.d.ts",
@@ -17,7 +17,7 @@
     "copy-templates": "copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
     "build": "yarn clean-build && yarn compile && yarn copy-templates && yarn lint-templates",
     "prepublishOnly": "yarn build",
-    "publish": "yarn build && npm publish --access public",
+    "publishPublic": "yarn build && npm publish --access public",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "lint-templates": "ejslint ./src/templates",
     "test": "jest",
