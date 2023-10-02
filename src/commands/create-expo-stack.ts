@@ -66,7 +66,7 @@ const command: GluegunCommand = {
         const askName = {
           type: 'input',
           name: 'name',
-          message: 'What do you want to name your project? (my-expo-app)',
+          message: `What do you want to name your project? (${DEFAULT_APP_NAME}})`,
         }
         const { name } = await ask(askName)
         cliResults.projectName = name
