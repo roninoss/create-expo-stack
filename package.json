@@ -17,6 +17,7 @@
     "copy-templates": "copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
     "build": "yarn clean-build && yarn compile && yarn copy-templates && yarn lint-templates",
     "prepublishOnly": "yarn build",
+    "publish": "yarn build && npm publish --access public",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "lint-templates": "ejslint ./src/templates",
     "test": "jest",
