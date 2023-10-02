@@ -59,21 +59,18 @@ const command: GluegunCommand = {
       // Set the app name if it was passed in via the initial command
       if (first) {
         cliResults.projectName = first;
-      }
-
-      // If the user didn't pass in a name, ask them for one
-      if (!first) {
+      } else {
         const askName = {
           type: 'input',
           name: 'name',
           message: `What do you want to name your project? (${DEFAULT_APP_NAME})`,
         }
         const { name } = await ask(askName)
-        cliResults.projectName = name
+        cliResults.projectName = name || DEFAULT_APP_NAME;
       }
-      // Clear packages
-      cliResults.packages = [];
 
+      // Clear default packages
+      cliResults.packages = [];
       // Ask about TypeScript
       const useTypescript = await confirm(
         'Would you like to use TypeScript with this project?',
@@ -141,7 +138,7 @@ const command: GluegunCommand = {
       if (options.pnpm) return 'pnpm';
 
       const packageManager = getUserPackageManager();
-      
+
       return packageManager
     }
 
@@ -162,18 +159,18 @@ const command: GluegunCommand = {
         width: 80,
         whitespaceBreak: true,
       },
-      (err, data) => {
-        if (err) {
-          console.log("Something went wrong...");
-          console.dir(err);
-          return;
+        (err, data) => {
+          if (err) {
+            console.log("Something went wrong...");
+            console.dir(err);
+            return;
+          }
+          info(``);
+          info(``);
+          console.log(cesGradient.multiline(data));
+          info(``);
+          info(``);
         }
-        info(``);
-        info(``);
-        console.log(cesGradient.multiline(data));
-        info(``);
-        info(``);
-      }
       )
     };
 
@@ -194,18 +191,19 @@ const command: GluegunCommand = {
             message: `What do you want to name your project? (${DEFAULT_APP_NAME})`,
           }
           const { name } = await ask(askName)
-          projectName = name
+          // if name is undefined or empty string, use default name
+          projectName = name || DEFAULT_APP_NAME;
         } else {
           projectName = first;
         }
-        
+
         success('Running Ignite CLI to create an opinionated stack...')
         await system.spawn(`npx ignite-cli@latest new ${projectName}${options.default && ` --yes`}`, {
           shell: true,
           stdio: 'inherit',
         });
       } else {
-        
+
         // if the options object contains the default key, skip running the CLI
         if ((options.default !== undefined && !options.default) || !options.nonInteractive) {
           //  Run the CLI to prompt the user for input
@@ -216,13 +214,19 @@ const command: GluegunCommand = {
         // This is used for testing purposes only
         if (options.reactNavigation) {
           // Add react-navigation package
-          cliResults.packages.push({ name: "react-navigation", type: 'navigation', options: {
-            navigationType: options.tabs ? "tabs" : "stack" }});
+          cliResults.packages.push({
+            name: "react-navigation", type: 'navigation', options: {
+              navigationType: options.tabs ? "tabs" : "stack"
+            }
+          });
         }
         if (options.expoRouter) {
           // Add expo-router package
-          cliResults.packages.push({ name: "expo-router", type: 'navigation', options: {
-            navigationType: options.tabs ? "tabs" : "stack" }});
+          cliResults.packages.push({
+            name: "expo-router", type: 'navigation', options: {
+              navigationType: options.tabs ? "tabs" : "stack"
+            }
+          });
         }
         if (options.nativewind) {
           // Add nativewind package
@@ -236,7 +240,7 @@ const command: GluegunCommand = {
         }
 
         const { projectName, packages, flags } = cliResults;
-        
+
         // Define props to be passed into the templates
         const useNativewind = usePackage("nativewind", packages);
         const navigationPackage = packages.find((p) => p.type === "navigation") || undefined;
@@ -394,7 +398,7 @@ const command: GluegunCommand = {
         info(``)
 
         await Promise.all(formattedFiles);
-        
+
         // check if npm option is set, otherwise set based on what the system is configure to use
         const packageManager = getPackageManager();
 
