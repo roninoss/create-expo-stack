@@ -1,3 +1,5 @@
+import { AvailablePackages } from "../types";
+
 export function configureProjectFiles(
     files: string[],
     navigationPackage: AvailablePackages | undefined,

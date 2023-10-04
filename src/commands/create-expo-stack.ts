@@ -10,6 +10,7 @@ import {
   usePackage
 } from '../utilities';
 import { defaultOptions } from '../constants';
+import { CliResults } from '../types';
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
@@ -36,11 +37,10 @@ const command: GluegunCommand = {
       } else {
 
         // Conditionally skip running the CLI
-        const useDefault = options.default || false;
-        const skipCLI = options.nonInteractive || false;
+        const useDefault = (options.default !== undefined && options.default);
+        const skipCLI = options.nonInteractive;
         const useBlankTypescript = options.blank || false;
-
-        if (!useDefault || !skipCLI || !useBlankTypescript) {
+        if (!(useDefault || skipCLI || useBlankTypescript)) {
           //  Run the CLI to prompt the user for input
           cliResults = await runCLI(toolbox)
         }
@@ -108,6 +108,7 @@ const command: GluegunCommand = {
 
       info(`Oops, something went wrong while creating your project 😢`)
       info('')
+      info(`Error: ${error}`)
       info(
         `\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
       )

@@ -1,3 +1,5 @@
+import { CliResults } from "./types";
+
 export const TITLE_TEXT = "create expo stack";
 
 export const DEFAULT_APP_NAME = "myExpoApp";

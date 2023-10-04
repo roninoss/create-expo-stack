@@ -1,6 +1,7 @@
 import { Toolbox } from "gluegun/build/types/domain/toolbox";
-import { DEFAULT_APP_NAME, defaultOptions } from "../constants";
 
+import { DEFAULT_APP_NAME, defaultOptions } from "../constants";
+import { CliResults } from "../types";
 
 export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
   const {

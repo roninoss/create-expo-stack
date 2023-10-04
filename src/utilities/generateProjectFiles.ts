@@ -1,4 +1,5 @@
 import { Toolbox } from "gluegun/build/types/domain/toolbox";
+import { AvailablePackages, CliResults } from "../types";
 
 export function generateProjectFiles(
     cliResults: CliResults,
@@ -34,7 +35,7 @@ export function generateProjectFiles(
             }
         }
 
-        const gen = toolbox.tempalte.generate({
+        const gen = toolbox.template.generate({
             template,
             target: './' + target,
             props: {

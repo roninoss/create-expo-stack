@@ -1,21 +1,21 @@
 // export types
-interface CliFlags {
+export interface CliFlags {
   noGit: boolean;
   noInstall: boolean;
   importAlias: string;
 }
 
-const availablePackages = ["nativewind", "react-navigation", "expo-router"] as const;
+export const availablePackages = ["nativewind", "react-navigation", "expo-router"] as const;
 
-type NavigationTypes = "stack" | "tabs" | {};
+export type NavigationTypes = "stack" | "tabs" | {};
 
-type AvailablePackages = {
+export type AvailablePackages = {
   name: (typeof availablePackages)[number];
   type: "navigation" | "styling";
   options: NavigationTypes;
 }
 
-interface CliResults {
+export interface CliResults {
   projectName: string;
   packages: AvailablePackages[];
   flags: CliFlags;

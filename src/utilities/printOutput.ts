@@ -1,6 +1,7 @@
 import { Toolbox } from "gluegun/build/types/domain/toolbox";
 
 import { getPackageManager } from "./getPackageManager";
+import { CliResults } from "../types";
 
 export async function printOutput(
   cliResults: CliResults,
