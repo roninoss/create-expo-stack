@@ -142,15 +142,15 @@ const command: GluegunCommand = {
       return packageManager
     }
 
-    // colors brought in from vscode poimandres theme
-    const poimandresTheme = {
+    // expo stack orange gradient
+    const expoStackTheme = {
       orange: "#f97316",
       between: "f2940f",
       yellow: "#eab308",
     };
 
     async function renderTitle() {
-      const cesGradient = gradient(Object.values(poimandresTheme));
+      const cesGradient = gradient(Object.values(expoStackTheme));
 
       await figlet.text(TITLE_TEXT, {
         font: "Standard",
