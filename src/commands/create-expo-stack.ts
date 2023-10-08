@@ -7,6 +7,7 @@ import {
   renderTitle,
   runCLI,
   runIgnite,
+  showHelp,
   usePackage
 } from '../utilities';
 import { defaultOptions } from '../constants';
@@ -14,13 +15,17 @@ import { CliResults } from '../types';
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
-  description: 'A CLI to create a new Expo project with the stack of your choice.',
+  description: 'Create a new Expo project',
   run: async (toolbox) => {
     const {
       parameters: { first, options },
-      print: { info },
+      print: { info, highlight, warning },
     } = toolbox;
+    if (options.help || options.h) {
+      showHelp(info, highlight, warning)
 
+      return;
+    }
     try {
       await renderTitle(toolbox);
 
@@ -37,7 +42,7 @@ const command: GluegunCommand = {
       } else {
 
         // Conditionally skip running the CLI
-        const useDefault = (options.default !== undefined && options.default);
+        const useDefault = ((options.default !== undefined && options.default) || (options.d !== undefined && options.d));
         const skipCLI = options.nonInteractive;
         const useBlankTypescript = options.blank || false;
         if (!(useDefault || skipCLI || useBlankTypescript)) {
