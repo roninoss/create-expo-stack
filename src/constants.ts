@@ -9,7 +9,7 @@ export const defaultOptions: CliResults = {
   packages: [],
   flags: {
     noGit: false,
-    noInstall: false,
+    noInstall: true,
     importAlias: "~/",
   },
 };
