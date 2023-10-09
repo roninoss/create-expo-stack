@@ -7,7 +7,7 @@ export function generateProjectFiles(
     formattedFiles: any[],
     navigationPackage: AvailablePackages,
     toolbox: Toolbox,
-    useNativewind: boolean,
+    stylingPackage: AvailablePackages
 ) {
     const { projectName, packages, flags } = cliResults;
 
@@ -16,7 +16,7 @@ export function generateProjectFiles(
 
         let target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '')
 
-        if (useNativewind) {
+        if (stylingPackage.name === 'nativewind') {
             target = target.replace('packages/nativewind/', '');
         }
 
@@ -42,7 +42,7 @@ export function generateProjectFiles(
                 projectName,
                 packages,
                 flags,
-                useNativewind,
+                stylingPackage,
                 navigationPackage,
             },
         });

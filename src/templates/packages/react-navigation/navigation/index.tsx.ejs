@@ -2,7 +2,7 @@
     import { Feather } from "@expo/vector-icons";
     import { NavigationContainer } from "@react-navigation/native";
     import { createStackNavigator } from "@react-navigation/stack";
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
         import { Text, View } from "react-native";
     <% } else { %>
         import { Text, View, StyleSheet } from "react-native";
@@ -26,7 +26,7 @@
             <Stack.Screen
                 name="Details"
                 component={Details}
-                <% if (props.useNativewind) { %>
+                <% if (props.stylingPackage?.name === "nativewind") { %>
                     options={({ navigation }) => ({
                         headerLeft: () => (
                             <View className={styles.backButton}>
@@ -50,7 +50,7 @@
         </NavigationContainer>
     );
     }
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
         const styles = {
             backButton: "flex-row",
             backButtonText: "text-blue-500 ml-1"

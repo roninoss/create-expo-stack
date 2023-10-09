@@ -1,11 +1,11 @@
 import React from "react";
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, View } from "react-native";
 <% } else { %>
   import { StyleSheet, Text, View } from "react-native";
 <% } %>
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   export default function EditScreenInfo({ path }: { path: string }) {
     return (
       <View>
@@ -57,7 +57,7 @@ import React from "react";
   }
 <% } %>
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     codeHighlightContainer: "rounded-md px-1 my-2",
     getStartedContainer: "items-center mx-12",

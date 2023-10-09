@@ -7,8 +7,7 @@ import {
   renderTitle,
   runCLI,
   runIgnite,
-  showHelp,
-  usePackage
+  showHelp
 } from '../utilities';
 import { defaultOptions } from '../constants';
 import { CliResults } from '../types';
@@ -72,6 +71,10 @@ const command: GluegunCommand = {
           // Add nativewind package
           cliResults.packages.push({ name: "nativewind", type: 'styling', options: {} });
         }
+        if (options.tamagui) {
+          // Add tamagui package
+          cliResults.packages.push({ name: "tamagui", type: 'styling', options: {} });
+        }
 
 
         // Destructure the results but set the projectName if the first param is passed in
@@ -82,15 +85,16 @@ const command: GluegunCommand = {
         const { packages } = cliResults;
 
         // Define props to be passed into the templates
-        const useNativewind = usePackage("nativewind", packages);
+
         const navigationPackage = packages.find((p) => p.type === "navigation") || undefined;
+        const stylingPackage = packages.find((p) => p.type === "styling")
 
         let files: string[] = [];
 
         files = configureProjectFiles(
           files,
           navigationPackage,
-          useNativewind
+          stylingPackage
         );
 
         // Once all the files are defined, format and generate them
@@ -102,7 +106,7 @@ const command: GluegunCommand = {
           formattedFiles,
           navigationPackage,
           toolbox,
-          useNativewind,
+          stylingPackage
         );
 
         await printOutput(cliResults, formattedFiles, toolbox);

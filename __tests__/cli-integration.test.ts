@@ -63,6 +63,22 @@ for (const packageManager of packageManagers) {
     expect(output).toContain(packageManager)
   })
 
+  // --react-navigation stack tamagui
+  test(`generates a project with react-navigation stack and tamagui with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --stack --tamagui --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  test(`generates a project with react-navigation stack and tamagui and noGit with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --stack --tamagui --noGit --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  test(`generates a project with react-navigation stack and tamagui and noGit and noInstall with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --stack --tamagui --noGit --noInstall --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
   // --react-navigation tabs
   test(`generates a project with react-navigation tabs with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --react-navigation --tabs --nonInteractive --${packageManager}`)
@@ -92,6 +108,22 @@ for (const packageManager of packageManagers) {
 
   test(`generates a project with react-navigation tabs and nativewind and noGit and noInstall with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --react-navigation --tabs --nativewind --noGit --noInstall --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  // --react-navigation tabs tamagui
+  test(`generates a project with react-navigation tabs and tamagui with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --tabs --tamagui --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  test(`generates a project with react-navigation tabs and tamagui and noGit with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --tabs --tamagui --noGit --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  test(`generates a project with react-navigation tabs and tamagui and noGit and noInstall with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --tabs --tamagui --noGit --noInstall --nonInteractive --${packageManager}`)
     expect(output).toContain(packageManager)
   })
 
@@ -127,6 +159,22 @@ for (const packageManager of packageManagers) {
     expect(output).toContain(packageManager)
   })
 
+  // --expo-router stack tamagui
+  test(`generates a project with expo-router stack and tamagui with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --stack --tamagui --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  test(`generates a project with expo-router stack and tamagui and noGit with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --stack --tamagui --noGit --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  test(`generates a project with expo-router stack and tamagui and noGit and noInstall with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --stack --tamagui --noGit --noInstall --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
   // --expo-router tabs
   test(`generates a project with expo-router tabs with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --expo-router --tabs --nonInteractive --${packageManager}`)
@@ -156,6 +204,22 @@ for (const packageManager of packageManagers) {
 
   test(`generates a project with expo-router tabs and nativewind and noGit and noInstall with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --expo-router --tabs --nativewind --noGit --noInstall --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  // --expo-router tabs tamagui
+  test(`generates a project with expo-router tabs and tamagui with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --tabs --tamagui --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  test(`generates a project with expo-router tabs and tamagui and noGit with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --tabs --tamagui --noGit --nonInteractive --${packageManager}`)
+    expect(output).toContain(packageManager)
+  })
+
+  test(`generates a project with expo-router tabs and tamagui and noGit and noInstall with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --tabs --tamagui --noGit --noInstall --nonInteractive --${packageManager}`)
     expect(output).toContain(packageManager)
   })
 }

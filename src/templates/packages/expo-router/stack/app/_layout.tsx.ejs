@@ -1,6 +1,6 @@
 import { Feather } from "@expo/vector-icons";
 import { Stack, useRouter } from "expo-router";
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
@@ -8,7 +8,7 @@ import { Stack, useRouter } from "expo-router";
 
 export default function Layout() {
   const router = useRouter();
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     const BackButton = () => (
       <TouchableOpacity onPress={router.back}>
         <View className={styles.backButton}>
@@ -38,7 +38,7 @@ export default function Layout() {
   );
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     backButton: "flex-row",
     backButtonText: "text-blue-500 ml-1",

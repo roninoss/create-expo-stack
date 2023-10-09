@@ -1,4 +1,4 @@
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
     import { Text, View } from "react-native";
 <% } else { %>
     import { StyleSheet, Text, View } from "react-native";
@@ -7,7 +7,7 @@
 import EditScreenInfo from "../../components/edit-screen-info";
 
 export default function TabOneScreen() {
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
         return (
             <View className={styles.container}>
                 <Text className={styles.title}>Tab One</Text>
@@ -26,7 +26,7 @@ export default function TabOneScreen() {
     <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
     const styles = {
         container: `items-center flex-1 justify-center`,
         separator: `h-[1px] my-7 w-4/5 bg-gray-200`,

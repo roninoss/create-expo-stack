@@ -3,7 +3,7 @@ import { AvailablePackages } from "../types";
 export function configureProjectFiles(
     files: string[],
     navigationPackage: AvailablePackages | undefined,
-    useNativewind: boolean,
+    stylingPackage: AvailablePackages | undefined
 ): string[] {
     // Define the files common to all templates to be generated
     const baseFiles = [
@@ -25,7 +25,7 @@ export function configureProjectFiles(
 
       // add nativewind files if needed
       // modify base files with nativewind specifications
-      if (useNativewind) {
+      if (stylingPackage.name === 'nativewind') {
         const nativewindFiles = [
           'packages/nativewind/tailwind.config.js.ejs',
           'packages/nativewind/app.d.ts',
@@ -34,6 +34,20 @@ export function configureProjectFiles(
         files = [
           ...files,
           ...nativewindFiles,
+        ];
+      };
+
+      // add tamagui files if needed
+      // modify base files with tamagui specifications
+      if (stylingPackage.name === 'tamagui') {
+        const tamaguiFiles = [
+          'packages/tamagui/App.tsx.ejs',
+          'packages/tamagui/tamagui.config.ts.ejs',
+        ];
+
+        files = [
+          ...files,
+          ...tamaguiFiles,
         ];
       };
 

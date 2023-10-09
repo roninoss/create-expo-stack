@@ -1,5 +1,5 @@
 import { RouteProp, useRoute } from "@react-navigation/native";
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { View, Text } from "react-native";
 <% } else { %>
   import { View, StyleSheet, Text } from "react-native";
@@ -10,7 +10,7 @@ type DetailsSreenRouteProp = RouteProp<RootStackParamList, "Details">;
 
 export default function Details() {
   const router = useRoute<DetailsSreenRouteProp>();
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     return (
       <View className={styles.container}>
         <View className={styles.main}>
@@ -31,7 +31,7 @@ export default function Details() {
   <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     container: "flex-1 p-6",
     main: "flex-1 max-w-[960]",

@@ -1,4 +1,4 @@
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
@@ -6,7 +6,7 @@
 import { Link } from "expo-router";
 
 export default function Page() {
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     return (
       <View className={styles.container}>
         <View className={styles.main}>
@@ -41,7 +41,7 @@ export default function Page() {
   <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     button: "items-center bg-indigo-500 rounded-[28px] shadow-md p-4",
     buttonText: "text-white text-lg font-semibold text-center",

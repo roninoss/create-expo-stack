@@ -1,4 +1,4 @@
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { View, Text } from "react-native";
 <% } else { %>
   import { StyleSheet, View, Text } from "react-native";
@@ -7,7 +7,7 @@ import { useLocalSearchParams } from "expo-router";
 
 export default function Details() {
   const { name } = useLocalSearchParams();
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     return (
       <View className={styles.container}>
         <View className={styles.main}>
@@ -28,7 +28,7 @@ export default function Details() {
   <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     container: "flex-1 p-6",
     main: "flex-1 max-w-[960]",

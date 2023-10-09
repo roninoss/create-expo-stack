@@ -1,4 +1,4 @@
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { Platform, Text, View } from "react-native";
 <% } else { %>
   import { Platform, StyleSheet, Text, View } from "react-native";
@@ -8,7 +8,7 @@ import { StatusBar } from "expo-status-bar";
 import EditScreenInfo from "../components/edit-screen-info";
 
 export default function Modal() {
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     return (
       <View className={styles.container}>
         <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
@@ -29,7 +29,7 @@ export default function Modal() {
   <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     container: "items-center flex-1 justify-center",
     separator: "h-[1px] my-7 w-4/5 bg-gray-200",

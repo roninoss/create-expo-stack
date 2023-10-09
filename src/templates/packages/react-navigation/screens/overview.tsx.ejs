@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
@@ -11,7 +11,7 @@ type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, "Ov
 
 export default function Overview() {
   const navigation = useNavigation<OverviewScreenNavigationProps>();
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     return (
       <View className={styles.container}>
         <View className={styles.main}>
@@ -42,7 +42,7 @@ export default function Overview() {
   <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     button: "items-center bg-indigo-500 rounded-[28px] shadow-md p-4",
     buttonText: "text-white text-lg font-semibold text-center",

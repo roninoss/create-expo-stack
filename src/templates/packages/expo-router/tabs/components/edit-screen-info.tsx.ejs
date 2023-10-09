@@ -1,12 +1,12 @@
 import React from "react";
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
     import { Text, View } from "react-native";
 <% } else { %>
     import { StyleSheet, Text, View } from "react-native";
 <% } %>
 
 export default function EditScreenInfo({ path }: { path: string }) {
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
         return (
             <View>
                 <View className={styles.getStartedContainer}>
@@ -41,7 +41,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
     <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
     const styles = {
     codeHighlightContainer: `rounded-md px-1`,
     getStartedContainer: `items-center mx-12`,
