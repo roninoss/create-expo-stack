@@ -25,7 +25,7 @@ export function configureProjectFiles(
 
       // add nativewind files if needed
       // modify base files with nativewind specifications
-      if (stylingPackage.name === 'nativewind') {
+      if (stylingPackage?.name === 'nativewind') {
         const nativewindFiles = [
           'packages/nativewind/tailwind.config.js.ejs',
           'packages/nativewind/app.d.ts',
@@ -39,7 +39,7 @@ export function configureProjectFiles(
 
       // add tamagui files if needed
       // modify base files with tamagui specifications
-      if (stylingPackage.name === 'tamagui') {
+      if (stylingPackage?.name === 'tamagui') {
         const tamaguiFiles = [
           'packages/tamagui/App.tsx.ejs',
           'packages/tamagui/tamagui.config.ts.ejs',
