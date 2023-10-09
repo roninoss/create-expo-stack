@@ -16,7 +16,7 @@ export function generateProjectFiles(
 
         let target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '')
 
-        if (stylingPackage?.name === 'nativewind') {
+        if (stylingPackage.name === 'nativewind') {
             target = target.replace('packages/nativewind/', '');
         }
 
