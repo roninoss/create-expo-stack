@@ -15,14 +15,14 @@ export async function renderTitle(toolbox: Toolbox) {
   const cesGradient = gradient(Object.values(expoStackTheme));
 
   const {
-    print: { info, error }
+    print: { error }
   } = toolbox;
 
   await figlet.text(TITLE_TEXT, {
     font: "Standard",
-    horizontalLayout: "default",
-    verticalLayout: "default",
-    width: 80,
+    horizontalLayout: "fitted",
+    verticalLayout: "fitted",
+    width: 40,
     whitespaceBreak: true,
   },
     (err, data) => {
@@ -31,11 +31,8 @@ export async function renderTitle(toolbox: Toolbox) {
 
         return;
       }
-      info(``);
-      info(``);
+
       console.log(cesGradient.multiline(data));
-      info(``);
-      info(``);
     }
   )
 };
