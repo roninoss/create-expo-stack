@@ -14,7 +14,7 @@ To get started, use npx to run the CLI tool. You will be prompted to opt into th
 
 `npx create-expo-stack@latest`
 
-![](https://github.com/danstepanov/create-expo-stack/assets/5482800/e516cf1a-81cf-4876-a212-d9a156071a2f)
+<img src="https://github.com/danstepanov/create-expo-stack/assets/5482800/6c4b5a00-63ae-4b3d-af0b-6da805e8c547" width="50%"/>
 
 ## Tech Stack for the templates
 
@@ -71,11 +71,11 @@ Thanks go to these wonderful people:
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
-        <a href="https://aodhan.netlify.app/">
-          <img src="https://pbs.twimg.com/profile_images/1472990183993888772/3X5J4d9__400x400.png" width="100px;" alt="Aodhan Hamilton"/>
+        <a href="https://twitter.com/trashh_dev">
+          <img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="PickleNik"/>
           <br />
           <sub>
-            <b>Aodhan Hamilton</b>
+            <b>PickleNik</b>
           </sub>
         </a>
       </td>
@@ -88,6 +88,16 @@ Thanks go to these wonderful people:
           </sub>
         </a>
       </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://aodhan.netlify.app/">
+          <img src="https://pbs.twimg.com/profile_images/1472990183993888772/3X5J4d9__400x400.png" width="100px;" alt="Aodhan Hamilton"/>
+          <br />
+          <sub>
+            <b>Aodhan Hamilton</b>
+          </sub>
+        </a>
+      </td>
+      
     </tr>
   </tbody>
 </table>
