@@ -97,7 +97,6 @@ Thanks go to these wonderful people:
           </sub>
         </a>
       </td>
-      
     </tr>
   </tbody>
 </table>
