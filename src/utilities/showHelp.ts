@@ -8,8 +8,8 @@ export function showHelp(info, highlight, warning) {
     info("")
     highlight("  Options")
     info("    -d, --default         Use the default options for creating a project")
-    info("        --no-install      Skip installing npm packages or CocoaPods")
-    info("        --no-git          Skip initializing a git repository")
+    info("        --noInstall       Skip installing npm packages or CocoaPods")
+    info("        --noGit           Skip initializing a git repository")
     info("        --blank           Use the blank typescript template")
     info("        --npm             Use npm as the package manager")
     info("        --yarn            Use yarn as the package manager")
@@ -25,6 +25,6 @@ export function showHelp(info, highlight, warning) {
     info("")
     info("    For example:")
     info(" ")
-    warning("    $ npx create-expo-stack myProject --nonInteractive --react-navigation --stack --nativewind --no-install")
+    warning("    $ npx create-expo-stack myProject --nonInteractive --react-navigation --stack --nativewind --noInstall")
     info("")
 }
