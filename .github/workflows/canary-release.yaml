@@ -1,0 +1,70 @@
+name: Release Canary
+on:
+  push:
+    branches:
+      - canary
+
+permissions:
+  id-token: write
+
+jobs:
+  release-canary:
+    if: ${{ github.repository_owner == 'danstepanov' }}
+    name: Release Canary
+    runs-on: ubuntu-latest
+    outputs:
+      releaseId: ${{ steps.release-id.outputs.releaseId }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node_modules
+        id: cache-yarn
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: $ {{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}\
+            -${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.cache-yarn.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: yarn list
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build create-expo-stack
+        run: yarn build
+
+      ## The change made to package.json here is ephemeral, as it will only run in CI
+      - name: Bump canary version
+        run: node .github/canary-release.js
+
+      - name: Install NPM
+        run: npm i -g npm@9.6.7 # need latest version for provenance support
+
+      - name: Authenticate to npm and publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn build
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          npm publish --provenance --access public --ignore-scripts --tag canary
