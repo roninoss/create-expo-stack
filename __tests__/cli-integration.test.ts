@@ -1,5 +1,7 @@
 import { system, filesystem } from 'gluegun'
 
+import { version } from '../package.json'
+
 const src = filesystem.path(__dirname, `..`)
 
 const cli = async (cmd) =>
@@ -14,7 +16,7 @@ const packageManagers = [`npm`, `yarn`, `pnpm`]
 
 test(`outputs version`, async () => {
   const output = await cli(`--version`)
-  expect(output).toContain(`2.0.22`)
+  expect(output).toContain(version)
 })
 
 test(`outputs help`, async () => {
