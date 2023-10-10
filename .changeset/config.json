@@ -8,9 +8,5 @@
   "updateInternalDependencies": "patch",
   "access": "public",
   "baseBranch": "main",
-  "fixed": [["create-expo-stack"]],
-  "snapshot": {
-    "useCalculatedVersion": true,
-    "prereleaseTemplate": "{tag}.{commit}"
-  }
+  "fixed": [["create-expo-stack"]]
 }
