@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { exec } from 'child_process'
 
-const pkgJsonPaths = ['cli/package.json']
+const pkgJsonPaths = ['package.json']
 
 try {
   exec('git rev-parse --short HEAD', (err, stdout) => {
