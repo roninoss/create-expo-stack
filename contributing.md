@@ -1,4 +1,6 @@
-## CES Onboarding
+# Contribute to create-expo-stack
+
+## Initial Setup
 
 ### Fork and clone the repo
 
