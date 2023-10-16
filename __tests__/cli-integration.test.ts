@@ -9,7 +9,7 @@ const cli = async (cmd) =>
     `node ` + filesystem.path(src, `bin`, `create-expo-stack`) + ` ${cmd}`
   )
 
-jest.setTimeout(40000); // Set a 10-second timeout
+jest.setTimeout(100000); // Set a 100-second timeout
 
 // Run tests for each package manager
 const packageManagers = [`npm`, `yarn`, `pnpm`, `bun`]
