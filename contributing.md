@@ -1,5 +1,9 @@
 # Contribute to create-expo-stack
 
+## Visual Diagram
+
+Use this documentation and [this Excalidraw diagram](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to gain an understanding of how create-expo-stack works and how to contribute to the project.
+
 ## Initial Setup
 
 ### Fork and clone the repo
