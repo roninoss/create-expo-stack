@@ -4,7 +4,7 @@
 
 ## Description
 
-This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, pure React-Navigation, Tailwind CSS with NativeWind or Tamagui.
+This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, and styling with StyleSheet or Tailwind CSS, with either NativeWind or Tamagui.
 
 You can also use flags such as `--noInstall`, `--noGit`, and `--default` in order to customize your project. The CLI will attempt to automatically determine your package manager of choice but you can also pass in your preferred package manager via `--npm`, `--yarn`, or `pnpm`. Roadmap coming soon...
 

@@ -72,8 +72,8 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
   const askStyling = {
     type: "select",
     name: "stylingSelect",
-    message: "What would you like for styling?",
-    choices: ['tamagui', 'nativewind']
+    message: "What would you like to use for styling?",
+    choices: ['tamagui', 'nativewind', 'stylesheet']
   }
 
   const { stylingSelect } = await ask(askStyling)
@@ -85,7 +85,8 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
   } else if (stylingSelect === 'tamagui') {
     cliResults.packages.push({ name: "tamagui", type: 'styling', options: {} });
   } else {
-    success(`Sounds good, you can use StyleSheet instead.`)
+    cliResults.packages.push({ name: "stylesheet", type: 'styling', options: {} });
+    success(`Cool, you're using the default StyleSheet that comes with React Native.`)
   }
 
   return cliResults;
