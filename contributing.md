@@ -98,3 +98,7 @@ Once you've made your changes and tested that it works locally, run the tests us
 * ./src/docs
 * ./src/bin
 * ./.github
+
+## Debugging
+
+When debugging, it can be useful to place a console log of the error in the the try catch block of `./src/commands/create-expo-stack.ts`. This should give you a hint as to what is going wrong.

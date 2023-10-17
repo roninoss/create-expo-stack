@@ -46,6 +46,8 @@ If you run into problems or have feedback, first search the issues and discussio
 
 ## Contributing
 
+### [See this guide.](https://github.com/danstepanov/create-expo-stack/blob/main/contributing.md)
+
 Contributions are welcome! Please open a pull request or an issue if you would like to contribute. There are existing feature requests labeled as `[FR]` in the issues section of this repo.
 
 ## Want to move faster? I can help 😎
