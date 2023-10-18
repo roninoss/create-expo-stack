@@ -1,6 +1,6 @@
 import { Toolbox } from "gluegun/build/types/domain/toolbox";
 
-export type PackageManager = "npm" | "pnpm" | "yarn";
+export type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
 // Taken directly from the T3 codebase
 export function getPackageManager(toolbox: Toolbox): PackageManager {
@@ -11,6 +11,7 @@ export function getPackageManager(toolbox: Toolbox): PackageManager {
   if (options.npm) return 'npm';
   if (options.yarn) return 'yarn';
   if (options.pnpm) return 'pnpm';
+  if (options.bun) return 'bun';
 
   // This environment variable is set by npm and yarn but pnpm seems less consistent
   const userAgent = process.env.npm_config_user_agent;
@@ -19,9 +20,8 @@ export function getPackageManager(toolbox: Toolbox): PackageManager {
       return "yarn";
     } else if (userAgent.startsWith("pnpm")) {
       return "pnpm";
-      // TODO: Add support for bun
-      // } else if (userAgent.startsWith("bun")) {
-      //   return "bun";
+    } else if (userAgent.startsWith("bun")) {
+      return "bun";
     } else {
       return "npm";
     }
