@@ -59,6 +59,9 @@ export async function printOutput(
   } else if (packageManager === 'pnpm') {
     if (options.noInstall) info('pnpm install')
     info('pnpm run ios')
+  } else if (packageManager === 'bun') {
+    if (options.noInstall) info('bun install')
+    info('bun run ios')
   } else {
     if (options.noInstall) info('yarn install')
     info('yarn ios')
