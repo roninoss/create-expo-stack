@@ -1,9 +1,10 @@
 import { Toolbox } from "gluegun/build/types/domain/toolbox";
 import { DEFAULT_APP_NAME } from "../constants";
+import { getPackageManager } from "./getPackageManager";
 
 export async function runIgnite(toolbox: Toolbox) {
   const {
-    parameters: { first, options },
+    parameters: { first },
     print: { success },
     prompt: { ask },
     system,
@@ -23,8 +24,10 @@ export async function runIgnite(toolbox: Toolbox) {
     projectName = first;
   }
 
+  const packageManager = getPackageManager(toolbox);
+
   success('Running Ignite CLI to create an opinionated stack...')
-  await system.spawn(`npx ignite-cli@latest new ${projectName}${options.default && ` --yes`}`, {
+  await system.spawn(`npx ignite-cli@latest new ${projectName} --packager=${packageManager} --yes`, {
     shell: true,
     stdio: 'inherit',
   });
