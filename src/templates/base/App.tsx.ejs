@@ -2,9 +2,15 @@ import React from 'react';
 
 <% if (props.stylingPackage?.name === "nativewind") {%>
   import { Text, View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "tamagui") {%>
+  import { View } from 'react-native';
+  import { TamaguiProvider, Text, styled } from 'tamagui';
+
+  import config from './tamagui.config'
 <% } else {%>
   import { StyleSheet, Text, View } from 'react-native';
 <% } %>
+
 import { StatusBar } from 'expo-status-bar';
 
 <% if (props.stylingPackage?.name === "nativewind") {%>
@@ -20,6 +26,24 @@ import { StatusBar } from 'expo-status-bar';
   const styles = {
     container: 'flex flex-1 items-center justify-center bg-white',
   };
+<% } else if (props.stylingPackage?.name === "tamagui") {%>
+  const MyView = styled(View, {
+    name: "MyView",
+    flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+  });
+
+  export default function App() {
+    return (
+      <TamaguiProvider config={config}>
+        <MyView %>>
+          <Text>Open up App.tsx to start working on your app!</Text>
+          <StatusBar style="auto" />
+        </MyView>
+      </TamaguiProvider>
+    );
+  }
 <% } else {%>
   export default function App() {
     return (

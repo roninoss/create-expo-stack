@@ -69,7 +69,7 @@ const bodyFont = createInterFont(
   }
 )
 
-export const config = createTamagui({
+const config = createTamagui({
   defaultFont: 'body',
   animations,
   shouldAddPrefersColorThemes: true,
@@ -98,3 +98,5 @@ export const config = createTamagui({
     pointerCoarse: { pointer: 'coarse' },
   }),
 })
+
+export default config;

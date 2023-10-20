@@ -41,7 +41,6 @@ export function configureProjectFiles(
       // modify base files with tamagui specifications
       if (stylingPackage?.name === 'tamagui') {
         const tamaguiFiles = [
-          'packages/tamagui/App.tsx.ejs',
           'packages/tamagui/tamagui.config.ts.ejs',
         ];
 
