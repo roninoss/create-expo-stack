@@ -67,45 +67,35 @@ Thanks go to these wonderful people:
         <a href="https://onlydans.gg/">
           <img src="https://pbs.twimg.com/profile_images/1689473757713514496/8fQrCrBx_400x400.jpg" width="100px;" alt="Dan Stepanov"/>
           <br />
-          <sub>
-            <b>Dan Stepanov</b>
-          </sub>
+          Dan Stepanov
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="https://github.com/frankcalise/">
           <img src="https://pbs.twimg.com/profile_images/1262363198839238662/uIfRNVBY_400x400.jpg" width="100px;" alt="Frank Calise"/>
           <br />
-          <sub>
-            <b>Frank Calise</b>
-          </sub>
+          Frank Calise
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="https://twitter.com/PickleNik0864">
           <img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="PickleNik"/>
           <br />
-          <sub>
-            <b>PickleNik</b>
-          </sub>
+          PickleNik
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="https://twitter.com/trashh_dev">
           <img src="https://pbs.twimg.com/profile_images/1598959528518643713/aWdwBYxv_400x400.jpg" width="100px;" alt="Chris Bautista"/>
           <br />
-          <sub>
-            <b>Chris Bautista</b>
-          </sub>
+          Chris Bautista
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="https://aodhan.netlify.app/">
           <img src="https://pbs.twimg.com/profile_images/1472990183993888772/3X5J4d9__400x400.png" width="100px;" alt="Aodhan Hamilton"/>
           <br />
-          <sub>
-            <b>Aodhan Hamilton</b>
-          </sub>
+          Aodhan Hamilton
         </a>
       </td>
     </tr>
