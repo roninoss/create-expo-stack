@@ -9,8 +9,16 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
       "nativewind": "^2.0.11",
+    <% } %>
+
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+      "tamagui": "1.74.8",
+      "@tamagui/font-inter": "1.74.8",
+      "@tamagui/shorthands": "1.74.8",
+      "@tamagui/themes": "1.74.8",
+      "@tamagui/react-native-media-driver": "1.74.8",
     <% } %>
 
     <% if (props.navigationPackage?.type === "navigation") { %>
@@ -51,8 +59,11 @@
     "eslint": "^8.50.0",
     "eslint-config-universe": "^12.0.0",
     "prettier": "^3.0.3",
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
       "tailwindcss": "3.3.2",
+    <% } %>
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+      "@tamagui/babel-plugin": "1.74.8",
     <% } %>
     "typescript": "^5.1.3"
   },

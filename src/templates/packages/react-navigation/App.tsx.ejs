@@ -1,8 +1,17 @@
 import "react-native-gesture-handler";
 import RootStack from "./src/navigation";
-
+<% if (props.stylingPackage?.name === "tamagui") { %>
+import { TamaguiProvider } from 'tamagui'
+import { config } from './tamagui.config'
+<% } %>
 export default function App() {
   return (
-    <RootStack />
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+    <TamaguiProvider config={config}>
+    <% } %>
+      <RootStack />
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+    </TamaguiProvider>
+    <% } %>
   );
 }

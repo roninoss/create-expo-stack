@@ -69,16 +69,24 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
     success(`No problem, skipping navigation for now.`)
   }
 
-  const useNativewind = await confirm(
-    'Would you like to use NativeWind (Tailwind for RN) with this project?',
-    true
-  )
+  const askStyling = {
+    type: "select",
+    name: "stylingSelect",
+    message: "What would you like to use for styling?",
+    choices: ['tamagui', 'nativewind', 'stylesheet']
+  }
 
-  if (useNativewind) {
+  const { stylingSelect } = await ask(askStyling)
+
+
+  if (stylingSelect === 'nativewind') {
     cliResults.packages.push({ name: "nativewind", type: 'styling', options: {} });
     success(`You'll be styling with ease using Tailwind.`)
+  } else if (stylingSelect === 'tamagui') {
+    cliResults.packages.push({ name: "tamagui", type: 'styling', options: {} });
   } else {
-    success(`Sounds good, you can use StyleSheet instead.`)
+    cliResults.packages.push({ name: "stylesheet", type: 'styling', options: {} });
+    success(`Cool, you're using the default StyleSheet that comes with React Native.`)
   }
 
   return cliResults;

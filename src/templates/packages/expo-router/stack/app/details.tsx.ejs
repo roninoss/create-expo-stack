@@ -1,5 +1,7 @@
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { View, Text } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack, H2, Paragraph } from "tamagui";
 <% } else { %>
   import { StyleSheet, View, Text } from "react-native";
 <% } %>
@@ -7,7 +9,7 @@ import { useLocalSearchParams } from "expo-router";
 
 export default function Details() {
   const { name } = useLocalSearchParams();
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     return (
       <View className={styles.container}>
         <View className={styles.main}>
@@ -15,6 +17,15 @@ export default function Details() {
           <Text className={styles.subtitle}>Showing details for user {name}.</Text>
         </View>
       </View>
+    );
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    return (
+      <YStack flex={1} p="$2">
+        <YStack flex={1} maxWidth={960}>
+          <H2>Details</H2>
+          <Paragraph theme="alt1">Showing details for user {name}.</Paragraph>
+        </YStack>
+      </YStack>
     );
   <% } else { %>
     return (
@@ -28,14 +39,14 @@ export default function Details() {
   <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     container: "flex-1 p-6",
     main: "flex-1 max-w-[960]",
     title: "text-[64px] font-bold",
     subtitle: "text-4xl text-gray-700",
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     container: {
       flex: 1,

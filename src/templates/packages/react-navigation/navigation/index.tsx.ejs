@@ -2,7 +2,7 @@
     import { Feather } from "@expo/vector-icons";
     import { NavigationContainer } from "@react-navigation/native";
     import { createStackNavigator } from "@react-navigation/stack";
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
         import { Text, View } from "react-native";
     <% } else { %>
         import { Text, View, StyleSheet } from "react-native";
@@ -26,13 +26,19 @@
             <Stack.Screen
                 name="Details"
                 component={Details}
-                <% if (props.useNativewind) { %>
+                <% if (props.stylingPackage?.name === "nativewind") { %>
                     options={({ navigation }) => ({
                         headerLeft: () => (
                             <View className={styles.backButton}>
                                 <Feather name="chevron-left" size={16} color="#007AFF" />
                                 <Text className={styles.backButtonText} onPress={navigation.goBack}>Back</Text>
                             </View>
+                        )
+                    })}
+                <% } else if (props.stylingPackage?.name === "tamagui") { %>
+                    options={({ navigation }) => ({
+                        headerLeft: () => (
+                            <Button onPress={navigation.goBack} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}>Back</Button>
                         )
                     })}
                 <% } else { %>
@@ -50,12 +56,12 @@
         </NavigationContainer>
     );
     }
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
         const styles = {
             backButton: "flex-row",
             backButtonText: "text-blue-500 ml-1"
         };
-    <% } else { %>
+    <% } else if (props.stylingPackage?.name === "stylesheet") { %>
         const styles = StyleSheet.create({
             backButton: {
                 flexDirection: "row"

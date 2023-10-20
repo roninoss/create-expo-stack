@@ -1,5 +1,7 @@
- <% if (props.useNativewind) { %>
+ <% if (props.stylingPackage?.name === "nativewind") { %>
     import { Platform, Text, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "nativewind") { %>
+    import { YStack, Paragraph, Separator } from "tamagui";
 <% } else { %>
     import { Platform, StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -8,7 +10,7 @@ import { StatusBar } from "expo-status-bar";
 import EditScreenInfo from "../components/edit-screen-info";
 
 export default function ModalScreen() {
-    <% if (props.useNativewind) { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
         return (
             <View className={styles.container}>
                 <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
@@ -16,6 +18,15 @@ export default function ModalScreen() {
                 <View className={styles.separator} />
                 <EditScreenInfo path="app/modal.tsx" />
             </View>
+        );
+    <% } else if (props.stylingPackage?.name === "tamagui") { %>
+        return (
+            <YStack flex={1} alignItems="center" justifyContent="center">
+                <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+                <Paragraph>Modal</Paragraph>
+                <Separator />
+                <EditScreenInfo path="app/modal.tsx" />
+            </YStack>
         );
     <% } else { %>
         return (
@@ -29,13 +40,13 @@ export default function ModalScreen() {
     <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
     const styles = {
         container: `items-center flex-1 justify-center`,
         separator: `h-[1px] my-7 w-4/5 bg-gray-200`,
         title: `text-xl font-bold`
     };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
     const styles = StyleSheet.create({
         container: {
             alignItems: "center",
