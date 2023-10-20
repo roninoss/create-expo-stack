@@ -6,7 +6,7 @@ module.exports = function(api) {
     plugins.push('nativewind/babel');
   <% } %>
 
-  <% if (props.stylingPackage?.name === "nativewind") { %>
+  <% if (props.stylingPackage?.name === "tamagui") { %>
     plugins.push([
       '@tamagui/babel-plugin',
       {
