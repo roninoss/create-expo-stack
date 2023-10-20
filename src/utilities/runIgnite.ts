@@ -29,9 +29,11 @@ export async function runIgnite(toolbox: Toolbox) {
   // right now Ignite requires PascalCase for the project name
   // unsure why, will ask the team and then probably fix it upstream
   const formattedName = pascalCase(projectName);
+  // bun is only available for @next version at the moment
+  const igniteVersion = packageManager === 'bun' ? 'next' : 'latest'
 
   success('Running Ignite CLI to create an opinionated stack...')
-  await system.spawn(`npx ignite-cli@latest new ${formattedName} --packager=${packageManager} --yes`, {
+  await system.spawn(`npx ignite-cli@${igniteVersion} new ${formattedName} --packager=${packageManager} --yes`, {
     shell: true,
     stdio: 'inherit',
   });
