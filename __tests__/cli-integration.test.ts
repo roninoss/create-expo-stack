@@ -12,7 +12,7 @@ const cli = async (cmd) =>
 jest.setTimeout(40000); // Set a 10-second timeout
 
 // Run tests for each package manager
-const packageManagers = [`npm`, `yarn`, `pnpm`]
+const packageManagers = [`npm`, `yarn`, `pnpm`, `bun`]
 
 test(`outputs version`, async () => {
   const output = await cli(`--version`)
