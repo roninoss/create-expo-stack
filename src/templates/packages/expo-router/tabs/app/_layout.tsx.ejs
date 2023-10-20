@@ -1,4 +1,8 @@
 import { Stack } from "expo-router";
+<% if (props.stylingPackage?.name === "tamagui") { %>
+import { TamaguiProvider } from 'tamagui'
+import { config } from './tamagui.config'
+<% } %>
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
@@ -7,9 +11,15 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   return (
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+    <TamaguiProvider config={config}>
+    <% } %>
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="modal" options={{ presentation: "modal" }} />
     </Stack>
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+      </TamaguiProvider>
+    <% } %>
   );
 }

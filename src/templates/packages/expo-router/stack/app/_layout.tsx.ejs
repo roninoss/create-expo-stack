@@ -2,6 +2,8 @@ import { Feather } from "@expo/vector-icons";
 import { Stack, useRouter } from "expo-router";
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { TamaguiProvider, Button } from "tamagui";
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -17,6 +19,10 @@ export default function Layout() {
         </View>
       </TouchableOpacity>
     );
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    const BackButton = () => {
+      <Button onPress={router.back} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}>Back</Button>
+    }
   <% } else { %>
     const BackButton = () => (
       <TouchableOpacity onPress={router.back}>
@@ -29,12 +35,18 @@ export default function Layout() {
   <% } %>
 
   return (
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+      <TamaguiProvider config={config}>
+      <% } %>
     <Stack>
       <Stack.Screen name="index" options={{ title: "Overview" }} />
       <Stack.Screen name="details"
         options={{ title: "Details", headerLeft: () => <BackButton /> }}
       />
     </Stack>
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+      </TamaguiProvider>
+    <% } %>
   );
 }
 
@@ -43,7 +55,7 @@ export default function Layout() {
     backButton: "flex-row",
     backButtonText: "text-blue-500 ml-1",
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     backButton: {
       flexDirection: "row",

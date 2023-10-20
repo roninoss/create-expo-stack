@@ -1,5 +1,7 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack, H2, Paragraph } from "tamagui"
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -22,6 +24,20 @@ export default function Page() {
         </View>
       </View>
     );
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    return (
+      <YStack flex={1} padding="$3">
+        <YStack flex={1} mawidth="{960}" justifyContent="space-between">
+          <YStack>
+            <H2>Hello World</H2>
+            <Paragraph>This is the first page of your app.</Paragraph>
+          </YStack>
+          <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+            <Button>Show Details</Button>
+          </Link>
+        </YStack>
+      </YStack>
+    )
   <% } else { %>
     return (
       <View style={styles.container}>
@@ -50,7 +66,7 @@ export default function Page() {
     title: "text-[64px] font-bold",
     subtitle: "text-4xl text-gray-700",
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     button: {
       alignItems: "center",

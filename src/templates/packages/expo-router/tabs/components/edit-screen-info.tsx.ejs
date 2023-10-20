@@ -1,6 +1,8 @@
 import React from "react";
 <% if (props.stylingPackage?.name === "nativewind") { %>
     import { Text, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+    import { YStack, H4, Paragraph } from "tamagui"
 <% } else { %>
     import { StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -21,6 +23,22 @@ export default function EditScreenInfo({ path }: { path: string }) {
                     </Text>
                 </View>
             </View>
+        );
+    <% } else if (props.stylingPackage?.name === "tamagui") { %>
+        return (
+            <YStack>
+                <YStack alignItems="center" mx="$6">
+                    <H4>
+                        Open up the code for this screen:
+                    </H4>
+                    <YStack borderRadius="$3" my="$1">
+                        <Paragraph>{path}</Paragraph>
+                    </YStack>
+                    <Paragraph>
+                        Change any of the text, save the file, and your app will automatically update.
+                    </Paragraph>
+                </YStack>
+            </YStack>
         );
     <% } else { %>
         return (
@@ -51,7 +69,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
     helpLinkText: `text-center`,
     homeScreenFilename: `my-2`,
     };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
     const styles = StyleSheet.create({
     codeHighlightContainer: {
         borderRadius: 3,

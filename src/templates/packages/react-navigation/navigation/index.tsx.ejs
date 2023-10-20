@@ -35,6 +35,12 @@
                             </View>
                         )
                     })}
+                <% } else if (props.stylingPackage?.name === "tamagui") { %>
+                    options={({ navigation }) => ({
+                        headerLeft: () => (
+                            <Button onPress={navigation.goBack} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}>Back</Button>
+                        )
+                    })}
                 <% } else { %>
                     options={({ navigation }) => ({
                         headerLeft: () => (
@@ -55,7 +61,7 @@
             backButton: "flex-row",
             backButtonText: "text-blue-500 ml-1"
         };
-    <% } else { %>
+    <% } else if (props.stylingPackage?.name === "stylesheet") { %>
         const styles = StyleSheet.create({
             backButton: {
                 flexDirection: "row"

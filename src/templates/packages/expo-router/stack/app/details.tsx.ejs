@@ -1,5 +1,7 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { View, Text } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack, H2, Paragraph } from "tamagui";
 <% } else { %>
   import { StyleSheet, View, Text } from "react-native";
 <% } %>
@@ -15,6 +17,15 @@ export default function Details() {
           <Text className={styles.subtitle}>Showing details for user {name}.</Text>
         </View>
       </View>
+    );
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    return (
+      <YStack flex={1} p="$2">
+        <YStack flex={1} maxWidth={960}>
+          <H2>Details</H2>
+          <Paragraph theme="alt1">Showing details for user {name}.</Paragraph>
+        </YStack>
+      </YStack>
     );
   <% } else { %>
     return (
@@ -35,7 +46,7 @@ export default function Details() {
     title: "text-[64px] font-bold",
     subtitle: "text-4xl text-gray-700",
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     container: {
       flex: 1,

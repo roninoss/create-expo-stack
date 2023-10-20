@@ -2,6 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack, H2, Paragraph, Button } from "tamagui";
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -24,6 +26,18 @@ export default function Overview() {
           </TouchableOpacity>
         </View>
       </View>
+    )
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    return (
+      <YStack flex={1} padding="$3">
+        <YStack flex={1} mawidth="{960}" justifyContent="space-between">
+          <YStack>
+            <H2>Hello World</H2>
+            <Paragraph>This is the first page of your app.</Paragraph>
+          </YStack>
+            <Button onPress={() => navigation.navigate("Details", { name: "Dan" })}>Show Details</Button>
+        </YStack>
+      </YStack>
     )
   <% } else { %>
     return (
@@ -51,7 +65,7 @@ export default function Overview() {
     title: "text-[64px] font-bold",
     subtitle: "text-4xl text-gray-700",
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     button: {
       alignItems: "center",
