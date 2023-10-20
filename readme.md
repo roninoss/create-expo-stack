@@ -73,7 +73,7 @@ Thanks go to these wonderful people:
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/frankcalise">
+        <a href="https://github.com/frankcalise/">
           <img src="https://pbs.twimg.com/profile_images/1262363198839238662/uIfRNVBY_400x400.jpg" width="100px;" alt="Frank Calise"/>
           <br />
           <sub>
