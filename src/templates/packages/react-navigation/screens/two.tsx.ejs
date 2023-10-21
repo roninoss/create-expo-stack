@@ -1,28 +1,28 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, View } from "react-native";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
-  import { YStack, Text, Separator } from "tamagui";
+  import { YStack, H2, Separator } from "tamagui";
 <% } else { %>
   import { StyleSheet, Text, View } from "react-native";
 <% } %>
 
 import EditScreenInfo from "../components/edit-screen-info";
 
-export default function TabOneScreen() {
+export default function TabTwoScreen() {
   <% if (props.stylingPackage?.name === "nativewind") { %>
     return (
       <View className={styles.container}>
-        <Text className={styles.title}>Tab One</Text>
+        <Text className={styles.title}>Tab Two</Text>
         <View className={styles.separator} />
-        <EditScreenInfo path="src/screens/one.tsx" />
+        <EditScreenInfo path="src/screens/two.tsx" />
       </View>
     );
   <% } else if (props.stylingPackage?.name === "tamagui") { %>
     return (
-      <YStack className={styles.container}>
-        <Text className={styles.title}>Tab One</Text>
+      <YStack flex={1} alignItems="center" justifyContent="center">
+        <H2>Tab One</H2>
         <Separator />
-        <EditScreenInfo path="src/screens/one.tsx" />
+        <EditScreenInfo path="src/screens/two.tsx" />
       </YStack>
     );
   <% } else { %>

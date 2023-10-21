@@ -1,7 +1,8 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { Platform, Text, View } from "react-native";
-<% } else if (props.stylingPackage?.name === "nativewind") { %>
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
   import { YStack, Paragraph, Separator } from "tamagui";
+  import { Platform } from 'react-native'
 <% } else { %>
   import { Platform, StyleSheet, Text, View } from "react-native";
 <% } %>

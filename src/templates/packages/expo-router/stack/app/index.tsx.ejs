@@ -1,7 +1,7 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
-  import { YStack, H2, Paragraph } from "tamagui"
+  import { YStack, H2, Paragraph, Button } from "tamagui"
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -27,7 +27,7 @@ export default function Page() {
   <% } else if (props.stylingPackage?.name === "tamagui") { %>
     return (
       <YStack flex={1} padding="$3">
-        <YStack flex={1} mawidth="{960}" justifyContent="space-between">
+        <YStack flex={1} maxWidth="{960}" justifyContent="space-between">
           <YStack>
             <H2>Hello World</H2>
             <Paragraph>This is the first page of your app.</Paragraph>
