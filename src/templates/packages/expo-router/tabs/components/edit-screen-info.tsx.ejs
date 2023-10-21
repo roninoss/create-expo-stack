@@ -27,11 +27,11 @@ export default function EditScreenInfo({ path }: { path: string }) {
     <% } else if (props.stylingPackage?.name === "tamagui") { %>
         return (
             <YStack>
-                <YStack alignItems="center" mx="$6">
+                <YStack alignItems="center" marginHorizontal="$6">
                     <H4>
                         Open up the code for this screen:
                     </H4>
-                    <YStack borderRadius="$3" my="$1">
+                    <YStack borderRadius="$3" marginVertical="$1">
                         <Paragraph>{path}</Paragraph>
                     </YStack>
                     <Paragraph>

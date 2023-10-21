@@ -4,6 +4,8 @@
     import { createStackNavigator } from "@react-navigation/stack";
     <% if (props.stylingPackage?.name === "nativewind") { %>
         import { Text, View } from "react-native";
+    <% } else if (props.stylingPackage?.name === "tamagui") { %>
+        import { Button } from "tamagui";
     <% } else { %>
         import { Text, View, StyleSheet } from "react-native";
     <% } %>
