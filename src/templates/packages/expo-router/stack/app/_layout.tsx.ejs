@@ -21,9 +21,9 @@ export default function Layout() {
       </TouchableOpacity>
     );
   <% } else if (props.stylingPackage?.name === "tamagui") { %>
-    const BackButton = () => {
+    const BackButton = () => (
       <Button onPress={router.back} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}>Back</Button>
-    }
+    )
   <% } else { %>
     const BackButton = () => (
       <TouchableOpacity onPress={router.back}>
