@@ -11,6 +11,7 @@ export const availablePackages = [
   'react-navigation',
   'expo-router',
   'stylesheet',
+  'expo-updates',
 ] as const
 
 export type NavigationTypes = 'stack' | 'tabs' | {}
