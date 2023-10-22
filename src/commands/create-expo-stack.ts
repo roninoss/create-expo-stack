@@ -1,4 +1,5 @@
 import { GluegunCommand } from 'gluegun'
+const util = require('util')
 
 import {
   configureProjectFiles,
@@ -55,7 +56,7 @@ const command: GluegunCommand = {
           // Add react-navigation package
           cliResults.packages.push({
             name: "react-navigation", type: 'navigation', options: {
-              navigationType: options.tabs ? "tabs" : "stack"
+              type: options.tabs ? "tabs" : "stack"
             }
           });
         }
@@ -63,7 +64,7 @@ const command: GluegunCommand = {
           // Add expo-router package
           cliResults.packages.push({
             name: "expo-router", type: 'navigation', options: {
-              navigationType: options.tabs ? "tabs" : "stack"
+              type: options.tabs ? "tabs" : "stack"
             }
           });
         }
@@ -82,6 +83,10 @@ const command: GluegunCommand = {
           cliResults.projectName = first;
         }
 
+        // By this point, all cliResults should be set
+        
+        info('Your project configuration:');
+        info(util.inspect(cliResults, false, null, true /* enable colors */))
         const { packages } = cliResults;
 
         // Define props to be passed into the templates

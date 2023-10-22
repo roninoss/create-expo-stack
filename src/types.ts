@@ -7,12 +7,12 @@ export interface CliFlags {
 
 export const availablePackages = ["nativewind", "tamagui", "react-navigation", "expo-router", "stylesheet"] as const;
 
-export type NavigationTypes = "stack" | "tabs" | {};
+export type NavigationTypes = "stack" | "tabs" | undefined;
 
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
   type: "navigation" | "styling";
-  options: NavigationTypes;
+  options?: { type?: NavigationTypes };
 }
 
 export interface CliResults {
