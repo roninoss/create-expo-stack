@@ -11,7 +11,7 @@ import {
   showHelp
 } from '../utilities';
 import { defaultOptions } from '../constants';
-import { CliResults } from '../types';
+import { CliResults, availablePackages } from '../types';
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
@@ -45,7 +45,10 @@ const command: GluegunCommand = {
         const useDefault = ((options.default !== undefined && options.default) || (options.d !== undefined && options.d));
         const skipCLI = options.nonInteractive;
         const useBlankTypescript = options.blank || false;
-        if (!(useDefault || skipCLI || useBlankTypescript)) {
+        // Check if any of the options were passed in via the command
+        // const conditions = ["reactNavigation", "expoRouter", "nativewind", "tamagui"];
+        const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
+        if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
           //  Run the CLI to prompt the user for input
           cliResults = await runCLI(toolbox)
         }
