@@ -1,6 +1,6 @@
 {
   "name": "create-expo-stack",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "create-expo-stack CLI",
   "private": false,
   "types": "build/types/types.d.ts",
