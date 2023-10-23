@@ -19,6 +19,7 @@
       "@tamagui/shorthands": "1.74.8",
       "@tamagui/themes": "1.74.8",
       "@tamagui/react-native-media-driver": "1.74.8",
+      "expo-font": "~11.4.0",
     <% } %>
 
     <% if (props.navigationPackage?.type === "navigation") { %>
@@ -32,7 +33,11 @@
       "@react-navigation/stack": "^6.3.17",
     <% } %>
 
-    <% if (props.navigationPackage?.options === "tabs" && props.navigationPackage?.name === "react-navigation") { %>
+    <% if ((props.navigationPackage?.name === "react-navigation") && (props.stylingPackage?.name === "tamagui")) { %>
+      "expo-splash-screen": "~0.20.5",
+    <% } %>
+
+    <% if (props.navigationPackage?.options.type === "tabs" && props.navigationPackage?.name === "react-navigation") { %>
       "@react-navigation/bottom-tabs": "^6.5.8",
     <% } %>
     

@@ -12,6 +12,9 @@ web-build/
 <% if (props.navigationPackage?.name === "expo-router") { %>
 expo-env.d.ts 
 <% } %>
+<% if (props.navigationPackage?.name === "tamagui") { %>
+.tamagui/
+<% } %>
 
 # macOS
 .DS_Store

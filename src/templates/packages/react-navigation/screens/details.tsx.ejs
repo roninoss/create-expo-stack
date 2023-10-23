@@ -24,7 +24,7 @@ export default function Details() {
   <% } else if (props.stylingPackage?.name === "tamagui") { %>
     return (
       <YStack flex={1} paddingTop="$2">
-        <YStack flex={1} maxWidth={960}>
+        <YStack flex={1} maxWidth="100%">
           <H2>Details</H2>
           <Paragraph>Showing details for user {router.params.name}.</Paragraph>
         </YStack>
