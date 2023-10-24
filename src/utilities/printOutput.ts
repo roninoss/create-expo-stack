@@ -32,7 +32,7 @@ export async function printOutput(
     info(``)
 
     // install with yarn or npm i
-    await system.spawn(`cd ${projectName} && ${packageManager} install --silent && ${packageManager} run --quiet format`, {
+    await system.spawn(`cd ${projectName} && ${packageManager} install --silent && ${packageManager} run format --quiet`, {
       shell: true,
       stdio: 'inherit',
     })
