@@ -102,7 +102,8 @@ const command: GluegunCommand = {
         files = configureProjectFiles(
           files,
           navigationPackage,
-          stylingPackage
+          stylingPackage,
+          toolbox
         );
 
         // Once all the files are defined, format and generate them

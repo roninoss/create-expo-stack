@@ -1,9 +1,12 @@
+import { Toolbox } from "gluegun/build/types/domain/toolbox";
 import { AvailablePackages } from "../types";
+import { getPackageManager } from "./getPackageManager";
 
 export function configureProjectFiles(
     files: string[],
     navigationPackage: AvailablePackages | undefined,
-    stylingPackage: AvailablePackages | undefined
+    stylingPackage: AvailablePackages | undefined,
+    toolbox: Toolbox
 ): string[] {
     // Define the files common to all templates to be generated
     const baseFiles = [
@@ -18,6 +21,13 @@ export function configureProjectFiles(
         'base/package.json.ejs',
         'base/.gitignore.ejs',
       ];
+
+      const packageManager = getPackageManager(toolbox);
+      // Add npmrc file if user is using pnpm and expo router
+      if (packageManager === 'pnpm' && navigationPackage?.name === "expo-router") {
+        baseFiles.push('base/.npmrc.ejs');
+      }
+
 
       files = [
         ...baseFiles,
