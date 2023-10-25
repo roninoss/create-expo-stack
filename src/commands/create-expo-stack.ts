@@ -84,7 +84,10 @@ const command: GluegunCommand = {
           // Add tamagui package
           cliResults.packages.push({ name: "tamagui", type: 'styling', options: {} });
         }
-
+        if (options.stylesheet || options.stylesheets) {
+          // Add stylesheet package
+          cliResults.packages.push({ name: "stylesheet", type: 'styling', options: {} });
+        }
 
         // Destructure the results but set the projectName if the first param is passed in
         if (first) {
