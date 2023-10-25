@@ -27,6 +27,11 @@ const command: GluegunCommand = {
       return;
     }
     try {
+      // Validation: check if the user passed in the tabs option without passing in either expo router or react navigation. If so, throw an error
+      if (options.tabs && !options.reactNavigation && !options['react-navigation'] && !options.reactnavigation && !options.expoRouter && !options['expo-router'] && !options.exporouter) {
+        throw new Error("You must pass in either --react-navigation or --expo-router if you want to use the --tabs option")
+      }
+
       await renderTitle(toolbox);
 
       // TODO: this is hacky, figure out a way to do this better
