@@ -46,8 +46,8 @@ const command: GluegunCommand = {
         const skipCLI = options.nonInteractive;
         const useBlankTypescript = options.blank || false;
         // Check if any of the options were passed in via the command
-        // const conditions = ["reactNavigation", "expoRouter", "nativewind", "tamagui"];
         const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
+
         if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
           //  Run the CLI to prompt the user for input
           cliResults = await runCLI(toolbox)
@@ -55,7 +55,7 @@ const command: GluegunCommand = {
 
         // @internal Update the cliResults with the options passed in via the command
         // This is used for testing purposes only
-        if (options.reactNavigation) {
+        if (options.reactNavigation || options['react-navigation'] || options.reactnavigation) {
           // Add react-navigation package
           cliResults.packages.push({
             name: "react-navigation", type: 'navigation', options: {
@@ -63,7 +63,7 @@ const command: GluegunCommand = {
             }
           });
         }
-        if (options.expoRouter) {
+        if (options.expoRouter || options['expo-router'] || options.exporouter) {
           // Add expo-router package
           cliResults.packages.push({
             name: "expo-router", type: 'navigation', options: {
