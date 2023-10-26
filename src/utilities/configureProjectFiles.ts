@@ -119,7 +119,7 @@ export function configureProjectFiles(
   }
 
   if (releasePackage?.name === 'expo-updates') {
-    let easFiles = ['packages/expo-updates']
+    let easFiles = ['packages/expo-updates', 'base/eas.json.ejs']
     // FIXME: need to fix this, with more clarity about how this plays out
 
     files = [...files, ...easFiles]

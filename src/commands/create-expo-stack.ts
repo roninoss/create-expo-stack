@@ -133,7 +133,8 @@ const command: GluegunCommand = {
           formattedFiles,
           navigationPackage,
           toolbox,
-          stylingPackage
+          stylingPackage,
+          releasePackage
         )
 
         await printOutput(cliResults, formattedFiles, toolbox)
