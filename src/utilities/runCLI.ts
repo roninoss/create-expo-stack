@@ -1,7 +1,7 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox'
 
 import { DEFAULT_APP_NAME, defaultOptions } from '../constants'
-import { CliFeatureType, CliResults } from '../types'
+import { CliFeatureType, CliResults, NavigationTypes } from '../types'
 
 export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
   const {
@@ -63,13 +63,17 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
       cliResults.packages.push({
         name: 'react-navigation',
         type: 'navigation',
-        options: navigationTypeSelect.toLowerCase(),
+        options: {
+          type: navigationTypeSelect.toLowerCase() as NavigationTypes,
+        },
       })
     } else {
       cliResults.packages.push({
         name: 'expo-router',
         type: 'navigation',
-        options: navigationTypeSelect.toLowerCase(),
+        options: {
+          type: navigationTypeSelect.toLowerCase() as NavigationTypes,
+        },
       })
     }
     success(`Great, we'll use ${navigationSelect}!`)

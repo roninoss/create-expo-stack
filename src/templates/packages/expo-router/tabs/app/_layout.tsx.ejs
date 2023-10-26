@@ -1,7 +1,15 @@
 import { Stack } from "expo-router";
 <% if (props.stylingPackage?.name === "tamagui") { %>
-import { TamaguiProvider } from 'tamagui'
-import config from './tamagui.config'
+  import React, { useEffect } from "react";
+  import { TamaguiProvider } from 'tamagui'
+  import { SplashScreen, Stack } from "expo-router";
+  import { useFonts } from "expo-font";
+
+  import config from '../tamagui.config'
+
+  SplashScreen.preventAutoHideAsync();
+<% } else { %>
+  import { Stack } from "expo-router";
 <% } %>
 
 export const unstable_settings = {
@@ -10,6 +18,21 @@ export const unstable_settings = {
 };
 
 export default function RootLayout() {
+  <% if (props.stylingPackage?.name === "tamagui") { %>
+    const [loaded] = useFonts({
+      Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+      InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
+    });
+
+    useEffect(() => {
+      if (loaded) {
+        SplashScreen.hideAsync();
+      }
+    }, [loaded]);
+
+    if (!loaded) return null;
+  <% } %>
+
   return (
     <% if (props.stylingPackage?.name === "tamagui") { %>
     <TamaguiProvider config={config}>

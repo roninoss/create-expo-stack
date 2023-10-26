@@ -1,17 +1,39 @@
 import "react-native-gesture-handler";
-import RootStack from "./src/navigation";
 <% if (props.stylingPackage?.name === "tamagui") { %>
-import { TamaguiProvider } from 'tamagui'
+import React, { useEffect } from "react";
+import { TamaguiProvider } from 'tamagui';
+import * as SplashScreen from 'expo-splash-screen';
+import { useFonts } from 'expo-font';
+
 import config from './tamagui.config'
+
+SplashScreen.preventAutoHideAsync();
 <% } %>
+import RootStack from "./src/navigation";
+
 export default function App() {
-  return (
-    <% if (props.stylingPackage?.name === "tamagui") { %>
-    <TamaguiProvider config={config}>
-    <% } %>
-      <RootStack />
-    <% if (props.stylingPackage?.name === "tamagui") { %>
-    </TamaguiProvider>
-    <% } %>
-  );
+  <% if (props.stylingPackage?.name === "tamagui") { %>
+    const [loaded] = useFonts({
+      Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+      InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
+    });
+
+    useEffect(() => {
+      if (loaded) {
+        SplashScreen.hideAsync();
+      }
+    }, [loaded])
+
+    if (!loaded) {
+      return null;
+    }
+
+    return (
+      <TamaguiProvider config={config}>
+        <RootStack />
+      </TamaguiProvider>
+    );
+  <% } else { %>
+    return <RootStack />;
+  <% } %>
 }

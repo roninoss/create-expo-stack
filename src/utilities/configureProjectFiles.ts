@@ -1,9 +1,12 @@
+import { Toolbox } from 'gluegun/build/types/domain/toolbox'
 import { AvailablePackages } from '../types'
+import { getPackageManager } from './getPackageManager'
 
 export function configureProjectFiles(
   files: string[],
   navigationPackage: AvailablePackages | undefined,
   stylingPackage: AvailablePackages | undefined,
+  toolbox: Toolbox,
   releasePackage: AvailablePackages | undefined
 ): string[] {
   // Define the files common to all templates to be generated
@@ -19,6 +22,12 @@ export function configureProjectFiles(
     'base/package.json.ejs',
     'base/.gitignore.ejs',
   ]
+
+  const packageManager = getPackageManager(toolbox)
+  // Add npmrc file if user is using pnpm and expo router
+  if (packageManager === 'pnpm' && navigationPackage?.name === 'expo-router') {
+    baseFiles.push('base/.npmrc.ejs')
+  }
 
   files = [...baseFiles]
 
@@ -49,7 +58,8 @@ export function configureProjectFiles(
       'packages/react-navigation/navigation/index.tsx.ejs',
     ]
     // if it's a stack, add the stack files) {
-    if (navigationPackage.options === 'stack') {
+
+    if (navigationPackage.options.type === 'stack') {
       reactNavigationFiles = [
         ...reactNavigationFiles,
         'packages/react-navigation/screens/details.tsx.ejs',
@@ -82,7 +92,7 @@ export function configureProjectFiles(
       'packages/expo-router/index.ts',
     ]
     // if it's a stack, add the stack files) {
-    if (navigationPackage.options === 'stack') {
+    if (navigationPackage.options.type === 'stack') {
       expoRouterFiles = [
         ...expoRouterFiles,
         'packages/expo-router/stack/app/_layout.tsx.ejs',
