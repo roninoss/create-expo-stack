@@ -25,7 +25,7 @@
     <% if (props.navigationPackage?.type === "navigation") { %>
       "@react-navigation/native": "^6.1.7",
       "react-native-gesture-handler": "~2.12.0",
-      "react-native-safe-area-context": "4.6.3",
+      "react-native-safe-area-context": "^4.6.3",
       "react-native-screens": "~3.22.0",
     <% } %>
 
@@ -86,6 +86,13 @@
     },
   <% } else { %>
     "main": "node_modules/expo/AppEntry.js",
+  <% } %>
+  <% if (props.navigationPackage?.type === "navigation") { %>
+    "expo": {
+      "install": {
+        "exclude": ["react-native-safe-area-context"]
+      }
+    },
   <% } %>
   "private": true
 }
