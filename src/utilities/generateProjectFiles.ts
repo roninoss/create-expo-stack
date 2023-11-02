@@ -7,7 +7,7 @@ export function generateProjectFiles(
     formattedFiles: any[],
     navigationPackage: AvailablePackages,
     toolbox: Toolbox,
-    useNativewind: boolean,
+    stylingPackage: AvailablePackages
 ) {
     const { projectName, packages, flags } = cliResults;
 
@@ -16,7 +16,9 @@ export function generateProjectFiles(
 
         let target = `${projectName}/` + file.replace('.ejs', '').replace('base/', '')
 
-        if (useNativewind) {
+        if (stylingPackage?.name === 'tamagui') {
+            target = target.replace('packages/tamagui/', '');
+        } else if (stylingPackage?.name === 'nativewind') {
             target = target.replace('packages/nativewind/', '');
         }
 
@@ -27,10 +29,10 @@ export function generateProjectFiles(
 
         if (navigationPackage?.name === "expo-router") {
             target = target.replace('packages/expo-router/', '');
-            if (navigationPackage.options === "stack") {
+            if (navigationPackage.options.type === "stack") {
                 target = target.replace('stack/', '');
             }
-            if (navigationPackage.options === "tabs") {
+            if (navigationPackage.options.type === "tabs") {
                 target = target.replace('tabs/', '');
             }
         }
@@ -42,7 +44,7 @@ export function generateProjectFiles(
                 projectName,
                 packages,
                 flags,
-                useNativewind,
+                stylingPackage,
                 navigationPackage,
             },
         });

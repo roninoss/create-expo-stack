@@ -1,7 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack, H2, Paragraph, Button } from "tamagui";
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -11,7 +13,7 @@ type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, "Ov
 
 export default function Overview() {
   const navigation = useNavigation<OverviewScreenNavigationProps>();
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     return (
       <View className={styles.container}>
         <View className={styles.main}>
@@ -24,6 +26,18 @@ export default function Overview() {
           </TouchableOpacity>
         </View>
       </View>
+    )
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    return (
+      <YStack flex={1} padding="$3">
+        <YStack flex={1} maxWidth="100%" justifyContent="space-between">
+          <YStack>
+            <H2>Hello World</H2>
+            <Paragraph>This is the first page of your app.</Paragraph>
+          </YStack>
+            <Button onPress={() => navigation.navigate("Details", { name: "Dan" })}>Show Details</Button>
+        </YStack>
+      </YStack>
     )
   <% } else { %>
     return (
@@ -42,7 +56,7 @@ export default function Overview() {
   <% } %>
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     button: "items-center bg-indigo-500 rounded-[28px] shadow-md p-4",
     buttonText: "text-white text-lg font-semibold text-center",
@@ -51,7 +65,7 @@ export default function Overview() {
     title: "text-[64px] font-bold",
     subtitle: "text-4xl text-gray-700",
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     button: {
       alignItems: "center",

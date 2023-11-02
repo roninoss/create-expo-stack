@@ -2,8 +2,18 @@ module.exports = function(api) {
   api.cache(true);
   let plugins = [];
   
-  <% if (props.useNativewind) { %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
     plugins.push('nativewind/babel');
+  <% } %>
+
+  <% if (props.stylingPackage?.name === "tamagui") { %>
+    plugins.push([
+      '@tamagui/babel-plugin',
+      {
+        components: ['tamagui'],
+        config: './tamagui.config.ts',
+      },
+    ]);
   <% } %>
 
   <% if (props.navigationPackage?.name === 'expo-router') { %>

@@ -1,5 +1,8 @@
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { View, Text } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack } from "tamagui";
+  import { Container, Main, Subtitle, Title } from "../tamagui.config";
 <% } else { %>
   import { StyleSheet, View, Text } from "react-native";
 <% } %>
@@ -7,35 +10,42 @@ import { useLocalSearchParams } from "expo-router";
 
 export default function Details() {
   const { name } = useLocalSearchParams();
-  <% if (props.useNativewind) { %>
-    return (
-      <View className={styles.container}>
-        <View className={styles.main}>
-          <Text className={styles.title}>Details</Text>
-          <Text className={styles.subtitle}>Showing details for user {name}.</Text>
-        </View>
+  return (
+  <% if (props.stylingPackage?.name === "nativewind") { %>
+    <View className={styles.container}>
+      <View className={styles.main}>
+        <Text className={styles.title}>Details</Text>
+        <Text className={styles.subtitle}>Showing details for user {name}.</Text>
       </View>
-    );
+    </View>
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    <Container>
+      <Main>
+        <YStack>
+          <Title>Details</Title>
+          <Subtitle>Showing details for user {name}.</Subtitle>
+        </YStack>
+      </Main>
+    </Container>
   <% } else { %>
-    return (
-      <View style={styles.container}>
-        <View style={styles.main}>
-          <Text style={styles.title}>Details</Text>
-          <Text style={styles.subtitle}>Showing details for user {name}.</Text>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.main}>
+        <Text style={styles.title}>Details</Text>
+        <Text style={styles.subtitle}>Showing details for user {name}.</Text>
       </View>
-    );
+    </View>
   <% } %>
+  );
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     container: "flex-1 p-6",
     main: "flex-1 max-w-[960]",
     title: "text-[64px] font-bold",
     subtitle: "text-4xl text-gray-700",
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     container: {
       flex: 1,

@@ -1,47 +1,60 @@
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, TouchableOpacity, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack } from "tamagui";
+  import { Container, Main, Title, Subtitle, Button, ButtonText } from '../tamagui.config';
 <% } else { %>
   import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
 import { Link } from "expo-router";
 
 export default function Page() {
-  <% if (props.useNativewind) { %>
-    return (
-      <View className={styles.container}>
-        <View className={styles.main}>
-          <View>
-            <Text className={styles.title}>Hello World</Text>
-            <Text className={styles.subtitle}>This is the first page of your app.</Text>
-          </View>
-          <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
-            <TouchableOpacity className={styles.button} >
-              <Text className={styles.buttonText}>Show Details</Text>
-            </TouchableOpacity>
-          </Link>
+  return (
+  <% if (props.stylingPackage?.name === "nativewind") { %>
+    <View className={styles.container}>
+      <View className={styles.main}>
+        <View>
+          <Text className={styles.title}>Hello World</Text>
+          <Text className={styles.subtitle}>This is the first page of your app.</Text>
         </View>
+        <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+          <TouchableOpacity className={styles.button} >
+            <Text className={styles.buttonText}>Show Details</Text>
+          </TouchableOpacity>
+        </Link>
       </View>
-    );
+    </View>
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    <Container>
+      <Main>
+        <YStack>
+          <Title>Hello World</Title>
+          <Subtitle>This is the first page of your app.</Subtitle>
+        </YStack>
+        <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+          <Button><ButtonText>Show Details</ButtonText></Button>
+        </Link>
+      </Main>
+    </Container>
   <% } else { %>
-    return (
-      <View style={styles.container}>
-        <View style={styles.main}>
-          <View>
-            <Text style={styles.title}>Hello World</Text>
-            <Text style={styles.subtitle}>This is the first page of your app.</Text>
-          </View>
-          <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
-            <TouchableOpacity style={styles.button} >
-              <Text style={styles.buttonText}>Show Details</Text>
-            </TouchableOpacity>
-          </Link>
+    <View style={styles.container}>
+      <View style={styles.main}>
+        <View>
+          <Text style={styles.title}>Hello World</Text>
+          <Text style={styles.subtitle}>This is the first page of your app.</Text>
         </View>
+        <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+          <TouchableOpacity style={styles.button} >
+            <Text style={styles.buttonText}>Show Details</Text>
+          </TouchableOpacity>
+        </Link>
       </View>
-    );
+    </View>
   <% } %>
+  );
 }
 
-<% if (props.useNativewind) { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     button: "items-center bg-indigo-500 rounded-[28px] shadow-md p-4",
     buttonText: "text-white text-lg font-semibold text-center",
@@ -50,7 +63,7 @@ export default function Page() {
     title: "text-[64px] font-bold",
     subtitle: "text-4xl text-gray-700",
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     button: {
       alignItems: "center",

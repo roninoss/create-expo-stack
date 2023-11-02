@@ -19,7 +19,6 @@ export async function printOutput(
   // Output the results to the user
   info(``)
   info(`Initializing your project...`)
-  info(``)
 
   await Promise.all(formattedFiles);
 
@@ -32,11 +31,20 @@ export async function printOutput(
     info(``)
 
     // install with yarn or npm i
-    await system.spawn(`cd ${projectName} && ${packageManager} install --silent && ${packageManager} run --quiet format`, {
+    await system.spawn(`cd ${projectName} && ${packageManager} install --silent`, {
       shell: true,
       stdio: 'inherit',
     })
   }
+
+  info(``)
+  info(`Cleaning up your project...`)
+
+  // format the files
+  await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
+    shell: true,
+    stdio: 'inherit',
+  })
 
   if (!options.noGit && !flags.noGit) {
     info(``)
@@ -59,6 +67,9 @@ export async function printOutput(
   } else if (packageManager === 'pnpm') {
     if (options.noInstall) info('pnpm install')
     info('pnpm run ios')
+  } else if (packageManager === 'bun') {
+    if (options.noInstall) info('bun install')
+    info('bun run ios')
   } else {
     if (options.noInstall) info('yarn install')
     info('yarn ios')

@@ -1,7 +1,7 @@
 import { Toolbox } from "gluegun/build/types/domain/toolbox";
 
 import { DEFAULT_APP_NAME, defaultOptions } from "../constants";
-import { CliResults } from "../types";
+import { CliResults, NavigationTypes } from "../types";
 
 export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
   const {
@@ -60,25 +60,45 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
   if (navigationSelect !== 'None') {
     const { navigationTypeSelect } = await ask(askNavigationType);
     if (navigationSelect === 'React Navigation') {
-      cliResults.packages.push({ name: "react-navigation", type: 'navigation', options: navigationTypeSelect.toLowerCase() });
+      cliResults.packages.push({
+        name: "react-navigation",
+        type: 'navigation',
+        options: {
+          type: navigationTypeSelect.toLowerCase() as NavigationTypes
+        }
+      });
     } else {
-      cliResults.packages.push({ name: "expo-router", type: 'navigation', options: navigationTypeSelect.toLowerCase() });
+      cliResults.packages.push({
+        name: "expo-router",
+        type: 'navigation',
+        options: {
+          type: navigationTypeSelect.toLowerCase() as NavigationTypes
+        }
+      });
     }
     success(`Great, we'll use ${navigationSelect}!`)
   } else {
     success(`No problem, skipping navigation for now.`)
   }
 
-  const useNativewind = await confirm(
-    'Would you like to use NativeWind (Tailwind for RN) with this project?',
-    true
-  )
+  const askStyling = {
+    type: "select",
+    name: "stylingSelect",
+    message: "What would you like to use for styling?",
+    choices: ['tamagui', 'nativewind', 'stylesheet']
+  }
 
-  if (useNativewind) {
-    cliResults.packages.push({ name: "nativewind", type: 'styling', options: {} });
+  const { stylingSelect } = await ask(askStyling)
+
+
+  if (stylingSelect === 'nativewind') {
+    cliResults.packages.push({ name: "nativewind", type: 'styling' });
     success(`You'll be styling with ease using Tailwind.`)
+  } else if (stylingSelect === 'tamagui') {
+    cliResults.packages.push({ name: "tamagui", type: 'styling' });
   } else {
-    success(`Sounds good, you can use StyleSheet instead.`)
+    cliResults.packages.push({ name: "stylesheet", type: 'styling' });
+    success(`Cool, you're using the default StyleSheet that comes with React Native.`)
   }
 
   return cliResults;

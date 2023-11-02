@@ -4,7 +4,7 @@
 
 ## Description
 
-This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, pure React-Navigation, and/or Tailwind CSS with NativeWind.
+This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, and styling with StyleSheet or Tailwind CSS, with either NativeWind or Tamagui.
 
 You can also use flags such as `--noInstall`, `--noGit`, and `--default` in order to customize your project. The CLI will attempt to automatically determine your package manager of choice but you can also pass in your preferred package manager via `--npm`, `--yarn`, or `pnpm`. Roadmap coming soon...
 
@@ -37,6 +37,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo System UI     | System UI Library   | v2      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v12     | Open links in the browser                      |
 | NativeWind         | UI Framework        | v2      | Tailwind CSS for React Native                  |
+| Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
 | Safe Area Context  | Safe Area Library   | v4      | Safe area support                              |
 | React Native Web   | Web Support         | v0.19   | React Native for Web                           |
 
@@ -45,6 +46,8 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 If you run into problems or have feedback, first search the issues and discussions in this repository. If you don't find anything, feel free to message me on [Twitter](https://twitter.com/danstepanov) or open a new issue.
 
 ## Contributing
+
+### [See this guide.](https://github.com/danstepanov/create-expo-stack/blob/main/contributing.md)
 
 Contributions are welcome! Please open a pull request or an issue if you would like to contribute. There are existing feature requests labeled as `[FR]` in the issues section of this repo.
 
@@ -65,36 +68,35 @@ Thanks go to these wonderful people:
         <a href="https://onlydans.gg/">
           <img src="https://pbs.twimg.com/profile_images/1689473757713514496/8fQrCrBx_400x400.jpg" width="100px;" alt="Dan Stepanov"/>
           <br />
-          <sub>
-            <b>Dan Stepanov</b>
-          </sub>
+          Dan Stepanov
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/trashh_dev">
+        <a href="https://github.com/frankcalise/">
+          <img src="https://pbs.twimg.com/profile_images/1262363198839238662/uIfRNVBY_400x400.jpg" width="100px;" alt="Frank Calise"/>
+          <br />
+          Frank Calise
+        </a>
+      </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://twitter.com/PickleNik0864">
           <img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="PickleNik"/>
           <br />
-          <sub>
-            <b>PickleNik</b>
-          </sub>
+          PickleNik
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="https://twitter.com/trashh_dev">
           <img src="https://pbs.twimg.com/profile_images/1598959528518643713/aWdwBYxv_400x400.jpg" width="100px;" alt="Chris Bautista"/>
           <br />
-          <sub>
-            <b>Chris Bautista</b>
-          </sub>
+          Chris Bautista
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="https://aodhan.netlify.app/">
           <img src="https://pbs.twimg.com/profile_images/1472990183993888772/3X5J4d9__400x400.png" width="100px;" alt="Aodhan Hamilton"/>
           <br />
-          <sub>
-            <b>Aodhan Hamilton</b>
-          </sub>
+          Aodhan Hamilton
         </a>
       </td>
     </tr>

@@ -1,4 +1,5 @@
 import { GluegunCommand } from 'gluegun'
+const util = require('util')
 
 import {
   configureProjectFiles,
@@ -7,11 +8,10 @@ import {
   renderTitle,
   runCLI,
   runIgnite,
-  showHelp,
-  usePackage
+  showHelp
 } from '../utilities';
 import { defaultOptions } from '../constants';
-import { CliResults } from '../types';
+import { CliResults, availablePackages } from '../types';
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
@@ -27,6 +27,11 @@ const command: GluegunCommand = {
       return;
     }
     try {
+      // Validation: check if the user passed in the tabs option without passing in either expo router or react navigation. If so, throw an error
+      if (options.tabs && !options.reactNavigation && !options['react-navigation'] && !options.reactnavigation && !options.expoRouter && !options['expo-router'] && !options.exporouter) {
+        throw new Error("You must pass in either --react-navigation or --expo-router if you want to use the --tabs option")
+      }
+
       await renderTitle(toolbox);
 
       // TODO: this is hacky, figure out a way to do this better
@@ -45,26 +50,29 @@ const command: GluegunCommand = {
         const useDefault = ((options.default !== undefined && options.default) || (options.d !== undefined && options.d));
         const skipCLI = options.nonInteractive;
         const useBlankTypescript = options.blank || false;
-        if (!(useDefault || skipCLI || useBlankTypescript)) {
+        // Check if any of the options were passed in via the command
+        const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
+
+        if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
           //  Run the CLI to prompt the user for input
           cliResults = await runCLI(toolbox)
         }
 
         // @internal Update the cliResults with the options passed in via the command
         // This is used for testing purposes only
-        if (options.reactNavigation) {
+        if (options.reactNavigation || options['react-navigation'] || options.reactnavigation) {
           // Add react-navigation package
           cliResults.packages.push({
             name: "react-navigation", type: 'navigation', options: {
-              navigationType: options.tabs ? "tabs" : "stack"
+              type: options.tabs ? "tabs" : "stack"
             }
           });
         }
-        if (options.expoRouter) {
+        if (options.expoRouter || options['expo-router'] || options.exporouter) {
           // Add expo-router package
           cliResults.packages.push({
             name: "expo-router", type: 'navigation', options: {
-              navigationType: options.tabs ? "tabs" : "stack"
+              type: options.tabs ? "tabs" : "stack"
             }
           });
         }
@@ -72,25 +80,38 @@ const command: GluegunCommand = {
           // Add nativewind package
           cliResults.packages.push({ name: "nativewind", type: 'styling', options: {} });
         }
-
+        if (options.tamagui) {
+          // Add tamagui package
+          cliResults.packages.push({ name: "tamagui", type: 'styling', options: {} });
+        }
+        if (options.stylesheet || options.stylesheets) {
+          // Add stylesheet package
+          cliResults.packages.push({ name: "stylesheet", type: 'styling', options: {} });
+        }
 
         // Destructure the results but set the projectName if the first param is passed in
         if (first) {
           cliResults.projectName = first;
         }
 
+        // By this point, all cliResults should be set
+        
+        info('Your project configuration:');
+        info(util.inspect(cliResults, false, null, true /* enable colors */))
         const { packages } = cliResults;
 
         // Define props to be passed into the templates
-        const useNativewind = usePackage("nativewind", packages);
+
         const navigationPackage = packages.find((p) => p.type === "navigation") || undefined;
+        const stylingPackage = packages.find((p) => p.type === "styling")
 
         let files: string[] = [];
 
         files = configureProjectFiles(
           files,
           navigationPackage,
-          useNativewind
+          stylingPackage,
+          toolbox
         );
 
         // Once all the files are defined, format and generate them
@@ -102,7 +123,7 @@ const command: GluegunCommand = {
           formattedFiles,
           navigationPackage,
           toolbox,
-          useNativewind,
+          stylingPackage
         );
 
         await printOutput(cliResults, formattedFiles, toolbox);
