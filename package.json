@@ -8,9 +8,9 @@
     "url": "https://github.com/danstepanov/create-expo-stack.git"
   },
   "devDependencies": {
-    "@types/node": "~20.8.10",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
+    "bun-types": "^1.0.8",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3",
