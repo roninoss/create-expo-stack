@@ -10,7 +10,7 @@
   "license": "MIT",
   "types": "build/types/types.d.ts",
   "bin": {
-    "create-expo-stack": "bin/create-expo-stack"
+    "create-expo-stack": "src/cli.js"
   },
   "files": [
     "build",
@@ -21,9 +21,9 @@
   ],
   "scripts": {
     "build": "bun run clean-build && bun run compile && bun run copy-templates && bun run lint-templates",
-    "bump": "ts-node ./src/utilities/bumpVersion.ts",
+    "bump": "bun run ./src/utilities/bumpVersion.ts",
     "clean-build": "rm -rf ./build",
-    "compile": "tsc -p .",
+    "compile": "tsc -p ./tsconfig.build.json",
     "copy-templates": "bun run copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
     "coverage": "jest --coverage",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
@@ -31,8 +31,7 @@
     "prepublishOnly": "bun run build",
     "publishPublic": "bun run build && npm publish --access public",
     "snapupdate": "jest --updateSnapshot",
-    "test": "bun run jest",
-    "watch": "jest --watch"
+    "watch": "bun test --watch"
   },
   "husky": {
     "hooks": {
@@ -43,10 +42,6 @@
     "semi": false,
     "singleQuote": true
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node"
-  },
   "dependencies": {
     "ejs-lint": "^2.0.0",
     "figlet": "^1.6.0",
@@ -55,8 +50,6 @@
   },
   "devDependencies": {
     "@types/gradient-string": "^1.1.2",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^12.7.11",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "copyfiles": "^2.4.1",
@@ -64,11 +57,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "husky": "^5.1.3",
-    "jest": "^26.6.3",
     "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
-    "ts-jest": "^26.5.3",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.2.3"
+    "pretty-quick": "^3.1.0"
   }
 }
