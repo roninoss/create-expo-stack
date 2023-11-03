@@ -2,10 +2,19 @@
   "name": "create-expo-stack-repository",
   "version": "1.0.0",
   "description": "Root package for the create-expo-stack monorepo",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/danstepanov/create-expo-stack.git"
+  },
+  "license": "MIT",
+  "workspaces": [
+    "cli",
+    "www"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "build:cli": "turbo build --filter create-expo-stack",
+    "build:www": "turbo build --filter create-expo-stack-web"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.9.1",
@@ -14,10 +23,7 @@
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3",
+    "turbo": "^1.10.16",
     "typescript": "latest"
-  },
-  "workspaces": [
-    "cli",
-    "www"
-  ]
+  }
 }
