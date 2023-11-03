@@ -25,7 +25,6 @@
     "clean-build": "rm -rf ./build",
     "compile": "tsc -p ./tsconfig.build.json",
     "copy-templates": "bun run copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
-    "coverage": "jest --coverage",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "lint-templates": "bun run ejslint ./src/templates",
     "prepublishOnly": "bun run build",
