@@ -10,7 +10,7 @@
   "license": "MIT",
   "types": "build/types/types.d.ts",
   "bin": {
-    "create-expo-stack": "src/cli.js"
+    "create-expo-stack": "build/src/cli.js"
   },
   "files": [
     "build",

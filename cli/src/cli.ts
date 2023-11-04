@@ -6,7 +6,7 @@ import { build } from 'gluegun'
  * Create the cli and kick it off
  */
 async function run() {
-  const argv = Bun.argv
+  const argv = process.env.argv
 
   // create a CLI runtime
   const cli = build()
