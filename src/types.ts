@@ -5,7 +5,7 @@ export interface CliFlags {
   importAlias: string;
 }
 
-export const availablePackages = ["nativewind", "tamagui", "react-navigation", "expo-router", "stylesheet", "vexo-analytics"] as const;
+export const availablePackages = ["nativewind", "tamagui", "react-navigation", "reactNavigation", "reactnavigation", "vexo-analytics", "expo-router", "expoRouter", "stylesheet"] as const;
 
 export type NavigationTypes = "stack" | "tabs" | undefined;
 

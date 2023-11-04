@@ -83,5 +83,12 @@
   <% } else { %>
   "main": "node_modules/expo/AppEntry.js",
   <% } %>
+  <% if (props.navigationPackage?.type === "navigation") { %>
+    "expo": {
+      "install": {
+        "exclude": ["react-native-safe-area-context"]
+      }
+    },
+  <% } %>
   "private": true
 }

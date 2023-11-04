@@ -1,7 +1,8 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { View, Text } from "react-native";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
-  import { YStack, H2, Paragraph } from "tamagui";
+  import { YStack } from "tamagui";
+  import { Container, Main, Subtitle, Title } from "../tamagui.config";
 <% } else { %>
   import { StyleSheet, View, Text } from "react-native";
 <% } %>
@@ -9,34 +10,32 @@ import { useLocalSearchParams } from "expo-router";
 
 export default function Details() {
   const { name } = useLocalSearchParams();
+  return (
   <% if (props.stylingPackage?.name === "nativewind") { %>
-    return (
-      <View className={styles.container}>
-        <View className={styles.main}>
-          <Text className={styles.title}>Details</Text>
-          <Text className={styles.subtitle}>Showing details for user {name}.</Text>
-        </View>
+    <View className={styles.container}>
+      <View className={styles.main}>
+        <Text className={styles.title}>Details</Text>
+        <Text className={styles.subtitle}>Showing details for user {name}.</Text>
       </View>
-    );
+    </View>
   <% } else if (props.stylingPackage?.name === "tamagui") { %>
-    return (
-      <YStack flex={1} padding="$2">
-        <YStack flex={1} maxWidth="100%">
-          <H2>Details</H2>
-          <Paragraph theme="alt1">Showing details for user {name}.</Paragraph>
+    <Container>
+      <Main>
+        <YStack>
+          <Title>Details</Title>
+          <Subtitle>Showing details for user {name}.</Subtitle>
         </YStack>
-      </YStack>
-    );
+      </Main>
+    </Container>
   <% } else { %>
-    return (
-      <View style={styles.container}>
-        <View style={styles.main}>
-          <Text style={styles.title}>Details</Text>
-          <Text style={styles.subtitle}>Showing details for user {name}.</Text>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.main}>
+        <Text style={styles.title}>Details</Text>
+        <Text style={styles.subtitle}>Showing details for user {name}.</Text>
       </View>
-    );
+    </View>
   <% } %>
+  );
 }
 
 <% if (props.stylingPackage?.name === "nativewind") { %>

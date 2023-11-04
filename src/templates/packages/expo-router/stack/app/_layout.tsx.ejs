@@ -4,7 +4,7 @@ import { Feather } from "@expo/vector-icons";
   import { Text, TouchableOpacity, View } from "react-native";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
   import React, { useEffect } from "react";
-  import { TamaguiProvider, Button } from "tamagui";
+  import { TamaguiProvider, Button, Text } from "tamagui";
   import { useFonts } from "expo-font";
   import { Stack, useRouter, SplashScreen } from "expo-router";
 
@@ -42,7 +42,7 @@ export default function Layout() {
     if (!loaded) return null;
 
     const BackButton = () => (
-      <Button onPress={router.back} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}>Back</Button>
+      <Button unstyled flexDirection="row" backgroundColor="transparent" paddingLeft={0} pressStyle={{ opacity: 0.5 }} onPress={router.back} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}><Text color="#007AFF">Back</Text></Button>
     )
   <% } else { %>
     const BackButton = () => (
@@ -58,7 +58,7 @@ export default function Layout() {
   return (
     <% if (props.stylingPackage?.name === "tamagui") { %>
       <TamaguiProvider config={config}>
-      <% } %>
+    <% } %>
     <Stack>
       <Stack.Screen name="index" options={{ title: "Overview" }} />
       <Stack.Screen name="details"
