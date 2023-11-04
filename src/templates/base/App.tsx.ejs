@@ -1,16 +1,25 @@
 import React from 'react';
 
 <% if (props.stylingPackage?.name === "nativewind") {%>
-  import { Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 <% } else if (props.stylingPackage?.name === "tamagui") {%>
-  import { View } from 'react-native';
-  import { TamaguiProvider, Text, styled } from 'tamagui';
-  import config from './tamagui.config'
+import { View } from 'react-native';
+import { TamaguiProvider, Text, styled } from 'tamagui';
+import config from './tamagui.config'
 <% } else {%>
-  import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 <% } %>
 
 import { StatusBar } from 'expo-status-bar';
+
+<% if (props.analyticsPackage?.name === "vexo-analytics") { %>
+import { vexo } from 'vexo-analytics';
+
+// If you don't have an API Key:
+//  1. Create an account/login in https://vexo.co
+//  2. Copy the key and add it to your `.env` file: VEXO_API_KEY=123abc
+vexo(process.env.VEXO_API_KEY);
+<% } %>
 
 <% if (props.stylingPackage?.name === "nativewind") {%>
   export default function App() {

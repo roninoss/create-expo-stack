@@ -102,7 +102,7 @@ export function configureProjectFiles(
         let expoRouterFiles = [
           'packages/expo-router/expo-env.d.ts',
           'packages/expo-router/metro.config.js',
-          'packages/expo-router/index.ts'
+          'packages/expo-router/index.tsx.ejs'
         ];
         // if it's a stack, add the stack files) {
         if (navigationPackage.options.type === "stack") {

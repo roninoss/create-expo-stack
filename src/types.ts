@@ -5,13 +5,13 @@ export interface CliFlags {
   importAlias: string;
 }
 
-export const availablePackages = ["nativewind", "tamagui", "react-navigation", "expo-router", "stylesheet"] as const;
+export const availablePackages = ["nativewind", "tamagui", "react-navigation", "expo-router", "stylesheet", "vexo-analytics"] as const;
 
 export type NavigationTypes = "stack" | "tabs" | undefined;
 
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
-  type: "navigation" | "styling";
+  type: "navigation" | "styling" | "analytics";
   options?: { type?: NavigationTypes };
 }
 

@@ -79,7 +79,9 @@ const command: GluegunCommand = {
           // Add tamagui package
           cliResults.packages.push({ name: "tamagui", type: 'styling', options: {} });
         }
-
+        if (options.vexo) {
+          cliResults.packages.push({ name: "vexo-analytics", type: 'analytics', options: {} });
+        }
 
         // Destructure the results but set the projectName if the first param is passed in
         if (first) {
@@ -95,7 +97,8 @@ const command: GluegunCommand = {
         // Define props to be passed into the templates
 
         const navigationPackage = packages.find((p) => p.type === "navigation") || undefined;
-        const stylingPackage = packages.find((p) => p.type === "styling")
+        const stylingPackage = packages.find((p) => p.type === "styling");
+        const analyticsPackage = packages.find((p) => p.type === "analytics");
 
         let files: string[] = [];
 
@@ -115,7 +118,8 @@ const command: GluegunCommand = {
           formattedFiles,
           navigationPackage,
           toolbox,
-          stylingPackage
+          stylingPackage,
+          analyticsPackage
         );
 
         await printOutput(cliResults, formattedFiles, toolbox);

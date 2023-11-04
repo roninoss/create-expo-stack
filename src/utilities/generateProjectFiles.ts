@@ -7,7 +7,8 @@ export function generateProjectFiles(
     formattedFiles: any[],
     navigationPackage: AvailablePackages,
     toolbox: Toolbox,
-    stylingPackage: AvailablePackages
+    stylingPackage: AvailablePackages,
+    analyticsPackage: AvailablePackages
 ) {
     const { projectName, packages, flags } = cliResults;
 
@@ -46,6 +47,7 @@ export function generateProjectFiles(
                 flags,
                 stylingPackage,
                 navigationPackage,
+                analyticsPackage
             },
         });
 
