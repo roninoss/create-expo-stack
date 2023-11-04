@@ -2,12 +2,19 @@
   "compilerOptions": {
     "types": ["bun-types"],
 
-    "lib": ["ESNext"],
-    "module": "esnext",
-    "target": "esnext",
+    "lib": [
+      "es2015",
+      "scripthost",
+      "es2015.promise",
+      "es2015.generator",
+      "es2015.iterable",
+      "dom"
+    ],
+    "module": "CommonJS",
+    "target": "es5",
 
     "rootDir": ".",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "noEmit": false,
     "moduleDetection": "force",
 
