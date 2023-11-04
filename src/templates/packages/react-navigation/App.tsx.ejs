@@ -1,0 +1,45 @@
+import "react-native-gesture-handler";
+<% if (props.stylingPackage?.name === "tamagui") { %>
+import React, { useEffect } from "react";
+import { TamaguiProvider } from 'tamagui';
+import * as SplashScreen from 'expo-splash-screen';
+import { useFonts } from 'expo-font';
+import config from './tamagui.config'
+
+SplashScreen.preventAutoHideAsync();
+<% } %>
+import RootStack from "./src/navigation";
+<% if (props.analyticsPackage?.name === "vexo-analytics") { %>
+import { vexo } from 'vexo-analytics';
+// If you don't have an API Key:
+//  1. Create an account/login in https://vexo.co
+//  2. Copy the key and add it to your `.env` file: VEXO_API_KEY=123abc
+vexo(process.env.VEXO_API_KEY);
+<% } %>
+
+export default function App() {
+  <% if (props.stylingPackage?.name === "tamagui") { %>
+    const [loaded] = useFonts({
+      Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+      InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
+    });
+
+    useEffect(() => {
+      if (loaded) {
+        SplashScreen.hideAsync();
+      }
+    }, [loaded])
+
+    if (!loaded) {
+      return null;
+    }
+
+    return (
+      <TamaguiProvider config={config}>
+        <RootStack />
+      </TamaguiProvider>
+    );
+  <% } else { %>
+    return <RootStack />;
+  <% } %>
+}
