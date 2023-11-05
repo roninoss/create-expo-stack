@@ -56,7 +56,9 @@ To quickly run the landing page website after installing all dependencies:
 $ bun dev:www
 ```
 
-To quickly setup `create-expo-stack` for local testing, you'll need to link a local version to run on your machine:
+<!-- To quickly setup `create-expo-stack` for local testing, you'll need to link a local version to run on your machine: -->
+
+To quickly setup `create-expo-stack` for local testing, it's recommended that you use the linking feature from package managers to create a global exectutable of the package: 
 
 ```shell
 $ cd cli
@@ -71,7 +73,14 @@ $ yarn link
 $ pnpm link --global
 ```
 
-> Note: Linking via Bun is not possible. While Bun does provide a linking feature ([see here](https://bun.sh/docs/cli/link)), it does not seem to expose the executable binary like the other three package managers.
+After linking, make sure to restart the terminal session or resource the shell profile. Ex.: `source ~/.zshrc`.
+
+You can check that the linking was performed correctly with `which create-expo-stack`, which should return the path to the global executable. If this returns `create-expo-stack not found`, this means that the linking has either failed, or you have a misconfigure `PATH` variable for your package manager's global installs.
+
+```shell
+$ which create-expo-stack
+# Example, linked with PNPM on macOS.: /Users/<username>/Library/pnpm/create-expo-stack
+```
 
 Now you can run your own local version of create-expo-stack via `create-expo-stack`, anywhere on your machine. Here is the format for running a CLI command:
 
@@ -79,7 +88,9 @@ Now you can run your own local version of create-expo-stack via `create-expo-sta
 $ create-expo-stack <PROJECT_NAME> --options
 ```
 
-From here, any changes to the `/cli` source-code will reflect the behavior of the `create-expo-stack` binary. We recommend that you set up a `cardinal-test-apps` directory (or a similar directory) where you can securely scaffold expo apps and test prompt combinations.
+> Note: Linking via Bun is not possible. While Bun does provide a linking feature ([see here](https://bun.sh/docs/cli/link)), it does not seem to expose the executable binary like the other three package managers. If you know how to do this, please let us know!
+
+From here, any changes to the `/cli` source-code will reflect the behavior of the `create-expo-stack` binary. We recommend that you set up a `create-expo-stack-apps` directory (or a similar directory) where you can securely scaffold expo apps and test prompt combinations.
 
 ### Make your changes
 
@@ -143,7 +154,6 @@ Once you've made your changes and tested that it works locally, run the tests us
 
 ### Unused directories or ones you should not pay attention to
 * `./cli/src/docs`
-* `./cli/src/bin`
 * `./.github`
 
 ## Debugging
