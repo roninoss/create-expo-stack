@@ -1,53 +1,100 @@
-# Contribute to create-expo-stack
+# Welcome to the Expo Stack contributing guide
 
-## Visual Diagram
+Thank you for investing your time to contribute to Create Expo Stack!
 
-Use this documentation and [this Excalidraw diagram](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to gain an understanding of how create-expo-stack works and how to contribute to the project.
+In this guide, you will get an overview of the contribution workflow from opening an issue to creating, reviewing, and merging a PR.
 
-## Initial Setup
+## New contributor guide
 
-### Fork and clone the repo
+Use this documentation and [](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to gain an understanding of how Create Expo Stack works and how to contribute to the project.
 
-- [GitHub Repo](https://github.com/danstepanov/create-expo-stack)
- 
-### Navigate to repo
+## What can I contribute to?
+
+Before delving deeper on the collaborarion worflow, let's talk about what kind of contributions can be made. Make sure to refer to this [architectural diagram](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to understand how the CLI, installers and template scaffolding works in `create-expo-stack`.
+
+There are three main things you can usually contribute to:
+
+- **Docs**: Anything that would improve the documentation for Expo Stack (typo corrections, fact checking, benchmarks, updates, and/or guides).
+
+- **CLI**: If you would like to add a currently unsupported feature (a new styling library, auth providers, and/or a new CLI flag), you'll probably be submitting a new template, generator, and/or new CLI prompts.
+
+>Keep in mind, that you should not change the underlying dependencies that handle a specific part of the stack (eg.: you should not change an existing template for a configuration you are trying to introduce as it may have downstream effects on any existing configurations).
+
+- **Landing page**: Occasionally, the [landing page](https://expostack.dev) needs to be updated with new testimonials, a new terminal recording, and/or new configurations that we support.
+
+- **Bug fixes/reports**: If you think you've found a bug or some unexpected behavior in the CLI application or the scaffolded apps, you're welcome to raise an issue and/or PR with a bug description and/or fix.
+
+Ideas for improving the overall architecture of the CLI app are always be welcome, but we ask that you raise an issue and/or a discussion with an overview of the proposed ideas first, in order to ensure a proper debate over the proposal.
+
+Be sure to follow the templates for new issues and pull requests, when applicable.
+
+## Contribution workflow
+
+### Making changes locally
+
+This project uses Bun, and should be run with Node.js on the latest available LTS version. Ensure you have them properly setup on your development environment before continuing.
 
 ```shell
-cd create-expo-stack
+$ git clone https://github.com/danstepanov/create-expo-stack`
+
+$ cd create-expo-stack`
 ```
 
-### Install dependencies
+The Expo Stack homepage and documentation source-code can be found in the `/www` and `/docs` directories, respectively. The create-expo-stack application can be found in the `/cli` directory.
+
+Install all the workspace dependencies with: `bun install` on the project root.
+
+To quickly run the documentation website after installing all dependencies:
 
 ```shell
-yarn
+$ bun dev:docs
 ```
 
-### Symlink the local path to use for local testing
+To quickly run the landing page website after installing all dependencies:
 
 ```shell
-yarn link
+$ bun dev:www
 ```
+
+To quickly setup `create-expo-stack` for local testing, you'll need to link a local version to run on your machine:
+
+```shell
+$ cd cli
+
+# NPM linking
+$ npm link
+
+# Yarn linking
+$ yarn link
+
+# PNPM linking
+$ pnpm link --global
+```
+
+> Note: Linking via Bun is not possible. While Bun does provide a linking feature ([see here](https://bun.sh/docs/cli/link)), it does not seem to expose the executable binary like the other three package managers.
 
 Now you can run your own local version of create-expo-stack via `create-expo-stack`, anywhere on your machine. Here is the format for running a CLI command:
 
 ```shell
-create-expo-stack <PROJECT_NAME> --options
+$ create-expo-stack <PROJECT_NAME> --options
 ```
+
+From here, any changes to the `/cli` source-code will reflect the behavior of the `create-expo-stack` binary. We recommend that you set up a `cardinal-test-apps` directory (or a similar directory) where you can securely scaffold expo apps and test prompt combinations.
 
 ### Make your changes
 
-Once you've made your changes and tested that it works locally, run the tests using `yarn test` in the root of the directory. You should also add a test to cover your own contribution. These tests take a while to run. If those pass, then you can open a PR against the `main` branch of the source repo.
+Once you've made your changes and tested that it works locally, run the tests using `bun test` in the `/cli` directory. You should also add a test to cover your own contribution, if relevant. These tests take a while to run (we're working on this). If those pass, then you can open a PR against the `main` branch of the source repo.
 
-> **_TODO:_** Add template for Pull Requests
+> **_TODO:_** Add template for pull requests and issues
 
-## Project Structure
+## CLI project structure
 
-### Tests (./\__tests__)
+### Tests (`./__tests__`)
 * Tests to check every iteration of the CLI, using every kind of package manager
 * [These aren't perfect atm](https://github.com/danstepanov/create-expo-stack/issues/18)
 
 
-### Commands (./src/commands)
+### Commands (``./cli/src/commands``)
 * There is currently only one command, `create-expo-stack`. The function representing this command roughly breaks down into the following steps:
     1) Show the “help” view if that option was passed in
     2) Render the ASCII art title
@@ -64,17 +111,17 @@ Once you've made your changes and tested that it works locally, run the tests us
     7) Assign packages based on CLI results
     8) Assign relevant variables to be passed to EJS files based on user specified configurations
     9) Configure project files
-    * Represented by `configureProjectFiles.ts` in `./src/utilities/`
+    * Represented by `configureProjectFiles.ts` in `./cli/src/utilities/`
     * Add the base project files as well as any additional project-dependent files based on user specifications
     10) Generate project
-    * Represented by `generateProjectFiles.ts` in `./src/utilities/`
+    * Represented by `generateProjectFiles.ts` in `./cli/src/utilities/`
     * Using the files from step (9), the variables from step (8), and  the CLI results, generate the Expo project
     11) Print results of CLI 
 
-### Extensions (./src/extensions)
+### Extensions (``./cli/src/extensions``)
 * Not relevant, to be removed
 
-### Templates (./src/templates)
+### Templates (``./cli/src/templates``)
 * Collection of EJS files to be modified, as necessary, and converted to .ts files during the file configuration process.
 * Directories
     * Base
@@ -82,23 +129,23 @@ Once you've made your changes and tested that it works locally, run the tests us
     * Packages
         * Contains files pertaining to specific configurations
 
-### Utilities (./src/utilities)
+### Utilities (``./cli/src/utilities``)
 * An assortment of helper functions and abstracted chunks of functionality to support the `create-expo-stack` command.
 
-### Entry point (./src/cli.ts)
+### Entry point (``./cli/src/cli.ts``)
 * Entry point for create-expo-stack
 
 ### Constants
 * Constant values used throughout the codebase, including default configurations.
 
-### Types (./src/types.ts)
+### Types (``./cli/src/types.ts``)
 * Assorted types
 
 ### Unused directories or ones you should not pay attention to
-* ./src/docs
-* ./src/bin
-* ./.github
+* `./cli/src/docs`
+* `./cli/src/bin`
+* `./.github`
 
 ## Debugging
 
-When debugging, it can be useful to place a console log of the error in the the try catch block of `./src/commands/create-expo-stack.ts`. This should give you a hint as to what is going wrong.
+When debugging, it can be useful to place a console log of the error in the the try catch block of `./cli/src/commands/create-expo-stack.ts`. This should give you a hint as to what is going wrong.
