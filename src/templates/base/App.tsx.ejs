@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 <% if (props.stylingPackage?.name === "nativewind") {%>
   import { Text, Vie,Alert } from 'react-native';
@@ -21,6 +21,45 @@ import { StatusBar } from 'expo-status-bar';
 
 <% if (props.stylingPackage?.name === "nativewind") {%>
   export default function App() {
+    <% if (props.releasePackage?.name === "expo-updates"){%>
+
+      useEffect(() => {
+      ;(async () => {
+        
+        try {
+          // handle user online status
+          const update = await Updates.checkForUpdateAsync()
+          if (update.isAvailable) {
+            await Updates.fetchUpdateAsync()
+            // ... notify user of update ...
+            Alert.alert(
+              'A new update is available',
+              'Would you like to update it?',
+              [
+                {
+                  text: 'Ok',
+                  onPress: async () => {
+                    try {
+                     await Updates.reloadAsync()
+                    } catch (error) {
+                      console.log(
+                        'Something went wrong while purging the cache after OTA',
+                        {},
+                      )
+                    }
+                  },
+                },
+              ],
+            )
+          }
+        } catch (e) {
+          // handle or log error
+        }
+      })()
+    }, [])
+
+    <% } %>
+
     return (
       <View className={styles.container} %>>
         <Text>Open up App.tsx to start working on your app!</Text>
@@ -45,6 +84,7 @@ import { StatusBar } from 'expo-status-bar';
 
     <% if (props.releasePackage?.name === "expo-updates"){%>
 
+      useEffect(() => {
       ;(async () => {
         
         try {
@@ -93,6 +133,46 @@ import { StatusBar } from 'expo-status-bar';
   }
 <% } else {%>
   export default function App() {
+
+    <% if (props.releasePackage?.name === "expo-updates"){%>
+
+      useEffect(() => {
+      ;(async () => {
+        
+        try {
+          // handle user online status
+          const update = await Updates.checkForUpdateAsync()
+          if (update.isAvailable) {
+            await Updates.fetchUpdateAsync()
+            // ... notify user of update ...
+            Alert.alert(
+              'A new update is available',
+              'Would you like to update it?',
+              [
+                {
+                  text: 'Ok',
+                  onPress: async () => {
+                    try {
+                     await Updates.reloadAsync()
+                    } catch (error) {
+                      console.log(
+                        'Something went wrong while purging the cache after OTA',
+                        {},
+                      )
+                    }
+                  },
+                },
+              ],
+            )
+          }
+        } catch (e) {
+          // handle or log error
+        }
+      })()
+    }, [])
+
+    <% } %>
+
     return (
       <View style={styles.container} %>>
         <Text>Open up App.tsx to start working on your app!</Text>

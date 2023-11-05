@@ -6,8 +6,8 @@
     "format": "eslint '**/*.{js,jsx,ts,tsx}' --fix && prettier '**/*.{js,jsx,ts,tsx,json}' --write",
     "ios": "expo start --ios",
     "start": "expo start",
-    "web": "expo start --web",
-    <% if (props.releasePackage?.name === "expo-updates"){%>
+    "web": "expo start --web"
+    <% if (props.releasePackage?.name === "expo-updates"){%>,
     "build:development": " eas build --profile development --platform all ",
     "build:development:ios": " eas build --profile development --platform ios ",
     "build:development:android": "eas build --profile development --platform android  ",

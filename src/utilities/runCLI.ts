@@ -130,13 +130,21 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
   if (releaseWorkflowSetup === 'none') {
     success(`Ohkay!!, so you will build apks manually with gradle and xCode.`)
   } else if (releaseWorkflowSetup === 'EAS') {
-    isEAScliInstalled
-      ? success(
-          ` Great! EAS will set your environments, namely development, staging and production , and you can share your app and send OTA updates to any specific environment`
-        )
-      : error(`Need to install EAS cli to setup EAS release workflow`)
+    if(isEAScliInstalled){
+       cliResults.packages.push({
+        name: 'expo-updates',
+        type: 'releaseWorkflow',
+        options: {},
+      })
+      success(
+        ` Great! EAS will set your environments, namely development, staging and production , and you can share your app and send OTA updates to any specific environment`
+      )
+    }else{
+      error(`Need to install EAS cli to setup EAS release workflow`)
+    }
+         
   } else if (releaseWorkflowSetup === 'Codepush') {
-    success(`Great you chose to setup Codepush updates`)
+    success(`Great you chose to setup Codepush updates, but it's not supported right now`)
   }
 
   return cliResults

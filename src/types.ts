@@ -15,11 +15,12 @@ export const availablePackages = [
 ] as const
 
 export type NavigationTypes = 'stack' | 'tabs' | undefined
+export type ReleaseWorkflowTypes = 'EAS' | 'codepush' | undefined
 
 export type AvailablePackages = {
   name: (typeof availablePackages)[number]
   type: 'navigation' | 'styling' | 'releaseWorkflow'
-  options?: { type?: NavigationTypes }
+  options?: { type?: NavigationTypes | ReleaseWorkflowTypes }
 }
 
 export interface CliResults {
