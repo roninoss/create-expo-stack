@@ -35,6 +35,6 @@ export async function renderTitle(toolbox: Toolbox) {
       }
 
       console.log(cesGradient.multiline(data))
-    }
+    },
   )
 }
