@@ -5,14 +5,7 @@ export interface CliFlags {
   importAlias: string
 }
 
-export const availablePackages = [
-  'nativewind',
-  'tamagui',
-  'react-navigation',
-  'expo-router',
-  'stylesheet',
-  'expo-updates',
-] as const
+export const availablePackages = ["nativewind", "tamagui", "react-navigation", "reactNavigation", "reactnavigation", "expo-router", "expoRouter", "stylesheet",'expo-updates'] as const;
 
 export type NavigationTypes = 'stack' | 'tabs' | undefined
 export type ReleaseWorkflowTypes = 'EAS' | 'codepush' | undefined
