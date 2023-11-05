@@ -8,19 +8,19 @@
     "start": "expo start",
     "web": "expo start --web"
     <% if (props.releasePackage?.name === "expo-updates"){%>,
-    "build:development": " eas build --profile development --platform all ",
-    "build:development:ios": " eas build --profile development --platform ios ",
-    "build:development:android": "eas build --profile development --platform android  ",
-    "update:development": "eas update --branch default",
-    "setStaging": "env NODE_ENV=test",
-    "update:staging": " eas update --channel staging --platform android ",
-    "build:staging":" eas build --profile staging --platform all ",
-    "build:staging:android": "eas build --profile staging --platform android ",
-    "setProd": "set NODE_ENV=production",
-    "update:production": " eas update  --branch production ",
-    "build:production": " eas build --profile production --platform all ",
-    "build:production:ios": " eas build --profile production --platform ios ",
-    "build:production:android": " eas build --profile production --platform android "
+      "build:development": " eas build --profile development --platform all ",
+      "build:development:ios": " eas build --profile development --platform ios ",
+      "build:development:android": "eas build --profile development --platform android  ",
+      "update:development": "eas update --branch default",
+      "setStaging": "env NODE_ENV=test",
+      "update:staging": " eas update --channel staging --platform android ",
+      "build:staging":" eas build --profile staging --platform all ",
+      "build:staging:android": "eas build --profile staging --platform android ",
+      "setProd": "set NODE_ENV=production",
+      "update:production": " eas update  --branch production --platform android",
+      "build:production": " eas build --profile production --platform all ",
+      "build:production:ios": " eas build --profile production --platform ios ",
+      "build:production:android": " eas build --profile production --platform android "
     <% } %>
   },
   "dependencies": {

@@ -27,6 +27,13 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    <% if (props.releasePackage?.name === 'expo-updates') { %>
+      "updates": {
+        "fallbackToCacheTimeout": 0
+      },
+      "plugins": [
+      "expo-build-properties"],
+      <% } %>
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -43,4 +50,3 @@
 }
 
 
-<!-- TODO:  Add plugins and eas project id for expo-updates -->
