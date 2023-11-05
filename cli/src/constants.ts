@@ -1,8 +1,8 @@
-import { CliResults } from "./types";
+import { CliResults } from './types'
 
-export const TITLE_TEXT = "create expo stack";
+export const TITLE_TEXT = 'create expo stack'
 
-export const DEFAULT_APP_NAME = "my-expo-app";
+export const DEFAULT_APP_NAME = 'my-expo-app'
 
 export const defaultOptions: CliResults = {
   projectName: DEFAULT_APP_NAME,
@@ -10,6 +10,6 @@ export const defaultOptions: CliResults = {
   flags: {
     noGit: false,
     noInstall: false,
-    importAlias: "~/",
+    importAlias: '~/',
   },
-};
+}
