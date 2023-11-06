@@ -10,7 +10,7 @@
   "license": "MIT",
   "types": "build/types/types.d.ts",
   "bin": {
-    "create-expo-stack": "build/src/cli.js"
+    "create-expo-stack": "bin/create-expo-stack.js"
   },
   "files": [
     "build",
@@ -23,7 +23,7 @@
     "build": "bun run clean-build && bun run compile && bun run copy-templates && bun run lint-templates",
     "bump": "bun run ./src/utilities/bumpVersion.ts",
     "clean-build": "rm -rf ./build",
-    "compile": "tsc -p ./tsconfig.build.json",
+    "compile": "tsc -p .",
     "copy-templates": "bun run copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "lint-templates": "bun run ejslint ./src/templates",

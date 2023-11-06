@@ -1,11 +1,9 @@
-#!/usr/bin/env node
-
 import { build } from 'gluegun'
 
 /**
  * Create the cli and kick it off
  */
-async function run() {
+export async function run() {
   const argv = process.env.argv
 
   // create a CLI runtime
@@ -27,5 +25,3 @@ async function run() {
   // send it back (for testing, mostly)
   return toolbox
 }
-
-run()

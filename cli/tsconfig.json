@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "types": ["bun-types"],
-
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "lib": [
       "es2015",
       "scripthost",
@@ -10,38 +10,21 @@
       "es2015.iterable",
       "dom"
     ],
-    "module": "CommonJS",
-    "target": "es5",
-
-    "rootDir": ".",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": false,
-    "moduleDetection": "force",
-
-    "allowJs": true,
-    "jsx": "react-jsx",
-
-    // Best practices
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "composite": true,
-    "downlevelIteration": true,
-    "allowSyntheticDefaultImports": true,
-
-    // Misc
-    "experimentalDecorators": true,
     "noImplicitAny": false,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "sourceMap": false,
     "inlineSourceMap": true,
     "outDir": "build",
+    "strict": false,
+    "target": "es5",
     "declaration": true,
     "declarationDir": "build/types",
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
-  "include": ["src", "__tests__", "package.json"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
