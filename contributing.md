@@ -35,7 +35,7 @@ Be sure to follow the templates for new issues and pull requests, when applicabl
 This project uses Bun, and should be run with Node.js on the latest available LTS version. Ensure you have them properly setup on your development environment before continuing.
 
 ```shell
-$ git clone https://github.com/danstepanov/create-expo-stack`
+$ git clone https://github.com/danstepanov/create-expo-stack
 
 $ cd create-expo-stack`
 ```
@@ -128,9 +128,6 @@ Once you've made your changes and tested that it works locally, run the tests us
     * Represented by `generateProjectFiles.ts` in `./cli/src/utilities/`
     * Using the files from step (9), the variables from step (8), and  the CLI results, generate the Expo project
     11) Print results of CLI 
-
-### Extensions (``./cli/src/extensions``)
-* Not relevant, to be removed
 
 ### Templates (``./cli/src/templates``)
 * Collection of EJS files to be modified, as necessary, and converted to .ts files during the file configuration process.
