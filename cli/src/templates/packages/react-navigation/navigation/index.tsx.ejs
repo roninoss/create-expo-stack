@@ -5,7 +5,7 @@
 	<% if (props.stylingPackage?.name === "nativewind") { %>
 		import { Text, View } from "react-native";
 	<% } else if (props.stylingPackage?.name === "tamagui") { %>
-		import { Button } from "tamagui";
+		import { Button, Text } from "tamagui";
 	<% } else { %>
 		import { Text, View, StyleSheet } from "react-native";
 	<% } %>
@@ -40,8 +40,18 @@
 						<% } else if (props.stylingPackage?.name === "tamagui") { %>
 							options={({ navigation }) => ({
 								headerLeft: () => (
-									<Button onPress={navigation.goBack} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}>Back</Button>
-								)
+									<Button
+										unstyled
+										flexDirection="row"
+										backgroundColor="transparent"
+										pressStyle={{ opacity: 0.5 }}
+										paddingLeft={20}
+										onPress={navigation.goBack}
+										icon={<Feather name="chevron-left" size={16} color="#007AFF" />}
+									>
+										<Text color="#007AFF">Back</Text>
+									</Button>
+								),
 							})}
 						<% } else { %>
 							options={({ navigation }) => ({
