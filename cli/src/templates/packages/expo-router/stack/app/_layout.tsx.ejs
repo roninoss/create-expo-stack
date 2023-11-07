@@ -1,89 +1,87 @@
 import { Feather } from "@expo/vector-icons";
 <% if (props.stylingPackage?.name === "nativewind") { %>
-  import { Stack, useRouter } from "expo-router";
-  import { Text, TouchableOpacity, View } from "react-native";
+	import { Stack, useRouter } from "expo-router";
+	import { Text, TouchableOpacity, View } from "react-native";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
-  import React, { useEffect } from "react";
-  import { TamaguiProvider, Button, Text } from "tamagui";
-  import { useFonts } from "expo-font";
-  import { Stack, useRouter, SplashScreen } from "expo-router";
+	import React, { useEffect } from "react";
+	import { TamaguiProvider, Button, Text } from "tamagui";
+	import { useFonts } from "expo-font";
+	import { Stack, useRouter, SplashScreen } from "expo-router";
 
-  import config from '../tamagui.config'
+	import config from '../tamagui.config'
 
-  SplashScreen.preventAutoHideAsync();
+	SplashScreen.preventAutoHideAsync();
 <% } else { %>
-  import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-  import { Stack, useRouter } from "expo-router";
+	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+	import { Stack, useRouter } from "expo-router";
 <% } %>
 
 export default function Layout() {
-  const router = useRouter();
-  <% if (props.stylingPackage?.name === "nativewind") { %>
-    const BackButton = () => (
-      <TouchableOpacity onPress={router.back}>
-        <View className={styles.backButton}>
-          <Feather name="chevron-left" size={16} color="#007AFF" />
-          <Text className={styles.backButtonText}>Back</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  <% } else if (props.stylingPackage?.name === "tamagui") { %>
-    const [loaded] = useFonts({
-      Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-      InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
-    });
+	const router = useRouter();
+	<% if (props.stylingPackage?.name === "nativewind") { %>
+		const BackButton = () => (
+			<TouchableOpacity onPress={router.back}>
+			<View className={styles.backButton}>
+				<Feather name="chevron-left" size={16} color="#007AFF" />
+				<Text className={styles.backButtonText}>Back</Text>
+			</View>
+			</TouchableOpacity>
+		);
+	<% } else if (props.stylingPackage?.name === "tamagui") { %>
+		const [loaded] = useFonts({
+			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+			InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
+		});
 
-    useEffect(() => {
-      if (loaded) {
-        SplashScreen.hideAsync();
-      }
-    }, [loaded]);
+		useEffect(() => {
+			if (loaded) {
+				SplashScreen.hideAsync();
+			}
+		}, [loaded]);
 
-    if (!loaded) return null;
+		if (!loaded) return null;
 
-    const BackButton = () => (
-      <Button unstyled flexDirection="row" backgroundColor="transparent" paddingLeft={0} pressStyle={{ opacity: 0.5 }} onPress={router.back} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}><Text color="#007AFF">Back</Text></Button>
-    )
-  <% } else { %>
-    const BackButton = () => (
-      <TouchableOpacity onPress={router.back}>
-        <View style={styles.backButton}>
-          <Feather name="chevron-left" size={16} color="#007AFF" />
-          <Text style={styles.backButtonText}>Back</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  <% } %>
+		const BackButton = () => (
+			<Button unstyled flexDirection="row" backgroundColor="transparent" paddingLeft={0} pressStyle={{ opacity: 0.5 }} onPress={router.back} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}><Text color="#007AFF">Back</Text></Button>
+		)
+	<% } else { %>
+		const BackButton = () => (
+			<TouchableOpacity onPress={router.back}>
+			<View style={styles.backButton}>
+				<Feather name="chevron-left" size={16} color="#007AFF" />
+				<Text style={styles.backButtonText}>Back</Text>
+			</View>
+			</TouchableOpacity>
+		);
+	<% } %>
 
-  return (
-    <% if (props.stylingPackage?.name === "tamagui") { %>
-      <TamaguiProvider config={config}>
-    <% } %>
-    <Stack>
-      <Stack.Screen name="index" options={{ title: "Overview" }} />
-      <Stack.Screen name="details"
-        options={{ title: "Details", headerLeft: () => <BackButton /> }}
-      />
-    </Stack>
-    <% if (props.stylingPackage?.name === "tamagui") { %>
-      </TamaguiProvider>
-    <% } %>
-  );
+	return (
+		<% if (props.stylingPackage?.name === "tamagui") { %>
+			<TamaguiProvider config={config}>
+		<% } %>
+		<Stack>
+			<Stack.Screen name="index" options={{ title: "Overview" }} />
+			<Stack.Screen name="details" options={{ title: "Details", headerLeft: () => <BackButton /> }} />
+		</Stack>
+		<% if (props.stylingPackage?.name === "tamagui") { %>
+			</TamaguiProvider>
+		<% } %>
+	);
 }
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
-  const styles = {
-    backButton: "flex-row",
-    backButtonText: "text-blue-500 ml-1",
-  };
+	const styles = {
+		backButton: "flex-row",
+		backButtonText: "text-blue-500 ml-1",
+	};
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
-  const styles = StyleSheet.create({
-    backButton: {
-      flexDirection: "row",
-    },
-    backButtonText: {
-      color: "#007AFF",
-      marginLeft: 4,
-    },
-  });
+	const styles = StyleSheet.create({
+		backButton: {
+			flexDirection: "row",
+		},
+		backButtonText: {
+			color: "#007AFF",
+			marginLeft: 4,
+		},
+	});
 <% } %>
