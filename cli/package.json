@@ -1,6 +1,6 @@
 {
   "name": "create-expo-stack",
-  "version": "2.1.24",
+  "version": "2.1.25",
   "description": "CLI tool to initialize a React Native application with Expo",
   "repository": {
     "type": "git",
