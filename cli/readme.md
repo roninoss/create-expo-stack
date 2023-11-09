@@ -4,7 +4,7 @@
 
 ## Description
 
-This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, and styling with StyleSheets, Tamagui, or Tailwind CSS, with NativeWind.
+This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, styling with StyleSheets, Tamagui, or NativeWind, and authentication via Supabase or Firebase.
 
 You can also use flags such as `--noInstall`, `--noGit`, and `--default` in order to customize your project. The CLI will attempt to automatically determine your package manager of choice but you can also pass in your preferred package manager via `--npm`, `--yarn`, `--pnpm`, or `--bun`. Roadmap coming soon...
 
@@ -40,6 +40,8 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
 | Safe Area Context  | Safe Area Library   | v4      | Safe area support                              |
 | React Native Web   | Web Support         | v0.19   | React Native for Web                           |
+| Firebase           | Backend and Auth    | v10     | Cloud-hosted NoSQL database from Google        |
+| Supabase           | Backend and Auth    | v2      | Open source Firebase alternative               |
 
 ## Reporting Bugs & Feedback
 
