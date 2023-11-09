@@ -2,54 +2,60 @@ import { Toolbox } from 'gluegun/build/types/domain/toolbox'
 import { AvailablePackages, CliResults } from '../types'
 
 export function generateProjectFiles(
-  cliResults: CliResults,
-  files: string[],
-  formattedFiles: any[],
-  navigationPackage: AvailablePackages,
-  toolbox: Toolbox,
-  stylingPackage: AvailablePackages,
+	authenticationPackage: AvailablePackages,
+	cliResults: CliResults,
+	files: string[],
+	formattedFiles: any[],
+	navigationPackage: AvailablePackages,
+	stylingPackage: AvailablePackages,
+	toolbox: Toolbox,
 ) {
-  const { projectName, packages, flags } = cliResults
+	const { projectName, packages, flags } = cliResults
 
-  return files.reduce((prev, file) => {
-    const template = file
+	return files.reduce((prev, file) => {
+		const template = file
+		let target = `${projectName}/` + file.replace('.ejs', '');
 
-    let target =
-      `${projectName}/` + file.replace('.ejs', '').replace('base/', '')
+		if (authenticationPackage?.name === 'supabase') {
+			target = target.replace('packages/supabase/', '')
+		}
 
-    if (stylingPackage?.name === 'tamagui') {
-      target = target.replace('packages/tamagui/', '')
-    } else if (stylingPackage?.name === 'nativewind') {
-      target = target.replace('packages/nativewind/', '')
-    }
+		target = target.replace('base/', '')
 
-    if (navigationPackage?.name === 'react-navigation') {
-      target = target.replace('packages/react-navigation/App.tsx', 'App.tsx')
-      target = target.replace('packages/react-navigation/', 'src/')
-    }
+		if (stylingPackage?.name === 'tamagui') {
+			target = target.replace('packages/tamagui/', '')
+		} else if (stylingPackage?.name === 'nativewind') {
+			target = target.replace('packages/nativewind/', '')
+		}
 
-    if (navigationPackage?.name === 'expo-router') {
-      target = target.replace('packages/expo-router/', '')
-      if (navigationPackage.options.type === 'stack') {
-        target = target.replace('stack/', '')
-      }
-      if (navigationPackage.options.type === 'tabs') {
-        target = target.replace('tabs/', '')
-      }
-    }
+		if (navigationPackage?.name === 'react-navigation') {
+			target = target.replace('packages/react-navigation/App.tsx', 'App.tsx')
+			target = target.replace('packages/react-navigation/', 'src/')
+		}
 
-    const gen = toolbox.template.generate({
-      template,
-      target: './' + target,
-      props: {
-        projectName,
-        packages,
-        flags,
-        stylingPackage,
-        navigationPackage,
-      },
-    })
+		if (navigationPackage?.name === 'expo-router') {
+			target = target.replace('packages/expo-router/', '')
+			if (navigationPackage.options.type === 'stack') {
+				target = target.replace('stack/', '')
+			}
+			if (navigationPackage.options.type === 'tabs') {
+				target = target.replace('tabs/', '')
+			}
+		}
 
-    return prev.concat([gen])
-  }, formattedFiles)
+		const gen = toolbox.template.generate({
+			template,
+			target: './' + target,
+			props: {
+				authenticationPackage,
+				flags,
+				navigationPackage,
+				projectName,
+				packages,
+				stylingPackage,
+			},
+		})
+
+		return prev.concat([gen])
+	}, formattedFiles)
 }

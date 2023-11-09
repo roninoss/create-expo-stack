@@ -71,8 +71,8 @@ const command: GluegunCommand = {
 					cliResults = await runCLI(toolbox)
 				}
 
-				// @internal Update the cliResults with the options passed in via the command
-				// This is used for testing purposes only
+				// Update the cliResults with the options passed in via the command
+				// Navigation packages
 				if (
 					options.reactNavigation ||
 					options['react-navigation'] ||
@@ -101,6 +101,7 @@ const command: GluegunCommand = {
 						},
 					})
 				}
+				// Styling packages
 				if (options.nativewind) {
 					// Add nativewind package
 					cliResults.packages.push({
@@ -120,6 +121,14 @@ const command: GluegunCommand = {
 						type: 'styling',
 					})
 				}
+				// Authentication packages
+				if (options.supabase) {
+					// Add supabase package
+					cliResults.packages.push({
+						name: 'supabase',
+						type: 'authentication',
+					})
+				}
 
 				// Destructure the results but set the projectName if the first param is passed in
 				if (first) {
@@ -127,22 +136,23 @@ const command: GluegunCommand = {
 				}
 
 				// By this point, all cliResults should be set
-
-				info('Your project configuration:')
+				info('')
+				highlight('Your project configuration:')
 				info(util.inspect(cliResults, false, null, true /* enable colors */))
 				const { packages } = cliResults
 
 				// Define props to be passed into the templates
-
+				const authenticationPackage =
+					packages.find((p) => p.type === 'authentication') || undefined;
 				const navigationPackage =
 					packages.find((p) => p.type === 'navigation') || undefined
 				//   if there is no styling package, add the stylesheet package
 				const stylingPackage = packages.find((p) => p.type === 'styling');
 
-
 				let files: string[] = []
 
 				files = configureProjectFiles(
+					authenticationPackage,
 					files,
 					navigationPackage,
 					stylingPackage,
@@ -153,12 +163,13 @@ const command: GluegunCommand = {
 				let formattedFiles: any[] = []
 
 				formattedFiles = generateProjectFiles(
+					authenticationPackage,
 					cliResults,
 					files,
 					formattedFiles,
 					navigationPackage,
-					toolbox,
 					stylingPackage,
+					toolbox,
 				)
 
 				await printOutput(cliResults, formattedFiles, toolbox)

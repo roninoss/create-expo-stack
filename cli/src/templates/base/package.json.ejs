@@ -51,6 +51,12 @@
       "react-native-web": "~0.19.6",
     <% } %>
 
+	<% if (props.authenticationPackage?.name === "supabase") { %>
+	    "@react-native-async-storage/async-storage": "1.18.2",
+		"@supabase/supabase-js": "^2.38.4",
+		"react-native-url-polyfill": "^2.0.0",
+	<% } %>
+
     "expo": "~49.0.11",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
