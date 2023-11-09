@@ -1,5 +1,5 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox'
-import { AvailablePackages, CliResults } from '../types'
+import { AvailablePackages, CliResults, PackageManager } from '../types'
 
 export function generateProjectFiles(
 	authenticationPackage: AvailablePackages,
@@ -7,6 +7,7 @@ export function generateProjectFiles(
 	files: string[],
 	formattedFiles: any[],
 	navigationPackage: AvailablePackages,
+	packageManager: PackageManager,
 	stylingPackage: AvailablePackages,
 	toolbox: Toolbox,
 ) {
@@ -55,6 +56,7 @@ export function generateProjectFiles(
 				flags,
 				navigationPackage,
 				projectName,
+				packageManager,
 				packages,
 				stylingPackage,
 			},

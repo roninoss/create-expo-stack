@@ -20,6 +20,8 @@ export const availablePackages = [
 
 export type NavigationTypes = 'stack' | 'tabs' | undefined
 
+export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun'
+
 export type AvailablePackages = {
 	name: (typeof availablePackages)[number]
 	type: 'navigation' | 'styling' | 'authentication'

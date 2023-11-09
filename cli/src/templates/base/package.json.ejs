@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "android": "expo start --android",
-    "format": "eslint '**/*.{js,jsx,ts,tsx}' --fix && prettier '**/*.{js,jsx,ts,tsx,json}' --write",
+	<% if (props.packageManager === "bun") { %>
+		"format": "bun run eslint '**/*.{js,jsx,ts,tsx}' --fix && bun run prettier '**/*.{js,jsx,ts,tsx,json}' --write",
+	<% } else { %>
+    	"format": "eslint '**/*.{js,jsx,ts,tsx}' --fix && prettier '**/*.{js,jsx,ts,tsx,json}' --write",
+	<% } %>
     "ios": "expo start --ios",
     "start": "expo start",
     "web": "expo start --web"

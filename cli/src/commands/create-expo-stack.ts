@@ -4,6 +4,7 @@ const util = require('util')
 import {
 	configureProjectFiles,
 	generateProjectFiles,
+	getPackageManager,
 	printOutput,
 	renderTitle,
 	runCLI,
@@ -21,6 +22,7 @@ const command: GluegunCommand = {
 			parameters: { first, options },
 			print: { info, highlight, warning },
 		} = toolbox
+
 		if (options.help || options.h) {
 			showHelp(info, highlight, warning)
 
@@ -145,7 +147,43 @@ const command: GluegunCommand = {
 				// By this point, all cliResults should be set
 				info('')
 				highlight('Your project configuration:')
-				info(util.inspect(cliResults, false, null, true /* enable colors */))
+				info(`${util.inspect(cliResults, false, null, true /* enable colors */)}`)
+
+				info('')
+				highlight('To recreate this project, run:')
+
+				// Function that outputs a string given the CLI results and the packageManager. The outputted string should be a command that can be run to recreate the project
+				const generateRerunScript = (cliResults: CliResults, packageManager: string) => {
+					let script = `npx create-expo-stack@latest ${cliResults.projectName} `
+
+					// Add the packages
+					cliResults.packages.forEach((p) => {
+						script += `--${p.name} `
+						// If the package is a navigation package, add the type if it is tabs
+						if (p.type === 'navigation' && p.options?.type === 'tabs') {
+							script += '--tabs '
+						}
+					})
+
+					// Check if the user wants to skip installing packages
+					if (cliResults.flags.noInstall) {
+						script += '--noInstall '
+					}
+
+					// Check if the user wants to skip initializing git
+					if (cliResults.flags.noGit) {
+						script += '--noGit '
+					}
+
+					// Add the package manager
+					script += `--${packageManager}`
+
+					return script
+				}
+
+				const packageManager = getPackageManager(toolbox)
+				warning(`  ${generateRerunScript(cliResults, packageManager)}`)
+
 				const { packages } = cliResults
 
 				// Define props to be passed into the templates
@@ -175,6 +213,7 @@ const command: GluegunCommand = {
 					files,
 					formattedFiles,
 					navigationPackage,
+					packageManager,
 					stylingPackage,
 					toolbox,
 				)
