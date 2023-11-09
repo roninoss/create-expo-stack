@@ -128,5 +128,16 @@ export function configureProjectFiles(
 		files = [...files, ...supabaseFiles];
 	}
 
+	// add supabase files if needed
+	if (authenticationPackage?.name === 'firebase') {
+		const firebaseFiles = [
+			'packages/firebase/utils/firebase.ts.ejs',
+			'packages/firebase/metro.config.js',
+			'packages/firebase/.env',
+		];
+
+		files = [...files, ...firebaseFiles];
+	}
+
 	return files
 }

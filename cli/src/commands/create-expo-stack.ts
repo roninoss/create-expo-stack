@@ -129,6 +129,13 @@ const command: GluegunCommand = {
 						type: 'authentication',
 					})
 				}
+				if (options.firebase) {
+					// Add firebase package
+					cliResults.packages.push({
+						name: 'firebase',
+						type: 'authentication',
+					})
+				}
 
 				// Destructure the results but set the projectName if the first param is passed in
 				if (first) {

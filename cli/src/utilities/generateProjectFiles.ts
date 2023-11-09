@@ -20,6 +20,10 @@ export function generateProjectFiles(
 			target = target.replace('packages/supabase/', '')
 		}
 
+		if (authenticationPackage?.name === 'firebase') {
+			target = target.replace('packages/firebase/', '')
+		}
+
 		target = target.replace('base/', '')
 
 		if (stylingPackage?.name === 'tamagui') {
