@@ -21,7 +21,7 @@ export default function Supabase() {
 				v2
 			</div>
 			<h1 className="text-2xl mt-2">Supabase</h1>
-			<span className="font-thin max-w-[24ch]">Coming Soon</span>
+			<span className="font-thin max-w-[24ch]">Open source backend as a service</span>
 		</div>
 	);
 }
