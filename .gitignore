@@ -8,3 +8,4 @@ build
 .vscode
 myTestProject
 .turbo
+package-lock.json
