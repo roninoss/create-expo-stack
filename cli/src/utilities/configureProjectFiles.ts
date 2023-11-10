@@ -11,10 +11,6 @@ export function configureProjectFiles(
 ): string[] {
 	// Define the files common to all templates to be generated
 	const baseFiles = [
-		'base/assets/adaptive-icon.png',
-		'base/assets/favicon.png',
-		'base/assets/icon.png',
-		'base/assets/splash.png',
 		'base/tsconfig.json.ejs',
 		'base/app.json.ejs',
 		'base/App.tsx.ejs',
