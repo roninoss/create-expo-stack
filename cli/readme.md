@@ -14,7 +14,7 @@ To get started, use npx to run the CLI tool. You will be prompted to opt into th
 
 `npx create-expo-stack@latest`
 
-<img src="https://github.com/danstepanov/create-expo-stack/assets/5482800/6c4b5a00-63ae-4b3d-af0b-6da805e8c547" />
+<img src="https://github.com/danstepanov/create-expo-stack/assets/5482800/e709dd66-cb9b-463c-91f9-b842bb80585c" />
 
 ## Tech Stack for the templates
 
