@@ -2,6 +2,7 @@ import { Toolbox } from 'gluegun/build/types/domain/toolbox'
 
 import { getPackageManager } from './getPackageManager'
 import { CliResults } from '../types'
+import { copyBaseAssets } from './copyBaseAssets'
 
 export async function printOutput(
 	cliResults: CliResults,
@@ -21,6 +22,10 @@ export async function printOutput(
 	highlight(`Initializing your project...`)
 
 	await Promise.all(formattedFiles)
+
+	info(``)
+	highlight(`Copying base assets...`)
+	await copyBaseAssets(projectName, toolbox)
 
 	// check if npm option is set, otherwise set based on what the system is configure to use
 	const packageManager = getPackageManager(toolbox)
