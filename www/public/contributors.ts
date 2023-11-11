@@ -9,16 +9,22 @@ export const contributors = [
 		"html_url": "https://github.com/danstepanov",
 	},
 	{
+		"login": "ernestoresende",
+		"id": 55156145,
+		"avatar_url": "https://avatars.githubusercontent.com/u/55156145?v=4",
+		"html_url": "https://github.com/ernestoresende",
+	},
+	{
 		"login": "frankcalise",
 		"id": 374022,
 		"avatar_url": "https://avatars.githubusercontent.com/u/374022?v=4",
 		"html_url": "https://github.com/frankcalise",
 	},
 	{
-		"login": "alitnk",
-		"id": 35243344,
-		"avatar_url": "https://avatars.githubusercontent.com/u/35243344?v=4",
-		"html_url": "https://github.com/alitnk",
+		"login": "catalinmiron",
+		"id": 2805320,
+		"avatar_url": "https://avatars.githubusercontent.com/u/2805320?v=4",
+		"html_url": "https://github.com/catalinmiron",
 	},
 	{
 		"login": "bautistaaa",
@@ -42,10 +48,10 @@ export const contributors = [
 		"contributions": 185
 	},
 	{
-		"login": "ernestoresende",
-		"id": 55156145,
-		"avatar_url": "https://avatars.githubusercontent.com/u/55156145?v=4",
-		"html_url": "https://github.com/ernestoresende",
+		"login": "alitnk",
+		"id": 35243344,
+		"avatar_url": "https://avatars.githubusercontent.com/u/35243344?v=4",
+		"html_url": "https://github.com/alitnk",
 	},
 	{
 		"login": "MVAodhan",
