@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Firebase() {
 	return (
@@ -17,9 +17,7 @@ export default function Firebase() {
 				width={56}
 				height={56}
 			/>
-			<div className="bg-[#FFCA28]/90 font-bold text-black rounded-full px-2 text-sm">
-				v10
-			</div>
+			<div className="bg-[#FFCA28]/90 font-bold text-black rounded-full px-2 text-sm">v10</div>
 			<h1 className="text-2xl mt-2">Firebase</h1>
 			<span className="font-thin max-w-[24ch]">Backend as a service from Google</span>
 		</div>

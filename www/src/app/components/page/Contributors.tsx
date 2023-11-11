@@ -1,6 +1,6 @@
-import { contributors } from "../../../../public/contributors";
-import { Contributor } from "../Contributor";
-import { AiFillGithub } from "react-icons/ai";
+import { contributors } from '../../../../public/contributors';
+import { Contributor } from '../Contributor';
+import { AiFillGithub } from 'react-icons/ai';
 export default function Testimonials() {
 	return (
 		<>
@@ -9,17 +9,14 @@ export default function Testimonials() {
 			</h1>
 			<div className="flex flex-col items-center gap-6">
 				<p className="text-neutral-200 max-w-[50ch] text-center leading-loose">
-					Create Expo Stack is open-source and built by developers just like
-					you. These are some of the contributors who made this possible so far.
+					Create Expo Stack is open-source and built by developers just like you. These are some of the
+					contributors who made this possible so far.
 				</p>
 				{/* honeycomb grid for the future */}
 				{/* [&>*:nth-child(9n_+_1)]:ml-[1.875rem] sm:[&>*:nth-child(9n_+_1)]:ml-[2.375rem] */}
 				<div className="flex flex-wrap gap-3 w-[18rem] sm:w-[23rem]">
 					{contributors.map((contributor) => (
-						<Contributor
-							contributor={contributor}
-							key={contributors.indexOf(contributor)}
-						/>
+						<Contributor contributor={contributor} key={contributors.indexOf(contributor)} />
 					))}
 				</div>
 				<a

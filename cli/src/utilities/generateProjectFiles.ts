@@ -2,13 +2,13 @@ import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 import { AvailablePackages, CliResults, PackageManager } from '../types';
 
 export function generateProjectFiles(
-	authenticationPackage: AvailablePackages,
+	authenticationPackage: AvailablePackages | undefined,
 	cliResults: CliResults,
 	files: string[],
 	formattedFiles: any[],
-	navigationPackage: AvailablePackages,
+	navigationPackage: AvailablePackages | undefined,
 	packageManager: PackageManager,
-	stylingPackage: AvailablePackages,
+	stylingPackage: AvailablePackages | undefined,
 	toolbox: Toolbox
 ) {
 	const { projectName, packages, flags } = cliResults;
@@ -40,10 +40,10 @@ export function generateProjectFiles(
 
 		if (navigationPackage?.name === 'expo-router') {
 			target = target.replace('packages/expo-router/', '');
-			if (navigationPackage.options.type === 'stack') {
+			if (navigationPackage?.options?.type === 'stack') {
 				target = target.replace('stack/', '');
 			}
-			if (navigationPackage.options.type === 'tabs') {
+			if (navigationPackage?.options?.type === 'tabs') {
 				target = target.replace('tabs/', '');
 			}
 		}

@@ -1,7 +1,7 @@
-import "asciinema-player/dist/bundle/asciinema-player.css";
-import "../../asciinema-theme-mine.css";
+import 'asciinema-player/dist/bundle/asciinema-player.css';
+import '../../asciinema-theme-mine.css';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 export default function CliDemo() {
 	const cliDemoRef = useRef(null);
@@ -9,16 +9,16 @@ export default function CliDemo() {
 	useEffect(() => {
 		(async function () {
 			// @ts-ignore
-			const AsciinemaPlayerLibrary = await import("asciinema-player");
+			const AsciinemaPlayerLibrary = await import('asciinema-player');
 			AsciinemaPlayerLibrary.create(
-				window.innerWidth > 768 ? "demo-desktop.cast" : "demo-mobile.cast",
+				window.innerWidth > 768 ? 'demo-desktop.cast' : 'demo-mobile.cast',
 				cliDemoRef.current,
 				{
-					fit: "width",
-					theme: "mine",
+					fit: 'width',
+					theme: 'mine',
 					controls: false,
 					autoPlay: true,
-					loop: false,
+					loop: false
 				}
 			);
 		})();

@@ -52,7 +52,7 @@ export function configureProjectFiles(
 		];
 		// if it's a stack, add the stack files) {
 
-		if (navigationPackage.options.type === 'stack') {
+		if (navigationPackage?.options?.type === 'stack') {
 			reactNavigationFiles = [
 				...reactNavigationFiles,
 				'packages/react-navigation/screens/details.tsx.ejs',
@@ -85,7 +85,7 @@ export function configureProjectFiles(
 			'packages/expo-router/index.ts'
 		];
 		// if it's a stack, add the stack files) {
-		if (navigationPackage.options.type === 'stack') {
+		if (navigationPackage?.options?.type === 'stack') {
 			expoRouterFiles = [
 				...expoRouterFiles,
 				'packages/expo-router/stack/app/_layout.tsx.ejs',

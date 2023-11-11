@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Supabase() {
 	return (
@@ -17,9 +17,7 @@ export default function Supabase() {
 				width={56}
 				height={56}
 			/>
-			<div className="bg-[#3FCF8E]/80 font-bold text-black rounded-full px-2 text-sm">
-				v2
-			</div>
+			<div className="bg-[#3FCF8E]/80 font-bold text-black rounded-full px-2 text-sm">v2</div>
 			<h1 className="text-2xl mt-2">Supabase</h1>
 			<span className="font-thin max-w-[24ch]">Open source backend as a service</span>
 		</div>
