@@ -38,8 +38,15 @@
 		}
 	},
 	"prettier": {
-		"semi": false,
-		"singleQuote": true
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"useTabs": true,
+		"trailingComma": "none",
+		"printWidth": 120,
+		"bracketSpacing": true,
+		"bracketSameLine": false,
+		"arrowParens": "always"
 	},
 	"dependencies": {
 		"ejs-lint": "^2.0.0",

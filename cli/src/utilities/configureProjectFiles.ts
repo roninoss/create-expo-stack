@@ -1,13 +1,13 @@
-import { Toolbox } from 'gluegun/build/types/domain/toolbox'
-import { AvailablePackages } from '../types'
-import { getPackageManager } from './getPackageManager'
+import { Toolbox } from 'gluegun/build/types/domain/toolbox';
+import { AvailablePackages } from '../types';
+import { getPackageManager } from './getPackageManager';
 
 export function configureProjectFiles(
 	authenticationPackage: AvailablePackages | undefined,
 	files: string[],
 	navigationPackage: AvailablePackages | undefined,
 	stylingPackage: AvailablePackages | undefined,
-	toolbox: Toolbox,
+	toolbox: Toolbox
 ): string[] {
 	// Define the files common to all templates to be generated
 	const baseFiles = [
@@ -16,34 +16,31 @@ export function configureProjectFiles(
 		'base/App.tsx.ejs',
 		'base/babel.config.js.ejs',
 		'base/package.json.ejs',
-		'base/.gitignore.ejs',
-	]
+		'base/.gitignore.ejs'
+	];
 
-	const packageManager = getPackageManager(toolbox)
+	const packageManager = getPackageManager(toolbox);
 	// Add npmrc file if user is using pnpm and expo router
 	if (packageManager === 'pnpm' && navigationPackage?.name === 'expo-router') {
-		baseFiles.push('base/.npmrc.ejs')
+		baseFiles.push('base/.npmrc.ejs');
 	}
 
-	files = [...baseFiles]
+	files = [...baseFiles];
 
 	// add nativewind files if needed
 	// modify base files with nativewind specifications
 	if (stylingPackage?.name === 'nativewind') {
-		const nativewindFiles = [
-			'packages/nativewind/tailwind.config.js.ejs',
-			'packages/nativewind/app.d.ts',
-		]
+		const nativewindFiles = ['packages/nativewind/tailwind.config.js.ejs', 'packages/nativewind/app.d.ts'];
 
-		files = [...files, ...nativewindFiles]
+		files = [...files, ...nativewindFiles];
 	}
 
 	// add tamagui files if needed
 	// modify base files with tamagui specifications
 	if (stylingPackage?.name === 'tamagui') {
-		const tamaguiFiles = ['packages/tamagui/tamagui.config.ts.ejs']
+		const tamaguiFiles = ['packages/tamagui/tamagui.config.ts.ejs'];
 
-		files = [...files, ...tamaguiFiles]
+		files = [...files, ...tamaguiFiles];
 	}
 
 	// add react navigation files if needed
@@ -51,16 +48,16 @@ export function configureProjectFiles(
 	if (navigationPackage?.name === 'react-navigation') {
 		let reactNavigationFiles = [
 			'packages/react-navigation/App.tsx.ejs',
-			'packages/react-navigation/navigation/index.tsx.ejs',
-		]
+			'packages/react-navigation/navigation/index.tsx.ejs'
+		];
 		// if it's a stack, add the stack files) {
 
 		if (navigationPackage.options.type === 'stack') {
 			reactNavigationFiles = [
 				...reactNavigationFiles,
 				'packages/react-navigation/screens/details.tsx.ejs',
-				'packages/react-navigation/screens/overview.tsx.ejs',
-			]
+				'packages/react-navigation/screens/overview.tsx.ejs'
+			];
 		} else {
 			// it's a tab navigator
 			reactNavigationFiles = [
@@ -69,14 +66,14 @@ export function configureProjectFiles(
 				'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
 				'packages/react-navigation/screens/modal.tsx.ejs',
 				'packages/react-navigation/screens/one.tsx.ejs',
-				'packages/react-navigation/screens/two.tsx.ejs',
-			]
+				'packages/react-navigation/screens/two.tsx.ejs'
+			];
 		}
 
 		// Remove the base App.tsx.ejs file since we'll be using the one from react-navigation
-		files = files.filter((file) => file !== 'base/App.tsx.ejs')
+		files = files.filter((file) => file !== 'base/App.tsx.ejs');
 
-		files = [...files, ...reactNavigationFiles]
+		files = [...files, ...reactNavigationFiles];
 	}
 
 	// add expo router files if needed
@@ -85,16 +82,16 @@ export function configureProjectFiles(
 		let expoRouterFiles = [
 			'packages/expo-router/expo-env.d.ts',
 			'packages/expo-router/metro.config.js',
-			'packages/expo-router/index.ts',
-		]
+			'packages/expo-router/index.ts'
+		];
 		// if it's a stack, add the stack files) {
 		if (navigationPackage.options.type === 'stack') {
 			expoRouterFiles = [
 				...expoRouterFiles,
 				'packages/expo-router/stack/app/_layout.tsx.ejs',
 				'packages/expo-router/stack/app/details.tsx.ejs',
-				'packages/expo-router/stack/app/index.tsx.ejs',
-			]
+				'packages/expo-router/stack/app/index.tsx.ejs'
+			];
 		} else {
 			// it's a tab navigator
 			expoRouterFiles = [
@@ -104,22 +101,19 @@ export function configureProjectFiles(
 				'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
 				'packages/expo-router/tabs/app/_layout.tsx.ejs',
 				'packages/expo-router/tabs/app/modal.tsx.ejs',
-				'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs',
-			]
+				'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs'
+			];
 		}
 
 		// Remove the base App.tsx.ejs file since we'll be using index.tsx from expo-router
-		files = files.filter((file) => file !== 'base/App.tsx.ejs')
+		files = files.filter((file) => file !== 'base/App.tsx.ejs');
 
-		files = [...files, ...expoRouterFiles]
+		files = [...files, ...expoRouterFiles];
 	}
 
 	// add supabase files if needed
 	if (authenticationPackage?.name === 'supabase') {
-		const supabaseFiles = [
-			'packages/supabase/utils/supabase.ts.ejs',
-			'packages/supabase/.env',
-		];
+		const supabaseFiles = ['packages/supabase/utils/supabase.ts.ejs', 'packages/supabase/.env'];
 
 		files = [...files, ...supabaseFiles];
 	}
@@ -129,11 +123,11 @@ export function configureProjectFiles(
 		const firebaseFiles = [
 			'packages/firebase/utils/firebase.ts.ejs',
 			'packages/firebase/metro.config.js',
-			'packages/firebase/.env',
+			'packages/firebase/.env'
 		];
 
 		files = [...files, ...firebaseFiles];
 	}
 
-	return files
+	return files;
 }

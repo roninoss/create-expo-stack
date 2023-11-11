@@ -1,5 +1,5 @@
-import { Toolbox } from 'gluegun/build/types/domain/toolbox'
-import { AvailablePackages, CliResults, PackageManager } from '../types'
+import { Toolbox } from 'gluegun/build/types/domain/toolbox';
+import { AvailablePackages, CliResults, PackageManager } from '../types';
 
 export function generateProjectFiles(
 	authenticationPackage: AvailablePackages,
@@ -9,42 +9,42 @@ export function generateProjectFiles(
 	navigationPackage: AvailablePackages,
 	packageManager: PackageManager,
 	stylingPackage: AvailablePackages,
-	toolbox: Toolbox,
+	toolbox: Toolbox
 ) {
-	const { projectName, packages, flags } = cliResults
+	const { projectName, packages, flags } = cliResults;
 
 	return files.reduce((prev, file) => {
-		const template = file
+		const template = file;
 		let target = `${projectName}/` + file.replace('.ejs', '');
 
 		if (authenticationPackage?.name === 'supabase') {
-			target = target.replace('packages/supabase/', '')
+			target = target.replace('packages/supabase/', '');
 		}
 
 		if (authenticationPackage?.name === 'firebase') {
-			target = target.replace('packages/firebase/', '')
+			target = target.replace('packages/firebase/', '');
 		}
 
-		target = target.replace('base/', '')
+		target = target.replace('base/', '');
 
 		if (stylingPackage?.name === 'tamagui') {
-			target = target.replace('packages/tamagui/', '')
+			target = target.replace('packages/tamagui/', '');
 		} else if (stylingPackage?.name === 'nativewind') {
-			target = target.replace('packages/nativewind/', '')
+			target = target.replace('packages/nativewind/', '');
 		}
 
 		if (navigationPackage?.name === 'react-navigation') {
-			target = target.replace('packages/react-navigation/App.tsx', 'App.tsx')
-			target = target.replace('packages/react-navigation/', 'src/')
+			target = target.replace('packages/react-navigation/App.tsx', 'App.tsx');
+			target = target.replace('packages/react-navigation/', 'src/');
 		}
 
 		if (navigationPackage?.name === 'expo-router') {
-			target = target.replace('packages/expo-router/', '')
+			target = target.replace('packages/expo-router/', '');
 			if (navigationPackage.options.type === 'stack') {
-				target = target.replace('stack/', '')
+				target = target.replace('stack/', '');
 			}
 			if (navigationPackage.options.type === 'tabs') {
-				target = target.replace('tabs/', '')
+				target = target.replace('tabs/', '');
 			}
 		}
 
@@ -58,10 +58,10 @@ export function generateProjectFiles(
 				projectName,
 				packageManager,
 				packages,
-				stylingPackage,
-			},
-		})
+				stylingPackage
+			}
+		});
 
-		return prev.concat([gen])
-	}, formattedFiles)
+		return prev.concat([gen]);
+	}, formattedFiles);
 }
