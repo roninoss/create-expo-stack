@@ -119,6 +119,9 @@ const config = createTamagui({
 
 type AppConfig = typeof config;
 
+// Enable auto-completion of props shorthand (ex: jc="center") for Tamagui templates.
+// Docs: https://tamagui.dev/docs/core/configuration
+
 declare module "tamagui" {
   	interface TamaguiCustomConfig extends AppConfig {}
 }
