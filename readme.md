@@ -87,18 +87,48 @@ Thanks go to these wonderful people:
           Frank Calise
         </a>
       </td>
+	  <td align="center" valign="top" width="14.28%">
+        <a href="https://twitter.com/mironcatalin">
+          <img src="https://avatars.githubusercontent.com/u/2805320?v=4" width="100px;" alt="Catalin Miron"/>
+          <br />
+          Catalin Miron
+        </a>
+      </td>
       <td align="center" valign="top" width="14.28%">
         <a href="https://twitter.com/PickleNik0864">
-          <img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="PickleNik"/>
+          <img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="catalinmiron"/>
           <br />
           PickleNik
         </a>
       </td>
-      <td align="center" valign="top" width="14.28%">
+    </tr>
+	<tr>
+		<td align="center" valign="top" width="14.28%">
         <a href="https://twitter.com/trashh_dev">
           <img src="https://pbs.twimg.com/profile_images/1598959528518643713/aWdwBYxv_400x400.jpg" width="100px;" alt="Chris Bautista"/>
           <br />
           Chris Bautista
+        </a>
+      </td>
+	  <td align="center" valign="top" width="14.28%">
+        <a href="https://twitter.com/hugemathguy">
+          <img src="https://pbs.twimg.com/profile_images/1503470123763617796/49xDaART_400x400.jpg" width="100px;" alt="Andrew Levy"/>
+          <br />
+          Andrew Levy
+        </a>
+      </td>
+	  <td align="center" valign="top" width="14.28%">
+        <a href="https://twitter.com/alire74_">
+          <img src="https://pbs.twimg.com/profile_images/1680836863026765824/lrljy0sl_400x400.jpg" width="100px;" alt="Ali Zamani"/>
+          <br />
+          Ali Zamani
+        </a>
+      </td>
+	  <td align="center" valign="top" width="14.28%">
+        <a href="https://twitter.com/mwarger">
+          <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100px;" alt="Mat Warger"/>
+          <br />
+          Mat Warger
         </a>
       </td>
       <td align="center" valign="top" width="14.28%">
@@ -108,6 +138,6 @@ Thanks go to these wonderful people:
           Aodhan Hamilton
         </a>
       </td>
-    </tr>
+	</tr>
   </tbody>
 </table>
