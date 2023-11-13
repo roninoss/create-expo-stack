@@ -1,0 +1,71 @@
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  	import { Platform, Text, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  	import { YStack, Paragraph, Separator, Theme } from "tamagui";
+	import { Platform } from 'react-native'
+<% } else { %>
+  	import { Platform, StyleSheet, Text, View } from "react-native";
+<% } %>
+import { StatusBar } from "expo-status-bar";
+
+import EditScreenInfo from "../components/edit-screen-info";
+
+export default function Modal() {
+	<% if (props.stylingPackage?.name === "nativewind") { %>
+		return (
+			<View className={styles.container}>
+				<StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+				<Text className={styles.title}>Modal</Text>
+				<View className={styles.separator} />
+				<EditScreenInfo path="src/screens/modal.tsx" />
+			</View>
+		)
+			<% } else if (props.stylingPackage?.name === "tamagui") { %>
+		return (
+					<Theme name="light">
+						<YStack flex={1} alignItems="center" justifyContent="center">
+							<StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+							<Paragraph>Modal</Paragraph>
+							<Separator />
+							<EditScreenInfo path="src/screens/modal.tsx" />
+						</YStack>
+					</Theme>
+				);
+	<% } else { %>
+		return (
+			<View style={styles.container}>
+				<StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+				<Text style={styles.title}>Modal</Text>
+				<View style={styles.separator} />
+				<EditScreenInfo path="src/screens/modal.tsx" />
+			</View>
+		);
+	<% } %>
+}
+
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  	const styles = {
+		container: "items-center flex-1 justify-center",
+		separator: "h-[1px] my-7 w-4/5 bg-gray-200",
+		title: "text-xl font-bold"
+	};
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+  	const styles = StyleSheet.create({
+		container: {
+			alignItems: "center",
+			flex: 1,
+			justifyContent: "center"
+		},
+		separator: {
+			backgroundColor: "gray",
+			height: 1,
+			marginVertical: 30,
+			opacity: 0.25,
+			width: "80%",
+		},
+		title: {
+			fontSize: 20,
+			fontWeight: "bold"
+		}
+	});
+<% } %>
