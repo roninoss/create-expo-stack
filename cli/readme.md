@@ -18,7 +18,7 @@ To get started, use npx to run the CLI tool. You will be prompted to opt into th
 
 ## Tech Stack for the templates
 
-Currently, all of the [templates](https://github.com/danstepanov/create-expo-stack/tree/cli/main/src/templates) use the same versions of the following libraries. Not all of the templates include all of the libraries, but they are all available for use.
+Currently, all of the [templates](https://github.com/danstepanov/create-expo-stack/tree/main/cli/src/templates) use the same versions of the following libraries. Not all of the templates include all of the libraries, but they are all available for use.
 
 Each project is generated based on the results of the CLI, on a per-file basis. This approach makes this CLI extremely extendable and easy to use. Common files to all generated projects are stored in the [base template folder](https://github.com/danstepanov/create-expo-stack/tree/main/cli/src/templates/base) while files pertaining to additional packages are stored in the [packages template folder](https://github.com/danstepanov/create-expo-stack/tree/main/cli/src/templates/packages). Beyond adding files, this project makes use of [EJS](https://ejs.co/) in order to manipulate existing files as necessary.
 
