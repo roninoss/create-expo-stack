@@ -36,16 +36,17 @@ export async function printOutput(cliResults: CliResults, formattedFiles: any[],
 			shell: true,
 			stdio: 'inherit'
 		});
+
+		info(``);
+		highlight(`Cleaning up your project...`);
+		info(``);
+	
+		// format the files
+		await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
+			shell: true,
+			stdio: 'inherit'
+		});
 	}
-
-	info(``);
-	highlight(`Cleaning up your project...`);
-
-	// format the files
-	await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
-		shell: true,
-		stdio: 'inherit'
-	});
 
 	if (!options.noGit && !flags.noGit) {
 		info(``);
