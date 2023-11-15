@@ -8,5 +8,7 @@
   "updateInternalDependencies": "patch",
   "access": "public",
   "baseBranch": "main",
-  "fixed": [["create-expo-stack"]]
+  "fixed": [["create-expo-stack"]],
+  "ignore": ["create-expo-stack-web"]
+  
 }
