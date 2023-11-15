@@ -1,6 +1,6 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
-import { getPackageManager } from './getPackageManager';
+import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager';
 import { CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
 
@@ -36,16 +36,30 @@ export async function printOutput(cliResults: CliResults, formattedFiles: any[],
 			shell: true,
 			stdio: 'inherit'
 		});
+
+		info(``);
+		highlight(`Cleaning up your project...`);
+		info(``);
+
+		// format the files with prettier and eslint using installed packages.
+		await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
+			shell: true,
+			stdio: 'inherit'
+		});
+	} else {
+		const runnerType = getPackageManagerRunnerX(toolbox);
+
+		info(``);
+		highlight(`No installation found.`);
+		highlight(`Cleaning up your project using ${runnerType}...`);
+		info(``);
+
+		// Running prettier using global runners against the template.
+		await system.spawn(`${runnerType} prettier "${projectName}/**/*.{json,js,jsx,ts,tsx}" --write`, {
+			shell: true,
+			stdio: 'inherit'
+		});
 	}
-
-	info(``);
-	highlight(`Cleaning up your project...`);
-
-	// format the files
-	await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
-		shell: true,
-		stdio: 'inherit'
-	});
 
 	if (!options.noGit && !flags.noGit) {
 		info(``);

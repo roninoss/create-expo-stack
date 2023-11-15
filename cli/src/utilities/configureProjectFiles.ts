@@ -16,7 +16,8 @@ export function configureProjectFiles(
 		'base/App.tsx.ejs',
 		'base/babel.config.js.ejs',
 		'base/package.json.ejs',
-		'base/.gitignore.ejs'
+		'base/.gitignore.ejs',
+		'base/.prettierrc'
 	];
 
 	const packageManager = getPackageManager(toolbox);

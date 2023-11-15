@@ -1,53 +1,50 @@
 {
-  "name": "create-expo-stack-repository",
-  "version": "2.2.5",
-  "description": "Root package for the create-expo-stack monorepo",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danstepanov/create-expo-stack.git"
-  },
-  "license": "MIT",
-  "workspaces": [
-    "cli",
-    "www"
-  ],
-  "scripts": {
-    "build": "turbo build",
-    "build:cli": "turbo build --filter create-expo-stack",
-    "build:www": "turbo build --filter create-expo-stack-web",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "prettier": {
-    "semi": true,
-    "singleQuote": true,
-    "tabWidth": 4,
-    "useTabs": true,
-    "trailingComma": "none",
-    "printWidth": 120,
-    "bracketSpacing": true,
-    "bracketSameLine": false,
-    "arrowParens": "always"
-  },
-  "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@changesets/get-release-plan": "^3.0.17",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "@typescript-eslint/parser": "^6.11.0",
-    "bun-types": "^1.0.11",
-    "copyfiles": "^2.4.1",
-    "eslint": "^8.53.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "husky": "^5.1.3",
-    "prettier": "^3.1.0",
-    "pretty-quick": "^3.1.3",
-    "turbo": "^1.10.16",
-    "typescript": "latest"
-  },
-  "dependencies": {}
+	"name": "create-expo-stack-repository",
+	"version": "2.2.7",
+	"description": "Root package for the create-expo-stack monorepo",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/danstepanov/create-expo-stack.git"
+	},
+	"license": "MIT",
+	"workspaces": [
+		"cli",
+		"www"
+	],
+	"scripts": {
+		"build": "turbo build",
+		"build:cli": "turbo build --filter create-expo-stack",
+		"build:www": "turbo build --filter create-expo-stack-web",
+		"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	},
+	"prettier": {
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"useTabs": true,
+		"trailingComma": "none",
+		"printWidth": 120,
+		"bracketSpacing": true,
+		"bracketSameLine": false,
+		"arrowParens": "always"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.9.1",
+		"@typescript-eslint/parser": "^6.9.1",
+		"bun-types": "^1.0.8",
+		"copyfiles": "^2.4.1",
+		"eslint": "^8.53.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-prettier": "^5.0.1",
+		"husky": "^5.1.3",
+		"prettier": "^3.0.3",
+		"pretty-quick": "^3.1.0",
+		"turbo": "^1.10.16",
+		"typescript": "latest"
+	}
 }
