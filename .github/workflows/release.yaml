@@ -12,47 +12,46 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          version:
+            latest
+
+      ## Unfortuneately, bun doesn't support publishing to NPM registry yet
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+          node-version: latest
 
       - name: Cache node_modules
-        id: cache-yarn
+        id: cache-bun
         uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
-          path: $ {{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ~/.bun/install/cache
           key: ${{ runner.os }}-build-${{ env.cache-name }}\
-            -${{ hashFiles('**/yarn.lock') }}
+            -${{ hashFiles('**/bun.lockb') }}
           restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - if: ${{ steps.cache-yarn.outputs.cache-hit != 'true' }}
-        name: List the state of node modules
-        continue-on-error: true
-        run: yarn list
-
       - name: Install dependencies
-        run: yarn install --immutable
+        run: bun install --frozen-lockfile
 
       - name: Build create-expo-stack
-        run: yarn run build
+        run: bun run build:cli
 
-      - name: Create version PR or publish to NPM registry
+      - name: Create Release Pull Request
         id: changeset
         uses: changesets/action@v1
         with:
           commit: "chore(release): version packages"
           title: "chore(release): version packages"
-          version: "node .github/changeset-version.js"
           publish: npx changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
