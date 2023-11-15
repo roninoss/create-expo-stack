@@ -65,6 +65,10 @@ const command: GluegunCommand = {
 				// Check if any of the options were passed in via the command
 				const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
 
+				// Check if the user wants to not install dependencies and/or not initialize git, update cliResults accordingly
+				cliResults.flags.noInstall = options.noInstall;
+				cliResults.flags.noGit = options.noGit;
+
 				if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
 					//  Run the CLI to prompt the user for input
 					cliResults = await runCLI(toolbox);
