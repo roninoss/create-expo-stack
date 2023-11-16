@@ -1,6 +1,6 @@
 {
 	"name": "create-expo-stack-repository",
-	"version": "2.2.7",
+	"version": "2.2.8",
 	"description": "Root package for the create-expo-stack monorepo",
 	"repository": {
 		"type": "git",
