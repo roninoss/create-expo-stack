@@ -57,6 +57,12 @@ export const contributors = [
 		"html_url": "https://twitter.com/mwarger",
 	},
 	{
+		"login": "b0iq",
+		"id": 106549013,
+		"avatar_url": "https://avatars.githubusercontent.com/u/106549013?v=4",
+		"html_url": "https://twitter.com/b0iq_"
+	},
+	{
 		"login": "MVAodhan",
 		"id": 69143973,
 		"avatar_url": "https://avatars.githubusercontent.com/u/69143973?v=4",

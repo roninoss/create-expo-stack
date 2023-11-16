@@ -64,80 +64,89 @@ If you'd like help with your React Native/Expo app or are just looking for a tec
 Thanks go to these wonderful people:
 
 <table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%">
-        <a href="https://onlydans.gg/">
-          <img src="https://pbs.twimg.com/profile_images/1689473757713514496/8fQrCrBx_400x400.jpg" width="100px;" alt="Dan Stepanov"/>
-          <br />
-          Dan Stepanov
-        </a>
-      </td>
-	  <td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/ernestodotgg">
-          <img src="https://pbs.twimg.com/profile_images/1647055447931617285/RPeZJI3z_400x400.jpg" width="100px;" alt="Ernesto Resende"/>
-          <br />
-          Ernesto Resende
-        </a>
-      </td>
-      <td align="center" valign="top" width="14.28%">
-        <a href="https://github.com/frankcalise/">
-          <img src="https://pbs.twimg.com/profile_images/1262363198839238662/uIfRNVBY_400x400.jpg" width="100px;" alt="Frank Calise"/>
-          <br />
-          Frank Calise
-        </a>
-      </td>
-	  <td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/mironcatalin">
-          <img src="https://avatars.githubusercontent.com/u/2805320?v=4" width="100px;" alt="Catalin Miron"/>
-          <br />
-          Catalin Miron
-        </a>
-      </td>
-      <td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/PickleNik0864">
-          <img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="catalinmiron"/>
-          <br />
-          PickleNik
-        </a>
-      </td>
-    </tr>
-	<tr>
-		<td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/trashh_dev">
-          <img src="https://pbs.twimg.com/profile_images/1598959528518643713/aWdwBYxv_400x400.jpg" width="100px;" alt="Chris Bautista"/>
-          <br />
-          Chris Bautista
-        </a>
-      </td>
-	  <td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/hugemathguy">
-          <img src="https://pbs.twimg.com/profile_images/1503470123763617796/49xDaART_400x400.jpg" width="100px;" alt="Andrew Levy"/>
-          <br />
-          Andrew Levy
-        </a>
-      </td>
-	  <td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/alire74_">
-          <img src="https://pbs.twimg.com/profile_images/1680836863026765824/lrljy0sl_400x400.jpg" width="100px;" alt="Ali Zamani"/>
-          <br />
-          Ali Zamani
-        </a>
-      </td>
-	  <td align="center" valign="top" width="14.28%">
-        <a href="https://twitter.com/mwarger">
-          <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100px;" alt="Mat Warger"/>
-          <br />
-          Mat Warger
-        </a>
-      </td>
-      <td align="center" valign="top" width="14.28%">
-        <a href="https://aodhan.netlify.app/">
-          <img src="https://pbs.twimg.com/profile_images/1472990183993888772/3X5J4d9__400x400.png" width="100px;" alt="Aodhan Hamilton"/>
-          <br />
-          Aodhan Hamilton
-        </a>
-      </td>
-	</tr>
-  </tbody>
+	<tbody>
+		<tr>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://onlydans.gg/">
+					<img src="https://pbs.twimg.com/profile_images/1689473757713514496/8fQrCrBx_400x400.jpg" width="100px;" alt="Dan Stepanov"/>
+					<br />
+					Dan Stepanov
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://twitter.com/ernestodotgg">
+					<img src="https://pbs.twimg.com/profile_images/1647055447931617285/RPeZJI3z_400x400.jpg" width="100px;" alt="Ernesto Resende"/>
+					<br />
+					Ernesto Resende
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/frankcalise/">
+					<img src="https://pbs.twimg.com/profile_images/1262363198839238662/uIfRNVBY_400x400.jpg" width="100px;" alt="Frank Calise"/>
+					<br />
+					Frank Calise
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://twitter.com/mironcatalin">
+					<img src="https://avatars.githubusercontent.com/u/2805320?v=4" width="100px;" alt="Catalin Miron"/>
+					<br />
+					Catalin Miron
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://twitter.com/PickleNik0864">
+					<img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="catalinmiron"/>
+					<br />
+					PickleNik
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://twitter.com/trashh_dev">
+					<img src="https://pbs.twimg.com/profile_images/1598959528518643713/aWdwBYxv_400x400.jpg" width="100px;" alt="Chris Bautista"/>
+					<br />
+					Chris Bautista
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://twitter.com/hugemathguy">
+					<img src="https://pbs.twimg.com/profile_images/1503470123763617796/49xDaART_400x400.jpg" width="100px;" alt="Andrew Levy"/>
+					<br />
+					Andrew Levy
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://twitter.com/alire74_">
+					<img src="https://pbs.twimg.com/profile_images/1680836863026765824/lrljy0sl_400x400.jpg" width="100px;" alt="Ali Zamani"/>
+					<br />
+					Ali Zamani
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://twitter.com/mwarger">
+					<img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100px;" alt="Mat Warger"/>
+					<br />
+					Mat Warger
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://twitter.com/b0iq_">
+					<img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100px;" alt="b0iq"/>
+					<br />
+					b0iq
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://aodhan.netlify.app/">
+					<img src="https://pbs.twimg.com/profile_images/1472990183993888772/3X5J4d9__400x400.png" width="100px;" alt="Aodhan Hamilton"/>
+					<br />
+					Aodhan Hamilton
+				</a>
+			</td>
+		</tr>
+	</tbody>
 </table>
