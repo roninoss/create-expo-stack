@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from "react";
 
 export function useFormattedStars() {
@@ -14,13 +15,12 @@ export function useFormattedStars() {
             return response.json();
           })
           .then((data) => {
-            console.log('Data:', data);
             return data.stargazers_count;
           });
 
         setFormattedStars(result);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        throw new Error('Fetching github star count error');
       }
     }
 
