@@ -125,4 +125,7 @@ export async function printOutput(cliResults: CliResults, formattedFiles: any[],
 		info('yarn ios');
 	}
 	info(``);
+
+	success(`If you frequently use create expo stack, please consider sponsoring the project ❤️`)
+	highlight(`https://github.com/sponsors/danstepanov`)
 }
