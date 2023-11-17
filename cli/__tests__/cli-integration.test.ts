@@ -134,6 +134,58 @@ for (const packageManager of packageManagers) {
 		expect(output).toContain(packageManager);
 	});
 
+	// --react-navigation drawer
+	test(`generates a project with react-navigation drawer with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --react-navigation --drawer --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with react-navigation drawer and noGit with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --react-navigation --drawer --noGit --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with react-navigation drawer and noGit and noInstall with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --react-navigation --drawer --noGit --noInstall --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	// --react-navigation drawer nativewind
+	test(`generates a project with react-navigation drawer and nativewind with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --react-navigation --drawer --nativewind --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with react-navigation drawer and nativewind and noGit with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --react-navigation --drawer --nativewind --noGit --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with react-navigation drawer and nativewind and noGit and noInstall with ${packageManager}`, async () => {
+		const output = await cli(
+			`myTestProject --react-navigation --drawer --nativewind --noGit --noInstall --${packageManager}`
+		);
+		expect(output).toContain(packageManager);
+	});
+
+	// --react-navigation drawer tamagui
+	test(`generates a project with react-navigation drawer and tamagui with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --react-navigation --drawer --tamagui --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with react-navigation drawer and tamagui and noGit with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --react-navigation --drawer --tamagui --noGit --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with react-navigation drawer and tamagui and noGit and noInstall with ${packageManager}`, async () => {
+		const output = await cli(
+			`myTestProject --react-navigation --drawer --tamagui --noGit --noInstall --${packageManager}`
+		);
+		expect(output).toContain(packageManager);
+	});
+
 	// --expo-router stack
 	test(`generates a project with expo-router stack with ${packageManager}`, async () => {
 		const output = await cli(`myTestProject --expo-router --stack --${packageManager}`);
@@ -234,6 +286,58 @@ for (const packageManager of packageManagers) {
 	test(`generates a project with expo-router tabs and tamagui and noGit and noInstall with ${packageManager}`, async () => {
 		const output = await cli(
 			`myTestProject --expo-router --tabs --tamagui --noGit --noInstall --${packageManager}`
+		);
+		expect(output).toContain(packageManager);
+	});
+
+	// --expo-router drawer
+	test(`generates a project with expo-router drawer with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --expo-router --drawer --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with expo-router drawer and noGit with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --expo-router --drawer --noGit --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with expo-router drawer and noGit and noInstall with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --expo-router --drawer --noGit --noInstall --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	// --expo-router drawer nativewind
+	test(`generates a project with expo-router drawer and nativewind with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --expo-router --drawer --nativewind --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with expo-router drawer and nativewind and noGit with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --expo-router --drawer --nativewind --noGit --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with expo-router drawer and nativewind and noGit and noInstall with ${packageManager}`, async () => {
+		const output = await cli(
+			`myTestProject --expo-router --drawer --nativewind --noGit --noInstall --${packageManager}`
+		);
+		expect(output).toContain(packageManager);
+	});
+
+	// --expo-router drawer tamagui
+	test(`generates a project with expo-router drawer and tamagui with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --expo-router --drawer --tamagui --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with expo-router drawer and tamagui and noGit with ${packageManager}`, async () => {
+		const output = await cli(`myTestProject --expo-router --drawer --tamagui --noGit --${packageManager}`);
+		expect(output).toContain(packageManager);
+	});
+
+	test(`generates a project with expo-router drawer and tamagui and noGit and noInstall with ${packageManager}`, async () => {
+		const output = await cli(
+			`myTestProject --expo-router --drawer --tamagui --noGit --noInstall --${packageManager}`
 		);
 		expect(output).toContain(packageManager);
 	});
