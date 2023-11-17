@@ -86,7 +86,7 @@
 			}
 		});
 	<% } %>
-<% } else { %>
+<% } else if (props.navigationPackage?.options.type === 'tabs') { %>
 	import { NavigationContainer } from "@react-navigation/native";
 	import { createStackNavigator } from "@react-navigation/stack";
 
@@ -118,4 +118,36 @@
 			</NavigationContainer>
 		);
 	}
-<% } %>
+	<% } else if (props.navigationPackage?.options.type === 'drawer') { %>
+		import { NavigationContainer } from "@react-navigation/native";
+		import { createStackNavigator } from '@react-navigation/stack';
+	
+		import Modal from "../screens/modal";
+		import DrawerNavigator from "./drawer-navigator";
+	
+		export type RootStackParamList = {
+			TabNavigator: undefined;
+			Modal: undefined;
+		};
+	
+		const Stack = createStackNavigator<RootStackParamList>();
+	
+		export default function RootStack() {
+			return (
+				<NavigationContainer>
+					<Stack.Navigator initialRouteName="DrawerNavigator">
+						<Stack.Screen
+							name="DrawerNavigator"
+							component={DrawerNavigator}
+							options={{ headerShown: false }}
+						/>
+						<Stack.Screen
+							name="Modal"
+							component={Modal}
+							options={{ presentation: "modal" }}
+						/>
+					</Stack.Navigator>
+				</NavigationContainer>
+			);
+		}
+	<% } %>

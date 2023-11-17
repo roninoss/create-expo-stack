@@ -74,7 +74,6 @@ const command: GluegunCommand = {
 					cliResults = await runCLI(toolbox);
 				}
 
-				// TODO: Drawer nav for react-navigation
 				// Update the cliResults with the options passed in via the command
 				// Navigation packages
 				if (options.reactNavigation || options['react-navigation'] || options.reactnavigation) {
@@ -83,7 +82,7 @@ const command: GluegunCommand = {
 						name: 'react-navigation',
 						type: 'navigation',
 						options: {
-							type: options.tabs ? 'tabs' : 'stack'
+							type: options.tabs ? 'tabs' : options.drawer ? 'drawer' : 'stack'
 						}
 					});
 				}

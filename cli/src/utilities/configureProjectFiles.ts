@@ -59,12 +59,22 @@ export function configureProjectFiles(
 				'packages/react-navigation/screens/details.tsx.ejs',
 				'packages/react-navigation/screens/overview.tsx.ejs'
 			];
-		} else {
+		} else if (navigationPackage?.options?.type === 'tabs') {
 			// it's a tab navigator
 			reactNavigationFiles = [
 				...reactNavigationFiles,
 				'packages/react-navigation/components/edit-screen-info.tsx.ejs',
 				'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
+				'packages/react-navigation/screens/modal.tsx.ejs',
+				'packages/react-navigation/screens/one.tsx.ejs',
+				'packages/react-navigation/screens/two.tsx.ejs'
+			];
+		} else if (navigationPackage?.options?.type === 'drawer') {
+			// it's a drawer navigator
+			reactNavigationFiles = [
+				...reactNavigationFiles,
+				'packages/react-navigation/components/edit-screen-info.tsx.ejs',
+				'packages/react-navigation/navigation/drawer-navigator.tsx.ejs',
 				'packages/react-navigation/screens/modal.tsx.ejs',
 				'packages/react-navigation/screens/one.tsx.ejs',
 				'packages/react-navigation/screens/two.tsx.ejs'
