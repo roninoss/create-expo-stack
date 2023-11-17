@@ -49,7 +49,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		type: 'select',
 		name: 'navigationTypeSelect',
 		message: 'What type of navigation would you like to use?',
-		choices: ['Stack', 'Tabs']
+		choices: ['Stack', 'Tabs', 'Drawer']
 	};
 
 	const { navigationSelect } = await ask(askNavigation);
@@ -72,6 +72,21 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 					type: navigationTypeSelect.toLowerCase() as NavigationTypes
 				}
 			});
+
+			if (navigationTypeSelect === 'Drawer') {
+				cliResults.packages.push({
+					name: '@react-navigation/drawer',
+					type: 'navigation'
+				});
+				cliResults.packages.push({
+					name: 'react-native-gesture-handler',
+					type: 'navigation'
+				});
+				cliResults.packages.push({
+					name: 'react-native-reanimated',
+					type: 'navigation'
+				});
+			}
 		}
 		success(`Great, we'll use ${navigationSelect}!`);
 	} else {

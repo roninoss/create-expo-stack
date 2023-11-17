@@ -15,10 +15,13 @@ export const availablePackages = [
 	'reactnavigation',
 	'supabase',
 	'stylesheet',
-	'tamagui'
+	'tamagui',
+	'@react-navigation/drawer',
+	'react-native-gesture-handler',
+	'react-native-reanimated'
 ] as const;
 
-export type NavigationTypes = 'stack' | 'tabs' | undefined;
+export type NavigationTypes = 'stack' | 'tabs' | 'drawer' | undefined;
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 
