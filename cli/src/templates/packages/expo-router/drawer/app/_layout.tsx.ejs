@@ -1,17 +1,21 @@
 import 'react-native-gesture-handler';
-
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Slot } from 'expo-router';
 <% if (props.stylingPackage?.name === "tamagui") { %>
 	import React, { useEffect } from "react";
 	import { TamaguiProvider } from 'tamagui'
-	import { SplashScreen, Stack } from "expo-router";
+	import { SplashScreen } from "expo-router";
 	import { useFonts } from "expo-font";
 
 	import config from '../tamagui.config'
 
 	SplashScreen.preventAutoHideAsync();
-<% } 
+<% }  %>
+
+export const unstable_settings = {
+	// Ensure that reloading on `/modal` keeps a back button present.
+	initialRouteName: "(drawer)",
+};
 
 export default function RootLayout() {
   	<% if (props.stylingPackage?.name === "tamagui") { %>
@@ -33,7 +37,7 @@ export default function RootLayout() {
     	<% if (props.stylingPackage?.name === "tamagui") { %>
     		<TamaguiProvider config={config}>
     	<% } %>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+		  <GestureHandlerRootView style={{ flex: 1 }}>
       <Slot />
     </GestureHandlerRootView>
 		<% if (props.stylingPackage?.name === "tamagui") { %>

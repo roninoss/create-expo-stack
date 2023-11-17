@@ -46,6 +46,9 @@ export function generateProjectFiles(
 			if (navigationPackage?.options?.type === 'tabs') {
 				target = target.replace('tabs/', '');
 			}
+			if (navigationPackage?.options?.type === 'drawer') {
+				target = target.replace('drawer/', '');
+			}
 		}
 
 		const gen = toolbox.template.generate({
