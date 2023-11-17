@@ -20,6 +20,10 @@ module.exports = function(api) {
     plugins.push('expo-router/babel');
   <% } %>
 
+  <% if (props.navigationPackage?.options.type === "drawer") { %>
+    plugins.push('react-native-reanimated/plugin');
+  <% } %>
+
   return {
     presets: ['babel-preset-expo'],
     plugins: plugins,

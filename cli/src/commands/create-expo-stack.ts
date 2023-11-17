@@ -29,9 +29,9 @@ const command: GluegunCommand = {
 			return;
 		}
 		try {
-			// Validation: check if the user passed in the tabs option without passing in either expo router or react navigation. If so, throw an error
+			// Validation: check if the user passed in the tabs/drawer option without passing in either expo router or react navigation. If so, throw an error
 			if (
-				options.tabs &&
+				(options.tabs || options.drawer) &&
 				!options.reactNavigation &&
 				!options['react-navigation'] &&
 				!options.reactnavigation &&
@@ -74,6 +74,7 @@ const command: GluegunCommand = {
 					cliResults = await runCLI(toolbox);
 				}
 
+				// TODO: Drawer nav for react-navigation
 				// Update the cliResults with the options passed in via the command
 				// Navigation packages
 				if (options.reactNavigation || options['react-navigation'] || options.reactnavigation) {
@@ -92,7 +93,7 @@ const command: GluegunCommand = {
 						name: 'expo-router',
 						type: 'navigation',
 						options: {
-							type: options.tabs ? 'tabs' : 'stack'
+							type: options.tabs ? 'tabs' : options.drawer ? 'drawer' : 'stack'
 						}
 					});
 				}
@@ -153,8 +154,12 @@ const command: GluegunCommand = {
 					cliResults.packages.forEach((p) => {
 						script += `--${p.name} `;
 						// If the package is a navigation package, add the type if it is tabs
-						if (p.type === 'navigation' && p.options?.type === 'tabs') {
-							script += '--tabs ';
+						if (p.type === 'navigation') {
+							if (p.options?.type === 'tabs') {
+								script += '--tabs ';
+							} else if (p.options?.type === 'drawer') {
+								script += '--drawer ';
+							}
 						}
 					});
 

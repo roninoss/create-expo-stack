@@ -1,0 +1,43 @@
+import 'react-native-gesture-handler';
+
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Slot } from 'expo-router';
+<% if (props.stylingPackage?.name === "tamagui") { %>
+	import React, { useEffect } from "react";
+	import { TamaguiProvider } from 'tamagui'
+	import { SplashScreen, Stack } from "expo-router";
+	import { useFonts } from "expo-font";
+
+	import config from '../tamagui.config'
+
+	SplashScreen.preventAutoHideAsync();
+<% } 
+
+export default function RootLayout() {
+  	<% if (props.stylingPackage?.name === "tamagui") { %>
+    	const [loaded] = useFonts({
+      		Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+      		InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
+    	});
+
+    	useEffect(() => {
+      		if (loaded) {
+        		SplashScreen.hideAsync();
+      		}
+    	}, [loaded]);
+
+    	if (!loaded) return null;
+  	<% } %>
+
+  	return (
+    	<% if (props.stylingPackage?.name === "tamagui") { %>
+    		<TamaguiProvider config={config}>
+    	<% } %>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+      <Slot />
+    </GestureHandlerRootView>
+		<% if (props.stylingPackage?.name === "tamagui") { %>
+			</TamaguiProvider>
+		<% } %>
+  	);
+}

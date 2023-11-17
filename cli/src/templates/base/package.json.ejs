@@ -44,6 +44,12 @@
     <% if (props.navigationPackage?.options.type === "tabs" && props.navigationPackage?.name === "react-navigation") { %>
       "@react-navigation/bottom-tabs": "^6.5.8",
     <% } %>
+
+    <% if (props.navigationPackage?.options.type === "drawer") { %>
+      "@react-navigation/drawer": "^6.6.6",
+      "react-native-gesture-handler": "~2.12.0",
+      "react-native-reanimated": "~3.3.0",
+    <% } %>
     
     <% if (props.navigationPackage?.name === "expo-router") { %>
       "@expo/vector-icons": "^13.0.0",
