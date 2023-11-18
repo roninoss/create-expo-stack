@@ -1,0 +1,15 @@
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import One from '../screens/one';
+import Two from '../screens/two';
+
+const Drawer = createDrawerNavigator();
+
+export default function DrawerNavigator() {
+	return (
+		<Drawer.Navigator initialRouteName="One">
+			<Drawer.Screen name="One" component={One} />
+			<Drawer.Screen name="Two" component={Two} />
+		</Drawer.Navigator>
+	);
+}
