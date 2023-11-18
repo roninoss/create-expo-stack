@@ -6,19 +6,19 @@ export interface CliFlags {
 }
 
 export const availablePackages = [
+	'@react-navigation/drawer',
 	'expo-router',
 	'expoRouter',
 	'firebase',
 	'nativewind',
 	'react-navigation',
 	'reactNavigation',
-	'reactnavigation',
-	'supabase',
-	'stylesheet',
-	'tamagui',
-	'@react-navigation/drawer',
 	'react-native-gesture-handler',
-	'react-native-reanimated'
+	'react-native-reanimated',
+	'reactnavigation',
+	'stylesheet',
+	'supabase',
+	'tamagui'
 ] as const;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer' | undefined;
