@@ -13,6 +13,7 @@ import {
 } from '../utilities';
 import { defaultOptions } from '../constants';
 import { CliResults, availablePackages } from '../types';
+import clearStylingPackages from '../utilities/clearStylingPackages';
 
 const command: GluegunCommand = {
 	name: 'create-expo-stack',
@@ -98,18 +99,22 @@ const command: GluegunCommand = {
 				}
 				// Styling packages
 				if (options.nativewind) {
+					// Check if there is already a styling library added and remove it if so
+					cliResults = clearStylingPackages(cliResults);
 					// Add nativewind package
 					cliResults.packages.push({
 						name: 'nativewind',
 						type: 'styling'
 					});
 				} else if (options.tamagui) {
+					cliResults = clearStylingPackages(cliResults);
 					// Add tamagui package
 					cliResults.packages.push({
 						name: 'tamagui',
 						type: 'styling'
 					});
 				} else {
+					cliResults = clearStylingPackages(cliResults);
 					// Add stylesheet package
 					cliResults.packages.push({
 						name: 'stylesheet',
