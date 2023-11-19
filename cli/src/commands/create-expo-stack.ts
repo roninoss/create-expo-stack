@@ -13,6 +13,7 @@ import {
 } from '../utilities';
 import { defaultOptions } from '../constants';
 import { CliResults, availablePackages } from '../types';
+import clearStylingPackages from '../utilities/clearStylingPackages';
 
 const command: GluegunCommand = {
 	name: 'create-expo-stack',
@@ -29,9 +30,9 @@ const command: GluegunCommand = {
 			return;
 		}
 		try {
-			// Validation: check if the user passed in the tabs option without passing in either expo router or react navigation. If so, throw an error
+			// Validation: check if the user passed in the tabs/drawer option without passing in either expo router or react navigation. If so, throw an error
 			if (
-				options.tabs &&
+				(options.tabs || options.drawer) &&
 				!options.reactNavigation &&
 				!options['react-navigation'] &&
 				!options.reactnavigation &&
@@ -82,7 +83,7 @@ const command: GluegunCommand = {
 						name: 'react-navigation',
 						type: 'navigation',
 						options: {
-							type: options.tabs ? 'tabs' : 'stack'
+							type: options.tabs ? 'tabs' : options.drawer ? 'drawer' : 'stack'
 						}
 					});
 				}
@@ -92,24 +93,28 @@ const command: GluegunCommand = {
 						name: 'expo-router',
 						type: 'navigation',
 						options: {
-							type: options.tabs ? 'tabs' : 'stack'
+							type: options.tabs ? 'tabs' : options.drawer ? 'drawer' : 'stack'
 						}
 					});
 				}
 				// Styling packages
 				if (options.nativewind) {
+					// Check if there is already a styling library added and remove it if so
+					cliResults = clearStylingPackages(cliResults);
 					// Add nativewind package
 					cliResults.packages.push({
 						name: 'nativewind',
 						type: 'styling'
 					});
 				} else if (options.tamagui) {
+					cliResults = clearStylingPackages(cliResults);
 					// Add tamagui package
 					cliResults.packages.push({
 						name: 'tamagui',
 						type: 'styling'
 					});
 				} else {
+					cliResults = clearStylingPackages(cliResults);
 					// Add stylesheet package
 					cliResults.packages.push({
 						name: 'stylesheet',
@@ -153,8 +158,12 @@ const command: GluegunCommand = {
 					cliResults.packages.forEach((p) => {
 						script += `--${p.name} `;
 						// If the package is a navigation package, add the type if it is tabs
-						if (p.type === 'navigation' && p.options?.type === 'tabs') {
-							script += '--tabs ';
+						if (p.type === 'navigation') {
+							if (p.options?.type === 'tabs') {
+								script += '--tabs ';
+							} else if (p.options?.type === 'drawer') {
+								script += '--drawer ';
+							}
 						}
 					});
 

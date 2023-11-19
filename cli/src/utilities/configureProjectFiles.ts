@@ -59,12 +59,22 @@ export function configureProjectFiles(
 				'packages/react-navigation/screens/details.tsx.ejs',
 				'packages/react-navigation/screens/overview.tsx.ejs'
 			];
-		} else {
+		} else if (navigationPackage?.options?.type === 'tabs') {
 			// it's a tab navigator
 			reactNavigationFiles = [
 				...reactNavigationFiles,
 				'packages/react-navigation/components/edit-screen-info.tsx.ejs',
 				'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
+				'packages/react-navigation/screens/modal.tsx.ejs',
+				'packages/react-navigation/screens/one.tsx.ejs',
+				'packages/react-navigation/screens/two.tsx.ejs'
+			];
+		} else if (navigationPackage?.options?.type === 'drawer') {
+			// it's a drawer navigator
+			reactNavigationFiles = [
+				...reactNavigationFiles,
+				'packages/react-navigation/components/edit-screen-info.tsx.ejs',
+				'packages/react-navigation/navigation/drawer-navigator.tsx.ejs',
 				'packages/react-navigation/screens/modal.tsx.ejs',
 				'packages/react-navigation/screens/one.tsx.ejs',
 				'packages/react-navigation/screens/two.tsx.ejs'
@@ -93,7 +103,7 @@ export function configureProjectFiles(
 				'packages/expo-router/stack/app/details.tsx.ejs',
 				'packages/expo-router/stack/app/index.tsx.ejs'
 			];
-		} else {
+		} else if (navigationPackage?.options?.type === 'tabs') {
 			// it's a tab navigator
 			expoRouterFiles = [
 				...expoRouterFiles,
@@ -103,6 +113,15 @@ export function configureProjectFiles(
 				'packages/expo-router/tabs/app/_layout.tsx.ejs',
 				'packages/expo-router/tabs/app/modal.tsx.ejs',
 				'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs'
+			];
+		} else {
+			// it's a drawer navigator
+			expoRouterFiles = [
+				...expoRouterFiles,
+				'packages/expo-router/drawer/app/(drawer)/_layout.tsx.ejs',
+				'packages/expo-router/drawer/app/(drawer)/index.tsx.ejs',
+				'packages/expo-router/drawer/app/(drawer)/news.tsx.ejs',
+				'packages/expo-router/drawer/app/_layout.tsx.ejs'
 			];
 		}
 
