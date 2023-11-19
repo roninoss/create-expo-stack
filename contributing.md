@@ -10,7 +10,7 @@ Use this documentation and [](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h
 
 ## What can I contribute to?
 
-Before delving deeper on the collaborarion worflow, let's talk about what kind of contributions can be made. Make sure to refer to this [architectural diagram](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to understand how the CLI, installers and template scaffolding works in `create-expo-stack`.
+Before delving deeper on the collaboration workflow, let's talk about what kind of contributions can be made. Make sure to refer to this [architectural diagram](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to understand how the CLI, installers and template scaffolding works in `create-expo-stack`.
 
 There are three main things you can usually contribute to:
 
@@ -58,7 +58,7 @@ $ bun dev:www
 
 <!-- To quickly setup `create-expo-stack` for local testing, you'll need to link a local version to run on your machine: -->
 
-To quickly setup `create-expo-stack` for local testing, it's recommended that you use the linking feature from package managers to create a global exectutable of the package: 
+To quickly setup `create-expo-stack` for local testing, it's recommended that you use the linking feature from package managers to create a global exectutable of the package:
 
 ```shell
 $ cd cli
@@ -127,7 +127,7 @@ Once you've made your changes and tested that it works locally, run the tests us
     10) Generate project
     * Represented by `generateProjectFiles.ts` in `./cli/src/utilities/`
     * Using the files from step (9), the variables from step (8), and  the CLI results, generate the Expo project
-    11) Print results of CLI 
+    11) Print results of CLI
 
 ### Templates (``./cli/src/templates``)
 * Collection of EJS files to be modified, as necessary, and converted to .ts files during the file configuration process.
