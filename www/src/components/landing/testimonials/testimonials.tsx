@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { AUTHORS } from "src/config";
+import { AUTHORS } from "../../../config";
 
 export default function Testimonials() {
   const innerScrollerRef = useRef<HTMLDivElement | null>(null);
