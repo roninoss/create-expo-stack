@@ -4,8 +4,10 @@ on:
     branches:
       - main
 permissions:
-  id-token: write
-  contents: read
+  contents: write
+  issues: write
+  pull-requests: write
+  packages: write
 
 jobs:
   release:
