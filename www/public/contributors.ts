@@ -51,6 +51,12 @@ export const contributors = [
 		"html_url": "https://github.com/alitnk",
 	},
 	{
+		"login": "saimon24",
+		"id": 2514208,
+		"avatar_url": "https://avatars.githubusercontent.com/u/2514208?v=4",
+		"html_url": "https://github.com/saimon24",
+	},
+	{
 		"login": "matwarger",
 		"id": 686823,
 		"avatar_url": "https://avatars.githubusercontent.com/u/686823?v=4",
