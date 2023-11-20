@@ -1,0 +1,20 @@
+---
+import CopyCommandButton from "./copyCommandButton.tsx";
+import CliDemo from "./cliDemo.tsx";
+---
+
+<>
+  <h1
+    class="w-10/12 max-w-screen-lg text-center text-4xl font-bold tracking-tight text-transparent sm:text-6xl lg:text-[4rem] xl:text-[4rem] bg-clip-text bg-gradient-to-t from-zinc-400 to-33% to-white"
+  >
+    The most configurable way to create an{" "}
+    <span
+      class="bg-gradient-to-br from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl"
+    >
+      Expo
+    </span>{" "}
+     app
+  </h1>
+  <CopyCommandButton client:load />
+  <CliDemo client:load/>
+</>

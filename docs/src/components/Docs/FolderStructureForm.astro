@@ -1,0 +1,107 @@
+---
+const options = {
+  nativewind: "NativeWind",
+  exporouter: "Expo Router",
+  reactnavigation: "React Navigation",
+  tamagui: "Tamagui",
+  supabase: "Supabase",
+  firebase: "Firebase",
+};
+---
+
+<script>
+  const inputs = document
+    .getElementById("componentForm")
+    ?.querySelectorAll("input") as NodeListOf<HTMLInputElement>;
+
+  const updatePackagesQueryParam = (selected: string[]) => {
+    const packagesQueryParam = selected.join(",");
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("packages", packagesQueryParam);
+    window.history.pushState({}, "", url);
+  };
+
+  const getSelectedFromPackagesQueryParam = () => {
+    const selectedParam = new URLSearchParams(window.location.search).get(
+      "packages",
+    );
+
+    if (selectedParam === null) {
+      return [
+        "nativewind",
+        "exporouter",
+        "reactnavigation",
+        "tamagui",
+        "supabase",
+        "firebase",
+      ];
+    }
+
+    return selectedParam.split(",");
+  };
+
+  inputs.forEach((input) =>
+    input.addEventListener("change", () => {
+      const selected = Array.from(inputs).flatMap(({ value, checked }) =>
+        checked ? [value] : [],
+      );
+
+      updatePackagesQueryParam(selected);
+
+      // Rerender the diagram
+      document.dispatchEvent(
+        new CustomEvent("fileStructureComponentsChange", {
+          detail: { selected },
+        }),
+      );
+
+      hideUnselectedDocs(selected);
+    }),
+  );
+
+  const hideUnselectedDocs = (selected: string[]) => {
+    document
+      .querySelectorAll<HTMLElement>("*[data-components]")
+      .forEach((el) => {
+        el.style.display = !el.dataset.components
+          ?.split(" ")
+          .some((components) =>
+            components.split("+").every((option) => selected.includes(option)),
+          )
+          ? "none"
+          : "";
+      });
+  };
+
+  // Set initial state based on query param
+  const initialSelected = getSelectedFromPackagesQueryParam();
+
+  inputs.forEach((input) => {
+    input.checked = initialSelected.includes(input.value);
+  });
+
+  hideUnselectedDocs(initialSelected);
+</script>
+
+<form
+  method="get"
+  id="componentForm"
+  class="mb-4 w-full rounded border border-ces-300 p-4 text-lg"
+>
+  {
+    Object.entries(options).map(([code, name]) => (
+      <div>
+        <input
+          id={code}
+          type="checkbox"
+          name="conf"
+          checked
+          value={code}
+          class="h-4 w-4"
+        />
+        <label for={code}>{name}</label>
+      </div>
+    ))
+  }
+</form>
