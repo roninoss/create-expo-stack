@@ -119,3 +119,8 @@ html {
     }
   }
 }
+
+.custom-visible-flex {
+  display: flex !important;
+  visibility: visible !important;
+}
