@@ -1,4 +1,4 @@
-import { CONTRIBUTORS } from "src/config";
+import { CONTRIBUTORS } from "../../../config";
 import { Contributor } from "./contributor";
 import GitHubIcon from "@components/icons/github";
 
