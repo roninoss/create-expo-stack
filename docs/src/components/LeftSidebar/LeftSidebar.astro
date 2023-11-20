@@ -24,19 +24,20 @@ const isRtl = getIsRtlFromUrl(currentPage);
 
 const langCode = frontmatter?.lang ?? "en";
 const englishSidebar = SIDEBAR["en"];
-const nativeSidebar = SIDEBAR[langCode];
+const nativeSidebar = SIDEBAR[langCode as keyof typeof SIDEBAR]; // Use type assertion
+ 
 let sidebar: Record<
   string,
   { text: string; link: string; isTranslated?: boolean }[]
 > = englishSidebar;
 
-if (langCode !== "en") {
+if (langCode && langCode !== "en") { // Check if langCode is defined
   sidebar = Object.fromEntries(
     Object.entries(englishSidebar).map(([header, items]) => {
       // Set header to translated one if it exists
       const innerHeader = SIDEBAR_HEADER_MAP[langCode];
       const nativeHeader =
-        innerHeader[header as keyof typeof innerHeader] ?? header;
+        innerHeader?.[header as keyof typeof innerHeader] ?? header;
 
       const nativeItems = items.map((item) => {
         const match = Object.values(nativeSidebar)
@@ -57,6 +58,7 @@ if (langCode !== "en") {
     }),
   );
 }
+
 ---
 
 <div class="mx-auto mb-6 ml--40 w-full px-6 md:ml-0 md:hidden md:px-8">
