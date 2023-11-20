@@ -57,6 +57,6 @@ jobs:
           title: "chore(release): version packages"
           publish: npx changeset publish
         env:
-          GITHUB_TOKEN: ${{ secrets.CES_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_ENV: "production"
