@@ -12,7 +12,7 @@ const Nav = () => {
 
 	useEffect(() => {
 		const handleResize = () => {
-			setIsVisible(window.innerWidth >= 768); // Adjust the breakpoint as needed
+			setIsVisible(window.innerWidth >= 768);
 		};
 
 		handleResize();
@@ -47,10 +47,7 @@ const Nav = () => {
 					</div>
 				)}
 				{isVisible && (
-					<div
-						className=" w-0 h-0 border border-l-10  border-r-10 border-b-20 border-l-transparent border-r-transparent border-t-transparent border-zinc-500/50 rotate-90
-					"
-					></div>
+					<div className=" w-0 h-0 border border-l-10  border-r-10 border-b-20 border-l-transparent border-r-transparent border-t-transparent border-zinc-500/50 rotate-90"></div>
 				)}
 				<AiFillGithub className="m-2 h-10 w-10" />
 			</Link>
