@@ -35,7 +35,7 @@ export default function Firebase() {
 						</a>
 						<a
 							className="group p-1 hover:underline decoration-wavy underline-offset-1 hover:underline-offset-4 duration-300"
-							href="https://discord.gg/2EnARBCR"
+							href="https://expostack.dev/discord"
 						>
 							<svg
 								role="img"
@@ -88,7 +88,7 @@ export default function Firebase() {
 				</a>
 				<a
 					className="group p-1 hover:underline decoration-wavy underline-offset-1 hover:underline-offset-4 duration-300"
-					href="https://discord.gg/2EnARBCR"
+					href="https://expostack.dev/discord"
 				>
 					<div className="group-hover:text-white group-hover:-translate-x-2 duration-300">Discord</div>
 				</a>
