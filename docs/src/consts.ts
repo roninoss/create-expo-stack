@@ -77,13 +77,13 @@ export const SIDEBAR: Sidebar = {
 };
 
 export const SIDEBAR_HEADER_MAP: Record<
-  Exclude<KnownLanguageCode, "en">,
+  KnownLanguageCode,
   Record<OuterHeaders, string>
 > = {
-  es: {
+  en: {
     "Create Expo Stack": "Create Expo Stack",
-    Usage: "Uso",
-    Deployment: "Despliegue",
+    Usage: "Usage",
+    Deployment: "Deployment",
   },
   // Translate the sidebar's "outer headers" here
   // sv: {
