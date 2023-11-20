@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { allPages } from "../../content";
+import { getLangFromSlug, stripLangFromSlug } from "../../utils";
+
+export async function getStaticPaths() {
+  return allPages.map((page) => {
+    const lang = getLangFromSlug(page.slug);
+    const slug = stripLangFromSlug(page.slug);
+    return { params: { lang, slug }, props: page };
+  });
+}
+
+export type Props = CollectionEntry<"docs">;
+const post = Astro.props;
+const { Content, headings } = await post.render();
+---
+
+<MainLayout headings={headings} {...post.data}>
+  <Content />
+</MainLayout>
+

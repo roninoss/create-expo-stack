@@ -1,0 +1,59 @@
+---
+import { type SidebarItemLink } from "../../consts";
+import { getIsRtlFromUrl, getLanguageFromURL } from "../../languages";
+import { paginate } from "../../utils";
+import LeftArrow from "../Icons/leftArrow.astro";
+import RightArrow from "../Icons/rightArrow.astro";
+
+const currentPage = Astro.url.pathname;
+const hasTrailing = currentPage.endsWith("/");
+const currentPageMatch = currentPage.slice(
+  1,
+  hasTrailing ? -1 : currentPage.length,
+) as SidebarItemLink;
+
+const langCode = getLanguageFromURL(currentPage);
+const { next, prev } = paginate(langCode, currentPageMatch);
+
+const { pathname } = Astro.url;
+const isRtl = getIsRtlFromUrl(pathname);
+---
+
+<div
+  class="mb-8 mt-16 flex flex-row items-center justify-between px-4 pt-4 font-medium text-ces-800 dark:text-ces-200 lg:px-8"
+>
+  <div>
+    {
+      prev ? (
+        <a
+          class="flex items-center underline-offset-2 hover:text-ces-400 hover:underline dark:hover:text-ces-100"
+          rel="prev"
+          href={Astro.site?.pathname + prev.link}
+        >
+          <>
+            {isRtl ? <RightArrow /> : <LeftArrow />}
+            {prev.text}
+          </>
+        </a>
+      ) : null
+    }
+  </div>
+  <div>
+    {
+      next ? (
+        <a
+          rel="next"
+          class="flex items-center underline-offset-2 hover:text-ces-400 hover:underline dark:hover:text-ces-100"
+          href={Astro.site?.pathname + next.link}
+        >
+          <>
+            {next.text}
+            {isRtl ? <LeftArrow /> : <RightArrow />}
+          </>
+        </a>
+      ) : null
+    }
+  </div>
+</div>
+
+<hr class="border-t-2 border-ces-300/20" />
