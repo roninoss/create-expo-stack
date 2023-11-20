@@ -87,6 +87,7 @@ const command: GluegunCommand = {
 						}
 					});
 				}
+
 				if (options.expoRouter || options['expo-router'] || options.exporouter) {
 					// Add expo-router package
 					cliResults.packages.push({
@@ -97,6 +98,7 @@ const command: GluegunCommand = {
 						}
 					});
 				}
+
 				// Styling packages
 				if (options.nativewind) {
 					// Check if there is already a styling library added and remove it if so
@@ -113,7 +115,7 @@ const command: GluegunCommand = {
 						name: 'tamagui',
 						type: 'styling'
 					});
-				} else {
+				} else if (options.stylesheet) {
 					cliResults = clearStylingPackages(cliResults);
 					// Add stylesheet package
 					cliResults.packages.push({
@@ -121,6 +123,7 @@ const command: GluegunCommand = {
 						type: 'styling'
 					});
 				}
+
 				// Authentication packages
 				if (options.supabase) {
 					// Add supabase package
@@ -129,6 +132,7 @@ const command: GluegunCommand = {
 						type: 'authentication'
 					});
 				}
+
 				if (options.firebase) {
 					// Add firebase package
 					cliResults.packages.push({

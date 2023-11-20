@@ -13,7 +13,7 @@ jobs:
     name: Release Beta
     runs-on: ubuntu-latest
     outputs:
-      releaseId: ${{ steps.release-id.outputs.releaseId }
+      releaseId: ${{ steps.release-id.outputs.releaseId }}
 
     steps:
       - name: Checkout
@@ -49,7 +49,7 @@ jobs:
       - name: Bump beta version
         run: bun run ./scripts/beta-release.ts
 
-      ## Unfortuneately, bun doesn't support publishing to NPM registry yet
+      ## Unfortunately, bun doesn't support publishing to NPM registry yet
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:

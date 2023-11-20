@@ -1,6 +1,15 @@
 # Create Expo Stack CLI
 
-<a href="https://badge.fury.io/js/create-expo-stack"><img src="https://badge.fury.io/js/create-expo-stack.svg" alt="npm version" height="18"></a>
+[![Discord](https://img.shields.io/discord/1173879003191459860?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://expostack.dev/discord) [![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+
+<p align="center">
+  An interactive CLI to create a highly configurable, typesafe Expo app.
+</p>
+
+<p align="center">
+  Get started by running <code>npx create-expo-stack@latest</code>
+</p>
 
 ## Description
 
@@ -127,6 +136,13 @@ Thanks go to these wonderful people:
 		</tr>
 		<tr>
 			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/saimon24">
+					<img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100px;" alt="Simon Grimm"/>
+					<br />
+					Simon Grimm
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
 				<a href="https://twitter.com/mwarger">
 					<img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100px;" alt="Mat Warger"/>
 					<br />
@@ -150,3 +166,7 @@ Thanks go to these wonderful people:
 		</tr>
 	</tbody>
 </table>
+
+[downloads-image]: https://img.shields.io/npm/dm/create-expo-stack?color=364fc7&logoColor=364fc7
+[npm-url]: https://www.npmjs.com/package/create-expo-stack
+[npm-image]: https://img.shields.io/npm/v/create-expo-stack?color=0b7285&logoColor=0b7285

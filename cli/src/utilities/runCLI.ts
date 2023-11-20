@@ -92,6 +92,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		success(`You'll be styling with ease using Tailwind.`);
 	} else if (stylingSelect === 'Tamagui') {
 		cliResults.packages.push({ name: 'tamagui', type: 'styling' });
+		success(`You'll be styling with ease using Tamagui.`);
 	} else {
 		cliResults.packages.push({ name: 'stylesheet', type: 'styling' });
 		success(`Cool, you're using the default StyleSheet that comes with React Native.`);
