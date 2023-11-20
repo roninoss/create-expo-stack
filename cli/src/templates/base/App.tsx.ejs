@@ -15,7 +15,7 @@ import { StatusBar } from 'expo-status-bar';
 <% if (props.stylingPackage?.name === "nativewind") {%>
   export default function App() {
 		return (
-			<View className={styles.container} %>>
+			<View className={styles.container}>
         <Text>Open up App.tsx to start working on your app!</Text>
         <StatusBar style="auto" />
       </View >
@@ -36,7 +36,7 @@ import { StatusBar } from 'expo-status-bar';
 	export default function App() {
 		return (
 			<TamaguiProvider config={config}>
-				<MyView %>>
+				<MyView>
 					<Text>Open up App.tsx to start working on your app!</Text>
 					<StatusBar style="auto" />
 				</MyView>
