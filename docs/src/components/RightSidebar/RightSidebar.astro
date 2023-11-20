@@ -1,0 +1,17 @@
+---
+import { type MarkdownHeading } from "astro";
+
+import MoreMenu from "./MoreMenu.astro";
+import TableOfContents from "./TableOfContents.astro";
+
+export interface Props {
+  headings: MarkdownHeading[];
+  githubEditUrl: string;
+  title: string;
+}
+
+const { headings, githubEditUrl, title } = Astro.props;
+---
+
+<TableOfContents headings={headings} title={title} />
+<MoreMenu editHref={githubEditUrl} />

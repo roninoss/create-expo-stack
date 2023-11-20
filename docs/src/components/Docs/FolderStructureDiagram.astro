@@ -1,0 +1,88 @@
+<script>
+  import { asTree, type TreeObject } from "treeify";
+
+  const element = document.getElementById("fileStructure");
+
+  // Get new selection from the form
+  //@ts-ignore
+  document.addEventListener(
+    "fileStructureComponentsChange",
+    (event: CustomEvent<{ selected: string[] }>) => {
+      renderDiagram(event.detail.selected);
+    },
+  );
+
+  const allFiles = {
+    ".vscode/.react": [], // This file is included in every configuration
+    "prisma/schema.prisma": ["prisma"], // This file is included with prisma
+    "app/(tabs)/_layout.tsx": ["exporouter"],
+    "app/(tabs)/modal.tsx": ["exporouter"],
+    "assets/adaptive-icon.png": [],
+    "assets/favicon.png": [],
+    "assets/icon.png": [],
+    "assets/splash.png": [],
+    "components/edit-screen-info.tsx": [],
+    ".gitignore": [],
+    ".prettierrc": [],
+    "app.json": [],
+    "babel.config.js": [],
+    "expo-env.d.ts": [],
+    "index.ts": [],
+    "metro.config.js": [],
+    "package.json": [],
+    "tsconfig.json": [],
+  };
+
+  const renderDiagram = (selected: string[]) => {
+    // Filter files based on selected components
+    const files = Object.entries(allFiles)
+      .map(([filename, components]) => {
+        if (components.length === 0) return filename;
+        return components.some((component) =>
+          component.split("+").every((option) => selected.includes(option)),
+        )
+          ? filename
+          : null;
+      })
+      .filter((file) => file) as string[];
+
+    // Transform files to a tree object for the treeify library
+    const filesTree: TreeObject = {};
+    files.forEach((file) => {
+      const path = file.split("/");
+      let folder = filesTree;
+      path.forEach((name) => {
+        if (!folder[name]) folder[name] = {};
+        folder = folder[name] as TreeObject;
+      });
+    });
+
+    if (element) element.textContent = `.\n${asTree(filesTree, false, true)}`;
+  };
+
+  const getSelectedFromPackagesQueryParam = () => {
+    const selectedParam = new URLSearchParams(window.location.search).get(
+      "packages",
+    );
+
+    if (selectedParam === null) {
+      return [
+        "nativewind",
+        "exporouter",
+        "reactnavigation",
+        "tamagui",
+        "supabase",
+        "firebase",
+      ];
+    }
+
+    return selectedParam.split(",");
+  };
+
+  renderDiagram(getSelectedFromPackagesQueryParam());
+</script>
+
+<pre
+  style="background-color: #191724; color: #e8ddff;">
+  <code id="fileStructure" />
+</pre>
