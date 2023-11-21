@@ -58,7 +58,7 @@ $ bun dev:www
 
 <!-- To quickly setup `create-expo-stack` for local testing, you'll need to link a local version to run on your machine: -->
 
-To quickly setup `create-expo-stack` for local testing, it's recommended that you use the linking feature from package managers to create a global exectutable of the package:
+To quickly setup `create-expo-stack` for local testing, it's recommended that you use the linking feature from package managers to create a global executable of the package:
 
 ```shell
 $ cd cli
@@ -155,4 +155,4 @@ Once you've made your changes and tested that it works locally, run the tests us
 
 ## Debugging
 
-When debugging, it can be useful to place a console log of the error in the the try catch block of `./cli/src/commands/create-expo-stack.ts`. This should give you a hint as to what is going wrong.
+When debugging, it can be useful to place a console log of the error in the try/catch block of `./cli/src/commands/create-expo-stack.ts`. This should give you a hint as to what is going wrong.
