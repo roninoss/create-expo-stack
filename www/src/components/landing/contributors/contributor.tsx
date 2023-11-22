@@ -9,7 +9,7 @@ export function Contributor({ contributor }: { contributor: Contributor }) {
     <a
       className="group text-neutral-300 relative rounded-full duration-300 hover:z-50 hover:scale-[1.2] focus:outline-none focus:duration-0 focus-visible:ring-0 active:scale-105 active:duration-100 lg:py-0.5"
       href={contributor.html_url}
-      rel="noopener"
+      rel="noreferrer noopener"
       target="_blank"
     >
       <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-90 whitespace-nowrap rounded-full border border-neutral-700 px-3 py-1 text-sm opacity-0 shadow-xl backdrop-blur-md duration-300 group-hover:scale-100 group-hover:opacity-100 bg-black/50">
