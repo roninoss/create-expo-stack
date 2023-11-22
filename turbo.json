@@ -2,7 +2,7 @@
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": [".next/**", "build/**"],
+			"outputs": [".vercel/**", "dist/**"],
 			"cache": true,
 			"env": []
 		},
