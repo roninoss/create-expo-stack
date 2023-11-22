@@ -16,7 +16,7 @@ export default defineConfig({
   redirects: {
     "/discord": {
       status: 302,
-      destination: "/discord",
+      destination: "https://discord.gg/XS9qS2mvTR",
     },
   },
 });
