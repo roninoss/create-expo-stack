@@ -9,12 +9,15 @@
 }
 
 *,
-html,
 body {
-  font-family: "Geologica Variable", sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html,
+body {
+  font-family: "Geologica Variable", sans-serif;
 }
 
 ::selection {
