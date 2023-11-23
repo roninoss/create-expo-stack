@@ -3,7 +3,7 @@ import { Sponsor } from "./sponsor";
 
 export default function SponsorsSection() {
   return (
-    <section className="relative mt-12 sm:mt-20 z-[1] w-[90%] lg:w-[70%] sm:w-auto pb-24">
+    <section className="relative  sm:mt-20 z-[1] w-[90%] lg:w-[70%] sm:w-auto pb-10 sm:pb-24">
       <h1 className="text-center text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[4rem] xl:text-[4rem] pb-6 pt-24 2xl:pt-16">
         Sponsors
       </h1>
