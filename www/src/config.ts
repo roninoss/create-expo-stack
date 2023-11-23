@@ -18,6 +18,21 @@ export const COMMUNITY_INVITE_URL = `https://discord.gg/XS9qS2mvTR`;
 
 export type OuterHeaders = "Create Expo Stack" | "Deployment" | "Usage";
 
+export const SPONSORS = [
+  {
+    id: 1,
+    name: "Galaxies.dev",
+    html_url: "https://galaxies.dev/",
+    image_url: "/galaxies-logo.svg",
+  },
+  {
+    id: 2,
+    name: "Expo",
+    html_url: "https://expo.dev/",
+    image_url: "/expo-logo.svg",
+  },
+];
+
 export const CONTRIBUTORS = [
   {
     login: "danstepanov",
