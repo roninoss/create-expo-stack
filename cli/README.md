@@ -9,7 +9,13 @@
 
 <p align="center">
   Get started by running <code>npx create-expo-stack@latest</code>
-</p>
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website.  
+
+<a href="https://galaxies.dev/" target="_blank"><img src="https://expostack.dev/galaxies-logo.svg"></a> <a href="https://expo.dev/" target="_blank"><img src="https://expostack.dev/expo-logo.svg"></a>
+ 
 
 ## Description
 

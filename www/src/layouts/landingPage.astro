@@ -13,6 +13,7 @@ import StackSection from "@components/landing/stack/stackSection.astro";
 import Testimonials from "@components/landing/testimonials/testimonials.tsx";
 import ContributorsSection from "@components/landing/contributors/contributorsSection.tsx";
 import HeroSection from "@components/landing/hero/heroSection.astro";
+import SponsorsSection from "@components/landing/sponsors/sponsorsSection.tsx";
 ---
 
 <!doctype html>
@@ -34,6 +35,7 @@ import HeroSection from "@components/landing/hero/heroSection.astro";
       </section>
       <Testimonials client:load />
       <ContributorsSection client:load />
+      <SponsorsSection/>
     </main>
     <Footer />
     <Analytics />
