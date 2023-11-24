@@ -37,7 +37,7 @@ This project uses Bun, and should be run with Node.js on the latest available LT
 ```shell
 $ git clone https://github.com/danstepanov/create-expo-stack
 
-$ cd create-expo-stack`
+$ cd create-expo-stack
 ```
 
 The Expo Stack homepage and documentation source-code can be found in the `/www` and `/docs` directories, respectively. The create-expo-stack application can be found in the `/cli` directory.
