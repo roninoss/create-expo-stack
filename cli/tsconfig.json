@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
 		"experimentalDecorators": true,
-		"lib": ["es2015", "scripthost", "es2015.promise", "es2015.generator", "es2015.iterable", "dom"],
+		"lib": ["es2015", "scripthost", "es2015.promise", "es2015.generator", "es2015.iterable"],
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"noImplicitAny": false,
