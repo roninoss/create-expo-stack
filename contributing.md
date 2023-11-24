@@ -62,6 +62,7 @@ To quickly setup `create-expo-stack` for local testing, it's recommended that yo
 
 ```shell
 $ cd cli
+$ bun run build
 
 # NPM linking
 $ npm link
