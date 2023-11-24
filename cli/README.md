@@ -12,9 +12,9 @@
 
 ## Sponsors
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website.  
+Support this project by <a href="https://github.com/sponsors/danstepanov" target="_blank">becoming a sponsor</a>. Your logo will show up here with a link to your website. 
 
-<a href="https://galaxies.dev/" target="_blank"><img src="https://expostack.dev/galaxies-logo.svg"></a> <a href="https://expo.dev/" target="_blank"><img src="https://expostack.dev/expo-logo.svg"></a>
+<a href="https://galaxies.dev/" target="_blank" style="margin-top: 10px;margin-right: 10px; margin-bottom: 10px;" ><img src="https://expostack.dev/galaxies-logo.svg"  style="border-radius: 50%;"></a> <a href="https://expo.dev/" target="_blank" style="margin: 10px;"><img src="https://expostack.dev/expo-logo.svg"  style="border-radius: 50%;"></a>
  
 
 ## Description
@@ -30,7 +30,6 @@ To get started, use npx to run the CLI tool. You will be prompted to opt into th
 `npx create-expo-stack@latest`
 
 <img src="https://github.com/danstepanov/create-expo-stack/assets/5482800/e709dd66-cb9b-463c-91f9-b842bb80585c" />
-
 ## Tech Stack for the templates
 
 Currently, all of the [templates](https://github.com/danstepanov/create-expo-stack/tree/main/cli/src/templates) use the same versions of the following libraries. Not all of the templates include all of the libraries, but they are all available for use.

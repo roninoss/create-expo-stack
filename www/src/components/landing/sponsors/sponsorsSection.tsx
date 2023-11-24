@@ -8,13 +8,17 @@ export default function SponsorsSection() {
         Sponsors
       </h1>
       <div className="w-full flex items-center justify-center">
-        <div className="text-white items-center justify-center flex flex-wrap mb-6 max-w-[50ch] mx-auto text-center">
+        <div className="text-white items-center justify-center flex flex-wrap mb-6 max-w-[40ch] sm:max-w-[50ch] mx-auto text-center">
           <span className="text-balance">
-            Support this project by becoming a sponsor. Your logo will show up
-            here with a link to your website.{" "}
-            <a href="https://github.com/sponsors/danstepanov" target="_blank" className="underline underline-offset-2 hover:text-white/80">
-              Become a sponsor.
+            Support this project by{" "}
+            <a
+              href="https://github.com/sponsors/danstepanov"
+              target="_blank"
+              className="underline underline-offset-2 hover:text-white/80"
+            >
+              becoming a sponsor
             </a>
+            . Your logo will show up here with a link to your website.{" "}
           </span>
         </div>
       </div>
