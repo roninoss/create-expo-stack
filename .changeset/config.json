@@ -9,6 +9,6 @@
   "access": "public",
   "baseBranch": "main",
   "fixed": [["create-expo-stack"]],
-  "ignore": ["create-expo-stack-web"]
+  "ignore": ["create-expo-stack-docs", "create-expo-stack-landing"]
   
 }
