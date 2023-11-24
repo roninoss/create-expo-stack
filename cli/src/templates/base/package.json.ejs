@@ -4,7 +4,7 @@
   "scripts": {
     "android": "expo start --android",
 	<% if (props.packageManager === "bun") { %>
-		"format": "bun run eslint '**/*.{js,jsx,ts,tsx}' --fix && bun run prettier '**/*.{js,jsx,ts,tsx,json}' --write",
+		"format": "bun run eslint **/*.{js,jsx,ts,tsx} --fix && bun run prettier **/*.{js,jsx,ts,tsx,json} --write",
 	<% } else { %>
     	"format": "eslint '**/*.{js,jsx,ts,tsx}' --fix && prettier '**/*.{js,jsx,ts,tsx,json}' --write",
 	<% } %>
