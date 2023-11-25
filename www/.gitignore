@@ -1,3 +1,6 @@
+# Next.js
+.next/
+
 # build output
 dist/
 .vercel

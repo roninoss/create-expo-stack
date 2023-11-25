@@ -25,8 +25,6 @@ jobs:
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
-        with:
-          version: latest
 
       - name: Cache node_modules
         id: cache-bun
@@ -47,11 +45,13 @@ jobs:
       - name: Figure out if a new beta release is needed
         id: release-needed
         run: |
-          result=${bun run ./scripts/check-is-release.ts}
+          result=$(bun run ./scripts/check-is-release.ts)
+          echo "result=$result" >> $GITHUB_ENV
           echo "::set-output name=result::$result"
 
   release-beta:
-    if: ${{ steps.release-needed.outputs.result == 'true' }}
+    needs: check-is-release
+    if: ${{ needs.check-is-release.outputs.result == 'true' }}
     name: Release Beta
     runs-on: ubuntu-latest
     outputs:
@@ -65,8 +65,6 @@ jobs:
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
-        with:
-          version: latest
 
       - name: Cache node_modules
         id: cache-bun
