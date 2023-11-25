@@ -86,7 +86,7 @@ $ which create-expo-stack
 Now you can run your own local version of create-expo-stack via `create-expo-stack`, anywhere on your machine. Here is the format for running a CLI command:
 
 ```shell
-$ create-expo-stack <PROJECT_NAME> --options
+$ create-expo-stack <PROJECT_NAME> <OPTIONS>
 ```
 
 > Note: Linking via Bun is not possible. While Bun does provide a linking feature ([see here](https://bun.sh/docs/cli/link)), it does not seem to expose the executable binary like the other three package managers. If you know how to do this, please let us know!
