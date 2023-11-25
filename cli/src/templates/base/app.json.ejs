@@ -13,11 +13,19 @@
       "plugins": ["expo-router"],
       "experiments": {
         "typedRoutes": true
+        <% if (props.flags.importAlias) { %>
+          ,"tsconfigPaths": true
+        <% } %>
       },
     <% } else { %>
       "web": {
         "favicon": "./assets/favicon.png"
       },
+      <% if (props.flags.importAlias) { %>
+        "experiments": {
+          "tsconfigPaths": true
+        },
+      <% } %> 
     <% } %>
     "orientation": "portrait",
     "icon": "./assets/icon.png",

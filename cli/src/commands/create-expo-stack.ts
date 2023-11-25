@@ -70,6 +70,14 @@ const command: GluegunCommand = {
 				cliResults.flags.noInstall = options.noInstall;
 				cliResults.flags.noGit = options.noGit;
 
+				// Validate import alias string forward slash and asterisk
+				if (typeof options.importAlias === 'string') {
+					if (!options.importAlias.endsWith('/*')) {
+						throw new Error('Import alias must end in `/*`, for example: `@/*` or `~/`');
+					}
+				}
+				cliResults.flags.importAlias = options.importAlias;
+
 				if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
 					//  Run the CLI to prompt the user for input
 					cliResults = await runCLI(toolbox);
@@ -179,6 +187,10 @@ const command: GluegunCommand = {
 					// Check if the user wants to skip initializing git
 					if (cliResults.flags.noGit) {
 						script += '--noGit ';
+					}
+
+					if (cliResults.flags.importAlias) {
+						script += '--importAlias ';
 					}
 
 					// Add the package manager
