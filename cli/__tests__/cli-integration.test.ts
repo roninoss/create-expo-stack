@@ -6,7 +6,7 @@ import { test, expect } from 'bun:test';
 
 const src = filesystem.path(__dirname, `..`);
 
-const cli = async (cmd) => system.run(`bun run ` + filesystem.path(src, `src`, `_cli.ts`) + ` ${cmd}`);
+const cli = async (cmd) => system.run(`bun run ` + filesystem.path(src, `src`, `cli.ts`) + ` ${cmd}`);
 
 // jest.setTimeout(100000) // Set a 100-second timeout
 
