@@ -95,7 +95,11 @@ From here, any changes to the `/cli` source-code will reflect the behavior of th
 
 ### Make your changes
 
-Once you've made your changes and tested that it works locally, run the tests using `bun test` in the `/cli` directory. You should also add a test to cover your own contribution, if relevant. These tests take a while to run (we're working on this). If those pass, then you can open a PR against the `main` branch of the source repo.
+Before committing your changes, or before wrapping up your branch for a PR, you should run `bunx changeset` and follow the instructions to provide a summary or summaries of the changes you're providing, in order to provide our changelog with information about your contributions.
+
+Once you've made your changes and tested that it works locally, run the tests using `bun test` in the `/cli` directory. You should also add a test to cover your own contribution, if relevant. These tests take a while to run (we're working on this).
+
+If you've provided the relevant changeset summaries and the tests pass, then you can open a PR against the `main` branch of the source repo.
 
 > **_TODO:_** Add template for pull requests and issues
 
