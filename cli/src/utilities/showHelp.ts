@@ -15,6 +15,7 @@ export function showHelp(info, highlight, warning) {
 	info('        --yarn            Use yarn as the package manager');
 	info('        --pnpm            Use pnpm as the package manager');
 	info('	--bun		  Use bun as the package manager');
+	info('        --importAlias     Enable TS path aliases');
 	info('    -v, --version         Version number');
 	info('    -h, --help            Usage info');
 	info('');
