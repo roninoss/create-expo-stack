@@ -47,13 +47,15 @@ Install all the workspace dependencies with: `bun install` on the project root.
 To quickly run the documentation website after installing all dependencies:
 
 ```shell
-$ bun dev:docs
+$ cd docs
+$ bun start
 ```
 
 To quickly run the landing page website after installing all dependencies:
 
 ```shell
-$ bun dev:www
+$ cd www
+$ bun start
 ```
 
 <!-- To quickly setup `create-expo-stack` for local testing, you'll need to link a local version to run on your machine: -->
