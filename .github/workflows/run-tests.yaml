@@ -6,7 +6,7 @@ on:
 name: run-tests
 jobs:
   build-and-test:
-    name: my-job
+    name: build-and-test
     runs-on: ubuntu-latest
     defaults:
       run:
