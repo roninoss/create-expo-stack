@@ -30,7 +30,8 @@
 		"prepublishOnly": "bun run build",
 		"publishPublic": "bun run build && npm publish --access public",
 		"snapupdate": "jest --updateSnapshot",
-		"watch": "bun test --watch"
+		"test:watch": "bun test --watch",
+		"test": "bun test --timeout 25000"
 	},
 	"husky": {
 		"hooks": {

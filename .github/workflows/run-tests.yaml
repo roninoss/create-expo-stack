@@ -1,0 +1,21 @@
+on:
+  push:
+    paths: ['cli/**']
+  pull_request:
+    paths: ['cli/**']
+name: run-tests
+jobs:
+  my-job:
+    name: my-job
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: cli
+    steps:
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+
+      - run: bun install
+      - run: bun run build
+      - run: bun run test
