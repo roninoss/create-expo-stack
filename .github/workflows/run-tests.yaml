@@ -5,7 +5,7 @@ on:
     paths: ['cli/**']
 name: run-tests
 jobs:
-  my-job:
+  build-and-test:
     name: my-job
     runs-on: ubuntu-latest
     defaults:
