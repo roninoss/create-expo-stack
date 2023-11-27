@@ -1,0 +1,109 @@
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  import { Text, TouchableOpacity, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack } from "tamagui";
+  import { Container, Main, Title, Subtitle, Button, ButtonText } from '../tamagui.config';
+<% } else { %>
+  import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+<% } %>
+import { Link } from "expo-router";
+
+export default function Page() {
+  return (
+  <% if (props.stylingPackage?.name === "nativewind") { %>
+    <View className={styles.container}>
+      <View className={styles.main}>
+        <View>
+          <Text className={styles.title}>Hello World</Text>
+          <Text className={styles.subtitle}>This is the first page of your app.</Text>
+        </View>
+        <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+          <TouchableOpacity className={styles.button} >
+            <Text className={styles.buttonText}>Show Details</Text>
+          </TouchableOpacity>
+        </Link>
+      </View>
+    </View>
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    <Container>
+      <Main>
+        <YStack>
+          <Title>Hello World</Title>
+          <Subtitle>This is the first page of your app.</Subtitle>
+        </YStack>
+        <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+          <Button><ButtonText>Show Details</ButtonText></Button>
+        </Link>
+      </Main>
+    </Container>
+  <% } else { %>
+    <View style={styles.container}>
+      <View style={styles.main}>
+        <View>
+          <Text style={styles.title}>Hello World</Text>
+          <Text style={styles.subtitle}>This is the first page of your app.</Text>
+        </View>
+        <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+          <TouchableOpacity style={styles.button} >
+            <Text style={styles.buttonText}>Show Details</Text>
+          </TouchableOpacity>
+        </Link>
+      </View>
+    </View>
+  <% } %>
+  );
+}
+
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  const styles = {
+    button: "items-center bg-indigo-500 rounded-[28px] shadow-md p-4",
+    buttonText: "text-white text-lg font-semibold text-center",
+    container: "flex-1 p-6",
+    main: "flex-1 max-w-[960] justify-between",
+    title: "text-[64px] font-bold",
+    subtitle: "text-4xl text-gray-700",
+  };
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+  const styles = StyleSheet.create({
+    button: {
+      alignItems: "center",
+      backgroundColor: "#6366F1",
+      borderRadius: 24,
+      elevation: 5,
+      flexDirection: "row",
+      justifyContent: "center",
+      padding: 16,
+      shadowColor: "#000",
+      shadowOffset: {
+        height: 2,
+        width: 0
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84
+    },
+    buttonText: {
+      color: "#FFFFFF",
+      fontSize: 16,
+      fontWeight: "600",
+      textAlign: "center",
+    },
+    container: {
+      flex: 1,
+      padding: 24,
+    },
+    main: {
+      flex: 1,
+      maxWidth: 960,
+      marginHorizontal: "auto",
+      justifyContent: "space-between",
+    },
+    title: {
+      fontSize: 64,
+      fontWeight: "bold",
+    },
+    subtitle: {
+      color: "#38434D",
+      fontSize: 36,
+    }
+  });
+<% } %>

@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "<%= props.projectName %>",
+    "slug": "<%= props.projectName %>",
+    "version": "1.0.0",
+    <% if (props.navigationPackage?.name === 'expo-router') { %>
+      "scheme": "<%= props.projectName %>",
+      "web": {
+        "bundler": "metro",
+        "output": "static",
+        "favicon": "./assets/favicon.png"
+      },
+      "plugins": ["expo-router"],
+      "experiments": {
+        "typedRoutes": true
+      },
+    <% } else { %>
+      "web": {
+        "favicon": "./assets/favicon.png"
+      },
+    <% } %>
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    <% if (props.releasePackage?.name === 'expo-updates') { %>
+      "updates": {
+        "fallbackToCacheTimeout": 0
+        ,"checkAutomatically": "ON_LOAD"
+      },
+      "plugins": [
+      "expo-build-properties"],
+      <% } %>
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,102 @@
+import React from "react";
+<% if (props.stylingPackage?.name === "nativewind") { %>
+    import { Text, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+    import { YStack, H4, Paragraph } from "tamagui"
+<% } else { %>
+    import { StyleSheet, Text, View } from "react-native";
+<% } %>
+
+export default function EditScreenInfo({ path }: { path: string }) {
+    <% if (props.stylingPackage?.name === "nativewind") { %>
+        return (
+            <View>
+                <View className={styles.getStartedContainer}>
+                    <Text className={styles.getStartedText}>
+                        Open up the code for this screen:
+                    </Text>
+                    <View className={styles.codeHighlightContainer + styles.homeScreenFilename}>
+                        <Text>{path}</Text>
+                    </View>
+                    <Text className={styles.getStartedText}>
+                        Change any of the text, save the file, and your app will automatically update.
+                    </Text>
+                </View>
+            </View>
+        );
+    <% } else if (props.stylingPackage?.name === "tamagui") { %>
+        return (
+            <YStack>
+                <YStack alignItems="center" marginHorizontal="$6">
+                    <H4>
+                        Open up the code for this screen:
+                    </H4>
+                    <YStack borderRadius="$3" marginVertical="$1">
+                        <Paragraph>{path}</Paragraph>
+                    </YStack>
+                    <Paragraph>
+                        Change any of the text, save the file, and your app will automatically update.
+                    </Paragraph>
+                </YStack>
+            </YStack>
+        );
+    <% } else { %>
+        return (
+            <View>
+                <View style={styles.getStartedContainer}>
+                    <Text style={styles.getStartedText}>
+                        Open up the code for this screen:
+                    </Text>
+                    <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+                        <Text>{path}</Text>
+                    </View>
+                    <Text style={styles.getStartedText}>
+                        Change any of the text, save the file, and your app will automatically update.
+                    </Text>
+                </View>
+            </View>
+        );
+    <% } %>
+}
+
+<% if (props.stylingPackage?.name === "nativewind") { %>
+    const styles = {
+    codeHighlightContainer: `rounded-md px-1`,
+    getStartedContainer: `items-center mx-12`,
+    getStartedText: `text-lg leading-6 text-center`,
+    helpContainer: `items-center mx-5 mt-4`,
+    helpLink: `py-4`,
+    helpLinkText: `text-center`,
+    homeScreenFilename: `my-2`,
+    };
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+    const styles = StyleSheet.create({
+    codeHighlightContainer: {
+        borderRadius: 3,
+        paddingHorizontal: 4
+    },
+    getStartedContainer: {
+        alignItems: "center",
+        marginHorizontal: 50
+    },
+    getStartedText: {
+        fontSize: 17,
+        lineHeight: 24,
+        textAlign: "center"
+    },
+    helpContainer: {
+        alignItems: "center",
+        marginHorizontal: 20,
+        marginTop: 15
+    },
+    helpLink: {
+        paddingVertical: 15
+    },
+    helpLinkText: {
+        textAlign: "center"
+    },
+    homeScreenFilename: {
+        marginVertical: 7
+    }
+    });
+<% } %>

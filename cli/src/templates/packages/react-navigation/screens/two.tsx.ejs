@@ -1,0 +1,64 @@
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  import { Text, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack, H2, Separator } from "tamagui";
+<% } else { %>
+  import { StyleSheet, Text, View } from "react-native";
+<% } %>
+
+import EditScreenInfo from "../components/edit-screen-info";
+
+export default function TabTwoScreen() {
+  <% if (props.stylingPackage?.name === "nativewind") { %>
+    return (
+      <View className={styles.container}>
+        <Text className={styles.title}>Tab Two</Text>
+        <View className={styles.separator} />
+        <EditScreenInfo path="src/screens/two.tsx" />
+      </View>
+    );
+  <% } else if (props.stylingPackage?.name === "tamagui") { %>
+    return (
+      <YStack flex={1} alignItems="center" justifyContent="center">
+        <H2>Tab One</H2>
+        <Separator />
+        <EditScreenInfo path="src/screens/two.tsx" />
+      </YStack>
+    );
+  <% } else { %>
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Tab Two</Text>
+        <View style={styles.separator} />
+        <EditScreenInfo path="src/screens/two.tsx" />
+      </View>
+    );
+  <% } %>
+}
+
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  const styles = {
+    container: "items-center flex-1 justify-center",
+    separator: "h-[1px] my-7 w-4/5 bg-gray-200",
+    title: "text-xl font-bold"
+  };
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+  const styles = StyleSheet.create({
+    container: {
+      alignItems: "center",
+      flex: 1,
+      justifyContent: "center",
+    },
+    separator: {
+      backgroundColor: "gray",
+      height: 1,
+      marginVertical: 30,
+      opacity: 0.25,
+      width: "80%",
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: "bold",
+    }
+  });
+<% } %>
