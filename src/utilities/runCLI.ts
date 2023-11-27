@@ -99,7 +99,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
     success(`You'll be styling with ease using Tailwind.`)
   } else if (stylingSelect === 'tamagui') {
     cliResults.packages.push({ name: 'tamagui', type: 'styling', options: {} })
-    success(`You'll be set with using cross-platform styling`)
+    success(`You'll be styling with ease using Tamagui`)
   } else {
     cliResults.packages.push({
       name: 'stylesheet',
@@ -117,7 +117,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
     type: 'select',
     name: 'releaseWorkflowSetup',
     message: 'How would you like to setup your release workflow?',
-    choices: ['EAS', 'Codepush', 'none'],
+    choices: ['EAS', 'none'],
   }
 
   const isEAScliInstalled = await confirm(
@@ -128,10 +128,10 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
   const { releaseWorkflowSetup } = await ask(askReleaseWorkflowSetup)
 
   if (releaseWorkflowSetup === 'none') {
-    success(`Ohkay!!, so you will build apks manually with gradle and xCode.`)
-  } else if (releaseWorkflowSetup === 'EAS') {
-    if(isEAScliInstalled){
-       cliResults.packages.push({
+    success(`Sounds good 👍🏻`)
+  } else {
+    if (isEAScliInstalled) {
+      cliResults.packages.push({
         name: 'expo-updates',
         type: 'releaseWorkflow',
         options: {},
@@ -139,12 +139,10 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
       success(
         ` Great! EAS will set your environments, namely development, staging and production , and you can share your app and send OTA updates to any specific environment`
       )
-    }else{
+      success(`Run eas init`)
+    } else {
       error(`Need to install EAS cli to setup EAS release workflow`)
     }
-         
-  } else if (releaseWorkflowSetup === 'Codepush') {
-    success(`Great you chose to setup Codepush updates, but it's not supported right now`)
   }
 
   return cliResults

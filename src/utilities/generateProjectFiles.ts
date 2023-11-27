@@ -52,7 +52,7 @@ export function generateProjectFiles(
         flags,
         stylingPackage,
         navigationPackage,
-        releasePackage
+        releasePackage,
       },
     })
 
