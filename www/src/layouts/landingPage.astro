@@ -1,0 +1,43 @@
+---
+import "@styles/globals.css";
+
+import "@fontsource-variable/geologica";
+import { Analytics } from "@vercel/analytics/react";
+
+import HeadCommon from "@components/seo/headCommon.astro";
+import HeadSeo from "@components/seo/headSeo.astro";
+import Navbar from "@components/landing/navbar/navbar.astro";
+import Footer from "@components/landing/footer/footer.astro";
+import BackgroundSvg from "@components/landing/backgroundSvg.astro";
+import StackSection from "@components/landing/stack/stackSection.astro";
+import Testimonials from "@components/landing/testimonials/testimonials.tsx";
+import ContributorsSection from "@components/landing/contributors/contributorsSection.tsx";
+import HeroSection from "@components/landing/hero/heroSection.astro";
+import SponsorsSection from "@components/landing/sponsors/sponsorsSection.tsx";
+---
+
+<!doctype html>
+<html dir="ltr" lang="en-us">
+  <head>
+    <HeadCommon />
+    <HeadSeo type="website" />
+    <title>Create Expo Stack</title>
+  </head>
+  <body class="flex flex-col bg-gradient-to-b from-black via-[#111] to-black">
+    <main class="flex flex-col items-center w-full relative overflow-hidden">
+      <BackgroundSvg />
+      <Navbar />
+      <section
+        class="z-[1] flex flex-col items-center w-full relative lg:aspect-square gap-16 pt-14"
+      >
+        <HeroSection />
+        <StackSection />
+      </section>
+      <Testimonials client:load />
+      <ContributorsSection client:load />
+      <SponsorsSection/>
+    </main>
+    <Footer />
+    <Analytics />
+  </body>
+</html>

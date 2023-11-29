@@ -1,0 +1,153 @@
+<% if (props.navigationPackage?.options.type === 'stack') { %>
+	import { Feather } from "@expo/vector-icons";
+	import { NavigationContainer } from "@react-navigation/native";
+	import { createStackNavigator } from "@react-navigation/stack";
+	<% if (props.stylingPackage?.name === "nativewind") { %>
+		import { Text, View } from "react-native";
+	<% } else if (props.stylingPackage?.name === "tamagui") { %>
+		import { Button, Text } from "tamagui";
+	<% } else { %>
+		import { Text, View, StyleSheet } from "react-native";
+	<% } %>
+
+	import Overview from "../screens/overview";
+	import Details from "../screens/details";
+
+	export type RootStackParamList = {
+		Overview: undefined;
+		Details: { name: string };
+	};
+
+	const Stack = createStackNavigator<RootStackParamList>();
+
+	export default function RootStack() {
+		return (
+			<NavigationContainer>
+				<Stack.Navigator initialRouteName="Overview">
+					<Stack.Screen name="Overview" component={Overview} />
+					<Stack.Screen
+						name="Details"
+						component={Details}
+						<% if (props.stylingPackage?.name === "nativewind") { %>
+							options={({ navigation }) => ({
+								headerLeft: () => (
+									<View className={styles.backButton}>
+										<Feather name="chevron-left" size={16} color="#007AFF" />
+										<Text className={styles.backButtonText} onPress={navigation.goBack}>Back</Text>
+									</View>
+								)
+							})}
+						<% } else if (props.stylingPackage?.name === "tamagui") { %>
+							options={({ navigation }) => ({
+								headerLeft: () => (
+									<Button
+										unstyled
+										flexDirection="row"
+										backgroundColor="transparent"
+										pressStyle={{ opacity: 0.5 }}
+										paddingLeft={20}
+										onPress={navigation.goBack}
+										icon={<Feather name="chevron-left" size={16} color="#007AFF" />}
+									>
+										<Text color="#007AFF">Back</Text>
+									</Button>
+								),
+							})}
+						<% } else { %>
+							options={({ navigation }) => ({
+								headerLeft: () => (
+									<View style={styles.backButton}>
+										<Feather name="chevron-left" size={16} color="#007AFF" />
+										<Text style={styles.backButtonText} onPress={navigation.goBack}>Back</Text>
+									</View>
+								)
+							})}
+						<% } %>
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
+		);
+	}
+
+	<% if (props.stylingPackage?.name === "nativewind") { %>
+		const styles = {
+			backButton: "flex-row",
+			backButtonText: "text-blue-500 ml-1"
+		};
+	<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+		const styles = StyleSheet.create({
+			backButton: {
+				flexDirection: "row",
+				paddingLeft: 20,
+			},
+			backButtonText: {
+				color: "#007AFF",
+				marginLeft: 4
+			}
+		});
+	<% } %>
+<% } else if (props.navigationPackage?.options.type === 'tabs') { %>
+	import { NavigationContainer } from "@react-navigation/native";
+	import { createStackNavigator } from "@react-navigation/stack";
+
+	import Modal from "../screens/modal";
+	import TabNavigator from "./tab-navigator";
+
+	export type RootStackParamList = {
+		TabNavigator: undefined;
+		Modal: undefined;
+	};
+
+	const Stack = createStackNavigator<RootStackParamList>();
+
+	export default function RootStack() {
+		return (
+			<NavigationContainer>
+				<Stack.Navigator initialRouteName="TabNavigator">
+					<Stack.Screen
+						name="TabNavigator"
+						component={TabNavigator}
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name="Modal"
+						component={Modal}
+						options={{ presentation: "modal", headerLeft: null }}
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
+		);
+	}
+	<% } else if (props.navigationPackage?.options.type === 'drawer') { %>
+		import { NavigationContainer } from "@react-navigation/native";
+		import { createStackNavigator } from '@react-navigation/stack';
+	
+		import Modal from "../screens/modal";
+		import DrawerNavigator from "./drawer-navigator";
+	
+		export type RootStackParamList = {
+			TabNavigator: undefined;
+			Modal: undefined;
+		};
+	
+		const Stack = createStackNavigator<RootStackParamList>();
+	
+		export default function RootStack() {
+			return (
+				<NavigationContainer>
+					<Stack.Navigator initialRouteName="DrawerNavigator">
+						<Stack.Screen
+							name="DrawerNavigator"
+							component={DrawerNavigator}
+							options={{ headerShown: false }}
+						/>
+						<Stack.Screen
+							name="Modal"
+							component={Modal}
+							options={{ presentation: "modal" }}
+						/>
+					</Stack.Navigator>
+				</NavigationContainer>
+			);
+		}
+	<% } %>

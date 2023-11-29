@@ -1,0 +1,105 @@
+name: Release Beta
+on:
+  push:
+    branches:
+      - beta
+
+permissions:
+  id-token: write
+
+jobs:
+  # Figure out if a beta release is necessary. The release will only happen if at least one
+  # changeset is present when this job runs.
+  check-is-release:
+    if: ${{ github.repository_owner == 'danstepanov' }}
+    name: Check if a beta release is needed
+    runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.release-needed.outputs.result }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Cache node_modules
+        id: cache-bun
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}\
+            -${{ hashFiles('**/bun.lockb') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Figure out if a new beta release is needed
+        id: release-needed
+        run: |
+          result=$(bun run ./scripts/check-is-release.ts)
+          echo "result=$result" >> $GITHUB_ENV
+          echo "::set-output name=result::$result"
+
+  release-beta:
+    needs: check-is-release
+    if: ${{ needs.check-is-release.outputs.result == 'true' }}
+    name: Release Beta
+    runs-on: ubuntu-latest
+    outputs:
+      releaseId: ${{ steps.release-id.outputs.releaseId }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Cache node_modules
+        id: cache-bun
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}\
+            -${{ hashFiles('**/bun.lockb') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build create-expo-stack
+        run: bun run build:cli
+
+      ## The change made to package.json here is ephemeral, as it will only run in CI
+      - name: Bump beta version
+        run: bun run ./scripts/beta-release.ts
+
+      ## Unfortunately, bun doesn't support publishing to NPM registry yet
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+
+      - name: Authenticate to npm and publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          bun run build:cli
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          cd ./cli
+          npm publish --provenance --access public --ignore-scripts --tag beta

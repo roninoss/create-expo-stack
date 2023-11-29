@@ -1,0 +1,125 @@
+---
+import { type KnownLanguageCode } from "../../consts";
+import type { CollectionEntry } from "astro:content";
+import { SIDEBAR, SIDEBAR_HEADER_MAP } from "../../consts";
+import { getIsRtlFromUrl } from "../../languages";
+// import Search from "./Search";
+
+
+type DataProps = CollectionEntry<"docs">["data"]
+
+export interface Props {
+  frontmatter?: DataProps;
+  currentPage: string;
+  isNotFound?: boolean;
+}
+
+const { frontmatter, currentPage, isNotFound } = Astro.props;
+const isLanding = currentPage === "/" || !!isNotFound;
+const hasTrailing = currentPage.endsWith("/");
+const currentPageMatch = currentPage.slice(
+  1,
+  hasTrailing ? -1 : currentPage.length,
+);
+const isRtl = getIsRtlFromUrl(currentPage);
+
+const langCode = frontmatter?.lang ?? "en";
+const englishSidebar = SIDEBAR["en"];
+const nativeSidebar = SIDEBAR[langCode as keyof typeof SIDEBAR]; // Use type assertion
+ 
+let sidebar: Record<
+  string,
+  { text: string; link: string; isTranslated?: boolean }[]
+> = englishSidebar;
+
+if (langCode && langCode !== "en") { // Check if langCode is defined
+  sidebar = Object.fromEntries(
+    Object.entries(englishSidebar).map(([header, items]) => {
+      // Set header to translated one if it exists
+      const innerHeader = SIDEBAR_HEADER_MAP[langCode as KnownLanguageCode];
+      const nativeHeader =
+        innerHeader?.[header as keyof typeof innerHeader] ?? header;
+
+      const langCodeLength = langCode.length
+      const nativeItems = items.map((item) => {
+        const match = Object.values(nativeSidebar)
+          .flat()
+          .find(
+            ({ link: nativeLink }) =>
+              // trailing slash + language code
+              nativeLink.slice(langCodeLength + 1) === item.link.slice(3),
+          );
+        return {
+          text: match?.text ?? item.text,
+          link: match?.link ?? item.link,
+          isTranslated: !!match,
+        };
+      });
+
+      return [nativeHeader, nativeItems];
+    }),
+  );
+}
+
+---
+
+<div class="mx-auto mb-6 ml--40 w-full px-6 md:ml-0 md:hidden md:px-8">
+  <!-- <Search isLanding={isLanding} client:idle /> -->
+</div>
+<div
+  dir="ltr"
+  class="h-full w-full overflow-auto bg-default transition-colors duration-300 lg:mb-12"
+>
+  <ul
+    dir={isRtl ? "rtl" : "ltr"}
+    class="px-4 pb-28 text-slate-900 dark:text-ces-50 md:pb-0"
+  >
+    {
+      Object.entries(sidebar).map(([header, children]) => (
+        <li>
+          <div>
+            <h2
+              class:list={[
+                "pb-2 text-xl font-semibold transition-colors duration-300 sm:text-lg",
+                {
+                  // mobile menu on landing page
+                  "text-slate-50": isLanding,
+                },
+              ]}
+            >
+              {header}
+            </h2>
+            <ul class="mb-2">
+              {children.map((child) => {
+                const url = Astro.site?.pathname + child.link;
+                const isActive = currentPageMatch === child.link;
+                return (
+                  <li>
+                    <a
+                      href={url}
+                      aria-current={isActive ? "page" : false}
+                      class:list={[
+                        "text-md block py-2 text-ces-800 transition-colors [padding-inline-start:16px] hover:border-ces-300/50 hover:bg-ces-300/20 hover:text-ces-400 dark:text-ces-200 dark:hover:bg-ces-300/10 dark:hover:text-ces-100",
+                        isActive
+                          ? "border-ces-300 bg-ces-300/30 font-medium dark:bg-ces-300/20"
+                          : "border-ces-300/20",
+                        isRtl ? "border-r-2" : "border-l-2",
+                      ]}
+                    >
+                      <span>{child.text}</span>
+                      {!child.isTranslated && langCode !== "en" && (
+                        <span class="text-xs text-ces-400 [margin-inline-start:4px] dark:text-ces-300">
+                          EN
+                        </span>
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>

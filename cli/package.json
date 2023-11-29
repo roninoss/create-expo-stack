@@ -1,0 +1,72 @@
+{
+	"name": "create-expo-stack",
+	"version": "2.2.15",
+	"description": "CLI tool to initialize a React Native application with Expo",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/danstepanov/create-expo-stack.git",
+		"directory": "cli"
+	},
+	"license": "MIT",
+	"types": "build/types/types.d.ts",
+	"bin": {
+		"create-expo-stack": "bin/create-expo-stack.js"
+	},
+	"files": [
+		"build",
+		"LICENSE",
+		"readme.md",
+		"docs",
+		"bin"
+	],
+	"scripts": {
+		"build": "bun run clean-build && bun run compile && bun run copy-templates && bun run lint-templates",
+		"bump": "bun run ./src/utilities/bumpVersion.ts",
+		"clean-build": "rm -rf ./build",
+		"compile": "tsc -p .",
+		"copy-templates": "bun run copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
+		"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
+		"lint-templates": "bun run ejslint ./src/templates",
+		"prepublishOnly": "bun run build",
+		"publishPublic": "bun run build && npm publish --access public",
+		"snapupdate": "jest --updateSnapshot",
+		"watch": "bun test --watch"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	},
+	"prettier": {
+		"arrowParens": "always",
+		"bracketSameLine": false,
+		"bracketSpacing": true,
+		"printWidth": 120,
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"trailingComma": "none",
+		"useTabs": true
+	},
+	"dependencies": {
+		"ejs-lint": "^2.0.0",
+		"figlet": "^1.6.0",
+		"gluegun": "latest",
+		"gradient-string": "^2.0.2"
+	},
+	"devDependencies": {
+		"@types/gradient-string": "^1.1.2",
+		"@typescript-eslint/eslint-plugin": "^6.9.1",
+		"@typescript-eslint/parser": "^6.9.1",
+		"copyfiles": "^2.4.1",
+		"eslint": "^8.53.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-prettier": "^5.0.1",
+		"husky": "^5.1.3",
+		"prettier": "^2.2.1",
+		"pretty-quick": "^3.1.0"
+	},
+	"publishConfig": {
+		"provenance": false
+	}
+}

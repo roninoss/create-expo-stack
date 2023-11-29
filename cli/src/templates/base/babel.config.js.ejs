@@ -1,0 +1,31 @@
+module.exports = function(api) {
+  api.cache(true);
+  let plugins = [];
+  
+  <% if (props.stylingPackage?.name === "nativewind") { %>
+    plugins.push('nativewind/babel');
+  <% } %>
+
+  <% if (props.stylingPackage?.name === "tamagui") { %>
+    plugins.push([
+      '@tamagui/babel-plugin',
+      {
+        components: ['tamagui'],
+        config: './tamagui.config.ts',
+      },
+    ]);
+  <% } %>
+
+  <% if (props.navigationPackage?.name === 'expo-router') { %>
+    plugins.push('expo-router/babel');
+  <% } %>
+
+  <% if (props.navigationPackage?.options.type === "drawer") { %>
+    plugins.push('react-native-reanimated/plugin');
+  <% } %>
+
+  return {
+    presets: ['babel-preset-expo'],
+    plugins: plugins,
+  };
+};

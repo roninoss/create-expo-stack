@@ -1,0 +1,47 @@
+<% if (props.stylingPackage?.name === "tamagui") { %>
+	import React, { useEffect } from "react";
+	import { TamaguiProvider } from 'tamagui'
+	import { SplashScreen, Stack } from "expo-router";
+	import { useFonts } from "expo-font";
+
+	import config from '../tamagui.config'
+
+	SplashScreen.preventAutoHideAsync();
+<% } else { %>
+	import { Stack } from "expo-router";
+<% } %>
+
+export const unstable_settings = {
+	// Ensure that reloading on `/modal` keeps a back button present.
+	initialRouteName: "(tabs)",
+};
+
+export default function RootLayout() {
+  	<% if (props.stylingPackage?.name === "tamagui") { %>
+    	const [loaded] = useFonts({
+      		Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+      		InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
+    	});
+
+    	useEffect(() => {
+      		if (loaded) {
+        		SplashScreen.hideAsync();
+      		}
+    	}, [loaded]);
+
+    	if (!loaded) return null;
+  	<% } %>
+
+  	return (
+    	<% if (props.stylingPackage?.name === "tamagui") { %>
+    		<TamaguiProvider config={config}>
+    	<% } %>
+		<Stack>
+			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+			<Stack.Screen name="modal" options={{ presentation: "modal" }} />
+		</Stack>
+		<% if (props.stylingPackage?.name === "tamagui") { %>
+			</TamaguiProvider>
+		<% } %>
+  	);
+}

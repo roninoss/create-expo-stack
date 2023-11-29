@@ -7,3 +7,5 @@ dist
 build
 .vscode
 myTestProject
+.turbo
+package-lock.json
