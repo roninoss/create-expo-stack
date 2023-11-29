@@ -141,6 +141,8 @@ const command: GluegunCommand = {
 					});
 				}
 
+				//Release Workflow
+
 				// Destructure the results but set the projectName if the first param is passed in
 				if (first) {
 					cliResults.projectName = first;
@@ -198,9 +200,19 @@ const command: GluegunCommand = {
 				//   if there is no styling package, add the stylesheet package
 				const stylingPackage = packages.find((p) => p.type === 'styling');
 
+				//release Package
+				const releasePackage = packages.find((p) => p.type === 'releaseWorkflow') || undefined;
+
 				let files: string[] = [];
 
-				files = configureProjectFiles(authenticationPackage, files, navigationPackage, stylingPackage, toolbox);
+				files = configureProjectFiles(
+					authenticationPackage,
+					files,
+					navigationPackage,
+					stylingPackage,
+					releasePackage,
+					toolbox
+				);
 
 				// Once all the files are defined, format and generate them
 				let formattedFiles: any[] = [];
@@ -213,6 +225,7 @@ const command: GluegunCommand = {
 					navigationPackage,
 					packageManager,
 					stylingPackage,
+					releasePackage,
 					toolbox
 				);
 

@@ -1,12 +1,12 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
 import { DEFAULT_APP_NAME, defaultOptions } from '../constants';
-import { CliResults, NavigationTypes } from '../types';
+import { CliFeatureType, CliResults, NavigationTypes } from '../types';
 
 export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 	const {
 		parameters: { first },
-		print: { success },
+		print: { success, error },
 		prompt: { ask, confirm }
 	} = toolbox;
 
@@ -38,14 +38,14 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 	}
 
 	// Ask about navigation
-	const askNavigation = {
+	const askNavigation: CliFeatureType = {
 		type: 'select',
 		name: 'navigationSelect',
 		message: 'What would you like to use for Navigation?',
 		choices: ['React Navigation', 'Expo Router', 'None']
 	};
 
-	const askNavigationType = {
+	const askNavigationType: CliFeatureType = {
 		type: 'select',
 		name: 'navigationTypeSelect',
 		message: 'What type of navigation would you like to use?',
@@ -78,7 +78,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		success(`No problem, skipping navigation for now.`);
 	}
 
-	const askStyling = {
+	const askStyling: CliFeatureType = {
 		type: 'select',
 		name: 'stylingSelect',
 		message: 'What would you like to use for styling?',
@@ -98,7 +98,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		success(`Cool, you're using the default StyleSheet that comes with React Native.`);
 	}
 
-	const askAuthentication = {
+	const askAuthentication: CliFeatureType = {
 		type: 'select',
 		name: 'authenticationSelect',
 		message: 'What would you like to use for authentication?',
@@ -115,6 +115,37 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		success(`You'll be using Firebase for authentication.`);
 	} else {
 		success(`No problem, skipping authentication for now.`);
+	}
+
+	// Ask about release workflow setup
+
+	const askReleaseWorkflowSetup: CliFeatureType = {
+		type: 'select',
+		name: 'releaseWorkflowSetup',
+		message: 'How would you like to setup your release workflow?',
+		choices: ['EAS', 'none']
+	};
+
+	const isEAScliInstalled = await confirm('Do you have EAS cli installed ? ', true);
+
+	const { releaseWorkflowSetup } = await ask(askReleaseWorkflowSetup);
+
+	if (releaseWorkflowSetup === 'none') {
+		success(`Sounds good 👍🏻`);
+	} else {
+		if (isEAScliInstalled) {
+			cliResults.packages.push({
+				name: 'expo-updates',
+				type: 'releaseWorkflow',
+				options: {}
+			});
+			success(
+				` Great! EAS will set your environments, namely development, staging and production , and you can share your app and send OTA updates to any specific environment`
+			);
+			success(`Run eas init`);
+		} else {
+			error(`Need to install EAS cli to setup EAS release workflow`);
+		}
 	}
 
 	return cliResults;

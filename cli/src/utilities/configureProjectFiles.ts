@@ -7,6 +7,7 @@ export function configureProjectFiles(
 	files: string[],
 	navigationPackage: AvailablePackages | undefined,
 	stylingPackage: AvailablePackages | undefined,
+	releasePackage: AvailablePackages | undefined,
 	toolbox: Toolbox
 ): string[] {
 	// Define the files common to all templates to be generated
@@ -147,6 +148,11 @@ export function configureProjectFiles(
 		];
 
 		files = [...files, ...firebaseFiles];
+	}
+
+	if (releasePackage?.name === 'expo-updates') {
+		let easFiles = ['packages/expo-updates/eas.json.ejs'];
+		files = [...files, ...easFiles];
 	}
 
 	return files;

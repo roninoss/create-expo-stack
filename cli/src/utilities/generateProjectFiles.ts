@@ -9,6 +9,7 @@ export function generateProjectFiles(
 	navigationPackage: AvailablePackages | undefined,
 	packageManager: PackageManager,
 	stylingPackage: AvailablePackages | undefined,
+	releasePackage: AvailablePackages | undefined,
 	toolbox: Toolbox
 ) {
 	const { projectName, packages, flags } = cliResults;
@@ -50,6 +51,10 @@ export function generateProjectFiles(
 				target = target.replace('drawer/', '');
 			}
 		}
+		// FIXME: Need to know what is this doing!!?, cause it's a node module and it should be installed
+		if (releasePackage?.name === 'expo-updates') {
+			target = target.replace('packages/expo-updates', '');
+		}
 
 		const gen = toolbox.template.generate({
 			template,
@@ -61,7 +66,8 @@ export function generateProjectFiles(
 				projectName,
 				packageManager,
 				packages,
-				stylingPackage
+				stylingPackage,
+				releasePackage
 			}
 		});
 

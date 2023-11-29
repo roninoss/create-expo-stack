@@ -18,17 +18,19 @@ export const availablePackages = [
 	'reactnavigation',
 	'stylesheet',
 	'supabase',
-	'tamagui'
+	'tamagui',
+	'expo-updates'
 ] as const;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer' | undefined;
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
+export type ReleaseWorkflowTypes = 'EAS' | undefined;
 
 export type AvailablePackages = {
 	name: (typeof availablePackages)[number];
-	type: 'navigation' | 'styling' | 'authentication';
-	options?: { type?: NavigationTypes };
+	type: 'navigation' | 'styling' | 'authentication' | 'releaseWorkflow';
+	options?: { type?: NavigationTypes | ReleaseWorkflowTypes };
 };
 
 export interface CliResults {
@@ -36,3 +38,10 @@ export interface CliResults {
 	packages: AvailablePackages[];
 	flags: CliFlags;
 }
+
+export type CliFeatureType = {
+	type: string;
+	name: string;
+	message: string;
+	choices: Array<string>;
+};
