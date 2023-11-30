@@ -1,5 +1,9 @@
 ---
-
+const response = await fetch(
+  "https://api.github.com/repos/danstepanov/create-expo-stack",
+);
+const data = await response.json();
+const starCount = data.stargazers_count;
 ---
 
 <a
@@ -28,6 +32,12 @@
     <path d="M3 5h4"></path>
     <path d="M17 19h4"></path>
   </svg>
+  <span
+    class="bg-gradient-to-br from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl font-bold"
+  >
+    {starCount}
+  </span>
+  <span>|</span>
   <span class="hidden sm:block">Give us a star on Github</span>
   <span class="sm:hidden">Star us on Github</span>
   <svg
