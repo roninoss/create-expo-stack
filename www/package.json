@@ -18,7 +18,8 @@
     "@fontsource-variable/geologica": "^5.0.3",
     "@headlessui/react": "^1.7.17",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
-    "@vercel/analytics": "^1.1.1"
+    "@vercel/analytics": "^1.1.1",
+    "@vercel/og": "^0.5.20"
   },
   "devDependencies": {
     "@types/react": "^18.2.33",
