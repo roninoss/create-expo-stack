@@ -23,21 +23,23 @@
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
+  document.addEventListener('DOMContentLoaded', () => {
     const starCountElement = document.getElementById('star-count');
-    starCountElement.classList.add('spinner');
+    if (starCountElement) {
+      starCountElement.classList.add('spinner');
 
-    fetch("https://api.github.com/repos/danstepanov/create-expo-stack")
-      .then(response => response.json())
-      .then(data => {
-        starCountElement.classList.remove('spinner');
-        const starCount = data.stargazers_count;
-        starCountElement.textContent = starCount;
-      })
-      .catch(error => {
-        starCountElement.classList.remove('spinner');
-        console.error('Error:', error);
-      });
+      fetch("https://api.github.com/repos/danstepanov/create-expo-stack")
+        .then(response => response.json())
+        .then(data => {
+          starCountElement.classList.remove('spinner');
+          const starCount = data.stargazers_count;
+          starCountElement.textContent = starCount;
+        })
+        .catch(error => {
+          starCountElement.classList.remove('spinner');
+          console.error('Error:', error);
+        });
+    }
   });
 </script>
 <a
