@@ -1,11 +1,45 @@
 ---
-const response = await fetch(
-  "https://api.github.com/repos/danstepanov/create-expo-stack",
-);
-const data = await response.json();
-const starCount = data.stargazers_count;
----
 
+---
+<style>
+  @keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    margin-left: -7px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-top-color: #333;
+    animation: spinner .6s linear infinite;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const starCountElement = document.getElementById('star-count');
+    starCountElement.classList.add('spinner');
+
+    fetch("https://api.github.com/repos/danstepanov/create-expo-stack")
+      .then(response => response.json())
+      .then(data => {
+        starCountElement.classList.remove('spinner');
+        const starCount = data.stargazers_count;
+        starCountElement.textContent = starCount;
+      })
+      .catch(error => {
+        starCountElement.classList.remove('spinner');
+        console.error('Error:', error);
+      });
+  });
+</script>
 <a
   target="_blank"
   rel="noreferrer noopener"
@@ -32,11 +66,9 @@ const starCount = data.stargazers_count;
     <path d="M3 5h4"></path>
     <path d="M17 19h4"></path>
   </svg>
-  <span
+  <span id="star-count"
     class="bg-gradient-to-br from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl font-bold"
-  >
-    {starCount}
-  </span>
+  />
   <span>|</span>
   <span class="hidden sm:block">Give us a star on Github</span>
   <span class="sm:hidden">Star us on Github</span>
