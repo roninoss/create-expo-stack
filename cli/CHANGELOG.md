@@ -1,5 +1,15 @@
 # create-expo-stack
 
+## 2.3.0
+
+### Minor Changes
+
+-   [#80](https://github.com/danstepanov/create-expo-stack/pull/80) [`001fff8`](https://github.com/danstepanov/create-expo-stack/commit/001fff8f501cd0b0aa557da607f481f9b4320eec) Thanks [@frankcalise](https://github.com/frankcalise)! - Adds `--importAlias` to enable TS path aliases
+
+### Patch Changes
+
+-   [#83](https://github.com/danstepanov/create-expo-stack/pull/83) [`fb044c8`](https://github.com/danstepanov/create-expo-stack/commit/fb044c810fdd91efb4dde52e787e1f2434d43509) Thanks [@sammoore](https://github.com/sammoore)! - Support a wider variety of shells in generated package.json run-scripts by using double-quotes around glob arguments. Courtesy of Gaurav Bhandari (@kratos-respawned)
+
 ## 2.2.15
 
 ### Patch Changes
