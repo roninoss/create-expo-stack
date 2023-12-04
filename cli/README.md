@@ -96,10 +96,26 @@ Thanks go to these wonderful people:
 				</a>
 			</td>
 			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/hqasmei">
+					<img src="https://avatars.githubusercontent.com/u/39573679?v=4" width="100px;" alt="Hosna Qasmei"/>
+					<br />
+					Hosna Qasmei
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
 				<a href="https://github.com/frankcalise/">
 					<img src="https://pbs.twimg.com/profile_images/1262363198839238662/uIfRNVBY_400x400.jpg" width="100px;" alt="Frank Calise"/>
 					<br />
 					Frank Calise
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/sammoore">
+					<img src="https://avatars.githubusercontent.com/u/2035492?v=4" width="100px;" alt="Sam Moore"/>
+					<br />
+					Sam Moore
 				</a>
 			</td>
 			<td align="center" valign="top" width="14.28%">
@@ -109,8 +125,6 @@ Thanks go to these wonderful people:
 					Catalin Miron
 				</a>
 			</td>
-		</tr>
-		<tr>
 			<td align="center" valign="top" width="14.28%">
 				<a href="https://twitter.com/PickleNik0864">
 					<img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="catalinmiron"/>
@@ -125,6 +139,8 @@ Thanks go to these wonderful people:
 					Chris Bautista
 				</a>
 			</td>
+		</tr>
+		<tr>
 			<td align="center" valign="top" width="14.28%">
 				<a href="https://twitter.com/hugemathguy">
 					<img src="https://pbs.twimg.com/profile_images/1503470123763617796/49xDaART_400x400.jpg" width="100px;" alt="Andrew Levy"/>
@@ -139,8 +155,6 @@ Thanks go to these wonderful people:
 					Ali Zamani
 				</a>
 			</td>
-		</tr>
-		<tr>
 			<td align="center" valign="top" width="14.28%">
 				<a href="https://github.com/saimon24">
 					<img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100px;" alt="Simon Grimm"/>
@@ -155,8 +169,17 @@ Thanks go to these wonderful people:
 					Mat Warger
 				</a>
 			</td>
+		</tr>
+		<tr>
 			<td align="center" valign="top" width="14.28%">
-				<a href="https://twitter.com/b0iq_">
+				<a href="https://github.com/kratos-respawned">
+					<img src="https://avatars.githubusercontent.com/u/87561983?v=4" width="100px;" alt="kratos-respawned"/>
+					<br />
+					Gaurav Bhandari
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/b0iq">
 					<img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100px;" alt="b0iq"/>
 					<br />
 					b0iq

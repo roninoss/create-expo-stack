@@ -47,10 +47,22 @@ export const CONTRIBUTORS = [
     html_url: "https://github.com/ernestoresende",
   },
   {
+    login: "hqasmei",
+    id: 39573679,
+    avatar_url: "https://avatars.githubusercontent.com/u/39573679?v=4",
+    html_url: "https://github.com/hqasmei",
+  },
+  {
     login: "frankcalise",
     id: 374022,
     avatar_url: "https://avatars.githubusercontent.com/u/374022?v=4",
     html_url: "https://github.com/frankcalise",
+  },
+  {
+    login: "sammoore",
+    id: 2035492,
+    avatar_url: "https://avatars.githubusercontent.com/u/2035492?v=4",
+    html_url: "https://github.com/sammoore",
   },
   {
     login: "catalinmiron",
@@ -59,7 +71,7 @@ export const CONTRIBUTORS = [
     html_url: "https://github.com/catalinmiron",
   },
   {
-    login: "picklnik",
+    login: "PickleNik0864",
     id: 31113245,
     avatar_url: "https://avatars.githubusercontent.com/u/31113245?v=4",
     html_url: "https://twitter.com/PickleNik0864",
@@ -83,10 +95,28 @@ export const CONTRIBUTORS = [
     html_url: "https://github.com/alitnk",
   },
   {
-    login: "matwarger",
+    login: "saimon24",
+    id: 2514208,
+    avatar_url: "https://avatars.githubusercontent.com/u/2514208?v=4",
+    html_url: "https://github.com/saimon24",
+  },
+  {
+    login: "mwarger",
     id: 686823,
     avatar_url: "https://avatars.githubusercontent.com/u/686823?v=4",
     html_url: "https://twitter.com/mwarger",
+  },
+  {
+    login: "kratos-respawned",
+    id: 87561983,
+    avatar_url: "https://avatars.githubusercontent.com/u/87561983?v=4",
+    html_url: "https://github.com/kratos-respawned",
+  },
+  {
+    login: "b0iq",
+    id: 106549013,
+    avatar_url: "https://avatars.githubusercontent.com/u/106549013?v=4",
+    html_url: "https://github.com/b0iq",
   },
   {
     login: "MVAodhan",
