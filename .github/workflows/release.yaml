@@ -2,7 +2,8 @@ name: Release
 on:
   push:
     branches:
-      - release
+      - main
+
 permissions:
   contents: write
   issues: write
