@@ -7,7 +7,7 @@
   "commit": false,
   "updateInternalDependencies": "patch",
   "access": "public",
-  "baseBranch": "beta",
+  "baseBranch": "main",
   "fixed": [["create-expo-stack"]],
   "ignore": ["create-expo-stack-docs", "create-expo-stack-landing"]
   

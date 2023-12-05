@@ -1,18 +1,18 @@
-name: Release Beta
+name: Release Next
 on:
   push:
     branches:
-      - beta
+      - main
 
 permissions:
   id-token: write
 
 jobs:
-  # Figure out if a beta release is necessary. The release will only happen if at least one
+  # Figure out if a next release is necessary. The release will only happen if at least one
   # changeset is present when this job runs.
   check-is-release:
     if: ${{ github.repository_owner == 'danstepanov' }}
-    name: Check if a beta release is needed
+    name: Check if a next release is needed
     runs-on: ubuntu-latest
     outputs:
       result: ${{ steps.release-needed.outputs.result }}
@@ -42,17 +42,17 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Figure out if a new beta release is needed
+      - name: Figure out if a new next release is needed
         id: release-needed
         run: |
           result=$(bun run ./scripts/check-is-release.ts)
           echo "result=$result" >> $GITHUB_ENV
           echo "::set-output name=result::$result"
 
-  release-beta:
+  release-next:
     needs: check-is-release
     if: ${{ needs.check-is-release.outputs.result == 'true' }}
-    name: Release Beta
+    name: Release Next
     runs-on: ubuntu-latest
     outputs:
       releaseId: ${{ steps.release-id.outputs.releaseId }}
@@ -86,8 +86,8 @@ jobs:
         run: bun run build:cli
 
       ## The change made to package.json here is ephemeral, as it will only run in CI
-      - name: Bump beta version
-        run: bun run ./scripts/beta-release.ts
+      - name: Bump next version
+        run: bun run ./scripts/next-release.ts
 
       ## Unfortunately, bun doesn't support publishing to NPM registry yet
       - name: Setup Node.js
@@ -102,4 +102,4 @@ jobs:
           bun run build:cli
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           cd ./cli
-          npm publish --provenance --access public --ignore-scripts --tag beta
+          npm publish --provenance --access public --ignore-scripts --tag next
