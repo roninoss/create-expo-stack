@@ -1,3 +1,4 @@
+//TODO: OG image generation currently doesn't work
 import { ImageResponse } from "@vercel/og";
 
 export const config = {
