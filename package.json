@@ -1,5 +1,6 @@
 {
   "name": "create-expo-stack-repository",
+  "private": true,
   "version": "0.0.0",
   "description": "Root package for the create-expo-stack monorepo",
   "repository": {
