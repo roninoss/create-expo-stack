@@ -1,39 +1,14 @@
 ---
-import { OPEN_GRAPH, SITE, type Frontmatter } from "../../config";
+import { OPEN_GRAPH, SITE } from "../../config";
 import { SITE_URL } from "@utils/siteUrl";
-
-export interface Props {
-  frontmatter?: Frontmatter;
-  type?: string;
-}
-
-const { frontmatter, type } = Astro.props as Props;
-
+ 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
-const formattedContentTitle = frontmatter
-  ? `${frontmatter.title} 🚀 ${SITE.title}`
-  : SITE.title;
+//TODO: Uncomment when implementing auto OG image generation
+// const imageUrl = SITE_URL+"/api/og"
 
-const ogTitle = frontmatter ? frontmatter.title : SITE.title;
-const ogDescription = frontmatter ? frontmatter.description : SITE.description;
-
-const ogImageData = {
-  title: ogTitle,
-  description: ogDescription,
-  pagePath: Astro.url.pathname,
-};
-
-const imageSrc =
-  frontmatter?.image?.src ??
-  `${SITE_URL}/og?${Object.entries(ogImageData)
-    .map(([key, value]) => `${key}=${value}`)
-    .join("&")}`;
-
-const imageUrl = new URL(imageSrc, Astro.url.origin);
-const imageAlt = frontmatter?.image?.alt ?? OPEN_GRAPH.image.alt;
-
-const ogType = type ?? "article";
+//TODO: Remove when implementing auto OG image generation
+const imageUrl = SITE_URL+"/og-image.png"
 ---
 
 <!-- Page Metadata -->
@@ -41,11 +16,21 @@ const ogType = type ?? "article";
 <meta name="description" property="og:description" content={SITE.description} />
 
 <!-- OpenGraph Tags -->
-<meta property="og:title" content={formattedContentTitle} />
-<meta property="og:type" content={ogType} />
-<meta property="og:url" content={canonicalUrl} />
-<meta property="og:locale" content={SITE.defaultLanguage} />
+<meta property="og:title" content={SITE.title} />
+<meta property="og:description" content={SITE.description} />
+<meta property="og:url" content={canonicalUrl} /> 
 <meta property="og:image" content={imageUrl} />
-<meta property="og:image:alt" content={imageAlt} />
-<meta property="og:site_name" content={SITE.title} />
- 
+<meta property="og:image:alt" content={OPEN_GRAPH.image.alt} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" /> 
+
+<!-- Twitter Tags -->
+<meta name="twitter:image" content={imageUrl}></meta>
+<meta name="twitter:image:alt" content={OPEN_GRAPH.image.alt}></meta>
+<meta name="twitter:card" content="summary_large_image"></meta>
+<meta name="twitter:title" content="Create Expo Stack"></meta>
+<meta
+  name="twitter:description"
+  content="The easiest way to create a React Native app with Expo"
+></meta>

@@ -5,7 +5,7 @@ import vercel from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
-  site: `https://expostack.dev/`,
+  site: `https://createexpostack.com/`,
   integrations: [react(), tailwind()],
   output: "static",
   adapter: vercel({
