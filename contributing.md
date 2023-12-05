@@ -97,10 +97,21 @@ From here, any changes to the `/cli` source-code will reflect the behavior of th
 
 ### Make your changes
 
-Before committing your changes, or before wrapping up your branch for a PR, you should run `bunx changeset` and follow the instructions to provide a summary or summaries of the changes you're providing, in order to provide our changelog with information about your contributions.
 
 Once you've made your changes and tested that it works locally, run the tests using `bun test` in the `/cli` directory. You should also add a test to cover your own contribution, if relevant. These tests take a while to run (we're working on this).
 
+#### When making changes to the CLI
+If your changes alter and/or add to the behavior of the `create-expo-stack` CLI, or fixes a bug in it, then we encourage you to also create a **changeset**. A changeset is a quick summary that expresses the intention to bump the version of the package. This is used by our CI in order to automatically manage releases to NPM.
+To introduce a new changeset, run:
+```shell
+bunx changeset
+# or
+bun run changesets
+```
+This will prompt you for the kind of version bump your changes introduce (`patch`, `minor`, `major`), and for a quick sumary of your changes. If the change is small enough, it is valid to just replicate the contents of your commit message. If it's more complex, the changeset summary (generated in the root `.changeset` directory) can be edited to include more information.
+The generated changeset file should be included in your commit. That way, when the new version releases, you will be properly credited on GitHub's release page and in the project's changelog.
+> [!NOTE]
+> If you're not sure what kind of version bump your changes introduce, you can reach out to one of the maintainers in the PR comments and we'll try to help you out!
 If you've provided the relevant changeset summaries and the tests pass, then you can open a PR against the `main` branch of the source repo.
 
 > **_TODO:_** Add template for pull requests and issues
