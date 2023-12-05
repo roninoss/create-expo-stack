@@ -1,14 +1,14 @@
 import getReleasePlan from '@changesets/get-release-plan';
 
-/** Check if a beta release is necessary based on the presence of changesets */
+/** Check if a "next" / development release is necessary based on the presence of changesets */
 async function checkIsRelease() {
 	const releasePlan = await getReleasePlan(process.cwd());
 
 	try {
 		const packageJson = await Bun.file(process.cwd() + '/cli/package.json').json();
-		const newBetaVersion = releasePlan.releases.find((release) => release.name === packageJson.name)?.newVersion;
+		const newNextVersion = releasePlan.releases.find((release) => release.name === packageJson.name)?.newVersion;
 
-		if (newBetaVersion == null) {
+		if (newNextVersion == null) {
 			await Bun.write(Bun.stdout, 'false\n');
 		} else {
 			await Bun.write(Bun.stdout, 'true\n');

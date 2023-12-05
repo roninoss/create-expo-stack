@@ -1,6 +1,6 @@
 import getReleasePlan from '@changesets/get-release-plan';
 
-async function createBetaRelease() {
+async function createNextRelease() {
 	const releasePlan = await getReleasePlan(process.cwd());
 
 	try {
@@ -10,17 +10,17 @@ async function createBetaRelease() {
 
 		/**
 		 * Parse the package.json for `create-expo-stack`, and update it with the new
-		 * beta version based on the parsed changesets
+		 * "next" (development) version based on the parsed changesets
 		 */
 		const packageJson = await Bun.file(process.cwd() + '/cli/package.json').json();
-		const newBetaVersion = releasePlan.releases.find((release) => release.name === packageJson.name)?.newVersion;
+		const newNextVersion = releasePlan.releases.find((release) => release.name === packageJson.name)?.newVersion;
 
-		if (newBetaVersion) {
+		if (newNextVersion) {
 			/**
-			 * Write the new beta version to `package.json`. It is an ephemeral change
+			 * Write the new "next" version to `package.json`. It is an ephemeral change
 			 * that lives only for the duration of the CI run, and is not committed
 			 */
-			packageJson.version = `${newBetaVersion}-beta.${commitHash}`;
+			packageJson.version = `${newNextVersion}-next.${commitHash}`;
 
 			const content = JSON.stringify(packageJson, null, '\t') + '\n';
 			await Bun.write(process.cwd() + '/cli/package.json', content);
@@ -31,4 +31,4 @@ async function createBetaRelease() {
 	}
 }
 
-await createBetaRelease();
+await createNextRelease();
