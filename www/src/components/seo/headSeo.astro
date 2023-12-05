@@ -4,9 +4,11 @@ import { SITE_URL } from "@utils/siteUrl";
  
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
+//TODO: Uncomment when implementing auto OG image generation
 // const imageUrl = SITE_URL+"/api/og"
+
+//TODO: Remove when implementing auto OG image generation
 const imageUrl = SITE_URL+"/og-image.png"
-console.log(imageUrl)
 ---
 
 <!-- Page Metadata -->
@@ -16,8 +18,7 @@ console.log(imageUrl)
 <!-- OpenGraph Tags -->
 <meta property="og:title" content={SITE.title} />
 <meta property="og:description" content={SITE.description} />
-<meta property="og:url" content={canonicalUrl} />
-<!-- <meta property="og:image" content={imageUrl} /> -->
+<meta property="og:url" content={canonicalUrl} /> 
 <meta property="og:image" content={imageUrl} />
 <meta property="og:image:alt" content={OPEN_GRAPH.image.alt} />
 <meta property="og:image:type" content="image/png" />
@@ -25,11 +26,11 @@ console.log(imageUrl)
 <meta property="og:image:height" content="630" /> 
 
 <!-- Twitter Tags -->
-<meta property="twitter:image" content={imageUrl}></meta>
-<meta property="twitter:image:alt" content={OPEN_GRAPH.image.alt}></meta>
-<meta property="twitter:card" content="summary_large_image"></meta>
-<meta property="twitter:title" content="Create Expo Stack"></meta>
+<meta name="twitter:image" content={imageUrl}></meta>
+<meta name="twitter:image:alt" content={OPEN_GRAPH.image.alt}></meta>
+<meta name="twitter:card" content="summary_large_image"></meta>
+<meta name="twitter:title" content="Create Expo Stack"></meta>
 <meta
-  property="twitter:description"
+  name="twitter:description"
   content="The easiest way to create a React Native app with Expo"
 ></meta>
