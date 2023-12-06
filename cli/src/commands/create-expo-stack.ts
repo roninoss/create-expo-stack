@@ -29,6 +29,7 @@ const command: GluegunCommand = {
 
 			return;
 		}
+
 		try {
 			// Validation: check if the user passed in the tabs/drawer option without passing in either expo router or react navigation. If so, throw an error
 			if (
@@ -67,8 +68,8 @@ const command: GluegunCommand = {
 				const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
 
 				// Check if the user wants to not install dependencies and/or not initialize git, update cliResults accordingly
-				cliResults.flags.noInstall = options.noInstall;
-				cliResults.flags.noGit = options.noGit;
+				cliResults.flags.noInstall = options.noInstall || false;
+				cliResults.flags.noGit = options.noGit || false;
 
 				// Validate import alias string forward slash and asterisk
 				if (typeof options.importAlias === 'string') {
@@ -76,7 +77,7 @@ const command: GluegunCommand = {
 						throw new Error('Import alias must end in `/*`, for example: `@/*` or `~/`');
 					}
 				}
-				cliResults.flags.importAlias = options.importAlias;
+				cliResults.flags.importAlias = options.importAlias || true;
 
 				if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
 					//  Run the CLI to prompt the user for input
@@ -126,6 +127,13 @@ const command: GluegunCommand = {
 				} else if (options.stylesheet) {
 					cliResults = clearStylingPackages(cliResults);
 					// Add stylesheet package
+					cliResults.packages.push({
+						name: 'stylesheet',
+						type: 'styling'
+					});
+				}
+				// if there is no style package, add stylesheet
+				else if (cliResults.packages.find((p) => p.type === 'styling') === undefined) {
 					cliResults.packages.push({
 						name: 'stylesheet',
 						type: 'styling'
