@@ -1,4 +1,18 @@
 #!/bin/sh
-bun run pretty-quick --staged
+set -e
 
-git diff-index --cached HEAD | xargs -I{} echo {}
+# offer to run `bun run changeset` when changes are committed within the cli/ directory
+if git diff-index --cached HEAD | tr '\t' ' ' | sed 's/^.*[ ]//' | grep '^cli/' >/dev/null; then
+	echo ""
+	echo "It looks likes you've made changes within the \`cli/\` folder."
+	printf "Would you like to run \`bun run changeset\` to update the changelog? (Y/n): "
+
+	read res < /dev/tty
+	case $res in
+		""|Y|y)
+			bun run changeset < /dev/tty
+			;;
+	esac
+
+	echo ""
+fi
