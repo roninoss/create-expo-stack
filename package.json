@@ -18,12 +18,8 @@
     "build:cli": "turbo build --filter create-expo-stack",
     "build:www": "turbo build --filter create-expo-stack-landing",
     "build:docs": "turbo build --filter create-expo-stack-docs",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
+    "prepare": "husky install"
   },
   "prettier": {
     "semi": true,
