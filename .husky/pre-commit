@@ -1,0 +1,4 @@
+#!/bin/sh
+bun run pretty-quick --staged
+
+git diff-index --cached HEAD | xargs -I{} echo {}
