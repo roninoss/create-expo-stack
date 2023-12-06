@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+bun run lint-staged
+
 # offer to run `bun run changeset` when changes are committed within the cli/ directory
 if git diff-index --cached HEAD | tr '\t' ' ' | sed 's/^.*[ ]//' | grep '^cli/' >/dev/null; then
 	echo ""
