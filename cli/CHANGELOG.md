@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.1
+
+### Patch Changes
+
+-   [`cda57ac`](https://github.com/danstepanov/create-expo-stack/commit/cda57ac663a390648b4f20f5a77113e99a07e39c) Thanks [@danstepanov](https://github.com/danstepanov)! - set default boolean values for cli flags, add stylesheet as default styling package if no styling package is passed in to non-interactive mode
+
 ## 2.3.0
 
 ### Minor Changes
