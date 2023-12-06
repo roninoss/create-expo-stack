@@ -1,0 +1,13 @@
+*.cast
+*.ejs
+*.jpeg
+*.png
+*.ttf
+*.txt
+.editorconfig
+.env
+.gitignore
+.husky/pre-commit
+.prettierignore
+bun.lockb
+LICENSE
