@@ -17,6 +17,7 @@
     "@astrojs/react": "^3.0.5",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/vercel": "^5.2.0",
     "@docsearch/css": "^3.5.2",
     "@docsearch/react": "^3.5.2",
     "@headlessui/react": "^1.7.17",
