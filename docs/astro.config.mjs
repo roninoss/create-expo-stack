@@ -8,11 +8,11 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://docs.expostack.dev/",
+  site: "https://docs.createexpostack.com/",
   integrations: [tailwind(), react(), mdx(), sitemap()],
   adapter: vercel({
     webAnalytics: {
-      enabled: true,
+      enabled: true
     },
   }),
 });
