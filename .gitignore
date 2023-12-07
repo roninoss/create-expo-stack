@@ -5,7 +5,6 @@ coverage
 .nyc_output
 dist
 build
-.vscode
 myTestProject
 .turbo
 package-lock.json
