@@ -4,7 +4,6 @@ import { CliResults } from '../types';
 export type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun';
 export type PackageManagerRunnerX = 'npx' | 'pnpx' | 'yarn dlx' | 'bunx';
 
-// Taken directly from the T3 codebase
 export function getPackageManager(toolbox: Toolbox, cliResults:CliResults): PackageManager {
 	const {
 		parameters: { options }
