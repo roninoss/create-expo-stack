@@ -26,11 +26,7 @@ const imageUrl = SITE_URL+"/og-image.png"
 <meta property="og:image:height" content="630" /> 
 
 <!-- Twitter Tags -->
-<meta name="twitter:image" content={imageUrl}></meta>
-<meta name="twitter:image:alt" content={OPEN_GRAPH.image.alt}></meta>
-<meta name="twitter:card" content="summary_large_image"></meta>
-<meta name="twitter:title" content="Create Expo Stack"></meta>
-<meta
-  name="twitter:description"
-  content="The easiest way to create a React Native app with Expo"
-></meta>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={SITE.title} />
+<meta property="twitter:description" content={SITE.description} />
+<meta name="twitter:image" content={imageUrl} />
