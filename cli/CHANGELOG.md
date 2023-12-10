@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.2
+
+### Patch Changes
+
+-   [`93015ea`](https://github.com/danstepanov/create-expo-stack/commit/93015eaad5c608683f77cf24445757d1f426e6f9) Thanks [@danstepanov](https://github.com/danstepanov)! - add package manager prompt to CLI
+
 ## 2.3.1
 
 ### Patch Changes
