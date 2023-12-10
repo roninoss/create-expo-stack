@@ -42,7 +42,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		type: 'select',
 		name: 'navigationSelect',
 		message: 'What would you like to use for Navigation?',
-		choices: ['React Navigation', 'Expo Router', 'None']
+		choices: ['React Navigation', 'Expo Router (experimental)', 'None']
 	};
 
 	const askNavigationType = {
@@ -82,7 +82,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		type: 'select',
 		name: 'stylingSelect',
 		message: 'What would you like to use for styling?',
-		choices: ['Tamagui', 'Nativewind', 'Stylesheet']
+		choices: ['Nativewind', 'Stylesheet', 'Tamagui (experimental)']
 	};
 
 	const { stylingSelect } = await ask(askStyling);
@@ -90,7 +90,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 	if (stylingSelect === 'Nativewind') {
 		cliResults.packages.push({ name: 'nativewind', type: 'styling' });
 		success(`You'll be styling with ease using Tailwind.`);
-	} else if (stylingSelect === 'Tamagui') {
+	} else if (stylingSelect === 'Tamagui (experimental)') {
 		cliResults.packages.push({ name: 'tamagui', type: 'styling' });
 		success(`You'll be styling with ease using Tamagui.`);
 	} else {
