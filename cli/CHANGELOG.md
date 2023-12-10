@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.3
+
+### Patch Changes
+
+-   [`49df44d`](https://github.com/danstepanov/create-expo-stack/commit/49df44d8b9fe067d684e6eca96258af41e0fa881) Thanks [@danstepanov](https://github.com/danstepanov)! - ensure installation uses the desired packageManager
+
 ## 2.3.2
 
 ### Patch Changes
