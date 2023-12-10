@@ -1,5 +1,5 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
-import { AvailablePackages } from '../types';
+import { AvailablePackages, CliResults } from '../types';
 import { getPackageManager } from './getPackageManager';
 
 export function configureProjectFiles(
@@ -7,7 +7,8 @@ export function configureProjectFiles(
 	files: string[],
 	navigationPackage: AvailablePackages | undefined,
 	stylingPackage: AvailablePackages | undefined,
-	toolbox: Toolbox
+	toolbox: Toolbox,
+	cliResults: CliResults
 ): string[] {
 	// Define the files common to all templates to be generated
 	const baseFiles = [
@@ -20,7 +21,7 @@ export function configureProjectFiles(
 		'base/.prettierrc'
 	];
 
-	const packageManager = getPackageManager(toolbox);
+	const packageManager = getPackageManager(toolbox, cliResults);
 	// Add npmrc file if user is using pnpm and expo router
 	if (packageManager === 'pnpm' && navigationPackage?.name === 'expo-router') {
 		baseFiles.push('base/.npmrc.ejs');

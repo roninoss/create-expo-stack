@@ -1,7 +1,7 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
 import { DEFAULT_APP_NAME, defaultOptions } from '../constants';
-import { CliResults, NavigationTypes } from '../types';
+import { CliResults, NavigationTypes, PackageManager } from '../types';
 
 export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 	const {
@@ -117,5 +117,17 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		success(`No problem, skipping authentication for now.`);
 	}
 
+	if (!cliResults.flags.packageManager) {
+		const askPackageManager = {
+			type: 'select',
+			name: 'packageManagerSelect',
+			message: 'Which package manager would you like to use?',
+			choices: ['npm', 'yarn', 'pnpm', 'bun']
+		};
+
+		const { packageManagerSelect } = await ask(askPackageManager);
+		
+		cliResults.flags.packageManager = packageManagerSelect as PackageManager;
+	}
 	return cliResults;
 }

@@ -24,7 +24,7 @@ export async function printOutput(cliResults: CliResults, formattedFiles: any[],
 	await copyBaseAssets(projectName, toolbox);
 
 	// check if npm option is set, otherwise set based on what the system is configure to use
-	const packageManager = getPackageManager(toolbox);
+	const packageManager = getPackageManager(toolbox, cliResults);
 
 	if (!options.noInstall && !flags.noInstall) {
 		info(``);
@@ -47,7 +47,7 @@ export async function printOutput(cliResults: CliResults, formattedFiles: any[],
 			stdio: 'inherit'
 		});
 	} else {
-		const runnerType = getPackageManagerRunnerX(toolbox);
+		const runnerType = getPackageManagerRunnerX(toolbox, cliResults);
 
 		info(``);
 		highlight(`No installation found.`);

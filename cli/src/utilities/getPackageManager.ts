@@ -1,10 +1,11 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
+import { CliResults } from '../types';
 
 export type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun';
 export type PackageManagerRunnerX = 'npx' | 'pnpx' | 'yarn dlx' | 'bunx';
 
 // Taken directly from the T3 codebase
-export function getPackageManager(toolbox: Toolbox): PackageManager {
+export function getPackageManager(toolbox: Toolbox, cliResults:CliResults): PackageManager {
 	const {
 		parameters: { options }
 	} = toolbox;
@@ -28,10 +29,10 @@ export function getPackageManager(toolbox: Toolbox): PackageManager {
 		}
 	} else {
 		// If no user agent is set, assume npm
-		return 'npm';
+		return cliResults.flags.packageManager;
 	}
 }
-export function getPackageManagerRunnerX(toolbox: Toolbox): PackageManagerRunnerX {
+export function getPackageManagerRunnerX(toolbox: Toolbox, cliResults:CliResults): PackageManagerRunnerX {
 	const {
 		parameters: { options }
 	} = toolbox;
@@ -54,6 +55,11 @@ export function getPackageManagerRunnerX(toolbox: Toolbox): PackageManagerRunner
 			return 'npx';
 		}
 	} else {
+		// Determine runner based on cliResults.flags.packageManager
+		if (cliResults.flags.packageManager === 'yarn') return 'yarn dlx';
+		if (cliResults.flags.packageManager === 'pnpm') return 'pnpx';
+		if (cliResults.flags.packageManager === 'bun') return 'bunx';
+
 		// If no user agent is set, assume npm
 		return 'npx';
 	}

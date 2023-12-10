@@ -1,8 +1,9 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 import { DEFAULT_APP_NAME } from '../constants';
 import { getPackageManager } from './getPackageManager';
+import { CliResults } from '../types';
 
-export async function runIgnite(toolbox: Toolbox) {
+export async function runIgnite(toolbox: Toolbox, cliResults: CliResults) {
 	const {
 		parameters: { first },
 		print: { success },
@@ -25,7 +26,7 @@ export async function runIgnite(toolbox: Toolbox) {
 		projectName = first;
 	}
 
-	const packageManager = getPackageManager(toolbox);
+	const packageManager = getPackageManager(toolbox, cliResults);
 	// right now Ignite requires PascalCase for the project name
 	// unsure why, will ask the team and then probably fix it upstream
 	const formattedName = pascalCase(projectName);

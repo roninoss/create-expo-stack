@@ -57,7 +57,7 @@ const command: GluegunCommand = {
 
 			// Check if user wants to create an opinionated stack prior to running the configurable CLI
 			if (options.ignite) {
-				await runIgnite(toolbox);
+				await runIgnite(toolbox, cliResults);
 			} else {
 				// Conditionally skip running the CLI
 				const useDefault =
@@ -70,6 +70,7 @@ const command: GluegunCommand = {
 				// Check if the user wants to not install dependencies and/or not initialize git, update cliResults accordingly
 				cliResults.flags.noInstall = options.noInstall || false;
 				cliResults.flags.noGit = options.noGit || false;
+				cliResults.flags.packageManager = options.bun ? 'bun' : options.pnpm ? 'pnpm' : options.npm ? 'npm' : options.yarn ? 'yarn': undefined;
 
 				// Validate import alias string forward slash and asterisk
 				if (typeof options.importAlias === 'string') {
@@ -171,7 +172,7 @@ const command: GluegunCommand = {
 				highlight('To recreate this project, run:');
 
 				// Function that outputs a string given the CLI results and the packageManager. The outputted string should be a command that can be run to recreate the project
-				const generateRerunScript = (cliResults: CliResults, packageManager: string) => {
+				const generateRerunScript = (cliResults: CliResults) => {
 					let script = `npx create-expo-stack@latest ${cliResults.projectName} `;
 
 					// Add the packages
@@ -202,13 +203,13 @@ const command: GluegunCommand = {
 					}
 
 					// Add the package manager
-					script += `--${packageManager}`;
+					script += `--${cliResults.flags.packageManager}`;
 
 					return script;
 				};
 
-				const packageManager = getPackageManager(toolbox);
-				warning(`  ${generateRerunScript(cliResults, packageManager)}`);
+				const packageManager = getPackageManager(toolbox, cliResults);
+				warning(`  ${generateRerunScript(cliResults)}`);
 
 				const { packages } = cliResults;
 
@@ -220,7 +221,7 @@ const command: GluegunCommand = {
 
 				let files: string[] = [];
 
-				files = configureProjectFiles(authenticationPackage, files, navigationPackage, stylingPackage, toolbox);
+				files = configureProjectFiles(authenticationPackage, files, navigationPackage, stylingPackage, toolbox, cliResults);
 
 				// Once all the files are defined, format and generate them
 				let formattedFiles: any[] = [];

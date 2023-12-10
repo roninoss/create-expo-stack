@@ -3,6 +3,7 @@ export interface CliFlags {
 	noGit: boolean;
 	noInstall: boolean;
 	importAlias: string;
+	packageManager: PackageManager;
 }
 
 export const availablePackages = [
