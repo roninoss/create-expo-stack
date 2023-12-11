@@ -60,7 +60,7 @@ export const SIDEBAR: Sidebar = {
   // },
   en: {
     "Create Expo Stack": [
-      { text: "Getting Started", link: "en/getting-started" },
+      { text: "Introduction", link: "en/introduction" },
       { text: "Installation", link: "en/installation" },
       { text: "Folder Structure", link: "en/folder-structure" },
     ],
