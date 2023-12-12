@@ -203,7 +203,9 @@ const command: GluegunCommand = {
 					}
 
 					// Add the package manager
-					script += `--${cliResults.flags.packageManager}`;
+					if (cliResults.flags.packageManager) {
+						script += `--${cliResults.flags.packageManager}`;
+					}
 
 					return script;
 				};
