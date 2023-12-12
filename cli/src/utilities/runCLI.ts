@@ -128,6 +128,8 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		const { packageManagerSelect } = await ask(askPackageManager);
 		
 		cliResults.flags.packageManager = packageManagerSelect as PackageManager;
+	} else {
+		cliResults.flags.packageManager = 'npm';
 	}
 	return cliResults;
 }
