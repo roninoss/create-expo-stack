@@ -85,6 +85,10 @@ const command: GluegunCommand = {
 					cliResults = await runCLI(toolbox);
 				}
 
+				if (!cliResults.flags.packageManager) {
+					cliResults.flags.packageManager = 'npm';
+				}
+
 				// Update the cliResults with the options passed in via the command
 				// Navigation packages
 				if (options.reactNavigation || options['react-navigation'] || options.reactnavigation) {
