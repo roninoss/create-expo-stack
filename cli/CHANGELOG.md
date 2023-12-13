@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.3.5
+
+### Patch Changes
+
+-   [#116](https://github.com/danstepanov/create-expo-stack/pull/116) [`00e8846`](https://github.com/danstepanov/create-expo-stack/commit/00e884666ca682c0d9a4ad3dc816588dc494c3db) Thanks [@danstepanov](https://github.com/danstepanov)! - only show package manager of choice if user selected one, for non-interactive mode
+
+-   [#116](https://github.com/danstepanov/create-expo-stack/pull/116) [`1e24623`](https://github.com/danstepanov/create-expo-stack/commit/1e2462324775c5e3132b76de41305085726716ff) Thanks [@danstepanov](https://github.com/danstepanov)! - address package manager undefined issues
+
 ## 2.3.4
 
 ### Patch Changes
