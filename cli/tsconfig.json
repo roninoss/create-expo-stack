@@ -16,8 +16,9 @@
 		"declaration": true,
 		"declarationDir": "build/types",
 		"resolveJsonModule": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"types": ["bun-types"]
 	},
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "__tests__/**/*"],
 	"exclude": ["node_modules"]
 }
