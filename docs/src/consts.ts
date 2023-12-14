@@ -20,7 +20,7 @@ export type KnownLanguageCode = keyof typeof KNOWN_LANGUAGES;
 
 export const EDIT_URL = `https://github.com/danstepanov/create-expo-stack/tree/main/docs`;
 
-export const COMMUNITY_INVITE_URL = `https://discord.gg/XS9qS2mvTR`;
+export const COMMUNITY_INVITE_URL = `https://createexpostack.com/discord`;
 
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
@@ -46,33 +46,21 @@ export type Sidebar = {
   };
 };
 export const SIDEBAR: Sidebar = {
-  // For Translations:
-  // Keep the "outer headers" in English so we can match them.
-  // Translate the "inner headers" to the language you're translating to.
-  // Omit any files you haven't translated, they'll fallback to English.
-  // Example:
-  // sv: {
-  //   "Create Expo Stack": [
-  //     { text: "Introduktion", link: "sv/introduction" },
-  //     { text: "Installation", link: "sv/installation" },
-  //   ],
-  //   Usage: [{ text: "Miljövariabler", link: "sv/usage/env-variables" }],
-  // },
   en: {
     "Create Expo Stack": [
       { text: "Introduction", link: "en/introduction" },
       { text: "Installation", link: "en/installation" },
       { text: "Folder Structure", link: "en/folder-structure" },
     ],
-    Usage: [
-      // { text: "First Steps", link: "en/usage/first-steps" },
-      { text: "NativeWind", link: "en/usage/nativewind" },
-      { text: "Expo Router", link: "en/usage/expo-router" },
-      { text: "React Navigation", link: "en/usage/react-navigation" },
-      { text: "Tamagui", link: "en/usage/tamagui" },
-      { text: "Supabase", link: "en/usage/supabase" },
-      { text: "Firebase", link: "en/usage/firebase" },
-    ],
+    // Usage: [
+    //   // { text: "First Steps", link: "en/usage/first-steps" },
+    //   { text: "NativeWind", link: "en/usage/nativewind" },
+    //   { text: "Expo Router", link: "en/usage/expo-router" },
+    //   { text: "React Navigation", link: "en/usage/react-navigation" },
+    //   { text: "Tamagui", link: "en/usage/tamagui" },
+    //   { text: "Supabase", link: "en/usage/supabase" },
+    //   { text: "Firebase", link: "en/usage/firebase" },
+    // ],
   },
 };
 
