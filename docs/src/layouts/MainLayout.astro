@@ -9,7 +9,7 @@ import Footer from "../components/Footer/Footer.tsx";
 import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
 import PageContent from "../components/PageContent/PageContent.astro";
 import MoreMenu from "../components/RightSidebar/MoreMenu.astro";
-import RightSidebar from "../components/RightSidebar/RightSidebar.astro"; 
+import RightSidebar from "../components/RightSidebar/RightSidebar.astro";
 import { ScrollArea } from "@/components/ui/scroll-area";
 // import PageContent
 import { EDIT_URL, SITE } from "../consts";
@@ -22,27 +22,31 @@ const { headings, ...data } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/docs${currentPage.replace(/\/$/, "")}.mdx`;
-const editUrl = `${EDIT_URL}/${currentFile}`; 
+const editUrl = `${EDIT_URL}/${currentFile}`;
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html dir={data.dir} lang={data.lang} class="initial">
-  <head> 
+  <head>
     <HeadCommon />
     <HeadSEO {...data} canonicalUrl={canonicalURL} />
     <title>
       {`${data.title} | ${SITE.title}`}
     </title>
+    <ViewTransitions />
   </head>
 
-  <body
-    class="min-h-screen bg-background font-sans antialiased"
-  >
-   <div class="relative flex min-h-screen flex-col">
-    <Header client:load/>
-      <div class="flex-1"> 
+  <body class="min-h-screen bg-background font-sans antialiased">
+    <div class="relative flex min-h-screen flex-col">
+      <Header client:load />
+      <div class="flex-1">
         <div class="border-b">
-          <div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
-            <aside class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
+          <div
+            class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
+          >
+            <aside
+              class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
+            >
               <ScrollArea client:load className="h-full py-6 pl-8 pr-6 lg:py-8">
                   <div class="grid grid-flow-row auto-rows-max text-sm">
                  <span>Test</span>
@@ -53,11 +57,28 @@ const editUrl = `${EDIT_URL}/${currentFile}`;
               <!-- <DocsSidebarNav items={docsConfig.sidebarNav} /> -->
               </ScrollArea>
             </aside>
-     
-           </div>
+            <main
+              class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]"
+            >
+              <div class="mx-auto w-full min-w-0">
+                <div
+                  class="col-span-1 flex min-h-full w-full flex-col pt-5"
+                  id="content"
+                >
+                  <PageContent
+                    frontmatter={data}
+                    path={currentFile}
+                    headings={headings}
+                  >
+                    <slot />
+                  </PageContent>
+                </div>
+              </div>
+            </main>
+          </div>
         </div>
       </div>
-     <Footer/>
-   </div>
+      <Footer />
+    </div>
   </body>
-</html> 
+</html>

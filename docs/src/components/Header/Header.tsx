@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../Icons/Icons";
 import ModeToggle from "./ModeToggle";
+import { EDIT_URL, TWITTER_URL } from "@/consts";
 
 export default function Header() {
   return (
@@ -14,7 +15,7 @@ export default function Header() {
         <MobileNav />
         <div className="flex flex-1 items-center space-x-2 justify-end">
           <nav className="flex items-center">
-            <a href="/" target="_blank" rel="noreferrer">
+            <a href={EDIT_URL} target="_blank" rel="noreferrer">
               <div
                 className={cn(
                   buttonVariants({
@@ -27,7 +28,7 @@ export default function Header() {
                 <span className="sr-only">GitHub</span>
               </div>
             </a>
-            <a href="/" target="_blank" rel="noreferrer">
+            <a href={TWITTER_URL} target="_blank" rel="noreferrer">
               <div
                 className={cn(
                   buttonVariants({

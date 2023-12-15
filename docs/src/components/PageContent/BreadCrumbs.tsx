@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import { SIDEBAR, SIDEBAR_HEADER_MAP, type OuterHeaders } from "../../consts";
 import { getIsRtlFromLangCode, getLanguageFromURL } from "../../languages";
-
+import { ChevronRightIcon } from "@radix-ui/react-icons";
 type SlugType = "" | "deployment" | "usage";
 
 export default function BreadCrumbs() {
@@ -66,34 +66,14 @@ export default function BreadCrumbs() {
     });
 
   return (
-    <div className="mb-4 flex items-center gap-2 px-4 text-sm">
-      <a
-        href="/"
-        className="rounded-lg border bg-ces-200/50 p-1 hover:bg-ces-200/75 hover:no-underline dark:border-ces-200/20 dark:bg-ces-200/10 dark:hover:border-ces-200/50"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24">
-          <path
-            fill="currentColor"
-            d="m12 5.561l-7 5.6V19h5v-4h4v4h5v-7.358a1 1 0 0 0-.375-.781L12 5.561ZM12 3l7.874 6.3A3 3 0 0 1 21 11.641V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7.839A2 2 0 0 1 3.75 9.6L12 3Z"
-          />
-        </svg>
-      </a>
-      <span className="flex-shrink-0">
-        <BreadCrumbsArrow isRtl={isRtl} />
-      </span>
+    <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+      <div className="overflow-hidden text-ellipsis whitespace-nowrap">
+        Docs
+      </div>
+      <ChevronRightIcon className="h-4 w-4" />
       {breadcrumbs.map((crumb, index) => (
-        <div className="flex items-center gap-2" key={crumb.key}>
-          <a
-            href={crumb.href}
-            className="rounded-lg border bg-ces-200/50 p-1 hover:bg-ces-200/75 hover:no-underline dark:border-ces-200/20 dark:bg-ces-200/10 dark:hover:border-ces-200/50"
-          >
-            {crumb.text}
-          </a>
-          {index < breadcrumbs.length - 1 && (
-            <span className="flex-shrink-0">
-              <BreadCrumbsArrow isRtl={isRtl} />
-            </span>
-          )}
+        <div key={crumb.key} className="font-medium text-foreground">
+          {crumb.text}
         </div>
       ))}
     </div>
