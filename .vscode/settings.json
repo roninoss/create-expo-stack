@@ -1,2 +1,14 @@
 {
+	"editor.tabSize": 4,
+	// Insert spaces when pressing Tab.
+	"editor.insertSpaces": false,
+	// When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
+	"editor.detectIndentation": false,
+	"editor.wordWrap": "on",
+	"editor.formatOnSave": true,
+	"files.associations": {
+		"*.ejs": "ejs",
+		"*.h": "objective-c",
+		"*.m": "objective-c"
+	}
 }
