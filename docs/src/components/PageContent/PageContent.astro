@@ -23,22 +23,13 @@ const [_1, _2, lang] = path.split("/");
 const isRtl = getIsRtlFromLangCode((lang || "en") as KnownLanguageCode);
 ---
 
-<article id="article" class="flex w-full max-w-screen-lg flex-col">
+<article id="article" class="flex w-full max-w-screen-lg flex-col prose">
   <!-- {lang && lang !== "en" && <OutdatedDocsBanner path={path} />} -->
   <div>
     <BreadCrumbs client:only />
   </div>
-  <OnThisPageLinks
-    client:media="(max-width: 1024px)"
-    headings={headings}
-    title={title}
-    isRtl={isRtl}
-  />
   <section class="w-full">
-    <h1
-      id="overview"
-      class="mb-4 px-4 text-3xl font-extrabold dark:text-ces-100"
-    >
+    <h1 id="overview" class="mb-4 text-3xl font-extrabold dark:text-ces-100">
       <a
         href="#overview"
         class="heading-link heading-link--hidden---effects"

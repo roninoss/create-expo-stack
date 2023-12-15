@@ -1,3 +1,4 @@
+// Import React and other necessary modules
 import React, { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
@@ -6,13 +7,18 @@ import { ScrollArea } from "../ui/scroll-area";
 import { SIDEBAR } from "@/consts";
 import { cn } from "@/lib/utils";
 
+// Define the MobileNav component
 export default function MobileNav() {
+  // State to manage the sheet open/closed state
   const [open, setOpen] = useState(false);
 
-  const createExpoStackArray = SIDEBAR.en?.["Create Expo Stack"];
+  // Extracting the "Create Expo Stack" array from the consts
+  const createExpoStackArray = SIDEBAR.en?.["Getting Started"];
 
   return (
+    // Sheet component for mobile navigation
     <Sheet open={open} onOpenChange={setOpen}>
+      {/* SheetTrigger to toggle the sheet */}
       <SheetTrigger asChild>
         <Button
           variant="ghost"
@@ -22,7 +28,9 @@ export default function MobileNav() {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
+      {/* SheetContent with left side alignment */}
       <SheetContent side="left" className="pr-0">
+        {/* Logo and app name */}
         <a href="/" className="mr-6 flex items-center space-x-2">
           <div>
             <img
@@ -42,58 +50,25 @@ export default function MobileNav() {
           </div>
           <span className="font-bold  inline-block">Create Expo Stack</span>
         </a>
+        {/* Scrollable area for navigation links */}
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-10">
           <div className="flex flex-col space-y-3">
-            {createExpoStackArray?.map((item, idx) => {
-              return (
-                <div key={idx}>
-                  <MobileLink
-                    href={`/${item.link}`}
-                    onClick={() => console.log("Link clicked")}
-                    onOpenChange={setOpen}
-                    className="flex items-start"
-                  >
-                    {item.text}
-                  </MobileLink>
-                </div>
-              );
-            })}
+            {/* Map through the navigation array to create links */}
+            {createExpoStackArray?.map((item, idx) => (
+              <div key={idx}>
+                {/* MobileLink component for each navigation link */}
+                <a
+                  href={`/${item.link}`}
+                  onClick={() => setOpen(false)}
+                  className="flex items-start"
+                >
+                  {item.text}
+                </a>
+              </div>
+            ))}
           </div>
         </ScrollArea>
       </SheetContent>
     </Sheet>
-  );
-}
-
-interface MobileLinkProps {
-  href: string; // Include href in the interface
-  onClick: () => void;
-  onOpenChange?: (open: boolean) => void;
-  children: React.ReactNode;
-  className?: string;
-}
-
-function MobileLink({
-  href,
-  onClick,
-  onOpenChange,
-  children,
-  className,
-  ...props
-}: MobileLinkProps) {
-  const handleClick = () => {
-    onClick();
-    onOpenChange?.(false);
-  };
-
-  return (
-    <button
-      type="button"
-      onClick={handleClick}
-      {...props}
-      className={cn(className)}
-    >
-      {children}
-    </button>
   );
 }

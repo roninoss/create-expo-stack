@@ -18,6 +18,8 @@ export const KNOWN_LANGUAGES = {
 
 export type KnownLanguageCode = keyof typeof KNOWN_LANGUAGES;
 
+export const TWITTER_URL = `https://twitter.com/danstepanov`;
+
 export const EDIT_URL = `https://github.com/danstepanov/create-expo-stack/tree/main/docs`;
 
 export const COMMUNITY_INVITE_URL = `https://createexpostack.com/discord`;
@@ -29,7 +31,7 @@ export const ALGOLIA = {
   apiKey: "XXXXXXXXXX",
 };
 
-export type OuterHeaders = "Create Expo Stack" | "Deployment" | "Usage";
+export type OuterHeaders = "Getting Started" | "Deployment" | "Usage";
 
 export interface SidebarItem<
   TCode extends KnownLanguageCode = KnownLanguageCode,
@@ -47,7 +49,7 @@ export type Sidebar = {
 };
 export const SIDEBAR: Sidebar = {
   en: {
-    "Create Expo Stack": [
+    "Getting Started": [
       { text: "Introduction", link: "en/introduction" },
       { text: "Installation", link: "en/installation" },
       { text: "Folder Structure", link: "en/folder-structure" },
@@ -69,7 +71,7 @@ export const SIDEBAR_HEADER_MAP: Record<
   Record<OuterHeaders, string>
 > = {
   en: {
-    "Create Expo Stack": "Create Expo Stack",
+    "Getting Started": "Create Expo Stack",
     Usage: "Usage",
     Deployment: "Deployment",
   },

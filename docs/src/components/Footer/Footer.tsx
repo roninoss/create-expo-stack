@@ -1,5 +1,6 @@
 import React from "react";
-import { EDIT_URL } from "@/consts";
+
+import { EDIT_URL, TWITTER_URL } from "@/consts";
 export default function Footer() {
   return (
     <footer className="py-6 md:px-8 md:py-0">
@@ -7,7 +8,7 @@ export default function Footer() {
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by{" "}
           <a
-            href="https://twitter.com/DanStepanov"
+            href={TWITTER_URL}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"

@@ -4,7 +4,8 @@ import { getIsRtlFromUrl, getLanguageFromURL } from "../../languages";
 import { paginate } from "../../utils";
 import LeftArrow from "../Icons/LeftArrow.astro";
 import RightArrow from "../Icons/RightArrow.astro";
-
+import { buttonVariants } from "../ui/button";
+import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 const currentPage = Astro.url.pathname;
 const hasTrailing = currentPage.endsWith("/");
 const currentPageMatch = currentPage.slice(
@@ -19,19 +20,21 @@ const { pathname } = Astro.url;
 const isRtl = getIsRtlFromUrl(pathname);
 ---
 
-<div
-  class="mb-8 mt-16 flex flex-row items-center justify-between px-4 pt-4 font-medium text-ces-800 dark:text-ces-200 lg:px-8"
->
+<div class="flex flex-row items-center justify-between mt-14">
   <div>
     {
       prev ? (
         <a
-          class="flex items-center underline-offset-2 hover:text-ces-400 hover:underline dark:hover:text-ces-100"
+          class={buttonVariants({ variant: "outline" })}
           rel="prev"
           href={Astro.site?.pathname + prev.link}
         >
           <>
-            {isRtl ? <RightArrow /> : <LeftArrow />}
+            {isRtl ? (
+              <ChevronRightIcon className="ml-2 h-4 w-4" />
+            ) : (
+              <ChevronLeftIcon className="mr-2 h-4 w-4" />
+            )}
             {prev.text}
           </>
         </a>
@@ -43,17 +46,19 @@ const isRtl = getIsRtlFromUrl(pathname);
       next ? (
         <a
           rel="next"
-          class="flex items-center underline-offset-2 hover:text-ces-400 hover:underline dark:hover:text-ces-100"
+          class={buttonVariants({ variant: "outline" })}
           href={Astro.site?.pathname + next.link}
         >
           <>
             {next.text}
-            {isRtl ? <LeftArrow /> : <RightArrow />}
+            {isRtl ? (
+              <ChevronLeftIcon className="mr-2 h-4 w-4" />
+            ) : (
+              <ChevronRightIcon className="ml-2 h-4 w-4" />
+            )}
           </>
         </a>
       ) : null
     }
   </div>
 </div>
-
-<hr class="border-t-2 border-ces-300/20" />
