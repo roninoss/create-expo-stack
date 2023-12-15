@@ -54,15 +54,6 @@ export const SIDEBAR: Sidebar = {
       { text: "Installation", link: "en/installation" },
       { text: "Folder Structure", link: "en/folder-structure" },
     ],
-    // Usage: [
-    //   // { text: "First Steps", link: "en/usage/first-steps" },
-    //   { text: "NativeWind", link: "en/usage/nativewind" },
-    //   { text: "Expo Router", link: "en/usage/expo-router" },
-    //   { text: "React Navigation", link: "en/usage/react-navigation" },
-    //   { text: "Tamagui", link: "en/usage/tamagui" },
-    //   { text: "Supabase", link: "en/usage/supabase" },
-    //   { text: "Firebase", link: "en/usage/firebase" },
-    // ],
   },
 };
 
