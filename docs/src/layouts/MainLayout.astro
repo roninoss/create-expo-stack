@@ -48,13 +48,9 @@ import { ViewTransitions } from "astro:transitions";
               class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
             >
               <ScrollArea client:load className="h-full py-6 pl-8 pr-6 lg:py-8">
-                  <div class="grid grid-flow-row auto-rows-max text-sm">
-                 <span>Test</span>
-                <span>Test</span>
-                <span>Test</span> 
-                  </div>
+                 
                
-              <!-- <DocsSidebarNav items={docsConfig.sidebarNav} /> -->
+               <LeftSidebar frontmatter={data} currentPage={currentPage} />
               </ScrollArea>
             </aside>
             <main
