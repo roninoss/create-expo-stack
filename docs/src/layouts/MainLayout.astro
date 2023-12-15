@@ -4,12 +4,13 @@ import type { MarkdownHeading } from "astro";
 import type { CollectionEntry } from "astro:content";
 import HeadCommon from "../components/Seo/HeadCommon.astro";
 import HeadSEO from "../components/Seo/HeadSEO.astro";
-import Header from "../components/Header/Header.astro";
-import Footer from "../components/Footer/Footer.astro";
+import Header from "../components/Header/Header.tsx";
+import Footer from "../components/Footer/Footer.tsx";
 import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
 import PageContent from "../components/PageContent/PageContent.astro";
 import MoreMenu from "../components/RightSidebar/MoreMenu.astro";
-import RightSidebar from "../components/RightSidebar/RightSidebar.astro";
+import RightSidebar from "../components/RightSidebar/RightSidebar.astro"; 
+import { ScrollArea } from "@/components/ui/scroll-area";
 // import PageContent
 import { EDIT_URL, SITE } from "../consts";
 
@@ -21,106 +22,42 @@ const { headings, ...data } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/docs${currentPage.replace(/\/$/, "")}.mdx`;
-const editUrl = `${EDIT_URL}/${currentFile}`;
+const editUrl = `${EDIT_URL}/${currentFile}`; 
 ---
 
 <html dir={data.dir} lang={data.lang} class="initial">
-  <head>
+  <head> 
     <HeadCommon />
     <HeadSEO {...data} canonicalUrl={canonicalURL} />
     <title>
       {`${data.title} | ${SITE.title}`}
     </title>
-    <script is:inline>
-      const html = document.documentElement;
-      const theme = (() => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-      })();
-      if (theme === "light") {
-        html.classList.remove("dark");
-        html.classList.add("light");
-      } else {
-        html.classList.add("dark");
-        html.classList.remove("light");
-      }
-    </script>
   </head>
 
   <body
-    class="flex min-h-screen flex-col items-center bg-default transition-colors duration-300"
+    class="min-h-screen bg-background font-sans antialiased"
   >
-    <a
-      href="#content"
-      class="absolute opacity-0 -top-96 ltr:-left-96 rtl:-right-96 focus:top-0 ltr:focus:left-0 rtl:focus:right-0 focus:opacity-100 z-50"
-    >
-      Jump to content
-    </a>
-    <div
-      class="sticky top-0 z-40 max-h-full w-full bg-default transition-colors duration-300"
-    >
-      <Header />
-    </div>
-
-    <main
-      class="grid w-full max-w-7xl flex-1 grid-cols-1 gap-4 md:grid-cols-[250px_auto] lg:grid-cols-[250px_auto_250px]"
-    >
-      <nav
-        id="grid-left"
-        title="Site Navigation"
-        class="sticky top-20 col-span-1 hidden h-auto max-h-[calc(100vh-80px)] w-full flex-col justify-start overflow-y-auto bg-default pt-4 transition-colors duration-300 md:top-24 md:flex md:max-h-[calc(100vh-96px)] md:pt-0 md:[margin-inline-start:16px]"
-      >
-        <LeftSidebar frontmatter={data} currentPage={currentPage} />
-      </nav>
-      <div class="col-span-1 flex min-h-full w-full flex-col pt-5" id="content">
-        <PageContent frontmatter={data} path={currentFile} headings={headings}>
-          <slot />
-        </PageContent>
-        <nav class="mx-3 flex lg:hidden">
-          <MoreMenu editHref={editUrl} />
-        </nav>
-        <Footer />
+   <div class="relative flex min-h-screen flex-col">
+    <Header client:load/>
+      <div class="flex-1"> 
+        <div class="border-b">
+          <div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+            <aside class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
+              <ScrollArea client:load className="h-full py-6 pl-8 pr-6 lg:py-8">
+                  <div class="grid grid-flow-row auto-rows-max text-sm">
+                 <span>Test</span>
+                <span>Test</span>
+                <span>Test</span> 
+                  </div>
+               
+              <!-- <DocsSidebarNav items={docsConfig.sidebarNav} /> -->
+              </ScrollArea>
+            </aside>
+     
+           </div>
+        </div>
       </div>
-
-      <div class="md:[margin-inline-end:16px]">
-        <aside
-          id="grid-right"
-          title="Table of Contents"
-          dir="ltr"
-          class="sticky top-[100px] col-span-1 hidden h-auto max-h-[calc(100vh-100px)] w-full [padding-inline-end:16px] lg:mb-12 lg:flex lg:flex-col lg:justify-start"
-        >
-          <RightSidebar
-            headings={headings}
-            githubEditUrl={editUrl}
-            title={data.title}
-          />
-        </aside>
-      </div>
-    </main>
-    <!-- TODO: Giving Warning: Invalid hook call. Need to look into this -->
-    <!-- <Analytics /> -->
-    <script defer>
-      const matches = document.querySelectorAll("[data-heading-link]");
-      if (matches && matches.length) {
-        matches.forEach((elem) => {
-          const href = elem.href;
-          elem.addEventListener(
-            "click",
-            () => {
-              navigator.clipboard.writeText(href);
-            },
-            false,
-          );
-        });
-      }
-    </script>
+     <Footer/>
+   </div>
   </body>
-</html>
+</html> 
