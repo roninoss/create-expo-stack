@@ -23,8 +23,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/docs${currentPage.replace(/\/$/, "")}.mdx`;
 const editUrl = `${EDIT_URL}/${currentFile}`;
-import { ViewTransitions } from "astro:transitions";
 ---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>
 
 <html dir={data.dir} lang={data.lang} class="initial">
   <head>
@@ -33,7 +56,6 @@ import { ViewTransitions } from "astro:transitions";
     <title>
       {`${data.title} | ${SITE.title}`}
     </title>
-    <ViewTransitions />
   </head>
 
   <body class="min-h-screen bg-background font-sans antialiased">
@@ -48,9 +70,7 @@ import { ViewTransitions } from "astro:transitions";
               class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
             >
               <ScrollArea client:load className="h-full py-6 pl-8 pr-6 lg:py-8">
-                 
-               
-               <LeftSidebar frontmatter={data} currentPage={currentPage} />
+                <LeftSidebar frontmatter={data} currentPage={currentPage} />
               </ScrollArea>
             </aside>
             <main

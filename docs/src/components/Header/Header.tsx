@@ -4,7 +4,7 @@ import MobileNav from "./MobileNav";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../Icons/Icons";
-import ModeToggle from "./ModeToggle";
+import { ModeToggle } from "./ModeToggle";
 import { EDIT_URL, TWITTER_URL } from "@/consts";
 
 export default function Header() {
