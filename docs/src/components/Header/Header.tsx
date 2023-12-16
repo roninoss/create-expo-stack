@@ -14,7 +14,7 @@ export default function Header() {
         <MainNav />
         <MobileNav />
         <div className="flex flex-1 items-center space-x-2 justify-end">
-          <nav className="flex items-center">
+          <nav className="flex flex-row items-center space-x-1">
             <a href={EDIT_URL} target="_blank" rel="noreferrer">
               <div
                 className={cn(
