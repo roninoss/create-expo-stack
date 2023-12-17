@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.6
+
+### Patch Changes
+
+-   [#120](https://github.com/danstepanov/create-expo-stack/pull/120) [`dc14b3d`](https://github.com/danstepanov/create-expo-stack/commit/dc14b3d3d0f611b4c0493782b9e98f60aed983e4) Thanks [@gialencar](https://github.com/gialencar)! - Fix mismatching RootStackParamList type definition for DrawerNavigator
+
 ## 2.3.5
 
 ### Patch Changes
