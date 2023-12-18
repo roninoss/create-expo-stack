@@ -1,13 +1,11 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
-import { DEFAULT_APP_NAME, defaultOptions } from '../constants';
+import { defaultOptions } from '../constants';
 import { CliResults, NavigationTypes, PackageManager } from '../types';
-import { validateProjectName } from './validateProjectName';
 
-export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
+export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
 	const {
-		filesystem: { exists, removeAsync },
-		parameters: { first, options },
+		parameters: { options },
 		print: { success },
 		prompt
 	} = toolbox;
@@ -15,26 +13,9 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 	// Set the default options
 	const cliResults = defaultOptions;
 
-	// Set the app name if it was passed in via the initial command
-	if (first) {
-		cliResults.projectName = first;
-	} else {
-		const askName = {
-			type: 'input',
-			name: 'name',
-			message: `What do you want to name your project? (${DEFAULT_APP_NAME})`
-		};
-		const { name } = await prompt.ask(askName);
-		cliResults.projectName = name || DEFAULT_APP_NAME;
-		const { projectName } = cliResults;
-
-		// Check if the directory already exists
-		if (options.overwrite) {
-			cliResults.flags.overwrite = true;
-		} else {
-			await validateProjectName(exists, removeAsync, prompt, projectName);
-		}
-	}
+	// Project name already validated, just set cliResults
+	cliResults.projectName = projectName;
+	cliResults.flags.overwrite = !!options.overwrite; 
 
 	// Clear default packages
 	cliResults.packages = [];
