@@ -11,7 +11,7 @@ import {
 	runIgnite,
 	showHelp
 } from '../utilities';
-import { defaultOptions } from '../constants';
+import { DEFAULT_APP_NAME, defaultOptions } from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
 import { validateProjectName } from '../utilities/validateProjectName';
@@ -25,13 +25,33 @@ const command: GluegunCommand = {
 			parameters: { first, options },
 			print: { info, highlight, success, warning },
 			prompt,
+			strings: { pascalCase },
 		} = toolbox;
+
+		const printSomethingWentWrong = () => {
+			info(`\nOops, something went wrong while creating your project 😢`);
+			info(
+				`\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
+			);
+			info('');
+		};
 
 		if (options.help || options.h) {
 			showHelp(info, highlight, warning);
 
 			return;
 		}
+
+		// Conditionally skip running the CLI
+		const useDefault =
+			(options.default !== undefined && options.default) || (options.d !== undefined && options.d);
+		const skipCLI = options.nonInteractive;
+		const useBlankTypescript = options.blank || false;
+		// Check if any of the options were passed in via the command
+		const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
+
+		// Set the default options
+		let cliResults: CliResults = defaultOptions;
 
 		try {
 			// Validation: check if the user passed in the tabs/drawer option without passing in either expo router or react navigation. If so, throw an error
@@ -55,21 +75,50 @@ const command: GluegunCommand = {
 			// set timeout for 1 second so that the title can render before the CLI runs
 			await new Promise((resolve) => setTimeout(resolve, 200));
 
-			// Set the default options
-			let cliResults: CliResults = defaultOptions;
+			if (!first && (options.ignite || !(useDefault || optionsPassedIn || skipCLI || useBlankTypescript))) {
+				const askName = {
+					type: 'input',
+					name: 'name',
+					message: `What do you want to name your project? (${DEFAULT_APP_NAME})`
+				};
+				const { name } = await prompt.ask(askName);
+				// if name is undefined or empty string, use default name
+				cliResults.projectName = name || DEFAULT_APP_NAME;
+			} else {
+				// Destructure the results but set the projectName if the first param is passed in
+				cliResults.projectName = first;
+			}
 
+			if (options.ignite) {
+				// right now Ignite requires PascalCase for the project name
+				// unsure why, will ask the team and then probably fix it upstream
+				cliResults.projectName = pascalCase(cliResults.projectName);
+			}
+
+			// Validate the project name; check if the directory already exists
+			// - We may or may not be interactive, so conditionally pass in prompt.
+			// - Ignore validation if the overwrite option is passed in.
+			if (options.overwrite) {
+				cliResults.flags.overwrite = true;
+			} else {
+				await validateProjectName(
+					exists,
+					removeAsync,
+					!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
+					cliResults.projectName
+				);
+			}
+		} catch (error) {
+			printSomethingWentWrong();
+			throw error;
+		}
+
+		// Determine remaining options, run interactive CLI if necessary, and generate project
+		try {
 			// Check if user wants to create an opinionated stack prior to running the configurable CLI
 			if (options.ignite) {
-				await runIgnite(toolbox, cliResults);
+				await runIgnite(toolbox, cliResults.projectName, cliResults);
 			} else {
-				// Conditionally skip running the CLI
-				const useDefault =
-					(options.default !== undefined && options.default) || (options.d !== undefined && options.d);
-				const skipCLI = options.nonInteractive;
-				const useBlankTypescript = options.blank || false;
-				// Check if any of the options were passed in via the command
-				const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
-
 				// Check if the user wants to not install dependencies and/or not initialize git, update cliResults accordingly
 				cliResults.flags.noInstall = options.noInstall || false;
 				cliResults.flags.noGit = options.noGit || false;
@@ -85,7 +134,7 @@ const command: GluegunCommand = {
 
 				if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
 					//  Run the CLI to prompt the user for input
-					cliResults = await runCLI(toolbox);
+					cliResults = await runCLI(toolbox, cliResults.projectName);
 				}
 
 				if (!cliResults.flags.packageManager) {
@@ -163,24 +212,6 @@ const command: GluegunCommand = {
 						name: 'firebase',
 						type: 'authentication'
 					});
-				}
-
-				// Destructure the results but set the projectName if the first param is passed in
-				if (first) {
-					cliResults.projectName = first;
-				}
-
-				// Validate the project name; we may or may not be interactive, so conditionally pass in prompt
-				// Ignore the existing folder if the overwrite option is passed in.
-				if (options.overwrite) {
-					cliResults.flags.overwrite = true;
-				} else {
-					await validateProjectName(
-						exists,
-						removeAsync,
-						!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
-						cliResults.projectName
-					);
 				}
 
 				// By this point, all cliResults should be set
@@ -267,13 +298,10 @@ const command: GluegunCommand = {
 				return void success(`\nCancelled... 👋 `);
 			}
 
+			// TODO: delete all files with projectName
 			// await removeAsync(cliResults.projectName);
-			info(`\nOops, something went wrong while creating your project 😢`);
-			info(
-				`\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
-			);
-			info('');
 
+			printSomethingWentWrong();
 			throw error;
 		}
 	}
