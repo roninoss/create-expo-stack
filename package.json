@@ -18,7 +18,7 @@
     "build:cli": "turbo build --filter create-expo-stack",
     "build:www": "turbo build --filter create-expo-stack-landing",
     "build:docs": "turbo build --filter create-expo-stack-docs",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
+    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{astro,css,ejs,js,json,jsx,md,mdx,mjs,ts,tsx,yaml,yml}\" --write",
     "prepare": "is-ci || husky install"
   },
   "prettier": {
