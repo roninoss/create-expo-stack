@@ -15,7 +15,7 @@ export function generateProjectFiles(
 
 	return files.reduce((prev, file) => {
 		const template = file;
-		let target = `${projectName}/` + file.replace('.ejs', '');
+		let target = file.replace('.ejs', '');
 
 		if (authenticationPackage?.name === 'supabase') {
 			target = target.replace('packages/supabase/', '');
@@ -24,7 +24,6 @@ export function generateProjectFiles(
 		if (authenticationPackage?.name === 'firebase') {
 			target = target.replace('packages/firebase/', '');
 		}
-
 		target = target.replace('base/', '');
 
 		if (stylingPackage?.name === 'tamagui') {
@@ -53,7 +52,7 @@ export function generateProjectFiles(
 
 		const gen = toolbox.template.generate({
 			template,
-			target: './' + target,
+			target: `./${projectName}/` + target,
 			props: {
 				authenticationPackage,
 				flags,
