@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  Get started by running <code>npx create-expo-stack@latest</code>
+  Get started by running <code>npx create-expo-stack</code>
 
 ## Sponsors
 
@@ -27,7 +27,7 @@ You can also use flags such as `--noInstall`, `--noGit`, and `--default` in orde
 
 To get started, use npx to run the CLI tool. You will be prompted to opt into the features you want to use.
 
-`npx create-expo-stack@latest`
+`npx create-expo-stack`
 
 <img src="https://github.com/danstepanov/create-expo-stack/assets/5482800/e709dd66-cb9b-463c-91f9-b842bb80585c" />
 
