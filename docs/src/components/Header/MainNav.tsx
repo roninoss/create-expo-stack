@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MainNav() {
   return (
-    <div className="mr-4 hidden md:flex">
+    <div className="mr-4  flex">
       <a href="/" className="mr-6 flex items-center space-x-2">
         <div>
           <img
@@ -20,9 +20,7 @@ export default function MainNav() {
             alt="Create Expo Stack Logo Light"
           />
         </div>
-        <span className="hidden font-bold sm:inline-block">
-          Create Expo Stack
-        </span>
+        <span className="  font-bold  inline-block">Create Expo Stack</span>
       </a>
     </div>
   );

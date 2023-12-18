@@ -22,14 +22,14 @@ export default function MobileNav() {
       <SheetTrigger asChild>
         <Button
           variant="ghost"
-          className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+          className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 sm:hidden"
         >
           <Menu />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
       {/* SheetContent with left side alignment */}
-      <SheetContent side="left" className="pr-0">
+      <SheetContent side="right" className="pr-0">
         {/* Logo and app name */}
         <a href="/" className="mr-6 flex items-center space-x-2">
           <div>
