@@ -43,43 +43,23 @@ npm create expo-stack@latest --expo-router --nativewind --bun
 
 ### Options
 
-| Option                      | Description                                         |
-| --------------------------- | --------------------------------------------------- |
-| `-d`,`--default`, `--blank` | Bypass the CLI and initialize an empty Expo project |
-| `--npm`                     | Selects npm to be your project's package manager    |
-| `--yarn`                    | Selects yarn to be your project's package manager   |
-| `--pnpm`                    | Selects pnpm to be your project's package manager   |
-| `--bun`                     | Selects bun to be your project's package manager    |
-| `--no-git`                  | Do not initialize a new git repo in the project     |
-| `--no-install`              | Generate project without installing dependencies    |
-| `--import-alias`            | Enable TypeScript path aliases                      |
-
-### Navigation
-
-| Flag                 | Description                                                                    |
-| -------------------- | ------------------------------------------------------------------------------ |
-| `--expo-router`      | Use Expo Router for navigation, stack navigator by default                     |
-| `--react-navigation` | Use React Navigation for navigation, stack navigator by default                |
-| `--tabs`             | Use a Tab navigator (pass with either Expo Router or React Navigation flag)    |
-| `--drawer`           | Use a Drawer navigator (pass with either Expo Router or React Navigation flag) |
-
-### Authentication
-
-| Flag         | Description                                                 |
-| ------------ | ----------------------------------------------------------- |
-| `--firebase` | Use Firebase for authentication, initial configuration only |
-| `--supabase` | Use Supabase for authentication, initial configuration only |
-
-### Styling
-
-| Flag           | Description                                 |
-| -------------- | ------------------------------------------- |
-| `--nativewind` | Use Nativewind for styling                  |
-| `--stylesheet` | Use StyleSheet for styling, used by default |
-| `--tamagui`    | Use Tamagui for styling                     |
-
-### Opinionated Stacks
-
-| Flag             | Description                                                   |
-| ---------------- | ------------------------------------------------------------- |
-| `-i`, `--ignite` | Initialize an opinionated starter using Infinite Red's Ignite |
+| Option              | Description                                                                    |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `-d`, `--default`   | Bypass the CLI and initialize an empty Expo project                            |
+| `--npm`             | Selects npm to be your project's package manager                               |
+| `--yarn`            | Selects yarn to be your project's package manager                              |
+| `--pnpm`            | Selects pnpm to be your project's package manager                              |
+| `--bun`             | Selects bun to be your project's package manager                               |
+| `--no-git`          | Do not initialize a new git repo in the project                                |
+| `--no-install`      | Generate project without installing dependencies                               |
+| `--import-alias`    | Enable TypeScript path aliases                                                 |
+| `--expo-router`     | Use Expo Router for navigation, stack navigator by default                     |
+| `--react-navigation`| Use React Navigation for navigation, stack navigator by default                |
+| `--tabs`            | Use a Tab navigator (pass with either Expo Router or React Navigation flag)    |
+| `--drawer`          | Use a Drawer navigator (pass with either Expo Router or React Navigation flag) |
+| `--firebase`        | Use Firebase for authentication, initial configuration only                    |
+| `--supabase`        | Use Supabase for authentication, initial configuration only                    |
+| `--nativewind`      | Use Nativewind for styling                                                     |
+| `--stylesheet`      | Use StyleSheet for styling, used by default                                    |
+| `--tamagui`         | Use Tamagui for styling                                                        |
+| `-i`, `--ignite`    | Initialize an opinionated starter using Infinite Red's Ignite                  |
