@@ -2,12 +2,14 @@ import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
 import { DEFAULT_APP_NAME, defaultOptions } from '../constants';
 import { CliResults, NavigationTypes, PackageManager } from '../types';
+import { validateProjectName } from './validateProjectName';
 
 export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 	const {
+		filesystem: { existsAsync, removeAsync },
 		parameters: { first },
 		print: { success },
-		prompt: { ask, confirm }
+		prompt
 	} = toolbox;
 
 	// Set the default options
@@ -22,14 +24,17 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 			name: 'name',
 			message: `What do you want to name your project? (${DEFAULT_APP_NAME})`
 		};
-		const { name } = await ask(askName);
+		const { name } = await prompt.ask(askName);
 		cliResults.projectName = name || DEFAULT_APP_NAME;
+		const { projectName } = cliResults;
+		// Check if the directory already exists
+		await validateProjectName(existsAsync, removeAsync, prompt, projectName);
 	}
 
 	// Clear default packages
 	cliResults.packages = [];
 	// Ask about TypeScript
-	const useTypescript = await confirm('Would you like to use TypeScript with this project?', true);
+	const useTypescript = await prompt.confirm('Would you like to use TypeScript with this project?', true);
 
 	if (useTypescript) {
 		success('Good call, now using TypeScript! 🚀');
@@ -52,10 +57,10 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		choices: ['Stack', 'Tabs', 'Drawer']
 	};
 
-	const { navigationSelect } = await ask(askNavigation);
+	const { navigationSelect } = await prompt.ask(askNavigation);
 
 	if (navigationSelect !== 'None') {
-		const { navigationTypeSelect } = await ask(askNavigationType);
+		const { navigationTypeSelect } = await prompt.ask(askNavigationType);
 		if (navigationSelect === 'React Navigation') {
 			cliResults.packages.push({
 				name: 'react-navigation',
@@ -85,7 +90,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		choices: ['Nativewind', 'Stylesheet', 'Tamagui (experimental)']
 	};
 
-	const { stylingSelect } = await ask(askStyling);
+	const { stylingSelect } = await prompt.ask(askStyling);
 
 	if (stylingSelect === 'Nativewind') {
 		cliResults.packages.push({ name: 'nativewind', type: 'styling' });
@@ -105,7 +110,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		choices: ['None', 'Supabase', 'Firebase']
 	};
 
-	const { authenticationSelect } = await ask(askAuthentication);
+	const { authenticationSelect } = await prompt.ask(askAuthentication);
 
 	if (authenticationSelect === 'Supabase') {
 		cliResults.packages.push({ name: 'supabase', type: 'authentication' });
@@ -125,7 +130,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 			choices: ['npm', 'yarn', 'pnpm', 'bun']
 		};
 
-		const { packageManagerSelect } = await ask(askPackageManager);
+		const { packageManagerSelect } = await prompt.ask(askPackageManager);
 		
 		cliResults.flags.packageManager = packageManagerSelect as PackageManager;
 	} else {

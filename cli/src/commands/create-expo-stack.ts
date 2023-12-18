@@ -14,14 +14,17 @@ import {
 import { defaultOptions } from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
+import { validateProjectName } from '../utilities/validateProjectName';
 
 const command: GluegunCommand = {
 	name: 'create-expo-stack',
 	description: 'Create a new Expo project',
 	run: async (toolbox) => {
 		const {
+			filesystem: { existsAsync, removeAsync },
 			parameters: { first, options },
-			print: { info, highlight, warning }
+			print: { info, highlight, warning },
+			prompt
 		} = toolbox;
 
 		if (options.help || options.h) {
@@ -167,6 +170,9 @@ const command: GluegunCommand = {
 					cliResults.projectName = first;
 				}
 
+				// Validate the project name
+				await validateProjectName(existsAsync, removeAsync, prompt, cliResults.projectName);
+
 				// By this point, all cliResults should be set
 				info('');
 				highlight('Your project configuration:');
@@ -246,11 +252,9 @@ const command: GluegunCommand = {
 				await printOutput(cliResults, formattedFiles, toolbox);
 			}
 		} catch (error) {
-			// TODO: delete all files
-
+			// await removeAsync(cliResults.projectName);
 			info(`Oops, something went wrong while creating your project 😢`);
-			info('');
-			info(`Error: ${error}`);
+			info(`\n${error.message ? error.message : error}`);
 			info(
 				`\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
 			);
