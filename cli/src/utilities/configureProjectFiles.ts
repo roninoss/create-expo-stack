@@ -143,7 +143,7 @@ export function configureProjectFiles(
 	if (authenticationPackage?.name === 'firebase') {
 		const firebaseFiles = [
 			'packages/firebase/utils/firebase.ts.ejs',
-			'packages/firebase/metro.config.js',
+			'packages/firebase/metro.config.js.ejs',
 			'packages/firebase/.env'
 		];
 
