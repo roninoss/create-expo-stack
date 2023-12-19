@@ -1,12 +1,15 @@
 ---
 
 ---
+
 <style>
   @keyframes spinner {
-    to {transform: rotate(360deg);}
+    to {
+      transform: rotate(360deg);
+    }
   }
   .spinner:before {
-    content: '';
+    content: "";
     box-sizing: border-box;
     position: absolute;
     top: 50%;
@@ -18,26 +21,26 @@
     border-radius: 50%;
     border: 2px solid #fff;
     border-top-color: #333;
-    animation: spinner .6s linear infinite;
+    animation: spinner 0.6s linear infinite;
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const starCountElement = document.getElementById('star-count');
+  document.addEventListener("DOMContentLoaded", () => {
+    const starCountElement = document.getElementById("star-count");
     if (starCountElement) {
-      starCountElement.classList.add('spinner');
+      starCountElement.classList.add("spinner");
 
       fetch("https://api.github.com/repos/danstepanov/create-expo-stack")
-        .then(response => response.json())
-        .then(data => {
-          starCountElement.classList.remove('spinner');
+        .then((response) => response.json())
+        .then((data) => {
+          starCountElement.classList.remove("spinner");
           const starCount = data.stargazers_count;
           starCountElement.textContent = starCount;
         })
-        .catch(error => {
-          starCountElement.classList.remove('spinner');
-          console.error('Error:', error);
+        .catch((error) => {
+          starCountElement.classList.remove("spinner");
+          console.error("Error:", error);
         });
     }
   });
@@ -68,9 +71,10 @@
     <path d="M3 5h4"></path>
     <path d="M17 19h4"></path>
   </svg>
-  <span id="star-count"
+  <span
+    id="star-count"
     class="bg-gradient-to-br from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl font-bold"
-  />
+  ></span>
   <span>|</span>
   <span class="hidden sm:block">Give us a star on Github</span>
   <span class="sm:hidden">Star us on Github</span>

@@ -1,21 +1,32 @@
 ---
 import GitHubIcon from "@components/icons/github";
-import GithubStarButton from "./githubStarButton.astro";
+import GithubStarButton from "./githubStarButton.astro"; 
+import MobileNav from "./MobileNav";
 ---
 
 <nav
-  class="z-[1] flex p-[0.5%] xl:p-[1%] 2xl:p-[1.5%] text-white justify-between  items-center w-full"
+  class="z-[1] flex p-[0.5%] xl:p-[1%] 2xl:p-[1.5%] text-white justify-between items-center w-full"
 >
   <div class="hidden sm:flex m-2 h-10 w-10"></div>
- 
-    <GithubStarButton />
-  
-  <div class="flex flex-row space-x-4 items-center justify-center ">
-    <a href="https://docs.createexpostack.com/" class="hover:no-underline">Docs</a>
-    <a target="_blank" rel="noreferrer noopener" href="https://github.com/danstepanov/create-expo-stack"
+
+  <GithubStarButton />
+
+  <div class="flex-row space-x-4 items-center justify-center hidden md:flex">
+    <a href="https://docs.createexpostack.com/" class="hover:no-underline"
+      >Docs</a
+    >
+    <a
+      target="_blank"
+      rel="noreferrer noopener"
+      href="https://github.com/danstepanov/create-expo-stack"
       ><GitHubIcon className="m-2 h-10 w-10" /></a
     >
   </div>
+
+ 
+
+  <MobileNav client:load/>
+ 
 
   <style>
     #github-link:hover {
