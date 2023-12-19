@@ -1,5 +1,17 @@
 # create-expo-stack
 
+## 2.3.7
+
+### Patch Changes
+
+-   [#133](https://github.com/danstepanov/create-expo-stack/pull/133) [`263009a`](https://github.com/danstepanov/create-expo-stack/commit/263009a0898de9fbb0215c3c9e92b9496647218d) Thanks [@finnbayer](https://github.com/finnbayer)! - added .env to .gitignore when firebase or supabase is used
+
+-   [`3a8c3a9`](https://github.com/danstepanov/create-expo-stack/commit/3a8c3a98a73ecd906af01480c94f7702dda5d506) Thanks [@danstepanov](https://github.com/danstepanov)! - check if pwd already contains folder with set project name, offer to delete if so
+
+-   [#130](https://github.com/danstepanov/create-expo-stack/pull/130) [`6bb80a7`](https://github.com/danstepanov/create-expo-stack/commit/6bb80a768c560c80f94d17b2ff3d839edf7f985e) Thanks [@finnbayer](https://github.com/finnbayer)! - changed metro.config.js to ejs to take expo-router into account
+
+-   [#132](https://github.com/danstepanov/create-expo-stack/pull/132) [`9335094`](https://github.com/danstepanov/create-expo-stack/commit/93350940659ea144838ae8bbbffda07726edda70) Thanks [@finnbayer](https://github.com/finnbayer)! - moved the addition of the project name to the target to the end to avoid incorrect replacements
+
 ## 2.3.6
 
 ### Patch Changes
