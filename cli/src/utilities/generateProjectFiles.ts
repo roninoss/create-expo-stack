@@ -24,6 +24,7 @@ export function generateProjectFiles(
 		if (authenticationPackage?.name === 'firebase') {
 			target = target.replace('packages/firebase/', '');
 		}
+
 		target = target.replace('base/', '');
 
 		if (stylingPackage?.name === 'tamagui') {
