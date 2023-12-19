@@ -16,7 +16,7 @@ export const GITHUB_EDIT_URL = `https://github.com/danstepanov/create-expo-stack
 
 export const COMMUNITY_INVITE_URL = `https://discord.gg/XS9qS2mvTR`;
 
-export type OuterHeaders = "Create Expo Stack" | "Deployment" | "Usage";
+export const DOCS_URL = `https://docs.createexpostack.com/`;
 
 export const SPONSORS = [
   {
@@ -176,3 +176,46 @@ export interface Frontmatter {
   lang?: KnownLanguageCode;
   isMdx?: boolean;
 }
+
+export type OuterHeaders = "Getting Started" | "Deployment" | "Usage";
+
+export interface SidebarItem<
+  TCode extends KnownLanguageCode = KnownLanguageCode,
+> {
+  text: string;
+  link: `${TCode}/${string}`;
+}
+
+export type SidebarItemLink = SidebarItem["link"];
+
+export type Sidebar = {
+  [TCode in KnownLanguageCode]: {
+    [THeader in OuterHeaders]?: SidebarItem<TCode>[];
+  };
+};
+export const SIDEBAR: Sidebar = {
+  en: {
+    "Getting Started": [
+      { text: "Introduction", link: "en/introduction" },
+      { text: "Installation", link: "en/installation" },
+      { text: "Folder Structure", link: "en/folder-structure" },
+    ],
+  },
+};
+
+export const SIDEBAR_HEADER_MAP: Record<
+  KnownLanguageCode,
+  Record<OuterHeaders, string>
+> = {
+  en: {
+    "Getting Started": "Create Expo Stack",
+    Usage: "Usage",
+    Deployment: "Deployment",
+  },
+  // Translate the sidebar's "outer headers" here
+  // sv: {
+  //   "Create Expo Stack": "Create Expo Stack",
+  //   Usage: "Användarguide",
+  //   Deployment: "Deployment",
+  // },
+};
