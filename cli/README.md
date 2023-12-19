@@ -192,6 +192,36 @@ Thanks go to these wonderful people:
 					Aodhan Hamilton
 				</a>
 			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/finnbayer">
+					<img src="https://avatars.githubusercontent.com/u/115630860?v=4" width="100px;" alt="finnbayer"/>
+					<br />
+					Finn Bayer
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/todevmilen">
+					<img src="https://avatars.githubusercontent.com/u/78319110?v=4" width="100px;" alt="todevmilen"/>
+					<br />
+					Milen Todev
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/gialencar">
+					<img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100px;" alt="gialencar"/>
+					<br />
+					Gilson Alencar
+				</a>
+			</td>
+			<td align="center" valign="top" width="14.28%">
+				<a href="https://github.com/Joehoel">
+					<img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100px;" alt="joehoel"/>
+					<br />
+					Joël Kuijper
+				</a>
+			</td>
 		</tr>
 	</tbody>
 </table>

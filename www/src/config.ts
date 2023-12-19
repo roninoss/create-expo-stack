@@ -124,6 +124,30 @@ export const CONTRIBUTORS = [
     avatar_url: "https://avatars.githubusercontent.com/u/69143973?v=4",
     html_url: "https://github.com/MVAodhan",
   },
+  {
+	login: "finnbayer",
+	id: 115630860,
+	avatar_url: "https://avatars.githubusercontent.com/u/115630860?v=4",
+	html_url: "https://github.com/finnbayer",
+  },
+  {
+	login: "todevmilen",
+	id: 78319110,
+	avatar_url: "https://avatars.githubusercontent.com/u/78319110?v=4",
+	html_url: "https://github.com/todevmilen",
+  },
+  {
+	login: "gialencar",
+	id: 11895696,
+	avatar_url: "https://avatars.githubusercontent.com/u/11895696?v=4",
+	html_url: "https://github.com/gialencar",
+  },
+  {
+	login: "joehoel",
+	id: 31251240,
+	avatar_url: "https://avatars.githubusercontent.com/u/31251240?v=4",
+	html_url: "https://github.com/Joehoel",
+  },
 ];
 
 export const AUTHORS = [
