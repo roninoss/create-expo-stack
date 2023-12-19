@@ -30,26 +30,6 @@ export default function MobileNav() {
       </SheetTrigger>
       {/* SheetContent with left side alignment */}
       <SheetContent side="right" className="pr-0">
-        {/* Logo and app name */}
-        <a href="/" className="mr-6 flex items-center space-x-2">
-          <div>
-            <img
-              className="block dark:hidden"
-              width="28"
-              height="28"
-              src="/logo-light.svg"
-              alt="Create Expo Stack Logo Dark"
-            />
-            <img
-              className="hidden dark:block"
-              width="28"
-              height="28"
-              src="/logo-dark.svg"
-              alt="Create Expo Stack Logo Light"
-            />
-          </div>
-          <span className="font-bold  inline-block">Create Expo Stack</span>
-        </a>
         {/* Scrollable area for navigation links */}
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-10">
           <div className="flex flex-col space-y-3">
