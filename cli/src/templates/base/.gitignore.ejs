@@ -13,6 +13,8 @@ web-build/
 expo-env.d.ts<% } %>
 <% if (props.stylingPackage?.name === "tamagui") { %># tamagui
 .tamagui/<% } %>
+<% if ((props.authenticationPackage?.name === "supabase") || (props.authenticationPackage?.name === "firebase")) { %># firebase/supabase
+.env<% } %>
 
 # macOS
 .DS_Store
