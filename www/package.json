@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format:check": "prettier --check .",
+    "format": "prettier --write . --list-different"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
@@ -18,8 +20,16 @@
     "@fontsource-variable/geologica": "^5.0.3",
     "@headlessui/react": "^1.7.17",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
     "@vercel/analytics": "^1.1.1",
-    "@vercel/og": "^0.5.20"
+    "@vercel/og": "^0.5.20",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.298.0",
+    "tailwind-merge": "^2.1.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.33",
