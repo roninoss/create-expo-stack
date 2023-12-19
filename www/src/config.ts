@@ -197,7 +197,7 @@ export const SIDEBAR: Sidebar = {
   en: {
     "Getting Started": [
       { text: "Introduction", link: "en/introduction" },
-      { text: "Installation", link: "en/installation" }, 
+      { text: "Installation", link: "en/installation" },
     ],
   },
 };
@@ -211,10 +211,4 @@ export const SIDEBAR_HEADER_MAP: Record<
     Usage: "Usage",
     Deployment: "Deployment",
   },
-  // Translate the sidebar's "outer headers" here
-  // sv: {
-  //   "Create Expo Stack": "Create Expo Stack",
-  //   Usage: "Användarguide",
-  //   Deployment: "Deployment",
-  // },
 };

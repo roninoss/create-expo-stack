@@ -1,17 +1,17 @@
 ---
 import GitHubIcon from "@components/icons/github";
-import GithubStarButton from "./githubStarButton.astro"; 
+import GithubStarButton from "./githubStarButton.astro";
 import MobileNav from "./MobileNav";
 ---
 
 <nav
   class="z-[1] flex p-[0.5%] xl:p-[1%] 2xl:p-[1.5%] text-white items-center justify-center w-full relative"
 >
-  <!-- <div class="hidden sm:flex m-2 h-10 w-10"></div> -->
-
   <GithubStarButton />
 
-  <div class="flex-row space-x-4 items-center justify-center hidden sm:flex sm:absolute right-4">
+  <div
+    class="flex-row space-x-4 items-center justify-center hidden sm:flex sm:absolute right-4"
+  >
     <a href="https://docs.createexpostack.com/" class="hover:no-underline"
       >Docs</a
     >
@@ -23,8 +23,7 @@ import MobileNav from "./MobileNav";
     >
   </div>
 
-  <MobileNav client:load/>
- 
+  <MobileNav client:load />
 
   <style>
     #github-link:hover {
