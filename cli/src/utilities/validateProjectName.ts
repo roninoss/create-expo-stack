@@ -1,8 +1,8 @@
 import { ExistsResult } from 'fs-jetpack/types';
 import { GluegunPrompt } from 'gluegun';
 
-export async function validateProjectName(existsAsync: (path: string) => Promise<ExistsResult>, removeAsync: (path?: string) => Promise<void>, prompt: GluegunPrompt, projectName: string) {
-	if (await existsAsync(projectName)) {
+export async function validateProjectName(exists: (path: string) => ExistsResult, removeAsync: (path?: string) => Promise<void>, prompt: GluegunPrompt, projectName: string): Promise<void> {
+	if (exists(projectName)) {
 		const confirmDelete = await prompt.ask([
 		  {
 			type: 'confirm',
