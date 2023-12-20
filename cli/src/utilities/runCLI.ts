@@ -6,7 +6,7 @@ import { validateProjectName } from './validateProjectName';
 
 export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 	const {
-		filesystem: { existsAsync, removeAsync },
+		filesystem: { exists, removeAsync },
 		parameters: { first },
 		print: { success },
 		prompt
@@ -28,7 +28,7 @@ export async function runCLI(toolbox: Toolbox): Promise<CliResults> {
 		cliResults.projectName = name || DEFAULT_APP_NAME;
 		const { projectName } = cliResults;
 		// Check if the directory already exists
-		await validateProjectName(existsAsync, removeAsync, prompt, projectName);
+		await validateProjectName(exists, removeAsync, prompt, projectName);
 	}
 
 	// Clear default packages

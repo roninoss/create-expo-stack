@@ -21,7 +21,7 @@ const command: GluegunCommand = {
 	description: 'Create a new Expo project',
 	run: async (toolbox) => {
 		const {
-			filesystem: { existsAsync, removeAsync },
+			filesystem: { exists, removeAsync },
 			parameters: { first, options },
 			print: { info, highlight, warning },
 			prompt
@@ -171,7 +171,7 @@ const command: GluegunCommand = {
 				}
 
 				// Validate the project name
-				await validateProjectName(existsAsync, removeAsync, prompt, cliResults.projectName);
+				await validateProjectName(exists, removeAsync, prompt, cliResults.projectName);
 
 				// By this point, all cliResults should be set
 				info('');
