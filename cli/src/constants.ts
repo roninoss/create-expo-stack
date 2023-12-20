@@ -10,6 +10,7 @@ export const defaultOptions: CliResults = {
 	flags: {
 		noGit: false,
 		noInstall: false,
+		overwrite: false,
 		importAlias: '~/',
 		packageManager: undefined
 	}
