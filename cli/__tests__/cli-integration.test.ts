@@ -1,12 +1,11 @@
-import { system, filesystem } from 'gluegun';
+import { system } from 'gluegun';
 
 import { version } from '../package.json';
 
 import { test, expect } from 'bun:test';
+import * as path from 'node:path';
 
-const src = filesystem.path(__dirname, `..`);
-
-const cli = async (cmd) => system.run(`bun run ` + filesystem.path(src, `bin`, `create-expo-stack.js`) + ` ${cmd}`);
+const cli = async (cmd) => system.run(`bun run ` + path.join('./', `bin`, `create-expo-stack.js`) + ` ${cmd}`);
 
 // Run tests for each package manager
 const packageManagers = [`npm`, `yarn`, `pnpm`, `bun`];
