@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"types": ["bun-types"],
+
+		"lib": ["ESNext"],
+		"module": "esnext",
+		"target": "esnext",
+
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"allowImportingTsExtensions": true,
+		"moduleDetection": "force",
+
+		"jsx": "react-jsx",
+		"allowJs": true,
+
+		"strict": false,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"composite": true,
+		"downlevelIteration": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"include": ["**/*.test.ts"]
+}
