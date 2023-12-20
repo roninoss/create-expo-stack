@@ -23,8 +23,8 @@ const command: GluegunCommand = {
 		const {
 			filesystem: { exists, removeAsync },
 			parameters: { first, options },
-			print: { info, highlight, warning },
-			prompt
+			print: { info, highlight, success, warning },
+			prompt,
 		} = toolbox;
 
 		if (options.help || options.h) {
@@ -262,6 +262,11 @@ const command: GluegunCommand = {
 				await printOutput(cliResults, formattedFiles, toolbox);
 			}
 		} catch (error) {
+			if (error === "") {
+				// user cancelled/exited the interactive CLI
+				return void success(`\nCancelled... 👋 `);
+			}
+
 			// await removeAsync(cliResults.projectName);
 			info(`\nOops, something went wrong while creating your project 😢`);
 			info(
