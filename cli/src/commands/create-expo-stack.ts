@@ -170,8 +170,13 @@ const command: GluegunCommand = {
 					cliResults.projectName = first;
 				}
 
-				// Validate the project name
-				await validateProjectName(exists, removeAsync, prompt, cliResults.projectName);
+				// Validate the project name; we may or may not be interactive, so conditionally pass in prompt
+				await validateProjectName(
+					exists,
+					removeAsync,
+					!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
+					cliResults.projectName
+				);
 
 				// By this point, all cliResults should be set
 				info('');
