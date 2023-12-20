@@ -10,6 +10,7 @@ export function showHelp(info, highlight, warning) {
 	info('    -d, --default         Use the default options for creating a project');
 	info('        --noInstall       Skip installing npm packages or CocoaPods');
 	info('        --noGit           Skip initializing a git repository');
+	info('        --overwrite       Skip checks for an existing project directory');
 	info('        --blank           Use the blank typescript template');
 	info('        --npm             Use npm as the package manager');
 	info('        --yarn            Use yarn as the package manager');

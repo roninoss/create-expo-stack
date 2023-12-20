@@ -2,6 +2,7 @@
 export interface CliFlags {
 	noGit: boolean;
 	noInstall: boolean;
+	overwrite: boolean;
 	importAlias: string;
 	packageManager: PackageManager;
 }

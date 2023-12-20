@@ -171,12 +171,17 @@ const command: GluegunCommand = {
 				}
 
 				// Validate the project name; we may or may not be interactive, so conditionally pass in prompt
-				await validateProjectName(
-					exists,
-					removeAsync,
-					!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
-					cliResults.projectName
-				);
+				// Ignore the existing folder if the overwrite option is passed in.
+				if (options.overwrite) {
+					cliResults.flags.overwrite = true;
+				} else {
+					await validateProjectName(
+						exists,
+						removeAsync,
+						!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
+						cliResults.projectName
+					);
+				}
 
 				// By this point, all cliResults should be set
 				info('');

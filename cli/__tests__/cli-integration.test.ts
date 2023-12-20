@@ -5,7 +5,7 @@ import { version } from '../package.json';
 import { test, expect } from 'bun:test';
 import * as path from 'node:path';
 
-const cli = async (cmd) => system.run(`bun run ` + path.join('./', `bin`, `create-expo-stack.js`) + ` ${cmd}`);
+const cli = async (cmd) => system.run(`bun run ` + path.join('./', `bin`, `create-expo-stack.js`) + ` ${cmd} --overwrite`);
 
 // Run tests for each package manager
 const packageManagers = [`npm`, `yarn`, `pnpm`, `bun`];
