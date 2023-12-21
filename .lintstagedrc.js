@@ -2,5 +2,5 @@
  * @type {import("lint-staged").Config}
  */
 module.exports = {
-	'*': 'bun run prettier --write'
+  '*': 'bun run prettier --write'
 };

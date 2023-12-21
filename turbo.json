@@ -1,29 +1,29 @@
 {
-	"pipeline": {
-		"build": {
-			"dependsOn": ["^build"],
-			"outputs": [".vercel/**", "dist/**"],
-			"cache": true,
-			"env": []
-		},
-		"topo": {
-			"dependsOn": ["^topo"]
-		},
-		"//#format": {
-			"outputs": ["node_modules/.cache/prettiercache"],
-			"outputMode": "errors-only"
-		},
-		"format": {
-			"dependsOn": ["^topo"],
-			"outputs": ["node_modules/.cache/prettiercache"],
-			"outputMode": "errors-only"
-		},
-		"clean": {
-			"cache": false
-		},
-		"dev": {
-			"persistent": true,
-			"cache": false
-		}
-	}
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".vercel/**", "dist/**"],
+      "cache": true,
+      "env": []
+    },
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
+    "//#format": {
+      "outputs": ["node_modules/.cache/prettiercache"],
+      "outputMode": "errors-only"
+    },
+    "format": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/prettiercache"],
+      "outputMode": "errors-only"
+    },
+    "clean": {
+      "cache": false
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    }
+  }
 }
