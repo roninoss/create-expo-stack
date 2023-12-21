@@ -13,7 +13,12 @@ export default function Header() {
       <div className="px-4  sm:container  flex-row flex h-14 items-center justify-between">
         <MainNav />
         <div className="flex flex-row space-x-3">
-          <a href={EDIT_URL} target="_blank" rel="noreferrer" className="flex sm:hidden">
+          <a
+            href={EDIT_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="flex sm:hidden"
+          >
             <div
               className={cn(
                 buttonVariants({

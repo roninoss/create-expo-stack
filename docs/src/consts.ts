@@ -51,7 +51,7 @@ export const SIDEBAR: Sidebar = {
   en: {
     "Getting Started": [
       { text: "Introduction", link: "en/introduction" },
-      { text: "Installation", link: "en/installation" }
+      { text: "Installation", link: "en/installation" },
     ],
   },
 };

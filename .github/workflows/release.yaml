@@ -53,10 +53,10 @@ jobs:
         id: changeset
         uses: changesets/action@v1.4.1
         with:
-          commit: "chore(release): version packages"
-          title: "chore(release): version packages"
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
           publish: npx changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.CES_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_ENV: "production"
+          NODE_ENV: 'production'
