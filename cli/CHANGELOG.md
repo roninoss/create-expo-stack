@@ -1,5 +1,21 @@
 # create-expo-stack
 
+## 2.3.8
+
+### Patch Changes
+
+-   [#129](https://github.com/danstepanov/create-expo-stack/pull/129) [`278eefc`](https://github.com/danstepanov/create-expo-stack/commit/278eefc65ab964f69f5a9cd65d7f4c357df706b2) Thanks [@sammoore](https://github.com/sammoore)! - refactor(commands): get projectName before branching off into CLI
+
+-   [#140](https://github.com/danstepanov/create-expo-stack/pull/140) [`283dab2`](https://github.com/danstepanov/create-expo-stack/commit/283dab2aec8274606e1965b2effed6d1e2873113) Thanks [@sammoore](https://github.com/sammoore)! - feat: add --overwrite flag to ignore an existing directory
+
+-   [#139](https://github.com/danstepanov/create-expo-stack/pull/139) [`88fd2be`](https://github.com/danstepanov/create-expo-stack/commit/88fd2be29c78c0066e0c5bfa2905b08e4875cde2) Thanks [@sammoore](https://github.com/sammoore)! - fix: prompt/interaction causes immediate failure/exit after existsAsync check
+
+-   [#141](https://github.com/danstepanov/create-expo-stack/pull/141) [`667abf1`](https://github.com/danstepanov/create-expo-stack/commit/667abf12741aa55ca450acf3ec86544965a9244d) Thanks [@sammoore](https://github.com/sammoore)! - fix: successfully exit interactive CLI when user cancels/exits with interrupt
+
+-   [#139](https://github.com/danstepanov/create-expo-stack/pull/139) [`0728ea9`](https://github.com/danstepanov/create-expo-stack/commit/0728ea969e271456a5e8999432717e2e4aeaf78b) Thanks [@sammoore](https://github.com/sammoore)! - fix: do not ask to remove existing directory when non-interactive
+
+-   [#137](https://github.com/danstepanov/create-expo-stack/pull/137) [`1ba99e8`](https://github.com/danstepanov/create-expo-stack/commit/1ba99e8c5fbad5ba0154fd063b703b6ba90ddc73) Thanks [@sammoore](https://github.com/sammoore)! - feat: re-throw error on exit to indicate execution failure, show error diagnostics
+
 ## 2.3.7
 
 ### Patch Changes
