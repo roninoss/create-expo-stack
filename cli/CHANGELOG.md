@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.9
+
+### Patch Changes
+
+- [#145](https://github.com/danstepanov/create-expo-stack/pull/145) [`f7cfd23`](https://github.com/danstepanov/create-expo-stack/commit/f7cfd23ca97172e855a32b60b65816563ce2568f) Thanks [@frankcalise](https://github.com/frankcalise)! - Fixes hot refresh when using yarn with expo-router
+
 ## 2.3.8
 
 ### Patch Changes
