@@ -40,7 +40,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     type: 'select',
     name: 'navigationTypeSelect',
     message: 'What type of navigation would you like to use?',
-    choices: ['Stack', 'Tabs', 'Drawer']
+    choices: ['Stack', 'Tabs', 'Tabs + Drawer']
   };
 
   const { navigationSelect } = await prompt.ask(askNavigation);
