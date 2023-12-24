@@ -70,7 +70,7 @@ export function configureProjectFiles(
         'packages/react-navigation/screens/one.tsx.ejs',
         'packages/react-navigation/screens/two.tsx.ejs'
       ];
-    } else if (navigationPackage?.options?.type === 'drawer') {
+    } else if (navigationPackage?.options?.type === 'tabs + drawer') {
       // it's a drawer navigator
       reactNavigationFiles = [
         ...reactNavigationFiles,
