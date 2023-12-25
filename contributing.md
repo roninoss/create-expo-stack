@@ -114,6 +114,9 @@ The generated changeset file should be included in your commit. That way, when t
 > [!NOTE]
 > If you're not sure what kind of version bump your changes introduce, you can reach out to one of the maintainers in the PR comments and we'll try to help you out!
 
+> [!NOTE]
+> If you're running into an error regarding the `lint-staged` script not being included while trying to commit your changes, please run `bun upgrade && bun i` and try again.
+
 If you've provided the relevant changeset summaries and the tests pass, then you can open a PR against the `main` branch of the source repo.
 
 > **_TODO:_** Add template for pull requests and issues
