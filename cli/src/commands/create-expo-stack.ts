@@ -85,8 +85,8 @@ const command: GluegunCommand = {
         cliResults.projectName = name || DEFAULT_APP_NAME;
       } else {
         // Destructure the results but set the projectName if the first param is passed in
-        const pathArr = first.split('/');
-        cliResults.projectName = pathArr[pathArr.length - 1]; // get last folder as the project name
+        const pathSegments = first.split('/');
+        cliResults.projectName = pathSegments.pop(); // get last segment as the project name
       }
 
       if (options.ignite) {
