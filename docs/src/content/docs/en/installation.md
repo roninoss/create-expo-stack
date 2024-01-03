@@ -44,7 +44,7 @@ npm create expo-stack --expo-router --nativewind --bun
 ### bun
 
 ```bash
-bun create expo-stack <destination> --expo-router --nativewind --bun
+bun create expo-stack myapp --expo-router --nativewind --bun
 ```
 
 ## Advanced Usage
