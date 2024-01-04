@@ -35,8 +35,16 @@ After your app has been initialized, be sure to follow any instructions outputed
 
 The following would scaffold a CES app with Expo Router, NativeWind, and Bun:
 
+### npm
+
 ```bash
 npm create expo-stack --expo-router --nativewind --bun
+```
+
+### bun
+
+```bash
+bun create expo-stack myapp --expo-router --nativewind --bun
 ```
 
 ## Advanced Usage
