@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.10
+
+### Patch Changes
+
+- [`0587729`](https://github.com/danstepanov/create-expo-stack/commit/0587729836efae3e1713cfb610cd473a6bf0fbf7) Thanks [@danstepanov](https://github.com/danstepanov)! - support kebab case for cli flags such as --no-install and --no-git, migrate tests to use kebab case, expand test coverage to ensure flags are working properly
+
 ## 2.3.9
 
 ### Patch Changes
