@@ -32,7 +32,7 @@ export function configureProjectFiles(
   // add nativewind files if needed
   // modify base files with nativewind specifications
   if (stylingPackage?.name === 'nativewind') {
-    const nativewindFiles = ['packages/nativewind/tailwind.config.js.ejs', 'packages/nativewind/app.d.ts'];
+    const nativewindFiles = ['packages/nativewind/tailwind.config.js.ejs', 'packages/nativewind/app-env.d.ts'];
 
     files = [...files, ...nativewindFiles];
   }
