@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.3.11
+
+### Patch Changes
+
+- [`8729fc3`](https://github.com/danstepanov/create-expo-stack/commit/8729fc320b1c7cf7eca89ff5f6523bef4c5299cd) Thanks [@danstepanov](https://github.com/danstepanov)! - remove experimental flag from expo router
+
+- [`8729fc3`](https://github.com/danstepanov/create-expo-stack/commit/8729fc320b1c7cf7eca89ff5f6523bef4c5299cd) Thanks [@danstepanov](https://github.com/danstepanov)! - move stack screen option configuration to screen level rather than parent layout level
+
 ## 2.3.10
 
 ### Patch Changes
