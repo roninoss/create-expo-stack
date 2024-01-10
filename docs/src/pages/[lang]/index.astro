@@ -5,6 +5,7 @@ export const getStaticPaths = () =>
   Object.keys(KNOWN_LANGUAGES).map((lang) => ({ params: { lang } }));
 
 const { lang } = Astro.params;
+export const prerender = true;
 ---
 
 <meta http-equiv="refresh" content={`0;url=/${lang}/introduction`} />
