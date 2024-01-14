@@ -1,15 +1,30 @@
-<% if (props.stylingPackage?.name === "nativewind") { %>
-	import { Stack } from "expo-router";
-<% } else if (props.stylingPackage?.name === "tamagui") { %>
-	import { TamaguiProvider } from "tamagui";
-	import { Stack } from "expo-router";
+<% if (props.stylingPackage?.name === "tamagui") { %>
+	import { useFonts } from 'expo-font';
+  import { SplashScreen, Stack } from 'expo-router';
+  import { useEffect } from 'react';
+  import { TamaguiProvider } from 'tamagui';
 
-	import config from '../tamagui.config'
+  import config from '../tamagui.config';
 <% } else { %>
 	import { Stack } from "expo-router";
 <% } %>
 
 export default function Layout() {
+
+  <% if (props.stylingPackage?.name === "tamagui") { %>
+  	const [loaded] = useFonts({
+			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+			InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
+		});
+
+		useEffect(() => {
+			if (loaded) {
+				SplashScreen.hideAsync();
+			}
+		}, [loaded]);
+
+		if (!loaded) return null;
+  <% } %>
 
 	return (
 		<% if (props.stylingPackage?.name === "tamagui") { %>
