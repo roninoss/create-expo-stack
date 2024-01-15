@@ -16,7 +16,7 @@ export default function Testimonials() {
     return (
       <div
         key={key}
-        className="flex flex-col sm:-ml-[0.5px] border-white/20 pt-16 sm:border-l sm:pr-8 sm:pt-0 sm:pl-16"
+        className="flex flex-col sm:-ml-[0.5px] border-white/20 py-12 sm:border-l sm:pr-8 sm:pt-0 sm:pl-16"
       >
         <figure className="flex flex-auto flex-col justify-between">
           <blockquote className="text-lg leading-8 text-white relative">
