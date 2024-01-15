@@ -138,7 +138,8 @@ const command: GluegunCommand = {
             throw new Error('Import alias must end in `/*`, for example: `@/*` or `~/`');
           }
         }
-        cliResults.flags.importAlias = options.importAlias || options['import-alias'] || true;
+
+        cliResults.flags.importAlias = options.importAlias !== false && options['import-alias'] !== false;
 
         if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
           //  Run the CLI to prompt the user for input
@@ -258,9 +259,8 @@ const command: GluegunCommand = {
           }
 
           // Check if the user wants to overwrite the project directory
-          // TODO: What is this actually doing?
-          if (cliResults.flags.importAlias) {
-            script += '--import-alias ';
+          if (!cliResults.flags.importAlias) {
+            script += '--no-import-alias ';
           }
 
           // Add the package manager
