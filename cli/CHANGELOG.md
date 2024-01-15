@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.13
+
+### Patch Changes
+
+- [`ae59661`](https://github.com/danstepanov/create-expo-stack/commit/ae596617a1290f83c27cab7c723fe003f26aca97) Thanks [@danstepanov](https://github.com/danstepanov)! - add missing brackets to unmatched route file for expo router
+
 ## 2.3.12
 
 ### Patch Changes
