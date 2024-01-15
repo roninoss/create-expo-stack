@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.14
+
+### Patch Changes
+
+- [`91249e0`](https://github.com/danstepanov/create-expo-stack/commit/91249e0f303495436588107f5bdc2ec276832bd8) Thanks [@danstepanov](https://github.com/danstepanov)! - allow proper setting of import alias
+
 ## 2.3.13
 
 ### Patch Changes
