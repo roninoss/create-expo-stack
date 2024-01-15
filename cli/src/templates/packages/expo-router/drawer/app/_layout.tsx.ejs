@@ -10,7 +10,11 @@ import { Slot } from 'expo-router';
 	import config from '../tamagui.config'
 
 	SplashScreen.preventAutoHideAsync();
-<% }  %>
+<% }  else if (props.stylingPackage?.name === "restyle") { %>
+  import { ThemeProvider } from '@shopify/restyle';
+  
+  import { theme } from '../theme';
+<% } %>
 
 export const unstable_settings = {
 	// Ensure that reloading on `/modal` keeps a back button present.
@@ -36,12 +40,16 @@ export default function RootLayout() {
   	return (
     	<% if (props.stylingPackage?.name === "tamagui") { %>
     		<TamaguiProvider config={config}>
+    	<% } else if (props.stylingPackage?.name === "restyle") { %>
+    		<ThemeProvider theme={theme}>
     	<% } %>
 		  <GestureHandlerRootView style={{ flex: 1 }}>
       <Slot />
     </GestureHandlerRootView>
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			</TamaguiProvider>
-		<% } %>
+    <% } else if (props.stylingPackage?.name === "restyle") { %>
+    	</ThemeProvider>
+    <% } %>
   	);
 }

@@ -8,7 +8,11 @@ import "react-native-gesture-handler";
 	import config from './tamagui.config'
 
 	SplashScreen.preventAutoHideAsync();
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { ThemeProvider } from '@shopify/restyle';
+  import { theme } from 'theme';
 <% } %>
+
 import RootStack from "./src/navigation";
 
 export default function App() {
@@ -33,7 +37,13 @@ export default function App() {
 				<RootStack />
 			</TamaguiProvider>
 		);
-	<% } else { %>
+	<% } else if (props.stylingPackage?.name === "restyle") { %>
+		return (
+      <ThemeProvider theme={theme}>
+        <RootStack />
+      </ThemeProvider>
+    );
+	<% } else { %> 
 		return <RootStack />;
 	<% } %>
 }

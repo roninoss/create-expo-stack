@@ -20,7 +20,8 @@ export const availablePackages = [
   'reactnavigation',
   'stylesheet',
   'supabase',
-  'tamagui'
+  'tamagui',
+  'restyle'
 ] as const;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer' | undefined;

@@ -3,6 +3,9 @@
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
     import { YStack, Paragraph, Separator, Theme } from "tamagui";
 	import { Platform } from 'react-native'
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { Platform } from 'react-native';
+  import { Box, Text } from 'theme';
 <% } else { %>
     import { Platform, StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -31,6 +34,15 @@ export default function ModalScreen() {
 				</YStack>
 			</Theme>
 		);
+    <% } else if (props.stylingPackage?.name === "restyle") { %>
+      return (
+        <Box flex={1} alignItems="center" justifyContent="center">
+          <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+          <Text variant="title">Modal</Text>
+          <Box height={1} marginVertical="l_32" width="80%" />
+          <EditScreenInfo path="app/modal.tsx" />
+        </Box>
+      );
     <% } else { %>
         return (
 			<View style={styles.container}>

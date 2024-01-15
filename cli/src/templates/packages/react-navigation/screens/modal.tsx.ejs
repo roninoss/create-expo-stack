@@ -3,6 +3,9 @@
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
   	import { YStack, Paragraph, Separator, Theme } from "tamagui";
 	import { Platform } from 'react-native'
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+    import { Platform } from 'react-native';
+    import { Box, Text, makeStyles } from 'theme';
 <% } else { %>
   	import { Platform, StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -20,7 +23,7 @@ export default function Modal() {
 				<EditScreenInfo path="src/screens/modal.tsx" />
 			</View>
 		)
-			<% } else if (props.stylingPackage?.name === "tamagui") { %>
+	<% } else if (props.stylingPackage?.name === "tamagui") { %>
 		return (
 					<Theme name="light">
 						<YStack flex={1} alignItems="center" justifyContent="center">
@@ -31,6 +34,17 @@ export default function Modal() {
 						</YStack>
 					</Theme>
 				);
+	<% } else if (props.stylingPackage?.name === "restyle") { %>
+    const styles = useStyles();
+
+    return (
+      <Box flex={1} alignItems="center" justifyContent="center">
+        <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+        <Text variant="title">Modal</Text>
+        <Box style={styles.separator} />
+        <EditScreenInfo path="src/screens/modal.tsx" />
+      </Box>
+    );
 	<% } else { %>
 		return (
 			<View style={styles.container}>
@@ -49,6 +63,16 @@ export default function Modal() {
 		separator: "h-[1px] my-7 w-4/5 bg-gray-200",
 		title: "text-xl font-bold"
 	};
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  const useStyles = makeStyles((theme) => ({
+    separator: {
+      backgroundColor: theme.colors.gray,
+      height: 1,
+      marginVertical: theme.spacing.l_32,
+      opacity: 0.25,
+      width: '80%',
+    },
+  }));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   	const styles = StyleSheet.create({
 		container: {

@@ -5,6 +5,9 @@ import { StackNavigationProp } from "@react-navigation/stack";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
 	import { YStack } from "tamagui";
 	import { Container, Main, Title, Subtitle, Button, ButtonText } from '../../tamagui.config';
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { TouchableOpacity } from 'react-native';
+  import { Box, Text, makeStyles } from 'theme';
 <% } else { %>
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -13,6 +16,7 @@ import { RootStackParamList } from "../navigation";
 type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, "Overview">;
 
 export default function Overview() {
+  const styles = useStyles();
 	const navigation = useNavigation<OverviewScreenNavigationProps>();
   	<% if (props.stylingPackage?.name === "nativewind") { %>
 		return (
@@ -42,6 +46,26 @@ export default function Overview() {
 				</Main>
 			</Container>
 		);
+	<% } else if (props.stylingPackage?.name === "restyle") { %>
+    return (
+      <Box flex={1} padding="ml_24">
+        <Box flex={1} maxWidth={960} justifyContent="space-between">
+          <Box>
+            <Text variant="extra_large">Hello World</Text>
+            <Text variant="large" color="darkGray">
+              This is the first page of your app.
+            </Text>
+          </Box>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Details', { name: 'Dan' })}>
+            <Text variant="body" textAlign="center" color="white" fontWeight="600">
+              Show Details
+            </Text>
+          </TouchableOpacity>
+        </Box>
+      </Box>
+    );
 	<% } else { %>
 		return (
 			<View style={styles.container}>
@@ -68,6 +92,25 @@ export default function Overview() {
 		title: "text-[64px] font-bold",
 		subtitle: "text-4xl text-gray-700",
 	};
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  const useStyles = makeStyles((theme) => ({
+    button: {
+      alignItems: 'center',
+      backgroundColor: theme.colors.purple,
+      borderRadius: theme.borderRadii.xl_24,
+      elevation: 5,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      padding: theme.spacing.m_16,
+      shadowColor: theme.colors.black,
+      shadowOffset: {
+        height: 2,
+        width: 0,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+    },
+  }));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 	const styles = StyleSheet.create({
 		button: {

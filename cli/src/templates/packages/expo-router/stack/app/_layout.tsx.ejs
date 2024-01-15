@@ -5,9 +5,11 @@
   import { TamaguiProvider } from 'tamagui';
 
   import config from '../tamagui.config';
-<% } else { %>
-	import { Stack } from "expo-router";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { ThemeProvider } from '@shopify/restyle';
+  import { theme } from 'theme';
 <% } %>
+	import { Stack } from "expo-router";
 
 export default function Layout() {
 
@@ -29,10 +31,14 @@ export default function Layout() {
 	return (
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			<TamaguiProvider config={config}>
+		<% } else if (props.stylingPackage?.name === "restyle") { %>
+			<ThemeProvider theme={theme}>
 		<% } %>
-		<Stack />
+		    <Stack />
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			</TamaguiProvider>
+		<% } else if (props.stylingPackage?.name === "restyle") { %>
+			</ThemeProvider >
 		<% } %>
 	);
 }

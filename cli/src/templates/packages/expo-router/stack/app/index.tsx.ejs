@@ -3,6 +3,9 @@
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
 	import { YStack } from "tamagui";
 	import { Container, Main, Title, Subtitle, Button, ButtonText } from '../tamagui.config';
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { TouchableOpacity } from 'react-native';
+  import { Box, Text, makeStyles } from 'theme';
 <% } else { %>
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -11,6 +14,10 @@ import { Stack } from "expo-router";
 import { Link } from "expo-router";
 
 export default function Page() {
+  <% if (props.stylingPackage?.name === "restyle") { %>
+    const styles = useStyles();
+  <% } %>
+
 	return (
 		<% if (props.stylingPackage?.name === "nativewind") { %>
 			<View className={styles.container}>
@@ -27,7 +34,7 @@ export default function Page() {
 				</Link>
 				</View>
 			</View>
-			<% } else if (props.stylingPackage?.name === "tamagui") { %>
+		<% } else if (props.stylingPackage?.name === "tamagui") { %>
 			<Container>
 				<Main>
           <Stack.Screen options={{ title: "Overview" }} />
@@ -40,7 +47,30 @@ export default function Page() {
           </Link>
 				</Main>
 			</Container>
-			<% } else { %>
+		<% } else if (props.stylingPackage?.name === "restyle") { %>
+      <>
+        <Stack.Screen options={{ title: "Overview" }} />
+        <Box flex={1} padding="ml_24">
+          <Box flex={1} maxWidth={960} justifyContent="space-between">
+            <Box>
+              <Text variant="extra_large">Hello World</Text>
+              <Text variant="large" color="darkGray">
+                This is the first page of your app.
+              </Text>
+            </Box>
+            <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
+              <TouchableOpacity
+                style={styles.button}
+              >
+                <Text variant="body" textAlign="center" color="white" fontWeight="600">
+                  Show Details
+                </Text>
+              </TouchableOpacity>
+            </Link>
+          </Box>
+        </Box>
+      </>
+  	<% } else { %>
 			<View style={styles.container}>
 				<View style={styles.main}>
           <Stack.Screen options={{ title: "Overview" }} />
@@ -68,6 +98,25 @@ export default function Page() {
 		title: "text-[64px] font-bold",
 		subtitle: "text-4xl text-gray-700",
 	};
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  const useStyles = makeStyles((theme) => ({
+    button: {
+      alignItems: 'center',
+      backgroundColor: theme.colors.purple,
+      borderRadius: theme.borderRadii.xl_24,
+      elevation: 5,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      padding: theme.spacing.m_16,
+      shadowColor: theme.colors.black,
+      shadowOffset: {
+        height: 2,
+        width: 0,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+    },
+  }));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 	const styles = StyleSheet.create({
 		button: {

@@ -6,6 +6,8 @@
 		import { Text, View } from "react-native";
 	<% } else if (props.stylingPackage?.name === "tamagui") { %>
 		import { Button, Text } from "tamagui";
+	<% } else if (props.stylingPackage?.name === "restyle") { %>
+    import { Box, Text, useTheme } from 'theme';
 	<% } else { %>
 		import { Text, View, StyleSheet } from "react-native";
 	<% } %>
@@ -21,6 +23,9 @@
 	const Stack = createStackNavigator<RootStackParamList>();
 
 	export default function RootStack() {
+    <% if (props.stylingPackage?.name === "restyle") { %>
+    const { colors } = useTheme();
+    <% } %>
 		return (
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Overview">
@@ -53,6 +58,17 @@
 									</Button>
 								),
 							})}
+						<% } else if (props.stylingPackage?.name === "restyle") { %>
+              options={({ navigation }) => ({
+                headerLeft: () => (
+                  <Box flexDirection="row" paddingLeft="m_16">
+                    <Feather name="chevron-left" size={16} color={colors.blue} />
+                    <Text marginLeft="xs_4" color="blue" onPress={navigation.goBack}>
+                      Back
+                    </Text>
+                  </Box>
+                ),
+              })}
 						<% } else { %>
 							options={({ navigation }) => ({
 								headerLeft: () => (
@@ -112,13 +128,13 @@
 					<Stack.Screen
 						name="Modal"
 						component={Modal}
-						options={{ presentation: "modal", headerLeft: null }}
+						options={{ presentation: "modal", headerLeft: () => null }}
 					/>
 				</Stack.Navigator>
 			</NavigationContainer>
 		);
 	}
-	<% } else if (props.navigationPackage?.options.type === 'drawer') { %>
+<% } else if (props.navigationPackage?.options.type === 'drawer') { %>
 		import { NavigationContainer } from "@react-navigation/native";
 		import { createStackNavigator } from '@react-navigation/stack';
 	
@@ -150,4 +166,4 @@
 				</NavigationContainer>
 			);
 		}
-	<% } %>
+<% } %>

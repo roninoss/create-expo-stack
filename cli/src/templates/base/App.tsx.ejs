@@ -6,6 +6,9 @@ import React from 'react';
   	import { View } from 'react-native';
 	import { TamaguiProvider, Text, styled } from 'tamagui';
 	import config from './tamagui.config'
+<% } else if (props.stylingPackage?.name === "restyle") {%>
+  import { ThemeProvider } from '@shopify/restyle';
+  import {theme, Text} from './theme';
 <% } else {%>
   	import { StyleSheet, Text, View } from 'react-native';
 <% } %>
@@ -43,6 +46,16 @@ import { StatusBar } from 'expo-status-bar';
 			</TamaguiProvider >
     	);
 	}
+<% } else if (props.stylingPackage?.name === "restyle") {%>
+
+    export default function App() {
+      return (
+        <ThemeProvider theme={theme}>
+          <Text>Open up App.tsx to start working on your app!</Text>
+          <StatusBar style="auto" />
+        </ThemeProvider>
+      );
+    }
 <% } else {%>
   	export default function App() {
 		return (

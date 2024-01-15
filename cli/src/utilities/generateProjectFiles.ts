@@ -31,6 +31,8 @@ export function generateProjectFiles(
       target = target.replace('packages/tamagui/', '');
     } else if (stylingPackage?.name === 'nativewind') {
       target = target.replace('packages/nativewind/', '');
+    } else if (stylingPackage?.name === 'restyle') {
+      target = target.replace('packages/restyle/', '');
     }
 
     if (navigationPackage?.name === 'react-navigation') {

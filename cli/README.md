@@ -12,13 +12,18 @@
 
 ## Sponsors
 
+NativeWind
+Restyle
+StyleSheets
+Tamagui
+
 Support this project by <a href="https://github.com/sponsors/danstepanov" target="_blank">becoming a sponsor</a>. Your logo will show up here with a link to your website.
 
 <a href="https://galaxies.dev/" target="_blank" style="margin-top: 10px;margin-right: 10px; margin-bottom: 10px;" ><img src="https://expostack.dev/galaxies-logo.svg"  style="border-radius: 50%;"></a> <a href="https://expo.dev/" target="_blank" style="margin: 10px;"><img src="https://expostack.dev/expo-logo.svg"  style="border-radius: 50%;"></a>
 
 ## Description
 
-This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, styling with StyleSheets, Tamagui, or NativeWind, and authentication via Supabase or Firebase.
+This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, styling with NativeWind, Restyle, StyleSheets, or Tamagui and authentication via Supabase or Firebase.
 
 You can also use flags such as `--noInstall`, `--noGit`, and `--default` in order to customize your project. The CLI will attempt to automatically determine your package manager of choice but you can also pass in your preferred package manager via `--npm`, `--yarn`, `--pnpm`, or `--bun`. Roadmap coming soon...
 
@@ -51,6 +56,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo System UI     | System UI Library   | v2      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v12     | Open links in the browser                      |
 | NativeWind         | UI Framework        | v2      | Tailwind CSS for React Native                  |
+| Restyle            | UI Framework        | v2      | Theme-based styling library for React Native   |
 | Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
 | Safe Area Context  | Safe Area Library   | v4      | Safe area support                              |
 | React Native Web   | Web Support         | v0.19   | React Native for Web                           |
