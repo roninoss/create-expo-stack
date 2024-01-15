@@ -9,16 +9,16 @@ export default function SponsorsSection() {
       </h1>
       <div className="w-full flex items-center justify-center">
         <div className="text-white items-center justify-center flex flex-wrap mb-6 max-w-[40ch] sm:max-w-[50ch] mx-auto text-center">
-          <span className="text-balance">
+          <span className="text-balance font-thin text-neutral-200/70">
             Support this project by{" "}
             <a
               href="https://github.com/sponsors/danstepanov"
               target="_blank"
-              className="underline underline-offset-2 hover:text-white/80"
+              className="underline underline-offset-2 hover:text-white text-white/80 duration-150"
             >
               becoming a sponsor
             </a>
-            . Your logo will show up here with a link to your website.{" "}
+            . <br /> Your logo will show up here with a link to your website.{" "}
           </span>
         </div>
       </div>
