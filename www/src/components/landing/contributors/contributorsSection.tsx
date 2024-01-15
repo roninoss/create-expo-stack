@@ -6,7 +6,7 @@ export default function ContributorsSection() {
   return (
     <section className="relative mt-12 sm:mt-40 z-[1] w-[90%] lg:w-[70%] sm:w-auto pb-24">
       <svg
-        className="-inset-[30%] sm:-inset-[20%] absolute w-[160%] h-[160%] sm:w-[140%] sm:h-[140%] -z-10 animate-[spin_60s_linear_infinite_reverse] fill-neutral-900"
+        className="-inset-[50%] sm:-inset-[20%] absolute w-[200%] h-[200%] sm:w-[140%] sm:h-[140%] -z-10 animate-[spin_60s_linear_infinite_reverse] fill-neutral-900"
         viewBox="0 0 88 92"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
