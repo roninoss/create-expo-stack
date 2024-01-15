@@ -73,7 +73,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     type: 'select',
     name: 'stylingSelect',
     message: 'What would you like to use for styling?',
-    choices: ['Nativewind', 'Stylesheet', 'Tamagui (experimental)']
+    choices: ['Nativewind', 'Stylesheet', 'Tamagui (experimental)', 'Restyle']
   };
 
   const { stylingSelect } = await prompt.ask(askStyling);
@@ -84,6 +84,9 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   } else if (stylingSelect === 'Tamagui (experimental)') {
     cliResults.packages.push({ name: 'tamagui', type: 'styling' });
     success(`You'll be styling with ease using Tamagui.`);
+  } else if (stylingSelect === 'Restyle') {
+    cliResults.packages.push({ name: 'restyle', type: 'styling' });
+    success(`You'll be styling with ease using Restyle.`);
   } else {
     cliResults.packages.push({ name: 'stylesheet', type: 'styling' });
     success(`Cool, you're using the default StyleSheet that comes with React Native.`);

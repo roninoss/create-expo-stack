@@ -257,6 +257,13 @@ declare module "astro:content" {
         collection: "docs";
         data: InferEntrySchema<"docs">;
       } & { render(): Render[".md"] };
+      "en/usage/restyle.md": {
+        id: "en/usage/restyle.md";
+        slug: "en/usage/restyle";
+        body: string;
+        collection: "docs";
+        data: InferEntrySchema<"docs">;
+      } & { render(): Render[".md"] };
       "en/usage/supabase.md": {
         id: "en/usage/supabase.md";
         slug: "en/usage/supabase";

@@ -68,6 +68,7 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--firebase`         | Use Firebase for authentication, initial configuration only                    |
 | `--supabase`         | Use Supabase for authentication, initial configuration only                    |
 | `--nativewind`       | Use Nativewind for styling                                                     |
-| `--stylesheet`       | Use StyleSheet for styling, used by default                                    |
 | `--tamagui`          | Use Tamagui for styling                                                        |
+| `--restyle`          | Use Restyle for styling                                                        |
+| `--stylesheet`       | Use StyleSheet for styling, used by default                                    |
 | `-i`, `--ignite`     | Initialize an opinionated starter using Infinite Red's Ignite                  |

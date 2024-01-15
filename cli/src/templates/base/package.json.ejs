@@ -16,6 +16,10 @@
     <% if (props.stylingPackage?.name === "nativewind") { %>
       "nativewind": "^2.0.11",
     <% } %>
+    
+    <% if (props.stylingPackage?.name === "restyle") { %>
+      "@shopify/restyle": "^2.4.2",
+    <% } %>
 
     <% if (props.stylingPackage?.name === "tamagui") { %>
       "tamagui": "1.74.8",
@@ -35,6 +39,7 @@
 
     <% if (props.navigationPackage?.name === "react-navigation") { %>
       "@react-navigation/stack": "^6.3.17",
+      "@expo/vector-icons": "^13.0.0",
     <% } %>
 
     <% if ((props.navigationPackage?.name === "react-navigation") && (props.stylingPackage?.name === "tamagui")) { %>

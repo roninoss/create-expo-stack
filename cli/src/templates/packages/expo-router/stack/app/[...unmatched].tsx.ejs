@@ -6,9 +6,15 @@ import { Link, Stack } from 'expo-router';
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
   import { YStack } from "tamagui";
 	import { Container, Main, Subtitle, Title } from "../tamagui.config";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { Box, Text, makeStyles } from 'theme';
 <% } %>
 
 export default function NotFoundScreen() {
+<% if (props.stylingPackage?.name === "restyle") { %>
+  const styles = useStyles();
+<% } %>
+
   return (
       <% if (props.stylingPackage?.name === "nativewind") {%>
         <>
@@ -32,6 +38,18 @@ export default function NotFoundScreen() {
             </YStack>
           </Main>
         </Container>
+      <% } else if (props.stylingPackage?.name === "restyle") {%>
+        <>
+          <Stack.Screen options={{ title: 'Oops!' }} />
+          <Box flex={1} justifyContent="center" alignItems="center" padding="ml_24">
+            <Text variant="title">This screen doesn't exist.</Text>
+            <Link href="/" style={styles.link}>
+              <Text variant="body" color="blue">
+                Go to home screen!
+              </Text>
+            </Link>
+          </Box>
+        </>
       <% } else { %>
         <>
           <Stack.Screen options={{ title: "Oops!" }} />
@@ -74,4 +92,11 @@ export default function NotFoundScreen() {
       color: '#2e78b7',
     },
   });
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  const useStyles = makeStyles((theme) => ({
+    link: {
+      marginTop: theme.spacing.m_16,
+      paddingVertical: theme.spacing.m_16,
+    },
+  }));
 <% } %>

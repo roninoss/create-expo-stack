@@ -5,6 +5,9 @@
   import { Stack, useRouter } from "expo-router";
 	import { Button, Text, YStack } from "tamagui";
 	import { Container, Main, Subtitle, Title } from "../tamagui.config";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { Box, Text } from 'theme';
+  import { TouchableOpacity } from 'react-native';
 <% } else { %>
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -28,6 +31,17 @@ export default function Details() {
 		const BackButton = () => (
 			<Button unstyled flexDirection="row" backgroundColor="transparent" paddingLeft={0} pressStyle={{ opacity: 0.5 }} onPress={router.back} icon={<Feather name="chevron-left" size={16} color="#007AFF" />}><Text color="#007AFF">Back</Text></Button>
 		)
+	<% } else if (props.stylingPackage?.name === "restyle") { %>
+    const BackButton = () => (
+      <TouchableOpacity onPress={router.back}>
+        <Box flexDirection="row">
+          <Feather name="chevron-left" size={16} color="#007AFF" />
+          <Text color="blue" marginLeft="xs_4">
+            Back
+          </Text>
+        </Box>
+      </TouchableOpacity>
+    );
 	<% } else { %>
 		const BackButton = () => (
 			<TouchableOpacity onPress={router.back}>
@@ -58,6 +72,18 @@ export default function Details() {
 					</YStack>
 				</Main>
 			</Container>
+		<% } else if (props.stylingPackage?.name === "restyle") { %>
+      <>
+        <Stack.Screen options={{ title: 'Details', headerLeft: () => <BackButton /> }} />
+        <Box flex={1} padding="ml_24">
+          <Box flex={1} maxWidth={960}>
+            <Text variant="extra_large">Details</Text>
+            <Text variant="large" color="darkGray">
+              Showing details for user {name}.
+            </Text>
+          </Box>
+        </Box>
+      </>
 		<% } else { %>
 			<View style={styles.container}>
         <Stack.Screen options={{ title: "Details", headerLeft: () => <BackButton /> }} />

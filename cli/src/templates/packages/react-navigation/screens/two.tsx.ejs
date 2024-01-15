@@ -2,6 +2,8 @@
   	import { Text, View } from "react-native";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
   	import { YStack, H2, Separator, Theme } from "tamagui";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+    import { Box, Text, makeStyles } from 'theme';
 <% } else { %>
   	import { StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -26,7 +28,17 @@ export default function TabTwoScreen() {
 					<EditScreenInfo path="src/screens/two.tsx" />
 				</YStack>
 			</Theme>
-		);
+		);    
+	<% } else if (props.stylingPackage?.name === "restyle") { %>
+    const styles = useStyles();
+
+    return (
+      <Box flex={1} alignItems="center" justifyContent="center">
+        <Text variant="title">Tab Two</Text>
+        <Box style={styles.separator} />
+        <EditScreenInfo path="src/screens/two.tsx" />
+      </Box>
+    );   
 	<% } else { %>
 		return (
 			<View style={styles.container}>
@@ -44,6 +56,16 @@ export default function TabTwoScreen() {
 		separator: "h-[1px] my-7 w-4/5 bg-gray-200",
 		title: "text-xl font-bold"
 	};
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+    const useStyles = makeStyles((theme) => ({
+      separator: {
+        backgroundColor: theme.colors.gray,
+        height: 1,
+        marginVertical: theme.spacing.l_32,
+        opacity: 0.25,
+        width: '80%',
+      },
+    }));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   	const styles = StyleSheet.create({
 		container: {

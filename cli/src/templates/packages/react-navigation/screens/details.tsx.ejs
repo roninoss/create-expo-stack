@@ -4,6 +4,8 @@ import { RouteProp, useRoute } from "@react-navigation/native";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
 	import { YStack } from "tamagui";
 	import { Container, Main, Subtitle, Title } from "../../tamagui.config";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+	import { Box, Text } from 'theme';
 <% } else { %>
 	import { View, StyleSheet, Text } from "react-native";
 <% } %>
@@ -33,6 +35,17 @@ export default function Details() {
 				</Main>
 			</Container>
 		);
+	<% } else if (props.stylingPackage?.name === "restyle") { %>
+    return (
+      <Box flex={1} padding="ml_24">
+        <Box flex={1} maxWidth={960}>
+          <Text variant="extra_large">Details</Text>
+          <Text variant="large" color="darkGray">
+            Showing details for user {router.params.name}.
+          </Text>
+        </Box>
+      </Box>
+    );
 	<% } else { %>
 		return (
 			<View style={styles.container}>

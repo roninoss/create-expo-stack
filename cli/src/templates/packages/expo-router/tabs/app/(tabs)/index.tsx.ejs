@@ -2,6 +2,8 @@
     import { Text, View } from "react-native";
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
     import { YStack, H2, Separator, Theme } from "tamagui";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+    import { Box, Text } from 'theme';
 <% } else { %>
     import { StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -27,6 +29,14 @@ export default function TabOneScreen() {
 				</YStack>
 			</Theme>
 		);    
+    <% } else if (props.stylingPackage?.name === "restyle") { %>
+      return (
+        <Box flex={1} alignItems="center" justifyContent="center">
+          <Text variant="title">Tab One</Text>
+          <Box height={1} marginVertical="l_32" width="80%" />
+          <EditScreenInfo path="app/(tabs)/index.tsx" />
+        </Box>
+      );  
     <% } else { %>
         return (
 			<View style={styles.container}>
