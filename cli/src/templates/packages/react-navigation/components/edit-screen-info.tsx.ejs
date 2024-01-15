@@ -1,6 +1,8 @@
 import React from "react";
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import { Text, View } from "react-native";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { Box, Text } from 'theme';
 <% } else { %>
   import { StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -28,6 +30,26 @@ import React from "react";
           </Text>
         </View>
       </View>
+    );
+  }
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  export default function EditScreenInfo({ path }: { path: string }) {
+    return (
+      <Box>
+        <Box alignItems="center" marginHorizontal="xl_64">
+          <Text variant="body" lineHeight={24} textAlign="center">
+            Open up the code for this screen:
+          </Text>
+
+          <Box borderRadius="s_3" paddingHorizontal="xs_4" marginVertical="s_8">
+            <Text>{path}</Text>
+          </Box>
+
+          <Text variant="body" lineHeight={24} textAlign="center">
+            Change any of the text, save the file, and your app will automatically update.
+          </Text>
+        </Box>
+      </Box>
     );
   }
 <% } else { %>
@@ -66,7 +88,7 @@ import React from "react";
     helpLink: "py-4",
     helpLinkText: "text-center"
   };
-<% } else { %>
+<% } else if (props.stylingPackage?.name !== "restyle") { %>
   const styles = StyleSheet.create({
     codeHighlightContainer: {
       borderRadius: 3,
