@@ -1,0 +1,77 @@
+import { Link, Stack } from 'expo-router';
+<% if (props.stylingPackage?.name === "nativewind") {%>
+  import { Text, View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+  import { StyleSheet, Text, View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack } from "tamagui";
+	import { Container, Main, Subtitle, Title } from "../tamagui.config";
+<% } %>
+
+export default function NotFoundScreen() {
+  return (
+      <% if (props.stylingPackage?.name === "nativewind") {%>
+        <>
+          <Stack.Screen options={{ title: "Oops!" }} />
+          <View className={styles.container}>
+            <Text className={styles.title}>This screen doesn't exist.</Text>
+            <Link href="/" className={styles.link}>
+              <Text className={styles.linkText}>Go to home screen!</Text>
+            </Link>
+          </View>
+        </>
+      <% } else if (props.stylingPackage?.name === "tamagui") {%>
+        <Container>
+          <Stack.Screen options={{ title: "Oops!" />
+          <Main>
+            <YStack>
+              <Title>This screen doesn't exist.</Title>
+              <Link href="/">
+                <Subtitle>Go to home screen!</Subtitle>
+              </Link>
+            </YStack>
+          </Main>
+        </Container>
+      <% } else { %>
+        <>
+          <Stack.Screen options={{ title: "Oops!" }} />
+          <View style={styles.container}>
+            <Text style={styles.title}>This screen doesn't exist.</Text>
+            <Link href="/" style={styles.link}>
+              <Text style={styles.linkText}>Go to home screen!</Text>
+            </Link>
+          </View>
+        </>
+      <% } %>
+  );
+}
+
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  const styles = {
+		container: `items-center flex-1 justify-center p-5`,
+    title: `text-xl font-bold`,
+    link: `mt-4 pt-4`,
+    linkText: `text-base text-[#2e78b7]`,
+	};
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 20,
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    link: {
+      marginTop: 16,
+      paddingVertical: 16,
+    },
+    linkText: {
+      fontSize: 14,
+      color: '#2e78b7',
+    },
+  });
+<% } %>
