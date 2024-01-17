@@ -18,6 +18,8 @@ export const COMMUNITY_INVITE_URL = `https://discord.gg/XS9qS2mvTR`;
 
 export const DOCS_URL = `https://docs.createexpostack.com/`;
 
+export const MAIN_URL = `https://createexpostack.com/`;
+
 export const SPONSORS = [
   {
     id: 1,
