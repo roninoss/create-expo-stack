@@ -1,5 +1,43 @@
 # create-expo-stack
 
+## 2.3.14
+
+### Patch Changes
+
+- [`91249e0`](https://github.com/danstepanov/create-expo-stack/commit/91249e0f303495436588107f5bdc2ec276832bd8) Thanks [@danstepanov](https://github.com/danstepanov)! - allow proper setting of import alias
+
+## 2.3.13
+
+### Patch Changes
+
+- [`ae59661`](https://github.com/danstepanov/create-expo-stack/commit/ae596617a1290f83c27cab7c723fe003f26aca97) Thanks [@danstepanov](https://github.com/danstepanov)! - add missing brackets to unmatched route file for expo router
+
+## 2.3.12
+
+### Patch Changes
+
+- [`5199dce`](https://github.com/danstepanov/create-expo-stack/commit/5199dce7f159f9d03081fae48f15ea72e8818864) Thanks [@danstepanov](https://github.com/danstepanov)! - rename app.d.ts to app-env.d.ts to ensure that nativewind className property is supported per instruction from Mark Lawlor
+
+- [`f29a265`](https://github.com/danstepanov/create-expo-stack/commit/f29a265f697636ea57bed092bed10f59d5792667) Thanks [@danstepanov](https://github.com/danstepanov)! - add missing route and html file for expo router templates
+
+- [`49550e7`](https://github.com/danstepanov/create-expo-stack/commit/49550e7026a1b87ddb00bf94aada6047dcd509d7) Thanks [@gwenoleR](https://github.com/gwenoleR)! - Tamagui : Change Text to `SizableText` and `H1` on Tamagui config to apply default style
+
+  Tamagui - Expo Router : Load font on \_layout to apply them on all app
+
+## 2.3.11
+
+### Patch Changes
+
+- [`8729fc3`](https://github.com/danstepanov/create-expo-stack/commit/8729fc320b1c7cf7eca89ff5f6523bef4c5299cd) Thanks [@danstepanov](https://github.com/danstepanov)! - remove experimental flag from expo router
+
+- [`8729fc3`](https://github.com/danstepanov/create-expo-stack/commit/8729fc320b1c7cf7eca89ff5f6523bef4c5299cd) Thanks [@danstepanov](https://github.com/danstepanov)! - move stack screen option configuration to screen level rather than parent layout level
+
+## 2.3.10
+
+### Patch Changes
+
+- [`0587729`](https://github.com/danstepanov/create-expo-stack/commit/0587729836efae3e1713cfb610cd473a6bf0fbf7) Thanks [@danstepanov](https://github.com/danstepanov)! - support kebab case for cli flags such as --no-install and --no-git, migrate tests to use kebab case, expand test coverage to ensure flags are working properly
+
 ## 2.3.9
 
 ### Patch Changes

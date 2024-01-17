@@ -1,6 +1,6 @@
 {
   "name": "create-expo-stack",
-  "version": "2.3.9",
+  "version": "2.3.14",
   "description": "CLI tool to initialize a React Native application with Expo",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "publishPublic": "bun run build && npm publish --access public",
     "snapupdate": "jest --updateSnapshot",
     "test:watch": "bun test --watch",
-    "test": "bun test --timeout 25000"
+    "test": "bun test --timeout 30000"
   },
   "prettier": {
     "arrowParens": "always",

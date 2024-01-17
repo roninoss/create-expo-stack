@@ -32,7 +32,7 @@ export function configureProjectFiles(
   // add nativewind files if needed
   // modify base files with nativewind specifications
   if (stylingPackage?.name === 'nativewind') {
-    const nativewindFiles = ['packages/nativewind/tailwind.config.js.ejs', 'packages/nativewind/app.d.ts'];
+    const nativewindFiles = ['packages/nativewind/tailwind.config.js.ejs', 'packages/nativewind/app-env.d.ts'];
 
     files = [...files, ...nativewindFiles];
   }
@@ -102,7 +102,9 @@ export function configureProjectFiles(
         ...expoRouterFiles,
         'packages/expo-router/stack/app/_layout.tsx.ejs',
         'packages/expo-router/stack/app/details.tsx.ejs',
-        'packages/expo-router/stack/app/index.tsx.ejs'
+        'packages/expo-router/stack/app/index.tsx.ejs',
+        'packages/expo-router/stack/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/stack/app/+html.tsx.ejs'
       ];
     } else if (navigationPackage?.options?.type === 'tabs') {
       // it's a tab navigator
@@ -113,6 +115,8 @@ export function configureProjectFiles(
         'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
         'packages/expo-router/tabs/app/_layout.tsx.ejs',
         'packages/expo-router/tabs/app/modal.tsx.ejs',
+        'packages/expo-router/tabs/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/tabs/app/+html.tsx.ejs',
         'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs'
       ];
     } else {
@@ -122,7 +126,9 @@ export function configureProjectFiles(
         'packages/expo-router/drawer/app/(drawer)/_layout.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/index.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/news.tsx.ejs',
-        'packages/expo-router/drawer/app/_layout.tsx.ejs'
+        'packages/expo-router/drawer/app/_layout.tsx.ejs',
+        'packages/expo-router/drawer/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/drawer/app/+html.tsx.ejs'
       ];
     }
 

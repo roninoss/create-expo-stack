@@ -6,6 +6,7 @@
 <% } else { %>
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
+import { Stack } from "expo-router";
 
 import { Link } from "expo-router";
 
@@ -13,6 +14,7 @@ export default function Page() {
 	return (
 		<% if (props.stylingPackage?.name === "nativewind") { %>
 			<View className={styles.container}>
+        <Stack.Screen options={{ title: "Overview" }} />
 				<View className={styles.main}>
 				<View>
 					<Text className={styles.title}>Hello World</Text>
@@ -28,18 +30,20 @@ export default function Page() {
 			<% } else if (props.stylingPackage?.name === "tamagui") { %>
 			<Container>
 				<Main>
-				<YStack>
-					<Title>Hello World</Title>
-					<Subtitle>This is the first page of your app.</Subtitle>
-				</YStack>
-				<Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
-					<Button><ButtonText>Show Details</ButtonText></Button>
-				</Link>
+          <Stack.Screen options={{ title: "Overview" }} />
+          <YStack>
+            <Title>Hello World</Title>
+            <Subtitle>This is the first page of your app.</Subtitle>
+          </YStack>
+          <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+            <Button><ButtonText>Show Details</ButtonText></Button>
+          </Link>
 				</Main>
 			</Container>
 			<% } else { %>
 			<View style={styles.container}>
 				<View style={styles.main}>
+          <Stack.Screen options={{ title: "Overview" }} />
 				<View>
 					<Text style={styles.title}>Hello World</Text>
 					<Text style={styles.subtitle}>This is the first page of your app.</Text>

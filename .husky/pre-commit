@@ -12,7 +12,9 @@ if git diff-index --cached HEAD | tr '\t' ' ' | sed 's/^.*[ ]//' | grep '^cli/' 
 	read res < /dev/tty
 	case $res in
 		""|Y|y)
-			bun run changeset < /dev/tty
+			if bun run changeset < /dev/tty; then
+				git add .changeset/*.md
+			fi
 			;;
 	esac
 

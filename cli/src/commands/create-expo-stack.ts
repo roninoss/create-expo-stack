@@ -35,7 +35,6 @@ const command: GluegunCommand = {
       );
       info('');
     };
-
     if (options.help || options.h) {
       showHelp(info, highlight, warning);
 
@@ -64,7 +63,7 @@ const command: GluegunCommand = {
         !options.exporouter
       ) {
         throw new Error(
-          'You must pass in either --react-navigation or --expo-router if you want to use the --tabs option'
+          'You must pass in either --react-navigation or --expo-router if you want to use the --tabs or --drawer options'
         );
       }
 
@@ -120,8 +119,9 @@ const command: GluegunCommand = {
         await runIgnite(toolbox, cliResults.projectName, cliResults);
       } else {
         // Check if the user wants to not install dependencies and/or not initialize git, update cliResults accordingly
-        cliResults.flags.noInstall = options.noInstall || false;
-        cliResults.flags.noGit = options.noGit || false;
+        cliResults.flags.noInstall =
+          options.noInstall || (typeof options.install === 'boolean' && !options.install) || false;
+        cliResults.flags.noGit = options.noGit || (typeof options.git === 'boolean' && !options.git) || false;
         cliResults.flags.packageManager = options.bun
           ? 'bun'
           : options.pnpm
@@ -138,7 +138,8 @@ const command: GluegunCommand = {
             throw new Error('Import alias must end in `/*`, for example: `@/*` or `~/`');
           }
         }
-        cliResults.flags.importAlias = options.importAlias || true;
+
+        cliResults.flags.importAlias = options.importAlias !== false && options['import-alias'] !== false;
 
         if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
           //  Run the CLI to prompt the user for input
@@ -249,20 +250,21 @@ const command: GluegunCommand = {
 
           // Check if the user wants to skip installing packages
           if (cliResults.flags.noInstall) {
-            script += '--noInstall ';
+            script += '--no-install ';
           }
 
           // Check if the user wants to skip initializing git
           if (cliResults.flags.noGit) {
-            script += '--noGit ';
+            script += '--no-git ';
           }
 
-          if (cliResults.flags.importAlias) {
-            script += '--importAlias ';
+          // Check if the user wants to overwrite the project directory
+          if (!cliResults.flags.importAlias) {
+            script += '--no-import-alias ';
           }
 
           // Add the package manager
-          if (cliResults.flags.packageManager) {
+          if (cliResults.flags.packageManager !== 'npm') {
             script += `--${cliResults.flags.packageManager}`;
           }
 

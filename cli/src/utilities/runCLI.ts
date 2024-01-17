@@ -33,7 +33,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     type: 'select',
     name: 'navigationSelect',
     message: 'What would you like to use for Navigation?',
-    choices: ['React Navigation', 'Expo Router (experimental)', 'None']
+    choices: ['React Navigation', 'Expo Router', 'None']
   };
 
   const askNavigationType = {
