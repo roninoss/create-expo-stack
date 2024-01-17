@@ -6,7 +6,9 @@
       ,
     "baseUrl": ".",
     "paths": {
-      <% if (props.flags.importAlias === true) { %>
+      <% if  (props.navigationPackage?.name === "expo-router" && props.flags.importAlias === true) { %>
+      "~/*": ["*"]
+      <% if  (props.flags.importAlias === true) { %>
       "~/*": ["src/*"]
       <% } else { %>
       "<%= props.flags.importAlias %>": ["src/*"]
