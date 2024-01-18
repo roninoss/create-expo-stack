@@ -658,23 +658,3 @@ html {
     font 7s step-end infinite,
     movement 8s step-end infinite;
 }
-
-.glitch-slower span {
-  animation: paths 15s step-end infinite;
-}
-
-.glitch-slower::before {
-  animation:
-    paths 15s step-end infinite,
-    opacity 15s step-end infinite,
-    font 24s step-end infinite,
-    movement 30s step-end infinite;
-}
-
-.glitch-slower::after {
-  animation:
-    paths 15s step-end infinite,
-    opacity 15s step-end infinite,
-    font 21s step-end infinite,
-    movement 24s step-end infinite;
-}
