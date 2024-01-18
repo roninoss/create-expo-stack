@@ -6,7 +6,7 @@ export default function ContributorsSection() {
   return (
     <section className="relative mt-12 sm:mt-40 z-[1] w-[90%] lg:w-[70%] sm:w-auto pb-24">
       <svg
-        className="-inset-[20%] absolute w-[140%] h-[140%] -z-10 animate-[spin_60s_linear_infinite_reverse] fill-neutral-900"
+        className="-inset-[50%] sm:-inset-[20%] absolute w-[200%] h-[200%] sm:w-[140%] sm:h-[140%] -z-10 animate-[spin_60s_linear_infinite_reverse] fill-neutral-900"
         viewBox="0 0 88 92"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -16,14 +16,14 @@ export default function ContributorsSection() {
       <h1 className="text-center text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[4rem] xl:text-[4rem] pb-6 pt-24 2xl:pt-16">
         Community
       </h1>
-      <div className="flex flex-col items-center gap-6">
-        <p className="text-neutral-200 max-w-[50ch] text-center leading-loose">
+      <div className="flex flex-col items-center gap-12">
+        <p className="text-neutral-200/70 max-w-[50ch] text-center font-thin leading-loose">
           Create Expo Stack is open-source and built by developers just like
           you. These are some of the contributors who made this possible so far.
         </p>
         {/* honeycomb grid for the future */}
         {/* [&>*:nth-child(9n_+_1)]:ml-[1.875rem] sm:[&>*:nth-child(9n_+_1)]:ml-[2.375rem] */}
-        <div className="flex flex-wrap gap-3 w-[18rem] sm:w-[23rem]">
+        <div className="flex justify-center flex-wrap gap-3 w-[18rem] sm:w-[32.5rem] lg:w-[37.25rem]">
           {CONTRIBUTORS.map((contributor) => (
             <Contributor
               contributor={contributor}

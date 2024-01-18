@@ -30,15 +30,33 @@ Be sure to follow the templates for new issues and pull requests, when applicabl
 
 ## Contribution workflow
 
-### Making changes locally
-
 This project uses Bun, and should be run with Node.js on the latest available LTS version. Ensure you have them properly setup on your development environment before continuing.
 
+### Forking and cloning
+
+For external contributors, the best way to make changes to the project is to fork the repository and clone it locally:
+
+1. Fork the repository to your GitHub account: https://github.com/danstepanov/create-expo-stack/fork
+
+2. Clone the forked repository locally:
+
 ```shell
-$ git clone https://github.com/danstepanov/create-expo-stack
+$ git clone https://github.com/<YOUR_GITHUB_USERNAME>/create-expo-stack
 
 $ cd create-expo-stack
 ```
+
+3. Checkout on a new branch, and start adding your changes:
+
+```shell
+git checkout -b <BRANCH_NAME>
+```
+
+When you're ready to submit your changes, push your branch to your forked repository and open a pull request against the `main` branch of the source repository.
+
+From here, you can run `bun install` to install all the dependencies for the project.
+
+### Directory structure
 
 The Expo Stack homepage and documentation source-code can be found in the `/www` and `/docs` directories, respectively. The create-expo-stack application can be found in the `/cli` directory.
 
@@ -59,6 +77,8 @@ $ bun start
 ```
 
 <!-- To quickly setup `create-expo-stack` for local testing, you'll need to link a local version to run on your machine: -->
+
+### Running the CLI from the global executable
 
 To quickly setup `create-expo-stack` for local testing, it's recommended that you use the linking feature from package managers to create a global exectutable of the package:
 

@@ -4,17 +4,36 @@ import CliDemo from "./cliDemo.tsx";
 ---
 
 <>
-  <h1
-    class="w-10/12 max-w-screen-lg text-center text-4xl font-bold tracking-tight text-transparent sm:text-6xl lg:text-[4rem] xl:text-[4rem] bg-clip-text bg-gradient-to-t from-zinc-400 to-33% to-white"
+  <a
+    target="_blank"
+    href="https://nextth.ing"
+    class="cursor-pointer relative flex justify-center group"
   >
-    The most configurable way to create an{" "}
-    <span
-      class="bg-gradient-to-br from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl"
+    <h1
+      data-text="  the next thing is   almost here..."
+      class="!absolute appear-disappear top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 left-1/2 glitch layers z-20 w-10/12 max-w-screen-lg text-center text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-[4rem] xl:text-[4rem] bg-clip-text bg-gradient-to-t from-zinc-400 to-33% to-white"
     >
-      Expo
-    </span>{" "}
-     app
-  </h1>
+      <span>
+        the <span
+          class="bg-gradient-to-r from-indigo-300 via-pink-400 to-orange-200 bg-clip-text text-transparent drop-shadow-xl"
+        >
+          next thing
+        </span> is <br /> almost here...</span
+      >
+    </h1>
+    <h1
+      data-text="The most configurable way to create an Expo app"
+      class="disappear-reappear glitch layers group-hover:invisible w-10/12 max-w-screen-lg text-center text-4xl font-bold tracking-tight text-transparent sm:text-6xl lg:text-[4rem] xl:text-[4rem] bg-clip-text bg-gradient-to-t from-zinc-400 to-33% to-white"
+    >
+      The most configurable way to create an{" "}
+      <span
+        class="bg-gradient-to-br from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl"
+      >
+        Expo
+      </span>{" "}
+       app
+    </h1>
+  </a>
   <CopyCommandButton client:load />
   <CliDemo client:load />
 </>
