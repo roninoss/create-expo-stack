@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.3.15
+
+### Patch Changes
+
+- [#178](https://github.com/danstepanov/create-expo-stack/pull/178) [`3061323`](https://github.com/danstepanov/create-expo-stack/commit/306132315c87114924735fda53b359a729acafb8) Thanks [@finnbayer](https://github.com/finnbayer)! - added resolution/override for expo-modules-core to expo-router template
+
 ## 2.3.14
 
 ### Patch Changes
