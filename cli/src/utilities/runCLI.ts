@@ -73,7 +73,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     type: 'select',
     name: 'stylingSelect',
     message: 'What would you like to use for styling?',
-    choices: ['Nativewind', 'Stylesheet', 'Tamagui (experimental)', 'Restyle']
+    choices: ['Nativewind', 'Restyle', 'Stylesheet', 'Tamagui (experimental)']
   };
 
   const { stylingSelect } = await prompt.ask(askStyling);
