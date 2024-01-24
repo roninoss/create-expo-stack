@@ -2,12 +2,11 @@
 import type { CollectionEntry } from "astro:content";
 import { SITE, OPEN_GRAPH } from "../../consts";
 import { SITE_URL } from "@/lib/utils";
- 
-type Props = { canonicalUrl: URL } & CollectionEntry<"docs">["data"];
+import {slugifyStr} from "../../lib/slugify"
 
+type Props = { canonicalUrl: URL } & CollectionEntry<"docs">["data"];
 const { ogLocale, image, title, description, canonicalUrl } = Astro.props;
-const formattedContentTitle = `${title} | ${SITE.title}`;
-// const imageSrc = image?.src ?? OPEN_GRAPH.image.src; 
+const formattedContentTitle = `${title} | ${SITE.title}`; 
 const imageAlt = image?.alt ?? OPEN_GRAPH.image.alt;
 
 const ogImageData = {
@@ -16,13 +15,11 @@ const ogImageData = {
   pagePath: Astro.url.pathname,
 };
 
-const imageSrc =
-    image?.src ??
-  `${SITE_URL}/og?${Object.entries(ogImageData)
-    .map(([key, value]) => `${key}=${value}`)
-    .join("&")}`;
-
-const imageUrl = new URL(imageSrc, Astro.url.origin);
+const imageUrl = new URL(
+  `/blog/${slugifyStr(title)}.png`,
+  Astro.url.origin
+).href;
+  
 ---
 <!-- Page Metadata -->
 <link rel="canonical" href={canonicalUrl} />
