@@ -1,8 +1,9 @@
 ---
+export const prerender = true;
 import type { CollectionEntry } from "astro:content";
-import MainLayout from "../../layouts/MainLayout.astro";
-import { allPages } from "../../content";
-import { getLangFromSlug, stripLangFromSlug } from "../../utils";
+import MainLayout from "../../../layouts/MainLayout.astro";
+import { allPages } from "../../../content";
+import { getLangFromSlug, stripLangFromSlug } from "../../../utils";
 
 export async function getStaticPaths() {
   return allPages.map((page) => {
