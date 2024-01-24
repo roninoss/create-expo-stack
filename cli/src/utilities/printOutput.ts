@@ -1,10 +1,15 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
 import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager';
-import { CliResults } from '../types';
+import { AvailablePackages, CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
 
-export async function printOutput(cliResults: CliResults, formattedFiles: any[], toolbox: Toolbox): Promise<void> {
+export async function printOutput(
+  cliResults: CliResults,
+  formattedFiles: any[],
+  toolbox: Toolbox,
+  stylingPackage: AvailablePackages
+): Promise<void> {
   const {
     parameters: { options },
     print: { info, success, highlight },
@@ -113,15 +118,27 @@ export async function printOutput(cliResults: CliResults, formattedFiles: any[],
   info(`cd ${projectName}`);
   if (packageManager === 'npm') {
     if (options.noInstall) info('npm install');
+    if (stylingPackage.name === 'unistyles') {
+      info('npx expo prebuild --clean');
+    }
     info('npm run ios');
   } else if (packageManager === 'pnpm') {
     if (options.noInstall) info('pnpm install');
+    if (stylingPackage.name === 'unistyles') {
+      info('pnpm expo prebuild --clean');
+    }
     info('pnpm run ios');
   } else if (packageManager === 'bun') {
     if (options.noInstall) info('bun install');
+    if (stylingPackage.name === 'unistyles') {
+      info('bun expo prebuild --clean');
+    }
     info('bun run ios');
   } else {
     if (options.noInstall) info('yarn install');
+    if (stylingPackage.name === 'unistyles') {
+      info('yarn expo prebuild --clean');
+    }
     info('yarn ios');
   }
   info(``);

@@ -1,6 +1,9 @@
 import { Link, Stack } from 'expo-router';
 <% if (props.stylingPackage?.name === "nativewind") {%>
   import { Text, View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  import { createStyleSheet, useStyles } from 'react-native-unistyles'
+  import { Text, View } from 'react-native';
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   import { StyleSheet, Text, View } from 'react-native';
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
@@ -13,6 +16,10 @@ import { Link, Stack } from 'expo-router';
 export default function NotFoundScreen() {
 <% if (props.stylingPackage?.name === "restyle") { %>
   const styles = useStyles();
+<% } %>
+
+<% if (props.stylingPackage?.name === "unistyles") {%>
+  const {styles} = useStyles(stylesheet);
 <% } %>
 
   return (
@@ -71,6 +78,27 @@ export default function NotFoundScreen() {
     link: `mt-4 pt-4`,
     linkText: `text-base text-[#2e78b7]`,
 	};
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  const stylesheet = createStyleSheet({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 20,
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    link: {
+      marginTop: 16,
+      paddingVertical: 16,
+    },
+    linkText: {
+      fontSize: 14,
+      color: '#2e78b7',
+    },
+  });
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     container: {

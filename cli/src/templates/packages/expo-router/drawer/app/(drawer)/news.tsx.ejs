@@ -4,11 +4,18 @@
   import { YStack, H2, Separator, Theme } from "tamagui";
 <% } else if (props.stylingPackage?.name === "restyle") { %>
   import { Box, Text } from 'theme';
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  import { createStyleSheet, useStyles } from 'react-native-unistyles'
+  import { Text, View } from "react-native";
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   import { StyleSheet, Text, View } from "react-native";
 <% } %>
 
 const Page = () => {
+  <% if (props.stylingPackage?.name === "unistyles") { %>
+    const {styles} = useStyles(stylesheet)
+  <% } %>
+  
   <% if (props.stylingPackage?.name === "nativewind") { %>
       return (
     <View className={styles.container}>
@@ -51,6 +58,23 @@ export default Page;
   separator: `h-[1px] my-7 w-4/5 bg-gray-200`,
   title: `text-xl font-bold`
 };
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  const stylesheet = createStyleSheet({
+  container: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+  },
+  separator: {
+    height: 1,
+    marginVertical: 30,
+    width: "80%",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  }
+});
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
   container: {

@@ -107,6 +107,27 @@ for (const packageManager of packageManagers) {
     expect(output).toContain(packageManager);
   });
 
+  // --react-navigation stack unistyles
+  test(`generates a project with react-navigation stack and unistyles with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --stack --unistyles --${packageManager}`);
+    expect(output).toContain(packageManager);
+  });
+
+  test(`generates a project with react-navigation stack and unistyles and no-git with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --stack --unistyles --no-git --${packageManager}`);
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+  });
+
+  test(`generates a project with react-navigation stack and unistyles and no-git and no-install with ${packageManager}`, async () => {
+    const output = await cli(
+      `myTestProject --react-navigation --stack --unistyles --no-git --no-install --${packageManager}`
+    );
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+    expect(output).not.toContain('Installing dependencies');
+  });
+
   // --react-navigation tabs
   test(`generates a project with react-navigation tabs with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --react-navigation --tabs --${packageManager}`);
@@ -183,6 +204,27 @@ for (const packageManager of packageManagers) {
       `myTestProject --react-navigation --tabs --restyle --noGit --noInstall --${packageManager}`
     );
     expect(output).toContain(packageManager);
+  });
+
+  // --react-navigation tabs unistyles
+  test(`generates a project with react-navigation tabs and unistyles with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --tabs --unistyles --${packageManager}`);
+    expect(output).toContain(packageManager);
+  });
+
+  test(`generates a project with react-navigation tabs and unistyles and no-git with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --tabs --unistyles --no-git --${packageManager}`);
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+  });
+
+  test(`generates a project with react-navigation tabs and unistyles and no-git and no-install with ${packageManager}`, async () => {
+    const output = await cli(
+      `myTestProject --react-navigation --tabs --unistyles --no-git --no-install --${packageManager}`
+    );
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+    expect(output).not.toContain('Installing dependencies');
   });
 
   // --react-navigation drawer
@@ -263,6 +305,27 @@ for (const packageManager of packageManagers) {
     expect(output).toContain(packageManager);
   });
 
+  // --react-navigation drawer unistyles
+  test(`generates a project with react-navigation drawer and unistyles with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --drawer --unistyles --${packageManager}`);
+    expect(output).toContain(packageManager);
+  });
+
+  test(`generates a project with react-navigation drawer and unistyles and no-git with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --react-navigation --drawer --unistyles --no-git --${packageManager}`);
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+  });
+
+  test(`generates a project with react-navigation drawer and unistyles and no-git and no-install with ${packageManager}`, async () => {
+    const output = await cli(
+      `myTestProject --react-navigation --drawer --unistyles --no-git --no-install --${packageManager}`
+    );
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+    expect(output).not.toContain('Installing dependencies');
+  });
+
   // --expo-router stack
   test(`generates a project with expo-router stack with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --expo-router --stack --${packageManager}`);
@@ -336,6 +399,27 @@ for (const packageManager of packageManagers) {
   test(`generates a project with expo-router stack and restyle and noGit and noInstall with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --expo-router --stack --restyle --noGit --noInstall --${packageManager}`);
     expect(output).toContain(packageManager);
+  });
+
+  // --expo-router stack unistyles
+  test(`generates a project with expo-router stack and unistyles with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --stack --unistyles --${packageManager}`);
+    expect(output).toContain(packageManager);
+  });
+
+  test(`generates a project with expo-router stack and unistyles and no-git with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --stack --unistyles --no-git --${packageManager}`);
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+  });
+
+  test(`generates a project with expo-router stack and unistyles and no-git and no-install with ${packageManager}`, async () => {
+    const output = await cli(
+      `myTestProject --expo-router --stack --unistyles --no-git --no-install --${packageManager}`
+    );
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+    expect(output).not.toContain('Installing dependencies');
   });
 
   // --expo-router tabs
@@ -413,6 +497,27 @@ for (const packageManager of packageManagers) {
     expect(output).toContain(packageManager);
   });
 
+  // --expo-router tabs unistyles
+  test(`generates a project with expo-router tabs and unistyles with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --tabs --unistyles --${packageManager}`);
+    expect(output).toContain(packageManager);
+  });
+
+  test(`generates a project with expo-router tabs and unistyles and no-git with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --tabs --unistyles --no-git --${packageManager}`);
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+  });
+
+  test(`generates a project with expo-router tabs and unistyles and no-git and no-install with ${packageManager}`, async () => {
+    const output = await cli(
+      `myTestProject --expo-router --tabs --unistyles --no-git --no-install --${packageManager}`
+    );
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+    expect(output).not.toContain('Installing dependencies');
+  });
+
   // --expo-router drawer
   test(`generates a project with expo-router drawer with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --expo-router --drawer --${packageManager}`);
@@ -488,5 +593,26 @@ for (const packageManager of packageManagers) {
   test(`generates a project with expo-router drawer and restyle and noGit and noInstall with ${packageManager}`, async () => {
     const output = await cli(`myTestProject --expo-router --drawer --restyle --noGit --noInstall --${packageManager}`);
     expect(output).toContain(packageManager);
+  });
+
+  // --expo-router drawer unistyles
+  test(`generates a project with expo-router drawer and unistyles with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --drawer --unistyles --${packageManager}`);
+    expect(output).toContain(packageManager);
+  });
+
+  test(`generates a project with expo-router drawer and unistyles and no-git with ${packageManager}`, async () => {
+    const output = await cli(`myTestProject --expo-router --drawer --unistyles --no-git --${packageManager}`);
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+  });
+
+  test(`generates a project with expo-router drawer and unistyles and no-git and no-install with ${packageManager}`, async () => {
+    const output = await cli(
+      `myTestProject --expo-router --drawer --unistyles --no-git --no-install --${packageManager}`
+    );
+    expect(output).toContain(packageManager);
+    expect(output).not.toContain('Initializing git');
+    expect(output).not.toContain('Installing dependencies');
   });
 }

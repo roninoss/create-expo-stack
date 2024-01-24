@@ -190,6 +190,13 @@ const command: GluegunCommand = {
             name: 'tamagui',
             type: 'styling'
           });
+        } else if (options.unistyles) {
+          cliResults = clearStylingPackages(cliResults);
+          // Add unistyles package
+          cliResults.packages.push({
+            name: 'unistyles',
+            type: 'styling'
+          });
         } else if (options.stylesheet) {
           cliResults = clearStylingPackages(cliResults);
           // Add stylesheet package
@@ -318,7 +325,7 @@ const command: GluegunCommand = {
           toolbox
         );
 
-        await printOutput(cliResults, formattedFiles, toolbox);
+        await printOutput(cliResults, formattedFiles, toolbox, stylingPackage);
       }
     } catch (error) {
       if (error === '') {

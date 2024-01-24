@@ -1,15 +1,26 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import { createStyleSheet, useStyles } from 'react-native-unistyles'
+import { Pressable } from "react-native";
+<% } else { %>
 import { Pressable, StyleSheet } from "react-native";
+<% } %>
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {
+  <% if (props.stylingPackage?.name === "unistyles") { %>
+  const {styles} = useStyles(stylesheet)
+  <% } %>
   return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
 }
 
 export default function TabLayout() {
+  <% if (props.stylingPackage?.name === "unistyles") { %>
+  const {styles} = useStyles(stylesheet)
+  <% } %>
   return (
     <Tabs
       screenOptions={{
@@ -47,6 +58,16 @@ export default function TabLayout() {
   );
 }
 
+<% if (props.stylingPackage?.name === "unistyles") { %>
+const stylesheet = createStyleSheet({
+  headerRight: {
+    marginRight: 15
+  },
+  tabBarIcon: {
+    marginBottom: -3
+  }
+});
+<% } else { %>
 const styles = StyleSheet.create({
   headerRight: {
     marginRight: 15
@@ -55,3 +76,4 @@ const styles = StyleSheet.create({
     marginBottom: -3
   }
 });
+<% } %>

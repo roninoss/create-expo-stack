@@ -21,7 +21,8 @@ export const availablePackages = [
   'stylesheet',
   'supabase',
   'tamagui',
-  'restyle'
+  'restyle',
+  'unistyles'
 ] as const;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer' | undefined;

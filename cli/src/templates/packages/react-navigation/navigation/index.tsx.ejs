@@ -8,6 +8,9 @@
 		import { Button, Text } from "tamagui";
 	<% } else if (props.stylingPackage?.name === "restyle") { %>
     import { Box, Text, useTheme } from 'theme';
+  <% } else if (props.stylingPackage?.name === "unistyles") { %>
+    import { createStyleSheet, useStyles } from 'react-native-unistyles'
+		import { Text, View } from "react-native";
 	<% } else { %>
 		import { Text, View, StyleSheet } from "react-native";
 	<% } %>
@@ -26,6 +29,11 @@
     <% if (props.stylingPackage?.name === "restyle") { %>
     const { colors } = useTheme();
     <% } %>
+
+    <% if (props.stylingPackage?.name === "unistyles") { %>
+    const { styles } = useStyles(stylesheet)
+    <% } %>
+    
 		return (
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Overview">
@@ -90,6 +98,17 @@
 			backButton: "flex-row",
 			backButtonText: "text-blue-500 ml-1"
 		};
+  <% } else if (props.stylingPackage?.name === "unistyles") { %>
+		const stylesheet = createStyleSheet({
+			backButton: {
+				flexDirection: "row",
+				paddingLeft: 20,
+			},
+			backButtonText: {
+				color: "#007AFF",
+				marginLeft: 4
+			}
+		});
 	<% } else if (props.stylingPackage?.name === "stylesheet") { %>
 		const styles = StyleSheet.create({
 			backButton: {
