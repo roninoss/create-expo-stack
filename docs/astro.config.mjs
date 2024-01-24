@@ -2,13 +2,15 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
 
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://docs.createexpostack.com/",
+  site: "https://docs.createexpostack.com",
+  output: "server",
+  adapter: vercel(),
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -17,9 +19,9 @@ export default defineConfig({
     mdx(),
     sitemap(),
   ],
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
+  vite: {
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"],
     },
-  }),
+  },
 });
