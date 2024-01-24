@@ -30,6 +30,10 @@
       "expo-font": "~11.4.0",
     <% } %>
 
+    <% if (props.stylingPackage?.name === "unistyles") { %>
+      "react-native-unistyles": "^2.1.1",
+    <% } %>
+
     <% if (props.navigationPackage?.type === "navigation") { %>
       "@react-navigation/native": "^6.1.7",
       "react-native-gesture-handler": "~2.12.0",

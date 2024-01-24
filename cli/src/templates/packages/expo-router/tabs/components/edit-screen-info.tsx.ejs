@@ -4,11 +4,17 @@
     import { YStack, H4, Paragraph } from "tamagui"
 <% } else if (props.stylingPackage?.name === "restyle") { %>
     import { Box, Text } from 'theme';
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+    import { createStyleSheet, useStyles } from 'react-native-unistyles'
+    import { Text, View } from "react-native";
 <% } else { %>
     import { StyleSheet, Text, View } from "react-native";
 <% } %>
 
 export default function EditScreenInfo({ path }: { path: string }) {
+  <% if (props.stylingPackage?.name === "unistyles") { %>
+    const { styles } = useStyles(stylesheet);
+  <% } %>
     <% if (props.stylingPackage?.name === "nativewind") { %>
         return (
             <View>
@@ -84,6 +90,36 @@ export default function EditScreenInfo({ path }: { path: string }) {
     helpLinkText: `text-center`,
     homeScreenFilename: `my-2`,
     };
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+    const stylesheet = createStyleSheet({
+    codeHighlightContainer: {
+        borderRadius: 3,
+        paddingHorizontal: 4
+    },
+    getStartedContainer: {
+        alignItems: "center",
+        marginHorizontal: 50
+    },
+    getStartedText: {
+        fontSize: 17,
+        lineHeight: 24,
+        textAlign: "center"
+    },
+    helpContainer: {
+        alignItems: "center",
+        marginHorizontal: 20,
+        marginTop: 15
+    },
+    helpLink: {
+        paddingVertical: 15
+    },
+    helpLinkText: {
+        textAlign: "center"
+    },
+    homeScreenFilename: {
+        marginVertical: 7
+    }
+    });
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
     const styles = StyleSheet.create({
     codeHighlightContainer: {

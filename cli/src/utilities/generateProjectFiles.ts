@@ -29,6 +29,8 @@ export function generateProjectFiles(
 
     if (stylingPackage?.name === 'tamagui') {
       target = target.replace('packages/tamagui/', '');
+    } else if (stylingPackage?.name === 'unistyles') {
+      target = target.replace('packages/unistyles/', '');
     } else if (stylingPackage?.name === 'nativewind') {
       target = target.replace('packages/nativewind/', '');
     } else if (stylingPackage?.name === 'restyle') {

@@ -58,6 +58,18 @@ export function configureProjectFiles(
     files = [...files, ...restyleFiles];
   }
 
+  // add unistyles files if needed
+  // modify base files with unis specifications
+  if (stylingPackage?.name === 'unistyles') {
+    const unistylesFiles = [
+      'packages/unistyles/breakpoints.ts.ejs',
+      'packages/unistyles/theme.ts.ejs',
+      'packages/unistyles/unistyles.ts.ejs'
+    ];
+
+    files = [...files, ...unistylesFiles];
+  }
+
   // add react navigation files if needed
   // modify base files with react navigation specifications
   if (navigationPackage?.name === 'react-navigation') {

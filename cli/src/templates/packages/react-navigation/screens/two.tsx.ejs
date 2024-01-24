@@ -4,6 +4,9 @@
   	import { YStack, H2, Separator, Theme } from "tamagui";
 <% } else if (props.stylingPackage?.name === "restyle") { %>
     import { Box, Text, makeStyles } from 'theme';
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+    import { createStyleSheet, useStyles } from 'react-native-unistyles'
+  	import { Text, View } from "react-native";
 <% } else { %>
   	import { StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -29,6 +32,15 @@ export default function TabTwoScreen() {
 				</YStack>
 			</Theme>
 		);    
+  <% } else if (props.stylingPackage?.name === "unistyles") { %>
+    const { styles } = useStyles(stylesheet)
+		return (
+			<View style={styles.container}>
+				<Text style={styles.title}>Tab Two</Text>
+				<View style={styles.separator} />
+				<EditScreenInfo path="src/screens/two.tsx" />
+			</View>
+		);
 	<% } else if (props.stylingPackage?.name === "restyle") { %>
     const styles = useStyles();
 
@@ -66,6 +78,25 @@ export default function TabTwoScreen() {
         width: '80%',
       },
     }));
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  	const stylesheet = createStyleSheet({
+		container: {
+			alignItems: "center",
+			flex: 1,
+			justifyContent: "center",
+		},
+		separator: {
+			backgroundColor: "gray",
+			height: 1,
+			marginVertical: 30,
+			opacity: 0.25,
+			width: "80%",
+		},
+		title: {
+			fontSize: 20,
+			fontWeight: "bold",
+		}
+	});
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   	const styles = StyleSheet.create({
 		container: {

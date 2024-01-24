@@ -6,6 +6,9 @@
 <% } else if (props.stylingPackage?.name === "restyle") { %>
     import { Platform } from 'react-native';
     import { Box, Text, makeStyles } from 'theme';
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  import { createStyleSheet, useStyles } from 'react-native-unistyles'
+  import { Platform, Text, View } from "react-native";
 <% } else { %>
   	import { Platform, StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -45,6 +48,16 @@ export default function Modal() {
         <EditScreenInfo path="src/screens/modal.tsx" />
       </Box>
     );
+  <% } else if (props.stylingPackage?.name === "unistyles") { %>
+    const {styles} = useStyles(stylesheet)
+    return (
+			<View style={styles.container}>
+				<StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+				<Text style={styles.title}>Modal</Text>
+				<View style={styles.separator} />
+				<EditScreenInfo path="src/screens/modal.tsx" />
+			</View>
+		);
 	<% } else { %>
 		return (
 			<View style={styles.container}>
@@ -73,6 +86,25 @@ export default function Modal() {
       width: '80%',
     },
   }));
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  const stylesheet = createStyleSheet({
+		container: {
+			alignItems: "center",
+			flex: 1,
+			justifyContent: "center"
+		},
+		separator: {
+			backgroundColor: "gray",
+			height: 1,
+			marginVertical: 30,
+			opacity: 0.25,
+			width: "80%",
+		},
+		title: {
+			fontSize: 20,
+			fontWeight: "bold"
+		}
+	});
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   	const styles = StyleSheet.create({
 		container: {

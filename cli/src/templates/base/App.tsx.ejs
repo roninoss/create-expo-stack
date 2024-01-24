@@ -9,6 +9,9 @@ import React from 'react';
 <% } else if (props.stylingPackage?.name === "restyle") {%>
   import { ThemeProvider } from '@shopify/restyle';
   import {theme, Text} from './theme';
+<% } else if (props.stylingPackage?.name === "unistyles") {%>
+  import { createStyleSheet, useStyles } from 'react-native-unistyles'
+  import { Text, View } from 'react-native';
 <% } else {%>
   	import { StyleSheet, Text, View } from 'react-native';
 <% } %>
@@ -55,6 +58,25 @@ import { StatusBar } from 'expo-status-bar';
         </ThemeProvider>
       );
     }
+<% } else if (props.stylingPackage?.name === "unistyles") {%>
+  	export default function App() {
+    const {styles} = useStyles(stylesheet)
+		return (
+			<View style={styles.container}>
+				<Text>Open up App.tsx to start working on your app!</Text>
+				<StatusBar style="auto" />
+			</View >
+    	);
+	}
+
+	const stylesheet = createStyleSheet({
+		container: {
+			flex: 1,
+			backgroundColor: '#fff',
+			alignItems: 'center',
+			justifyContent: 'center',
+		},
+	});
 <% } else {%>
   	export default function App() {
 		return (
