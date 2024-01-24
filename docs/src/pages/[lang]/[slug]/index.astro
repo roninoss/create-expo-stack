@@ -1,4 +1,4 @@
----
+--- 
 export const prerender = true;
 import type { CollectionEntry } from "astro:content";
 import MainLayout from "../../../layouts/MainLayout.astro";
@@ -16,7 +16,6 @@ export async function getStaticPaths() {
 export type Props = CollectionEntry<"docs">;
 const post = Astro.props;
 const { Content, headings } = await post.render();
-export const prerender = true;
 ---
 
 <MainLayout headings={headings} {...post.data}>
