@@ -5,7 +5,7 @@ import { SITE_URL } from "@/lib/utils";
 import {slugifyStr} from "../../lib/slugify"
 
 type Props = { canonicalUrl: URL } & CollectionEntry<"docs">["data"];
-const { ogLocale, image, title, description, canonicalUrl } = Astro.props;
+const { ogLocale, image, title, description, canonicalUrl,lang } = Astro.props;
 const formattedContentTitle = `${title} | ${SITE.title}`; 
 const imageAlt = image?.alt ?? OPEN_GRAPH.image.alt;
 
@@ -16,7 +16,7 @@ const ogImageData = {
 };
 
 const imageUrl = new URL(
-  `/blog/${slugifyStr(title)}.png`,
+  `/${lang}/${slugifyStr(title)}.png`,
   Astro.url.origin
 ).href;
   
