@@ -22,7 +22,7 @@ export default function Page() {
   <% } %>
 
   <% if (props.stylingPackage?.name === "unistyles") { %>
-    const {styles} = useStyles(stylesheet);
+    const {styles, theme} = useStyles(stylesheet);
   <% } %>
 
 	return (
@@ -77,6 +77,21 @@ export default function Page() {
           </Box>
         </Box>
       </>
+    <% } else if (props.stylingPackage?.name === "unistyles") { %>
+      <View style={styles.container}>
+				<View style={styles.main}>
+          <Stack.Screen options={{ title: "Overview" }} />
+				<View>
+					<Text style={theme.components.title}>Hello World</Text>
+					<Text style={theme.components.subtitle}>This is the first page of your app.</Text>
+				</View>
+				<Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
+					<TouchableOpacity style={theme.components.button} >
+					<Text style={theme.components.buttonText}>Show Details</Text>
+					</TouchableOpacity>
+				</Link>
+				</View>
+			</View>
   	<% } else { %>
 			<View style={styles.container}>
 				<View style={styles.main}>
@@ -126,47 +141,18 @@ export default function Page() {
   }));
   <% } else if (props.stylingPackage?.name === "unistyles") { %>
 	const stylesheet = createStyleSheet({
-		button: {
-			alignItems: "center",
-			backgroundColor: "#6366F1",
-			borderRadius: 24,
-			elevation: 5,
-			flexDirection: "row",
-			justifyContent: "center",
-			padding: 16,
-			shadowColor: "#000",
-			shadowOffset: {
-			height: 2,
-			width: 0
-			},
-			shadowOpacity: 0.25,
-			shadowRadius: 3.84
-		},
-		buttonText: {
-			color: "#FFFFFF",
-			fontSize: 16,
-			fontWeight: "600",
-			textAlign: "center",
-		},
-		container: {
-			flex: 1,
-			padding: 24,
-		},
-		main: {
-			flex: 1,
-			maxWidth: 960,
-			marginHorizontal: "auto",
-			justifyContent: "space-between",
-		},
-		title: {
-			fontSize: 64,
-			fontWeight: "bold",
-		},
-		subtitle: {
-			color: "#38434D",
-			fontSize: 36,
-		}
-	});
+  container: {
+    flex: 1,
+    padding: 24,
+  },
+  main: {
+    flex: 1,
+    maxWidth: 960,
+    marginHorizontal: 'auto',
+    justifyContent: 'space-between',
+  },
+});
+
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 	const styles = StyleSheet.create({
 		button: {

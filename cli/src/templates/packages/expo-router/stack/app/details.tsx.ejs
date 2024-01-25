@@ -22,10 +22,17 @@ export default function Details() {
   const router = useRouter();
 
   <% if (props.stylingPackage?.name === "unistyles") { %>
-    const {styles} = useStyles(stylesheet);
-  <% } %>
+    const {styles, theme} = useStyles(stylesheet);
 
-	<% if (props.stylingPackage?.name === "nativewind") { %>
+    const BackButton = () => (
+			<TouchableOpacity onPress={router.back}>
+			<View style={styles.backButton}>
+				<Feather name="chevron-left" size={16} color={theme.colors.azureRadiance} />
+				<Text style={styles.backButtonText}>Back</Text>
+			</View>
+			</TouchableOpacity>
+		);
+  <% } else if (props.stylingPackage?.name === "nativewind") { %>
 		const BackButton = () => (
 			<TouchableOpacity onPress={router.back}>
 			<View className={styles.backButton}>
@@ -92,6 +99,14 @@ export default function Details() {
           </Box>
         </Box>
       </>
+    <% } else if (props.stylingPackage?.name === "unistyles") { %>
+      <View style={styles.container}>
+        <Stack.Screen options={{ title: "Details", headerLeft: () => <BackButton /> }} />
+				<View style={styles.main}>
+					<Text style={theme.components.title}>Details</Text>
+					<Text style={theme.components.subtitle}>Showing details for user {name}.</Text>
+				</View>
+			</View>
 		<% } else { %>
 			<View style={styles.container}>
         <Stack.Screen options={{ title: "Details", headerLeft: () => <BackButton /> }} />
@@ -114,32 +129,24 @@ export default function Details() {
 		subtitle: "text-4xl text-gray-700",
 	};
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
-	const stylesheet = createStyleSheet({
+	const stylesheet = createStyleSheet((theme) => ({
     backButton: {
-			flexDirection: "row",
-		},
-		backButtonText: {
-			color: "#007AFF",
-			marginLeft: 4,
-		},
-		container: {
-			flex: 1,
-			padding: 24,
-		},
-		main: {
-			flex: 1,
-			maxWidth: 960,
-			marginHorizontal: "auto",
-		},
-		title: {
-			fontSize: 64,
-			fontWeight: "bold",
-		},
-		subtitle: {
-			fontSize: 36,
-			color: "#38434D",
-		},
-	});
+      flexDirection: 'row',
+    },
+    backButtonText: {
+      color: theme.colors.azureRadiance,
+      marginLeft: 4,
+    },
+    container: {
+      flex: 1,
+      padding: 24,
+    },
+    main: {
+      flex: 1,
+      maxWidth: 960,
+      marginHorizontal: 'auto',
+    },
+  }));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 	const styles = StyleSheet.create({
     backButton: {

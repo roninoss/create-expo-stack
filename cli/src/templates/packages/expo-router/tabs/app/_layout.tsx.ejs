@@ -1,3 +1,7 @@
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import '../unistyles';
+<% } %>
+
 <% if (props.stylingPackage?.name === "tamagui") { %>
 	import React, { useEffect } from "react";
 	import { TamaguiProvider } from 'tamagui'
