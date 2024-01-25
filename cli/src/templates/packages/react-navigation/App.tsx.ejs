@@ -1,3 +1,6 @@
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import './unistyles';
+<% } %>
 import "react-native-gesture-handler";
 <% if (props.stylingPackage?.name === "tamagui") { %>
 	import React, { useEffect } from "react";

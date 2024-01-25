@@ -70,16 +70,16 @@ export default function Overview() {
       </Box>
     );
 	<% } else if (props.stylingPackage?.name === "unistyles") { %>
-    const {styles} = useStyles(stylesheet)
+    const {styles, theme} = useStyles(stylesheet)
 		return (
 			<View style={styles.container}>
 				<View style={styles.main}>
 					<View>
-						<Text style={styles.title}>Hello World</Text>
-						<Text style={styles.subtitle}>This is the first page of your app.</Text>
+						<Text style={theme.components.title}>Hello World</Text>
+						<Text style={theme.components.subtitle}>This is the first page of your app.</Text>
 					</View>
-					<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
-						<Text style={styles.buttonText}>Show Details</Text>
+					<TouchableOpacity style={theme.components.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
+						<Text style={theme.components.buttonText}>Show Details</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -131,28 +131,6 @@ export default function Overview() {
   }));
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   const stylesheet = createStyleSheet({
-		button: {
-			alignItems: "center",
-			backgroundColor: "#6366F1",
-			borderRadius: 24,
-			elevation: 5,
-			flexDirection: "row",
-			justifyContent: "center",
-			padding: 16,
-			shadowColor: "#000",
-			shadowOffset: {
-			height: 2,
-			width: 0
-			},
-			shadowOpacity: 0.25,
-			shadowRadius: 3.84
-		},
-		buttonText: {
-			color: "#FFFFFF",
-			fontSize: 16,
-			fontWeight: "600",
-			textAlign: "center",
-		},
 		container: {
 			flex: 1,
 			padding: 24,
@@ -163,14 +141,6 @@ export default function Overview() {
 			marginHorizontal: "auto",
 			justifyContent: "space-between",
 		},
-		title: {
-			fontSize: 64,
-			fontWeight: "bold",
-		},
-		subtitle: {
-			color: "#38434D",
-			fontSize: 36,
-		}
 	});
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 	const styles = StyleSheet.create({

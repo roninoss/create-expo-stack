@@ -1,3 +1,7 @@
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import '../unistyles';
+<% } %>
+
 import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Slot } from 'expo-router';
