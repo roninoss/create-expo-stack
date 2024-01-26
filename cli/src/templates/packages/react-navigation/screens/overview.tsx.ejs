@@ -10,7 +10,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
   import { Box, Text, makeStyles } from 'theme';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { createStyleSheet, useStyles } from 'react-native-unistyles'
-	import { Text, TouchableOpacity, View } from "react-native";
+	import { Text, TouchableOpacity, View } from 'react-native';
 <% } else { %>
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -70,7 +70,7 @@ export default function Overview() {
       </Box>
     );
 	<% } else if (props.stylingPackage?.name === "unistyles") { %>
-    const {styles, theme} = useStyles(stylesheet)
+    const { styles, theme } = useStyles(stylesheet)
 		return (
 			<View style={styles.container}>
 				<View style={styles.main}>
@@ -78,7 +78,7 @@ export default function Overview() {
 						<Text style={theme.components.title}>Hello World</Text>
 						<Text style={theme.components.subtitle}>This is the first page of your app.</Text>
 					</View>
-					<TouchableOpacity style={theme.components.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
+					<TouchableOpacity style={theme.components.button} onPress={() => navigation.navigate('Details', { name: 'Dan' })}>
 						<Text style={theme.components.buttonText}>Show Details</Text>
 					</TouchableOpacity>
 				</View>
@@ -138,8 +138,8 @@ export default function Overview() {
 		main: {
 			flex: 1,
 			maxWidth: 960,
-			marginHorizontal: "auto",
-			justifyContent: "space-between",
+			marginHorizontal: 'auto',
+			justifyContent: 'space-between',
 		},
 	});
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>

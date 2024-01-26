@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackScreenProps } from '@react-navigation/stack';
 <% if (props.stylingPackage?.name === "unistyles") {%>
 import { createStyleSheet, useStyles } from 'react-native-unistyles'
-import { Pressable } from "react-native";
+import { Pressable } from 'react-native';
 <% } else { %>
 import { Pressable, StyleSheet } from "react-native";
 <% } %>
@@ -19,7 +19,7 @@ function TabBarIcon(props: {
   color: string;
 }) {
   <% if (props.stylingPackage?.name === "unistyles") {%>
-  const {styles} = useStyles(stylesheet) 
+  const { styles } = useStyles(stylesheet) 
   <% } %>
   return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
 }
@@ -28,7 +28,7 @@ type Props = StackScreenProps<RootStackParamList, 'TabNavigator'>;
 
 export default function TabLayout({ navigation }: Props) {
   <% if (props.stylingPackage?.name === "unistyles") {%>
-  const {styles} = useStyles(stylesheet) 
+  const { styles } = useStyles(stylesheet) 
   <% } %>
   
   return (

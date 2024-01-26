@@ -6,7 +6,7 @@
     import { Box, Text, makeStyles } from 'theme';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
     import { useStyles } from 'react-native-unistyles'
-  	import { Text, View } from "react-native";
+  	import { Text, View } from 'react-native';
 <% } else { %>
   	import { StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -38,7 +38,7 @@ export default function TabTwoScreen() {
 			<View style={theme.components.container}>
 				<Text style={theme.components.title}>Tab Two</Text>
 				<View style={theme.components.separator} />
-				<EditScreenInfo path="src/screens/two.tsx" />
+				<EditScreenInfo path='src/screens/two.tsx' />
 			</View>
 		);
 	<% } else if (props.stylingPackage?.name === "restyle") { %>
