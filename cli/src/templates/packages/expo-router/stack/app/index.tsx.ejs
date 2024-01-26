@@ -8,7 +8,7 @@
   import { Box, Text, makeStyles } from 'theme';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { createStyleSheet, useStyles } from 'react-native-unistyles';
-  import { Text, TouchableOpacity, View } from "react-native";
+  import { Text, TouchableOpacity, View } from 'react-native';
 <% } else { %>
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -22,7 +22,7 @@ export default function Page() {
   <% } %>
 
   <% if (props.stylingPackage?.name === "unistyles") { %>
-    const {styles, theme} = useStyles(stylesheet);
+    const { styles, theme } = useStyles(stylesheet);
   <% } %>
 
 	return (
@@ -79,18 +79,18 @@ export default function Page() {
       </>
     <% } else if (props.stylingPackage?.name === "unistyles") { %>
       <View style={styles.container}>
-				<View style={styles.main}>
-          <Stack.Screen options={{ title: "Overview" }} />
-				<View>
-					<Text style={theme.components.title}>Hello World</Text>
-					<Text style={theme.components.subtitle}>This is the first page of your app.</Text>
-				</View>
-				<Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
-					<TouchableOpacity style={theme.components.button} >
-					<Text style={theme.components.buttonText}>Show Details</Text>
-					</TouchableOpacity>
-				</Link>
-				</View>
+        <View style={styles.main}>
+          <Stack.Screen options={{ title: 'Overview' }} />
+          <View>
+            <Text style={theme.components.title}>Hello World</Text>
+            <Text style={theme.components.subtitle}>This is the first page of your app.</Text>
+          </View>
+          <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
+            <TouchableOpacity style={theme.components.button} >
+              <Text style={theme.components.buttonText}>Show Details</Text>
+            </TouchableOpacity>
+          </Link>
+        </View>
 			</View>
   	<% } else { %>
 			<View style={styles.container}>

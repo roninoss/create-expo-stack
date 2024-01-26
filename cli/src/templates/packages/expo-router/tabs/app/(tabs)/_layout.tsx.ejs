@@ -2,7 +2,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import { createStyleSheet, useStyles } from 'react-native-unistyles'
-import { Pressable } from "react-native";
+import { Pressable } from 'react-native';
 <% } else { %>
 import { Pressable, StyleSheet } from "react-native";
 <% } %>
@@ -19,26 +19,26 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   <% if (props.stylingPackage?.name === "unistyles") { %>
-  const {styles} = useStyles(stylesheet)
+  const { styles } = useStyles(stylesheet)
   <% } %>
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "black",
+        tabBarActiveTintColor: 'black',
       }}>
       <Tabs.Screen
-        name="index"
+        name='index'
         options={{
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Tab One',
+          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
           headerRight: () => (
-            <Link href="/modal" asChild>
+            <Link href='/modal' asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
-                    name="info-circle"
+                    name='info-circle'
                     size={25}
-                    color="gray"
+                    color='gray'
                     style={[styles.headerRight, { opacity: pressed ? 0.5 : 1 }]}
                   />
                 )}

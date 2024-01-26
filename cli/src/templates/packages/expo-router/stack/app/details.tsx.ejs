@@ -22,14 +22,14 @@ export default function Details() {
   const router = useRouter();
 
   <% if (props.stylingPackage?.name === "unistyles") { %>
-    const {styles, theme} = useStyles(stylesheet);
+    const { styles, theme } = useStyles(stylesheet);
 
     const BackButton = () => (
 			<TouchableOpacity onPress={router.back}>
-			<View style={styles.backButton}>
-				<Feather name="chevron-left" size={16} color={theme.colors.azureRadiance} />
-				<Text style={styles.backButtonText}>Back</Text>
-			</View>
+        <View style={styles.backButton}>
+          <Feather name='chevron-left' size={16} color={theme.colors.azureRadiance} />
+          <Text style={styles.backButtonText}>Back</Text>
+        </View>
 			</TouchableOpacity>
 		);
   <% } else if (props.stylingPackage?.name === "nativewind") { %>

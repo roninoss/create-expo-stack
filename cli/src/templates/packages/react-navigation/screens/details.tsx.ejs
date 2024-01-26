@@ -8,7 +8,7 @@ import { RouteProp, useRoute } from "@react-navigation/native";
 	import { Box, Text } from 'theme';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { createStyleSheet, useStyles } from 'react-native-unistyles'
-	import { View, Text } from "react-native";
+	import { View, Text } from 'react-native';
 <% } else { %>
 	import { View, StyleSheet, Text } from "react-native";
 <% } %>
@@ -50,7 +50,7 @@ export default function Details() {
       </Box>
     );
   <% } else if (props.stylingPackage?.name === "unistyles") { %>
-    const {styles, theme} = useStyles(stylesheet)
+    const { styles, theme } = useStyles(stylesheet)
     return (
       <View style={styles.container}>
         <View style={styles.main}>
@@ -87,7 +87,7 @@ export default function Details() {
 		main: {
 			flex: 1,
 			maxWidth: 960,
-			marginHorizontal: "auto",
+			marginHorizontal: 'auto',
 		},
 	});
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>

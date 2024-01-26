@@ -6,14 +6,14 @@
   import { Box, Text } from 'theme';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { useStyles } from 'react-native-unistyles'
-  import { Text, View } from "react-native";
+  import { Text, View } from 'react-native';
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   import { StyleSheet, Text, View } from "react-native";
 <% } %>
 
 const Page = () => {
   <% if (props.stylingPackage?.name === "unistyles") { %>
-    const {theme} = useStyles();
+    const { theme } = useStyles();
 
     return (
       <View style={theme.components.container}>

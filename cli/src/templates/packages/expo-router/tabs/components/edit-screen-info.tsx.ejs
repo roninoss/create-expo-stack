@@ -6,7 +6,7 @@
     import { Box, Text } from 'theme';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
     import { createStyleSheet, useStyles } from 'react-native-unistyles'
-    import { Text, View } from "react-native";
+    import { Text, View } from 'react-native';
 <% } else { %>
     import { StyleSheet, Text, View } from "react-native";
 <% } %>
@@ -92,33 +92,33 @@ export default function EditScreenInfo({ path }: { path: string }) {
     };
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
     const stylesheet = createStyleSheet({
-    codeHighlightContainer: {
-        borderRadius: 3,
-        paddingHorizontal: 4
-    },
-    getStartedContainer: {
-        alignItems: "center",
-        marginHorizontal: 50
-    },
-    getStartedText: {
-        fontSize: 17,
-        lineHeight: 24,
-        textAlign: "center"
-    },
-    helpContainer: {
-        alignItems: "center",
-        marginHorizontal: 20,
-        marginTop: 15
-    },
-    helpLink: {
-        paddingVertical: 15
-    },
-    helpLinkText: {
-        textAlign: "center"
-    },
-    homeScreenFilename: {
-        marginVertical: 7
-    }
+      codeHighlightContainer: {
+          borderRadius: 3,
+          paddingHorizontal: 4
+      },
+      getStartedContainer: {
+          alignItems: 'center',
+          marginHorizontal: 50
+      },
+      getStartedText: {
+          fontSize: 17,
+          lineHeight: 24,
+          textAlign: 'center'
+      },
+      helpContainer: {
+          alignItems: 'center',
+          marginHorizontal: 20,
+          marginTop: 15
+      },
+      helpLink: {
+          paddingVertical: 15
+      },
+      helpLinkText: {
+          textAlign: 'center'
+      },
+      homeScreenFilename: {
+          marginVertical: 7
+      }
     });
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
     const styles = StyleSheet.create({
