@@ -9,7 +9,6 @@ export default (post: CollectionEntry<"docs">) => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        fontFamily: "Inter",
         alignItems: "center",
         justifyContent: "center",
         background: "black",
@@ -251,7 +250,13 @@ export default (post: CollectionEntry<"docs">) => {
             justifyContent: "center",
           }}
         >
-          <div style={{ color: "white", fontSize: "6rem" }}>
+          <div
+            style={{
+              color: "white",
+              fontSize: "6rem",
+              fontFamily: "Inter-ExtraBold",
+            }}
+          >
             {post.data.title}
           </div>
         </div>
