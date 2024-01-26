@@ -206,6 +206,69 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
+"en/usage/expo-router.md": {
+	id: "en/usage/expo-router.md";
+  slug: "en/usage/expo-router";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/firebase.md": {
+	id: "en/usage/firebase.md";
+  slug: "en/usage/firebase";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/first-steps.md": {
+	id: "en/usage/first-steps.md";
+  slug: "en/usage/first-steps";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/nativewind.md": {
+	id: "en/usage/nativewind.md";
+  slug: "en/usage/nativewind";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/react-navigation.md": {
+	id: "en/usage/react-navigation.md";
+  slug: "en/usage/react-navigation";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/restyle.md": {
+	id: "en/usage/restyle.md";
+  slug: "en/usage/restyle";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/supabase.md": {
+	id: "en/usage/supabase.md";
+  slug: "en/usage/supabase";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/tamagui.md": {
+	id: "en/usage/tamagui.md";
+  slug: "en/usage/tamagui";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/unistyles.md": {
+	id: "en/usage/unistyles.md";
+  slug: "en/usage/unistyles";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
 };
 
 	};
