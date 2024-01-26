@@ -75,6 +75,24 @@
   }
 }
 
+html {
+  @apply scroll-smooth accent-primary;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+h1[id],
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+#content {
+  @apply scroll-mt-20 lg:scroll-mt-24;
+}
+
 /* Markdown Styling */
 .markdown {
   @apply flex w-full flex-col items-start justify-start   leading-relaxed text-slate-900 selection:bg-slate-200 selection:text-slate-500 dark:text-slate-100 dark:selection:bg-slate-100 dark:selection:text-slate-900;
