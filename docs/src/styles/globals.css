@@ -75,6 +75,10 @@
   }
 }
 
+html {
+  @apply scroll-smooth accent-primary;
+}
+
 a:hover,
 a:focus {
   text-decoration: underline;
