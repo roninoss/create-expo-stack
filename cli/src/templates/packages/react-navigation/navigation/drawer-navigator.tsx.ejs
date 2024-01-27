@@ -6,12 +6,13 @@ import { StackScreenProps } from '@react-navigation/stack';
 import TabNavigator from './tab-navigator';
 import Home from '../screens/home';
 import { RootStackParamList } from '.';
-
-type Props = StackScreenProps<RootStackParamList, 'DrawerNavigator'>;
+import { useNavigation } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
-export default function DrawerNavigator({ navigation }: Props) {
+export default function DrawerNavigator() {
+  const { navigation } = useNavigation<StackScreenProps<RootStackParamList>>();
+
 	return (
 		<Drawer.Navigator>
       <Drawer.Screen

@@ -26,9 +26,8 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
 }
 
-type Props = StackScreenProps<RootStackParamList, 'TabNavigator'>;
 
-export default function TabLayout({ navigation }: Props) {
+export default function TabLayout() {
   <% if (props.stylingPackage?.name === 'unistyles') {%>
   const { styles } = useStyles(stylesheet) 
   <% } %>
