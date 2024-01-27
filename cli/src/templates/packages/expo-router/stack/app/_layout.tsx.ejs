@@ -1,3 +1,6 @@
+<% if (props.stylingPackage?.name === "nativewind") { %>
+import '../global.css';
+<% } %>
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import '../unistyles';
 <% } %>
