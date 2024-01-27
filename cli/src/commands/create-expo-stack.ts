@@ -16,6 +16,8 @@ import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
 import { validateProjectName } from '../utilities/validateProjectName';
 
+const navigationValidationError = `You must pass in either --react-navigation or --expo-router if you want to use the --tabs or --drawer+tabs options`;
+
 const command: GluegunCommand = {
   name: 'create-expo-stack',
   description: 'Create a new Expo project',
@@ -23,7 +25,7 @@ const command: GluegunCommand = {
     const {
       filesystem: { exists, removeAsync },
       parameters: { first, options },
-      print: { info, highlight, success, warning },
+      print: { error, info, highlight, success, warning },
       prompt,
       strings: { pascalCase }
     } = toolbox;
@@ -54,7 +56,7 @@ const command: GluegunCommand = {
     try {
       // Validation: check if the user passed in the tabs/drawer option without passing in either expo router or react navigation. If so, throw an error
       if (
-        (options.tabs || options.drawer) &&
+        (options.tabs || options['drawer+tabs']) &&
         !options.reactNavigation &&
         !options['react-navigation'] &&
         !options.reactnavigation &&
@@ -62,9 +64,8 @@ const command: GluegunCommand = {
         !options['expo-router'] &&
         !options.exporouter
       ) {
-        throw new Error(
-          'You must pass in either --react-navigation or --expo-router if you want to use the --tabs or --drawer options'
-        );
+        // throw an error without a stack trace
+        throw navigationValidationError;
       }
 
       await renderTitle(toolbox);
@@ -72,7 +73,6 @@ const command: GluegunCommand = {
       // TODO: this is hacky, figure out a way to do this better
       // set timeout for 1 second so that the title can render before the CLI runs
       await new Promise((resolve) => setTimeout(resolve, 200));
-
       if (!first && (options.ignite || !(useDefault || optionsPassedIn || skipCLI || useBlankTypescript))) {
         const askName = {
           type: 'input',
@@ -84,7 +84,8 @@ const command: GluegunCommand = {
         cliResults.projectName = name || DEFAULT_APP_NAME;
       } else {
         // Destructure the results but set the projectName if the first param is passed in
-        const pathSegments = first.split('/');
+        cliResults.projectName = first || DEFAULT_APP_NAME;
+        const pathSegments = cliResults.projectName.split('/');
         cliResults.projectName = pathSegments.pop(); // get last segment as the project name
       }
 
@@ -107,9 +108,21 @@ const command: GluegunCommand = {
           cliResults.projectName
         );
       }
-    } catch (error) {
+    } catch (err) {
+      if (err === '') {
+        // user cancelled/exited the interactive CLI
+        return void success(`\nCancelled... 👋 \n`);
+      }
+      if (err === navigationValidationError) {
+        // user tried passing in tabs/drawer option without passing in either expo router or react navigation
+        return void error(`\n${navigationValidationError}\n`);
+      }
+
+      // TODO: delete all files with projectName
+      // await removeAsync(cliResults.projectName);
+
       printSomethingWentWrong();
-      throw error;
+      throw err;
     }
 
     // Determine remaining options, run interactive CLI if necessary, and generate project
@@ -158,7 +171,7 @@ const command: GluegunCommand = {
             name: 'react-navigation',
             type: 'navigation',
             options: {
-              type: options.tabs ? 'tabs' : options.drawer ? 'drawer' : 'stack'
+              type: options.tabs ? 'tabs' : options['drawer+tabs'] ? 'drawer + tabs' : 'stack'
             }
           });
         }
@@ -169,7 +182,7 @@ const command: GluegunCommand = {
             name: 'expo-router',
             type: 'navigation',
             options: {
-              type: options.tabs ? 'tabs' : options.drawer ? 'drawer' : 'stack'
+              type: options.tabs ? 'tabs' : options['drawer+tabs'] ? 'drawer + tabs' : 'stack'
             }
           });
         }
@@ -260,8 +273,8 @@ const command: GluegunCommand = {
             if (p.type === 'navigation') {
               if (p.options?.type === 'tabs') {
                 script += '--tabs ';
-              } else if (p.options?.type === 'drawer') {
-                script += '--drawer ';
+              } else if (p.options?.type === 'drawer + tabs') {
+                script += '--drawer+tabs ';
               }
             }
           });
@@ -297,7 +310,7 @@ const command: GluegunCommand = {
         // Define props to be passed into the templates
         const authenticationPackage = packages.find((p) => p.type === 'authentication') || undefined;
         const navigationPackage = packages.find((p) => p.type === 'navigation') || undefined;
-        //   if there is no styling package, add the stylesheet package
+        // if there is no styling package, add the stylesheet package
         const stylingPackage = packages.find((p) => p.type === 'styling');
 
         let files: string[] = [];
@@ -327,17 +340,17 @@ const command: GluegunCommand = {
 
         await printOutput(cliResults, formattedFiles, toolbox, stylingPackage);
       }
-    } catch (error) {
-      if (error === '') {
+    } catch (err) {
+      if (err === '') {
         // user cancelled/exited the interactive CLI
-        return void success(`\nCancelled... 👋 `);
+        return void success(`\nCancelled... 👋 \n`);
       }
 
       // TODO: delete all files with projectName
       // await removeAsync(cliResults.projectName);
 
       printSomethingWentWrong();
-      throw error;
+      throw err;
     }
   }
 };

@@ -25,7 +25,7 @@ export const availablePackages = [
   'unistyles'
 ] as const;
 
-export type NavigationTypes = 'stack' | 'tabs' | 'drawer' | undefined;
+export type NavigationTypes = 'stack' | 'tabs' | 'drawer + tabs' | undefined;
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 

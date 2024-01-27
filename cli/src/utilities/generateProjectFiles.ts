@@ -50,7 +50,7 @@ export function generateProjectFiles(
       if (navigationPackage?.options?.type === 'tabs') {
         target = target.replace('tabs/', '');
       }
-      if (navigationPackage?.options?.type === 'drawer') {
+      if (navigationPackage?.options?.type === 'drawer + tabs') {
         target = target.replace('drawer/', '');
       }
     }

@@ -24,6 +24,7 @@ export function showHelp(info, highlight, warning) {
   info('    	--exporouter      Use Expo Router for navigation');
   info('    	--reactnavigation Use React Navigation for navigation');
   info('    	--tabs            Use tabs for navigation');
+  info('    	--drawer+tabs     Use drawer + tabs for navigation');
   info('');
   highlight('   Authentication Package Options');
   info('    	--firebase        Use Firebase for authentication');

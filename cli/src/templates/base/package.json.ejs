@@ -54,8 +54,9 @@
       "@react-navigation/bottom-tabs": "^6.5.8",
     <% } %>
 
-    <% if (props.navigationPackage?.options.type === "drawer") { %>
+    <% if (props.navigationPackage?.options.type === "drawer + tabs") { %>
       "@react-navigation/drawer": "^6.6.6",
+      "@react-navigation/bottom-tabs": "^6.5.8",
       "react-native-reanimated": "~3.3.0",
     <% } %>
     
