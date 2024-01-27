@@ -162,7 +162,7 @@
 			</NavigationContainer>
 		);
 	}
-<% } else if (props.navigationPackage?.options.type === 'drawer') { %>
+	<% } else if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
 		import { NavigationContainer } from "@react-navigation/native";
 		import { createStackNavigator } from '@react-navigation/stack';
 	
@@ -172,6 +172,7 @@
 		export type RootStackParamList = {
 			DrawerNavigator: undefined;
 			Modal: undefined;
+      TabNavigator: undefined;
 		};
 	
 		const Stack = createStackNavigator<RootStackParamList>();
@@ -188,7 +189,7 @@
 						<Stack.Screen
 							name="Modal"
 							component={Modal}
-							options={{ presentation: "modal" }}
+							options={{ presentation: "modal", headerLeft: () => null }}
 						/>
 					</Stack.Navigator>
 				</NavigationContainer>

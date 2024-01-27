@@ -4,14 +4,13 @@ import '../unistyles';
 
 import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Slot } from 'expo-router';
-<% if (props.stylingPackage?.name === "tamagui") { %>
-	import React, { useEffect } from "react";
-	import { TamaguiProvider } from 'tamagui'
-	import { SplashScreen } from "expo-router";
-	import { useFonts } from "expo-font";
+import { Stack } from 'expo-router';
 
-	import config from '../tamagui.config'
+<% if (props.stylingPackage?.name==="tamagui" ) { %>
+  import React, { useEffect } from "react";
+  import { TamaguiProvider } from 'tamagui'
+  import { SplashScreen } from "expo-router";
+  import { useFonts } from "expo-font";
 
 	SplashScreen.preventAutoHideAsync();
 <% }  else if (props.stylingPackage?.name === "restyle") { %>
@@ -21,25 +20,25 @@ import { Slot } from 'expo-router';
 <% } %>
 
 export const unstable_settings = {
-	// Ensure that reloading on `/modal` keeps a back button present.
-	initialRouteName: "(drawer)",
+  // Ensure that reloading on `/modal` keeps a back button present.
+  initialRouteName: "(drawer)",
 };
 
 export default function RootLayout() {
-  	<% if (props.stylingPackage?.name === "tamagui") { %>
-    	const [loaded] = useFonts({
-      		Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-      		InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
-    	});
+  <% if (props.stylingPackage?.name==="tamagui" ) { %>
+    const [loaded] = useFonts({
+      Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+      InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
+    });
 
-    	useEffect(() => {
-      		if (loaded) {
-        		SplashScreen.hideAsync();
-      		}
-    	}, [loaded]);
+    useEffect(() => {
+      if (loaded) {
+        SplashScreen.hideAsync();
+      }
+    }, [loaded]);
 
-    	if (!loaded) return null;
-  	<% } %>
+    if (!loaded) return null;
+  <% } %>
 
   	return (
     	<% if (props.stylingPackage?.name === "tamagui") { %>
@@ -47,13 +46,16 @@ export default function RootLayout() {
     	<% } else if (props.stylingPackage?.name === "restyle") { %>
     		<ThemeProvider theme={theme}>
     	<% } %>
-		  <GestureHandlerRootView style={{ flex: 1 }}>
-      <Slot />
-    </GestureHandlerRootView>
-		<% if (props.stylingPackage?.name === "tamagui") { %>
-			</TamaguiProvider>
-    <% } else if (props.stylingPackage?.name === "restyle") { %>
-    	</ThemeProvider>
-    <% } %>
-  	);
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Stack>
+            <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
+          </Stack>
+        </GestureHandlerRootView>
+      <% if (props.stylingPackage?.name === "tamagui") { %>
+        </TamaguiProvider>
+      <% } else if (props.stylingPackage?.name === "restyle") { %>
+        </ThemeProvider>
+      <% } %>
+  );
 }

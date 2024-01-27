@@ -1,24 +1,26 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackScreenProps } from '@react-navigation/stack';
-<% if (props.stylingPackage?.name === "unistyles") {%>
+<% if (props.stylingPackage?.name === 'unistyles') { %>
 import { createStyleSheet, useStyles } from 'react-native-unistyles'
 import { Pressable } from 'react-native';
+<% } else if (props.navigationPackage?.options.type === 'drawer + tabs' ) { %>
+import { StyleSheet } from 'react-native';
 <% } else { %>
-import { Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet } from 'react-native';
 <% } %>
 
 import { RootStackParamList } from '.';
-import One from "../screens/one";
-import Two from "../screens/two";
+import One from '../screens/one';
+import Two from '../screens/two';
 
 const Tab = createBottomTabNavigator();
 
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
+  name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  <% if (props.stylingPackage?.name === "unistyles") {%>
+  <% if (props.stylingPackage?.name === 'unistyles') {%>
   const { styles } = useStyles(stylesheet) 
   <% } %>
   return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
@@ -27,48 +29,53 @@ function TabBarIcon(props: {
 type Props = StackScreenProps<RootStackParamList, 'TabNavigator'>;
 
 export default function TabLayout({ navigation }: Props) {
-  <% if (props.stylingPackage?.name === "unistyles") {%>
+  <% if (props.stylingPackage?.name === 'unistyles') {%>
   const { styles } = useStyles(stylesheet) 
   <% } %>
   
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: "black",
+        tabBarActiveTintColor: 'black',
+      <% if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
+        headerShown: false,
+      <% } %>
       }}>
       <Tab.Screen
-        name="One"
+        name='One'
         component={One}
         options={{
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Tab One',
+          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+        <% if (props.navigationPackage?.options.type === 'tabs') { %>
           headerRight: () => (
-            <Pressable onPress={() => navigation.navigate("Modal")}>
+            <Pressable onPress={() => navigation.navigate('Modal')}>
               {({ pressed }) => (
                 <FontAwesome
-                  name="info-circle"
+                  name='info-circle'
                   size={25}
-                  color="gray"
+                  color='gray'
                   style={[styles.headerRight, { opacity: pressed ? 0.5 : 1 }]}
                 />
               )}
             </Pressable>
-          ),
+            )
+        <% } %>
         }}
       />
       <Tab.Screen
-        name="Two"
+        name='Two'
         component={Two}
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Tab Two',
+          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
         }}
       />
     </Tab.Navigator>
   );
 }
 
-<% if (props.stylingPackage?.name === "unistyles") {%>
+<% if (props.stylingPackage?.name === 'unistyles') { %>
 const stylesheet = createStyleSheet({
   headerRight: {
     marginRight: 15
