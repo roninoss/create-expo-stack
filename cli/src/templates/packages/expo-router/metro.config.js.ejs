@@ -1,3 +1,4 @@
+// Learn more https://docs.expo.io/guides/customizing-metro
 const { getDefaultConfig } = require('expo/metro-config');
 <% if (props.stylingPackage?.name === "nativewind") { %>
   const { withNativeWind } = require("nativewind/metro");
@@ -12,3 +13,4 @@ const config = getDefaultConfig(__dirname);
 <% } else { %>
   module.exports = config;
 <% } %>
+

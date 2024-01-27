@@ -32,7 +32,12 @@ export function configureProjectFiles(
   // add nativewind files if needed
   // modify base files with nativewind specifications
   if (stylingPackage?.name === 'nativewind') {
-    const nativewindFiles = ['packages/nativewind/tailwind.config.js.ejs', 'packages/nativewind/app-env.d.ts'];
+    const nativewindFiles = [
+      'packages/nativewind/tailwind.config.js.ejs',
+      'packages/nativewind/app-env.d.ts',
+      'packages/nativewind/metro.config.js',
+      'packages/nativewind/global.css'
+    ];
 
     files = [...files, ...nativewindFiles];
   }
@@ -120,7 +125,7 @@ export function configureProjectFiles(
   if (navigationPackage?.name === 'expo-router') {
     let expoRouterFiles = [
       'packages/expo-router/expo-env.d.ts',
-      'packages/expo-router/metro.config.js',
+      'packages/expo-router/metro.config.js.ejs',
       'packages/expo-router/index.ts'
     ];
     // if it's a stack, add the stack files) {
