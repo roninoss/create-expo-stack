@@ -1,5 +1,23 @@
 # create-expo-stack
 
+## 2.4.0
+
+### Minor Changes
+
+- [#193](https://github.com/danstepanov/create-expo-stack/pull/193) [`50650ac`](https://github.com/danstepanov/create-expo-stack/commit/50650aceffc31b89ceced2f7866f51f4a2561846) Thanks [@frankcalise](https://github.com/frankcalise)! - Expo SDK 50, expo-router v3, NativeWind v4
+
+- [#189](https://github.com/danstepanov/create-expo-stack/pull/189) [`8681c0a`](https://github.com/danstepanov/create-expo-stack/commit/8681c0a8a0d691d0c301ef677e10b1cfc0dffa43) Thanks [@coyksdev](https://github.com/coyksdev)! - Setup Unistyles theme
+
+- [#167](https://github.com/danstepanov/create-expo-stack/pull/167) [`17776d2`](https://github.com/danstepanov/create-expo-stack/commit/17776d28db240164694088dbdc17520cfe6894cd) Thanks [@ludwig-pro](https://github.com/ludwig-pro)! - Add restyle as styling option
+
+- [#181](https://github.com/danstepanov/create-expo-stack/pull/181) [`a38e81a`](https://github.com/danstepanov/create-expo-stack/commit/a38e81aca2ec891e5baf31953a908b433efecb51) Thanks [@coyksdev](https://github.com/coyksdev)! - Added react-native-unistyles template
+
+### Patch Changes
+
+- [#192](https://github.com/danstepanov/create-expo-stack/pull/192) [`507532b`](https://github.com/danstepanov/create-expo-stack/commit/507532b0f5ad2947427b810c064606e4fa7de28b) Thanks [@asapMaki](https://github.com/asapMaki)! - Drawer+Tabs react navigation optio: Fix typescript
+
+- [#159](https://github.com/danstepanov/create-expo-stack/pull/159) [`2c00bdf`](https://github.com/danstepanov/create-expo-stack/commit/2c00bdfe7635c765ddf949d6db3260f9a96c190a) Thanks [@asapMaki](https://github.com/asapMaki)! - replace drawer templates with drawer+tabs templates
+
 ## 2.3.15
 
 ### Patch Changes
