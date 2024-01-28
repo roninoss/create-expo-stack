@@ -3,16 +3,15 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Pressable } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 
+import { RootStackParamList } from '.';
 import TabNavigator from './tab-navigator';
 import Home from '../screens/home';
-import { RootStackParamList } from '.';
-import { useNavigation } from '@react-navigation/native';
+
+type Props = StackScreenProps<RootStackParamList, 'DrawerNavigator'>;
 
 const Drawer = createDrawerNavigator();
 
-export default function DrawerNavigator() {
-  const { navigation } = useNavigation<StackScreenProps<RootStackParamList>>();
-
+export default function DrawerNavigator({ navigation }: Props) {
 	return (
 		<Drawer.Navigator>
       <Drawer.Screen
