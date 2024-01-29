@@ -21,6 +21,7 @@ const Page = () => {
       <View style={theme.components.container}>
         <Text style={theme.components.title}>Home</Text>
         <View style={theme.components.separator} />
+        <EditScreenInfo path="app/(tabs)/index.tsx" />
       </View>
     );
   <% } else if (props.stylingPackage?.name === "nativewind") { %>
@@ -37,6 +38,7 @@ const Page = () => {
       <YStack flex={1} alignItems="center" justifyContent="center">
         <H2>Home</H2>
         <Separator />
+        <EditScreenInfo path="app/(tabs)/index.tsx" />
       </YStack>
     </Theme>
   );    
@@ -45,6 +47,7 @@ const Page = () => {
       <Box flex={1} alignItems="center" justifyContent="center">
         <Text variant="title">Home</Text>
         <Box height={1} marginVertical="l_32" width="80%" />
+        <EditScreenInfo path="app/(tabs)/index.tsx" />
       </Box>
     );
   <% } else { %>
@@ -52,6 +55,7 @@ const Page = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Home</Text>
       <View style={styles.separator} />
+      <EditScreenInfo path="app/(tabs)/index.tsx" />
     </View>
   );
   <% } %>
