@@ -26,8 +26,7 @@ const command: GluegunCommand = {
       filesystem: { exists, removeAsync },
       parameters: { first, options },
       print: { error, info, highlight, success, warning },
-      prompt,
-      strings: { pascalCase }
+      prompt
     } = toolbox;
 
     const printSomethingWentWrong = () => {
@@ -87,12 +86,6 @@ const command: GluegunCommand = {
         cliResults.projectName = first || DEFAULT_APP_NAME;
         const pathSegments = cliResults.projectName.split('/');
         cliResults.projectName = pathSegments.pop(); // get last segment as the project name
-      }
-
-      if (options.ignite) {
-        // right now Ignite requires PascalCase for the project name
-        // unsure why, will ask the team and then probably fix it upstream
-        cliResults.projectName = pascalCase(cliResults.projectName);
       }
 
       // Validate the project name; check if the directory already exists
