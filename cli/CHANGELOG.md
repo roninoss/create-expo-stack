@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.4.1
+
+### Patch Changes
+
+- [`9242c21`](https://github.com/danstepanov/create-expo-stack/commit/9242c210f8c76e96ee9aadf4883f04dd2b88fdc5) Thanks [@danstepanov](https://github.com/danstepanov)! - add EditScreenInfo to drawer + tabs templates
+
 ## 2.4.0
 
 ### Minor Changes
