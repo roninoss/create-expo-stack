@@ -10,7 +10,9 @@ import { StackNavigationProp } from "@react-navigation/stack";
   import { Box, Text, makeStyles } from 'theme';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { createStyleSheet, useStyles } from 'react-native-unistyles'
-	import { Text, TouchableOpacity, View } from 'react-native';
+	import { View } from 'react-native';
+
+  import { Button, Typography } from '~/components';
 <% } else { %>
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
@@ -70,20 +72,22 @@ export default function Overview() {
       </Box>
     );
 	<% } else if (props.stylingPackage?.name === "unistyles") { %>
-    const { styles, theme } = useStyles(stylesheet)
+    const { styles } = useStyles(stylesheet)
 		return (
-			<View style={styles.container}>
-				<View style={styles.main}>
-					<View>
-						<Text style={theme.components.title}>Hello World</Text>
-						<Text style={theme.components.subtitle}>This is the first page of your app.</Text>
-					</View>
-					<TouchableOpacity style={theme.components.button} onPress={() => navigation.navigate('Details', { name: 'Dan' })}>
-						<Text style={theme.components.buttonText}>Show Details</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		);
+      <View style={styles.container}>
+        <View style={styles.main}>
+          <View>
+            <Typography type="title">Hello World</Typography>
+            <Typography type="subtitle" primary>
+              This is the first page of your app.
+            </Typography>
+          </View>
+          <Button onPress={() => navigation.navigate('Details', { name: 'Dan' })}>
+            <Typography type="label">Show Details</Typography>
+          </Button>
+        </View>
+      </View>
+    );
   <% } else { %>
 		return (
 			<View style={styles.container}>
@@ -130,18 +134,19 @@ export default function Overview() {
     },
   }));
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
-  const stylesheet = createStyleSheet({
-		container: {
-			flex: 1,
-			padding: 24,
-		},
-		main: {
-			flex: 1,
-			maxWidth: 960,
-			marginHorizontal: 'auto',
-			justifyContent: 'space-between',
-		},
-	});
+  const stylesheet = createStyleSheet((theme) => ({
+    container: {
+      flex: 1,
+      padding: 24,
+      backgroundColor: theme.colors.background,
+    },
+    main: {
+      flex: 1,
+      maxWidth: 960,
+      marginHorizontal: 'auto',
+      justifyContent: 'space-between',
+    },
+  }));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 	const styles = StyleSheet.create({
 		button: {

@@ -90,6 +90,11 @@ export function configureProjectFiles(
         'packages/react-navigation/screens/details.tsx.ejs',
         'packages/react-navigation/screens/overview.tsx.ejs'
       ];
+      if (stylingPackage?.name === 'unistyles') {
+        reactNavigationFiles.push('packages/react-navigation/components/Button.tsx.ejs');
+        reactNavigationFiles.push('packages/react-navigation/components/Typography.tsx.ejs');
+        reactNavigationFiles.push('packages/react-navigation/components/index.ts.ejs');
+      }
     } else if (navigationPackage?.options?.type === 'tabs') {
       // it's a tab navigator
       reactNavigationFiles = [

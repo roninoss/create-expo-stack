@@ -1,0 +1,36 @@
+import { PropsWithChildren } from 'react';
+import { TouchableOpacity } from 'react-native';
+import { createStyleSheet, useStyles } from 'react-native-unistyles';
+
+interface TypographyProps extends PropsWithChildren {
+  onPress?: () => void;
+}
+
+export const Button: React.FunctionComponent<TypographyProps> = ({ onPress, children }) => {
+  const { styles } = useStyles(stylesheet);
+
+  return (
+    <TouchableOpacity onPress={onPress} style={styles.button}>
+      {children}
+    </TouchableOpacity>
+  );
+};
+
+const stylesheet = createStyleSheet((theme) => ({
+  button: {
+    alignItems: 'center',
+    backgroundColor: theme.colors.cornflowerBlue,
+    borderRadius: 24,
+    elevation: 5,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      height: 2,
+      width: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+}));

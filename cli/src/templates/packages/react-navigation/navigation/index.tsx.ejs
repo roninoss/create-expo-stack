@@ -9,8 +9,8 @@
 	<% } else if (props.stylingPackage?.name === "restyle") { %>
     import { Box, Text, useTheme } from 'theme';
   <% } else if (props.stylingPackage?.name === "unistyles") { %>
-    import { createStyleSheet, useStyles } from 'react-native-unistyles'
-		import { Text, View } from 'react-native';
+    import { createStyleSheet, useStyles, UnistylesRuntime } from 'react-native-unistyles'
+		import { Text, TouchableOpacity, View } from 'react-native';
 	<% } else { %>
 		import { Text, View, StyleSheet } from "react-native";
 	<% } %>
@@ -32,12 +32,39 @@
 
     <% if (props.stylingPackage?.name === "unistyles") { %>
     const { styles, theme } = useStyles(stylesheet);
+    const isDark = UnistylesRuntime.themeName === 'dark';
     <% } %>
     
 		return (
 			<NavigationContainer>
-				<Stack.Navigator initialRouteName="Overview">
-					<Stack.Screen name="Overview" component={Overview} />
+				<Stack.Navigator
+          initialRouteName="Overview"
+          <% if (props.stylingPackage?.name === "unistyles") { %>
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: theme.colors.background,
+            },
+            headerTintColor: theme.colors.typography,
+          }}
+          <% } %>
+        >
+					<Stack.Screen
+            name="Overview"
+            component={Overview}
+            options={({ navigation }) => ({
+              headerRight: () => (
+                <TouchableOpacity
+                  style={styles.themeSwitcher}
+                  onPress={() => UnistylesRuntime.setTheme(isDark ? 'light' : 'dark')}>
+                  <Feather
+                    name={isDark ? 'moon' : 'sun'}
+                    size={20}
+                    color={isDark ? theme.colors.night : theme.colors.sun}
+                  />
+                </TouchableOpacity>
+              ),
+            })}
+          />
 					<Stack.Screen
 						name="Details"
 						component={Details}
@@ -117,6 +144,9 @@
         color: theme.colors.azureRadiance,
         marginLeft: 4,
       },
+      themeSwitcher: {
+        marginRight: 10,
+      }
     }));
 	<% } else if (props.stylingPackage?.name === "stylesheet") { %>
 		const styles = StyleSheet.create({

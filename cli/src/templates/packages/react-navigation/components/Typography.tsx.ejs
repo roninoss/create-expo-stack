@@ -1,0 +1,49 @@
+import { PropsWithChildren } from 'react';
+import { Text, TextProps } from 'react-native';
+import { createStyleSheet, useStyles } from 'react-native-unistyles';
+
+interface TypographyProps extends PropsWithChildren, TextProps {
+  type: 'title' | 'subtitle' | 'label';
+  primary?: boolean;
+}
+
+export const Typography: React.FunctionComponent<TypographyProps> = (props) => {
+  const { styles } = useStyles(stylesheet, {
+    type: props.type,
+    primary: props.primary,
+  });
+
+  return <Text {...props} style={[props.style, styles.baseText]} />;
+};
+
+const stylesheet = createStyleSheet((theme) => ({
+  baseText: {
+    variants: {
+      type: {
+        title: {
+          fontSize: 64,
+          fontWeight: 'bold',
+          color: theme.colors.typography,
+        },
+        subtitle: {
+          fontSize: 36,
+          fontWeight: 'normal',
+        },
+        label: {
+          color: theme.colors.background,
+          fontSize: 16,
+          fontWeight: '600',
+          textAlign: 'center',
+        },
+      },
+      primary: {
+        true: {
+          color: theme.colors.limedSpruce,
+        },
+        false: {
+          color: theme.colors.typography,
+        },
+      },
+    },
+  },
+}));
