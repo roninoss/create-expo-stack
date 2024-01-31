@@ -247,6 +247,14 @@ const command: GluegunCommand = {
           });
         }
 
+        // Internalization packages
+        if (options.i18next) {
+          cliResults.packages.push({
+            name: 'i18next',
+            type: 'internalization'
+          });
+        }
+
         // By this point, all cliResults should be set
         info('');
         highlight('Your project configuration:');

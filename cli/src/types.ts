@@ -22,16 +22,19 @@ export const availablePackages = [
   'supabase',
   'tamagui',
   'restyle',
-  'unistyles'
+  'unistyles',
+  'i18next'
 ] as const;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer + tabs' | undefined;
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 
+export type Internalization = 'i18next';
+
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
-  type: 'navigation' | 'styling' | 'authentication';
+  type: 'navigation' | 'styling' | 'authentication' | 'internalization';
   options?: { type?: NavigationTypes };
 };
 
