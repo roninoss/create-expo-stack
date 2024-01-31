@@ -313,6 +313,7 @@ const command: GluegunCommand = {
         const navigationPackage = packages.find((p) => p.type === 'navigation') || undefined;
         // if there is no styling package, add the stylesheet package
         const stylingPackage = packages.find((p) => p.type === 'styling');
+        const internalizationPackage = packages.find((p) => p.type === 'internalization');
 
         let files: string[] = [];
 
@@ -322,7 +323,8 @@ const command: GluegunCommand = {
           navigationPackage,
           stylingPackage,
           toolbox,
-          cliResults
+          cliResults,
+          internalizationPackage
         );
 
         // Once all the files are defined, format and generate them
@@ -336,7 +338,8 @@ const command: GluegunCommand = {
           navigationPackage,
           packageManager,
           stylingPackage,
-          toolbox
+          toolbox,
+          internalizationPackage
         );
 
         await printOutput(cliResults, formattedFiles, toolbox, stylingPackage);

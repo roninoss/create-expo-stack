@@ -19,13 +19,26 @@ import React from 'react';
   	import { StyleSheet, Text, View } from 'react-native';
 <% } %>
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { useTranslation } from 'react-i18next';
+  import { Button } from 'react-native';
+  import { InternalizationExample } from 'components/InternalizationExample';
+
+  import './translation';
+<% } %>
+
+
 import { StatusBar } from 'expo-status-bar';
 
 <% if (props.stylingPackage?.name === "nativewind") {%>
   export default function App() {
 		return (
 			<View className={styles.container}>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } else { %>
         <Text>Open up App.tsx to start working on your app!</Text>
+      <% } %>
         <StatusBar style="auto" />
       </View >
     );
@@ -46,27 +59,39 @@ import { StatusBar } from 'expo-status-bar';
 		return (
 			<TamaguiProvider config={config}>
 				<MyView>
-					<Text>Open up App.tsx to start working on your app!</Text>
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } else { %>
+          <Text>Open up App.tsx to start working on your app!</Text>
+        <% } %>
 					<StatusBar style="auto" />
 				</MyView>
 			</TamaguiProvider >
     	);
 	}
 <% } else if (props.stylingPackage?.name === "restyle") {%>
-    export default function App() {
+    export default function App() {   
       return (
         <ThemeProvider theme={theme}>
-          <Text>Open up App.tsx to start working on your app!</Text>
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } else { %>
+				  <Text>Open up App.tsx to start working on your app!</Text>
+        <% } %>
           <StatusBar style="auto" />
         </ThemeProvider>
       );
     }
 <% } else if (props.stylingPackage?.name === "unistyles") {%>
-  	export default function App() {
+  	export default function App() {          
     const {styles} = useStyles(stylesheet)
 		return (
 			<View style={styles.container}>
-				<Text>Open up App.tsx to start working on your app!</Text>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } else { %>
+        <Text>Open up App.tsx to start working on your app!</Text>
+      <% } %>
 				<StatusBar style="auto" />
 			</View >
     	);
@@ -84,7 +109,11 @@ import { StatusBar } from 'expo-status-bar';
   	export default function App() {
 		return (
 			<View style={styles.container}>
-				<Text>Open up App.tsx to start working on your app!</Text>
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } else { %>
+				  <Text>Open up App.tsx to start working on your app!</Text>
+        <% } %>
 				<StatusBar style="auto" />
 			</View >
     	);
