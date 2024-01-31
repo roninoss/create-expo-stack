@@ -47,5 +47,11 @@
         "backgroundColor": "#ffffff"
       }
     }
+    <% if (props.internalizationPackage?.name === "i18next") { %>
+    ,
+    "plugins": [
+      "expo-localization"
+    ]
+    <% } %> 
   }
 }

@@ -8,7 +8,8 @@ export function configureProjectFiles(
   navigationPackage: AvailablePackages | undefined,
   stylingPackage: AvailablePackages | undefined,
   toolbox: Toolbox,
-  cliResults: CliResults
+  cliResults: CliResults,
+  internalizationPackage: AvailablePackages | undefined
 ): string[] {
   // Define the files common to all templates to be generated
   const baseFiles = [
@@ -190,6 +191,21 @@ export function configureProjectFiles(
     ];
 
     files = [...files, ...firebaseFiles];
+  }
+
+  // add i18next files if needed
+  if (internalizationPackage?.name === 'i18next') {
+    const i18nextFiles = [
+      'packages/i18next/core/i18n/fallbackChecker.ts.ejs',
+      'packages/i18next/core/i18n/init.ts.ejs',
+      'packages/i18next/core/i18n/languageDetector.ts.ejs',
+      'packages/i18next/translation/en.json.ejs',
+      'packages/i18next/translation/fr.json.ejs',
+      'packages/i18next/translation/index.ts.ejs',
+      'packages/i18next/components/InternalizationExample.tsx.ejs'
+    ];
+
+    files = [...files, ...i18nextFiles];
   }
 
   return files;
