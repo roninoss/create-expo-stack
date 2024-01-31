@@ -1,5 +1,6 @@
 <% if (props.stylingPackage?.name === 'nativewind') { %>
   import { Text, View } from 'react-native';
+  import EditScreenInfo from '../components/edit-screen-info';
 <% } else if (props.stylingPackage?.name === 'tamagui') { %>
   import { YStack, H2, Separator, Theme } from 'tamagui';
 <% } else if (props.stylingPackage?.name === 'restyle') { %>
