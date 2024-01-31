@@ -114,6 +114,23 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     success(`No problem, skipping authentication for now.`);
   }
 
+  // Ask about internalization
+  const askInternalization = {
+    type: 'select',
+    name: 'internalizationSelect',
+    message: 'What would you like to use for internalization?',
+    choices: ['i18next', 'None']
+  };
+
+  const { internalizationSelect } = await prompt.ask(askInternalization);
+
+  if (internalizationSelect === 'i18next') {
+    cliResults.packages.push({ name: 'i18next', type: 'internalization' });
+    success(`You'll be using i18next for internalization.`);
+  } else {
+    success(`No problem, skipping internalization for now.`);
+  }
+
   if (!cliResults.flags.packageManager) {
     const askPackageManager = {
       type: 'select',
