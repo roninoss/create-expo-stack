@@ -88,6 +88,12 @@
 	  "firebase": "^10.5.2",
 	  "react-native-url-polyfill": "^2.0.0",
 	<% } %>
+  
+  <% if (props.internalizationPackage?.name === "i18next") { %>
+    "i18next": "^23.7.20",
+    "react-i18next": "^14.0.1",
+    "expo-localization": "~14.8.3",
+  <% } %> 
 
     "expo": "~50.0.7",
     "expo-status-bar": "~1.11.1",

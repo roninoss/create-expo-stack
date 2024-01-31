@@ -9,7 +9,8 @@ export function generateProjectFiles(
   navigationPackage: AvailablePackages | undefined,
   packageManager: PackageManager,
   stylingPackage: AvailablePackages | undefined,
-  toolbox: Toolbox
+  toolbox: Toolbox,
+  internalizationPackage: AvailablePackages | undefined
 ) {
   const { projectName, packages, flags } = cliResults;
 
@@ -55,6 +56,10 @@ export function generateProjectFiles(
       }
     }
 
+    if (internalizationPackage?.name === 'i18next') {
+      target = target.replace('packages/i18next/', '');
+    }
+
     const gen = toolbox.template.generate({
       template,
       target: `./${projectName}/` + target,
@@ -65,7 +70,8 @@ export function generateProjectFiles(
         projectName,
         packageManager,
         packages,
-        stylingPackage
+        stylingPackage,
+        internalizationPackage
       }
     });
 
