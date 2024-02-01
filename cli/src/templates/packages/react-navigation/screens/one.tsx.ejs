@@ -10,6 +10,9 @@
 <% } else { %>
   	import { StyleSheet, Text, View } from "react-native";
 <% } %>
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
 
 import EditScreenInfo from "../components/edit-screen-info";
 
@@ -18,6 +21,9 @@ export default function TabOneScreen() {
 		return (
 			<View className={styles.container}>
 				<Text className={styles.title}>Tab One</Text>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+      <% } %>
 				<View className={styles.separator} />
 				<EditScreenInfo path="src/screens/one.tsx" />
 			</View>
@@ -27,6 +33,9 @@ export default function TabOneScreen() {
 			<Theme name="light">
 				<YStack flex={1} alignItems="center" justifyContent="center">
 					<H2>Tab One</H2>
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } %>
 					<Separator />
 					<EditScreenInfo path="src/screens/one.tsx" />
 				</YStack>
@@ -38,6 +47,9 @@ export default function TabOneScreen() {
     return (
       <Box flex={1} alignItems="center" justifyContent="center">
         <Text variant="title">Tab One</Text>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
         <Box style={styles.separator} />
         <EditScreenInfo path="src/screens/one.tsx" />
       </Box>
@@ -47,6 +59,9 @@ export default function TabOneScreen() {
 		return (
 			<View style={theme.components.container}>
 				<Text style={theme.components.title}>Tab One</Text>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
 				<View style={theme.components.separator} />
 				<EditScreenInfo path='src/screens/one.tsx' />
 			</View>
@@ -55,6 +70,9 @@ export default function TabOneScreen() {
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>Tab One</Text>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
 				<View style={styles.separator} />
 				<EditScreenInfo path="src/screens/one.tsx" />
 			</View>

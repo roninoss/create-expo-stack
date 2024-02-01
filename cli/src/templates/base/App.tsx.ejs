@@ -20,8 +20,6 @@ import React from 'react';
 <% } %>
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
-  import { useTranslation } from 'react-i18next';
-  import { Button } from 'react-native';
   import { InternalizationExample } from 'components/InternalizationExample';
 
   import './translation';
@@ -59,10 +57,9 @@ import { StatusBar } from 'expo-status-bar';
 		return (
 			<TamaguiProvider config={config}>
 				<MyView>
+          <Text>Open up App.tsx to start working on your app!</Text>
         <% if (props.internalizationPackage?.name === "i18next") { %>
           <InternalizationExample />
-        <% } else { %>
-          <Text>Open up App.tsx to start working on your app!</Text>
         <% } %>
 					<StatusBar style="auto" />
 				</MyView>

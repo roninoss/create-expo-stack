@@ -4,6 +4,9 @@ import '../global.css';
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import '../unistyles';
 <% } %>
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import './translation';
+<% } %>
 
 <% if (props.stylingPackage?.name === "tamagui") { %>
 	import { useFonts } from 'expo-font';
