@@ -11,6 +11,9 @@
 <% } else if (props.stylingPackage?.name === 'stylesheet') { %>
   import { StyleSheet, Text, View } from 'react-native';
 <% } %>
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
 
 const Page = () => {
   <% if (props.stylingPackage?.name === 'unistyles') { %>
@@ -18,7 +21,10 @@ const Page = () => {
 
     return (
       <View style={theme.components.container}>
-        <Text style={theme.components.title}>News</Text>
+        <Text style={theme.components.title}>Home</Text>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
         <View style={theme.components.separator} />
       </View>
     );
@@ -26,6 +32,9 @@ const Page = () => {
       return (
     <View className={styles.container}>
       <Text className={styles.title}>Home</Text>
+    <% if (props.internalizationPackage?.name === "i18next") { %>
+      <InternalizationExample />
+    <% } %>
       <View className={styles.separator} />
       <EditScreenInfo path='app/(tabs)/index.tsx' />
     </View>
@@ -35,6 +44,9 @@ const Page = () => {
     <Theme name='light'>
       <YStack flex={1} alignItems='center' justifyContent='center'>
         <H2>Home</H2>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
         <Separator />
       </YStack>
     </Theme>
@@ -43,6 +55,9 @@ const Page = () => {
     return (
       <Box flex={1} alignItems='center' justifyContent='center'>
         <Text variant='title'>Home</Text>
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
         <Box height={1} marginVertical='l_32' width='80%' />
       </Box>
     );
@@ -50,6 +65,9 @@ const Page = () => {
       return (
     <View style={styles.container}>
       <Text style={styles.title}>Home</Text>
+    <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+    <% } %>
       <View style={styles.separator} />
     </View>
   );

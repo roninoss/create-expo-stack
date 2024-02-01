@@ -12,6 +12,9 @@
 <% } else { %>
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
 import { Stack } from "expo-router";
 
 import { Link } from "expo-router";
@@ -33,6 +36,9 @@ export default function Page() {
 				<View>
 					<Text className={styles.title}>Hello World</Text>
 					<Text className={styles.subtitle}>This is the first page of your app.</Text>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
 				</View>
 				<Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
 					<TouchableOpacity className={styles.button} >
@@ -48,6 +54,9 @@ export default function Page() {
           <YStack>
             <Title>Hello World</Title>
             <Subtitle>This is the first page of your app.</Subtitle>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
           </YStack>
           <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
             <Button><ButtonText>Show Details</ButtonText></Button>
@@ -64,6 +73,9 @@ export default function Page() {
               <Text variant="large" color="darkGray">
                 This is the first page of your app.
               </Text>
+            <% if (props.internalizationPackage?.name === "i18next") { %>
+              <InternalizationExample />
+            <% } %>
             </Box>
             <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
               <TouchableOpacity
@@ -84,6 +96,9 @@ export default function Page() {
           <View>
             <Text style={theme.components.title}>Hello World</Text>
             <Text style={theme.components.subtitle}>This is the first page of your app.</Text>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample   />
+          <% } %>
           </View>
           <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
             <TouchableOpacity style={theme.components.button} >
@@ -99,6 +114,9 @@ export default function Page() {
 				<View>
 					<Text style={styles.title}>Hello World</Text>
 					<Text style={styles.subtitle}>This is the first page of your app.</Text>
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } %>
 				</View>
 				<Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
 					<TouchableOpacity style={styles.button} >

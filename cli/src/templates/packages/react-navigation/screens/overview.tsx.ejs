@@ -15,7 +15,9 @@ import { StackNavigationProp } from "@react-navigation/stack";
 	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 <% } %>
 import { RootStackParamList } from "../navigation";
-
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
 type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, "Overview">;
 
 export default function Overview() {
@@ -27,6 +29,9 @@ export default function Overview() {
 					<View>
 						<Text className={styles.title}>Hello World</Text>
 						<Text className={styles.subtitle}>This is the first page of your app.</Text>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
 					</View>
 					<TouchableOpacity className={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
 						<Text className={styles.buttonText}>Show Details</Text>
@@ -41,6 +46,9 @@ export default function Overview() {
 					<YStack>
 						<Title>Hello World</Title>
 						<Subtitle>This is the first page of your app.</Subtitle>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
 					</YStack>
 					<Button  onPress={() => navigation.navigate("Details", { name: "Dan" })}>
 						<ButtonText>Show Details</ButtonText>
@@ -58,6 +66,9 @@ export default function Overview() {
             <Text variant="large" color="darkGray">
               This is the first page of your app.
             </Text>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
           </Box>
           <TouchableOpacity
             style={styles.button}
@@ -77,6 +88,9 @@ export default function Overview() {
 					<View>
 						<Text style={theme.components.title}>Hello World</Text>
 						<Text style={theme.components.subtitle}>This is the first page of your app.</Text>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
 					</View>
 					<TouchableOpacity style={theme.components.button} onPress={() => navigation.navigate('Details', { name: 'Dan' })}>
 						<Text style={theme.components.buttonText}>Show Details</Text>
@@ -91,6 +105,9 @@ export default function Overview() {
 					<View>
 						<Text style={styles.title}>Hello World</Text>
 						<Text style={styles.subtitle}>This is the first page of your app.</Text>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
 					</View>
 					<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
 						<Text style={styles.buttonText}>Show Details</Text>

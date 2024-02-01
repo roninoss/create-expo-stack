@@ -10,11 +10,8 @@ export const InternalizationExample = () => {
   };
   return (
     <>
-      <View style={[styles.textContent]}>
-        <Text style={styles.text}>{t('title')}</Text>
-        <Text style={styles.text}>{t('hello')}</Text>
-      </View>
       <View style={styles.content}>
+        <Text style={styles.text}>{t('hello')}</Text>
         <Button title={t('button.french')} onPress={() => toggleLanguage('fr')} />
         <Button title={t('button.english')} onPress={() => toggleLanguage('en')} />
       </View>
@@ -25,5 +22,4 @@ export const InternalizationExample = () => {
 export const styles = StyleSheet.create({
   text: { textAlign: 'center' },
   content: { gap: 20, padding: 20 },
-  textContent: { gap: 20, padding: 20 },
 });
