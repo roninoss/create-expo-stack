@@ -5,6 +5,10 @@ import '../global.css';
 import '../unistyles';
 <% } %>
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import './translation';
+<% } %>
+
 import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Stack } from 'expo-router';
