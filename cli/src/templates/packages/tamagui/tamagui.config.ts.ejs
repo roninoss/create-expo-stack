@@ -3,10 +3,10 @@ import { createInterFont } from "@tamagui/font-inter";
 import { createMedia } from "@tamagui/react-native-media-driver";
 import { shorthands } from "@tamagui/shorthands";
 import { themes, tokens } from "@tamagui/themes";
-<% if ((props.navigationPackage?.type === "navigation") && (props.navigationPackage?.options.type === "stack")) { %>
+<% if (props.navigationPackage?.type === "navigation") { %>
 	import { createTamagui, styled, SizableText, H1, YStack } from "tamagui";
 <% } else { %>
-	import { createTamagui } from "tamagui";
+  import { createTamagui } from "tamagui";
 <% } %>
 
 const animations = createAnimations({
@@ -33,7 +33,7 @@ const headingFont = createInterFont();
 
 const bodyFont = createInterFont();
 
-<% if ((props.navigationPackage?.type === "navigation") && (props.navigationPackage?.options.type === "stack")) { %>
+<% if (props.navigationPackage?.type === "navigation") { %>
   export const Container = styled(YStack, {
 		flex: 1,
 		padding: 24,
@@ -54,7 +54,8 @@ const bodyFont = createInterFont();
     color: '#38434D',
     size: '$9',
   });
-
+<% } %>
+<% if (props.navigationPackage?.options.type === "stack") { %>
 	export const Button = styled(YStack, {
 		alignItems: 'center',
 		backgroundColor: '#6366F1',
