@@ -2,7 +2,7 @@ import { Resource } from 'i18next';
 
 export const fallbackChecker = (resources: Resource, fallbackLng: string) => {
   const languages = Object.keys(resources);
-  const hasFallback = Object.keys(resources).find((key) => fallbackLng === key);
+  const hasFallback = languages.find((key) => fallbackLng === key);
 
   if (!hasFallback) {
     throw new Error(
