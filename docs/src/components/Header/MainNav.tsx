@@ -1,9 +1,12 @@
 import React from "react";
-
+import { CREATE_EXPO_STACK_URL } from "@/consts";
 export default function MainNav() {
   return (
     <div className="mr-4  flex">
-      <a href="/" className="mr-6 flex items-center space-x-2">
+      <a
+        href={CREATE_EXPO_STACK_URL}
+        className="mr-6 flex items-center space-x-2"
+      >
         <div>
           <img
             className="block dark:hidden"

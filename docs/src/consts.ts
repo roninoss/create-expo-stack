@@ -24,6 +24,8 @@ export const EDIT_URL = `https://github.com/danstepanov/create-expo-stack`;
 
 export const COMMUNITY_INVITE_URL = `https://createexpostack.com/discord`;
 
+export const CREATE_EXPO_STACK_URL = `https://createexpostack.com/`;
+
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
   indexName: "XXXXXXXXXX",
