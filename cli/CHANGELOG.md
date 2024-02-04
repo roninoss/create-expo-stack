@@ -1,5 +1,15 @@
 # create-expo-stack
 
+## 2.4.2
+
+### Patch Changes
+
+- [`1b0be18`](https://github.com/danstepanov/create-expo-stack/commit/1b0be18f7b7982be5c115364059ae6dd792dde98) Thanks [@danstepanov](https://github.com/danstepanov)! - bump to expo 50.0.5
+
+- [`bc25b99`](https://github.com/danstepanov/create-expo-stack/commit/bc25b9951f22543e77a2c98f1e220448c8fc0cbc) Thanks [@danstepanov](https://github.com/danstepanov)! - fix tamagui navigation templates missing imports for unmatched route
+
+- [#195](https://github.com/danstepanov/create-expo-stack/pull/195) [`ed2e92f`](https://github.com/danstepanov/create-expo-stack/commit/ed2e92fb3f7a670845a775aab7c534205cf6560a) Thanks [@frankcalise](https://github.com/frankcalise)! - Ignite project names accept kebab case, forced PascalCase conversion has been removed
+
 ## 2.4.1
 
 ### Patch Changes
