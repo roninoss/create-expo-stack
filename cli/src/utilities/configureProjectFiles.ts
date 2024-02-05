@@ -61,6 +61,8 @@ export function configureProjectFiles(
   // modify base files with restyle specifications
   if (stylingPackage?.name === 'restyle') {
     const restyleFiles = [
+      'packages/restyle/components/ScreenContent.tsx.ejs',
+      'packages/restyle/components/EditScreenInfo.tsx.ejs',
       'packages/restyle/theme/theme.ts.ejs',
       'packages/restyle/theme/Box.tsx.ejs',
       'packages/restyle/theme/Text.tsx.ejs',

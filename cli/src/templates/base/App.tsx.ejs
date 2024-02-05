@@ -1,14 +1,29 @@
 import { ScreenContent } from 'components/ScreenContent';
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
-import './global.css';
+  import './global.css';
+<% } %>
+<% if (props.stylingPackage?.name === "restyle") { %>
+  import { ThemeProvider } from '@shopify/restyle';
+  import { theme } from 'theme';
 <% } %>
 
-export default function App() {
-  return (<>
-  <ScreenContent title="Home" path="App.tsx" />
-  <StatusBar style="auto" />
-  </>);
-}
+<% if (props.stylingPackage?.name === "restyle") {%>
+  export default function App() {   
+    return (
+      <ThemeProvider theme={theme}>
+        <ScreenContent title="Home" path="App.tsx" />
+        <StatusBar style="auto" />
+      </ThemeProvider>
+    );
+  }
+<% } else { %>
+  export default function App() {
+    return (<>
+    <ScreenContent title="Home" path="App.tsx" />
+    <StatusBar style="auto" />
+    </>);
+  }
+<% } %>
+
