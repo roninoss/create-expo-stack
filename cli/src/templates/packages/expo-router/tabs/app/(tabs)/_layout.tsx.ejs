@@ -1,26 +1,10 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
-<% if (props.stylingPackage?.name === "unistyles") { %>
-import { createStyleSheet, useStyles } from 'react-native-unistyles'
-import { Pressable } from 'react-native';
-<% } else { %>
-import { Pressable, StyleSheet } from "react-native";
-<% } %>
+import { HeaderButton } from '../../components/HeaderButton';
+import { TabBarIcon } from '../../components/TabBarIcon';
 
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  <% if (props.stylingPackage?.name === "unistyles") { %>
-  const {styles} = useStyles(stylesheet)
-  <% } %>
-  return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
-}
+
 
 export default function TabLayout() {
-  <% if (props.stylingPackage?.name === "unistyles") { %>
-  const { styles } = useStyles(stylesheet)
-  <% } %>
   return (
     <Tabs
       screenOptions={{
@@ -30,19 +14,10 @@ export default function TabLayout() {
         name='index'
         options={{
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Link href='/modal' asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name='info-circle'
-                    size={25}
-                    color='gray'
-                    style={[styles.headerRight, { opacity: pressed ? 0.5 : 1 }]}
-                  />
-                )}
-              </Pressable>
+                  <HeaderButton  />
             </Link>
           ),
         }}
@@ -50,7 +25,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: "Tab Two",
+          title: 'Tab Two',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
@@ -58,22 +33,3 @@ export default function TabLayout() {
   );
 }
 
-<% if (props.stylingPackage?.name === "unistyles") { %>
-const stylesheet = createStyleSheet({
-  headerRight: {
-    marginRight: 15
-  },
-  tabBarIcon: {
-    marginBottom: -3
-  }
-});
-<% } else { %>
-const styles = StyleSheet.create({
-  headerRight: {
-    marginRight: 15
-  },
-  tabBarIcon: {
-    marginBottom: -3
-  }
-});
-<% } %>

@@ -2,7 +2,7 @@ import { system } from 'gluegun';
 
 import { version } from '../package.json';
 
-import { test, expect } from 'bun:test';
+import { test, expect, describe } from 'bun:test';
 import * as path from 'node:path';
 
 const cli = async (cmd) =>
@@ -622,3 +622,21 @@ for (const packageManager of packageManagers) {
     expect(output).not.toContain('Installing dependencies');
   });
 }
+
+describe(`internationalization`, () => {
+  // i18next
+  test(`generates a default project with bun and i18n`, async () => {
+    const output = await cli(`myTestProject --default --i18next --bun`);
+    expect(output).toContain('--i18next');
+  });
+  // --react-navigation i18next
+  test(`generates a project with bun, react-navigation and i18n`, async () => {
+    const output = await cli(`myTestProject --expo-router --drawer+tabs --i18next --bun`);
+    expect(output).toContain('--i18next');
+  });
+  // --expo-router i18next
+  test(`generates a project with bun, expo-router and i18n`, async () => {
+    const output = await cli(`myTestProject --react-navigation --drawer+tabs --i18next --bun`);
+    expect(output).toContain('--i18next');
+  });
+});
