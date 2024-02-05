@@ -13,8 +13,6 @@ export function configureProjectFiles(
 ): string[] {
   // Define the files common to all templates to be generated
   const baseFiles = [
-    'base/components/ScreenContent.tsx.ejs',
-    'base/components/EditScreenInfo.tsx.ejs',
     'base/tsconfig.json.ejs',
     'base/app.json.ejs',
     'base/App.tsx.ejs',
@@ -23,6 +21,10 @@ export function configureProjectFiles(
     'base/.gitignore.ejs',
     'base/.prettierrc'
   ];
+
+  if (stylingPackage?.name === 'stylesheet') {
+    baseFiles.concat(['base/components/ScreenContent.tsx.ejs', 'base/components/EditScreenInfo.tsx.ejs']);
+  }
 
   const packageManager = getPackageManager(toolbox, cliResults);
   // Add npmrc file if user is using pnpm and expo router
@@ -36,6 +38,8 @@ export function configureProjectFiles(
   // modify base files with nativewind specifications
   if (stylingPackage?.name === 'nativewind') {
     const nativewindFiles = [
+      'packages/nativewind/components/ScreenContent.tsx.ejs',
+      'packages/nativewind/components/EditScreenInfo.tsx.ejs',
       'packages/nativewind/tailwind.config.js.ejs',
       'packages/nativewind/app-env.d.ts',
       'packages/nativewind/metro.config.js',
