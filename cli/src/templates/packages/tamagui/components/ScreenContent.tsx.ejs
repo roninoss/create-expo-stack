@@ -1,0 +1,15 @@
+import { YStack, H2, Separator, Theme } from 'tamagui';
+
+import { EditScreenInfo } from './EditScreenInfo';
+
+export const ScreenContent = ({ title, path }: { title: string; path: string }) => {
+  return (
+    <Theme name="light">
+      <YStack flex={1} alignItems="center" justifyContent="center">
+        <H2>{title}</H2>
+        <Separator />
+        <EditScreenInfo path={path} />
+      </YStack>
+    </Theme>
+  );
+};

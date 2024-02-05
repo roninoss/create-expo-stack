@@ -52,7 +52,11 @@ export function configureProjectFiles(
   // add tamagui files if needed
   // modify base files with tamagui specifications
   if (stylingPackage?.name === 'tamagui') {
-    const tamaguiFiles = ['packages/tamagui/tamagui.config.ts.ejs'];
+    const tamaguiFiles = [
+      'packages/tamagui/tamagui.config.ts.ejs',
+      'packages/tamagui/components/ScreenContent.tsx.ejs',
+      'packages/tamagui/components/EditScreenInfo.tsx.ejs'
+    ];
 
     files = [...files, ...tamaguiFiles];
   }
