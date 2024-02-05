@@ -34,7 +34,7 @@ export type Internalization = 'i18next';
 
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
-  type: 'navigation' | 'styling' | 'authentication' | 'internalization';
+  type: 'navigation' | 'styling' | 'authentication' | 'internationalization';
   options?: { type?: NavigationTypes };
 };
 
