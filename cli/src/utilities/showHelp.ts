@@ -38,7 +38,7 @@ export function showHelp(info, highlight, warning) {
   info('	--stylesheet      Use StyleSheet for styling');
   info('');
   highlight('   Styling Package Options');
-  info('    	--i18next         Use i18next for internalization');
+  info('    	--i18next         Use i18next for internationalization');
   info('');
   highlight('   Opinionated Stacks');
   info('    -i, --ignite          Use Ignite to create an opinionated stack');

@@ -251,7 +251,7 @@ const command: GluegunCommand = {
         if (options.i18next) {
           cliResults.packages.push({
             name: 'i18next',
-            type: 'internalization'
+            type: 'internationalization'
           });
         }
 
@@ -313,7 +313,7 @@ const command: GluegunCommand = {
         const navigationPackage = packages.find((p) => p.type === 'navigation') || undefined;
         // if there is no styling package, add the stylesheet package
         const stylingPackage = packages.find((p) => p.type === 'styling');
-        const internalizationPackage = packages.find((p) => p.type === 'internalization');
+        const internalizationPackage = packages.find((p) => p.type === 'internationalization');
 
         let files: string[] = [];
 
