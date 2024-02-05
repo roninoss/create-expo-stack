@@ -13,6 +13,8 @@ export function configureProjectFiles(
 ): string[] {
   // Define the files common to all templates to be generated
   const baseFiles = [
+    'base/components/ScreenContent.tsx.ejs',
+    'base/components/EditScreenInfo.tsx.ejs',
     'base/tsconfig.json.ejs',
     'base/app.json.ejs',
     'base/App.tsx.ejs',
