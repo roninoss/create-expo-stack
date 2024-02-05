@@ -12,7 +12,7 @@ export function configureProjectFiles(
   internalizationPackage: AvailablePackages | undefined
 ): string[] {
   // Define the files common to all templates to be generated
-  const baseFiles = [
+  let baseFiles = [
     'base/tsconfig.json.ejs',
     'base/app.json.ejs',
     'base/App.tsx.ejs',
@@ -21,6 +21,10 @@ export function configureProjectFiles(
     'base/.gitignore.ejs',
     'base/prettier.config.js.ejs'
   ];
+
+  if (stylingPackage?.name === 'stylesheet') {
+    baseFiles = baseFiles.concat(['base/components/ScreenContent.tsx.ejs', 'base/components/EditScreenInfo.tsx.ejs']);
+  }
 
   const packageManager = getPackageManager(toolbox, cliResults);
   // Add npmrc file if user is using pnpm and expo router
@@ -34,6 +38,8 @@ export function configureProjectFiles(
   // modify base files with nativewind specifications
   if (stylingPackage?.name === 'nativewind') {
     const nativewindFiles = [
+      'packages/nativewind/components/ScreenContent.tsx.ejs',
+      'packages/nativewind/components/EditScreenInfo.tsx.ejs',
       'packages/nativewind/tailwind.config.js.ejs',
       'packages/nativewind/app-env.d.ts',
       'packages/nativewind/metro.config.js',
@@ -46,7 +52,11 @@ export function configureProjectFiles(
   // add tamagui files if needed
   // modify base files with tamagui specifications
   if (stylingPackage?.name === 'tamagui') {
-    const tamaguiFiles = ['packages/tamagui/tamagui.config.ts.ejs'];
+    const tamaguiFiles = [
+      'packages/tamagui/tamagui.config.ts.ejs',
+      'packages/tamagui/components/ScreenContent.tsx.ejs',
+      'packages/tamagui/components/EditScreenInfo.tsx.ejs'
+    ];
 
     files = [...files, ...tamaguiFiles];
   }
@@ -55,6 +65,8 @@ export function configureProjectFiles(
   // modify base files with restyle specifications
   if (stylingPackage?.name === 'restyle') {
     const restyleFiles = [
+      'packages/restyle/components/ScreenContent.tsx.ejs',
+      'packages/restyle/components/EditScreenInfo.tsx.ejs',
       'packages/restyle/theme/theme.ts.ejs',
       'packages/restyle/theme/Box.tsx.ejs',
       'packages/restyle/theme/Text.tsx.ejs',
@@ -68,6 +80,8 @@ export function configureProjectFiles(
   // modify base files with unis specifications
   if (stylingPackage?.name === 'unistyles') {
     const unistylesFiles = [
+      'packages/unistyles/components/ScreenContent.tsx.ejs',
+      'packages/unistyles/components/EditScreenInfo.tsx.ejs',
       'packages/unistyles/breakpoints.ts.ejs',
       'packages/unistyles/theme.ts.ejs',
       'packages/unistyles/unistyles.ts.ejs'
@@ -83,8 +97,26 @@ export function configureProjectFiles(
       'packages/react-navigation/App.tsx.ejs',
       'packages/react-navigation/navigation/index.tsx.ejs'
     ];
-    // if it's a stack, add the stack files) {
 
+    // add the necessary components for the navigation
+    if (stylingPackage?.name === 'restyle') {
+      reactNavigationFiles.push('packages/restyle/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/restyle/components/BackButton.tsx.ejs');
+    } else if (stylingPackage?.name === 'nativewind') {
+      reactNavigationFiles.push('packages/nativewind/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/nativewind/components/BackButton.tsx.ejs');
+    } else if (stylingPackage?.name === 'unistyles') {
+      reactNavigationFiles.push('packages/unistyles/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/unistyles/components/BackButton.tsx.ejs');
+    } else if (stylingPackage?.name === 'tamagui') {
+      reactNavigationFiles.push('packages/tamagui/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/tamagui/components/BackButton.tsx.ejs');
+    } else {
+      reactNavigationFiles.push('base/components/Button.tsx.ejs');
+      reactNavigationFiles.push('base/components/BackButton.tsx.ejs');
+    }
+
+    // if it's a stack, add the stack files) {
     if (navigationPackage?.options?.type === 'stack') {
       reactNavigationFiles = [
         ...reactNavigationFiles,
@@ -95,17 +127,18 @@ export function configureProjectFiles(
       // it's a tab navigator
       reactNavigationFiles = [
         ...reactNavigationFiles,
-        'packages/react-navigation/components/edit-screen-info.tsx.ejs',
         'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
         'packages/react-navigation/screens/modal.tsx.ejs',
         'packages/react-navigation/screens/one.tsx.ejs',
         'packages/react-navigation/screens/two.tsx.ejs'
       ];
+      // add the necessary components for the navigation
+      reactNavigationFiles.push('base/components/TabBarIcon.tsx.ejs');
+      reactNavigationFiles.push('base/components/HeaderButton.tsx.ejs');
     } else if (navigationPackage?.options?.type === 'drawer + tabs') {
       // it's a drawer navigator
       reactNavigationFiles = [
         ...reactNavigationFiles,
-        'packages/react-navigation/components/edit-screen-info.tsx.ejs',
         'packages/react-navigation/navigation/drawer-navigator.tsx.ejs',
         'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
         'packages/react-navigation/screens/home.tsx.ejs',
@@ -113,18 +146,38 @@ export function configureProjectFiles(
         'packages/react-navigation/screens/one.tsx.ejs',
         'packages/react-navigation/screens/two.tsx.ejs'
       ];
+
+      // add the necessary components for the navigation
+      reactNavigationFiles.push('base/components/TabBarIcon.tsx.ejs');
+      reactNavigationFiles.push('base/components/HeaderButton.tsx.ejs');
     }
 
     // Remove the base App.tsx.ejs file since we'll be using the one from react-navigation
     files = files.filter((file) => file !== 'base/App.tsx.ejs');
-
     files = [...files, ...reactNavigationFiles];
   }
 
   // add expo router files if needed
   // modify base files with expo router specifications
   if (navigationPackage?.name === 'expo-router') {
-    let expoRouterFiles = ['packages/expo-router/expo-env.d.ts', 'packages/expo-router/metro.config.js.ejs'];
+    let expoRouterFiles = [
+      'packages/expo-router/expo-env.d.ts',
+      'packages/expo-router/metro.config.js.ejs',
+      'packages/expo-router/index.ts'
+    ];
+
+    if (stylingPackage?.name === 'restyle') {
+      expoRouterFiles.push('packages/restyle/components/Button.tsx.ejs');
+    } else if (stylingPackage?.name === 'nativewind') {
+      expoRouterFiles.push('packages/nativewind/components/Button.tsx.ejs');
+    } else if (stylingPackage?.name === 'unistyles') {
+      expoRouterFiles.push('packages/unistyles/components/Button.tsx.ejs');
+    } else if (stylingPackage?.name === 'tamagui') {
+      expoRouterFiles.push('packages/tamagui/components/Button.tsx.ejs');
+    } else {
+      expoRouterFiles.push('base/components/Button.tsx.ejs');
+    }
+
     // if it's a stack, add the stack files) {
     if (navigationPackage?.options?.type === 'stack') {
       expoRouterFiles = [
@@ -135,6 +188,7 @@ export function configureProjectFiles(
         'packages/expo-router/stack/app/+not-found.tsx.ejs',
         'packages/expo-router/stack/app/+html.tsx.ejs'
       ];
+      // add the necessary components for the navigation
     } else if (navigationPackage?.options?.type === 'tabs') {
       // it's a tab navigator
       expoRouterFiles = [
@@ -144,12 +198,14 @@ export function configureProjectFiles(
         'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
         'packages/expo-router/tabs/app/_layout.tsx.ejs',
         'packages/expo-router/tabs/app/modal.tsx.ejs',
-        'packages/expo-router/tabs/app/+not-found.tsx.ejs',
-        'packages/expo-router/tabs/app/+html.tsx.ejs',
-        'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs'
+        'packages/expo-router/tabs/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/tabs/app/+html.tsx.ejs'
       ];
+      // add the necessary components for the navigation
+      expoRouterFiles.push('base/components/TabBarIcon.tsx.ejs');
+      expoRouterFiles.push('base/components/HeaderButton.tsx.ejs');
     } else {
-      // it's a drawer navigator
+      // it's a drawer + tabs navigator
       expoRouterFiles = [
         ...expoRouterFiles,
         'packages/expo-router/drawer/app/_layout.tsx.ejs',
@@ -160,9 +216,11 @@ export function configureProjectFiles(
         'packages/expo-router/drawer/app/(drawer)/(tabs)/_layout.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/(tabs)/index.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/(tabs)/two.tsx.ejs',
-        'packages/expo-router/drawer/app/modal.tsx.ejs',
-        'packages/expo-router/drawer/components/edit-screen-info.tsx.ejs'
+        'packages/expo-router/drawer/app/modal.tsx.ejs'
       ];
+      // add the necessary components for the navigation
+      expoRouterFiles.push('base/components/TabBarIcon.tsx.ejs');
+      expoRouterFiles.push('base/components/HeaderButton.tsx.ejs');
     }
 
     // Remove the base App.tsx.ejs file since we'll be using index.tsx from expo-router

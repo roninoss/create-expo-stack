@@ -1,205 +1,43 @@
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-<% if (props.stylingPackage?.name === "nativewind") { %>
-	import { Text, TouchableOpacity, View } from "react-native";
-<% } else if (props.stylingPackage?.name === "tamagui") { %>
-	import { YStack } from "tamagui";
-	import { Container, Main, Title, Subtitle, Button, ButtonText } from '../../tamagui.config';
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { TouchableOpacity } from 'react-native';
-  import { Box, Text, makeStyles } from 'theme';
-<% } else if (props.stylingPackage?.name === "unistyles") { %>
-  import { createStyleSheet, useStyles } from 'react-native-unistyles'
-	import { Text, TouchableOpacity, View } from 'react-native';
-<% } else { %>
-	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-<% } %>
-import { RootStackParamList } from "../navigation";
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { ScreenContent } from 'components/ScreenContent';
+import { StyleSheet, View } from 'react-native';
+
 <% if (props.internalizationPackage?.name === "i18next") { %>
-  import { InternalizationExample } from '../../components/InternalizationExample';
+  import { InternalizationExample } from 'components/InternalizationExample';
 <% } %>
-type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, "Overview">;
+
+import { Button } from '../components/Button';
+import { RootStackParamList } from '../navigation';
+
+type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
 
 export default function Overview() {
-	const navigation = useNavigation<OverviewScreenNavigationProps>();
-  	<% if (props.stylingPackage?.name === "nativewind") { %>
-		return (
-			<View className={styles.container}>
-				<View className={styles.main}>
-					<View>
-						<Text className={styles.title}>Hello World</Text>
-						<Text className={styles.subtitle}>This is the first page of your app.</Text>
-          <% if (props.internalizationPackage?.name === "i18next") { %>
-            <InternalizationExample />
-          <% } %>
-					</View>
-					<TouchableOpacity className={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
-						<Text className={styles.buttonText}>Show Details</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		);
-	<% } else if (props.stylingPackage?.name === "tamagui") { %>
-		return (
-			<Container>
-				<Main>
-					<YStack>
-						<Title>Hello World</Title>
-						<Subtitle>This is the first page of your app.</Subtitle>
-          <% if (props.internalizationPackage?.name === "i18next") { %>
-            <InternalizationExample />
-          <% } %>
-					</YStack>
-					<Button  onPress={() => navigation.navigate("Details", { name: "Dan" })}>
-						<ButtonText>Show Details</ButtonText>
-					</Button>
-				</Main>
-			</Container>
-		);
-	<% } else if (props.stylingPackage?.name === "restyle") { %>
-    const styles = useStyles();
-    return (
-      <Box flex={1} padding="ml_24">
-        <Box flex={1} maxWidth={960} justifyContent="space-between">
-          <Box>
-            <Text variant="extra_large">Hello World</Text>
-            <Text variant="large" color="darkGray">
-              This is the first page of your app.
-            </Text>
-          <% if (props.internalizationPackage?.name === "i18next") { %>
-            <InternalizationExample />
-          <% } %>
-          </Box>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('Details', { name: 'Dan' })}>
-            <Text variant="body" textAlign="center" color="white" fontWeight="600">
-              Show Details
-            </Text>
-          </TouchableOpacity>
-        </Box>
-      </Box>
-    );
-	<% } else if (props.stylingPackage?.name === "unistyles") { %>
-    const { styles, theme } = useStyles(stylesheet)
-		return (
-			<View style={styles.container}>
-				<View style={styles.main}>
-					<View>
-						<Text style={theme.components.title}>Hello World</Text>
-						<Text style={theme.components.subtitle}>This is the first page of your app.</Text>
-          <% if (props.internalizationPackage?.name === "i18next") { %>
-            <InternalizationExample />
-          <% } %>
-					</View>
-					<TouchableOpacity style={theme.components.button} onPress={() => navigation.navigate('Details', { name: 'Dan' })}>
-						<Text style={theme.components.buttonText}>Show Details</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		);
-  <% } else { %>
-		return (
-			<View style={styles.container}>
-				<View style={styles.main}>
-					<View>
-						<Text style={styles.title}>Hello World</Text>
-						<Text style={styles.subtitle}>This is the first page of your app.</Text>
-          <% if (props.internalizationPackage?.name === "i18next") { %>
-            <InternalizationExample />
-          <% } %>
-					</View>
-					<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
-						<Text style={styles.buttonText}>Show Details</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		);
-	<% } %>
+  const navigation = useNavigation<OverviewScreenNavigationProps>();
+
+  return (
+    <View style={styles.container}>
+      <ScreenContent path="screens/overview.tsx" title="Overview">
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
+      </ScreenContent>
+      <Button
+        onPress={() =>
+          navigation.navigate('Details', {
+            name: 'Dan',
+          })
+        }
+        title="Show Details"
+      />
+    </View>
+  );
 }
 
-<% if (props.stylingPackage?.name === "nativewind") { %>
-	const styles = {
-		button: "items-center bg-indigo-500 rounded-[28px] shadow-md p-4",
-		buttonText: "text-white text-lg font-semibold text-center",
-		container: "flex-1 p-6",
-		main: "flex-1 max-w-[960] justify-between",
-		title: "text-[64px] font-bold",
-		subtitle: "text-4xl text-gray-700",
-	};
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  const useStyles = makeStyles((theme) => ({
-    button: {
-      alignItems: 'center',
-      backgroundColor: theme.colors.purple,
-      borderRadius: theme.borderRadii.xl_24,
-      elevation: 5,
-      flexDirection: 'row',
-      justifyContent: 'center',
-      padding: theme.spacing.m_16,
-      shadowColor: theme.colors.black,
-      shadowOffset: {
-        height: 2,
-        width: 0,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-    },
-  }));
-<% } else if (props.stylingPackage?.name === "unistyles") { %>
-  const stylesheet = createStyleSheet({
-		container: {
-			flex: 1,
-			padding: 24,
-		},
-		main: {
-			flex: 1,
-			maxWidth: 960,
-			marginHorizontal: 'auto',
-			justifyContent: 'space-between',
-		},
-	});
-<% } else if (props.stylingPackage?.name === "stylesheet") { %>
-	const styles = StyleSheet.create({
-		button: {
-			alignItems: "center",
-			backgroundColor: "#6366F1",
-			borderRadius: 24,
-			elevation: 5,
-			flexDirection: "row",
-			justifyContent: "center",
-			padding: 16,
-			shadowColor: "#000",
-			shadowOffset: {
-			height: 2,
-			width: 0
-			},
-			shadowOpacity: 0.25,
-			shadowRadius: 3.84
-		},
-		buttonText: {
-			color: "#FFFFFF",
-			fontSize: 16,
-			fontWeight: "600",
-			textAlign: "center",
-		},
-		container: {
-			flex: 1,
-			padding: 24,
-		},
-		main: {
-			flex: 1,
-			maxWidth: 960,
-			marginHorizontal: "auto",
-			justifyContent: "space-between",
-		},
-		title: {
-			fontSize: 64,
-			fontWeight: "bold",
-		},
-		subtitle: {
-			color: "#38434D",
-			fontSize: 36,
-		}
-	});
-<% } %>
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+  },
+});
