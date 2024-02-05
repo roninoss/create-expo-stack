@@ -3,10 +3,12 @@ import { StatusBar } from 'expo-status-bar';
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import './global.css';
-<% } %>
-<% if (props.stylingPackage?.name === "restyle") { %>
+<% } else if (props.stylingPackage?.name === "restyle") { %>
   import { ThemeProvider } from '@shopify/restyle';
   import { theme } from 'theme';
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { TamaguiProvider } from 'tamagui';
+  import config from './tamagui.config';
 <% } %>
 
 <% if (props.stylingPackage?.name === "restyle") {%>
@@ -18,12 +20,23 @@ import { StatusBar } from 'expo-status-bar';
       </ThemeProvider>
     );
   }
+<% } else if (props.stylingPackage?.name === "tamagui") {%>
+  export default function App() {
+    return (
+      <TamaguiProvider config={config}>
+        <ScreenContent title="Home" path="App.tsx" />
+        <StatusBar style="auto" />
+      </TamaguiProvider>
+    );
+  }
 <% } else { %>
   export default function App() {
-    return (<>
-    <ScreenContent title="Home" path="App.tsx" />
-    <StatusBar style="auto" />
-    </>);
+    return (
+      <>
+        <ScreenContent title="Home" path="App.tsx" />
+        <StatusBar style="auto" />
+      </>
+    );
   }
 <% } %>
 
