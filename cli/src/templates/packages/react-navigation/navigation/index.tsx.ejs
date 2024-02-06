@@ -1,12 +1,10 @@
 <% if (props.navigationPackage?.options.type === 'stack') { %>
 	import { NavigationContainer } from "@react-navigation/native";
 	import { createStackNavigator } from "@react-navigation/stack";
-	<%  if (props.stylingPackage?.name === "tamagui") { %>
-		import { Button, Text } from "tamagui";
-  <% } else if (props.stylingPackage?.name === "unistyles") { %>
-    import { createStyleSheet, useStyles } from 'react-native-unistyles'
-		import { Text, View } from 'react-native';
-	<% } %>
+    <%  if (props.stylingPackage?.name === "tamagui") { %>
+      import { Button, Text } from "tamagui";
+    <% } %>
+  
 
 	import Overview from "../screens/overview";
 	import Details from "../screens/details";
@@ -21,11 +19,6 @@
 
 	export default function RootStack() {
 
-
-    <% if (props.stylingPackage?.name === "unistyles") { %>
-    const { styles, theme } = useStyles(stylesheet);
-    <% } %>
-    
 		return (
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Overview">
@@ -49,15 +42,6 @@
 									</Button>
 								),
 							})}
-            <% } else if (props.stylingPackage?.name === "unistyles") { %>
-              options={({ navigation }) => ({
-								headerLeft: () => (
-									<View style={styles.backButton}>
-										<Feather name="chevron-left" size={16} color={theme.colors.azureRadiance} />
-										<Text style={styles.backButtonText} onPress={navigation.goBack}>Back</Text>
-									</View>
-								)
-							})}
 						<% } else { %>
 							options={({ navigation }) => ({
                 headerLeft: () => <BackButton onPress={navigation.goBack} />,
@@ -69,29 +53,6 @@
 		);
 	}
 
-  <% if (props.stylingPackage?.name === "unistyles") { %>
-		const stylesheet = createStyleSheet((theme) => ({
-      backButton: {
-        flexDirection: 'row',
-        paddingLeft: 20,
-      },
-      backButtonText: {
-        color: theme.colors.azureRadiance,
-        marginLeft: 4,
-      },
-    }));
-	<% } else if (props.stylingPackage?.name === "stylesheet") { %>
-		const styles = StyleSheet.create({
-			backButton: {
-				flexDirection: "row",
-				paddingLeft: 20,
-			},
-			backButtonText: {
-				color: "#007AFF",
-				marginLeft: 4
-			}
-		});
-	<% } %>
 <% } else if (props.navigationPackage?.options.type === 'tabs') { %>
 	import { NavigationContainer } from "@react-navigation/native";
 	import { createStackNavigator } from "@react-navigation/stack";
