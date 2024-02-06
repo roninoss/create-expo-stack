@@ -40,7 +40,7 @@ export function generateProjectFiles(
 
     if (navigationPackage?.name === 'react-navigation') {
       target = target.replace('packages/react-navigation/App.tsx', 'App.tsx');
-      target = target.replace('packages/react-navigation/', 'src/');
+      target = target.replace('packages/react-navigation/', '');
     }
 
     if (navigationPackage?.name === 'expo-router') {

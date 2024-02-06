@@ -12,7 +12,7 @@ export function configureProjectFiles(
   internalizationPackage: AvailablePackages | undefined
 ): string[] {
   // Define the files common to all templates to be generated
-  const baseFiles = [
+  let baseFiles = [
     'base/tsconfig.json.ejs',
     'base/app.json.ejs',
     'base/App.tsx.ejs',
@@ -23,7 +23,7 @@ export function configureProjectFiles(
   ];
 
   if (stylingPackage?.name === 'stylesheet') {
-    baseFiles.concat(['base/components/ScreenContent.tsx.ejs', 'base/components/EditScreenInfo.tsx.ejs']);
+    baseFiles = baseFiles.concat(['base/components/ScreenContent.tsx.ejs', 'base/components/EditScreenInfo.tsx.ejs']);
   }
 
   const packageManager = getPackageManager(toolbox, cliResults);
@@ -94,6 +94,7 @@ export function configureProjectFiles(
   // modify base files with react navigation specifications
   if (navigationPackage?.name === 'react-navigation') {
     let reactNavigationFiles = [
+      'packages/react-navigation/components/Button.tsx.ejs',
       'packages/react-navigation/App.tsx.ejs',
       'packages/react-navigation/navigation/index.tsx.ejs'
     ];
@@ -109,7 +110,6 @@ export function configureProjectFiles(
       // it's a tab navigator
       reactNavigationFiles = [
         ...reactNavigationFiles,
-        'packages/react-navigation/components/edit-screen-info.tsx.ejs',
         'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
         'packages/react-navigation/screens/modal.tsx.ejs',
         'packages/react-navigation/screens/one.tsx.ejs',
@@ -119,7 +119,6 @@ export function configureProjectFiles(
       // it's a drawer navigator
       reactNavigationFiles = [
         ...reactNavigationFiles,
-        'packages/react-navigation/components/edit-screen-info.tsx.ejs',
         'packages/react-navigation/navigation/drawer-navigator.tsx.ejs',
         'packages/react-navigation/navigation/tab-navigator.tsx.ejs',
         'packages/react-navigation/screens/home.tsx.ejs',
@@ -131,7 +130,6 @@ export function configureProjectFiles(
 
     // Remove the base App.tsx.ejs file since we'll be using the one from react-navigation
     files = files.filter((file) => file !== 'base/App.tsx.ejs');
-
     files = [...files, ...reactNavigationFiles];
   }
 
