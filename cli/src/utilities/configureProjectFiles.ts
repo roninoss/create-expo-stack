@@ -133,19 +133,8 @@ export function configureProjectFiles(
         'packages/react-navigation/screens/two.tsx.ejs'
       ];
       // add the necessary components for the navigation
-      if (stylingPackage?.name === 'nativewind') {
-        // reactNavigationFiles.push('packages/nativewind/components/TabBarIcon.tsx.ejs');
-        // reactNavigationFiles.push('packages/nativewind/components/HeaderButton.tsx.ejs');
-      } else if (stylingPackage?.name === 'unistyles') {
-        // reactNavigationFiles.push('packages/unistyles/components/TabBarIcon.tsx.ejs');
-        // reactNavigationFiles.push('packages/unistyles/components/HeaderButton.tsx.ejs');
-      } else if (stylingPackage?.name === 'tamagui') {
-        // reactNavigationFiles.push('packages/tamagui/components/TabBarIcon.tsx.ejs');
-        // reactNavigationFiles.push('packages/tamagui/components/HeaderButton.tsx.ejs');
-      } else {
-        reactNavigationFiles.push('base/components/TabBarIcon.tsx.ejs');
-        reactNavigationFiles.push('base/components/HeaderButton.tsx.ejs');
-      }
+      reactNavigationFiles.push('base/components/TabBarIcon.tsx.ejs');
+      reactNavigationFiles.push('base/components/HeaderButton.tsx.ejs');
     } else if (navigationPackage?.options?.type === 'drawer + tabs') {
       // it's a drawer navigator
       reactNavigationFiles = [
@@ -157,6 +146,10 @@ export function configureProjectFiles(
         'packages/react-navigation/screens/one.tsx.ejs',
         'packages/react-navigation/screens/two.tsx.ejs'
       ];
+
+      // add the necessary components for the navigation
+      reactNavigationFiles.push('base/components/TabBarIcon.tsx.ejs');
+      reactNavigationFiles.push('base/components/HeaderButton.tsx.ejs');
     }
 
     // Remove the base App.tsx.ejs file since we'll be using the one from react-navigation
