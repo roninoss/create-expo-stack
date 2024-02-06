@@ -1,22 +1,18 @@
 <% if (props.navigationPackage?.options.type === 'stack') { %>
-	import { Feather } from "@expo/vector-icons";
 	import { NavigationContainer } from "@react-navigation/native";
 	import { createStackNavigator } from "@react-navigation/stack";
 	<% if (props.stylingPackage?.name === "nativewind") { %>
 		import { Text, View } from "react-native";
 	<% } else if (props.stylingPackage?.name === "tamagui") { %>
 		import { Button, Text } from "tamagui";
-	<% } else if (props.stylingPackage?.name === "restyle") { %>
-    import { Box, Text, useTheme } from 'theme';
   <% } else if (props.stylingPackage?.name === "unistyles") { %>
     import { createStyleSheet, useStyles } from 'react-native-unistyles'
 		import { Text, View } from 'react-native';
-	<% } else { %>
-		import { Text, View, StyleSheet } from "react-native";
 	<% } %>
 
 	import Overview from "../screens/overview";
 	import Details from "../screens/details";
+  import { BackButton } from '../components/BackButton';
 
 	export type RootStackParamList = {
 		Overview: undefined;
@@ -26,9 +22,7 @@
 	const Stack = createStackNavigator<RootStackParamList>();
 
 	export default function RootStack() {
-    <% if (props.stylingPackage?.name === "restyle") { %>
-    const { colors } = useTheme();
-    <% } %>
+
 
     <% if (props.stylingPackage?.name === "unistyles") { %>
     const { styles, theme } = useStyles(stylesheet);
@@ -66,17 +60,6 @@
 									</Button>
 								),
 							})}
-						<% } else if (props.stylingPackage?.name === "restyle") { %>
-              options={({ navigation }) => ({
-                headerLeft: () => (
-                  <Box flexDirection="row" paddingLeft="m_16">
-                    <Feather name="chevron-left" size={16} color={colors.blue} />
-                    <Text marginLeft="xs_4" color="blue" onPress={navigation.goBack}>
-                      Back
-                    </Text>
-                  </Box>
-                ),
-              })}
             <% } else if (props.stylingPackage?.name === "unistyles") { %>
               options={({ navigation }) => ({
 								headerLeft: () => (
@@ -88,12 +71,7 @@
 							})}
 						<% } else { %>
 							options={({ navigation }) => ({
-								headerLeft: () => (
-									<View style={styles.backButton}>
-										<Feather name="chevron-left" size={16} color="#007AFF" />
-										<Text style={styles.backButtonText} onPress={navigation.goBack}>Back</Text>
-									</View>
-								)
+                headerLeft: () => <BackButton onPress={navigation.goBack} />,
 							})}
 						<% } %>
 					/>

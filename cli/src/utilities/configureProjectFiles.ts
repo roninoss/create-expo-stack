@@ -94,12 +94,20 @@ export function configureProjectFiles(
   // modify base files with react navigation specifications
   if (navigationPackage?.name === 'react-navigation') {
     let reactNavigationFiles = [
-      'packages/react-navigation/components/Button.tsx.ejs',
       'packages/react-navigation/App.tsx.ejs',
       'packages/react-navigation/navigation/index.tsx.ejs'
     ];
-    // if it's a stack, add the stack files) {
 
+    // add the necessary components for the navigation
+    if (stylingPackage?.name === 'restyle') {
+      reactNavigationFiles.push('packages/restyle/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/restyle/components/BackButton.tsx.ejs');
+    } else {
+      reactNavigationFiles.push('packages/react-navigation/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/react-navigation/components/BackButton.tsx.ejs');
+    }
+
+    // if it's a stack, add the stack files) {
     if (navigationPackage?.options?.type === 'stack') {
       reactNavigationFiles = [
         ...reactNavigationFiles,
