@@ -1,10 +1,6 @@
 <% if (props.navigationPackage?.options.type === 'stack') { %>
 	import { NavigationContainer } from "@react-navigation/native";
 	import { createStackNavigator } from "@react-navigation/stack";
-    <%  if (props.stylingPackage?.name === "tamagui") { %>
-      import { Button, Text } from "tamagui";
-    <% } %>
-  
 
 	import Overview from "../screens/overview";
 	import Details from "../screens/details";
@@ -26,27 +22,9 @@
 					<Stack.Screen
 						name="Details"
 						component={Details}
-						<%  if (props.stylingPackage?.name === "tamagui") { %>
-							options={({ navigation }) => ({
-								headerLeft: () => (
-									<Button
-										unstyled
-										flexDirection="row"
-										backgroundColor="transparent"
-										pressStyle={{ opacity: 0.5 }}
-										paddingLeft={20}
-										onPress={navigation.goBack}
-										icon={<Feather name="chevron-left" size={16} color="#007AFF" />}
-									>
-										<Text color="#007AFF">Back</Text>
-									</Button>
-								),
-							})}
-						<% } else { %>
 							options={({ navigation }) => ({
                 headerLeft: () => <BackButton onPress={navigation.goBack} />,
 							})}
-						<% } %>
 					/>
 				</Stack.Navigator>
 			</NavigationContainer>
