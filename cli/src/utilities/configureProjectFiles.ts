@@ -102,6 +102,9 @@ export function configureProjectFiles(
     if (stylingPackage?.name === 'restyle') {
       reactNavigationFiles.push('packages/restyle/components/Button.tsx.ejs');
       reactNavigationFiles.push('packages/restyle/components/BackButton.tsx.ejs');
+    } else if (stylingPackage?.name === 'nativewind') {
+      reactNavigationFiles.push('packages/nativewind/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/nativewind/components/BackButton.tsx.ejs');
     } else {
       reactNavigationFiles.push('packages/react-navigation/components/Button.tsx.ejs');
       reactNavigationFiles.push('packages/react-navigation/components/BackButton.tsx.ejs');

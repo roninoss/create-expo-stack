@@ -1,9 +1,7 @@
 <% if (props.navigationPackage?.options.type === 'stack') { %>
 	import { NavigationContainer } from "@react-navigation/native";
 	import { createStackNavigator } from "@react-navigation/stack";
-	<% if (props.stylingPackage?.name === "nativewind") { %>
-		import { Text, View } from "react-native";
-	<% } else if (props.stylingPackage?.name === "tamagui") { %>
+	<%  if (props.stylingPackage?.name === "tamagui") { %>
 		import { Button, Text } from "tamagui";
   <% } else if (props.stylingPackage?.name === "unistyles") { %>
     import { createStyleSheet, useStyles } from 'react-native-unistyles'
@@ -35,16 +33,7 @@
 					<Stack.Screen
 						name="Details"
 						component={Details}
-						<% if (props.stylingPackage?.name === "nativewind") { %>
-							options={({ navigation }) => ({
-								headerLeft: () => (
-									<View className={styles.backButton}>
-										<Feather name="chevron-left" size={16} color="#007AFF" />
-										<Text className={styles.backButtonText} onPress={navigation.goBack}>Back</Text>
-									</View>
-								)
-							})}
-						<% } else if (props.stylingPackage?.name === "tamagui") { %>
+						<%  if (props.stylingPackage?.name === "tamagui") { %>
 							options={({ navigation }) => ({
 								headerLeft: () => (
 									<Button
@@ -80,12 +69,7 @@
 		);
 	}
 
-	<% if (props.stylingPackage?.name === "nativewind") { %>
-		const styles = {
-			backButton: "flex-row",
-			backButtonText: "text-blue-500 ml-1"
-		};
-  <% } else if (props.stylingPackage?.name === "unistyles") { %>
+  <% if (props.stylingPackage?.name === "unistyles") { %>
 		const stylesheet = createStyleSheet((theme) => ({
       backButton: {
         flexDirection: 'row',
