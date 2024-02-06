@@ -80,6 +80,8 @@ export function configureProjectFiles(
   // modify base files with unis specifications
   if (stylingPackage?.name === 'unistyles') {
     const unistylesFiles = [
+      'packages/unistyles/components/ScreenContent.tsx.ejs',
+      'packages/unistyles/components/EditScreenInfo.tsx.ejs',
       'packages/unistyles/breakpoints.ts.ejs',
       'packages/unistyles/theme.ts.ejs',
       'packages/unistyles/unistyles.ts.ejs'
