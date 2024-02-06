@@ -106,8 +106,8 @@ export function configureProjectFiles(
       reactNavigationFiles.push('packages/nativewind/components/Button.tsx.ejs');
       reactNavigationFiles.push('packages/nativewind/components/BackButton.tsx.ejs');
     } else {
-      reactNavigationFiles.push('packages/react-navigation/components/Button.tsx.ejs');
-      reactNavigationFiles.push('packages/react-navigation/components/BackButton.tsx.ejs');
+      reactNavigationFiles.push('base/components/Button.tsx.ejs');
+      reactNavigationFiles.push('base/components/BackButton.tsx.ejs');
     }
 
     // if it's a stack, add the stack files) {

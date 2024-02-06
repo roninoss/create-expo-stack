@@ -18,13 +18,8 @@ export const lightTheme = {
       height: 1,
       marginVertical: 30,
       width: '80%',
+      backgroundColor: 'grey',
     },
-    <% if (props.navigationPackage?.options.type === 'tabs' || props.navigationPackage?.options.type === 'drawer') {%>
-      title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-      },
-    <% } else { %>
       button: {
         alignItems: 'center',
         backgroundColor: colors.cornflowerBlue,
@@ -48,14 +43,13 @@ export const lightTheme = {
         textAlign: 'center',
       },
       title: {
-        fontSize: 64,
+        fontSize: 20,
         fontWeight: 'bold',
       },
       subtitle: {
         color: colors.limedSpruce,
         fontSize: 36,
       },
-    <% } %>
   },
   margins: {
     sm: 2,
