@@ -105,6 +105,12 @@ export function configureProjectFiles(
     } else if (stylingPackage?.name === 'nativewind') {
       reactNavigationFiles.push('packages/nativewind/components/Button.tsx.ejs');
       reactNavigationFiles.push('packages/nativewind/components/BackButton.tsx.ejs');
+    } else if (stylingPackage?.name === 'unistyles') {
+      reactNavigationFiles.push('packages/unistyles/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/unistyles/components/BackButton.tsx.ejs');
+    } else if (stylingPackage?.name === 'tamagui') {
+      reactNavigationFiles.push('packages/tamagui/components/Button.tsx.ejs');
+      reactNavigationFiles.push('packages/tamagui/components/BackButton.tsx.ejs');
     } else {
       reactNavigationFiles.push('base/components/Button.tsx.ejs');
       reactNavigationFiles.push('base/components/BackButton.tsx.ejs');
