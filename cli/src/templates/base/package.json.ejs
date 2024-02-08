@@ -92,6 +92,10 @@
     "react-native": "0.73.2"
   },
   "devDependencies": {
+  <%# patch for this issue : https://github.com/expo/expo/issues/26641 %>
+  <% if (props.packageManager === "bun" && props.navigationPackage?.name === "expo-router") { %>
+	  "ajv": "^8.12.0",
+	<% } %>
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
