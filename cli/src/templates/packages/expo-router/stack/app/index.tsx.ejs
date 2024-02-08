@@ -1,217 +1,27 @@
-<% if (props.stylingPackage?.name === "nativewind") { %>
-	import { Text, TouchableOpacity, View } from "react-native";
-<% } else if (props.stylingPackage?.name === "tamagui") { %>
-	import { YStack } from "tamagui";
-	import { Container, Main, Title, Subtitle, Button, ButtonText } from '../tamagui.config';
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { TouchableOpacity } from 'react-native';
-  import { Box, Text, makeStyles } from 'theme';
-<% } else if (props.stylingPackage?.name === "unistyles") { %>
-  import { createStyleSheet, useStyles } from 'react-native-unistyles';
-  import { Text, TouchableOpacity, View } from 'react-native';
-<% } else { %>
-	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-<% } %>
-<% if (props.internalizationPackage?.name === "i18next") { %>
-  import { InternalizationExample } from '../components/InternalizationExample';
-<% } %>
-import { Stack } from "expo-router";
+import { Stack, Link } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
 
-import { Link } from "expo-router";
+import { Button } from '../components/Button';
 
-export default function Page() {
-  <% if (props.stylingPackage?.name === "restyle") { %>
-    const styles = useStyles();
-  <% } %>
+import { ScreenContent } from '~/components/ScreenContent';
 
-  <% if (props.stylingPackage?.name === "unistyles") { %>
-    const { styles, theme } = useStyles(stylesheet);
-  <% } %>
-
-	return (
-		<% if (props.stylingPackage?.name === "nativewind") { %>
-			<View className={styles.container}>
-        <Stack.Screen options={{ title: "Overview" }} />
-				<View className={styles.main}>
-				<View>
-					<Text className={styles.title}>Hello World</Text>
-					<Text className={styles.subtitle}>This is the first page of your app.</Text>
-          <% if (props.internalizationPackage?.name === "i18next") { %>
-            <InternalizationExample />
-          <% } %>
-				</View>
-				<Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
-					<TouchableOpacity className={styles.button} >
-					<Text className={styles.buttonText}>Show Details</Text>
-					</TouchableOpacity>
-				</Link>
-				</View>
-			</View>
-		<% } else if (props.stylingPackage?.name === "tamagui") { %>
-			<Container>
-				<Main>
-          <Stack.Screen options={{ title: "Overview" }} />
-          <YStack>
-            <Title>Hello World</Title>
-            <Subtitle>This is the first page of your app.</Subtitle>
-          <% if (props.internalizationPackage?.name === "i18next") { %>
-            <InternalizationExample />
-          <% } %>
-          </YStack>
-          <Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
-            <Button><ButtonText>Show Details</ButtonText></Button>
-          </Link>
-				</Main>
-			</Container>
-		<% } else if (props.stylingPackage?.name === "restyle") { %>
-      <>
-        <Stack.Screen options={{ title: "Overview" }} />
-        <Box flex={1} padding="ml_24">
-          <Box flex={1} maxWidth={960} justifyContent="space-between">
-            <Box>
-              <Text variant="extra_large">Hello World</Text>
-              <Text variant="large" color="darkGray">
-                This is the first page of your app.
-              </Text>
-            <% if (props.internalizationPackage?.name === "i18next") { %>
-              <InternalizationExample />
-            <% } %>
-            </Box>
-            <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
-              <TouchableOpacity
-                style={styles.button}
-              >
-                <Text variant="body" textAlign="center" color="white" fontWeight="600">
-                  Show Details
-                </Text>
-              </TouchableOpacity>
-            </Link>
-          </Box>
-        </Box>
-      </>
-    <% } else if (props.stylingPackage?.name === "unistyles") { %>
+export default function Home() {
+  return (
+    <>
+      <Stack.Screen options={{ title: 'Home' }} />
       <View style={styles.container}>
-        <View style={styles.main}>
-          <Stack.Screen options={{ title: 'Overview' }} />
-          <View>
-            <Text style={theme.components.title}>Hello World</Text>
-            <Text style={theme.components.subtitle}>This is the first page of your app.</Text>
-          <% if (props.internalizationPackage?.name === "i18next") { %>
-            <InternalizationExample   />
-          <% } %>
-          </View>
-          <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
-            <TouchableOpacity style={theme.components.button} >
-              <Text style={theme.components.buttonText}>Show Details</Text>
-            </TouchableOpacity>
-          </Link>
-        </View>
-			</View>
-  	<% } else { %>
-			<View style={styles.container}>
-				<View style={styles.main}>
-          <Stack.Screen options={{ title: "Overview" }} />
-				<View>
-					<Text style={styles.title}>Hello World</Text>
-					<Text style={styles.subtitle}>This is the first page of your app.</Text>
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-				</View>
-				<Link href={{ pathname: "/details", params: { name: "Dan" } }} asChild>
-					<TouchableOpacity style={styles.button} >
-					<Text style={styles.buttonText}>Show Details</Text>
-					</TouchableOpacity>
-				</Link>
-				</View>
-			</View>
-		<% } %>
-	);
+        <ScreenContent path="app/index.tsx" title="Home" />
+        <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
+          <Button title="Show Details" />
+        </Link>
+      </View>
+    </>
+  );
 }
 
-<% if (props.stylingPackage?.name === "nativewind") { %>
-	const styles = {
-		button: "items-center bg-indigo-500 rounded-[28px] shadow-md p-4",
-		buttonText: "text-white text-lg font-semibold text-center",
-		container: "flex-1 p-6",
-		main: "flex-1 max-w-[960] justify-between",
-		title: "text-[64px] font-bold",
-		subtitle: "text-4xl text-gray-700",
-	};
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  const useStyles = makeStyles((theme) => ({
-    button: {
-      alignItems: 'center',
-      backgroundColor: theme.colors.purple,
-      borderRadius: theme.borderRadii.xl_24,
-      elevation: 5,
-      flexDirection: 'row',
-      justifyContent: 'center',
-      padding: theme.spacing.m_16,
-      shadowColor: theme.colors.black,
-      shadowOffset: {
-        height: 2,
-        width: 0,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-    },
-  }));
-  <% } else if (props.stylingPackage?.name === "unistyles") { %>
-	const stylesheet = createStyleSheet({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
   },
-  main: {
-    flex: 1,
-    maxWidth: 960,
-    marginHorizontal: 'auto',
-    justifyContent: 'space-between',
-  },
 });
-
-<% } else if (props.stylingPackage?.name === "stylesheet") { %>
-	const styles = StyleSheet.create({
-		button: {
-			alignItems: "center",
-			backgroundColor: "#6366F1",
-			borderRadius: 24,
-			elevation: 5,
-			flexDirection: "row",
-			justifyContent: "center",
-			padding: 16,
-			shadowColor: "#000",
-			shadowOffset: {
-			height: 2,
-			width: 0
-			},
-			shadowOpacity: 0.25,
-			shadowRadius: 3.84
-		},
-		buttonText: {
-			color: "#FFFFFF",
-			fontSize: 16,
-			fontWeight: "600",
-			textAlign: "center",
-		},
-		container: {
-			flex: 1,
-			padding: 24,
-		},
-		main: {
-			flex: 1,
-			maxWidth: 960,
-			marginHorizontal: "auto",
-			justifyContent: "space-between",
-		},
-		title: {
-			fontSize: 64,
-			fontWeight: "bold",
-		},
-		subtitle: {
-			color: "#38434D",
-			fontSize: 36,
-		}
-	});
-<% } %>

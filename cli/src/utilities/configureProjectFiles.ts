@@ -175,6 +175,8 @@ export function configureProjectFiles(
         'packages/expo-router/stack/app/[...unmatched].tsx.ejs',
         'packages/expo-router/stack/app/+html.tsx.ejs'
       ];
+      // add the necessary components for the navigation
+      expoRouterFiles.push('base/components/Button.tsx.ejs');
     } else if (navigationPackage?.options?.type === 'tabs') {
       // it's a tab navigator
       expoRouterFiles = [
