@@ -1,6 +1,10 @@
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import './translation';
+<% } %>
+
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import './global.css';
 <% } else if (props.stylingPackage?.name === "restyle") { %>

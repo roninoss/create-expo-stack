@@ -1,16 +1,28 @@
 import { Box, Text } from 'theme';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+import { useTranslation } from 'react-i18next';
+<% } %>
+
 export const EditScreenInfo = ({ path }: { path: string }) => {
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  const { t } = useTranslation();
+  const getStarted = t('getStarted');
+  const changeCode = t('changeCode')
+<% } else { %>
+  const getStarted = "Open up the code for this screen:"
+  const changeCode = "Change any of the text, save the file, and your app will automatically update."
+<% } %>
   return (
     <Box alignItems="center" marginHorizontal="xl_64">
       <Text variant="body" lineHeight={24} textAlign="center">
-        Open up the code for this screen:
+        {getStarted}
       </Text>
       <Box borderRadius="s_3" paddingHorizontal="xs_4" marginVertical="s_8">
         <Text>{path}</Text>
       </Box>
       <Text variant="body" lineHeight={24} textAlign="center">
-        Change any of the text, save the file, and your app will automatically update.
+        {changeCode}
       </Text>
     </Box>
   );
