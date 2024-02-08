@@ -2,12 +2,19 @@ import { Box, Text } from 'theme';
 
 import { EditScreenInfo } from './EditScreenInfo';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
+
 export const ScreenContent = ({ title, path }: { title: string; path: string }) => {
   return (
     <Box flex={1} alignItems="center" justifyContent="center">
       <Text variant="title">{title}</Text>
       <Box height={1} marginVertical="l_32" width="80%" backgroundColor="gray" />
       <EditScreenInfo path={path} />
+    <% if (props.internalizationPackage?.name === "i18next") { %>
+      <InternalizationExample />
+    <% } %>
     </Box>
   );
 };

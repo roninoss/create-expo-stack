@@ -1,15 +1,28 @@
 import { Text, View } from 'react-native';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+import { useTranslation } from 'react-i18next';
+<% } %>
+
+
 export const EditScreenInfo = ({ path }: { path: string }) => {
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  const { t } = useTranslation();
+  const getStarted = t('getStarted');
+  const changeCode = t('changeCode')
+<% } else { %>
+  const getStarted = "Open up the code for this screen:"
+  const changeCode = "Change any of the text, save the file, and your app will automatically update."
+<% } %>
   return (
     <View>
       <View className={styles.getStartedContainer}>
-        <Text className={styles.getStartedText}>Open up the code for this screen:</Text>
+        <Text className={styles.getStartedText}>{getStarted}</Text>
         <View className={styles.codeHighlightContainer + styles.homeScreenFilename}>
           <Text>{path}</Text>
         </View>
         <Text className={styles.getStartedText}>
-          Change any of the text, save the file, and your app will automatically update.
+          {changeCode}
         </Text>
       </View>
     </View>

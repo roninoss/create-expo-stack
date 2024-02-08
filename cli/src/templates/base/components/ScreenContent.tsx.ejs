@@ -1,5 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
+
 import EditScreenInfo from './EditScreenInfo';
 
 type ScreenContentProps = {
@@ -13,6 +17,9 @@ export const ScreenContent = ({ title, path }: ScreenContentProps) => {
       <Text style={styles.title}>{title}</Text>
       <View style={styles.separator} />
       <EditScreenInfo path={path} />
+    <% if (props.internalizationPackage?.name === "i18next") { %>
+      <InternalizationExample />
+    <% } %>
     </View>
   );
 };

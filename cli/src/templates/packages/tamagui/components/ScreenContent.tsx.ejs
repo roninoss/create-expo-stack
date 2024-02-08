@@ -2,6 +2,10 @@ import { YStack, H2, Separator, Theme } from 'tamagui';
 
 import { EditScreenInfo } from './EditScreenInfo';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
+
 export const ScreenContent = ({ title, path }: { title: string; path: string }) => {
   return (
     <Theme name="light">
@@ -9,6 +13,9 @@ export const ScreenContent = ({ title, path }: { title: string; path: string }) 
         <H2>{title}</H2>
         <Separator />
         <EditScreenInfo path={path} />
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
       </YStack>
     </Theme>
   );
