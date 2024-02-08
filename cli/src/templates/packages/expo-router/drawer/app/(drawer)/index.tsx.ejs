@@ -1,108 +1,22 @@
-<% if (props.stylingPackage?.name === "nativewind") { %>
-  import { Text, View } from "react-native";
-<% } else if (props.stylingPackage?.name === "tamagui") { %>
-  import { YStack, H2, Separator, Theme } from "tamagui";
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { Box, Text } from 'theme';
-<% } else if (props.stylingPackage?.name === "unistyles") { %>
-  import { useStyles } from 'react-native-unistyles'
-  import { Text, View } from 'react-native';
-<% } else if (props.stylingPackage?.name === "stylesheet") { %>
-  import { StyleSheet, Text, View } from "react-native";
-<% } %>
-<% if (props.internalizationPackage?.name === "i18next") { %>
-  import { InternalizationExample } from '../../components/InternalizationExample';
-<% } %>
+import { Stack } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
 
-import EditScreenInfo from "../../components/edit-screen-info";
+import { ScreenContent } from '~/components/ScreenContent';
 
-const Page = () => {
-  <% if (props.stylingPackage?.name === "unistyles") { %>
-    const { theme } = useStyles()
-
-    return (
-      <View style={theme.components.container}>
-        <Text style={theme.components.title}>Home</Text>
-      <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-      <% } %>
-        <View style={theme.components.separator} />
-        <EditScreenInfo path="app/(tabs)/index.tsx" />
+export default function Home() {
+  return (
+    <>
+      <Stack.Screen options={{ title: 'Home' }} />
+      <View style={styles.container}>
+        <ScreenContent path="app/(drawer)/(tabs)/index.tsx" title="Home" />
       </View>
-    );
-  <% } else if (props.stylingPackage?.name === "nativewind") { %>
-      return (
-    <View className={styles.container}>
-      <Text className={styles.title}>Home</Text>
-    <% if (props.internalizationPackage?.name === "i18next") { %>
-      <InternalizationExample />
-    <% } %>
-      <View className={styles.separator} />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    </>
   );
-  <% } else if (props.stylingPackage?.name === "tamagui") { %>
-      return (
-    <Theme name="light">
-      <YStack flex={1} alignItems="center" justifyContent="center">
-        <H2>Home</H2>
-      <% if (props.internalizationPackage?.name === "i18next") { %>
-        <InternalizationExample />
-      <% } %>
-        <Separator />
-        <EditScreenInfo path="app/(tabs)/index.tsx" />
-      </YStack>
-    </Theme>
-  );    
-  <% } else if (props.stylingPackage?.name === "restyle") { %>
-    return (
-      <Box flex={1} alignItems="center" justifyContent="center">
-        <Text variant="title">Home</Text>
-      <% if (props.internalizationPackage?.name === "i18next") { %>
-        <InternalizationExample />
-      <% } %>
-        <Box height={1} marginVertical="l_32" width="80%" />
-        <EditScreenInfo path="app/(tabs)/index.tsx" />
-      </Box>
-    );
-  <% } else { %>
-      return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
-    <% if (props.internalizationPackage?.name === "i18next") { %>
-      <InternalizationExample />
-    <% } %>
-      <View style={styles.separator} />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
-  );
-  <% } %>
 }
 
-export default Page;
-
-<% if (props.stylingPackage?.name === "nativewind") { %>
-  const styles = {
-  container: `items-center flex-1 justify-center`,
-  separator: `h-[1px] my-7 w-4/5 bg-gray-200`,
-  title: `text-xl font-bold`
-};
-<% } else if (props.stylingPackage?.name === "stylesheet") { %>
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
     flex: 1,
-    justifyContent: "center",
+    padding: 24,
   },
-  separator: {
-    backgroundColor: '#d1d5db',
-    height: 1,
-    marginVertical: 30,
-    width: "80%",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  }
 });
-<% } %>

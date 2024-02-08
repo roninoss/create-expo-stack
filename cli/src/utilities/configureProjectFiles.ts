@@ -172,7 +172,6 @@ export function configureProjectFiles(
         'packages/expo-router/stack/app/+html.tsx.ejs'
       ];
       // add the necessary components for the navigation
-      expoRouterFiles.push('base/components/Button.tsx.ejs');
     } else if (navigationPackage?.options?.type === 'tabs') {
       // it's a tab navigator
       expoRouterFiles = [
@@ -186,8 +185,11 @@ export function configureProjectFiles(
         'packages/expo-router/tabs/app/+html.tsx.ejs',
         'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs'
       ];
+      // add the necessary components for the navigation
+      expoRouterFiles.push('base/components/TabBarIcon.tsx.ejs');
+      expoRouterFiles.push('base/components/HeaderButton.tsx.ejs');
     } else {
-      // it's a drawer navigator
+      // it's a drawer + tabs navigator
       expoRouterFiles = [
         ...expoRouterFiles,
         'packages/expo-router/drawer/app/_layout.tsx.ejs',
@@ -198,9 +200,11 @@ export function configureProjectFiles(
         'packages/expo-router/drawer/app/(drawer)/(tabs)/_layout.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/(tabs)/index.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/(tabs)/two.tsx.ejs',
-        'packages/expo-router/drawer/app/modal.tsx.ejs',
-        'packages/expo-router/drawer/components/edit-screen-info.tsx.ejs'
+        'packages/expo-router/drawer/app/modal.tsx.ejs'
       ];
+      // add the necessary components for the navigation
+      expoRouterFiles.push('base/components/TabBarIcon.tsx.ejs');
+      expoRouterFiles.push('base/components/HeaderButton.tsx.ejs');
     }
 
     // Remove the base App.tsx.ejs file since we'll be using index.tsx from expo-router

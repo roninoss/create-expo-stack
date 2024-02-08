@@ -1,7 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Pressable, StyleSheet } from 'react-native';
 
-export const HeaderButton = ({ onPress }: { onPress: () => void }) => {
+export const HeaderButton = ({ onPress }: { onPress?: () => void }) => {
   return (
     <Pressable onPress={onPress}>
       {({ pressed }) => (
