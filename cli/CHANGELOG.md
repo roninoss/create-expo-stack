@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.4.3
+
+### Patch Changes
+
+- [#208](https://github.com/danstepanov/create-expo-stack/pull/208) [`e841ea5`](https://github.com/danstepanov/create-expo-stack/commit/e841ea519620294dd233d5bafea15dbfc013aff0) Thanks [@ludwig-pro](https://github.com/ludwig-pro)! - Bump react-native to 0.73.4
+
+- [#207](https://github.com/danstepanov/create-expo-stack/pull/207) [`3287a3c`](https://github.com/danstepanov/create-expo-stack/commit/3287a3c7c99eafeb55938be9570e532368af22f5) Thanks [@ludwig-pro](https://github.com/ludwig-pro)! - update the gitignore file
+
 ## 2.4.2
 
 ### Patch Changes
