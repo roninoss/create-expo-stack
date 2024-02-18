@@ -43,14 +43,14 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 
 | Library            | Category            | Version | Description                                    |
 | ------------------ | ------------------- | ------- | ---------------------------------------------- |
-| React Native       | Mobile Framework    | v0.72   | The best cross-platform mobile framework       |
+| React Native       | Mobile Framework    | v0.73   | The best cross-platform mobile framework       |
 | React              | UI Framework        | v18     | The most popular UI framework in the world     |
-| TypeScript         | Language            | v4      | Static typechecking                            |
+| TypeScript         | Language            | v5      | Static typechecking                            |
 | React Navigation   | Navigation          | v6      | Performant and consistent navigation framework |
-| Expo               | SDK                 | v49     | Allows (optional) Expo modules                 |
+| Expo               | SDK                 | v50     | Allows (optional) Expo modules                 |
 | Expo Font          | Custom Fonts        | v11     | Import custom fonts                            |
 | Expo Linking       | URL Handling        | v5      | Open your app via a URL                        |
-| Expo Router        | Navigation          | v2      | File-based routing in React-Native             |
+| Expo Router        | Navigation          | v3      | File-based routing in React-Native             |
 | Expo Splash Screen | Splash Screen       | v0.18   | Custom splash screen                           |
 | Expo Status Bar    | Status Bar Library  | v1      | Status bar support                             |
 | Expo System UI     | System UI Library   | v2      | System UI support                              |
