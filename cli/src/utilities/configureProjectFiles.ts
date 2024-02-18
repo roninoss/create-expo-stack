@@ -18,7 +18,7 @@ export function configureProjectFiles(
     'base/babel.config.js.ejs',
     'base/package.json.ejs',
     'base/.gitignore.ejs',
-    'base/.prettierrc'
+    'base/prettier.config.js.ejs'
   ];
 
   const packageManager = getPackageManager(toolbox, cliResults);
@@ -123,11 +123,7 @@ export function configureProjectFiles(
   // add expo router files if needed
   // modify base files with expo router specifications
   if (navigationPackage?.name === 'expo-router') {
-    let expoRouterFiles = [
-      'packages/expo-router/expo-env.d.ts',
-      'packages/expo-router/metro.config.js.ejs',
-      'packages/expo-router/index.ts'
-    ];
+    let expoRouterFiles = ['packages/expo-router/expo-env.d.ts', 'packages/expo-router/metro.config.js.ejs'];
     // if it's a stack, add the stack files) {
     if (navigationPackage?.options?.type === 'stack') {
       expoRouterFiles = [
@@ -135,7 +131,7 @@ export function configureProjectFiles(
         'packages/expo-router/stack/app/_layout.tsx.ejs',
         'packages/expo-router/stack/app/details.tsx.ejs',
         'packages/expo-router/stack/app/index.tsx.ejs',
-        'packages/expo-router/stack/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/stack/app/+not-found.tsx.ejs',
         'packages/expo-router/stack/app/+html.tsx.ejs'
       ];
     } else if (navigationPackage?.options?.type === 'tabs') {
@@ -147,7 +143,7 @@ export function configureProjectFiles(
         'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
         'packages/expo-router/tabs/app/_layout.tsx.ejs',
         'packages/expo-router/tabs/app/modal.tsx.ejs',
-        'packages/expo-router/tabs/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/tabs/app/+not-found.tsx.ejs',
         'packages/expo-router/tabs/app/+html.tsx.ejs',
         'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs'
       ];
@@ -156,7 +152,7 @@ export function configureProjectFiles(
       expoRouterFiles = [
         ...expoRouterFiles,
         'packages/expo-router/drawer/app/_layout.tsx.ejs',
-        'packages/expo-router/drawer/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/drawer/app/+not-found.tsx.ejs',
         'packages/expo-router/drawer/app/+html.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/_layout.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/index.tsx.ejs',
