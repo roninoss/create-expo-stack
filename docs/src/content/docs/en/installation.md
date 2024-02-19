@@ -69,7 +69,6 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--supabase`         | Use Supabase for authentication, initial configuration only                    |
 | `--nativewind`       | Use Nativewind for styling                                                     |
 | `--unistyles`        | Use Unistyles for styling                                                      |
-| `--stylesheet`       | Use StyleSheet for styling, used by default                                    |
 | `--tamagui`          | Use Tamagui for styling                                                        |
 | `--restyle`          | Use Restyle for styling                                                        |
 | `--stylesheet`       | Use StyleSheet for styling, used by default                                    |
