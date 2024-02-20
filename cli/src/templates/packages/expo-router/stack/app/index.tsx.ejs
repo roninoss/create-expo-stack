@@ -5,12 +5,20 @@ import { Button } from '../components/Button';
 
 import { ScreenContent } from '~/components/ScreenContent';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
+
 export default function Home() {
   return (
     <>
       <Stack.Screen options={{ title: 'Home' }} />
       <View style={styles.container}>
-        <ScreenContent path="app/index.tsx" title="Home" />
+        <ScreenContent path="app/index.tsx" title="Home">
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } %>
+        </ScreenContent
         <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
           <Button title="Show Details" />
         </Link>

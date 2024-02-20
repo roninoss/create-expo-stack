@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
+  import { InternalizationExample } from 'components/InternalizationExample';
 <% } %>
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
@@ -19,7 +20,11 @@ import { StatusBar } from 'expo-status-bar';
   export default function App() {   
     return (
       <ThemeProvider theme={theme}>
-        <ScreenContent title="Home" path="App.tsx" />
+        <ScreenContent title="Home" path="App.tsx">
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } %>
+        </ScreenContent>
         <StatusBar style="auto" />
       </ThemeProvider>
     );
@@ -28,7 +33,11 @@ import { StatusBar } from 'expo-status-bar';
   export default function App() {
     return (
       <TamaguiProvider config={config}>
-        <ScreenContent title="Home" path="App.tsx" />
+        <ScreenContent title="Home" path="App.tsx">
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } %>
+        </ScreenContent>
         <StatusBar style="auto" />
       </TamaguiProvider>
     );
@@ -37,7 +46,11 @@ import { StatusBar } from 'expo-status-bar';
   export default function App() {
     return (
       <>
-        <ScreenContent title="Home" path="App.tsx" />
+        <ScreenContent title="Home" path="App.tsx">
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } %>
+        </ScreenContent>
         <StatusBar style="auto" />
       </>
     );
