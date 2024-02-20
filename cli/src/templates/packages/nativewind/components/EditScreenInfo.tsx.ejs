@@ -8,21 +8,21 @@ import { useTranslation } from 'react-i18next';
 export const EditScreenInfo = ({ path }: { path: string }) => {
 <% if (props.internalizationPackage?.name === "i18next") { %>
   const { t } = useTranslation();
-  const getStarted = t('getStarted');
-  const changeCode = t('changeCode')
+  const title = t('getStarted');
+  const description = t('changeCode')
 <% } else { %>
-  const getStarted = "Open up the code for this screen:"
-  const changeCode = "Change any of the text, save the file, and your app will automatically update."
+  const title = "Open up the code for this screen:"
+  const description = "Change any of the text, save the file, and your app will automatically update."
 <% } %>
   return (
     <View>
       <View className={styles.getStartedContainer}>
-        <Text className={styles.getStartedText}>{getStarted}</Text>
+        <Text className={styles.getStartedText}>{title}</Text>
         <View className={styles.codeHighlightContainer + styles.homeScreenFilename}>
           <Text>{path}</Text>
         </View>
         <Text className={styles.getStartedText}>
-          {changeCode}
+          {description}
         </Text>
       </View>
     </View>

@@ -3,6 +3,9 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { ScreenContent } from 'components/ScreenContent';
 import { StyleSheet, View } from 'react-native';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
 
 import { Button } from '../components/Button';
 import { RootStackParamList } from '../navigation';
@@ -14,7 +17,11 @@ export default function Overview() {
 
   return (
     <View style={styles.container}>
-      <ScreenContent path="screens/overview.tsx" title="Overview" />
+      <ScreenContent path="screens/overview.tsx" title="Overview">
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
+      </ScreenContent>
       <Button
         onPress={() =>
           navigation.navigate('Details', {

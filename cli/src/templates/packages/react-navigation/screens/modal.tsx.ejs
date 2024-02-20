@@ -2,10 +2,18 @@ import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 import { Platform } from 'react-native';
 
+<% if (props.internalizationPackage?.name === "i18next") { %>
+  import { InternalizationExample } from 'components/InternalizationExample';
+<% } %>
+
 export default function Modal() {
   return (
     <>
-      <ScreenContent path="screens/modal.tsx" title="Modal" />
+      <ScreenContent path="screens/modal.tsx" title="Modal">
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
+      </ScreenContent>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
     </>
   );
