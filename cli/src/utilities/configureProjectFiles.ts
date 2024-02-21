@@ -19,7 +19,7 @@ export function configureProjectFiles(
     'base/babel.config.js.ejs',
     'base/package.json.ejs',
     'base/.gitignore.ejs',
-    'base/prettier.config.js.ejs'
+    'base/.prettierrc'
   ];
 
   if (stylingPackage?.name === 'stylesheet') {
@@ -160,7 +160,24 @@ export function configureProjectFiles(
   // add expo router files if needed
   // modify base files with expo router specifications
   if (navigationPackage?.name === 'expo-router') {
-    let expoRouterFiles = ['packages/expo-router/expo-env.d.ts', 'packages/expo-router/metro.config.js.ejs'];
+    let expoRouterFiles = [
+      'packages/expo-router/expo-env.d.ts',
+      'packages/expo-router/metro.config.js.ejs',
+      'packages/expo-router/index.ts'
+    ];
+
+    if (stylingPackage?.name === 'restyle') {
+      expoRouterFiles.push('packages/restyle/components/Button.tsx.ejs');
+    } else if (stylingPackage?.name === 'nativewind') {
+      expoRouterFiles.push('packages/nativewind/components/Button.tsx.ejs');
+    } else if (stylingPackage?.name === 'unistyles') {
+      expoRouterFiles.push('packages/unistyles/components/Button.tsx.ejs');
+    } else if (stylingPackage?.name === 'tamagui') {
+      expoRouterFiles.push('packages/tamagui/components/Button.tsx.ejs');
+    } else {
+      expoRouterFiles.push('base/components/Button.tsx.ejs');
+    }
+
     // if it's a stack, add the stack files) {
     if (navigationPackage?.options?.type === 'stack') {
       expoRouterFiles = [
@@ -168,7 +185,7 @@ export function configureProjectFiles(
         'packages/expo-router/stack/app/_layout.tsx.ejs',
         'packages/expo-router/stack/app/details.tsx.ejs',
         'packages/expo-router/stack/app/index.tsx.ejs',
-        'packages/expo-router/stack/app/+not-found.tsx.ejs',
+        'packages/expo-router/stack/app/[...unmatched].tsx.ejs',
         'packages/expo-router/stack/app/+html.tsx.ejs'
       ];
       // add the necessary components for the navigation
@@ -181,9 +198,8 @@ export function configureProjectFiles(
         'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
         'packages/expo-router/tabs/app/_layout.tsx.ejs',
         'packages/expo-router/tabs/app/modal.tsx.ejs',
-        'packages/expo-router/tabs/app/+not-found.tsx.ejs',
-        'packages/expo-router/tabs/app/+html.tsx.ejs',
-        'packages/expo-router/tabs/components/edit-screen-info.tsx.ejs'
+        'packages/expo-router/tabs/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/tabs/app/+html.tsx.ejs'
       ];
       // add the necessary components for the navigation
       expoRouterFiles.push('base/components/TabBarIcon.tsx.ejs');
@@ -193,7 +209,7 @@ export function configureProjectFiles(
       expoRouterFiles = [
         ...expoRouterFiles,
         'packages/expo-router/drawer/app/_layout.tsx.ejs',
-        'packages/expo-router/drawer/app/+not-found.tsx.ejs',
+        'packages/expo-router/drawer/app/[...unmatched].tsx.ejs',
         'packages/expo-router/drawer/app/+html.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/_layout.tsx.ejs',
         'packages/expo-router/drawer/app/(drawer)/index.tsx.ejs',
