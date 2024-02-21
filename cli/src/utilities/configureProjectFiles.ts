@@ -160,11 +160,7 @@ export function configureProjectFiles(
   // add expo router files if needed
   // modify base files with expo router specifications
   if (navigationPackage?.name === 'expo-router') {
-    let expoRouterFiles = [
-      'packages/expo-router/expo-env.d.ts',
-      'packages/expo-router/metro.config.js.ejs',
-      'packages/expo-router/index.ts'
-    ];
+    let expoRouterFiles = ['packages/expo-router/expo-env.d.ts', 'packages/expo-router/metro.config.js.ejs'];
 
     if (stylingPackage?.name === 'restyle') {
       expoRouterFiles.push('packages/restyle/components/Button.tsx.ejs');
