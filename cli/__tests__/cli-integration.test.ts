@@ -5,6 +5,10 @@ import { version } from '../package.json';
 import { test, expect, describe } from 'bun:test';
 import * as path from 'node:path';
 
+const navigationTypes = ['stack', 'tabs', 'drawer+tabs'];
+const stylingLibraries = ['--nativewind', '--tamagui', '--restyle', '--unistyles', '' /* stylesheet */];
+const packageManagers = [`npm`, `yarn`, `pnpm`, `bun`];
+
 const cli = async (cmd) =>
   system.run(`bun run ` + path.join('./', `bin`, `create-expo-stack.js`) + ` ${cmd} --overwrite`);
 
@@ -32,29 +36,48 @@ describe(`version control`, () => {
 
 describe(`dependencies`, () => {
   test(`generates a default project without dependencies installation`, async () => {
-    const output = await cli(`myTestProject --default --no-install`);
+    const output = await cli(`myTestProject --default --no-install --bun`);
     expect(output).not.toContain('Installing dependencies');
   });
 
   test(`generates a default project with dependecies installation`, async () => {
-    const output = await cli(`myTestProject --default`);
+    const output = await cli(`myTestProject --default --bun`);
     expect(output).toContain('Installing dependencies');
   });
-});
 
-const packageManagers = [`npm`, `yarn`, `pnpm`, `bun`];
+  // react-navigation
+  for (const type of navigationTypes) {
+    test(`generates a default project with dependecies installation for ${type}`, async () => {
+      const output = await cli(`myTestProject --react-navigation --${type} --bun --no-git`);
+      expect(output).toContain('Installing dependencies');
+    });
+  }
 
-describe(`package managers`, () => {
-  for (const packageManager of packageManagers) {
-    test(`generates a default project with ${packageManager}`, async () => {
-      const output = await cli(`myTestProject --default --${packageManager}  --no-install --no-git`);
-      expect(output).toContain(packageManager);
+  // expo-router
+  for (const type of navigationTypes) {
+    test(`generates a default project with dependecies installation for ${type}`, async () => {
+      const output = await cli(`myTestProject --expo-router --${type} --bun --no-git`);
+      expect(output).toContain('Installing dependencies');
+    });
+  }
+
+  // expo-router
+  for (const stylingLib of stylingLibraries) {
+    test(`generates a default project with dependecies installation for ${stylingLib}`, async () => {
+      const output = await cli(`myTestProject --default --${stylingLib} --bun --no-git`);
+      expect(output).toContain('Installing dependencies');
     });
   }
 });
 
-const navigationTypes = ['stack', 'tabs', 'drawer+tabs'];
-const stylingLibraries = ['--nativewind', '--tamagui', '--restyle', '--unistyles', '' /* stylesheet */];
+describe(`package managers`, () => {
+  for (const packageManager of packageManagers) {
+    test(`generates a default project with ${packageManager}`, async () => {
+      const output = await cli(`myTestProject --default --${packageManager} --no-git`);
+      expect(output).toContain(packageManager);
+    });
+  }
+});
 
 describe(`react-navigation`, () => {
   for (const type of navigationTypes) {
