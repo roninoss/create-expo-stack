@@ -63,8 +63,8 @@ describe(`dependencies`, () => {
 
   // expo-router
   for (const stylingLib of stylingLibraries) {
-    test(`generates a default project with dependecies installation for ${stylingLib}`, async () => {
-      const output = await cli(`myTestProject --default --${stylingLib} --bun --no-git`);
+    test(`generates a default project with dependecies installation for ${stylingLib ?? 'stylesheet'}`, async () => {
+      const output = await cli(`myTestProject --default ${stylingLib} --bun --no-git`);
       expect(output).toContain('Installing dependencies');
     });
   }
