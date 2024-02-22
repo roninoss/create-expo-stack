@@ -194,7 +194,7 @@ export function configureProjectFiles(
         'packages/expo-router/tabs/app/(tabs)/two.tsx.ejs',
         'packages/expo-router/tabs/app/_layout.tsx.ejs',
         'packages/expo-router/tabs/app/modal.tsx.ejs',
-        'packages/expo-router/tabs/app/[...unmatched].tsx.ejs',
+        'packages/expo-router/stack/app/+not-found.tsx.ejs',
         'packages/expo-router/tabs/app/+html.tsx.ejs'
       ];
       // add the necessary components for the navigation
