@@ -3,7 +3,8 @@
 [![Discord](https://img.shields.io/discord/1173879003191459860?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://expostack.dev/discord) [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
 
-<img src="../docs/public/biksbanner.png" />
+
+![Logo](/docs/public/biksbanner.png)
 
 <p align="center">
   An interactive CLI to create a highly configurable, typesafe Expo app.
