@@ -22,6 +22,12 @@ import '../unistyles';
 <% } %>
 	import { Stack } from "expo-router";
 
+<% if (props.analyticsPackage?.name === "vexo-analytics") { %>
+  import { vexo } from 'vexo-analytics';
+
+  vexo(process.env.VEXO_API_KEY);
+<% } %>
+
 export default function Layout() {
 
   <% if (props.stylingPackage?.name === "tamagui") { %>

@@ -17,6 +17,7 @@ export function configureProjectFiles(
   files: string[],
   navigationPackage: AvailablePackages | undefined,
   stylingPackage: AvailablePackages | undefined,
+  analyticsPackage: AvailablePackages | undefined,
   toolbox: Toolbox,
   cliResults: CliResults,
   internalizationPackage: AvailablePackages | undefined
@@ -380,6 +381,13 @@ export function configureProjectFiles(
       ];
 
       files = [...files, ...firebaseFiles];
+    }
+
+    // add vexo analytics files if needed
+    if (analyticsPackage?.name == 'vexo-analytics') {
+      const vexoFiles = ['packages/vexo-analytics/.env'];
+
+      files = [...files, ...vexoFiles];
     }
 
     // add i18next files if needed

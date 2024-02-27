@@ -62,6 +62,10 @@ export function generateProjectFiles(
       target = target.replace('packages/i18next/', '');
     }
 
+    if (analyticsPackage?.name === 'vexo-analytics') {
+      target = target.replace('packages/vexo-analytics/', '');
+    }
+
     const gen = toolbox.template.generate({
       template,
       target: `./${projectName}/` + target,
