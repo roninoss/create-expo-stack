@@ -34,7 +34,7 @@ import { Stack } from 'expo-router';
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
   import { vexo } from 'vexo-analytics';
 
-  vexo(process.env.VEXO_API_KEY);
+  vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
 
 export const unstable_settings = {
