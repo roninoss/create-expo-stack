@@ -25,7 +25,8 @@ export const availablePackages = [
   'tamagui',
   'restyle',
   'unistyles',
-  'i18next'
+  'i18next',
+  'vexo-analytics',
 ] as const;
 
 export type AuthenticationSelect = 'supabase' | 'firebase' | undefined;
@@ -61,7 +62,7 @@ export type SelectedComponents =
 
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
-  type: 'navigation' | 'styling' | 'authentication' | 'internationalization';
+  type: 'navigation' | 'styling' | 'authentication' | 'internationalization' | 'analytics';
   options?: { selectedComponents?: SelectedComponents[]; type?: NavigationTypes };
 };
 

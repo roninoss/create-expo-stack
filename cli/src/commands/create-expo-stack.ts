@@ -377,6 +377,7 @@ const command: GluegunCommand = {
           files,
           navigationPackage,
           stylingPackage,
+          analyticsPackage,
           toolbox,
           cliResults,
           internalizationPackage

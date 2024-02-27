@@ -1,8 +1,0 @@
-import "expo-router/entry";
-<% if (props.analyticsPackage?.name === "vexo-analytics") { %>
-import { vexo } from 'vexo-analytics';
-// If you don't have an API Key:
-//  1. Create an account/login in https://vexo.co
-//  2. Copy the key and add it to your `.env` file: VEXO_API_KEY=123abc
-vexo(process.env.VEXO_API_KEY);
-<% } %>

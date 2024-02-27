@@ -22,6 +22,12 @@ import { StatusBar } from 'expo-status-bar';
   import config from './tamagui.config';
 <% } %>
 
+<% if (props.analyticsPackage?.name === "vexo-analytics") { %>
+  import { vexo } from 'vexo-analytics';
+
+  vexo(process.env.VEXO_API_KEY);
+<% } %>
+
 <% if (props.stylingPackage?.name === "restyle") {%>
   export default function App() {   
     return (

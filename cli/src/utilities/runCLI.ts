@@ -96,9 +96,8 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       cliResults.flags.packageManager = options.bun ? 'bun' : options.pnpm ? 'pnpm' : options.npm ? 'npm' : 'yarn';
     } else {
       const shouldUseDefaultPackageManager = await confirm({
-        message: `\nWe've detected ${cliResults.flags.packageManager} ${
-          defaultPackageManagerVersion ? `v${defaultPackageManagerVersion}` : ''
-        } as your preferred package manager.\nWould you like to continue using it?`,
+        message: `\nWe've detected ${cliResults.flags.packageManager} ${defaultPackageManagerVersion ? `v${defaultPackageManagerVersion}` : ''
+          } as your preferred package manager.\nWould you like to continue using it?`,
         initialValue: true
       });
 
@@ -258,20 +257,20 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     options:
       navigationSelect === 'expo-router'
         ? [
-            { value: 'nativewindui', label: 'NativeWindUI' },
-            { value: 'nativewind', label: 'NativeWind' },
-            { value: 'restyle', label: 'Restyle' },
-            { value: 'stylesheet', label: 'StyleSheet' },
-            { value: 'tamagui', label: 'Tamagui (experimental)' },
-            { value: 'unistyles', label: 'Unistyles' }
-          ]
+          { value: 'nativewindui', label: 'NativeWindUI' },
+          { value: 'nativewind', label: 'NativeWind' },
+          { value: 'restyle', label: 'Restyle' },
+          { value: 'stylesheet', label: 'StyleSheet' },
+          { value: 'tamagui', label: 'Tamagui (experimental)' },
+          { value: 'unistyles', label: 'Unistyles' }
+        ]
         : [
-            { value: 'nativewind', label: 'NativeWind' },
-            { value: 'restyle', label: 'Restyle' },
-            { value: 'stylesheet', label: 'StyleSheet' },
-            { value: 'tamagui', label: 'Tamagui (experimental)' },
-            { value: 'unistyles', label: 'Unistyles' }
-          ],
+          { value: 'nativewind', label: 'NativeWind' },
+          { value: 'restyle', label: 'Restyle' },
+          { value: 'stylesheet', label: 'StyleSheet' },
+          { value: 'tamagui', label: 'Tamagui (experimental)' },
+          { value: 'unistyles', label: 'Unistyles' }
+        ],
     initialValue: navigationSelect === 'expo-router' ? 'nativewindui' : 'nativewind'
   });
 
@@ -341,8 +340,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   } else {
     cliResults.packages.push({ name: stylingSelect as StylingSelect, type: 'styling' });
     success(
-      `You'll be styling with ease using ${
-        stylingSelect.toString().charAt(0).toUpperCase() + stylingSelect.toString().slice(1)
+      `You'll be styling with ease using ${stylingSelect.toString().charAt(0).toUpperCase() + stylingSelect.toString().slice(1)
       }!`
     );
   }

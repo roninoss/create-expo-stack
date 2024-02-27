@@ -31,6 +31,12 @@ import { Stack } from 'expo-router';
   import { theme } from '../theme';
 <% } %>
 
+<% if (props.analyticsPackage?.name === "vexo-analytics") { %>
+  import { vexo } from 'vexo-analytics';
+
+  vexo(process.env.VEXO_API_KEY);
+<% } %>
+
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: "(drawer)",
