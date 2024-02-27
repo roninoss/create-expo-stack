@@ -30,6 +30,9 @@ export function showHelp(info, highlight, warning) {
   info('    	--firebase        Use Firebase for authentication');
   info('    	--supabase        Use Supabase for authentication');
   info('');
+  highlight('   Analytics Package Options');
+  info('    	--vexo-analytics  Use Vexo Analytics for analytics');
+  info('');
   highlight('   Styling Package Options');
   info('    	--nativewind      Use Nativewind for styling');
   info('    	--tamagui         Use Tamagui for styling');

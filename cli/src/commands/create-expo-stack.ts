@@ -207,24 +207,24 @@ const command: GluegunCommand = {
               selectedComponents: options.blank
                 ? []
                 : [
-                    'action-sheet',
-                    'activity-indicator',
-                    'activity-view',
-                    'alert',
-                    'avatar',
-                    'bottom-sheet',
-                    'context-menu',
-                    'date-picker',
-                    'dropdown-menu',
-                    'picker',
-                    'progress-indicator',
-                    'ratings-indicator',
-                    'segmented-control',
-                    'selectable-text',
-                    'slider',
-                    'text',
-                    'toggle'
-                  ]
+                  'action-sheet',
+                  'activity-indicator',
+                  'activity-view',
+                  'alert',
+                  'avatar',
+                  'bottom-sheet',
+                  'context-menu',
+                  'date-picker',
+                  'dropdown-menu',
+                  'picker',
+                  'progress-indicator',
+                  'ratings-indicator',
+                  'segmented-control',
+                  'selectable-text',
+                  'slider',
+                  'text',
+                  'toggle'
+                ]
             }
           });
           cliResults.packages.push({
@@ -300,6 +300,11 @@ const command: GluegunCommand = {
           });
         }
 
+        // Analytics packages
+        if (options.vexoAnalytics || options['vexo-analytics'] || options.vexoanalytics) {
+          cliResults.packages.push({ name: 'vexo-analytics', type: 'analytics', options: {} });
+        }
+
         // By this point, all cliResults should be set
         info('');
         highlight('Your project configuration:');
@@ -369,6 +374,7 @@ const command: GluegunCommand = {
         // if there is no styling package, add the stylesheet package
         const stylingPackage = packages.find((p) => p.type === 'styling');
         const internalizationPackage = packages.find((p) => p.type === 'internationalization');
+        const analyticsPackage = packages.find((p) => p.type === 'analytics');
 
         let files: string[] = [];
 
@@ -388,6 +394,7 @@ const command: GluegunCommand = {
 
         formattedFiles = generateProjectFiles(
           authenticationPackage,
+          analyticsPackage,
           cliResults,
           files,
           formattedFiles,
