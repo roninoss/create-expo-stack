@@ -27,7 +27,8 @@
     "react-native-screens": "~3.22.0",
     <% } %>
     <% if (props.navigationPackage?.name === "react-navigation") { %>
-    "@react-navigation/stack": "^6.3.17",
+      "@react-navigation/stack": "^6.3.17",
+      "@expo/vector-icons": "^14.0.0",
     <% } %>
     <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
     "vexo-analytics": "^1.3.11",
@@ -36,16 +37,27 @@
     "expo-splash-screen": "~0.20.5",
     <% } %>
     <% if (props.navigationPackage?.options.type === "tabs" && props.navigationPackage?.name === "react-navigation") { %>
-    "@react-navigation/bottom-tabs": "^6.5.8",
+      "@react-navigation/bottom-tabs": "^6.5.8",
     <% } %>
+
+    <% if ((props.navigationPackage?.options.type === "drawer + tabs") && (props.navigationPackage?.name === "react-navigation")) { %>
+      "@react-navigation/drawer": "^6.6.6",
+      "@react-navigation/bottom-tabs": "^6.5.8",
+      "react-native-reanimated": "~3.6.2",
+    <% } else if (props.navigationPackage?.options.type === "drawer + tabs") { %>
+      "@react-navigation/drawer": "^6.6.6",
+      "@react-navigation/bottom-tabs": "^6.5.8",
+    <% } %>
+
     <% if (props.navigationPackage?.name === "expo-router") { %>
-    "@expo/vector-icons": "^13.0.0",
-    "expo-linking": "~5.0.2",
-    "expo-router": "^2.0.0",
-    "expo-system-ui": "~2.4.0",
-    "expo-web-browser": "~12.3.2",
-    "react-dom": "18.2.0",
-    "react-native-web": "~0.19.6",
+      "expo-linking": "~6.2.2",
+      "expo-router": "^3.4.7", 
+      "expo-constants": "~15.4.5",     
+      "expo-system-ui": "~2.9.3",
+      "expo-web-browser": "~12.8.2",
+      "react-dom": "18.2.0",
+      "react-native-reanimated": "~3.6.2",
+      "react-native-web": "~0.19.10",
     <% } %>
     "expo": "~49.0.11",
     "expo-status-bar": "~1.6.0",
@@ -64,7 +76,7 @@
     "tailwindcss": "3.3.2",
     <% } %>
     <% if (props.stylingPackage?.name === "tamagui") { %>
-    "@tamagui/babel-plugin": "1.74.8",
+      "@tamagui/babel-plugin": "1.74.8",
     <% } %>
     "typescript": "^5.1.3"
   },
