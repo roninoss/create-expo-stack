@@ -67,6 +67,7 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--drawer`           | Use a Drawer navigator (pass with either Expo Router or React Navigation flag) |
 | `--firebase`         | Use Firebase for authentication, initial configuration only                    |
 | `--supabase`         | Use Supabase for authentication, initial configuration only                    |
+| `--vexo-analytics`   | Use Vexo Analytics for analytics, initial configuration only                   |
 | `--nativewind`       | Use Nativewind for styling                                                     |
 | `--unistyles`        | Use Unistyles for styling                                                      |
 | `--tamagui`          | Use Tamagui for styling                                                        |

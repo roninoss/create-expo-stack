@@ -3,6 +3,7 @@ import { AvailablePackages, CliResults, PackageManager } from '../types';
 
 export function generateProjectFiles(
   authenticationPackage: AvailablePackages | undefined,
+  analyticsPackage: AvailablePackages | undefined,
   cliResults: CliResults,
   files: string[],
   formattedFiles: any[],
