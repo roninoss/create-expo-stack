@@ -14,6 +14,7 @@ import Testimonials from "@components/landing/testimonials/testimonials.tsx";
 import ContributorsSection from "@components/landing/contributors/contributorsSection.tsx";
 import HeroSection from "@components/landing/hero/heroSection.astro";
 import SponsorsSection from "@components/landing/sponsors/sponsorsSection.tsx";
+import Roadmap from "@components/landing/roadmap/roadmap.tsx";
 ---
 
 <!doctype html>
@@ -25,6 +26,7 @@ import SponsorsSection from "@components/landing/sponsors/sponsorsSection.tsx";
   </head>
   <body class="flex flex-col bg-gradient-to-b from-black via-[#111] to-black">
     <main class="flex flex-col items-center w-full relative overflow-hidden">
+      <!-- Set max height for BackgroundSvg to 1620px -->
       <BackgroundSvg />
       <Navbar />
 
@@ -34,6 +36,7 @@ import SponsorsSection from "@components/landing/sponsors/sponsorsSection.tsx";
         <HeroSection />
         <StackSection />
       </section>
+      <Roadmap client:load />
       <Testimonials client:load />
       <ContributorsSection client:load />
       <SponsorsSection />
