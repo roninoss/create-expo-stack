@@ -1,4 +1,4 @@
-import { CONTRIBUTORS } from "../../../config";
+import { contributors } from "src/contributors";
 import { Contributor } from "./contributor";
 import GitHubIcon from "@components/icons/github";
 
@@ -24,11 +24,8 @@ export default function ContributorsSection() {
         {/* honeycomb grid for the future */}
         {/* [&>*:nth-child(9n_+_1)]:ml-[1.875rem] sm:[&>*:nth-child(9n_+_1)]:ml-[2.375rem] */}
         <div className="flex justify-center flex-wrap gap-3 w-[18rem] sm:w-[32.5rem] lg:w-[37.25rem]">
-          {CONTRIBUTORS.map((contributor) => (
-            <Contributor
-              contributor={contributor}
-              key={CONTRIBUTORS.indexOf(contributor)}
-            />
+          {contributors.map((contributor) => (
+            <Contributor contributor={contributor} key={contributor.id} />
           ))}
         </div>
         <a

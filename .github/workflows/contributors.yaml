@@ -1,0 +1,56 @@
+name: Contributors
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+env:
+  FORCE_COLOR: 3
+
+jobs:
+  update:
+    name: Update
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Cache node_modules
+        id: cache-bun
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}\
+            -${{ hashFiles('**/bun.lockb') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: bun install
+      - name: Run contributors script
+        run: bun dl-contrib
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          commit-message: 'Update contributors'
+          title: '🤖 Update contributors'
+          branch: chore/update-contributors
+          base: master
+          delete-branch: true
