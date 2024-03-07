@@ -2,7 +2,7 @@ const roadmapData = [
   {
     index: 0,
     version: "v2.5.x",
-    date: "Mar 4",
+    date: "Mar 9",
     active: true,
     title: "NativeWindUI Styling Option",
     description:
