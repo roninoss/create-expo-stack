@@ -45,6 +45,12 @@ jobs:
         run: bun dl-contrib
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Update contributors in README
+        uses: akhilmhdh/contributors-readme-action@v2.3.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          auto_detect_branch_protection: false
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
