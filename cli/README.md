@@ -84,153 +84,35 @@ If you'd like help with your React Native/Expo app or are just looking for a tec
 
 Thanks go to these wonderful people:
 
-<table>
-	<tbody>
-		<tr>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://onlydans.gg/">
-					<img src="https://pbs.twimg.com/profile_images/1689473757713514496/8fQrCrBx_400x400.jpg" width="100px;" alt="Dan Stepanov"/>
-					<br />
-					Dan Stepanov
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://twitter.com/ernestodotgg">
-					<img src="https://pbs.twimg.com/profile_images/1647055447931617285/RPeZJI3z_400x400.jpg" width="100px;" alt="Ernesto Resende"/>
-					<br />
-					Ernesto Resende
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/hqasmei">
-					<img src="https://avatars.githubusercontent.com/u/39573679?v=4" width="100px;" alt="Hosna Qasmei"/>
-					<br />
-					Hosna Qasmei
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/frankcalise/">
-					<img src="https://pbs.twimg.com/profile_images/1262363198839238662/uIfRNVBY_400x400.jpg" width="100px;" alt="Frank Calise"/>
-					<br />
-					Frank Calise
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/sammoore">
-					<img src="https://avatars.githubusercontent.com/u/2035492?v=4" width="100px;" alt="Sam Moore"/>
-					<br />
-					Sam Moore
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://twitter.com/mironcatalin">
-					<img src="https://avatars.githubusercontent.com/u/2805320?v=4" width="100px;" alt="Catalin Miron"/>
-					<br />
-					Catalin Miron
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://twitter.com/PickleNik0864">
-					<img src="https://pbs.twimg.com/profile_images/1694518037385244672/eaS0RTwB_400x400.jpg" width="100px;" alt="catalinmiron"/>
-					<br />
-					PickleNik
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://twitter.com/trashh_dev">
-					<img src="https://pbs.twimg.com/profile_images/1598959528518643713/aWdwBYxv_400x400.jpg" width="100px;" alt="Chris Bautista"/>
-					<br />
-					Chris Bautista
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://twitter.com/hugemathguy">
-					<img src="https://pbs.twimg.com/profile_images/1503470123763617796/49xDaART_400x400.jpg" width="100px;" alt="Andrew Levy"/>
-					<br />
-					Andrew Levy
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://twitter.com/alire74_">
-					<img src="https://pbs.twimg.com/profile_images/1680836863026765824/lrljy0sl_400x400.jpg" width="100px;" alt="Ali Zamani"/>
-					<br />
-					Ali Zamani
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/saimon24">
-					<img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100px;" alt="Simon Grimm"/>
-					<br />
-					Simon Grimm
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://twitter.com/mwarger">
-					<img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100px;" alt="Mat Warger"/>
-					<br />
-					Mat Warger
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/kratos-respawned">
-					<img src="https://avatars.githubusercontent.com/u/87561983?v=4" width="100px;" alt="kratos-respawned"/>
-					<br />
-					Gaurav Bhandari
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/b0iq">
-					<img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100px;" alt="b0iq"/>
-					<br />
-					b0iq
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://aodhan.netlify.app/">
-					<img src="https://pbs.twimg.com/profile_images/1472990183993888772/3X5J4d9__400x400.png" width="100px;" alt="Aodhan Hamilton"/>
-					<br />
-					Aodhan Hamilton
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/finnbayer">
-					<img src="https://avatars.githubusercontent.com/u/115630860?v=4" width="100px;" alt="finnbayer"/>
-					<br />
-					Finn Bayer
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/todevmilen">
-					<img src="https://avatars.githubusercontent.com/u/78319110?v=4" width="100px;" alt="todevmilen"/>
-					<br />
-					Milen Todev
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/gialencar">
-					<img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100px;" alt="gialencar"/>
-					<br />
-					Gilson Alencar
-				</a>
-			</td>
-			<td align="center" valign="top" width="14.28%">
-				<a href="https://github.com/Joehoel">
-					<img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100px;" alt="joehoel"/>
-					<br />
-					Joël Kuijper
-				</a>
-			</td>
-		</tr>
-	</tbody>
-</table>
+<!-- CONTRIBUTORS_START -->
+<table><tr><td><a href="https://github.com/danstepanov" target="_blank"><img src="https://avatars.githubusercontent.com/u/5482800?v=4" width="100" alt="danstepanov"><br>danstepanov</a></td></tr>
+<tr><td><a href="https://github.com/hqasmei" target="_blank"><img src="https://avatars.githubusercontent.com/u/39573679?v=4" width="100" alt="hqasmei"><br>hqasmei</a></td></tr>
+<tr><td><a href="https://github.com/sammoore" target="_blank"><img src="https://avatars.githubusercontent.com/u/2035492?v=4" width="100" alt="sammoore"><br>sammoore</a></td></tr>
+<tr><td><a href="https://github.com/ernestoresende" target="_blank"><img src="https://avatars.githubusercontent.com/u/55156145?v=4" width="100" alt="ernestoresende"><br>ernestoresende</a></td></tr>
+<tr><td><a href="https://github.com/frankcalise" target="_blank"><img src="https://avatars.githubusercontent.com/u/374022?v=4" width="100" alt="frankcalise"><br>frankcalise</a></td></tr>
+<tr><td><a href="https://github.com/ludwig-pro" target="_blank"><img src="https://avatars.githubusercontent.com/u/62896243?v=4" width="100" alt="ludwig-pro"><br>ludwig-pro</a></td></tr>
+<tr><td><a href="https://github.com/PickleNik" target="_blank"><img src="https://avatars.githubusercontent.com/u/31113245?v=4" width="100" alt="PickleNik"><br>PickleNik</a></td></tr>
+<tr><td><a href="https://github.com/kratos-respawned" target="_blank"><img src="https://avatars.githubusercontent.com/u/87561983?v=4" width="100" alt="kratos-respawned"><br>kratos-respawned</a></td></tr>
+<tr><td><a href="https://github.com/finnbayer" target="_blank"><img src="https://avatars.githubusercontent.com/u/115630860?v=4" width="100" alt="finnbayer"><br>finnbayer</a></td></tr>
+<tr><td><a href="https://github.com/saimon24" target="_blank"><img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100" alt="saimon24"><br>saimon24</a></td></tr>
+<tr><td><a href="https://github.com/todevmilen" target="_blank"><img src="https://avatars.githubusercontent.com/u/78319110?v=4" width="100" alt="todevmilen"><br>todevmilen</a></td></tr>
+<tr><td><a href="https://github.com/alitnk" target="_blank"><img src="https://avatars.githubusercontent.com/u/35243344?v=4" width="100" alt="alitnk"><br>alitnk</a></td></tr>
+<tr><td><a href="https://github.com/dannyhw" target="_blank"><img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100" alt="dannyhw"><br>dannyhw</a></td></tr>
+<tr><td><a href="https://github.com/catalinmiron" target="_blank"><img src="https://avatars.githubusercontent.com/u/2805320?v=4" width="100" alt="catalinmiron"><br>catalinmiron</a></td></tr>
+<tr><td><a href="https://github.com/b0iq" target="_blank"><img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100" alt="b0iq"><br>b0iq</a></td></tr>
+<tr><td><a href="https://github.com/coyksdev" target="_blank"><img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100" alt="coyksdev"><br>coyksdev</a></td></tr>
+<tr><td><a href="https://github.com/andrew-levy" target="_blank"><img src="https://avatars.githubusercontent.com/u/29075740?v=4" width="100" alt="andrew-levy"><br>andrew-levy</a></td></tr>
+<tr><td><a href="https://github.com/gialencar" target="_blank"><img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100" alt="gialencar"><br>gialencar</a></td></tr>
+<tr><td><a href="https://github.com/mwarger" target="_blank"><img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100" alt="mwarger"><br>mwarger</a></td></tr>
+<tr><td><a href="https://github.com/gabimoncha" target="_blank"><img src="https://avatars.githubusercontent.com/u/39256258?v=4" width="100" alt="gabimoncha"><br>gabimoncha</a></td></tr>
+<tr><td><a href="https://github.com/gwenoleR" target="_blank"><img src="https://avatars.githubusercontent.com/u/10418241?v=4" width="100" alt="gwenoleR"><br>gwenoleR</a></td></tr>
+<tr><td><a href="https://github.com/zamplyy" target="_blank"><img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100" alt="zamplyy"><br>zamplyy</a></td></tr>
+<tr><td><a href="https://github.com/Joehoel" target="_blank"><img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100" alt="Joehoel"><br>Joehoel</a></td></tr>
+<tr><td><a href="https://github.com/asapMaki" target="_blank"><img src="https://avatars.githubusercontent.com/u/30200380?v=4" width="100" alt="asapMaki"><br>asapMaki</a></td></tr>
+<tr><td><a href="https://github.com/Hacksore" target="_blank"><img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100" alt="Hacksore"><br>Hacksore</a></td></tr>
+<tr><td><a href="https://github.com/bautistaaa" target="_blank"><img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100" alt="bautistaaa"><br>bautistaaa</a></td></tr>
+<tr><td><a href="https://github.com/debugtheworldbot" target="_blank"><img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100" alt="debugtheworldbot"><br>debugtheworldbot</a></td></tr></table>
+<!-- CONTRIBUTORS_END -->
 
 [downloads-image]: https://img.shields.io/npm/dm/create-expo-stack?color=364fc7&logoColor=364fc7
 [npm-url]: https://www.npmjs.com/package/create-expo-stack
