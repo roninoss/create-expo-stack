@@ -51,6 +51,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           auto_detect_branch_protection: false
+          readme_path: ~/cli/README.md
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
