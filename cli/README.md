@@ -23,6 +23,9 @@ Support this project by <a href="https://github.com/sponsors/danstepanov" target
 <a href="https://github.com/derkweijers" target="_blank" style="margin: 10px;">
   <img src="https://avatars.githubusercontent.com/u/11644998?v=4" height="64" width="64" style="border-radius: 50%;">
 </a>
+<a href="https://paradigmpost.com" target="_blank" style="margin: 10px;">
+  <img src="https://expostack.dev/paradigmpost.png" height="64" width="64" style="border-radius: 50%;">
+</a>
 
 ## Description
 

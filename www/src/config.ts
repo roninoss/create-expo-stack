@@ -39,6 +39,12 @@ export const SPONSORS = [
     html_url: "https://github.com/derkweijers",
     image_url: "https://avatars.githubusercontent.com/u/11644998?v=4",
   },
+  {
+    id: 4,
+    name: "Paradigm Post",
+    html_url: "https://paradigmpost.com/",
+    image_url: "/paradigmpost.png",
+  },
 ];
 
 export const AUTHORS = [
