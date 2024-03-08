@@ -91,6 +91,202 @@ If you'd like help with your React Native/Expo app or are just looking for a tec
 Thanks go to these wonderful people:
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/danstepanov">
+            <img src="https://avatars.githubusercontent.com/u/5482800?v=4" width="100;" alt="danstepanov"/>
+            <br />
+            <sub><b>Dan Stepanov</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/hqasmei">
+            <img src="https://avatars.githubusercontent.com/u/39573679?v=4" width="100;" alt="hqasmei"/>
+            <br />
+            <sub><b>Hosna Qasmei</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/sammoore">
+            <img src="https://avatars.githubusercontent.com/u/2035492?v=4" width="100;" alt="sammoore"/>
+            <br />
+            <sub><b>Sam Moore</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ernestoresende">
+            <img src="https://avatars.githubusercontent.com/u/55156145?v=4" width="100;" alt="ernestoresende"/>
+            <br />
+            <sub><b>Ernesto Resende</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/frankcalise">
+            <img src="https://avatars.githubusercontent.com/u/374022?v=4" width="100;" alt="frankcalise"/>
+            <br />
+            <sub><b>Frank Calise</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ludwig-pro">
+            <img src="https://avatars.githubusercontent.com/u/62896243?v=4" width="100;" alt="ludwig-pro"/>
+            <br />
+            <sub><b>Ludwig</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/PickleNik">
+            <img src="https://avatars.githubusercontent.com/u/31113245?v=4" width="100;" alt="PickleNik"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/kratos-respawned">
+            <img src="https://avatars.githubusercontent.com/u/87561983?v=4" width="100;" alt="kratos-respawned"/>
+            <br />
+            <sub><b>Gaurav Bhandari</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/finnbayer">
+            <img src="https://avatars.githubusercontent.com/u/115630860?v=4" width="100;" alt="finnbayer"/>
+            <br />
+            <sub><b>Finn Bayer</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/saimon24">
+            <img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100;" alt="saimon24"/>
+            <br />
+            <sub><b>Simon Grimm</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/todevmilen">
+            <img src="https://avatars.githubusercontent.com/u/78319110?v=4" width="100;" alt="todevmilen"/>
+            <br />
+            <sub><b>Milen Todev</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/alitnk">
+            <img src="https://avatars.githubusercontent.com/u/35243344?v=4" width="100;" alt="alitnk"/>
+            <br />
+            <sub><b>Alireza Zamani</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/dannyhw">
+            <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
+            <br />
+            <sub><b>Daniel Williams</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/catalinmiron">
+            <img src="https://avatars.githubusercontent.com/u/2805320?v=4" width="100;" alt="catalinmiron"/>
+            <br />
+            <sub><b>Catalin Miron</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/b0iq">
+            <img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100;" alt="b0iq"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/coyksdev">
+            <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
+            <br />
+            <sub><b>Gerald</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/andrew-levy">
+            <img src="https://avatars.githubusercontent.com/u/29075740?v=4" width="100;" alt="andrew-levy"/>
+            <br />
+            <sub><b>Andrew Levy</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/gialencar">
+            <img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100;" alt="gialencar"/>
+            <br />
+            <sub><b>Gilson Alencar</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/mwarger">
+            <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
+            <br />
+            <sub><b>Mat Warger</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/gabimoncha">
+            <img src="https://avatars.githubusercontent.com/u/39256258?v=4" width="100;" alt="gabimoncha"/>
+            <br />
+            <sub><b>Gabimoncha</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/gwenoleR">
+            <img src="https://avatars.githubusercontent.com/u/10418241?v=4" width="100;" alt="gwenoleR"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/zamplyy">
+            <img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100;" alt="zamplyy"/>
+            <br />
+            <sub><b>Joar Karlsson</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Joehoel">
+            <img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100;" alt="Joehoel"/>
+            <br />
+            <sub><b>Joël Kuijper</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/asapMaki">
+            <img src="https://avatars.githubusercontent.com/u/30200380?v=4" width="100;" alt="asapMaki"/>
+            <br />
+            <sub><b>Mahir Kadić</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/Hacksore">
+            <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
+            <br />
+            <sub><b>Sean Boult</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/bautistaaa">
+            <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/debugtheworldbot">
+            <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
+            <br />
+            <sub><b>Pipizhu</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
 
 [downloads-image]: https://img.shields.io/npm/dm/create-expo-stack?color=364fc7&logoColor=364fc7
