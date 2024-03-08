@@ -7,7 +7,7 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
   FORCE_COLOR: 3
@@ -59,5 +59,5 @@ jobs:
           commit-message: 'Update contributors'
           title: '🤖 Update contributors'
           branch: chore/update-contributors
-          base: master
+          base: main
           delete-branch: true
