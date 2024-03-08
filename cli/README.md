@@ -21,7 +21,7 @@ Support this project by <a href="https://github.com/sponsors/danstepanov" target
   <img src="https://expostack.dev/expo-logo.svg"  style="border-radius: 50%;">
 </a>
 <a href="https://github.com/derkweijers" target="_blank" style="margin: 10px;">
-  <img src="https://avatars.githubusercontent.com/u/11644998?v=4"  style="border-radius: 50%;">
+  <img src="https://avatars.githubusercontent.com/u/11644998?v=4" height="64" width="64" style="border-radius: 50%;">
 </a>
 
 ## Description
