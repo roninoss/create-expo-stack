@@ -33,6 +33,12 @@ export const SPONSORS = [
     html_url: "https://expo.dev/",
     image_url: "/expo-logo.svg",
   },
+  {
+    id: 3,
+    name: "Derk Weijers",
+    html_url: "https://github.com/derkweijers",
+    image_url: "https://avatars.githubusercontent.com/u/11644998?v=4",
+  },
 ];
 
 export const AUTHORS = [
