@@ -37,4 +37,8 @@ export async function renderTitle(toolbox: Toolbox) {
       console.log(cesGradient.multiline(data));
     }
   );
+
+  // TODO: this is hacky, figure out a way to do this better
+  // set timeout for 1 second so that the title can render before the CLI runs
+  await new Promise((resolve) => setTimeout(resolve, 200));
 }

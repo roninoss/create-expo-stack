@@ -5,8 +5,11 @@ export async function validateProjectName(
   exists: (path: string) => ExistsResult,
   removeAsync: (path?: string) => Promise<void>,
   prompt: GluegunPrompt | null,
-  projectName: string
+  projectName: string,
+  success: (message: string) => void
 ): Promise<void> {
+  // Check if a project with the same name already exists
+
   if (!exists(projectName)) {
     return;
   }
@@ -22,7 +25,7 @@ export async function validateProjectName(
 
     if (confirmDelete.delete) {
       await removeAsync(projectName);
-      return void console.log(`Deleted existing directory: ${projectName}`);
+      return void success(`Deleted existing directory: ${projectName}`);
     }
   }
 

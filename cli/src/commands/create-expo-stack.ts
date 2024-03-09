@@ -17,6 +17,7 @@ import clearStylingPackages from '../utilities/clearStylingPackages';
 import { validateProjectName } from '../utilities/validateProjectName';
 
 const navigationValidationError = `You must pass in either --react-navigation or --expo-router if you want to use the --tabs or --drawer+tabs options`;
+const projectNameValidationError = `A project with the name`;
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
@@ -69,9 +70,8 @@ const command: GluegunCommand = {
 
       await renderTitle(toolbox);
 
-      // TODO: this is hacky, figure out a way to do this better
-      // set timeout for 1 second so that the title can render before the CLI runs
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      // Prompt the user for the project name if it is not passed in via the command
+      // - TODO: simplify this if statement to clarify what is being checked
       if (!first && (options.ignite || !(useDefault || optionsPassedIn || skipCLI || useBlankTypescript))) {
         const askName = {
           type: 'input',
@@ -88,7 +88,7 @@ const command: GluegunCommand = {
         cliResults.projectName = pathSegments.pop(); // get last segment as the project name
       }
 
-      // Validate the project name; check if the directory already exists
+      // Validate the provided project name; check if the directory already exists
       // - We may or may not be interactive, so conditionally pass in prompt.
       // - Ignore validation if the overwrite option is passed in.
       if (options.overwrite) {
@@ -98,10 +98,11 @@ const command: GluegunCommand = {
           exists,
           removeAsync,
           !(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
-          cliResults.projectName
+          cliResults.projectName,
+          success
         );
       }
-    } catch (err) {
+    } catch (err: string | any) {
       if (err === '') {
         // user cancelled/exited the interactive CLI
         return void success(`\nCancelled... 👋 \n`);
@@ -110,9 +111,12 @@ const command: GluegunCommand = {
         // user tried passing in tabs/drawer option without passing in either expo router or react navigation
         return void error(`\n${navigationValidationError}\n`);
       }
+      if (err.message.includes(projectNameValidationError)) {
+        return void success(`\nCancelled... 👋 \n`);
+      }
 
-      // TODO: delete all files with projectName
-      // await removeAsync(cliResults.projectName);
+      // Delete all files with projectName
+      await removeAsync(cliResults.projectName);
 
       printSomethingWentWrong();
       throw err;
@@ -350,8 +354,8 @@ const command: GluegunCommand = {
         return void success(`\nCancelled... 👋 \n`);
       }
 
-      // TODO: delete all files with projectName
-      // await removeAsync(cliResults.projectName);
+      // Delete all files with projectName
+      await removeAsync(cliResults.projectName);
 
       printSomethingWentWrong();
       throw err;
