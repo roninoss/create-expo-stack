@@ -12,6 +12,7 @@
     <% if (props.stylingPackage?.name === "nativewind") { %>
     "nativewind": "^2.0.11",
     <% } %>
+
     <% if (props.stylingPackage?.name === "tamagui") { %>
     "tamagui": "1.74.8",
     "@tamagui/font-inter": "1.74.8",
@@ -20,12 +21,14 @@
     "@tamagui/react-native-media-driver": "1.74.8",
     "expo-font": "~11.4.0",
     <% } %>
+
     <% if (props.navigationPackage?.type === "navigation") { %>
     "@react-navigation/native": "^6.1.7",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-safe-area-context": "4.6.3",
     "react-native-screens": "~3.22.0",
     <% } %>
+
     <% if (props.navigationPackage?.name === "react-navigation") { %>
       "@react-navigation/stack": "^6.3.17",
       "@expo/vector-icons": "^14.0.0",
@@ -36,6 +39,7 @@
     <% if ((props.navigationPackage?.name === "react-navigation") && (props.stylingPackage?.name === "tamagui")) { %>
     "expo-splash-screen": "~0.20.5",
     <% } %>
+
     <% if (props.navigationPackage?.options.type === "tabs" && props.navigationPackage?.name === "react-navigation") { %>
       "@react-navigation/bottom-tabs": "^6.5.8",
     <% } %>
