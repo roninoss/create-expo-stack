@@ -367,7 +367,10 @@ export function configureProjectFiles(
 
     // add supabase files if needed
     if (authenticationPackage?.name === 'supabase') {
-      const supabaseFiles = ['packages/supabase/utils/supabase.ts.ejs', 'packages/supabase/.env'];
+      const supabaseFiles = [
+        'packages/supabase/utils/supabase.ts.ejs',
+        'packages/supabase/.env.ejs'
+      ];
 
       files = [...files, ...supabaseFiles];
     }
@@ -377,7 +380,7 @@ export function configureProjectFiles(
       const firebaseFiles = [
         'packages/firebase/utils/firebase.ts.ejs',
         'packages/firebase/metro.config.js.ejs',
-        'packages/firebase/.env'
+        'packages/firebase/.env.ejs'
       ];
 
       files = [...files, ...firebaseFiles];
@@ -385,7 +388,7 @@ export function configureProjectFiles(
 
     // add vexo analytics files if needed
     if (analyticsPackage?.name == 'vexo-analytics') {
-      const vexoFiles = ['packages/vexo-analytics/.env'];
+      const vexoFiles = ['packages/vexo-analytics/.env.ejs'];
 
       files = [...files, ...vexoFiles];
     }
