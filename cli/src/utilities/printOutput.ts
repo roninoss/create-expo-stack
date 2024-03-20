@@ -123,19 +123,17 @@ export async function printOutput(
   }
 
   const printVexoSteps = () => {
-    if (cliResults.packages.some((pkg) => pkg.name === 'vexo-analytics')) {
-      info(``);
-      highlight('Head over to https://vexo.co to create a new Vexo project.');
-      info(``);
-      highlight(`Get the API key:`);
-      info(`1. Create a new app in your vexo dashboard:`);
-      highlight(`https://vexo.co/apps`);
-      info(`2. Find your API key on your app settings page.`);
-      info(`3. Copy the key and paste it into your .env file.`);
-      info(`4. Optionally, follow the docs to get started with Vexo:`);
-      highlight(`https://docs.vexo.co/`);
-      info(``);
-    }
+    info(``);
+    highlight('Head over to https://vexo.co to create a new Vexo project.');
+    info(``);
+    highlight(`Get the API key:`);
+    info(`1. Create a new app in your vexo dashboard:`);
+    highlight(`https://vexo.co/apps`);
+    info(`2. Find your API key on your app settings page.`);
+    info(`3. Copy the key and paste it into your .env file.`);
+    info(`4. Optionally, follow the docs to get started with Vexo:`);
+    highlight(`https://docs.vexo.co/`);
+    info(``);
   };
 
   //	check if packages includes package with name "supabase"
@@ -175,13 +173,12 @@ export async function printOutput(
   } else {
     if (cliResults.packages.some((pkg) => pkg.name === 'vexo-analytics')) {
       success(`Success! 🎉 Now, here's what's next:`);
-      info(``);
       printVexoSteps();
       success(`Once you're done, run the following to get started: `);
-      info(``);
     } else {
       success('\nSuccess! 🎉 Now, just run the following to get started: ');
     }
+    info(``);
   }
   let step = 1;
 
