@@ -6,11 +6,15 @@ export async function validateProjectName(
   removeAsync: (path?: string) => Promise<void>,
   prompt: GluegunPrompt | null,
   projectName: string,
-  success: (message: string) => void
+  success: (message: string) => void,
+  overwrite: boolean
 ): Promise<void> {
-  // Check if a project with the same name already exists
-
   if (!exists(projectName)) {
+    return;
+  }
+
+  if (overwrite || (exists(projectName) === 'dir' && !prompt)) {
+    await removeAsync(projectName);
     return;
   }
 

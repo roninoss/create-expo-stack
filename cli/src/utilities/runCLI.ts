@@ -69,15 +69,15 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     success(`No problem, skipping navigation for now.`);
   }
 
+  const baseStylePackageNames = ['Nativewind', 'Restyle', 'Stylesheet', 'Tamagui (experimental)', 'Unistyles'];
   const askStyling = {
     type: 'select',
     name: 'stylingSelect',
     message: 'What would you like to use for styling?',
-    choices: ['Nativewind', 'Restyle', 'Stylesheet', 'Tamagui (experimental)', 'Unistyles']
+    choices: baseStylePackageNames
   };
 
   const { stylingSelect } = await prompt.ask(askStyling);
-
   if (stylingSelect === 'Nativewind') {
     cliResults.packages.push({ name: 'nativewind', type: 'styling' });
     success(`You'll be styling with ease using Tailwind.`);

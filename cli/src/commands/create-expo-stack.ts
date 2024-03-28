@@ -53,6 +53,7 @@ const command: GluegunCommand = {
     // Set the default options
     let cliResults: CliResults = defaultOptions;
 
+    // START INPUT VALIDATION
     try {
       // Validation: check if the user passed in the tabs/drawer option without passing in either expo router or react navigation. If so, throw an error
       if (
@@ -93,15 +94,15 @@ const command: GluegunCommand = {
       // - Ignore validation if the overwrite option is passed in.
       if (options.overwrite) {
         cliResults.flags.overwrite = true;
-      } else {
-        await validateProjectName(
-          exists,
-          removeAsync,
-          !(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
-          cliResults.projectName,
-          success
-        );
       }
+      await validateProjectName(
+        exists,
+        removeAsync,
+        !(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
+        cliResults.projectName,
+        success,
+        cliResults.flags.overwrite
+      );
     } catch (err: string | any) {
       if (err === '') {
         // user cancelled/exited the interactive CLI
@@ -121,6 +122,7 @@ const command: GluegunCommand = {
       printSomethingWentWrong();
       throw err;
     }
+    // END INPUT VALIDATION
 
     // Determine remaining options, run interactive CLI if necessary, and generate project
     try {
