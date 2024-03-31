@@ -63,3 +63,10 @@ export function getPackageManagerRunnerX(toolbox: Toolbox, cliResults: CliResult
     return 'npx';
   }
 }
+
+export function getDefaultPackageManagerVersion() {
+  const userAgent = process.env.npm_config_user_agent;
+  if (userAgent) {
+    return userAgent.split(' ')[0].split('/')[1];
+  }
+}

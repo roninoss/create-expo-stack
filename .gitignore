@@ -9,3 +9,4 @@ myTestProject
 .turbo
 package-lock.json
 .env
+cli/my-expo-app

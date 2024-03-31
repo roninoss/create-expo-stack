@@ -2,11 +2,14 @@ import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
 import { defaultOptions } from '../constants';
 import { CliResults, NavigationTypes, PackageManager } from '../types';
+import { getDefaultPackageManagerVersion } from './getPackageManager';
+
+const recommendedBunVersion = '1.0.14';
 
 export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
   const {
     parameters: { options },
-    print: { success },
+    print: { info, success, warning, highlight },
     prompt
   } = toolbox;
 
@@ -26,6 +29,43 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     success('Good call, now using TypeScript! 🚀');
   } else {
     success(`Wrong answer, we're gonna use Typescript.`);
+  }
+
+  const defaultPackageManagerVersion = getDefaultPackageManagerVersion();
+  if (cliResults.flags.packageManager) {
+    if (options.bun || options.pnpm || options.npm || options.yarn) {
+      cliResults.flags.packageManager = options.bun ? 'bun' : options.pnpm ? 'pnpm' : options.npm ? 'npm' : 'yarn';
+    } else {
+      highlight(
+        `\nWe've detected ${cliResults.flags.packageManager} ${
+          defaultPackageManagerVersion ? `v${defaultPackageManagerVersion}` : ''
+        } as your preferred package manager.`
+      );
+      const shouldUseDefaultPackageManager = await prompt.confirm(`Would you like to continue using it?`, true);
+      if (!shouldUseDefaultPackageManager) {
+        const askPackageManager = {
+          type: 'select',
+          name: 'packageManagerSelect',
+          message: 'Which package manager would you like to use?',
+          choices: ['npm', 'yarn', 'pnpm', 'bun']
+        };
+        const { packageManagerSelect } = await prompt.ask(askPackageManager);
+        cliResults.flags.packageManager = packageManagerSelect as PackageManager;
+      }
+    }
+  } else {
+    if (options.bun || options.pnpm || options.npm || options.yarn) {
+      cliResults.flags.packageManager = options.bun ? 'bun' : options.pnpm ? 'pnpm' : options.npm ? 'npm' : 'yarn';
+    } else {
+      const askPackageManager = {
+        type: 'select',
+        name: 'packageManagerSelect',
+        message: 'Which package manager would you like to use?',
+        choices: ['npm', 'yarn', 'pnpm', 'bun']
+      };
+      const { packageManagerSelect } = await prompt.ask(askPackageManager);
+      cliResults.flags.packageManager = packageManagerSelect as PackageManager;
+    }
   }
 
   // Ask about navigation
@@ -63,6 +103,53 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
           type: navigationTypeSelect.toLowerCase() as NavigationTypes
         }
       });
+    }
+    // If the user is using a version of bun that is anything but version 1.0.14, communicate a message
+    if (cliResults.flags.packageManager === 'bun' && defaultPackageManagerVersion !== recommendedBunVersion) {
+      warning('⚠️' + ' ' + ` We've detected you're using Bun v${defaultPackageManagerVersion}.`);
+      info('');
+      warning(
+        `Some packages may not work correctly if you continue. We recommend using Bun v${recommendedBunVersion} until peerDependencies are properly resolved with bun install.`
+      );
+      warning(`For more information, visit https://github.com/oven-sh/bun/issues/4946`);
+      info('');
+      warning(`To switch to Bun v${recommendedBunVersion}, run:`);
+      info('');
+      warning(`\tcurl -fsSL https://bun.sh/install | bash -s "bun-v${recommendedBunVersion}"`);
+      info('');
+      warning(`or visit bun.sh/docs/installation for other installation methods (e.g. via Homebrew, npm, etc).`);
+      info('');
+      const shouldContinue = await prompt.confirm(
+        `Would you like to continue without switching to Bun v${recommendedBunVersion}?`,
+        true
+      );
+      if (!shouldContinue) {
+        throw new Error(`User cancelled to install recommended version of Bun.`);
+      }
+    } else if (cliResults.flags.packageManager === 'bun' && !defaultPackageManagerVersion) {
+      warning(
+        '⚠️' + ' ' + ` We've detected you're using Bun but we are unable to determine which version you are using.`
+      );
+      info('');
+      warning(
+        `We recommend using Bun v${recommendedBunVersion} until peerDependencies are properly resolved with bun install. If you continue with a version that is not v${recommendedBunVersion}, some packages may not work correctly.`
+      );
+      warning(`For more information, visit https://github.com/oven-sh/bun/issues/4946`);
+      info('');
+      warning(`To check your version of Bun, run:`);
+      info('');
+      warning(`\tbun -version`);
+      info('');
+      warning(`To switch to Bun v${recommendedBunVersion}, run:`);
+      info('');
+      warning(`\tcurl -fsSL https://bun.sh/install | bash -s "bun-v${recommendedBunVersion}"`);
+      info('');
+      warning(`or visit bun.sh/docs/installation for other installation methods (e.g. via Homebrew, npm, etc).`);
+      info('');
+      const shouldContinue = await prompt.confirm('Would you like to continue with your current version of Bun?', true);
+      if (!shouldContinue) {
+        throw new Error('User cancelled to install recommended version of Bun.');
+      }
     }
     success(`Great, we'll use ${navigationSelect}!`);
   } else {
@@ -118,7 +205,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   const askInternalization = {
     type: 'select',
     name: 'internalizationSelect',
-    message: 'What would you like to use for internationalization?',
+    message: 'What would you like to support internationalization?',
     choices: ['i18next', 'None']
   };
 
@@ -131,19 +218,5 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     success(`No problem, skipping internationalization for now.`);
   }
 
-  if (!cliResults.flags.packageManager) {
-    const askPackageManager = {
-      type: 'select',
-      name: 'packageManagerSelect',
-      message: 'Which package manager would you like to use?',
-      choices: ['npm', 'yarn', 'pnpm', 'bun']
-    };
-
-    const { packageManagerSelect } = await prompt.ask(askPackageManager);
-
-    cliResults.flags.packageManager = packageManagerSelect as PackageManager;
-  } else {
-    cliResults.flags.packageManager = 'npm';
-  }
   return cliResults;
 }
