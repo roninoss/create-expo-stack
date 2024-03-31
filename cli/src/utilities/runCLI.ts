@@ -105,7 +105,11 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       });
     }
     // If the user is using a version of bun that is anything but version 1.0.14, communicate a message
-    if (cliResults.flags.packageManager === 'bun' && defaultPackageManagerVersion !== recommendedBunVersion) {
+    if (
+      cliResults.flags.packageManager === 'bun' &&
+      defaultPackageManagerVersion &&
+      defaultPackageManagerVersion !== recommendedBunVersion
+    ) {
       warning('⚠️' + ' ' + ` We've detected you're using Bun v${defaultPackageManagerVersion}.`);
       info('');
       warning(
