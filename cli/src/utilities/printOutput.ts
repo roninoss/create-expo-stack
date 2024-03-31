@@ -60,7 +60,8 @@ export async function printOutput(
     info(``);
 
     // Running prettier using global runners against the template.
-    await system.spawn(`${runnerType} prettier "${projectName}/**/*.{json,js,jsx,ts,tsx}" --write`, {
+    // Use --no-config to prevent using project's config (that may have plugins/dependencies)
+    await system.spawn(`${runnerType} prettier "${projectName}/**/*.{json,js,jsx,ts,tsx}" --no-config --write`, {
       shell: true,
       stdio: 'inherit'
     });
