@@ -18,6 +18,7 @@ import { validateProjectName } from '../utilities/validateProjectName';
 
 const navigationValidationError = `You must pass in either --react-navigation or --expo-router if you want to use the --tabs or --drawer+tabs options`;
 const projectNameValidationError = `A project with the name`;
+const bunInstallationError = 'User cancelled to install recommended version of Bun.';
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
@@ -52,6 +53,7 @@ const command: GluegunCommand = {
 
     // Set the default options
     let cliResults: CliResults = defaultOptions;
+    cliResults.flags.packageManager = getPackageManager(toolbox, cliResults);
 
     // START INPUT VALIDATION
     try {
@@ -95,6 +97,7 @@ const command: GluegunCommand = {
       if (options.overwrite) {
         cliResults.flags.overwrite = true;
       }
+
       await validateProjectName(
         exists,
         removeAsync,
@@ -134,15 +137,6 @@ const command: GluegunCommand = {
         cliResults.flags.noInstall =
           options.noInstall || (typeof options.install === 'boolean' && !options.install) || false;
         cliResults.flags.noGit = options.noGit || (typeof options.git === 'boolean' && !options.git) || false;
-        cliResults.flags.packageManager = options.bun
-          ? 'bun'
-          : options.pnpm
-            ? 'pnpm'
-            : options.npm
-              ? 'npm'
-              : options.yarn
-                ? 'yarn'
-                : undefined;
 
         // Validate import alias string forward slash and asterisk
         if (typeof options.importAlias === 'string') {
@@ -156,10 +150,6 @@ const command: GluegunCommand = {
         if (!(useDefault || optionsPassedIn || skipCLI || useBlankTypescript)) {
           //  Run the CLI to prompt the user for input
           cliResults = await runCLI(toolbox, cliResults.projectName);
-        }
-
-        if (!cliResults.flags.packageManager) {
-          cliResults.flags.packageManager = 'npm';
         }
 
         // Update the cliResults with the options passed in via the command
@@ -354,6 +344,10 @@ const command: GluegunCommand = {
       if (err === '') {
         // user cancelled/exited the interactive CLI
         return void success(`\nCancelled... 👋 \n`);
+      }
+
+      if (err.message.includes(bunInstallationError)) {
+        return void success(`\nUser cancelled to install recommended version of Bun... 👋 \n`);
       }
 
       // Delete all files with projectName

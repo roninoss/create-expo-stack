@@ -61,7 +61,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo Status Bar    | Status Bar Library  | v1      | Status bar support                             |
 | Expo System UI     | System UI Library   | v2      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v12     | Open links in the browser                      |
-| NativeWind         | UI Framework        | v2      | Tailwind CSS for React Native                  |
+| NativeWind         | UI Framework        | v4      | Tailwind CSS for React Native                  |
 | Restyle            | UI Framework        | v2      | Theme-based styling library for React Native   |
 | Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
 | Unistyles          | UI Framework        | v2      | Superset of StyleSheet                         |
