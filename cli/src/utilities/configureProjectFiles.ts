@@ -23,7 +23,11 @@ export function configureProjectFiles(
   ];
 
   if (stylingPackage?.name === 'stylesheet') {
-    baseFiles = baseFiles.concat(['base/components/ScreenContent.tsx.ejs', 'base/components/EditScreenInfo.tsx.ejs']);
+    baseFiles = baseFiles.concat([
+      'base/components/Container.tsx.ejs',
+      'base/components/ScreenContent.tsx.ejs',
+      'base/components/EditScreenInfo.tsx.ejs'
+    ]);
   }
 
   const packageManager = getPackageManager(toolbox, cliResults);
@@ -38,6 +42,7 @@ export function configureProjectFiles(
   // modify base files with nativewind specifications
   if (stylingPackage?.name === 'nativewind') {
     const nativewindFiles = [
+      'packages/nativewind/components/Container.tsx.ejs',
       'packages/nativewind/components/ScreenContent.tsx.ejs',
       'packages/nativewind/components/EditScreenInfo.tsx.ejs',
       'packages/nativewind/tailwind.config.js.ejs',
@@ -54,6 +59,7 @@ export function configureProjectFiles(
   if (stylingPackage?.name === 'tamagui') {
     const tamaguiFiles = [
       'packages/tamagui/tamagui.config.ts.ejs',
+      'packages/tamagui/components/Container.tsx.ejs',
       'packages/tamagui/components/ScreenContent.tsx.ejs',
       'packages/tamagui/components/EditScreenInfo.tsx.ejs'
     ];
@@ -65,6 +71,7 @@ export function configureProjectFiles(
   // modify base files with restyle specifications
   if (stylingPackage?.name === 'restyle') {
     const restyleFiles = [
+      'packages/restyle/components/Container.tsx.ejs',
       'packages/restyle/components/ScreenContent.tsx.ejs',
       'packages/restyle/components/EditScreenInfo.tsx.ejs',
       'packages/restyle/theme/theme.ts.ejs',
@@ -80,6 +87,7 @@ export function configureProjectFiles(
   // modify base files with unis specifications
   if (stylingPackage?.name === 'unistyles') {
     const unistylesFiles = [
+      'packages/unistyles/components/Container.tsx.ejs',
       'packages/unistyles/components/ScreenContent.tsx.ejs',
       'packages/unistyles/components/EditScreenInfo.tsx.ejs',
       'packages/unistyles/breakpoints.ts.ejs',

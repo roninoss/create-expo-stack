@@ -1,6 +1,7 @@
-import { ScreenContent } from 'components/ScreenContent';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { StyleSheet, View } from 'react-native';
+
+import { Container } from '~/components/Container';
+import { ScreenContent } from '~/components/ScreenContent';
 
 export default function Details() {
   const { name } = useLocalSearchParams();
@@ -8,16 +9,9 @@ export default function Details() {
   return (
     <>
       <Stack.Screen options={{ title: 'Details' }} />
-      <View style={styles.container}>
+      <Container>
         <ScreenContent path="screens/details.tsx" title={`Showing details for user ${name}`} />
-      </View>
+      </Container>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-  },
-});
