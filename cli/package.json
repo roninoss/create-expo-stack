@@ -46,6 +46,7 @@
     "useTabs": false
   },
   "dependencies": {
+    "@clack/prompts": "^0.7.0",
     "ejs-lint": "^2.0.0",
     "figlet": "^1.6.0",
     "gluegun": "latest",
