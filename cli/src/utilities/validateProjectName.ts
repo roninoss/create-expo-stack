@@ -1,3 +1,4 @@
+import { cancel, confirm, isCancel, spinner } from '@clack/prompts';
 import { ExistsResult } from 'fs-jetpack/types';
 import { GluegunPrompt } from 'gluegun';
 
@@ -6,9 +7,9 @@ export async function validateProjectName(
   removeAsync: (path?: string) => Promise<void>,
   prompt: GluegunPrompt | null,
   projectName: string,
-  success: (message: string) => void,
   overwrite: boolean
 ): Promise<void> {
+  const s = spinner();
   if (!exists(projectName)) {
     return;
   }
@@ -19,17 +20,21 @@ export async function validateProjectName(
   }
 
   if (prompt != null) {
-    const confirmDelete = await prompt.ask([
-      {
-        type: 'confirm',
-        name: 'delete',
-        message: `A folder with the name '${projectName}' already exists. Do you want to delete it?`
-      }
-    ]);
+    const shouldDeleteExistingProject = await confirm({
+      message: `A folder with the name '${projectName}' already exists. Do you want to delete it?`,
+      initialValue: true
+    });
 
-    if (confirmDelete.delete) {
+    if (isCancel(shouldDeleteExistingProject)) {
+      cancel('Cancelled... 👋');
+      return process.exit(0);
+    }
+
+    if (shouldDeleteExistingProject) {
+      s.start('Deleting existing project...');
       await removeAsync(projectName);
-      return void success(`Deleted existing directory: ${projectName}`);
+      s.stop(`Deleted existing directory: ${projectName}`);
+      return;
     }
   }
 

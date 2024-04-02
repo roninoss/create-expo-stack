@@ -1,7 +1,15 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
+import { confirm, isCancel, cancel, select } from '@clack/prompts';
 
 import { defaultOptions } from '../constants';
-import { CliResults, NavigationTypes, PackageManager } from '../types';
+import {
+  AuthenticationSelect,
+  CliResults,
+  NavigationSelect,
+  NavigationTypes,
+  PackageManager,
+  StylingSelect
+} from '../types';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
 
 const recommendedBunVersion = '1.0.14';
@@ -9,8 +17,7 @@ const recommendedBunVersion = '1.0.14';
 export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
   const {
     parameters: { options },
-    print: { info, success, warning, highlight },
-    prompt
+    print: { info, success, warning }
   } = toolbox;
 
   // Set the default options
@@ -23,9 +30,17 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   // Clear default packages
   cliResults.packages = [];
   // Ask about TypeScript
-  const useTypescript = await prompt.confirm('Would you like to use TypeScript with this project?', true);
+  const shouldUseTypescript = await confirm({
+    message: 'Would you like to use TypeScript with this project?',
+    initialValue: true
+  });
 
-  if (useTypescript) {
+  if (isCancel(shouldUseTypescript)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+
+  if (shouldUseTypescript) {
     success('Good call, now using TypeScript! 🚀');
   } else {
     success(`Wrong answer, we're gonna use Typescript.`);
@@ -36,20 +51,33 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     if (options.bun || options.pnpm || options.npm || options.yarn) {
       cliResults.flags.packageManager = options.bun ? 'bun' : options.pnpm ? 'pnpm' : options.npm ? 'npm' : 'yarn';
     } else {
-      highlight(
-        `\nWe've detected ${cliResults.flags.packageManager} ${
+      const shouldUseDefaultPackageManager = await confirm({
+        message: `\nWe've detected ${cliResults.flags.packageManager} ${
           defaultPackageManagerVersion ? `v${defaultPackageManagerVersion}` : ''
-        } as your preferred package manager.`
-      );
-      const shouldUseDefaultPackageManager = await prompt.confirm(`Would you like to continue using it?`, true);
+        } as your preferred package manager.\nWould you like to continue using it?`,
+        initialValue: true
+      });
+
+      if (isCancel(shouldUseDefaultPackageManager)) {
+        cancel('Cancelled... 👋');
+        return process.exit(0);
+      }
       if (!shouldUseDefaultPackageManager) {
-        const askPackageManager = {
-          type: 'select',
-          name: 'packageManagerSelect',
-          message: 'Which package manager would you like to use?',
-          choices: ['npm', 'yarn', 'pnpm', 'bun']
-        };
-        const { packageManagerSelect } = await prompt.ask(askPackageManager);
+        const packageManagerSelect = await select({
+          message: 'Gotcha! Which package manager would you like to use?',
+          options: [
+            { value: 'npm', label: 'npm' },
+            { value: 'yarn', label: 'yarn' },
+            { value: 'pnpm', label: 'pnpm' },
+            { value: 'bun', label: 'bun' }
+          ]
+        });
+
+        if (isCancel(packageManagerSelect)) {
+          cancel('Cancelled... 👋');
+          return process.exit(0);
+        }
+
         cliResults.flags.packageManager = packageManagerSelect as PackageManager;
       }
     }
@@ -57,53 +85,63 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     if (options.bun || options.pnpm || options.npm || options.yarn) {
       cliResults.flags.packageManager = options.bun ? 'bun' : options.pnpm ? 'pnpm' : options.npm ? 'npm' : 'yarn';
     } else {
-      const askPackageManager = {
-        type: 'select',
-        name: 'packageManagerSelect',
+      const packageManagerSelect = await select({
         message: 'Which package manager would you like to use?',
-        choices: ['npm', 'yarn', 'pnpm', 'bun']
-      };
-      const { packageManagerSelect } = await prompt.ask(askPackageManager);
+        options: [
+          { value: 'npm', label: 'npm' },
+          { value: 'yarn', label: 'yarn' },
+          { value: 'pnpm', label: 'pnpm' },
+          { value: 'bun', label: 'bun' }
+        ]
+      });
+
+      if (isCancel(packageManagerSelect)) {
+        cancel('Cancelled... 👋');
+        return process.exit(0);
+      }
+
       cliResults.flags.packageManager = packageManagerSelect as PackageManager;
     }
   }
 
-  // Ask about navigation
-  const askNavigation = {
-    type: 'select',
-    name: 'navigationSelect',
+  const navigationSelect = await select({
     message: 'What would you like to use for Navigation?',
-    choices: ['React Navigation', 'Expo Router', 'None']
-  };
+    options: [
+      { value: 'react-navigation', label: 'React Navigation' },
+      { value: 'expo-router', label: 'Expo Router' },
+      { value: undefined, label: 'None' }
+    ],
+    initialValue: 'expo-router'
+  });
 
-  const askNavigationType = {
-    type: 'select',
-    name: 'navigationTypeSelect',
-    message: 'What type of navigation would you like to use?',
-    choices: ['Stack', 'Tabs', 'Drawer + Tabs']
-  };
+  if (isCancel(navigationSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
 
-  const { navigationSelect } = await prompt.ask(askNavigation);
+  if (navigationSelect) {
+    const navigationType = await select({
+      message: 'What type of navigation would you like to use?',
+      options: [
+        { value: 'stack', label: 'Stack' },
+        { value: 'tabs', label: 'Tabs' },
+        { value: 'drawer + tabs', label: 'Drawer + Tabs' }
+      ]
+    });
 
-  if (navigationSelect !== 'None') {
-    const { navigationTypeSelect } = await prompt.ask(askNavigationType);
-    if (navigationSelect === 'React Navigation') {
-      cliResults.packages.push({
-        name: 'react-navigation',
-        type: 'navigation',
-        options: {
-          type: navigationTypeSelect.toLowerCase() as NavigationTypes
-        }
-      });
-    } else {
-      cliResults.packages.push({
-        name: 'expo-router',
-        type: 'navigation',
-        options: {
-          type: navigationTypeSelect.toLowerCase() as NavigationTypes
-        }
-      });
+    if (isCancel(navigationType)) {
+      cancel('Cancelled... 👋');
+      return process.exit(0);
     }
+
+    cliResults.packages.push({
+      name: navigationSelect as NavigationSelect,
+      type: 'navigation',
+      options: {
+        type: navigationType as NavigationTypes
+      }
+    });
+
     // If the user is using a version of bun that is anything but version 1.0.14, communicate a message
     if (
       cliResults.flags.packageManager === 'bun' &&
@@ -123,13 +161,17 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       info('');
       warning(`or visit bun.sh/docs/installation for other installation methods (e.g. via Homebrew, npm, etc).`);
       info('');
-      const shouldContinue = await prompt.confirm(
-        `Would you like to continue without switching to Bun v${recommendedBunVersion}?`,
-        true
-      );
-      if (!shouldContinue) {
-        throw new Error(`User cancelled to install recommended version of Bun.`);
+
+      const shouldContinue = await confirm({
+        message: `Would you like to continue without switching to Bun v${recommendedBunVersion}?`,
+        initialValue: false
+      });
+
+      if (isCancel(shouldContinue)) {
+        cancel('Cancelled... 👋');
+        return process.exit(0);
       }
+      success(`Great, we'll use ${navigationSelect}!`);
     } else if (cliResults.flags.packageManager === 'bun' && !defaultPackageManagerVersion) {
       warning(
         '⚠️' + ' ' + ` We've detected you're using Bun but we are unable to determine which version you are using.`
@@ -150,72 +192,71 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       info('');
       warning(`or visit bun.sh/docs/installation for other installation methods (e.g. via Homebrew, npm, etc).`);
       info('');
-      const shouldContinue = await prompt.confirm('Would you like to continue with your current version of Bun?', true);
-      if (!shouldContinue) {
-        throw new Error('User cancelled to install recommended version of Bun.');
+
+      const shouldContinue = await confirm({
+        message: `Would you like to continue with your current version of Bun?`,
+        initialValue: false
+      });
+
+      if (isCancel(shouldContinue)) {
+        cancel('Cancelled... 👋');
+        return process.exit(0);
       }
+      success(`Great, we'll use ${navigationSelect}!`);
     }
-    success(`Great, we'll use ${navigationSelect}!`);
   } else {
     success(`No problem, skipping navigation for now.`);
   }
 
-  const baseStylePackageNames = ['Nativewind', 'Restyle', 'Stylesheet', 'Tamagui (experimental)', 'Unistyles'];
-  const askStyling = {
-    type: 'select',
-    name: 'stylingSelect',
+  const stylingSelect = await select({
     message: 'What would you like to use for styling?',
-    choices: baseStylePackageNames
-  };
+    options: [
+      { value: 'nativewind', label: 'NativeWind' },
+      { value: 'restyle', label: 'Restyle' },
+      { value: 'stylesheet', label: 'StyleSheet' },
+      { value: 'tamagui', label: 'Tamagui (experimental)' },
+      { value: 'unistyles', label: 'Unistyles' }
+    ],
+    initialValue: 'nativewind'
+  });
 
-  const { stylingSelect } = await prompt.ask(askStyling);
-  if (stylingSelect === 'Nativewind') {
-    cliResults.packages.push({ name: 'nativewind', type: 'styling' });
-    success(`You'll be styling with ease using Tailwind.`);
-  } else if (stylingSelect === 'Tamagui (experimental)') {
-    cliResults.packages.push({ name: 'tamagui', type: 'styling' });
-    success(`You'll be styling with ease using Tamagui.`);
-  } else if (stylingSelect === 'Restyle') {
-    cliResults.packages.push({ name: 'restyle', type: 'styling' });
-    success(`You'll be styling with ease using Restyle.`);
-  } else if (stylingSelect === 'Unistyles') {
-    cliResults.packages.push({ name: 'unistyles', type: 'styling' });
-    success(`You'll be styling with ease using Unistyles.`);
-  } else {
-    cliResults.packages.push({ name: 'stylesheet', type: 'styling' });
-    success(`Cool, you're using the default StyleSheet that comes with React Native.`);
+  if (isCancel(stylingSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
   }
 
-  const askAuthentication = {
-    type: 'select',
-    name: 'authenticationSelect',
+  cliResults.packages.push({ name: stylingSelect as StylingSelect, type: 'styling' });
+  success(
+    `You'll be styling with ease using ${
+      stylingSelect.toString().charAt(0).toUpperCase() + stylingSelect.toString().slice(1)
+    }!`
+  );
+
+  const authenticationSelect = await select({
     message: 'What would you like to use for authentication?',
-    choices: ['None', 'Supabase', 'Firebase']
-  };
+    options: [
+      { value: undefined, label: 'None' },
+      { value: 'supabase', label: 'Supabase' },
+      { value: 'firebase', label: 'Firebase' }
+    ]
+  });
 
-  const { authenticationSelect } = await prompt.ask(askAuthentication);
-
-  if (authenticationSelect === 'Supabase') {
-    cliResults.packages.push({ name: 'supabase', type: 'authentication' });
-    success(`You'll be using Supabase for authentication.`);
-  } else if (authenticationSelect === 'Firebase') {
-    cliResults.packages.push({ name: 'firebase', type: 'authentication' });
-    success(`You'll be using Firebase for authentication.`);
+  if (isCancel(authenticationSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+  if (authenticationSelect) {
+    cliResults.packages.push({ name: authenticationSelect as AuthenticationSelect, type: 'authentication' });
   } else {
     success(`No problem, skipping authentication for now.`);
   }
 
-  // Ask about internationalization
-  const askInternalization = {
-    type: 'select',
-    name: 'internalizationSelect',
-    message: 'What would you like to support internationalization?',
-    choices: ['None', 'i18next']
-  };
+  const internationalizationSelect = await confirm({
+    message: `What would you like to support internationalization?`,
+    initialValue: false
+  });
 
-  const { internalizationSelect } = await prompt.ask(askInternalization);
-
-  if (internalizationSelect === 'i18next') {
+  if (internationalizationSelect) {
     cliResults.packages.push({ name: 'i18next', type: 'internationalization' });
     success(`You'll be using i18next for internationalization.`);
   } else {
