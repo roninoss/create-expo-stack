@@ -210,7 +210,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     type: 'select',
     name: 'internalizationSelect',
     message: 'What would you like to support internationalization?',
-    choices: ['i18next', 'None']
+    choices: ['None', 'i18next']
   };
 
   const { internalizationSelect } = await prompt.ask(askInternalization);

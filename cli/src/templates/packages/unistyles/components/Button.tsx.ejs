@@ -1,7 +1,7 @@
 import { Text, TouchableOpacity } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
-export const Button = ({ onPress, title }: { onPress: () => void; title: string }) => {
+export const Button = ({ onPress, title }: { onPress?: () => void; title: string }) => {
   const { theme } = useStyles();
 
   return (

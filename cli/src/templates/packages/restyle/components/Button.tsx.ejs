@@ -1,7 +1,7 @@
 import { TouchableOpacity } from 'react-native';
 import { Text, makeStyles } from 'theme';
 
-export const Button = ({ onPress, title }: { onPress: () => void; title: string }) => {
+export const Button = ({ onPress, title }: { onPress?: () => void; title: string }) => {
   const styles = useStyles();
 
   return (
@@ -12,7 +12,8 @@ export const Button = ({ onPress, title }: { onPress: () => void; title: string 
     </TouchableOpacity>
   );
 };
-export const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles((theme) => ({
   button: {
     alignItems: 'center',
     backgroundColor: theme.colors.purple,

@@ -1,16 +1,24 @@
 import { Link, Stack } from 'expo-router';
 <% if (props.stylingPackage?.name === "nativewind") {%>
-  import { Text, View } from 'react-native';
+  import { Text } from 'react-native';
+
+  import { Container } from '~/components/Container';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { createStyleSheet, useStyles } from 'react-native-unistyles'
-  import { Text, View } from 'react-native';
+  import { Text } from 'react-native';
+
+  import { Container } from '~/components/Container';
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
-  import { StyleSheet, Text, View } from 'react-native';
+  import { StyleSheet, Text } from 'react-native';
+
+  import { Container } from '~/components/Container';
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
   import { YStack } from "tamagui";
 	import { Container, Main, Subtitle, Title } from "../tamagui.config";
 <% } else if (props.stylingPackage?.name === "restyle") { %>
   import { Box, Text, makeStyles } from 'theme';
+
+  import { Container } from '~/components/Container';
 <% } %>
 
 export default function NotFoundScreen() {
@@ -24,12 +32,12 @@ export default function NotFoundScreen() {
       <% if (props.stylingPackage?.name === "nativewind") {%>
         <>
           <Stack.Screen options={{ title: "Oops!" }} />
-          <View className={styles.container}>
+          <Container>
             <Text className={styles.title}>This screen doesn't exist.</Text>
             <Link href="/" className={styles.link}>
               <Text className={styles.linkText}>Go to home screen!</Text>
             </Link>
-          </View>
+          </Container>
         </>
       <% } else if (props.stylingPackage?.name === "tamagui") {%>
         <Container>
@@ -46,24 +54,24 @@ export default function NotFoundScreen() {
       <% } else if (props.stylingPackage?.name === "restyle") {%>
         <>
           <Stack.Screen options={{ title: 'Oops!' }} />
-          <Box flex={1} justifyContent="center" alignItems="center" padding="ml_24">
+          <Container>
             <Text variant="title">This screen doesn't exist.</Text>
             <Link href="/" style={styles.link}>
               <Text variant="body" color="blue">
                 Go to home screen!
               </Text>
             </Link>
-          </Box>
+          </Container>
         </>
       <% } else { %>
         <>
           <Stack.Screen options={{ title: "Oops!" }} />
-          <View style={styles.container}>
+          <Container>
             <Text style={styles.title}>This screen doesn't exist.</Text>
             <Link href="/" style={styles.link}>
               <Text style={styles.linkText}>Go to home screen!</Text>
             </Link>
-          </View>
+          </Container>
         </>
       <% } %>
   );
@@ -71,19 +79,12 @@ export default function NotFoundScreen() {
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
-		container: `items-center flex-1 justify-center p-5`,
     title: `text-xl font-bold`,
     link: `mt-4 pt-4`,
     linkText: `text-base text-[#2e78b7]`,
 	};
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   const stylesheet = createStyleSheet((theme) => ({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: 20,
-    },
     title: {
       fontSize: 20,
       fontWeight: 'bold',
@@ -99,12 +100,6 @@ export default function NotFoundScreen() {
   }));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: 20,
-    },
     title: {
       fontSize: 20,
       fontWeight: 'bold',
