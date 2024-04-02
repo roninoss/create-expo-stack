@@ -15,6 +15,7 @@ import { DEFAULT_APP_NAME, defaultOptions } from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
 import { validateProjectName } from '../utilities/validateProjectName';
+import { cancel, intro, isCancel, text } from '@clack/prompts';
 
 const navigationValidationError = `You must pass in either --react-navigation or --expo-router if you want to use the --tabs or --drawer+tabs options`;
 const projectNameValidationError = `A project with the name`;
@@ -72,18 +73,29 @@ const command: GluegunCommand = {
       }
 
       await renderTitle(toolbox);
+      intro(`Let's get started!`);
 
       // Prompt the user for the project name if it is not passed in via the command
       // - TODO: simplify this if statement to clarify what is being checked
       if (!first && (options.ignite || !(useDefault || optionsPassedIn || skipCLI || useBlankTypescript))) {
-        const askName = {
-          type: 'input',
-          name: 'name',
-          message: `What do you want to name your project? (${DEFAULT_APP_NAME})`
-        };
-        const { name } = await prompt.ask(askName);
+        const name = await text({
+          message: 'What do you want to name your project?',
+          placeholder: DEFAULT_APP_NAME
+        });
+
+        if (isCancel(name)) {
+          cancel('Cancelled... 👋');
+          return process.exit(0);
+        }
+
+        // const askName = {
+        //   type: 'input',
+        //   name: 'name',
+        //   message: `What do you want to name your project? (${DEFAULT_APP_NAME})`
+        // };
+        // const { name } = await prompt.ask(askName);
         // if name is undefined or empty string, use default name
-        cliResults.projectName = name || DEFAULT_APP_NAME;
+        cliResults.projectName = (name && name.toString()) || DEFAULT_APP_NAME;
       } else {
         // Destructure the results but set the projectName if the first param is passed in
         cliResults.projectName = first || DEFAULT_APP_NAME;
@@ -103,7 +115,6 @@ const command: GluegunCommand = {
         removeAsync,
         !(useDefault || optionsPassedIn || skipCLI || useBlankTypescript) ? prompt : null,
         cliResults.projectName,
-        success,
         cliResults.flags.overwrite
       );
     } catch (err: string | any) {

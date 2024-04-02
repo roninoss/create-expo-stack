@@ -26,7 +26,13 @@ export const availablePackages = [
   'i18next'
 ] as const;
 
+export type AuthenticationSelect = 'supabase' | 'firebase' | undefined;
+
+export type NavigationSelect = 'react-navigation' | 'expo-router' | undefined;
+
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer + tabs' | undefined;
+
+export type StylingSelect = 'nativewind' | 'restyle' | 'stylesheet' | 'tamagui' | 'unistyles';
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 

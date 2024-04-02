@@ -52,5 +52,8 @@
     "turbo": "^1.11.3",
     "typescript": "latest"
   },
-  "packageManager": "bun@1.0.29"
+  "packageManager": "bun@1.0.29",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0"
+  }
 }
