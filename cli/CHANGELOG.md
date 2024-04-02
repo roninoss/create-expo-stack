@@ -1,5 +1,27 @@
 # create-expo-stack
 
+## 2.5.0
+
+### Minor Changes
+
+- [#201](https://github.com/danstepanov/create-expo-stack/pull/201) [`738ca1b`](https://github.com/danstepanov/create-expo-stack/commit/738ca1b903392762d8fb5c872a300654d8582ba5) Thanks [@ludwig-pro](https://github.com/ludwig-pro)! - i18next for internationalization
+
+- [#215](https://github.com/danstepanov/create-expo-stack/pull/215) [`1995ea9`](https://github.com/danstepanov/create-expo-stack/commit/1995ea9a924e123833b64775bd97e6bf52439d3d) Thanks [@ludwig-pro](https://github.com/ludwig-pro)! - Refactor the whole folder structure to reduce ejs complexity
+
+### Patch Changes
+
+- [#227](https://github.com/danstepanov/create-expo-stack/pull/227) [`142847d`](https://github.com/danstepanov/create-expo-stack/commit/142847d1eedbb93f47eb3dbc1f710f72fe362f1c) Thanks [@danstepanov](https://github.com/danstepanov)! - validate user is using bun version v1.0.14 if they are using bun, clean up package manager detection logic, add function to fetch package manager version
+
+- [#227](https://github.com/danstepanov/create-expo-stack/pull/227) [`94bec4c`](https://github.com/danstepanov/create-expo-stack/commit/94bec4c0b8e4c556806909b6013491d130ee7860) Thanks [@danstepanov](https://github.com/danstepanov)! - Fix formatting of generated project when using --no-install with options that result in prettier plugins needing to be installed
+
+- [#227](https://github.com/danstepanov/create-expo-stack/pull/227) [`5910188`](https://github.com/danstepanov/create-expo-stack/commit/5910188c60fec084690c6a18efaa191cf0ee2549) Thanks [@danstepanov](https://github.com/danstepanov)! - bump react-native to 73.6 for expo sdk 50
+
+- [`cfc261a`](https://github.com/danstepanov/create-expo-stack/commit/cfc261a737f0545cc40caf03bfa5a1466be013ab) Thanks [@danstepanov](https://github.com/danstepanov)! - automatically update the contributor list in the README
+
+- [`a2fe5b8`](https://github.com/danstepanov/create-expo-stack/commit/a2fe5b845fdc688f2c3d883d6e49f71cb2d0297e) Thanks [@danstepanov](https://github.com/danstepanov)! - add check for dir being present in file path with shared project name, enhances input validation for cli
+
+- [`3ba0544`](https://github.com/danstepanov/create-expo-stack/commit/3ba0544cc9fc2cfc76f66015591e98c7cc5690ef) Thanks [@danstepanov](https://github.com/danstepanov)! - remove project files on throw, fix project name validation
+
 ## 2.4.3
 
 ### Patch Changes
