@@ -88,12 +88,6 @@ const command: GluegunCommand = {
           return process.exit(0);
         }
 
-        // const askName = {
-        //   type: 'input',
-        //   name: 'name',
-        //   message: `What do you want to name your project? (${DEFAULT_APP_NAME})`
-        // };
-        // const { name } = await prompt.ask(askName);
         // if name is undefined or empty string, use default name
         cliResults.projectName = (name && name.toString()) || DEFAULT_APP_NAME;
       } else {
