@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.6.1
+
+### Patch Changes
+
+- [#236](https://github.com/danstepanov/create-expo-stack/pull/236) [`bc891da`](https://github.com/danstepanov/create-expo-stack/commit/bc891da7673bccaa2362ae2784cae61bf0efc499) Thanks [@sammoore](https://github.com/sammoore)! - fix npm >= v7 installation due to strict peer dependency requirements of @react-native-async-storage/async-storage to react-native
+
 ## 2.6.0
 
 ### Minor Changes
