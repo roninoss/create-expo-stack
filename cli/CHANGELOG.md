@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.5.1
+
+### Patch Changes
+
+- [#231](https://github.com/danstepanov/create-expo-stack/pull/231) [`9becc72`](https://github.com/danstepanov/create-expo-stack/commit/9becc7271522755d93a97cf1af0cd176f59ec2c0) Thanks [@danstepanov](https://github.com/danstepanov)! - overhaul cli prompts via clack
+
 ## 2.5.0
 
 ### Minor Changes
