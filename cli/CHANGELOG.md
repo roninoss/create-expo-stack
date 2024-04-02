@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.5.2
+
+### Patch Changes
+
+- [`097a6eb`](https://github.com/danstepanov/create-expo-stack/commit/097a6ebeba280fa7891678e96fbfd4671f89dcd8) Thanks [@danstepanov](https://github.com/danstepanov)! - add clack to dependencies for cli
+
 ## 2.5.1
 
 ### Patch Changes
