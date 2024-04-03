@@ -5,7 +5,6 @@ import { build } from 'gluegun';
  */
 export async function run() {
   const argv = process.env.argv;
-
   // create a CLI runtime
   const cli = build()
     .brand('create-expo-stack')

@@ -10,3 +10,4 @@ myTestProject
 package-lock.json
 .env
 cli/my-expo-app
+demo/node_modules
