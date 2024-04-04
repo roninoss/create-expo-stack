@@ -1,6 +1,7 @@
 ---
 import CopyCommandButton from "./copyCommandButton.tsx";
-import CliDemo from "./cliDemo.tsx";
+import Terminal from "@components/landing/terminal/terminal.astro";
+// import CliDemo from "./cliDemo.tsx";
 ---
 
 <>
@@ -35,5 +36,6 @@ import CliDemo from "./cliDemo.tsx";
     </h1>
   </a>
   <CopyCommandButton client:load />
-  <CliDemo client:load />
+  <Terminal />
+  <!-- <CliDemo client:load /> -->
 </>

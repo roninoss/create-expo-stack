@@ -19,4 +19,10 @@ export default defineConfig({
       destination: "https://discord.gg/XS9qS2mvTR",
     },
   },
+  server: {
+    headers: {
+      "Cross-Origin-Embedder-Policy": "require-corp",
+      "Cross-Origin-Opener-Policy": "same-origin",
+    },
+  },
 });
