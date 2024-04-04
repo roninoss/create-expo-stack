@@ -15,6 +15,7 @@ import ContributorsSection from "@components/landing/contributors/contributorsSe
 import HeroSection from "@components/landing/hero/heroSection.astro";
 import SponsorsSection from "@components/landing/sponsors/sponsorsSection.tsx";
 import Roadmap from "@components/landing/roadmap/roadmap.tsx";
+import Terminal from "@components/landing/terminal/terminal.astro";
 ---
 
 <!doctype html>
@@ -38,6 +39,7 @@ import Roadmap from "@components/landing/roadmap/roadmap.tsx";
       </section>
       <Roadmap client:load />
       <Testimonials client:load />
+      <Terminal />
       <ContributorsSection client:load />
       <SponsorsSection />
     </main>
