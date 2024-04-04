@@ -25,5 +25,9 @@ pnpm-debug.log*
 .DS_Store
 pnpm-lock.yaml
 
-!demo/node_modules/
+!demo/node_modules
+!demo/node_modules/@clack/core/dist
+!demo/node_modules/@clack/prompts/dist
+!demo/node_modules/@clack/prompts/node_modules
 !demo/package-lock.json
+!demo/dist
