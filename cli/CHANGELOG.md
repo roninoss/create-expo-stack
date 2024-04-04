@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.6.2
+
+### Patch Changes
+
+- [`7c1a2ce`](https://github.com/danstepanov/create-expo-stack/commit/7c1a2cec9d11b2d42386b5dc3124b1f3e8078498) Thanks [@danstepanov](https://github.com/danstepanov)! - add forwardRef to Linked components, fix #239
+
+- [`71ce545`](https://github.com/danstepanov/create-expo-stack/commit/71ce545212abea93aac4a1200cd0664e3eea3e2e) Thanks [@danstepanov](https://github.com/danstepanov)! - replace View with SafeAreaView for Container component
+
 ## 2.6.1
 
 ### Patch Changes
