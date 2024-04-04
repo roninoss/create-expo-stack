@@ -24,3 +24,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 pnpm-lock.yaml
+
+!demo/node_modules/
+!demo/package-lock.json
