@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.6.4
+
+### Patch Changes
+
+- [`fe4a03a`](https://github.com/danstepanov/create-expo-stack/commit/fe4a03a47245e53a5c9eb5906a236d3b0258c467) Thanks [@danstepanov](https://github.com/danstepanov)! - add missing Text for tamagui template
+
 ## 2.6.3
 
 ### Patch Changes
