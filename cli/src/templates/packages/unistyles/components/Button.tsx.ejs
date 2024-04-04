@@ -1,7 +1,8 @@
+import { forwardRef } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
-export const Button = ({ onPress, title }: { onPress?: () => void; title: string }) => {
+export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ onPress, title }, ref) => {
   const { theme } = useStyles();
 
   return (
@@ -9,4 +10,4 @@ export const Button = ({ onPress, title }: { onPress?: () => void; title: string
       <Text style={theme.components.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
-};
+});
