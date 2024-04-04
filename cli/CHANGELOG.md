@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.6.3
+
+### Patch Changes
+
+- [`1042dae`](https://github.com/danstepanov/create-expo-stack/commit/1042dae7090e44ce778fd66e96854e2a260edae1) Thanks [@danstepanov](https://github.com/danstepanov)! - remove unused React
+
 ## 2.6.2
 
 ### Patch Changes
