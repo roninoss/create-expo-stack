@@ -6,6 +6,6 @@
     "picocolors": "latest"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "npm i && node index.js"
   }
 }
