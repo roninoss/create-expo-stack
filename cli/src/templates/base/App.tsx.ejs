@@ -12,6 +12,9 @@ import { StatusBar } from 'expo-status-bar';
   import { ThemeProvider } from '@shopify/restyle';
   import { theme } from 'theme';
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
+  <% if (!props.internalizationPackage) { %>
+    import { Text } from 'react-native';
+  <% } %>
   import { TamaguiProvider } from 'tamagui';
   import config from './tamagui.config';
 <% } %>
