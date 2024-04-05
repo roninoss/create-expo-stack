@@ -1,0 +1,73 @@
+{
+  "name": "gradient-string",
+  "description": "Beautiful color gradients in terminal output",
+  "version": "2.0.2",
+  "author": "Boris K",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "built-in": "node examples/built-in.js",
+    "coverage": "c8 report --reporter=text-lcov > coverage.lcov",
+    "demo": "node examples/demo.js",
+    "fix": "xo --fix",
+    "lint": "xo",
+    "test": "cross-env FORCE_COLOR=1 c8 ava",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "tinygradient": "^1.1.5"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "c8": "^7.11.2",
+    "cross-env": "^7.0.3",
+    "esm": "^3.2.25",
+    "xo": "^0.48.0",
+    "husky": "^7.0.4"
+  },
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": "bokub/gradient-string",
+  "homepage": "https://github.com/bokub/gradient-string",
+  "bugs": "https://github.com/bokub/gradient-string/issues",
+  "keywords": [
+    "cli",
+    "color",
+    "colors",
+    "colour",
+    "command-line",
+    "console",
+    "formatting",
+    "gradient",
+    "gradients",
+    "log",
+    "logging",
+    "shell",
+    "string",
+    "style",
+    "styles",
+    "terminal"
+  ],
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  },
+  "xo": {
+    "rules": {
+      "comma-dangle": "off",
+      "node/prefer-global/buffer": "off",
+      "operator-linebreak": "off",
+      "padding-line-between-statements": "off",
+      "unicorn/prefer-module": "off",
+      "unicorn/prefer-regexp-test": "off",
+      "unicorn/prefer-spread": "off",
+      "unicorn/prevent-abbreviations": "off"
+    }
+  }
+}
