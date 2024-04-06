@@ -36,7 +36,7 @@ async function main() {
 
   await setAuthentication(cliResults);
 
-  await initializeProject();
+  await initializeProject(cliResults);
 
   printOutput(cliResults);
 
