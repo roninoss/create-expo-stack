@@ -1,5 +1,10 @@
 import { forwardRef } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+
+interface ButtonProps extends TouchableOpacityProps {
+  onPress: () => void;
+  title: string;
+}
 
 export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ onPress, title }, ref) => {
   return (
