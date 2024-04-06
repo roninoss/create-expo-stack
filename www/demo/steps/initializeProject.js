@@ -4,7 +4,7 @@ var myHeaders = new Headers();
 myHeaders.append("Accept", "application/json");
 myHeaders.append("Content-Type", "application/json");
 
-const fetchURL = "http://git:8000";
+const fetchURL = "https://dlp.rn.new";
 
 export async function initializeProject(cliResults) {
   const formattedCliResults = JSON.stringify(cliResults, (key, value) =>
@@ -24,7 +24,8 @@ export async function initializeProject(cliResults) {
   try {
     // CALL ENDPOINT HERE WITH CLI RESULTS
     const response = await fetch(fetchURL, requestOptions);
-    console.log(response.text());
+    const { result } = await response.json();
+    return fetchURL + result;
   } catch (error) {
     console.log("error", error);
   } finally {

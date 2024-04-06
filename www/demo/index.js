@@ -36,14 +36,12 @@ async function main() {
 
   await setAuthentication(cliResults);
 
-  await initializeProject(cliResults);
+  const projectURL = await initializeProject(cliResults);
 
   printOutput(cliResults);
 
-  outro(
-    "If you frequently use create expo stack, please consider sponsoring the project ❤️\n- https://github.com/sponsors/danstepanov",
-  );
-
+  outro("Click the link to download your project!");
+  console.log(color.magenta(projectURL));
   return cliResults;
 }
 
