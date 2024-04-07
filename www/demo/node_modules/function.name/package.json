@@ -1,0 +1,53 @@
+{
+  "name": "function.name",
+  "description": "Function name shim (especially for supporting function names in Internet Explorer).",
+  "keywords": [
+    "function",
+    "name",
+    "support",
+    "for",
+    "internet",
+    "explorer"
+  ],
+  "license": "MIT",
+  "version": "1.0.13",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "dist-it lib/index.js function.name.js"
+  },
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IonicaBizau/function.name.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/function.name/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/function.name#readme",
+  "blah": {
+    "description": "If the name field is not accessible (usually this happens on Internet Explorer), it will be defined.",
+    "documentation": "Usually, you will **not** use this as function but you will access the `name` field on the function directly."
+  },
+  "devDependencies": {
+    "dist-it": "^2.0.1"
+  },
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "scripts/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js",
+    "bloggify.js",
+    "bloggify.json",
+    "bloggify/"
+  ],
+  "dependencies": {
+    "noop6": "^1.0.1"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "cli-box",
+  "version": "6.0.10",
+  "description": "A library to generate ASCII boxes via NodeJS",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node example/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IonicaBizau/node-cli-box.git"
+  },
+  "keywords": [
+    "cli",
+    "box",
+    "ascii",
+    "node"
+  ],
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
+  "contributors": [
+    "Ionică Bizău <bizauionica@gmail.com>",
+    "Adam Paszke <adam.paszke@gmail.com>",
+    "ComFreek <comfreek@outlook.com>"
+  ],
+  "dependencies": {
+    "ansi-parser": "^3.2.1",
+    "deffy": "^2.2.1",
+    "is-undefined": "^1.0.0",
+    "is-win": "^1.0.0",
+    "ul": "^5.2.1"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/node-cli-box/issues"
+  },
+  "blah": {
+    "h_img": "http://i.imgur.com/6bOa5iy.png",
+    "ex_img": "http://i.imgur.com/425gC67.png"
+  },
+  "homepage": "https://github.com/IonicaBizau/node-cli-box",
+  "directories": {
+    "example": "example"
+  },
+  "devDependencies": {},
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "scripts/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js",
+    "bloggify.js",
+    "bloggify.json",
+    "bloggify/"
+  ]
+}
