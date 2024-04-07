@@ -1,5 +1,6 @@
 import { intro, outro } from "@clack/prompts";
 import color from "picocolors";
+import util from "util";
 
 import { expoStackTheme } from "./constants.js";
 
@@ -40,7 +41,18 @@ async function main() {
 
   const projectURL = await initializeProject(cliResults);
 
-  printOutput(cliResults);
+  console.log(
+    color.blue(
+      `Your project configuration:\n${util.inspect(
+        cliResults,
+        false,
+        null,
+        true /* enable colors */,
+      )}`,
+    ),
+  );
+
+  const output = printOutput(cliResults);
 
   const myBox = new Box(
     {
@@ -63,10 +75,19 @@ async function main() {
     `Click the link to download your project!\n\n${color.magenta(projectURL)}`,
   );
 
-  outro(`\n${myBox.stringify()}`);
+  outro(`\n${myBox.stringify()}\n${output}`);
 
   setTimeout(() => {
-    console.log(color.yellow("why are you still here."));
+    console.log(color.yellow("you're still here?"));
+    setTimeout(() => {
+      console.log(color.yellow("...the demo's over, go home"));
+      setTimeout(() => {
+        console.log(color.yellow("...go on"));
+        setTimeout(() => {
+          console.log(color.yellow("shoo"));
+        }, 1800000);
+      }, 10000);
+    }, 10000);
   }, 1800000);
 
   return;
