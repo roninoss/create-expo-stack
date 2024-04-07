@@ -3,116 +3,81 @@ import util from "util";
 
 import { DEFAULT_STYLING_PACAKGE } from "../constants.js";
 
-export function printOutput(cliResults) {
-  console.log("");
-  console.log(color.blue("Your project configuration:"));
-  console.log(
-    `${util.inspect(cliResults, false, null, true /* enable colors */)}`,
-  );
-
-  const authenticationPackage =
-    cliResults.packages.find((p) => p.type === "authentication") || undefined;
-  //	check if packages includes package with name "supabase"
-  if (authenticationPackage && authenticationPackage.name === "supabase") {
-    console.log(
-      color.green("\nSuccess! 🎉" + " " + "Now, here's what's next:"),
-    );
-    console.log(``);
-    console.log(
-      color.blue(
-        "Head over to https://database.new to create a new Supabase project.",
-      ),
-    );
-    console.log(``);
-    console.log(
-      color.blue(`Get the Project URL and anon key from the API settings:`),
-    );
-    console.log(`1. Go to the API settings page in the Dashboard.`);
-    console.log(
-      `2. Find your Project URL, anon, and service_role keys on this page.`,
-    );
-    console.log(`3. Copy these keys and paste them into your .env file.`);
-    console.log(
-      `4. Optionally, follow one of these guides to get started with Supabase:`,
-    );
-    console.log(
-      color.blue(`https://docs.expo.dev/guides/using-supabase/#next-steps`),
-    );
-    console.log(``);
-    console.log(
-      color.green(`Once you're done, run the following to get started: `),
-    );
-    console.log(``);
-  } else if (
-    authenticationPackage &&
-    authenticationPackage.name === "firebase"
-  ) {
-    console.log(
-      color.green("\nSuccess! 🎉" + " " + "Now, here's what's next:"),
-    );
-    console.log(``);
-    console.log(
-      color.blue(
-        "Head over to https://console.firebase.google.com/ to create a new Firebase project.",
-      ),
-    );
-    console.log(``);
-    console.log(color.blue(`Get the API key and other unique identifiers:`));
-    console.log(`1. Register a web app in your Firebase project:`);
-    console.log(
-      color.blue(`https://firebase.google.com/docs/web/setup#register-app`),
-    );
-    console.log(`2. Find your API key and other identifiers.`);
-    console.log(`3. Copy these keys and paste them into your .env file.`);
-    console.log(
-      `4. Optionally, follow one of these guides to get started with Firebase:`,
-    );
-    console.log(
-      color.blue(`https://docs.expo.dev/guides/using-firebase/#next-steps`),
-    );
-    console.log(``);
-    console.log(
-      color.green(`Once you're done, run the following to get started: `),
-    );
-    console.log(``);
-  } else {
-    console.log(
-      color.green(
-        "\nSuccess! 🎉" + " " + "Now, just run the following to get started: ",
-      ),
-    );
-    console.log(``);
-  }
+function generateStepsToRunProject(cliResults) {
   let step = 1;
   // if there is no styling package, add the stylesheet package
   const stylingPackage =
     cliResults.packages.find((p) => p.type === "styling") ||
     DEFAULT_STYLING_PACAKGE;
-  console.log(color.blue(`${step}. cd ${cliResults.projectName}`));
+  let output = color.blue(`${step}. cd ${cliResults.projectName}\n`);
   if (cliResults.flags.packageManager === "npm") {
-    console.log(color.blue(`${++step}. npm install`));
+    output += color.blue(`${++step}. npm install\n`);
     if (stylingPackage.name === "unistyles") {
-      console.log(color.blue(`${++step}. npx expo prebuild --clean`));
+      output += color.blue(`${++step}. npx expo prebuild --clean\n`);
     }
-    console.log(color.blue(`${++step}. npm run ios`));
+    output += color.blue(`${++step}. npm run ios`);
   } else if (cliResults.flags.packageManager === "pnpm") {
-    console.log(color.blue(`${++step}. pnpm install`));
+    output += color.blue(`${++step}. pnpm install\n`);
     if (stylingPackage.name === "unistyles") {
-      console.log(color.blue(`${++step}. pnpm expo prebuild --clean`));
+      output += color.blue(`${++step}. pnpm expo prebuild --clean\n`);
     }
-    console.log(color.blue(`${++step}. pnpm run ios`));
+    output += color.blue(`${++step}. pnpm run ios`);
   } else if (cliResults.flags.packageManager === "bun") {
-    console.log(color.blue(`${++step}. bun install`));
+    output += color.blue(`${++step}. bun install\n`);
     if (stylingPackage.name === "unistyles") {
-      console.log(color.blue(`${++step}. bun expo prebuild --clean`));
+      output += color.blue(`${++step}. bun expo prebuild --clean\n`);
     }
-    console.log(color.blue(`${++step}. bun run ios`));
+    output += color.blue(`${++step}. bun run ios`);
   } else {
-    console.log(color.blue(`${++step}. yarn install`));
+    output += color.blue(`${++step}. yarn install\n`);
     if (stylingPackage.name === "unistyles") {
-      console.log(color.blue(`${++step}. yarn expo prebuild --clean`));
+      output += color.blue(`${++step}. yarn expo prebuild --clean\n`);
     }
-    console.log(color.blue(`${++step}. yarn ios`));
+    output += color.blue(`${++step}. yarn ios`);
   }
-  console.log(``);
+  return output;
+}
+
+export function printOutput(cliResults) {
+  const stepsToRunProject = generateStepsToRunProject(cliResults);
+  const authenticationPackage =
+    cliResults.packages.find((p) => p.type === "authentication") || undefined;
+  //	check if packages includes package with name "supabase"
+  if (authenticationPackage && authenticationPackage.name === "supabase") {
+    return `${color.green(`\nSuccess! 🎉  Now, here's what's next:`)}
+    \n${color.blue(
+      "Head over to https://database.new to create a new Supabase project.",
+    )}
+    \n${color.blue(`Get the Project URL and anon key from the API settings:`)}
+    \n1. Go to the API settings page in the Dashboard.
+    \n2. Find your Project URL, anon, and service_role keys on this page.
+    \n3. Copy these keys and paste them into your .env file.
+    \n4. Optionally, follow one of these guides to get started with Supabase:
+    \n${color.blue(`https://docs.expo.dev/guides/using-supabase/#next-steps`)}
+    \n${color.green(
+      `Once you're done, run the following to get started: `,
+    )}\n\n${stepsToRunProject}`;
+  } else if (
+    authenticationPackage &&
+    authenticationPackage.name === "firebase"
+  ) {
+    return `\n${color.green(`\nSuccess! 🎉  Now, here's what's next:`)}
+    \n${color.blue(
+      "Head over to https://console.firebase.google.com/ to create a new Firebase project.",
+    )}
+    \n${color.blue(`Get the API key and other unique identifiers:`)}
+    \n1. Register a web app in your Firebase project:
+    \n${color.blue(`https://firebase.google.com/docs/web/setup#register-app`)};
+    \n2. Find your API key and other identifiers.
+    \n3. Copy these keys and paste them into your .env file.
+    \n4. Optionally, follow one of these guides to get started with Firebase:
+    \n${color.blue(`https://docs.expo.dev/guides/using-firebase/#next-steps`)}
+    \n${color.green(
+      `Once you're done, run the following to get started: `,
+    )}\n\n${stepsToRunProject}`;
+  } else {
+    return `${color.green(
+      `\nSuccess! 🎉  Now, just run the following to get started: `,
+    )}\n\n${stepsToRunProject}`;
+  }
 }
