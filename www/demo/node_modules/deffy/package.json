@@ -1,0 +1,46 @@
+{
+  "name": "deffy",
+  "version": "2.2.4",
+  "description": "Small and fast library to set default values.",
+  "main": "lib/index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {
+    "typpy": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IonicaBizau/deffy.js.git"
+  },
+  "keywords": [
+    "default",
+    "values",
+    "deffy"
+  ],
+  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/deffy.js/issues"
+  },
+  "blah": {
+    "h_img": "http://i.imgur.com/k1hlQxA.png"
+  },
+  "homepage": "https://github.com/IonicaBizau/deffy.js",
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js"
+  ]
+}

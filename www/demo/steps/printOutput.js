@@ -14,7 +14,9 @@ export function printOutput(cliResults) {
     cliResults.packages.find((p) => p.type === "authentication") || undefined;
   //	check if packages includes package with name "supabase"
   if (authenticationPackage && authenticationPackage.name === "supabase") {
-    console.log(color.green(`\nSuccess! 🎉 Now, here's what's next:`));
+    console.log(
+      color.green("\nSuccess! 🎉" + " " + "Now, here's what's next:"),
+    );
     console.log(``);
     console.log(
       color.blue(
@@ -45,7 +47,9 @@ export function printOutput(cliResults) {
     authenticationPackage &&
     authenticationPackage.name === "firebase"
   ) {
-    console.log(color.green(`\nSuccess! 🎉 Now, here's what's next:`));
+    console.log(
+      color.green("\nSuccess! 🎉" + " " + "Now, here's what's next:"),
+    );
     console.log(``);
     console.log(
       color.blue(
@@ -73,7 +77,9 @@ export function printOutput(cliResults) {
     console.log(``);
   } else {
     console.log(
-      color.green("\nSuccess! 🎉 Now, just run the following to get started: "),
+      color.green(
+        "\nSuccess! 🎉" + " " + "Now, just run the following to get started: ",
+      ),
     );
     console.log(``);
   }

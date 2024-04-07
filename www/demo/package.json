@@ -3,6 +3,7 @@
   "type": "module",
   "dependencies": {
     "@clack/prompts": "latest",
+    "cli-box": "^6.0.10",
     "gradient-string": "^2.0.2",
     "picocolors": "latest"
   },
