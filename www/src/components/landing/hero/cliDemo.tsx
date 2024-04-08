@@ -29,7 +29,7 @@ export default function CliDemo() {
     <div
       id="cli-demo"
       ref={cliDemoRef}
-      className="relative w-[90%] lg:w-[69%] 2xl:w-[60%] h-[55vh] lg:h-[45.5rem] p-4 sm:p-5 lg:p-6 text-white/70 flex flex-col z-[1] rounded-2xl sm:rounded-3xl xl:rounded-[2rem] bg-white/10 overflow-wrap overflow-hidden backdrop-blur-sm opacity-75"
+      className="relative w-[90%] lg:w-[69%] 2xl:w-[60%] h-[55vh] lg:h-[45.5rem] p-4 sm:p-5 lg:p-6 text-white/70 flex flex-col z-[1] rounded-2xl sm:rounded-3xl xl:rounded-[2rem] bg-white/10 overflow-wrap overflow-hidden backdrop-blur-sm opacity-75 md:hidden"
     ></div>
   );
 }
