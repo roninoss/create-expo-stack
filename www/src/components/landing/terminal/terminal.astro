@@ -2,16 +2,12 @@
 import Filetree from "../filetree.astro";
 ---
 
-<!-- <div class="container"> --><!-- <div class="preview"> -->
 <div
-  class="relative w-[90%] lg:w-[69%] 2xl:w-[60%] h-[55vh] lg:h-[45.5rem] p-4 sm:p-5 lg:p-6 text-white/70 flex-col z-[1] rounded-2xl sm:rounded-3xl xl:rounded-[2rem] bg-white/10 overflow-wrap overflow-hidden backdrop-blur-sm opacity-75 hidden md:block"
+  id="cli-container"
+  class="relative w-[90%] lg:w-[69%] 2xl:w-[60%] h-[55vh] lg:h-[45.5rem] p-4 sm:p-5 lg:p-6 text-white/70 flex-col z-[1] rounded-2xl sm:rounded-3xl xl:rounded-[2rem] bg-white/10 overflow-wrap overflow-hidden backdrop-blur-sm opacity-75 md:flex hidden"
 >
-  <!-- <div id="preview"> -->
   <pre id="terminal"></pre>
-  <!-- </div> -->
 </div>
-<!-- </div> -->
-<!-- </div> -->
 
 <script src="./container"></script>
 
@@ -23,14 +19,15 @@ import Filetree from "../filetree.astro";
     background-color: transparent;
     border-radius: 1rem;
     flex: auto;
-    /* max-width: 720px; */
     overflow: hidden;
-    /* box-shadow:
+  }
+  #cli-container {
+    box-shadow:
       2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
       6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
       12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
       22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
       41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-      100px 100px 80px rgba(0, 0, 0, 0.07); */
+      100px 100px 80px rgba(0, 0, 0, 0.07);
   }
 </style>
