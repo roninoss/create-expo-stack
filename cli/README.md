@@ -165,25 +165,25 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/dannyhw">
+            <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
+            <br />
+            <sub><b>Daniel Williams</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/todevmilen">
             <img src="https://avatars.githubusercontent.com/u/78319110?v=4" width="100;" alt="todevmilen"/>
             <br />
             <sub><b>Milen Todev</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/alitnk">
             <img src="https://avatars.githubusercontent.com/u/35243344?v=4" width="100;" alt="alitnk"/>
             <br />
             <sub><b>Alireza Zamani</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/dannyhw">
-            <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
-            <br />
-            <sub><b>Daniel Williams</b></sub>
         </a>
     </td>
     <td align="center">
