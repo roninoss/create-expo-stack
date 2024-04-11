@@ -1,8 +1,8 @@
 const roadmapData = [
   {
     index: 0,
-    version: "v2.5.x",
-    date: "Mar 9",
+    version: "v2.7.x",
+    date: "April",
     active: true,
     title: "NativeWindUI Styling Option",
     description:
@@ -10,8 +10,8 @@ const roadmapData = [
   },
   {
     index: 1,
-    version: "v2.6.x",
-    date: "Mar 15",
+    version: "v2.8.x",
+    date: "May",
     active: false,
     title: "Unified Design System",
     description:
@@ -19,8 +19,8 @@ const roadmapData = [
   },
   {
     index: 2,
-    version: "v2.7.x",
-    date: "Mar 22",
+    version: "v2.9.x",
+    date: "May",
     active: false,
     title: "Dark Mode Support",
     description:
@@ -28,26 +28,17 @@ const roadmapData = [
   },
   {
     index: 3,
-    version: "v2.8.x",
-    date: "End of Mar",
+    version: "v2.10.x",
+    date: "June",
     active: false,
     title: "Enhanced Testing Suite",
     description:
       "Stability of the CLI is incredbily important to us. We're going to be enhancing our testing suite to validate folder structure, file creation, formatting, and compilation of the generated code.",
   },
   {
-    index: 4,
-    version: "v3.0.x",
-    date: "End of Mar",
-    active: false,
-    title: "Rebrand to RN New",
-    description:
-      "We believe that the name Create Expo Stack is a bit of a mouthful. Along with a complete visual overhaul, we will be rebranding to RN New. We believe this name better fits the project & will help us reach a wider audience.",
-  },
-  {
     index: 5,
-    version: "v3.1.x",
-    date: "Early Apr",
+    version: "v2.11.x",
+    date: "June",
     active: false,
     title: "Runtime Testing with Maestro",
     description:
