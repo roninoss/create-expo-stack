@@ -19,9 +19,7 @@ window.addEventListener("load", async () => {
  */
 function isWebContainerSupported() {
   const hasSharedArrayBuffer = "SharedArrayBuffer" in window;
-  const looksLikeChrome = navigator.userAgent.toLowerCase().includes("chrome");
-  const looksLikeFirefox = navigator.userAgent.includes("Firefox");
-  if (hasSharedArrayBuffer && (looksLikeChrome || looksLikeFirefox)) {
+  if (hasSharedArrayBuffer) {
     return true;
   }
 
