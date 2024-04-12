@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.6.5
+
+### Patch Changes
+
+- [#248](https://github.com/danstepanov/create-expo-stack/pull/248) [`0118d1b989378168c20f58ebf532a153c87a8f98`](https://github.com/danstepanov/create-expo-stack/commit/0118d1b989378168c20f58ebf532a153c87a8f98) Thanks [@YounessHassoune](https://github.com/YounessHassoune)! - update the app.json EJS template to ensure that duplicate 'plugin' keys are avoided in the final app.json file.
+
 ## 2.6.4
 
 ### Patch Changes
