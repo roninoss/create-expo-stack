@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 235
+        "contributions": 268
     },
     {
         "login": "hqasmei",
@@ -62,7 +62,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/sammoore/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 40
+        "contributions": 42
     },
     {
         "login": "ernestoresende",
@@ -212,6 +212,27 @@ export const contributors = [
         "contributions": 7
     },
     {
+        "login": "dannyhw",
+        "id": 3481514,
+        "node_id": "MDQ6VXNlcjM0ODE1MTQ=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/3481514?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/dannyhw",
+        "html_url": "https://github.com/dannyhw",
+        "followers_url": "https://api.github.com/users/dannyhw/followers",
+        "following_url": "https://api.github.com/users/dannyhw/following{/other_user}",
+        "gists_url": "https://api.github.com/users/dannyhw/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/dannyhw/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/dannyhw/subscriptions",
+        "organizations_url": "https://api.github.com/users/dannyhw/orgs",
+        "repos_url": "https://api.github.com/users/dannyhw/repos",
+        "events_url": "https://api.github.com/users/dannyhw/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/dannyhw/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 6
+    },
+    {
         "login": "todevmilen",
         "id": 78319110,
         "node_id": "MDQ6VXNlcjc4MzE5MTEw",
@@ -252,27 +273,6 @@ export const contributors = [
         "type": "User",
         "site_admin": false,
         "contributions": 5
-    },
-    {
-        "login": "dannyhw",
-        "id": 3481514,
-        "node_id": "MDQ6VXNlcjM0ODE1MTQ=",
-        "avatar_url": "https://avatars.githubusercontent.com/u/3481514?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/dannyhw",
-        "html_url": "https://github.com/dannyhw",
-        "followers_url": "https://api.github.com/users/dannyhw/followers",
-        "following_url": "https://api.github.com/users/dannyhw/following{/other_user}",
-        "gists_url": "https://api.github.com/users/dannyhw/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/dannyhw/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/dannyhw/subscriptions",
-        "organizations_url": "https://api.github.com/users/dannyhw/orgs",
-        "repos_url": "https://api.github.com/users/dannyhw/repos",
-        "events_url": "https://api.github.com/users/dannyhw/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/dannyhw/received_events",
-        "type": "User",
-        "site_admin": false,
-        "contributions": 4
     },
     {
         "login": "catalinmiron",
@@ -438,6 +438,27 @@ export const contributors = [
         "repos_url": "https://api.github.com/users/gwenoleR/repos",
         "events_url": "https://api.github.com/users/gwenoleR/events{/privacy}",
         "received_events_url": "https://api.github.com/users/gwenoleR/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 1
+    },
+    {
+        "login": "boek",
+        "id": 1250545,
+        "node_id": "MDQ6VXNlcjEyNTA1NDU=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1250545?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/boek",
+        "html_url": "https://github.com/boek",
+        "followers_url": "https://api.github.com/users/boek/followers",
+        "following_url": "https://api.github.com/users/boek/following{/other_user}",
+        "gists_url": "https://api.github.com/users/boek/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/boek/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/boek/subscriptions",
+        "organizations_url": "https://api.github.com/users/boek/orgs",
+        "repos_url": "https://api.github.com/users/boek/repos",
+        "events_url": "https://api.github.com/users/boek/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/boek/received_events",
         "type": "User",
         "site_admin": false,
         "contributions": 1
