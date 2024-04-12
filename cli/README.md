@@ -244,6 +244,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/boek">
+            <img src="https://avatars.githubusercontent.com/u/1250545?v=4" width="100;" alt="boek"/>
+            <br />
+            <sub><b>Jeff Boek</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/zamplyy">
             <img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100;" alt="zamplyy"/>
             <br />
@@ -256,15 +263,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Joël Kuijper</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/asapMaki">
             <img src="https://avatars.githubusercontent.com/u/30200380?v=4" width="100;" alt="asapMaki"/>
             <br />
             <sub><b>Mahir Kadić</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Hacksore">
             <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
