@@ -16,8 +16,17 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    <% if (props.stylingPackage?.name === "nativewind") { %>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
       "nativewind": "^4.0.1",
+    <% } %>
+    <% if (props.stylingPackage?.name === "nativewindui") { %>
+      "@react-navigation/material-top-tabs": "^6.6.13",
+      "@roninoss/icons": "^0.0.3",
+      "class-variance-authority": "^0.7.0",
+      "clsx": "^2.1.0",
+      "expo-dev-client": "~3.3.8",
+      "tailwind-merge": "^2.2.1",
+      "react-native-uitextview": "^1.1.4",
     <% } %>
     
     <% if (props.stylingPackage?.name === "restyle") { %>
@@ -112,7 +121,7 @@
     "eslint": "^8.50.0",
     "eslint-config-universe": "^12.0.0",
     "prettier": "^3.2.5",
-    <% if (props.stylingPackage?.name === "nativewind") { %>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
       "tailwindcss": "^3.4.0",
       "prettier-plugin-tailwindcss": "^0.5.11",
     <% } %>
@@ -124,7 +133,7 @@
   "eslintConfig": {
     "extends": "universe/native"
   },
-  <% if (props.navigationPackage?.name === 'expo-router') { %>
+  <% if (props.navigationPackage?.name === "expo-router") { %>
     "resolutions": {
       "expo-modules-core": "~1.11.0"
     },

@@ -1,0 +1,108 @@
+const { hairlineWidth, platformSelect } = require('nativewind/theme');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // NOTE: Update this to include the paths to all of your component files.
+  content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
+  presets: [require('nativewind/preset')],
+  theme: {
+    extend: {
+      colors: {
+        border: platformSelect({
+          ios: 'rgb(var(--border))',
+          android: 'rgb(var(--android-border))',
+        }),
+        input: platformSelect({
+          ios: 'rgb(var(--input))',
+          android: 'rgb(var(--android-input))',
+        }),
+        ring: platformSelect({
+          ios: 'rgb(var(--ring))',
+          android: 'rgb(var(--android-ring))',
+        }),
+        background: platformSelect({
+          ios: 'rgb(var(--background))',
+          android: 'rgb(var(--android-background))',
+        }),
+        foreground: platformSelect({
+          ios: 'rgb(var(--foreground))',
+          android: 'rgb(var(--android-foreground))',
+        }),
+        primary: {
+          DEFAULT: platformSelect({
+            ios: 'rgb(var(--primary))',
+            android: 'rgb(var(--android-primary))',
+          }),
+          foreground: platformSelect({
+            ios: 'rgb(var(--primary-foreground))',
+            android: 'rgb(var(--android-primary-foreground))',
+          }),
+        },
+        secondary: {
+          DEFAULT: platformSelect({
+            ios: 'rgb(var(--secondary))',
+            android: 'rgb(var(--android-secondary))',
+          }),
+          foreground: platformSelect({
+            ios: 'rgb(var(--secondary-foreground))',
+            android: 'rgb(var(--android-secondary-foreground))',
+          }),
+        },
+        destructive: {
+          DEFAULT: platformSelect({
+            ios: 'rgb(var(--destructive))',
+            android: 'rgb(var(--android-destructive))',
+          }),
+          foreground: platformSelect({
+            ios: 'rgb(var(--destructive-foreground))',
+            android: 'rgb(var(--android-destructive-foreground))',
+          }),
+        },
+        muted: {
+          DEFAULT: platformSelect({
+            ios: 'rgb(var(--muted))',
+            android: 'rgb(var(--android-muted))',
+          }),
+          foreground: platformSelect({
+            ios: 'rgb(var(--muted-foreground))',
+            android: 'rgb(var(--android-muted-foreground))',
+          }),
+        },
+        accent: {
+          DEFAULT: platformSelect({
+            ios: 'rgb(var(--accent))',
+            android: 'rgb(var(--android-accent))',
+          }),
+          foreground: platformSelect({
+            ios: 'rgb(var(--accent-foreground))',
+            android: 'rgb(var(--android-accent-foreground))',
+          }),
+        },
+        popover: {
+          DEFAULT: platformSelect({
+            ios: 'rgb(var(--popover))',
+            android: 'rgb(var(--android-popover))',
+          }),
+          foreground: platformSelect({
+            ios: 'rgb(var(--popover-foreground))',
+            android: 'rgb(var(--android-popover-foreground))',
+          }),
+        },
+        card: {
+          DEFAULT: platformSelect({
+            ios: 'rgb(var(--card))',
+            android: 'rgb(var(--android-card))',
+          }),
+          foreground: platformSelect({
+            ios: 'rgb(var(--card-foreground))',
+            android: 'rgb(var(--android-card-foreground))',
+          }),
+        },
+      },
+      borderWidth: {
+        hairline: hairlineWidth(),
+      },
+    },
+  },
+  plugins: [],
+};

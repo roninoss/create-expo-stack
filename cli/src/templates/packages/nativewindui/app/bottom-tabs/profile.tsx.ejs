@@ -1,0 +1,11 @@
+import { router } from 'expo-router';
+import * as React from 'react';
+import { Button, View } from 'react-native';
+
+export default function ProfileScreen() {
+  return (
+    <View className='flex-1 justify-center items-center'>
+      <Button color={'orange'} title='Go to home tab' onPress={router.back} />
+    </View>
+  );
+}

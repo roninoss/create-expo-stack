@@ -13,6 +13,7 @@ export const availablePackages = [
   'expoRouter',
   'firebase',
   'nativewind',
+  'nativewindui',
   'react-navigation',
   'reactNavigation',
   'react-native-gesture-handler',
@@ -32,7 +33,7 @@ export type NavigationSelect = 'react-navigation' | 'expo-router' | undefined;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer + tabs' | undefined;
 
-export type StylingSelect = 'nativewind' | 'restyle' | 'stylesheet' | 'tamagui' | 'unistyles';
+export type StylingSelect = 'nativewind' | 'restyle' | 'stylesheet' | 'tamagui' | 'unistyles' | 'nativewindui';
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 

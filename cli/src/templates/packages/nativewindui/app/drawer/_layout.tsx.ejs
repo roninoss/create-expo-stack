@@ -1,0 +1,29 @@
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { useColorScheme } from '@/lib/useColorScheme';
+import { Drawer } from 'expo-router/drawer';
+import { View } from 'react-native';
+
+export default function DrawerLayout() {
+  const { colors } = useColorScheme();
+  return (
+    <Drawer
+      screenOptions={{
+        headerTintColor: colors.foreground,
+        headerRight,
+      }}
+    >
+      <Drawer.Screen name='index' options={EXPLORE_OPTIONS} />
+    </Drawer>
+  );
+}
+
+function headerRight() {
+  return (
+    <View className='px-4'>
+      <ThemeToggle />
+    </View>
+  );
+}
+const EXPLORE_OPTIONS = {
+  title: 'Explore',
+};

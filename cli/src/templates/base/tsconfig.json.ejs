@@ -6,12 +6,16 @@
       ,
     "baseUrl": ".",
     "paths": {
-      <% if  (props.navigationPackage?.name === "expo-router" && props.flags.importAlias === true) { %>
-      "~/*": ["*"]
-      <% } else if  (props.flags.importAlias === true) { %>
-      "~/*": ["src/*"]
-      <% } else { %>
-      "<%= props.flags.importAlias %>": ["src/*"]
+      <% if (props.stylingPackage?.name === 'nativewindui') { %>
+        "@/*": [ "./*" ]
+      <% } else { %>  
+        <% if  (props.navigationPackage?.name === "expo-router" && props.flags.importAlias === true) { %>
+        "~/*": ["*"]
+        <% } else if  (props.flags.importAlias === true) { %>
+        "~/*": ["src/*"]
+        <% } else { %>
+        "<%= props.flags.importAlias %>": ["src/*"]
+        <% } %>
       <% } %>
     }
     <% } %>

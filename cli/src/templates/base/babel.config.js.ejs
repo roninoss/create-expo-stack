@@ -17,7 +17,7 @@ module.exports = function(api) {
   <% } %>
 
   return {
-    <% if (props.stylingPackage?.name === "nativewind") { %>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
       presets: [
         ['babel-preset-expo', { jsxImportSource: 'nativewind' }],
         'nativewind/babel',

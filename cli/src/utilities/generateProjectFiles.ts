@@ -36,6 +36,8 @@ export function generateProjectFiles(
       target = target.replace('packages/nativewind/', '');
     } else if (stylingPackage?.name === 'restyle') {
       target = target.replace('packages/restyle/', '');
+    } else if (stylingPackage?.name === 'nativewindui') {
+      target = target.replace('packages/nativewindui/', '');
     }
 
     if (navigationPackage?.name === 'react-navigation') {
@@ -43,21 +45,23 @@ export function generateProjectFiles(
       target = target.replace('packages/react-navigation/', '');
     }
 
-    if (navigationPackage?.name === 'expo-router') {
-      target = target.replace('packages/expo-router/', '');
-      if (navigationPackage?.options?.type === 'stack') {
-        target = target.replace('stack/', '');
+    if (stylingPackage?.name !== 'nativewindui') {
+      if (navigationPackage?.name === 'expo-router') {
+        target = target.replace('packages/expo-router/', '');
+        if (navigationPackage?.options?.type === 'stack') {
+          target = target.replace('stack/', '');
+        }
+        if (navigationPackage?.options?.type === 'tabs') {
+          target = target.replace('tabs/', '');
+        }
+        if (navigationPackage?.options?.type === 'drawer + tabs') {
+          target = target.replace('drawer/', '');
+        }
       }
-      if (navigationPackage?.options?.type === 'tabs') {
-        target = target.replace('tabs/', '');
-      }
-      if (navigationPackage?.options?.type === 'drawer + tabs') {
-        target = target.replace('drawer/', '');
-      }
-    }
 
-    if (internalizationPackage?.name === 'i18next') {
-      target = target.replace('packages/i18next/', '');
+      if (internalizationPackage?.name === 'i18next') {
+        target = target.replace('packages/i18next/', '');
+      }
     }
 
     const gen = toolbox.template.generate({

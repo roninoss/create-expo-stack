@@ -113,25 +113,25 @@ export async function printOutput(
   highlight(`${step}. cd ${projectName}`);
   if (packageManager === 'npm') {
     if (options.noInstall) highlight(`${++step}. npm install`);
-    if (stylingPackage.name === 'unistyles') {
+    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
       highlight(`${++step}. npx expo prebuild --clean`);
     }
     highlight(`${++step}. npm run ios`);
   } else if (packageManager === 'pnpm') {
     if (options.noInstall) highlight(`${++step}. pnpm install`);
-    if (stylingPackage.name === 'unistyles') {
+    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
       highlight(`${++step}. pnpm expo prebuild --clean`);
     }
     highlight(`${++step}. pnpm run ios`);
   } else if (packageManager === 'bun') {
     if (options.noInstall) highlight(`${++step}. bun install`);
-    if (stylingPackage.name === 'unistyles') {
+    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
       highlight(`${++step}. bun expo prebuild --clean`);
     }
     highlight(`${++step}. bun run ios`);
   } else {
     if (options.noInstall) highlight(`${++step}. yarn install`);
-    if (stylingPackage.name === 'unistyles') {
+    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
       highlight(`${++step}. yarn expo prebuild --clean`);
     }
     highlight(`${++step}. yarn ios`);
