@@ -280,6 +280,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/YounessHassoune">
+            <img src="https://avatars.githubusercontent.com/u/36106440?v=4" width="100;" alt="YounessHassoune"/>
+            <br />
+            <sub><b>YOUNESS HASSOUNE</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/bautistaaa">
             <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
             <br />
