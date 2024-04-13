@@ -61,7 +61,7 @@ export function configureProjectFiles(
     'packages/nativewindui/components/Toggle.tsx.ejs',
     'packages/nativewindui/lib/useColorScheme.tsx.ejs',
     'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
-    'packages/nativewindui/lib/utils.ts.ejs',
+    'packages/nativewindui/lib/cn.ts.ejs',
     'packages/nativewindui/theme/colors.ts.ejs',
     'packages/nativewindui/theme/index.ts.ejs',
     'packages/nativewindui/tailwind.config.js.ejs',
