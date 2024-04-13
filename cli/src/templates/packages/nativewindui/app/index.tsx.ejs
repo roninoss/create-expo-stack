@@ -1,187 +1,147 @@
+import { Icon } from '@roninoss/icons';
+import { Link } from 'expo-router';
+import * as React from 'react';
+import { FlatList, Pressable, View } from 'react-native';
 
 import { Text } from '@/components/Text';
 import { Toggle } from '@/components/Toggle';
+import { cn } from '@/lib/cn';
 import { useColorScheme } from '@/lib/useColorScheme';
 import { useHeaderSearchBar } from '@/lib/useHeaderSearchBar';
-import { cn } from '@/lib/utils';
-import { Icon } from '@roninoss/icons';
-import { Link } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import * as React from 'react';
-import {
-  ButtonProps,
-  FlatList,
-  Platform,
-  Pressable,
-  Button as RNButton,
-  View,
-} from 'react-native';
 
 export default function Screen() {
-  const { colorScheme, colors } = useColorScheme();
+  const { colors } = useColorScheme();
   const searchValue = useHeaderSearchBar();
 
   const data = searchValue
-    ? COMPONENTS.filter((c) =>
-      c.name.toLowerCase().includes(searchValue.toLowerCase())
-    )
+    ? COMPONENTS.filter((c) => c.name.toLowerCase().includes(searchValue.toLowerCase()))
     : COMPONENTS;
 
   const screens = searchValue
-    ? FULL_SCREEN_COMPONENTS.filter((c) =>
-      c.name.toLowerCase().includes(searchValue.toLowerCase())
-    )
+    ? FULL_SCREEN_COMPONENTS.filter((c) => c.name.toLowerCase().includes(searchValue.toLowerCase()))
     : FULL_SCREEN_COMPONENTS;
 
   return (
-    <>
-      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-      <FlatList
-        contentInsetAdjustmentBehavior='automatic'
-        data={data}
-        contentContainerClassName='py-4'
-        extraData={searchValue}
-        removeClippedSubviews={false} // used for selecting text on android
-        keyExtractor={(item) => item.name}
-        ItemSeparatorComponent={() => <View className='p-2' />}
-        renderItem={({ item }) => {
-          return (
-            <Card title={item.name}>
-              <item.component />
-            </Card>
-          );
-        }}
-        ListFooterComponent={() => {
-          return (
-            <FlatList
-              ListHeaderComponent={() => (
-                <View
-                  className={cn(
-                    'pt-6 pb-2 px-4',
-                    screens.length === 0 && 'hidden'
-                  )}
-                >
-                  <Text className='text-xs font-semibold opacity-50 '>
-                    NAVIGATORS
-                  </Text>
-                </View>
-              )}
-              scrollToOverflowEnabled={true}
-              scrollEnabled={false}
-              contentInsetAdjustmentBehavior='automatic'
-              data={screens}
-              className='ios:px-4'
-              extraData={searchValue}
-              keyExtractor={(item) => item.name}
-              renderItem={({ index, item }) => {
-                const isLast = index === screens.length - 1;
-                return (
-                  <Link href={item.href} asChild>
-                    <Pressable
+    <FlatList
+      contentInsetAdjustmentBehavior="automatic"
+      data={data}
+      contentContainerClassName="py-4"
+      extraData={searchValue}
+      removeClippedSubviews={false} // used for selecting text on android
+      keyExtractor={(item) => item.name}
+      ItemSeparatorComponent={() => <View className="p-2" />}
+      renderItem={({ item }) => {
+        return (
+          <Card title={item.name}>
+            <item.component />
+          </Card>
+        );
+      }}
+      ListFooterComponent={() => {
+        return (
+          <FlatList
+            ListHeaderComponent={() => (
+              <View className={cn('px-4 pb-2 pt-6', screens.length === 0 && 'hidden')}>
+                <Text className="text-xs font-semibold opacity-50 ">NAVIGATORS</Text>
+              </View>
+            )}
+            scrollToOverflowEnabled
+            scrollEnabled={false}
+            contentInsetAdjustmentBehavior="automatic"
+            data={screens}
+            className="ios:px-4"
+            extraData={searchValue}
+            keyExtractor={(item) => item.name}
+            renderItem={({ index, item }) => {
+              const isLast = index === screens.length - 1;
+              return (
+                <Link href={item.href} asChild>
+                  <Pressable
+                    className={cn(
+                      index === 0 && 'ios:rounded-t-xl border-t',
+                      isLast && 'ios:rounded-b-xl border-b',
+                      'bg-card ios:border-l ios:border-r border-border flex-row active:opacity-80'
+                    )}>
+                    <View
                       className={cn(
-                        index === 0 && 'ios:rounded-t-xl border-t',
-                        isLast && 'ios:rounded-b-xl border-b',
-                        'bg-card flex-row active:opacity-80 ios:border-l ios:border-r border-border'
-                      )}
-                    >
-                      <View
-                        className={cn(
-                          !isLast && 'border-b border-border',
-                          'flex-1 flex-row items-center justify-between py-3 px-4'
-                        )}
-                      >
-                        <Text>{item.name}</Text>
-                        <Icon
-                          name='chevron-right'
-                          size={18}
-                          color={colors.grey}
-                        />
-                      </View>
-                    </Pressable>
-                  </Link>
-                );
-              }}
-            />
-          );
-        }}
-      />
-    </>
+                        !isLast && 'border-border border-b',
+                        'flex-1 flex-row items-center justify-between px-4 py-3'
+                      )}>
+                      <Text>{item.name}</Text>
+                      <Icon name="chevron-right" size={18} color={colors.grey} />
+                    </View>
+                  </Pressable>
+                </Link>
+              );
+            }}
+          />
+        );
+      }}
+    />
   );
 }
 
-function Card({
-  children,
-  title,
-}: {
-  children: React.ReactNode;
-  title: string;
-}) {
+function Card({ children, title }: { children: React.ReactNode; title: string }) {
   return (
-    <View className='px-4'>
-      <View className='bg-card gap-4 rounded-xl border border-border p-4 pb-6 shadow-sm shadow-black/10 dark:shadow-none'>
-        <Text className='text-center text-sm tracking-wider font-medium opacity-60'>
-          {title}
-        </Text>
+    <View className="px-4">
+      <View className="bg-card border-border gap-4 rounded-xl border p-4 pb-6 shadow-sm shadow-black/10 dark:shadow-none">
+        <Text className="text-center text-sm font-medium tracking-wider opacity-60">{title}</Text>
         {children}
       </View>
     </View>
   );
 }
 
-function Button({ color, ...props }: ButtonProps) {
-  const { colors } = useColorScheme();
-  return <RNButton color={color ?? colors.blue} {...props} />;
+function ToggleExample() {
+  const [switchValue, setSwitchValue] = React.useState(true);
+  return (
+    <View className="items-center">
+      <Toggle value={switchValue} onValueChange={setSwitchValue} />
+    </View>
+  );
 }
 
 const COMPONENTS = [
   {
     name: 'Toggle',
-    component: () => {
-      const [switchValue, setSwitchValue] = React.useState(true);
-
-      return (
-        <View className='items-center'>
-          <Toggle value={switchValue} onValueChange={setSwitchValue} />
-        </View>
-      );
-    },
+    component: ToggleExample,
   },
 
   {
     name: 'Text',
     component: () => (
-      <View className='gap-2'>
-        <Text variant='largeTitle' className='text-center'>
+      <View className="gap-2">
+        <Text variant="largeTitle" className="text-center">
           Large Title
         </Text>
-        <Text variant='title1' className='text-center'>
+        <Text variant="title1" className="text-center">
           Title 1
         </Text>
-        <Text variant='title2' className='text-center'>
+        <Text variant="title2" className="text-center">
           Title 2
         </Text>
-        <Text variant='title3' className='text-center'>
+        <Text variant="title3" className="text-center">
           Title 3
         </Text>
-        <Text variant='heading' className='text-center'>
+        <Text variant="heading" className="text-center">
           Heading
         </Text>
-        <Text variant='body' className='text-center'>
+        <Text variant="body" className="text-center">
           Body
         </Text>
-        <Text variant='callout' className='text-center'>
+        <Text variant="callout" className="text-center">
           Callout
         </Text>
-        <Text variant='subhead' className='text-center'>
+        <Text variant="subhead" className="text-center">
           Subhead
         </Text>
-        <Text variant='footnote' className='text-center'>
+        <Text variant="footnote" className="text-center">
           Footnote
         </Text>
-        <Text variant='caption1' className='text-center'>
+        <Text variant="caption1" className="text-center">
           Caption 1
         </Text>
-        <Text variant='caption2' className='text-center'>
+        <Text variant="caption2" className="text-center">
           Caption 2
         </Text>
       </View>
@@ -189,16 +149,7 @@ const COMPONENTS = [
   },
 ] as const;
 
-const FULL_SCREEN_COMPONENTS = Platform.OS === 'ios' ? [
-  {
-    name: 'Drawer Navigation',
-    href: '/drawer/',
-  },
-  {
-    name: 'Bottom Tabs Navigation',
-    href: '/bottom-tabs/',
-  },
-] : [
+const FULL_SCREEN_COMPONENTS = [
   {
     name: 'Drawer Navigation',
     href: '/drawer/',
