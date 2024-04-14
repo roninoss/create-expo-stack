@@ -201,6 +201,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/mrzachnugent">
+            <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
+            <br />
+            <sub><b>Zach Nugent</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/coyksdev">
             <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
             <br />
@@ -213,15 +220,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Andrew Levy</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/gialencar">
             <img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100;" alt="gialencar"/>
             <br />
             <sub><b>Gilson Alencar</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/mwarger">
             <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
@@ -256,15 +263,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Joar Karlsson</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Joehoel">
             <img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100;" alt="Joehoel"/>
             <br />
             <sub><b>Joël Kuijper</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/asapMaki">
             <img src="https://avatars.githubusercontent.com/u/30200380?v=4" width="100;" alt="asapMaki"/>
