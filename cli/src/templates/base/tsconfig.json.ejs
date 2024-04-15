@@ -7,7 +7,7 @@
     "baseUrl": ".",
     "paths": {
       <% if (props.stylingPackage?.name === 'nativewindui') { %>
-        "@/*": [ "./*" ]
+        "~/*": [ "./*" ]
       <% } else { %>  
         <% if  (props.navigationPackage?.name === "expo-router" && props.flags.importAlias === true) { %>
         "~/*": ["*"]
