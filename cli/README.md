@@ -180,6 +180,13 @@ Thanks go to these wonderful people:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/mrzachnugent">
+            <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
+            <br />
+            <sub><b>Zach Nugent</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/alitnk">
             <img src="https://avatars.githubusercontent.com/u/35243344?v=4" width="100;" alt="alitnk"/>
             <br />
@@ -198,13 +205,6 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100;" alt="b0iq"/>
             <br />
             <sub><b>Null</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/mrzachnugent">
-            <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
-            <br />
-            <sub><b>Zach Nugent</b></sub>
         </a>
     </td>
     <td align="center">
