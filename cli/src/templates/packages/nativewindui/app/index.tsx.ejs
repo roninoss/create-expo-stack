@@ -1,16 +1,16 @@
-import { Icon } from '@roninoss/icons';
-import { Link } from 'expo-router';
 import * as React from 'react';
-import { FlatList, Pressable, View } from 'react-native';
+import { Button as RNButton, ButtonProps, FlatList, Linking, View } from 'react-native';
 
 import { Text } from '@/components/nativewind-ui/Text';
-import { Toggle } from '@/components/nativewind-ui/Toggle';
-import { cn } from '@/lib/cn';
 import { useColorScheme } from '@/lib/useColorScheme';
 import { useHeaderSearchBar } from '@/lib/useHeaderSearchBar';
 
-export default function Screen() {
+function DefaultButton({ color, ...props }: ButtonProps) {
   const { colors } = useColorScheme();
+  return <RNButton color={color ?? colors.blue} {...props} />;
+}
+
+export default function Screen() {
   const searchValue = useHeaderSearchBar();
 
   const data = searchValue
@@ -25,7 +25,7 @@ export default function Screen() {
     <FlatList
       contentInsetAdjustmentBehavior="automatic"
       data={data}
-      contentContainerClassName="py-4"
+      contentContainerClassName="flex flex-1 py-4 items-center justify-center"
       extraData={searchValue}
       removeClippedSubviews={false} // used for selecting text on android
       keyExtractor={(item) => item.name}
@@ -37,45 +37,18 @@ export default function Screen() {
           </Card>
         );
       }}
-      ListFooterComponent={() => {
+      ListEmptyComponent={() => {
         return (
-          <FlatList
-            ListHeaderComponent={() => (
-              <View className={cn('px-4 pb-2 pt-6', screens.length === 0 && 'hidden')}>
-                <Text className="text-xs font-semibold opacity-50 ">NAVIGATORS</Text>
-              </View>
-            )}
-            scrollToOverflowEnabled
-            scrollEnabled={false}
-            contentInsetAdjustmentBehavior="automatic"
-            data={screens}
-            className="ios:px-4"
-            extraData={searchValue}
-            keyExtractor={(item) => item.name}
-            renderItem={({ index, item }) => {
-              const isLast = index === screens.length - 1;
-              return (
-                <Link href={item.href} asChild>
-                  <Pressable
-                    className={cn(
-                      index === 0 && 'ios:rounded-t-xl border-t',
-                      isLast && 'ios:rounded-b-xl border-b',
-                      'bg-card ios:border-l ios:border-r border-border flex-row active:opacity-80'
-                    )}>
-                    <View
-                      className={cn(
-                        !isLast && 'border-border border-b',
-                        'flex-1 flex-row items-center justify-between px-4 py-3'
-                      )}>
-                      <Text>{item.name}</Text>
-                      <Icon name="chevron-right" size={18} color={colors.grey} />
-                    </View>
-                  </Pressable>
-                </Link>
-              );
-            }}
-          />
-        );
+          <View className='px-4'>
+            <Text variant="title3" className="text-center font-bold">
+              No Components Installed
+            </Text>
+            <Text color="tertiary" variant="body" className="text-center pb-4">
+              You can install any of the free components from the NativeWindUI website.
+            </Text>
+            <DefaultButton title="Open NativeWindUI" onPress={() => Linking.openURL('https://nativewindui.com')} />
+          </View>
+        )
       }}
     />
   );
@@ -92,61 +65,7 @@ function Card({ children, title }: { children: React.ReactNode; title: string })
   );
 }
 
-function ToggleExample() {
-  const [switchValue, setSwitchValue] = React.useState(true);
-  return (
-    <View className="items-center">
-      <Toggle value={switchValue} onValueChange={setSwitchValue} />
-    </View>
-  );
-}
-
 const COMPONENTS = [
-  {
-    name: 'Toggle',
-    component: ToggleExample,
-  },
-
-  {
-    name: 'Text',
-    component: () => (
-      <View className="gap-2">
-        <Text variant="largeTitle" className="text-center">
-          Large Title
-        </Text>
-        <Text variant="title1" className="text-center">
-          Title 1
-        </Text>
-        <Text variant="title2" className="text-center">
-          Title 2
-        </Text>
-        <Text variant="title3" className="text-center">
-          Title 3
-        </Text>
-        <Text variant="heading" className="text-center">
-          Heading
-        </Text>
-        <Text variant="body" className="text-center">
-          Body
-        </Text>
-        <Text variant="callout" className="text-center">
-          Callout
-        </Text>
-        <Text variant="subhead" className="text-center">
-          Subhead
-        </Text>
-        <Text variant="footnote" className="text-center">
-          Footnote
-        </Text>
-        <Text variant="caption1" className="text-center">
-          Caption 1
-        </Text>
-        <Text variant="caption2" className="text-center">
-          Caption 2
-        </Text>
-      </View>
-    ),
-  },
 ] as const;
 
 const FULL_SCREEN_COMPONENTS = [
