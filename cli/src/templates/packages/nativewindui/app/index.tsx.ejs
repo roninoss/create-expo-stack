@@ -1,13 +1,20 @@
+import { FlashList } from '@shopify/flash-list';
+import { cssInterop } from 'nativewind';
 import * as React from 'react';
-import { Button as RNButton, ButtonProps, FlatList, Linking, View } from 'react-native';
+import { Button as RNButton, ButtonProps, Linking, View } from 'react-native';
 
-import { Text } from '@/components/nativewind-ui/Text';
-import { useColorScheme } from '@/lib/useColorScheme';
-import { useHeaderSearchBar } from '@/lib/useHeaderSearchBar';
+import { Text } from '~/components/nativewind-ui/Text';
+import { useColorScheme } from '~/lib/useColorScheme';
+import { useHeaderSearchBar } from '~/lib/useHeaderSearchBar';
+
+cssInterop(FlashList, {
+  className: 'style',
+  contentContainerClassName: 'contentContainerStyle',
+});
 
 function DefaultButton({ color, ...props }: ButtonProps) {
   const { colors } = useColorScheme();
-  return <RNButton color={color ?? colors.blue} {...props} />;
+  return <RNButton color={color ?? colors.primary} {...props} />;
 }
 
 export default function Screen() {
@@ -17,40 +24,57 @@ export default function Screen() {
     ? COMPONENTS.filter((c) => c.name.toLowerCase().includes(searchValue.toLowerCase()))
     : COMPONENTS;
 
-  const screens = searchValue
-    ? FULL_SCREEN_COMPONENTS.filter((c) => c.name.toLowerCase().includes(searchValue.toLowerCase()))
-    : FULL_SCREEN_COMPONENTS;
+  if (data.length === 0) {
+    return (
+      <View className='flex-1 justify-center items-center px-4'>
+        <Text variant='title3' className='text-center font-bold pb-1'>
+          {searchValue.length === 0
+            ? 'No Components Installed'
+            : 'No Components Found'}
+        </Text>
+        <Text color='tertiary' variant='body' className='text-center pb-4'>
+          You can install any of the free components from the NativeWindUI
+          website.
+        </Text>
+        <DefaultButton
+          title='Open NativeWindUI'
+          onPress={() => Linking.openURL('https://nativewindui.com')}
+        />
+      </View>
+    );
+  }
 
   return (
-    <FlatList
+    <FlashList
       contentInsetAdjustmentBehavior="automatic"
+      keyboardShouldPersistTaps="handled"
       data={data}
-      contentContainerClassName="flex flex-1 py-4 items-center justify-center"
+      estimatedItemSize={200}
+      contentContainerClassName="py-4"
       extraData={searchValue}
       removeClippedSubviews={false} // used for selecting text on android
-      keyExtractor={(item) => item.name}
-      ItemSeparatorComponent={() => <View className="p-2" />}
-      renderItem={({ item }) => {
-        return (
-          <Card title={item.name}>
-            <item.component />
-          </Card>
-        );
-      }}
-      ListEmptyComponent={() => {
-        return (
-          <View className='px-4'>
-            <Text variant="title3" className="text-center font-bold">
-              No Components Installed
-            </Text>
-            <Text color="tertiary" variant="body" className="text-center pb-4">
-              You can install any of the free components from the NativeWindUI website.
-            </Text>
-            <DefaultButton title="Open NativeWindUI" onPress={() => Linking.openURL('https://nativewindui.com')} />
-          </View>
-        )
-      }}
+      keyExtractor={keyExtractor}
+      ItemSeparatorComponent={renderItemSeparator}
+      renderItem={renderItem}
     />
+  );
+}
+
+type ComponentItem = { name: string; component: () => React.JSX.Element };
+
+function keyExtractor(item: ComponentItem) {
+  return item.name;
+}
+
+function renderItemSeparator() {
+  return <View className='p-2' />;
+}
+
+function renderItem({ item }: { item: ComponentItem }) {
+  return (
+    <Card title={item.name}>
+      <item.component />
+    </Card>
   );
 }
 
@@ -65,20 +89,5 @@ function Card({ children, title }: { children: React.ReactNode; title: string })
   );
 }
 
-const COMPONENTS = [
-] as const;
+const COMPONENTS: ComponentItem[] = [];
 
-const FULL_SCREEN_COMPONENTS = [
-  {
-    name: 'Drawer Navigation',
-    href: '/drawer/',
-  },
-  {
-    name: 'Bottom Tabs Navigation',
-    href: '/bottom-tabs/',
-  },
-  {
-    name: 'Top Tabs Navigation',
-    href: '/top-tabs/',
-  },
-] as const;

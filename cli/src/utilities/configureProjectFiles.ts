@@ -58,7 +58,6 @@ export function configureProjectFiles(
     'packages/nativewindui/app/modal.tsx.ejs',
     'packages/nativewindui/components/nativewind-ui/Text.tsx.ejs',
     'packages/nativewindui/components/ThemeToggle.tsx.ejs',
-    'packages/nativewindui/components/nativewind-ui/Toggle.tsx.ejs',
     'packages/nativewindui/lib/useColorScheme.tsx.ejs',
     'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
     'packages/nativewindui/lib/cn.ts.ejs',

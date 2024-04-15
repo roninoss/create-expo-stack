@@ -1,4 +1,4 @@
-import { useColorScheme } from '@/lib/useColorScheme';
+import { useColorScheme } from '~/lib/useColorScheme';
 import type {
   MaterialTopTabNavigationEventMap,
   MaterialTopTabNavigationOptions,
@@ -43,7 +43,7 @@ export default function TopTabsLayout() {
     <TopTabs
       initialRouteName='index'
       screenOptions={{
-        tabBarActiveTintColor: colors.blue,
+        tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: 'grey',
         tabBarLabelStyle: {
           fontSize: 14,
@@ -51,7 +51,7 @@ export default function TopTabsLayout() {
           fontWeight: 'bold',
         },
         tabBarIndicatorStyle: {
-          backgroundColor: colors.blue,
+          backgroundColor: colors.primary,
         },
         tabBarScrollEnabled: true,
         tabBarItemStyle: { width: width / SCREENS.length },
