@@ -1,7 +1,8 @@
+import { useHeaderHeight } from '@react-navigation/elements';
 import { FlashList } from '@shopify/flash-list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
-import { Button as RNButton, ButtonProps, Linking, View } from 'react-native';
+import { Button as RNButton, ButtonProps, Linking, View, Platform } from 'react-native';
 
 import { Text } from '~/components/nativewind-ui/Text';
 import { useColorScheme } from '~/lib/useColorScheme';
@@ -24,26 +25,6 @@ export default function Screen() {
     ? COMPONENTS.filter((c) => c.name.toLowerCase().includes(searchValue.toLowerCase()))
     : COMPONENTS;
 
-  if (data.length === 0) {
-    return (
-      <View className='flex-1 justify-center items-center px-4'>
-        <Text variant='title3' className='text-center font-bold pb-1'>
-          {searchValue.length === 0
-            ? 'No Components Installed'
-            : 'No Components Found'}
-        </Text>
-        <Text color='tertiary' variant='body' className='text-center pb-4'>
-          You can install any of the free components from the NativeWindUI
-          website.
-        </Text>
-        <DefaultButton
-          title='Open NativeWindUI'
-          onPress={() => Linking.openURL('https://nativewindui.com')}
-        />
-      </View>
-    );
-  }
-
   return (
     <FlashList
       contentInsetAdjustmentBehavior="automatic"
@@ -51,12 +32,37 @@ export default function Screen() {
       data={data}
       estimatedItemSize={200}
       contentContainerClassName="py-4"
+      centerContent={data.length === 0}
       extraData={searchValue}
       removeClippedSubviews={false} // used for selecting text on android
       keyExtractor={keyExtractor}
       ItemSeparatorComponent={renderItemSeparator}
       renderItem={renderItem}
+      ListEmptyComponent={ListEmptyComponent}
     />
+  );
+}
+
+const SEARCH_BAR_HEIGHT = 52;
+
+function ListEmptyComponent() {
+  const headerHeight = useHeaderHeight();
+  return (
+    <>
+      {Platform.OS === 'ios' && <View style={{ height: headerHeight + SEARCH_BAR_HEIGHT }} />}
+      <View className="flex-1 items-center justify-center px-4">
+        <Text variant="title3" className="pb-1 text-center font-bold">
+          Add Components
+        </Text>
+        <Text color="tertiary" variant="body" className="pb-4 text-center">
+          You can install any of the free components from the NativeWindUI website.
+        </Text>
+        <DefaultButton
+          title="Open NativeWindUI"
+          onPress={() => Linking.openURL('https://nativewindui.com')}
+        />
+      </View>
+    </>
   );
 }
 
@@ -67,7 +73,7 @@ function keyExtractor(item: ComponentItem) {
 }
 
 function renderItemSeparator() {
-  return <View className='p-2' />;
+  return <View className="p-2" />;
 }
 
 function renderItem({ item }: { item: ComponentItem }) {
@@ -81,7 +87,7 @@ function renderItem({ item }: { item: ComponentItem }) {
 function Card({ children, title }: { children: React.ReactNode; title: string }) {
   return (
     <View className="px-4">
-      <View className="bg-card border-border gap-4 rounded-xl border p-4 pb-6 shadow-sm shadow-black/10 dark:shadow-none">
+      <View className="gap-4 rounded-xl border border-border bg-card p-4 pb-6 shadow-sm shadow-black/10 dark:shadow-none">
         <Text className="text-center text-sm font-medium tracking-wider opacity-60">{title}</Text>
         {children}
       </View>
