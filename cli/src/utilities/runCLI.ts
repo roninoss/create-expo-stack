@@ -1,5 +1,5 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
-import { confirm, isCancel, cancel, select } from '@clack/prompts';
+import { confirm, isCancel, cancel, multiselect, select } from '@clack/prompts';
 
 import { defaultOptions } from '../constants';
 import {
@@ -8,6 +8,7 @@ import {
   NavigationSelect,
   NavigationTypes,
   PackageManager,
+  SelectedComponents,
   StylingSelect
 } from '../types';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
@@ -115,7 +116,62 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   }
 
   if (shouldUseNativeWindUI) {
-    cliResults.packages.push({ name: 'nativewindui' as StylingSelect, type: 'styling' });
+    let selectedComponents: SelectedComponents[] = [];
+    selectedComponents = (await multiselect({
+      message: 'Which components would you like to explore?',
+      options: [
+        { value: 'action-sheet', label: 'Action Sheet' },
+        { value: 'actionable-text', label: 'Actionable Text' },
+        { value: 'activity-indicator', label: 'Activity Indicator' },
+        { value: 'activity-view', label: 'Activity View' },
+        { value: 'alert', label: 'Alert' },
+        { value: 'avatar', label: 'Avatar' },
+        { value: 'bottom-sheet', label: 'Bottom Sheet' },
+        { value: 'context-menu', label: 'Context Menu' },
+        { value: 'date-picker', label: 'Date Picker' },
+        { value: 'dropdown-menu', label: 'Dropdown Menu' },
+        { value: 'picker', label: 'Picker' },
+        { value: 'progress-indicator', label: 'Progress Indicator' },
+        { value: 'ratings-indicator', label: 'Ratings Indicator' },
+        { value: 'segmented-control', label: 'Segmented Control' },
+        { value: 'slider', label: 'Slider' },
+        { value: 'text', label: 'Text' },
+        { value: 'toggle', label: 'Toggle' }
+      ],
+      required: false,
+      initialValues: [
+        'action-sheet',
+        'actionable-text',
+        'activity-indicator',
+        'activity-view',
+        'alert',
+        'avatar',
+        'bottom-sheet',
+        'context-menu',
+        'date-picker',
+        'dropdown-menu',
+        'picker',
+        'progress-indicator',
+        'ratings-indicator',
+        'segmented-control',
+        'slider',
+        'text',
+        'toggle'
+      ]
+    })) as SelectedComponents[];
+
+    if (isCancel(selectedComponents)) {
+      cancel('Cancelled... 👋');
+      return process.exit(0);
+    }
+
+    cliResults.packages.push({
+      name: 'nativewindui' as StylingSelect,
+      type: 'styling',
+      options: {
+        selectedComponents: selectedComponents as SelectedComponents[]
+      }
+    });
     cliResults.packages.push({
       name: 'expo-router' as NavigationSelect,
       type: 'navigation',
@@ -232,7 +288,6 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     const stylingSelect = await select({
       message: 'What would you like to use for styling?',
       options: [
-        { value: 'nativewindui', label: 'NativeWindUI' },
         { value: 'nativewind', label: 'NativeWind' },
         { value: 'restyle', label: 'Restyle' },
         { value: 'stylesheet', label: 'StyleSheet' },

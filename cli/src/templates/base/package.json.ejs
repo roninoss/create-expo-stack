@@ -28,6 +28,33 @@
       "tailwind-merge": "^2.2.1",
       "react-native-uitextview": "^1.1.4",
       "react-native-pager-view": "6.2.3",
+      <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
+        "@react-native-community/datetimepicker": "7.6.1",
+      <% } %>
+      <% if (props.stylingPackage?.options.selectedComponents.includes('segmented-control')) { %>
+        "@react-native-segmented-control/segmented-control": "2.4.1",
+      <% } %>
+      <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
+        "@react-native-picker/picker": "^2.6.1",
+      <% } %>
+      <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
+        "@gorhom/bottom-sheet": "^4",
+      <% } %>
+      <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
+        "@expo/react-native-action-sheet": "^4.0.1",
+      <% } %>
+      <% if (props.stylingPackage?.options.selectedComponents.includes('context-menu') || props.stylingPackage?.options.selectedComponents.includes('dropdown-menu')) { %>
+        "zeego": "^1.9.1",
+        "react-native-ios-context-menu": "^2.5.0",
+        "react-native-ios-utilities": "^4.4.0",
+        "@react-native-menu/menu": "^0.9.1",
+      <% } %>
+      <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
+        "expo-store-review": "~6.8.3",
+      <% } %>
+      <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
+        "@react-native-community/slider": "4.4.2",
+      <% } %>
     <% } %>
     
     <% if (props.stylingPackage?.name === "restyle") { %>

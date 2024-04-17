@@ -39,10 +39,29 @@ export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 
 export type Internalization = 'i18next';
 
+export type SelectedComponents =
+  | 'action-sheet'
+  | 'actionable-text'
+  | 'activity-indicator'
+  | 'activity-view'
+  | 'alert'
+  | 'avatar'
+  | 'bottom-sheet'
+  | 'context-menu'
+  | 'date-picker'
+  | 'dropdown-menu'
+  | 'picker'
+  | 'progress-indicator'
+  | 'ratings-indicator'
+  | 'segmented-control'
+  | 'slider'
+  | 'text'
+  | 'toggle';
+
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
   type: 'navigation' | 'styling' | 'authentication' | 'internationalization';
-  options?: { type?: NavigationTypes };
+  options?: { selectedComponents?: SelectedComponents[]; type?: NavigationTypes };
 };
 
 export interface CliResults {
