@@ -158,17 +158,17 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/saimon24">
-            <img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100;" alt="saimon24"/>
-            <br />
-            <sub><b>Simon Grimm</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/mrzachnugent">
             <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
             <br />
             <sub><b>Zach Nugent</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/saimon24">
+            <img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100;" alt="saimon24"/>
+            <br />
+            <sub><b>Simon Grimm</b></sub>
         </a>
     </td>
     <td align="center">
