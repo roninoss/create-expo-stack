@@ -1,11 +1,19 @@
 import { VariantProps, cva } from 'class-variance-authority';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
+<% if (props.stylingPackage?.options.selectedComponents.includes('actionable-text')) { %>
 import { UITextView } from 'react-native-uitextview';
+<% } else { %>
+import { Text as RNText } from 'react-native';
+<% } %>
 
 import { cn } from '~/lib/cn';
 
+<% if (props.stylingPackage?.options.selectedComponents.includes('actionable-text')) { %>
 cssInterop(UITextView, { className: 'style' });
+<% } else { %>
+cssInterop(RNText, { className: 'style' });
+<% } %>
 
 const textVariants = cva('text-foreground', {
   variants: {
@@ -37,6 +45,7 @@ const textVariants = cva('text-foreground', {
 
 const TextClassContext = React.createContext<string | undefined>(undefined);
 
+<% if (props.stylingPackage?.options.selectedComponents.includes('actionable-text')) { %>
 function Text({
   className,
   variant,
@@ -51,5 +60,22 @@ function Text({
     />
   );
 }
+<% } else { %>
+function Text({
+  className,
+  variant,
+  color,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof RNText> & VariantProps<typeof textVariants>) {
+  const textClassName = React.useContext(TextClassContext);
+  return (
+    <RNText
+      className={cn(textVariants({ variant, color }), textClassName, className)}
+      {...props}
+    />
+  );
+}
+<% } %>
+
 
 export { Text, TextClassContext, textVariants };

@@ -2,6 +2,12 @@ import '~/global.css';
 import 'expo-dev-client';
 import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
 import { Icon } from '@roninoss/icons';
+<% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
+<% } %>
+<% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+<% } %>
 import { Link, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, View } from 'react-native';
@@ -27,15 +33,24 @@ export default function RootLayout() {
         style={isDarkColorScheme ? 'light' : 'dark'}
       />
       <GestureHandlerRootView style={{ flex: 1 }}>
+        <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
+        <BottomSheetModalProvider>
+        <% } %>
+        <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
+        <ActionSheetProvider>
+        <% } %>
         <NavThemeProvider value={NAV_THEME[colorScheme]}>
           <Stack screenOptions={SCREEN_OPTIONS}>
             <Stack.Screen name="index" options={INDEX_OPTIONS} />
-            <Stack.Screen name="top-tabs" options={TOP_TABS_OPTIONS} />
-            <Stack.Screen name="drawer" options={DEFAULT_OPTIONS} />
-            <Stack.Screen name="bottom-tabs" options={DEFAULT_OPTIONS} />
             <Stack.Screen name="modal" options={MODAL_OPTIONS} />
           </Stack>
         </NavThemeProvider>
+        <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
+        </ActionSheetProvider>
+        <% } %>
+        <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
+        </BottomSheetModalProvider>
+        <% } %>
       </GestureHandlerRootView>
     </>
   );
@@ -79,7 +94,3 @@ const MODAL_OPTIONS = {
   title: 'Settings',
   headerRight: () => <ThemeToggle />,
 } as const;
-
-const DEFAULT_OPTIONS = {
-  headerShown: false,
-};

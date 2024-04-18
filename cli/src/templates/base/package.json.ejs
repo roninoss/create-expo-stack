@@ -26,7 +26,9 @@
       "clsx": "^2.1.0",
       "expo-dev-client": "~3.3.8",
       "tailwind-merge": "^2.2.1",
+      <% if (props.stylingPackage?.options.selectedComponents.includes('actionable-text')) { %>
       "react-native-uitextview": "^1.1.4",
+      <% } %>
       "react-native-pager-view": "6.2.3",
       <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
         "@react-native-community/datetimepicker": "7.6.1",
