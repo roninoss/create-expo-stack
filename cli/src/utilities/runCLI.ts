@@ -121,7 +121,6 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       message: 'Which components would you like to explore?',
       options: [
         { value: 'action-sheet', label: 'Action Sheet' },
-        { value: 'actionable-text', label: 'Actionable Text' },
         { value: 'activity-indicator', label: 'Activity Indicator' },
         { value: 'activity-view', label: 'Activity View' },
         { value: 'alert', label: 'Alert' },
@@ -134,6 +133,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         { value: 'progress-indicator', label: 'Progress Indicator' },
         { value: 'ratings-indicator', label: 'Ratings Indicator' },
         { value: 'segmented-control', label: 'Segmented Control' },
+        { value: 'selectable-text', label: 'Selectable Text' },
         { value: 'slider', label: 'Slider' },
         { value: 'text', label: 'Text' },
         { value: 'toggle', label: 'Toggle' }
@@ -141,7 +141,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       required: false,
       initialValues: [
         'action-sheet',
-        'actionable-text',
+        'selectable-text',
         'activity-indicator',
         'activity-view',
         'alert',

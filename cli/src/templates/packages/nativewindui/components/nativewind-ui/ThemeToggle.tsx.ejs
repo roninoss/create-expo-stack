@@ -1,5 +1,5 @@
 import { Icon } from '@roninoss/icons';
-import { Appearance, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import Animated, { LayoutAnimationConfig, ZoomInRotate } from 'react-native-reanimated';
 
 import { cn } from '~/lib/cn';
@@ -7,7 +7,7 @@ import { useColorScheme } from '~/lib/useColorScheme';
 import { COLORS } from '~/theme/colors';
 
 export function ThemeToggle() {
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme, setColorScheme } = useColorScheme();
   return (
     <LayoutAnimationConfig skipEntering>
       <Animated.View
@@ -16,9 +16,7 @@ export function ThemeToggle() {
         entering={ZoomInRotate}>
         <Pressable
           onPress={() => {
-            // ColorScheme is set with `Appearance` as well for the iOS header search placeholder text: https://github.com/software-mansion/react-native-screens/discussions/1758
-            Appearance.setColorScheme(colorScheme === 'dark' ? 'light' : 'dark');
-            toggleColorScheme();
+            setColorScheme(colorScheme === 'dark' ? 'light' : 'dark');
           }}
           className="opacity-80">
           {colorScheme === 'dark'

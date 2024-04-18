@@ -41,7 +41,7 @@ export type Internalization = 'i18next';
 
 export type SelectedComponents =
   | 'action-sheet'
-  | 'actionable-text'
+  | 'selectable-text'
   | 'activity-indicator'
   | 'activity-view'
   | 'alert'

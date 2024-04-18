@@ -11,7 +11,9 @@ import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { Link, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, View } from 'react-native';
+<% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+<% } %>
 
 import { ThemeToggle } from '~/components/nativewind-ui/ThemeToggle';
 import { cn } from '~/lib/cn';
@@ -32,8 +34,8 @@ export default function RootLayout() {
         key={`root-status-bar-${isDarkColorScheme ? 'light' : 'dark'}`}
         style={isDarkColorScheme ? 'light' : 'dark'}
       />
+       <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
         <BottomSheetModalProvider>
         <% } %>
         <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
@@ -50,8 +52,8 @@ export default function RootLayout() {
         <% } %>
         <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
         </BottomSheetModalProvider>
-        <% } %>
       </GestureHandlerRootView>
+      <% } %>
     </>
   );
 }
@@ -80,13 +82,6 @@ function SettingsIcon() {
     </Link>
   );
 }
-
-const TOP_TABS_OPTIONS = {
-  title: 'Top Tabs',
-  headerShadowVisible: false,
-  headerBackTitle: 'Back',
-  headerRight: () => <ThemeToggle />,
-} as const;
 
 const MODAL_OPTIONS = {
   presentation: 'modal',

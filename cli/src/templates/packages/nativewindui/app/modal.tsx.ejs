@@ -1,31 +1,32 @@
-import { Text } from '~/components/nativewind-ui/Text';
-import { Link } from 'expo-router';
+import { Icon } from '@roninoss/icons';
 import { StatusBar } from 'expo-status-bar';
-import { useColorScheme } from 'nativewind';
-import { Platform, View } from 'react-native';
+import { Linking, Platform, View } from 'react-native';
+
+import { Text } from '~/components/nativewind-ui/Text';
+import { useColorScheme } from '~/lib/useColorScheme';
 
 export default function ModalScreen() {
-  const { colorScheme } = useColorScheme();
+  const { colors, colorScheme } = useColorScheme();
   return (
     <>
       <StatusBar
-        style={
-          Platform.OS === 'ios'
-            ? 'light'
-            : colorScheme === 'dark'
-            ? 'light'
-            : 'dark'
-        }
+        style={Platform.OS === 'ios' ? 'light' : colorScheme === 'dark' ? 'light' : 'dark'}
       />
-      <View className='flex-1 justify-center items-center gap-8 pb-12'>
-        <View className='items-center gap-2'>
-          <Text variant='largeTitle' className='font-bold'>
+      <View className="flex-1 items-center justify-center gap-1 px-12">
+        <Icon name="file-plus-outline" size={42} color={colors.grey} />
+        <Text variant="title3" className="pb-1 text-center font-semibold">
+          NativeWindUI
+        </Text>
+        <Text color="tertiary" variant="subhead" className="pb-4 text-center">
+          You can install any of the free components from the{' '}
+          <Text
+            onPress={() => Linking.openURL('https://nativewindui.com')}
+            variant="subhead"
+            className="text-primary">
             NativeWindUI
           </Text>
-          <Link href={'https://nativewindui.com/'}>
-            <Text className='text-primary'>https://nativewindui.com/</Text>
-          </Link>
-        </View>
+          {' website.'}
+        </Text>
       </View>
     </>
   );

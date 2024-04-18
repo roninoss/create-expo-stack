@@ -16,8 +16,10 @@ import {
   <% if (props.stylingPackage?.options.selectedComponents.includes('activity-view')) { %>
   Share,
   <% } %>
+  useWindowDimensions,
   View,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { useActionSheet } from '@expo/react-native-action-sheet';
 <% } %>
@@ -75,7 +77,7 @@ function DefaultButton({ color, ...props }: ButtonProps) {
 }
 
 export default function Screen() {
-  const searchValue = useHeaderSearchBar();
+  const searchValue = useHeaderSearchBar({ hideWhenScrolling: COMPONENTS.length === 0 });
 
   const data = searchValue
     ? COMPONENTS.filter((c) => c.name.toLowerCase().includes(searchValue.toLowerCase()))
@@ -88,30 +90,28 @@ export default function Screen() {
       data={data}
       estimatedItemSize={200}
       contentContainerClassName="py-4"
-      centerContent={data.length === 0}
       extraData={searchValue}
+      <% if (props.stylingPackage?.options.selectedComponents.includes('selectable-text')) { %>
       removeClippedSubviews={false} // used for selecting text on android
+      <% } %>
       keyExtractor={keyExtractor}
       ItemSeparatorComponent={renderItemSeparator}
       renderItem={renderItem}
-      ListEmptyComponent={ListEmptyComponent}
+      ListEmptyComponent={COMPONENTS.length === 0 ? ListEmptyComponent : undefined}
     />
   );
 }
 
-const SEARCH_BAR_HEIGHT = 52;
-
 function ListEmptyComponent() {
   const insets = useSafeAreaInsets();
+  const dimensions = useWindowDimensions();
   const headerHeight = useHeaderHeight();
   const { colors } = useColorScheme();
+  const height = dimensions.height - headerHeight - insets.bottom - insets.top;
+
   return (
-    <>
-      {Platform.OS === 'ios' && (
-        <View style={{ height: headerHeight + SEARCH_BAR_HEIGHT + insets.top - insets.bottom }} />
-      )}
-      <View className='flex-1 items-center justify-center px-12 gap-1'>
-        <Icon name='folder-plus-outline' size={42} color={colors.grey} />
+    <View style={{ height }} className="flex-1 items-center justify-center gap-1 px-12">
+      <Icon name="file-plus-outline" size={42} color={colors.grey} />
         <Text variant='title3' className='pb-1 text-center font-semibold'>
           No Components Installed
         </Text>
@@ -127,11 +127,10 @@ function ListEmptyComponent() {
           {' website.'}
         </Text>
       </View>
-    </>
   );
 }
 
-type ComponentItem = { name: string; component: () => React.JSX.Element };
+type ComponentItem = { name: string; component: React.FC };
 
 function keyExtractor(item: ComponentItem) {
   return item.name;
@@ -164,7 +163,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
   {
     name: 'Picker',
-    component: () => {
+    component: function PickerExample() {
       const { colors } = useColorScheme();
       const [picker, setPicker] = React.useState('blue');
       return (
@@ -204,7 +203,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
   {
     name: 'Date Picker',
-    component: () => {
+    component: function DatePickerExample() {
       const [date, setDate] = React.useState(new Date());
       return (
         <View className='items-center'>
@@ -223,7 +222,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('segmented-control')) { %>
   {
     name: 'Segmented Controls',
-    component: () => {
+    component: function SegmentedControlsExample() {
       const [segment, setSegment] = React.useState(0);
       return (
         <SegmentedControl
@@ -240,7 +239,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
   {
     name: 'Slider',
-    component: () => {
+    component: function SliderExample() {
       const [sliderValue, setSliderValue] = React.useState(0.5);
       return <Slider value={sliderValue} onValueChange={setSliderValue} />;
     },
@@ -249,7 +248,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('toggle')) { %>
   {
     name: 'Toggle',
-    component: () => {
+    component: function ToggleExample() {
       const [switchValue, setSwitchValue] = React.useState(true);
       return (
         <View className='items-center'>
@@ -262,7 +261,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('context-menu')) { %>
   {
     name: 'Context Menu',
-    component: () => {
+    component: function ContextMenuExample() {
       const [isChecked, setIsChecked] = React.useState(true);
       return (
         <View>
@@ -303,9 +302,9 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('dropdown-menu')) { %>
   {
     name: 'Dropdown Menu',
-    component: () => {
+    component: function DropdownMenuExample() {
       const { colors } = useColorScheme();
-      const [menu, setMenu] = React.useState<'blue' | 'red'>('blue');
+      const [menu, setMenu] = React.useState<'primary' | 'destructive'>('primary');
 
       return (
         <View className='items-center'>
@@ -326,24 +325,24 @@ const COMPONENTS: ComponentItem[] = [
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.CheckboxItem
-                key='red'
-                value={menu === 'red'}
+                key='destructive'
+                value={menu === 'destructive'}
                 onValueChange={() => {
-                  setMenu('red');
+                  setMenu('destructive');
                 }}
               >
                 <DropdownMenu.ItemIndicator />
-                <DropdownMenu.ItemTitle children='red' />
+                <DropdownMenu.ItemTitle children='destructive' />
               </DropdownMenu.CheckboxItem>
               <DropdownMenu.CheckboxItem
-                key='blue'
-                value={menu === 'blue'}
+                key='primary'
+                value={menu === 'primary'}
                 onValueChange={() => {
-                  setMenu('blue');
+                  setMenu('primary');
                 }}
               >
                 <DropdownMenu.ItemIndicator />
-                <DropdownMenu.ItemTitle children='blue' />
+                <DropdownMenu.ItemTitle children='primary' />
               </DropdownMenu.CheckboxItem>
             </DropdownMenu.Content>
           </DropdownMenu.Root>
@@ -355,7 +354,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('progress-indicator')) { %>
   {
     name: 'Progress Indicator',
-    component: () => {
+    component: function ProgressIndicatorExample() {
       const [progress, setProgress] = React.useState(13);
       let id: ReturnType<typeof setInterval> | null = null;
       React.useEffect(() => {
@@ -379,7 +378,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('activity-indicator')) { %>
   {
     name: 'Activity Indicator',
-    component: () => {
+    component: function ActivityIndicatorExample() {
       return (
         <View className='p-4 items-center'>
           <ActivityIndicator />
@@ -391,14 +390,14 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('alert')) { %>
   {
     name: 'Alert',
-    component: () => {
+    component: function AlertExample() {
       const { colors } = useColorScheme();
       return (
         <View className='items-center'>
           <DefaultButton
-            color={colors.red}
+            color={colors.destructive}
             onPress={() => {
-              if (Platform.OS == 'ios') {
+              if (Platform.OS === 'ios') {
                 Alert.prompt(
                   'Delete account?',
                   'Enter your password to delete your account.',
@@ -447,7 +446,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
   {
     name: 'Action Sheet',
-    component: () => {
+    component: function ActionSheetExample() {
       const { colorScheme, colors } = useColorScheme();
       const { showActionSheetWithOptions } = useActionSheet();
       return (
@@ -497,49 +496,51 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('text')) { %>
   {
     name: 'Text',
-    component: () => (
-      <View className='gap-2'>
-        <Text variant='largeTitle' className='text-center'>
-          Large Title
-        </Text>
-        <Text variant='title1' className='text-center'>
-          Title 1
-        </Text>
-        <Text variant='title2' className='text-center'>
-          Title 2
-        </Text>
-        <Text variant='title3' className='text-center'>
-          Title 3
-        </Text>
-        <Text variant='heading' className='text-center'>
-          Heading
-        </Text>
-        <Text variant='body' className='text-center'>
-          Body
-        </Text>
-        <Text variant='callout' className='text-center'>
-          Callout
-        </Text>
-        <Text variant='subhead' className='text-center'>
-          Subhead
-        </Text>
-        <Text variant='footnote' className='text-center'>
-          Footnote
-        </Text>
-        <Text variant='caption1' className='text-center'>
-          Caption 1
-        </Text>
-        <Text variant='caption2' className='text-center'>
-          Caption 2
-        </Text>
-      </View>
-    ),
+    component: function TextExample() {
+      return (
+        <View className='gap-2'>
+          <Text variant='largeTitle' className='text-center'>
+            Large Title
+          </Text>
+          <Text variant='title1' className='text-center'>
+            Title 1
+          </Text>
+          <Text variant='title2' className='text-center'>
+            Title 2
+          </Text>
+          <Text variant='title3' className='text-center'>
+            Title 3
+          </Text>
+          <Text variant='heading' className='text-center'>
+            Heading
+          </Text>
+          <Text variant='body' className='text-center'>
+            Body
+          </Text>
+          <Text variant='callout' className='text-center'>
+            Callout
+          </Text>
+          <Text variant='subhead' className='text-center'>
+            Subhead
+          </Text>
+          <Text variant='footnote' className='text-center'>
+            Footnote
+          </Text>
+          <Text variant='caption1' className='text-center'>
+            Caption 1
+          </Text>
+          <Text variant='caption2' className='text-center'>
+            Caption 2
+          </Text>
+        </View>
+      );
+    },
   },
   <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('actionable-text')) { %>
+  <% if (props.stylingPackage?.options.selectedComponents.includes('selectable-text')) { %>
   {
     name: 'Actionable Text',
-    component: () => {
+    component: function SelectableTextExample() {
       return (
         <Text uiTextView selectable>
           Long press or double press this text
@@ -551,61 +552,90 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
   {
     name: 'Ratings Indicator',
-    component: () => (
-      <View className='items-center'>
-        <DefaultButton
-          color='orange'
-          onPress={async () => {
-            if (await StoreReview.hasAction()) {
-              StoreReview.requestReview();
-            }
-            if (Platform.OS === 'android') {
-              Alert.alert(
-                'Android Demo',
-                'Store review is not available for Android demo'
-              );
-            }
-          }}
-          title='Rate this app'
-        />
-      </View>
-    ),
+    component: function RatingsIndicatorExample() {
+      React.useEffect(() => {
+        async function showRequestReview() {
+          if (await StoreReview.hasAction()) {
+            StoreReview.requestReview();
+          }
+        }
+        const timeout = setTimeout(() => {
+          showRequestReview();
+          wasAskedRef.current = true;
+        }, 1000);
+
+        return () => clearTimeout(timeout);
+      }, []);
+
+      return (
+        <View className="gap-3">
+          <Text className="pb-2 text-center font-semibold">Please follow the guidelines.</Text>
+          <View className="flex-row">
+            <Text className="w-6 text-center text-muted-foreground">·</Text>
+            <View className="flex-1">
+              <Text variant="caption1" className="text-muted-foreground">
+                Don't call StoreReview.requestReview() from a button
+              </Text>
+            </View>
+          </View>
+          <View className="flex-row">
+            <Text className="w-6 text-center text-muted-foreground">·</Text>
+            <View className="flex-1">
+              <Text variant="caption1" className="text-muted-foreground">
+                Don't request a review when the user is doing something time sensitive.
+              </Text>
+            </View>
+          </View>
+          <View className="flex-row">
+            <Text className="w-6 text-center text-muted-foreground">·</Text>
+            <View className="flex-1">
+              <Text variant="caption1" className="text-muted-foreground">
+                Don't ask the user any questions before or while presenting the rating button or
+                card.
+              </Text>
+            </View>
+          </View>
+        </View>
+      );
+    },
   },
   <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('activity-view')) { %>
   {
     name: 'Activity View',
-    component: () => (
-      <View className='items-center'>
-        <DefaultButton
-          onPress={async () => {
-            try {
-              const result = await Share.share({
-                message: 'NativeWindUI | Familiar interface, native feel.',
-              });
-              if (result.action === Share.sharedAction) {
-                if (result.activityType) {
-                  // shared with activity type of result.activityType
-                } else {
-                  // shared
+    component: function ActivityViewExample() {
+      return (
+        <View className='items-center'>
+          <DefaultButton
+            onPress={async () => {
+              try {
+                const result = await Share.share({
+                  message: 'NativeWindUI | Familiar interface, native feel.',
+                });
+                if (result.action === Share.sharedAction) {
+                  if (result.activityType) {
+                    // shared with activity type of result.activityType
+                  } else {
+                    // shared
+                  }
+                } else if (result.action === Share.dismissedAction) {
+                  // dismissed
                 }
-              } else if (result.action === Share.dismissedAction) {
-                // dismissed
+              } catch (error: any) {
+                Alert.alert(error.message);
               }
-            } catch (error: any) {
-              Alert.alert(error.message);
-            }
-          }}
-          title='Share a message'
-        />
-      </View>
-    ),
+            }}
+            title='Share a message'
+          />
+        </View>
+      );
+    },
   },
   <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
   {
     name: 'Bottom Sheet',
-    component: () => {
+    component: function BottomSheetExample() {
       const { colorScheme } = useColorScheme();
       const bottomSheetModalRef = useSheetRef();
 
@@ -633,7 +663,7 @@ const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('avatar')) { %>
   {
     name: 'Avatar',
-    component: () => {
+    component: function AvatarExample() {
       const GITHUB_AVATAR_URI = 'https://github.com/mrzachnugent.png';
       return (
         <View className='items-center'>

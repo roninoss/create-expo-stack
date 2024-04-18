@@ -26,18 +26,18 @@
       "clsx": "^2.1.0",
       "expo-dev-client": "~3.3.8",
       "tailwind-merge": "^2.2.1",
-      <% if (props.stylingPackage?.options.selectedComponents.includes('actionable-text')) { %>
+      <% if (props.stylingPackage?.options.selectedComponents.includes('selectable-text')) { %>
       "react-native-uitextview": "^1.1.4",
       <% } %>
       "react-native-pager-view": "6.2.3",
       <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
-        "@react-native-community/datetimepicker": "7.6.1",
+        "@react-native-community/datetimepicker": "7.7.0",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('segmented-control')) { %>
         "@react-native-segmented-control/segmented-control": "2.4.1",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
-        "@react-native-picker/picker": "^2.6.1",
+        "@react-native-picker/picker": "2.6.1",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
         "@gorhom/bottom-sheet": "^4",
