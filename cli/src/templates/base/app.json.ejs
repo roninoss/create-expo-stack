@@ -39,7 +39,11 @@
     <% } %>
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    <% if (props.stylingPackage?.name === "nativewindui") { %>
+    "userInterfaceStyle": "automatic",
+     <% } else { %>
+     "userInterfaceStyle": "light",
+    <% } %>
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
