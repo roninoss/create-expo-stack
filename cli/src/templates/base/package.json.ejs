@@ -13,6 +13,12 @@
 	<% } %>
     "ios": "expo start --ios",
     "start": "expo start",
+    <% if (props.flags?.eas) { %>
+    "build:ios": "eas build --profile development --platform ios",
+    "build:android": "eas build --profile development --platform android",
+    "build:all": "eas build --profile development --platform all",
+    "prebuild": "expo prebuild",
+    <% } %>
     "web": "expo start --web"
   },
   "dependencies": {
@@ -133,6 +139,9 @@
     "react-i18next": "^14.0.1",
     "expo-localization": "~14.8.3",
   <% } %> 
+  <% if (props.flags?.eas) { %>
+    "expo-dev-client": "~3.3.8",      
+  <% } %>
 
     "expo": "~50.0.7",
     "expo-status-bar": "~1.11.1",

@@ -11,9 +11,17 @@
         "favicon": "./assets/favicon.png"
       },
       "plugins": [
-      "expo-router",
+      "expo-router"
       <% if (props.internalizationPackage?.name === "i18next") { %>
-        "expo-localization"
+        ,"expo-localization"
+      <% } %>
+      <% if (props.flags?.eas) { %>
+        ,[
+        "expo-dev-launcher",
+        {
+          "launchModeExperimental": "most-recent"
+        }
+      ]
       <% } %>
     ],
       "experiments": {
@@ -34,6 +42,14 @@
       "plugins": [
         <% if (props.internalizationPackage?.name === "i18next") { %>
           "expo-localization"
+        <% } %>
+        <% if (props.flags?.eas) { %>
+        ,[
+          "expo-dev-launcher",
+          {
+            "launchModeExperimental": "most-recent"
+          }
+        ]
         <% } %>
       ],
     <% } %>

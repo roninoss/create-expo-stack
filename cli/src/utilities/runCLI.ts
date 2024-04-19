@@ -27,6 +27,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   // Project name already validated, just set cliResults
   cliResults.projectName = projectName;
   cliResults.flags.overwrite = !!options.overwrite;
+  cliResults.flags.eas = !!options.eas;
 
   // Clear default packages
   cliResults.packages = [];
@@ -338,6 +339,18 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       success(`You'll be using i18next for internationalization.`);
     } else {
       success(`No problem, skipping internationalization for now.`);
+    }
+
+    const easEnabled = await confirm({
+      message: `Do you want to setup EAS`,
+      initialValue: false
+    });
+
+    if (easEnabled) {
+      cliResults.flags.eas = true;
+      success(`We'll setup EAS for you.`);
+    } else {
+      success(`No problem, skipping eas for now.`);
     }
   }
 

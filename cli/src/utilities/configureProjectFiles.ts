@@ -61,22 +61,22 @@ export function configureProjectFiles(
     'packages/nativewindui/expo-env.d.ts.ejs'
   ];
 
-  if (stylingPackage?.options.selectedComponents.includes('activity-indicator')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('activity-indicator')) {
     nativewindUIFiles = [
       ...nativewindUIFiles,
       'packages/nativewindui/components/nativewind-ui/ActivityIndicator.tsx.ejs'
     ];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('avatar')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('avatar')) {
     nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Avatar.tsx.ejs'];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('bottom-sheet')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('bottom-sheet')) {
     nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Sheet.tsx.ejs'];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('date-picker')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('date-picker')) {
     nativewindUIFiles = [
       ...nativewindUIFiles,
       'packages/nativewindui/components/nativewind-ui/DatePicker.android.tsx.ejs',
@@ -84,33 +84,33 @@ export function configureProjectFiles(
     ];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('dropdown-menu')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('dropdown-menu')) {
     nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Picker.tsx.ejs'];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('picker')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('picker')) {
     nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Picker.tsx.ejs'];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('progress-indicator')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('progress-indicator')) {
     nativewindUIFiles = [
       ...nativewindUIFiles,
       'packages/nativewindui/components/nativewind-ui/ProgressIndicator.tsx.ejs'
     ];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('segmented-control')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('segmented-control')) {
     nativewindUIFiles = [
       ...nativewindUIFiles,
       'packages/nativewindui/components/nativewind-ui/SegmentedControl.tsx.ejs'
     ];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('slider')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('slider')) {
     nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Slider.tsx.ejs'];
   }
 
-  if (stylingPackage?.options.selectedComponents.includes('toggle')) {
+  if (stylingPackage?.options?.selectedComponents?.includes('toggle')) {
     nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Toggle.tsx.ejs'];
   }
 
@@ -346,6 +346,10 @@ export function configureProjectFiles(
 
       files = [...files, ...i18nextFiles];
     }
+  }
+
+  if (cliResults.flags.eas) {
+    files = [...files, 'base/eas.json.ejs'];
   }
 
   return files;
