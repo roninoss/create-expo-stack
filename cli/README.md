@@ -144,6 +144,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/mrzachnugent">
+            <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
+            <br />
+            <sub><b>Zach Nugent</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/kratos-respawned">
             <img src="https://avatars.githubusercontent.com/u/87561983?v=4" width="100;" alt="kratos-respawned"/>
             <br />
@@ -155,13 +162,6 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/115630860?v=4" width="100;" alt="finnbayer"/>
             <br />
             <sub><b>Finn Bayer</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/mrzachnugent">
-            <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
-            <br />
-            <sub><b>Zach Nugent</b></sub>
         </a>
     </td>
     <td align="center">
