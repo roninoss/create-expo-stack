@@ -141,7 +141,6 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       required: false,
       initialValues: [
         'action-sheet',
-        'selectable-text',
         'activity-indicator',
         'activity-view',
         'alert',
@@ -154,6 +153,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         'progress-indicator',
         'ratings-indicator',
         'segmented-control',
+        'selectable-text',
         'slider',
         'text',
         'toggle'

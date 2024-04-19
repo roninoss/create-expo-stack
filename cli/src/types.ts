@@ -41,7 +41,6 @@ export type Internalization = 'i18next';
 
 export type SelectedComponents =
   | 'action-sheet'
-  | 'selectable-text'
   | 'activity-indicator'
   | 'activity-view'
   | 'alert'
@@ -54,6 +53,7 @@ export type SelectedComponents =
   | 'progress-indicator'
   | 'ratings-indicator'
   | 'segmented-control'
+  | 'selectable-text'
   | 'slider'
   | 'text'
   | 'toggle';
