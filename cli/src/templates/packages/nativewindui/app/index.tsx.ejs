@@ -6,10 +6,19 @@ import {
   <% if (props.stylingPackage?.options.selectedComponents.includes('alert')) { %>
   Alert,
   <% } %>
+  <% if (
+  props.stylingPackage?.options.selectedComponents.includes('alert') || 
+  props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
+  props.stylingPackage?.options.selectedComponents.includes('activity-view') || 
+  props.stylingPackage?.options.selectedComponents.includes('bottom-sheet') 
+  ) { %>
   Button as RNButton,
   ButtonProps,
+  <% } %>
   Linking,
+  <% if (props.stylingPackage?.options.selectedComponents.includes('alert') || props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
   Platform,
+  <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('dropdown-menu')) { %>
   Pressable,
   <% } %>
@@ -70,12 +79,17 @@ cssInterop(FlashList, {
   className: 'style',
   contentContainerClassName: 'contentContainerStyle',
 });
-
+<% if (
+  props.stylingPackage?.options.selectedComponents.includes('alert') || 
+  props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
+  props.stylingPackage?.options.selectedComponents.includes('activity-view') || 
+  props.stylingPackage?.options.selectedComponents.includes('bottom-sheet') 
+  ) { %>
 function DefaultButton({ color, ...props }: ButtonProps) {
   const { colors } = useColorScheme();
   return <RNButton color={color ?? colors.primary} {...props} />;
 }
-
+<% } %>
 export default function Screen() {
   const searchValue = useHeaderSearchBar({ hideWhenScrolling: COMPONENTS.length === 0 });
 
@@ -554,15 +568,14 @@ const COMPONENTS: ComponentItem[] = [
     name: 'Ratings Indicator',
     component: function RatingsIndicatorExample() {
       React.useEffect(() => {
-        const wasAskedRef = React.useRef(false);
         async function showRequestReview() {
           if (await StoreReview.hasAction()) {
+            // For android, make sure you meet all conditions to be able to test and use it: https://developer.android.com/guide/playcore/in-app-review/test#troubleshooting
             StoreReview.requestReview();
           }
         }
         const timeout = setTimeout(() => {
           showRequestReview();
-          wasAskedRef.current = true;
         }, 1000);
 
         return () => clearTimeout(timeout);
