@@ -4,6 +4,7 @@ import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager
 import { AvailablePackages, CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
 import { outro, spinner } from '@clack/prompts';
+import { easConfigure } from './runEasConfigure';
 
 export async function printOutput(
   cliResults: CliResults,
@@ -73,6 +74,10 @@ export async function printOutput(
       }
     );
     s.stop(`Git initialized!`);
+  }
+
+  if (cliResults.flags.eas) {
+    await easConfigure(cliResults, packageManager, toolbox);
   }
 
   //	check if packages includes package with name "supabase"
