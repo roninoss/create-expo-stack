@@ -116,30 +116,27 @@ export async function printOutput(
   }
   let step = 1;
   highlight(`${step}. cd ${projectName}`);
-  if (packageManager === 'npm') {
-    if (options.noInstall) highlight(`${++step}. npm install`);
-    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. npx expo prebuild --clean`);
-    }
-    highlight(`${++step}. npm run ios`);
-  } else if (packageManager === 'pnpm') {
-    if (options.noInstall) highlight(`${++step}. pnpm install`);
-    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. pnpm expo prebuild --clean`);
-    }
-    highlight(`${++step}. pnpm run ios`);
-  } else if (packageManager === 'bun') {
-    if (options.noInstall) highlight(`${++step}. bun install`);
-    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. bun expo prebuild --clean`);
-    }
-    highlight(`${++step}. bun run ios`);
+
+  const runCommand = 'npm' === packageManager ? `${packageManager} run` : packageManager;
+
+  if (flags.eas) {
+    if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
+    highlight(`${++step}. eas build --profile=development`);
+    highlight(`${++step}. ${runCommand} start`);
+    info(``);
+
+    info(`If you want to run locally instead of using eas build, run:`);
+    step = 1;
+    highlight(`${step}. cd ${projectName}`);
+    if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
+    highlight(`${++step}. ${runCommand} expo prebuild`);
+    highlight(`${++step}. ${runCommand} expo run:ios`);
   } else {
-    if (options.noInstall) highlight(`${++step}. yarn install`);
+    if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
     if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. yarn expo prebuild --clean`);
+      highlight(`${++step}. ${runCommand} expo prebuild`);
     }
-    highlight(`${++step}. yarn ios`);
+    highlight(`${++step}. ${runCommand} ios`);
   }
   info(``);
 

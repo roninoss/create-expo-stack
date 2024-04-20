@@ -43,8 +43,11 @@
         <% if (props.internalizationPackage?.name === "i18next") { %>
           "expo-localization"
         <% } %>
+        <% if (props.flags?.eas && props.internalizationPackage?.name === "i18next") { %>
+        ,
+        <% } %>
         <% if (props.flags?.eas) { %>
-        ,[
+        [
           "expo-dev-launcher",
           {
             "launchModeExperimental": "most-recent"

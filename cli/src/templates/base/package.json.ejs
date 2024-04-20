@@ -5,22 +5,21 @@
   "main": "expo-router/entry",
   <% } %>
   "scripts": {
+  <% if (props.flags?.eas) { %>
+    "build:dev": "eas build --profile development",
+    "android": "expo start --dev-client --android",
+    "ios": "expo start --dev-client --ios",
+    "start": "expo start --dev-client",
+  <% } else { %>
     "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+	<% } %>
 	<% if (props.packageManager === "bun") { %>
 		"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
 	<% } else { %>
     	"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
 	<% } %>
-    "ios": "expo start --ios",
-    "start": "expo start",
-    <% if (props.flags?.eas) { %>
-    "build:ios": "eas build --profile development --platform ios",
-    "build:android": "eas build --profile development --platform android",
-    "build:all": "eas build --profile development --platform all",
-    "prebuild": "expo prebuild",
-    "ios:local":"expo run:ios",
-    "android:local":"expo run:android",
-    <% } %>
     "web": "expo start --web"
   },
   "dependencies": {

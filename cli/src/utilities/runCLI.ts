@@ -346,6 +346,11 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       initialValue: false
     });
 
+    if (isCancel(easEnabled)) {
+      cancel('Cancelled... 👋');
+      return process.exit(0);
+    }
+
     if (easEnabled) {
       cliResults.flags.eas = true;
       success(`We'll setup EAS for you.`);

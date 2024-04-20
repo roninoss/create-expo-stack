@@ -348,9 +348,5 @@ export function configureProjectFiles(
     }
   }
 
-  if (cliResults.flags.eas) {
-    files = [...files, 'base/eas.json.ejs'];
-  }
-
   return files;
 }

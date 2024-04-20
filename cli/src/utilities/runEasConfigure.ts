@@ -69,8 +69,8 @@ export async function easConfigure(
     stdio: 'inherit'
   });
 
-  if (result.error) {
-    error('Error configuring EAS CLI');
+  if (result.error || result.status !== 0) {
+    error('Error configuring EAS');
     return process.exit(1);
   }
 
