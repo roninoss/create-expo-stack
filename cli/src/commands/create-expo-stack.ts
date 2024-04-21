@@ -16,6 +16,7 @@ import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
 import { validateProjectName } from '../utilities/validateProjectName';
 import { cancel, intro, isCancel, text } from '@clack/prompts';
+import clearNavigationPackages from '../utilities/clearNavigationPackages';
 
 const navigationValidationError = `You must pass in either --react-navigation or --expo-router if you want to use the --tabs or --drawer+tabs options`;
 const projectNameValidationError = `A project with the name`;
@@ -48,7 +49,9 @@ const command: GluegunCommand = {
     // Conditionally skip running the CLI
     const useDefault = (options.default !== undefined && options.default) || (options.d !== undefined && options.d);
     const skipCLI = options.nonInteractive;
-    const useBlankTypescript = options.blank || false;
+    const useBlankTypescript =
+      options.nativewindui == undefined ? options.blank || false : (options.blank && options.nativewindui) || false;
+
     // Check if any of the options were passed in via the command
     const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
 
@@ -189,6 +192,43 @@ const command: GluegunCommand = {
           cliResults.packages.push({
             name: 'nativewind',
             type: 'styling'
+          });
+        } else if (options.nativewindui) {
+          cliResults = clearStylingPackages(cliResults);
+          cliResults = clearNavigationPackages(cliResults);
+          cliResults.packages.push({
+            name: 'nativewindui',
+            type: 'styling',
+            options: {
+              selectedComponents: options.blank
+                ? []
+                : [
+                    'action-sheet',
+                    'activity-indicator',
+                    'activity-view',
+                    'alert',
+                    'avatar',
+                    'bottom-sheet',
+                    'context-menu',
+                    'date-picker',
+                    'dropdown-menu',
+                    'picker',
+                    'progress-indicator',
+                    'ratings-indicator',
+                    'segmented-control',
+                    'selectable-text',
+                    'slider',
+                    'text',
+                    'toggle'
+                  ]
+            }
+          });
+          cliResults.packages.push({
+            name: 'expo-router',
+            type: 'navigation',
+            options: {
+              type: 'drawer + tabs'
+            }
           });
         } else if (options.tamagui) {
           cliResults = clearStylingPackages(cliResults);

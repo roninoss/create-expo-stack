@@ -36,85 +36,85 @@ export function configureProjectFiles(
     baseFiles.push('base/.npmrc.ejs');
   }
 
-  let nativewindUIFiles = [
-    'base/tsconfig.json.ejs',
-    'base/app.json.ejs',
-    'base/babel.config.js.ejs',
-    'base/package.json.ejs',
-    'base/.gitignore.ejs',
-    'base/prettier.config.js.ejs',
-    'packages/nativewindui/app/_layout.tsx.ejs',
-    'packages/nativewindui/app/+not-found.tsx.ejs',
-    'packages/nativewindui/app/index.tsx.ejs',
-    'packages/nativewindui/app/modal.tsx.ejs',
-    'packages/nativewindui/components/nativewind-ui/Text.tsx.ejs',
-    'packages/nativewindui/components/nativewind-ui/ThemeToggle.tsx.ejs',
-    'packages/nativewindui/lib/useColorScheme.tsx.ejs',
-    'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
-    'packages/nativewindui/lib/cn.ts.ejs',
-    'packages/nativewindui/theme/colors.ts.ejs',
-    'packages/nativewindui/theme/index.ts.ejs',
-    'packages/nativewindui/tailwind.config.js.ejs',
-    'packages/nativewindui/nativewind-env.d.ts.ejs',
-    'packages/nativewindui/metro.config.js.ejs',
-    'packages/nativewindui/global.css.ejs',
-    'packages/nativewindui/expo-env.d.ts.ejs'
-  ];
-
-  if (stylingPackage?.options.selectedComponents.includes('activity-indicator')) {
-    nativewindUIFiles = [
-      ...nativewindUIFiles,
-      'packages/nativewindui/components/nativewind-ui/ActivityIndicator.tsx.ejs'
-    ];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('avatar')) {
-    nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Avatar.tsx.ejs'];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('bottom-sheet')) {
-    nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Sheet.tsx.ejs'];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('date-picker')) {
-    nativewindUIFiles = [
-      ...nativewindUIFiles,
-      'packages/nativewindui/components/nativewind-ui/DatePicker.android.tsx.ejs',
-      'packages/nativewindui/components/nativewind-ui/DatePicker.tsx.ejs'
-    ];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('dropdown-menu')) {
-    nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Picker.tsx.ejs'];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('picker')) {
-    nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Picker.tsx.ejs'];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('progress-indicator')) {
-    nativewindUIFiles = [
-      ...nativewindUIFiles,
-      'packages/nativewindui/components/nativewind-ui/ProgressIndicator.tsx.ejs'
-    ];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('segmented-control')) {
-    nativewindUIFiles = [
-      ...nativewindUIFiles,
-      'packages/nativewindui/components/nativewind-ui/SegmentedControl.tsx.ejs'
-    ];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('slider')) {
-    nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Slider.tsx.ejs'];
-  }
-
-  if (stylingPackage?.options.selectedComponents.includes('toggle')) {
-    nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Toggle.tsx.ejs'];
-  }
-
   if (stylingPackage?.name === 'nativewindui') {
+    let nativewindUIFiles = [
+      'base/tsconfig.json.ejs',
+      'base/app.json.ejs',
+      'base/babel.config.js.ejs',
+      'base/package.json.ejs',
+      'base/.gitignore.ejs',
+      'base/prettier.config.js.ejs',
+      'packages/nativewindui/app/_layout.tsx.ejs',
+      'packages/nativewindui/app/+not-found.tsx.ejs',
+      'packages/nativewindui/app/index.tsx.ejs',
+      'packages/nativewindui/app/modal.tsx.ejs',
+      'packages/nativewindui/components/nativewind-ui/Text.tsx.ejs',
+      'packages/nativewindui/components/nativewind-ui/ThemeToggle.tsx.ejs',
+      'packages/nativewindui/lib/useColorScheme.tsx.ejs',
+      'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
+      'packages/nativewindui/lib/cn.ts.ejs',
+      'packages/nativewindui/theme/colors.ts.ejs',
+      'packages/nativewindui/theme/index.ts.ejs',
+      'packages/nativewindui/tailwind.config.js.ejs',
+      'packages/nativewindui/nativewind-env.d.ts.ejs',
+      'packages/nativewindui/metro.config.js.ejs',
+      'packages/nativewindui/global.css.ejs',
+      'packages/nativewindui/expo-env.d.ts.ejs'
+    ];
+
+    if (stylingPackage?.options.selectedComponents.includes('activity-indicator')) {
+      nativewindUIFiles = [
+        ...nativewindUIFiles,
+        'packages/nativewindui/components/nativewind-ui/ActivityIndicator.tsx.ejs'
+      ];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('avatar')) {
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Avatar.tsx.ejs'];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('bottom-sheet')) {
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Sheet.tsx.ejs'];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('date-picker')) {
+      nativewindUIFiles = [
+        ...nativewindUIFiles,
+        'packages/nativewindui/components/nativewind-ui/DatePicker.android.tsx.ejs',
+        'packages/nativewindui/components/nativewind-ui/DatePicker.tsx.ejs'
+      ];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('dropdown-menu')) {
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Picker.tsx.ejs'];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('picker')) {
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Picker.tsx.ejs'];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('progress-indicator')) {
+      nativewindUIFiles = [
+        ...nativewindUIFiles,
+        'packages/nativewindui/components/nativewind-ui/ProgressIndicator.tsx.ejs'
+      ];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('segmented-control')) {
+      nativewindUIFiles = [
+        ...nativewindUIFiles,
+        'packages/nativewindui/components/nativewind-ui/SegmentedControl.tsx.ejs'
+      ];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('slider')) {
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Slider.tsx.ejs'];
+    }
+
+    if (stylingPackage?.options.selectedComponents.includes('toggle')) {
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Toggle.tsx.ejs'];
+    }
+
     files = nativewindUIFiles;
   } else {
     files = [...baseFiles];
