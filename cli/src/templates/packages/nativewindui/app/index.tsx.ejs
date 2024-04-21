@@ -172,7 +172,9 @@ function Card({ children, title }: { children: React.ReactNode; title: string })
     </View>
   );
 }
-
+<% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
+let hasRequestedReview = false;
+<% } %>
 const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
   {
@@ -375,7 +377,7 @@ const COMPONENTS: ComponentItem[] = [
         if (!id) {
           id = setInterval(() => {
             setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
-          }, Math.random() * 3000);
+          }, 1000);
         }
         return () => {
           if (id) clearInterval(id);
@@ -569,9 +571,18 @@ const COMPONENTS: ComponentItem[] = [
     component: function RatingsIndicatorExample() {
       React.useEffect(() => {
         async function showRequestReview() {
-          if (await StoreReview.hasAction()) {
-            // For android, make sure you meet all conditions to be able to test and use it: https://developer.android.com/guide/playcore/in-app-review/test#troubleshooting
-            StoreReview.requestReview();
+          if (hasRequestedReview) return;
+          try {
+            if (await StoreReview.hasAction()) {
+              await StoreReview.requestReview();
+            }
+          } catch (error) {
+            console.log(
+              'FOR ANDROID: Make sure you meet all conditions to be able to test and use it: https://developer.android.com/guide/playcore/in-app-review/test#troubleshooting',
+              error
+            );
+          } finally {
+            hasRequestedReview = true;
           }
         }
         const timeout = setTimeout(() => {
