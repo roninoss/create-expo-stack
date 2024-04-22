@@ -308,19 +308,20 @@ const command: GluegunCommand = {
         const generateRerunScript = (cliResults: CliResults) => {
           let script = `npx create-expo-stack ${cliResults.projectName} `;
 
-          // Add the packages
-          cliResults.packages.forEach((p) => {
-            script += `--${p.name} `;
-            // If the package is a navigation package, add the type if it is tabs
-            if (p.type === 'navigation') {
-              if (p.options?.type === 'tabs') {
-                script += '--tabs ';
-              } else if (p.options?.type === 'drawer + tabs') {
-                script += '--drawer+tabs ';
+          if (cliResults.packages && cliResults.packages[0].name !== 'nativewindui') {
+            // Add the packages
+            cliResults.packages.forEach((p) => {
+              script += `--${p.name} `;
+              // If the package is a navigation package, add the type if it is tabs
+              if (p.type === 'navigation') {
+                if (p.options?.type === 'tabs') {
+                  script += '--tabs ';
+                } else if (p.options?.type === 'drawer + tabs') {
+                  script += '--drawer+tabs ';
+                }
               }
-            }
-          });
-
+            });
+          }
           // Check if the user wants to skip installing packages
           if (cliResults.flags.noInstall) {
             script += '--no-install ';
