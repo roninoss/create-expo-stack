@@ -12,7 +12,9 @@ export function useColorScheme() {
   } = useNativewindColorScheme();
 
   React.useEffect(() => {
-    setNavigationBar(colorScheme ?? 'light');
+    setNavigationBar(colorScheme ?? 'light').catch((error) => {
+      console.log('useColorScheme.android.tsx", "useEffect', error);
+    });
   }, []);
 
   async function setColorScheme(colorScheme: 'light' | 'dark') {
@@ -20,7 +22,7 @@ export function useColorScheme() {
     try {
       await setNavigationBar(colorScheme);
     } catch (error) {
-      console.error('useColorScheme.android.tsx", "setColorScheme', error);
+      console.log('useColorScheme.android.tsx", "setColorScheme', error);
     }
   }
 
