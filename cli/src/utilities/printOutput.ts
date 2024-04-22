@@ -46,7 +46,8 @@ export async function printOutput(
     // format the files with prettier and eslint using installed packages.
     await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
       shell: true,
-      stdio: 'inherit'
+      // To only show errors https://nodejs.org/api/child_process.html#optionsstdio
+      stdio: ['ignore', 'ignore', 'inherit']
     });
     s.stop('Project files formatted!');
   } else {
@@ -57,7 +58,8 @@ export async function printOutput(
     // Use --no-config to prevent using project's config (that may have plugins/dependencies)
     await system.spawn(`${runnerType} prettier "${projectName}/**/*.{json,js,jsx,ts,tsx}" --no-config --write`, {
       shell: true,
-      stdio: 'inherit'
+      // To only show errors https://nodejs.org/api/child_process.html#optionsstdio
+      stdio: ['ignore', 'ignore', 'inherit']
     });
     s.stop('Project files formatted!');
   }

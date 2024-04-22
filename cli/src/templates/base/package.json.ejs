@@ -6,11 +6,8 @@
   <% } %>
   "scripts": {
     "android": "expo start --android",
-	<% if (props.packageManager === "bun") { %>
-		"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-	<% } else { %>
-    	"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-	<% } %>
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
+    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "ios": "expo start --ios",
     "start": "expo start",
     "web": "expo start --web"
@@ -146,10 +143,10 @@
 	<% } %>
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.14",
-    "@typescript-eslint/eslint-plugin": "^6.7.2",
-    "@typescript-eslint/parser": "^6.7.2",
-    "eslint": "^8.50.0",
-    "eslint-config-universe": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^8.57.0",
+    "eslint-config-universe": "^12.0.1",
     "prettier": "^3.2.5",
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
       "tailwindcss": "^3.4.0",
@@ -158,7 +155,7 @@
     <% if (props.stylingPackage?.name === "tamagui") { %>
       "@tamagui/babel-plugin": "1.74.8",
     <% } %>
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   },
   "eslintConfig": {
     "extends": "universe/native"
