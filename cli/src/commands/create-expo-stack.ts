@@ -308,7 +308,12 @@ const command: GluegunCommand = {
         const generateRerunScript = (cliResults: CliResults) => {
           let script = `npx create-expo-stack ${cliResults.projectName} `;
 
-          if (cliResults.packages && cliResults.packages[0].name !== 'nativewindui') {
+          if (cliResults.packages.length > 0 && cliResults.packages[0].name === 'nativewindui') {
+            script += '--nativewindui';
+            if (cliResults.packages[0].options.selectedComponents.length === 0) {
+              script += '--blank';
+            }
+          } else {
             // Add the packages
             cliResults.packages.forEach((p) => {
               script += `--${p.name} `;
