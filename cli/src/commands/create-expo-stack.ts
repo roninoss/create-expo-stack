@@ -309,9 +309,9 @@ const command: GluegunCommand = {
           let script = `npx create-expo-stack ${cliResults.projectName} `;
 
           if (cliResults.packages.length > 0 && cliResults.packages[0].name === 'nativewindui') {
-            script += '--nativewindui';
+            script += '--nativewindui ';
             if (cliResults.packages[0].options.selectedComponents.length === 0) {
-              script += '--blank';
+              script += '--blank ';
             }
           } else {
             // Add the packages
