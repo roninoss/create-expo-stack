@@ -689,13 +689,13 @@ const COMPONENTS: ComponentItem[] = [
   {
     name: 'Avatar',
     component: function AvatarExample() {
-      const GITHUB_AVATAR_URI = 'https://github.com/mrzachnugent.png';
+      const TWITTER_AVATAR_URI = 'https://pbs.twimg.com/profile_images/1782428433898708992/1voyv4_A_400x400.jpg';
       return (
         <View className='items-center'>
-          <Avatar alt="Zach Nugent's Avatar">
-            <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
+          <Avatar alt="NativeWindUI Avatar">
+            <AvatarImage source={{ uri: TWITTER_AVATAR_URI }} />
             <AvatarFallback>
-              <Text>ZN</Text>
+              <Text>NUI</Text>
             </AvatarFallback>
           </Avatar>
         </View>
