@@ -34,13 +34,31 @@ export async function printOutput(
   const packageManager = cliResults.flags.packageManager || getPackageManager(toolbox, cliResults);
 
   if (!options.noInstall && !flags.noInstall) {
-    s.start(`Installing dependencies using ${packageManager}...`);
+    s.start(`Installing dependencies using ${packageManager}... `);
     // install with yarn or npm i
     await system.spawn(`cd ${projectName} && ${packageManager} install --silent`, {
       shell: true,
       stdio: 'inherit'
     });
     s.stop('Dependencies installed!');
+
+    s.start('Updating Expo to latest version...');
+
+    await system.spawn(`cd ${projectName} && ${packageManager} install --silent expo@latest`, {
+      shell: true,
+      stdio: ['ignore', 'ignore', 'inherit']
+    });
+
+    s.stop('latest version of Expo installed!');
+
+    s.start('updating packages to expo compatible versions...');
+
+    await system.spawn(`cd ${projectName} && ${packageManager} expo install --fix`, {
+      shell: true,
+      stdio: ['ignore', 'ignore', 'inherit']
+    });
+
+    s.stop('packages updated!');
 
     s.start(`Cleaning up your project...`);
     // format the files with prettier and eslint using installed packages.
