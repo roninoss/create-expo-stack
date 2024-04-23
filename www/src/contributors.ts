@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 268
+        "contributions": 288
     },
     {
         "login": "hqasmei",
@@ -147,6 +147,27 @@ export const contributors = [
         "type": "User",
         "site_admin": false,
         "contributions": 13
+    },
+    {
+        "login": "mrzachnugent",
+        "id": 63797719,
+        "node_id": "MDQ6VXNlcjYzNzk3NzE5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/63797719?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mrzachnugent",
+        "html_url": "https://github.com/mrzachnugent",
+        "followers_url": "https://api.github.com/users/mrzachnugent/followers",
+        "following_url": "https://api.github.com/users/mrzachnugent/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mrzachnugent/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mrzachnugent/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mrzachnugent/subscriptions",
+        "organizations_url": "https://api.github.com/users/mrzachnugent/orgs",
+        "repos_url": "https://api.github.com/users/mrzachnugent/repos",
+        "events_url": "https://api.github.com/users/mrzachnugent/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mrzachnugent/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 12
     },
     {
         "login": "kratos-respawned",
@@ -543,6 +564,27 @@ export const contributors = [
         "repos_url": "https://api.github.com/users/Hacksore/repos",
         "events_url": "https://api.github.com/users/Hacksore/events{/privacy}",
         "received_events_url": "https://api.github.com/users/Hacksore/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 1
+    },
+    {
+        "login": "YounessHassoune",
+        "id": 36106440,
+        "node_id": "MDQ6VXNlcjM2MTA2NDQw",
+        "avatar_url": "https://avatars.githubusercontent.com/u/36106440?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/YounessHassoune",
+        "html_url": "https://github.com/YounessHassoune",
+        "followers_url": "https://api.github.com/users/YounessHassoune/followers",
+        "following_url": "https://api.github.com/users/YounessHassoune/following{/other_user}",
+        "gists_url": "https://api.github.com/users/YounessHassoune/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/YounessHassoune/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/YounessHassoune/subscriptions",
+        "organizations_url": "https://api.github.com/users/YounessHassoune/orgs",
+        "repos_url": "https://api.github.com/users/YounessHassoune/repos",
+        "events_url": "https://api.github.com/users/YounessHassoune/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/YounessHassoune/received_events",
         "type": "User",
         "site_admin": false,
         "contributions": 1
