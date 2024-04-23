@@ -49,7 +49,7 @@ export async function printOutput(
       stdio: ['ignore', 'ignore', 'inherit']
     });
 
-    s.stop('latest version of Expo installed!');
+    s.stop('Latest version of Expo installed!');
 
     s.start('Updating packages to expo compatible versions...');
 
