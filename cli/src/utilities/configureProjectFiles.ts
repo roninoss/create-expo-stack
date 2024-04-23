@@ -51,7 +51,6 @@ export function configureProjectFiles(
       'packages/nativewindui/components/nativewind-ui/Text.tsx.ejs',
       'packages/nativewindui/components/nativewind-ui/ThemeToggle.tsx.ejs',
       'packages/nativewindui/lib/useColorScheme.tsx.ejs',
-      'packages/nativewindui/lib/useColorScheme.android.tsx.ejs',
       'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
       'packages/nativewindui/lib/cn.ts.ejs',
       'packages/nativewindui/theme/colors.ts.ejs',
