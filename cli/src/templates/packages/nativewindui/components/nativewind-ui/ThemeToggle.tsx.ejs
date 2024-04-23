@@ -7,7 +7,7 @@ import { useColorScheme } from '~/lib/useColorScheme';
 import { COLORS } from '~/theme/colors';
 
 export function ThemeToggle() {
-  const { colorScheme, setColorScheme } = useColorScheme();
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   return (
     <LayoutAnimationConfig skipEntering>
       <Animated.View
@@ -15,9 +15,7 @@ export function ThemeToggle() {
         key={`toggle-${colorScheme}`}
         entering={ZoomInRotate}>
         <Pressable
-          onPress={() => {
-            setColorScheme(colorScheme === 'dark' ? 'light' : 'dark');
-          }}
+          onPress={toggleColorScheme}
           className="opacity-80">
           {colorScheme === 'dark'
             ? ({ pressed }) => (
