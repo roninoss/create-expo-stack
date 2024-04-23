@@ -6,10 +6,19 @@ import {
   <% if (props.stylingPackage?.options.selectedComponents.includes('alert')) { %>
   Alert,
   <% } %>
+  <% if (
+  props.stylingPackage?.options.selectedComponents.includes('alert') || 
+  props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
+  props.stylingPackage?.options.selectedComponents.includes('activity-view') || 
+  props.stylingPackage?.options.selectedComponents.includes('bottom-sheet') 
+  ) { %>
   Button as RNButton,
   ButtonProps,
+  <% } %>
   Linking,
+  <% if (props.stylingPackage?.options.selectedComponents.includes('alert') || props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
   Platform,
+  <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('dropdown-menu')) { %>
   Pressable,
   <% } %>
@@ -70,12 +79,17 @@ cssInterop(FlashList, {
   className: 'style',
   contentContainerClassName: 'contentContainerStyle',
 });
-
+<% if (
+  props.stylingPackage?.options.selectedComponents.includes('alert') || 
+  props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
+  props.stylingPackage?.options.selectedComponents.includes('activity-view') || 
+  props.stylingPackage?.options.selectedComponents.includes('bottom-sheet') 
+  ) { %>
 function DefaultButton({ color, ...props }: ButtonProps) {
   const { colors } = useColorScheme();
   return <RNButton color={color ?? colors.primary} {...props} />;
 }
-
+<% } %>
 export default function Screen() {
   const searchValue = useHeaderSearchBar({ hideWhenScrolling: COMPONENTS.length === 0 });
 
@@ -89,7 +103,7 @@ export default function Screen() {
       keyboardShouldPersistTaps="handled"
       data={data}
       estimatedItemSize={200}
-      contentContainerClassName="py-4"
+      contentContainerClassName="py-4 android:pb-12"
       extraData={searchValue}
       <% if (props.stylingPackage?.options.selectedComponents.includes('selectable-text')) { %>
       removeClippedSubviews={false} // used for selecting text on android
@@ -158,7 +172,9 @@ function Card({ children, title }: { children: React.ReactNode; title: string })
     </View>
   );
 }
-
+<% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
+let hasRequestedReview = false;
+<% } %>
 const COMPONENTS: ComponentItem[] = [
   <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
   {
@@ -361,7 +377,7 @@ const COMPONENTS: ComponentItem[] = [
         if (!id) {
           id = setInterval(() => {
             setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
-          }, Math.random() * 3000);
+          }, 1000);
         }
         return () => {
           if (id) clearInterval(id);
@@ -554,15 +570,23 @@ const COMPONENTS: ComponentItem[] = [
     name: 'Ratings Indicator',
     component: function RatingsIndicatorExample() {
       React.useEffect(() => {
-        const wasAskedRef = React.useRef(false);
         async function showRequestReview() {
-          if (await StoreReview.hasAction()) {
-            StoreReview.requestReview();
+          if (hasRequestedReview) return;
+          try {
+            if (await StoreReview.hasAction()) {
+              await StoreReview.requestReview();
+            }
+          } catch (error) {
+            console.log(
+              'FOR ANDROID: Make sure you meet all conditions to be able to test and use it: https://developer.android.com/guide/playcore/in-app-review/test#troubleshooting',
+              error
+            );
+          } finally {
+            hasRequestedReview = true;
           }
         }
         const timeout = setTimeout(() => {
           showRequestReview();
-          wasAskedRef.current = true;
         }, 1000);
 
         return () => clearTimeout(timeout);
@@ -665,13 +689,13 @@ const COMPONENTS: ComponentItem[] = [
   {
     name: 'Avatar',
     component: function AvatarExample() {
-      const GITHUB_AVATAR_URI = 'https://github.com/mrzachnugent.png';
+      const TWITTER_AVATAR_URI = 'https://pbs.twimg.com/profile_images/1782428433898708992/1voyv4_A_400x400.jpg';
       return (
         <View className='items-center'>
-          <Avatar alt="Zach Nugent's Avatar">
-            <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
+          <Avatar alt="NativeWindUI Avatar">
+            <AvatarImage source={{ uri: TWITTER_AVATAR_URI }} />
             <AvatarFallback>
-              <Text>ZN</Text>
+              <Text>NUI</Text>
             </AvatarFallback>
           </Avatar>
         </View>

@@ -15,11 +15,8 @@
     "ios": "expo start --ios",
     "start": "expo start",
 	<% } %>
-	<% if (props.packageManager === "bun") { %>
-		"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-	<% } else { %>
-    	"format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-	<% } %>
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
+    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -27,11 +24,12 @@
       "nativewind": "^4.0.1",
     <% } %>
     <% if (props.stylingPackage?.name === "nativewindui") { %>
-      "@roninoss/icons": "^0.0.3",
+      "@roninoss/icons": "^0.0.4",
       "@shopify/flash-list": "1.6.3",
       "class-variance-authority": "^0.7.0",
       "clsx": "^2.1.0",
       "expo-dev-client": "~3.3.8",
+      "expo-navigation-bar": "~2.8.1",
       "tailwind-merge": "^2.2.1",
       <% if (props.stylingPackage?.options.selectedComponents.includes('selectable-text')) { %>
       "react-native-uitextview": "^1.1.4",
@@ -156,10 +154,10 @@
 	<% } %>
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.14",
-    "@typescript-eslint/eslint-plugin": "^6.7.2",
-    "@typescript-eslint/parser": "^6.7.2",
-    "eslint": "^8.50.0",
-    "eslint-config-universe": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^8.57.0",
+    "eslint-config-universe": "^12.0.1",
     "prettier": "^3.2.5",
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
       "tailwindcss": "^3.4.0",
@@ -168,7 +166,7 @@
     <% if (props.stylingPackage?.name === "tamagui") { %>
       "@tamagui/babel-plugin": "1.74.8",
     <% } %>
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   },
   "eslintConfig": {
     "extends": "universe/native"

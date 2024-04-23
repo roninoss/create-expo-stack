@@ -2,4 +2,4 @@
 'create-expo-stack': patch
 ---
 
-update index in nativewindui
+Add option to setup eas

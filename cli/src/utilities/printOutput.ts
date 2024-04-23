@@ -43,11 +43,30 @@ export async function printOutput(
     });
     s.stop('Dependencies installed!');
 
+    s.start('Updating Expo to latest version...');
+
+    await system.spawn(`cd ${projectName} && ${packageManager} install --silent expo@latest`, {
+      shell: true,
+      stdio: ['ignore', 'ignore', 'inherit']
+    });
+
+    s.stop('Latest version of Expo installed!');
+
+    s.start('Updating packages to expo compatible versions...');
+
+    await system.spawn(`cd ${projectName} && ${packageManager} expo install --fix`, {
+      shell: true,
+      stdio: ['ignore', 'ignore', 'inherit']
+    });
+
+    s.stop('Packages updated!');
+
     s.start(`Cleaning up your project...`);
     // format the files with prettier and eslint using installed packages.
     await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
       shell: true,
-      stdio: 'inherit'
+      // To only show errors https://nodejs.org/api/child_process.html#optionsstdio
+      stdio: ['ignore', 'ignore', 'inherit']
     });
     s.stop('Project files formatted!');
   } else {
@@ -58,7 +77,8 @@ export async function printOutput(
     // Use --no-config to prevent using project's config (that may have plugins/dependencies)
     await system.spawn(`${runnerType} prettier "${projectName}/**/*.{json,js,jsx,ts,tsx}" --no-config --write`, {
       shell: true,
-      stdio: 'inherit'
+      // To only show errors https://nodejs.org/api/child_process.html#optionsstdio
+      stdio: ['ignore', 'ignore', 'inherit']
     });
     s.stop('Project files formatted!');
   }

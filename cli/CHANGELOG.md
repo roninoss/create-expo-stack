@@ -1,5 +1,21 @@
 # create-expo-stack
 
+## 2.7.1
+
+### Patch Changes
+
+- [#271](https://github.com/danstepanov/create-expo-stack/pull/271) [`7228e17dddfed93c14207a425b11f31086c897ee`](https://github.com/danstepanov/create-expo-stack/commit/7228e17dddfed93c14207a425b11f31086c897ee) Thanks [@dannyhw](https://github.com/dannyhw)! - Auto update expo and related packages
+
+## 2.7.0
+
+### Minor Changes
+
+- [`e4d108e7c25f1badca2f25a3b37fcbf451f9a4ad`](https://github.com/danstepanov/create-expo-stack/commit/e4d108e7c25f1badca2f25a3b37fcbf451f9a4ad) Thanks [@danstepanov](https://github.com/danstepanov)! - add base version of nativewindui, to be used for integrating the free components
+
+### Patch Changes
+
+- [`d1a265f2d90825d4ed87907628fa71e5c4bdba06`](https://github.com/danstepanov/create-expo-stack/commit/d1a265f2d90825d4ed87907628fa71e5c4bdba06) Thanks [@danstepanov](https://github.com/danstepanov)! - update index in nativewindui
+
 ## 2.6.5
 
 ### Patch Changes
