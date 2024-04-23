@@ -34,7 +34,7 @@ export async function printOutput(
   const packageManager = cliResults.flags.packageManager || getPackageManager(toolbox, cliResults);
 
   if (!options.noInstall && !flags.noInstall) {
-    s.start(`Installing dependencies using ${packageManager}... `);
+    s.start(`Installing dependencies using ${packageManager}...`);
     // install with yarn or npm i
     await system.spawn(`cd ${projectName} && ${packageManager} install --silent`, {
       shell: true,
