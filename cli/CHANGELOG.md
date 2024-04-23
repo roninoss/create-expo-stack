@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.7.1
+
+### Patch Changes
+
+- [#271](https://github.com/danstepanov/create-expo-stack/pull/271) [`7228e17dddfed93c14207a425b11f31086c897ee`](https://github.com/danstepanov/create-expo-stack/commit/7228e17dddfed93c14207a425b11f31086c897ee) Thanks [@dannyhw](https://github.com/dannyhw)! - Auto update expo and related packages
+
 ## 2.7.0
 
 ### Minor Changes
