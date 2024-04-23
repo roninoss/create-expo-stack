@@ -51,7 +51,7 @@ export async function printOutput(
 
     s.stop('latest version of Expo installed!');
 
-    s.start('updating packages to expo compatible versions...');
+    s.start('Updating packages to expo compatible versions...');
 
     await system.spawn(`cd ${projectName} && ${packageManager} expo install --fix`, {
       shell: true,
