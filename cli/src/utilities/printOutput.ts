@@ -58,7 +58,7 @@ export async function printOutput(
       stdio: ['ignore', 'ignore', 'inherit']
     });
 
-    s.stop('packages updated!');
+    s.stop('Packages updated!');
 
     s.start(`Cleaning up your project...`);
     // format the files with prettier and eslint using installed packages.
