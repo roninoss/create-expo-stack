@@ -48,8 +48,8 @@ export function configureProjectFiles(
       'packages/nativewindui/app/+not-found.tsx.ejs',
       'packages/nativewindui/app/index.tsx.ejs',
       'packages/nativewindui/app/modal.tsx.ejs',
-      'packages/nativewindui/components/nativewind-ui/Text.tsx.ejs',
-      'packages/nativewindui/components/nativewind-ui/ThemeToggle.tsx.ejs',
+      'packages/nativewindui/components/nativewindui/Text.tsx.ejs',
+      'packages/nativewindui/components/nativewindui/ThemeToggle.tsx.ejs',
       'packages/nativewindui/lib/useColorScheme.tsx.ejs',
       'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
       'packages/nativewindui/lib/cn.ts.ejs',
@@ -65,54 +65,54 @@ export function configureProjectFiles(
     if (stylingPackage?.options.selectedComponents.includes('activity-indicator')) {
       nativewindUIFiles = [
         ...nativewindUIFiles,
-        'packages/nativewindui/components/nativewind-ui/ActivityIndicator.tsx.ejs'
+        'packages/nativewindui/components/nativewindui/ActivityIndicator.tsx.ejs'
       ];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('avatar')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Avatar.tsx.ejs'];
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Avatar.tsx.ejs'];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('bottom-sheet')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Sheet.tsx.ejs'];
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Sheet.tsx.ejs'];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('date-picker')) {
       nativewindUIFiles = [
         ...nativewindUIFiles,
-        'packages/nativewindui/components/nativewind-ui/DatePicker.android.tsx.ejs',
-        'packages/nativewindui/components/nativewind-ui/DatePicker.tsx.ejs'
+        'packages/nativewindui/components/nativewindui/DatePicker.android.tsx.ejs',
+        'packages/nativewindui/components/nativewindui/DatePicker.tsx.ejs'
       ];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('dropdown-menu')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Picker.tsx.ejs'];
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Picker.tsx.ejs'];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('picker')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Picker.tsx.ejs'];
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Picker.tsx.ejs'];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('progress-indicator')) {
       nativewindUIFiles = [
         ...nativewindUIFiles,
-        'packages/nativewindui/components/nativewind-ui/ProgressIndicator.tsx.ejs'
+        'packages/nativewindui/components/nativewindui/ProgressIndicator.tsx.ejs'
       ];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('segmented-control')) {
       nativewindUIFiles = [
         ...nativewindUIFiles,
-        'packages/nativewindui/components/nativewind-ui/SegmentedControl.tsx.ejs'
+        'packages/nativewindui/components/nativewindui/SegmentedControl.tsx.ejs'
       ];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('slider')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Slider.tsx.ejs'];
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Slider.tsx.ejs'];
     }
 
     if (stylingPackage?.options.selectedComponents.includes('toggle')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewind-ui/Toggle.tsx.ejs'];
+      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Toggle.tsx.ejs'];
     }
 
     files = nativewindUIFiles;
