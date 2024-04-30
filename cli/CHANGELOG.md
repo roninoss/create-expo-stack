@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.7.2
+
+### Patch Changes
+
+- [`faa407c86751ffdbc35d58467b4a6176ec857c3b`](https://github.com/danstepanov/create-expo-stack/commit/faa407c86751ffdbc35d58467b4a6176ec857c3b) Thanks [@danstepanov](https://github.com/danstepanov)! - replace nativewind-ui folder with nativewindui folder
+
 ## 2.7.1
 
 ### Patch Changes
