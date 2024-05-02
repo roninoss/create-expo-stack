@@ -8,7 +8,7 @@ const { getDefaultConfig } = require('expo/metro-config');
 const config = getDefaultConfig(__dirname);
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
-  module.exports = withNativeWind(config, { input: "~/global.css" });
+  module.exports = withNativeWind(config, { input: "./global.css" });
 <% } else { %>
   module.exports = config;
 <% } %>
