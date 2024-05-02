@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.7.4
+
+### Patch Changes
+
+- [`30986447cb68ff8b6476adcb1b236487d1b34aea`](https://github.com/danstepanov/create-expo-stack/commit/30986447cb68ff8b6476adcb1b236487d1b34aea) Thanks [@danstepanov](https://github.com/danstepanov)! - revert last change pertaining to global css file path
+
 ## 2.7.3
 
 ### Patch Changes
