@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.7.3
+
+### Patch Changes
+
+- [`28ec60d87d7ec53874008664c08e4d097861e9e3`](https://github.com/danstepanov/create-expo-stack/commit/28ec60d87d7ec53874008664c08e4d097861e9e3) Thanks [@danstepanov](https://github.com/danstepanov)! - add tilda in place of dot for global css file
+
 ## 2.7.2
 
 ### Patch Changes
