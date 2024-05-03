@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.7.5
+
+### Patch Changes
+
+- [`779bbe02d2d08ae0a86dd7e87298f6cb92835e48`](https://github.com/danstepanov/create-expo-stack/commit/779bbe02d2d08ae0a86dd7e87298f6cb92835e48) Thanks [@danstepanov](https://github.com/danstepanov)! - go back one directory for global.css if using expo router
+
 ## 2.7.4
 
 ### Patch Changes
