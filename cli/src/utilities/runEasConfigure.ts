@@ -75,4 +75,18 @@ export async function easConfigure(
   }
 
   success('EAS configured!');
+
+  info(`Now we'll generate the native code for your project`);
+
+  const preBuildResult = await system.spawn(`cd ${projectName} && ${packageManager} prebuild`, {
+    shell: true,
+    stdio: 'inherit'
+  });
+
+  if (preBuildResult.error || preBuildResult.status !== 0) {
+    error('Error generating native code');
+    return process.exit(1);
+  }
+
+  success('Native code generated!');
 }

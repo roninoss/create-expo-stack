@@ -135,23 +135,34 @@ export async function printOutput(
     info(``);
   }
   let step = 1;
-  highlight(`${step}. cd ${projectName}`);
 
   const runCommand = 'npm' === packageManager ? `${packageManager} run` : packageManager;
 
   if (flags.eas) {
+    info(`To build for development:`);
+    info(``);
+    highlight(`${step}. cd ${projectName}`);
     if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
     highlight(`${++step}. eas build --profile=development`);
     highlight(`${++step}. ${runCommand} start`);
+
     info(``);
 
-    info(`If you want to run locally instead of using eas build, run:`);
     step = 1;
+
+    info(`To create a build to share with others:`);
+    info(``);
     highlight(`${step}. cd ${projectName}`);
     if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
-    highlight(`${++step}. ${runCommand} expo prebuild`);
-    highlight(`${++step}. ${runCommand} expo run:ios`);
+    highlight(`${++step}. eas build --profile=preview`);
+
+    info(``);
+
+    info('To add additional ios users:');
+    info(``);
+    highlight(`eas device:create `);
   } else {
+    highlight(`${step}. cd ${projectName}`);
     if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
     if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
       highlight(`${++step}. ${runCommand} expo prebuild`);
