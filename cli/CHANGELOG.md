@@ -1,5 +1,39 @@
 # create-expo-stack
 
+## 2.8.0
+
+### Minor Changes
+
+- [`673f031f54b6006b90a68a66f8a775b6316e7cc9`](https://github.com/danstepanov/create-expo-stack/commit/673f031f54b6006b90a68a66f8a775b6316e7cc9) Thanks [@danstepanov](https://github.com/danstepanov)! - users can save their favorite configurations
+
+### Patch Changes
+
+- [`940dc326c5d7efed69a239a5326456e64c08d983`](https://github.com/danstepanov/create-expo-stack/commit/940dc326c5d7efed69a239a5326456e64c08d983) Thanks [@danstepanov](https://github.com/danstepanov)! - pipe version of create expo stack to git commit message
+
+## 2.7.5
+
+### Patch Changes
+
+- [`779bbe02d2d08ae0a86dd7e87298f6cb92835e48`](https://github.com/danstepanov/create-expo-stack/commit/779bbe02d2d08ae0a86dd7e87298f6cb92835e48) Thanks [@danstepanov](https://github.com/danstepanov)! - go back one directory for global.css if using expo router
+
+## 2.7.4
+
+### Patch Changes
+
+- [`30986447cb68ff8b6476adcb1b236487d1b34aea`](https://github.com/danstepanov/create-expo-stack/commit/30986447cb68ff8b6476adcb1b236487d1b34aea) Thanks [@danstepanov](https://github.com/danstepanov)! - revert last change pertaining to global css file path
+
+## 2.7.3
+
+### Patch Changes
+
+- [`28ec60d87d7ec53874008664c08e4d097861e9e3`](https://github.com/danstepanov/create-expo-stack/commit/28ec60d87d7ec53874008664c08e4d097861e9e3) Thanks [@danstepanov](https://github.com/danstepanov)! - add tilda in place of dot for global css file
+
+## 2.7.2
+
+### Patch Changes
+
+- [`faa407c86751ffdbc35d58467b4a6176ec857c3b`](https://github.com/danstepanov/create-expo-stack/commit/faa407c86751ffdbc35d58467b4a6176ec857c3b) Thanks [@danstepanov](https://github.com/danstepanov)! - replace nativewind-ui folder with nativewindui folder
+
 ## 2.7.1
 
 ### Patch Changes

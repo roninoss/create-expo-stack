@@ -26,6 +26,8 @@
 </style>
 
 <script>
+  let formatter = Intl.NumberFormat("en", { notation: "compact" });
+
   document.addEventListener("DOMContentLoaded", () => {
     const starCountElement = document.getElementById("star-count");
     if (starCountElement) {
@@ -36,7 +38,7 @@
         .then((data) => {
           starCountElement.classList.remove("spinner");
           const starCount = data.stargazers_count;
-          starCountElement.textContent = starCount;
+          starCountElement.textContent = formatter.format(starCount);
         })
         .catch((error) => {
           starCountElement.classList.remove("spinner");
