@@ -10,24 +10,22 @@ import MobileNav from "./MobileNav";
   <GithubStarButton />
 
   <div
-    class="flex-row space-x-4 items-center justify-center hidden sm:flex sm:absolute right-4"
+    class="space-x-4 items-center justify-center hidden sm:flex sm:absolute right-2 md:right-4 2xl:right-6"
   >
-    <a href="https://docs.createexpostack.com/" class="hover:no-underline"
-      >Docs</a
+    <a
+      href="https://docs.createexpostack.com/"
+      class="hover:no-underline text-xl font-bold text-neutral-100 hover:bg-white/10 py-3 px-6 rounded-full duration-300"
     >
+      Docs
+    </a>
     <a
       target="_blank"
       rel="noreferrer noopener"
+      class="text-neutral-100 hover:bg-white/10 rounded-full duration-300"
       href="https://github.com/danstepanov/create-expo-stack"
-      ><GitHubIcon className="m-2 h-10 w-10" /></a
     >
+      <GitHubIcon className="m-2 h-10 w-10" />
+    </a>
   </div>
-
   <MobileNav client:load />
-
-  <style>
-    #github-link:hover {
-      text-decoration: none !important;
-    }
-  </style>
 </nav>
