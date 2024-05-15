@@ -35,7 +35,7 @@ export default function MobileNav() {
         <span className="sr-only">Toggle Menu</span>
       </button>
       <aside
-        className={`w-full h-full bg-black/50 backdrop-blur-sm ${
+        className={`w-full h-[100lvh] bg-black/50 backdrop-blur-sm ${
           !open && "opacity-0 pointer-events-none"
         } fixed top-0 left-0 z-40 duration-500`}
         onClick={() => setOpen(false)}
