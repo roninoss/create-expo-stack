@@ -64,7 +64,7 @@ export default function Testimonials() {
 
   return (
     <section className="z-10 w-[90%] lg:w-[70%] sm:w-auto">
-      <h1 className="text-center text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[4rem] xl:text-[4rem] pb-16 pt-24 2xl:pt-0">
+      <h1 className="text-center text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[4rem] xl:text-[4rem] pb-16 pt-24 2xl:pt-12">
         What people are saying
       </h1>
       <div className="infinite-scroll-x-container mx-auto max-w-7xl px-6 sm:px-8">
