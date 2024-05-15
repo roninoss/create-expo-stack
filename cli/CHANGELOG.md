@@ -1,5 +1,15 @@
 # create-expo-stack
 
+## 2.8.0
+
+### Minor Changes
+
+- [`673f031f54b6006b90a68a66f8a775b6316e7cc9`](https://github.com/danstepanov/create-expo-stack/commit/673f031f54b6006b90a68a66f8a775b6316e7cc9) Thanks [@danstepanov](https://github.com/danstepanov)! - users can save their favorite configurations
+
+### Patch Changes
+
+- [`940dc326c5d7efed69a239a5326456e64c08d983`](https://github.com/danstepanov/create-expo-stack/commit/940dc326c5d7efed69a239a5326456e64c08d983) Thanks [@danstepanov](https://github.com/danstepanov)! - pipe version of create expo stack to git commit message
+
 ## 2.7.5
 
 ### Patch Changes
