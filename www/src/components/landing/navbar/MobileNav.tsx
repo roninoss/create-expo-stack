@@ -32,6 +32,7 @@ export default function MobileNav() {
             size={24}
           />
         </div>
+        <span className="sr-only">Toggle Menu</span>
       </button>
       <aside
         className={`w-full h-full bg-black/50 backdrop-blur-sm ${
