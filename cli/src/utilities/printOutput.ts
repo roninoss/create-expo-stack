@@ -44,7 +44,7 @@ export async function printOutput(
 
     s.start('Updating Expo to latest version...');
 
-    await system.spawn(`cd ${projectName} && ${packageManager} install --silent expo@latest`, {
+    await system.spawn(`cd ${projectName} && ${packageManager} install --silent expo`, {
       shell: true,
       stdio: ['ignore', 'ignore', 'inherit']
     });
@@ -53,9 +53,9 @@ export async function printOutput(
 
     s.start('Updating packages to expo compatible versions...');
 
-    await system.spawn(`cd ${projectName} && ${packageManager} expo install --fix`, {
+    await system.spawn(`cd ${projectName} && ${packageManager} expo install`, {
       shell: true,
-      stdio: ['ignore', 'ignore', 'ignore']
+      stdio: ['ignore', 'ignore', 'inherit']
     });
 
     s.stop('Packages updated!');
