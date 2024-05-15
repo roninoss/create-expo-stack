@@ -31,7 +31,7 @@ export async function validateProjectName(
     }
 
     if (shouldDeleteExistingProject) {
-      s.start('Deleting existing project...');
+      s.start('Deleting existing project. This may take a while...');
       await removeAsync(projectName);
       s.stop(`Deleted existing directory: ${projectName}`);
       return;

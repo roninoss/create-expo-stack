@@ -55,7 +55,7 @@ export async function printOutput(
 
     await system.spawn(`cd ${projectName} && ${packageManager} expo install --fix`, {
       shell: true,
-      stdio: ['ignore', 'ignore', 'inherit']
+      stdio: ['ignore', 'ignore', 'ignore']
     });
 
     s.stop('Packages updated!');
@@ -65,7 +65,7 @@ export async function printOutput(
     await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
       shell: true,
       // To only show errors https://nodejs.org/api/child_process.html#optionsstdio
-      stdio: ['ignore', 'ignore', 'inherit']
+      stdio: ['ignore', 'ignore', 'ignore']
     });
     s.stop('Project files formatted!');
   } else {

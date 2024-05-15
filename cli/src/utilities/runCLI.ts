@@ -1,5 +1,5 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
-import { confirm, isCancel, cancel, multiselect, select } from '@clack/prompts';
+import { confirm, isCancel, cancel, multiselect, select, text } from '@clack/prompts';
 
 import { defaultOptions } from '../constants';
 import {
@@ -12,6 +12,7 @@ import {
   StylingSelect
 } from '../types';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
+import { loadConfigs, saveConfig } from './configStorage';
 
 const recommendedBunVersion = '1.0.14';
 
@@ -30,6 +31,47 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
 
   // Clear default packages
   cliResults.packages = [];
+
+  // Check whether the user has any saved create expo stack configurations
+  const savedConfigs = await loadConfigs();
+
+  // If the user has saved configurations, ask if they would like to use them
+  if (savedConfigs.length > 0) {
+    const useSavedConfig = await confirm({
+      message: 'Would you like to use a saved configuration?',
+      initialValue: false
+    });
+
+    if (isCancel(useSavedConfig)) {
+      cancel('Cancelled... 👋');
+      return process.exit(0);
+    }
+
+    if (useSavedConfig) {
+      const savedConfigSelect = await select({
+        message: 'Which saved configuration would you like to use?',
+        options: savedConfigs.map((config) => ({ value: config.name, label: config.name }))
+      });
+
+      if (isCancel(savedConfigSelect)) {
+        cancel('Cancelled... 👋');
+        return process.exit(0);
+      }
+
+      const selectedConfig = savedConfigs.find((config) => config.name === savedConfigSelect);
+
+      if (selectedConfig) {
+        cliResults.packages = selectedConfig.cliResults.packages;
+        cliResults.flags = selectedConfig.cliResults.flags;
+        success(`Using saved configuration: ${selectedConfig.name}`);
+
+        return cliResults;
+      } else {
+        warning('Saved configuration not found, continuing with default configuration.');
+      }
+    }
+  }
+
   // Ask about TypeScript
   const shouldUseTypescript = await confirm({
     message: 'Would you like to use TypeScript with this project?',
@@ -327,18 +369,31 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     } else {
       success(`No problem, skipping authentication for now.`);
     }
+  }
 
-    const internationalizationSelect = await confirm({
-      message: `What would you like to support internationalization?`,
-      initialValue: false
+  // Offer user ability to save configuration
+  const shouldSaveConfig = await confirm({
+    message: 'Would you like to save this configuration for future use?',
+    initialValue: false
+  });
+
+  if (isCancel(shouldSaveConfig)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+
+  if (shouldSaveConfig) {
+    const name = await text({
+      message: 'What do you want to name this configuration?',
+      placeholder: 'Default'
     });
 
-    if (internationalizationSelect) {
-      cliResults.packages.push({ name: 'i18next', type: 'internationalization' });
-      success(`You'll be using i18next for internationalization.`);
-    } else {
-      success(`No problem, skipping internationalization for now.`);
+    if (isCancel(name)) {
+      cancel('Cancelled... 👋');
+      return process.exit(0);
     }
+
+    await saveConfig({ name, cliResults });
   }
 
   return cliResults;
