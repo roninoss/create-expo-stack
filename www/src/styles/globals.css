@@ -135,7 +135,7 @@ html {
 #cli-demo::before {
   inset: 0;
   content: "";
-  --angle: 128deg;
+  --angle: 150deg;
   position: absolute;
   border-radius: inherit;
   padding: 1.5px;
@@ -154,7 +154,7 @@ html {
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-  animation: 10s rotate ease-in-out infinite;
+  /* animation: 10s rotate ease-in-out infinite; */
   mask-composite: exclude;
   pointer-events: none;
 }
@@ -196,7 +196,7 @@ html {
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-  animation: 10s rotate ease-in-out infinite;
+  /* animation: 10s rotate ease-in-out infinite; */
   mask-composite: exclude;
   pointer-events: none;
 }
