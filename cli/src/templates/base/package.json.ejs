@@ -173,14 +173,7 @@
   "eslintConfig": {
     "extends": "universe/native"
   },
-  <% if (props.navigationPackage?.name === "expo-router") { %>
-    "resolutions": {
-      "expo-modules-core": "~1.11.0"
-    },
-    "overrides": {
-      "expo-modules-core": "~1.11.0"
-    },
-      <% } else { %>
+  <% if (props.navigationPackage?.name !== "expo-router") { %>
     "main": "node_modules/expo/AppEntry.js",
   <% } %>
   <% if (props.navigationPackage?.type === "navigation") { %>
