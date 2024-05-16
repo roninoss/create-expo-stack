@@ -78,7 +78,7 @@ export async function easConfigure(
 
   info(`Now we'll generate the native code for your project`);
 
-  const preBuildResult = await system.spawn(`cd ${projectName} && ${packageManager} prebuild`, {
+  const preBuildResult = await system.spawn(`cd ${projectName} && ${packageManager} run prebuild`, {
     shell: true,
     stdio: 'inherit'
   });
