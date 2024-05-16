@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 290
+        "contributions": 298
     },
     {
         "login": "hqasmei",
@@ -128,6 +128,27 @@ export const contributors = [
         "contributions": 20
     },
     {
+        "login": "PickleNik",
+        "id": 31113245,
+        "node_id": "MDQ6VXNlcjMxMTEzMjQ1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/31113245?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/PickleNik",
+        "html_url": "https://github.com/PickleNik",
+        "followers_url": "https://api.github.com/users/PickleNik/followers",
+        "following_url": "https://api.github.com/users/PickleNik/following{/other_user}",
+        "gists_url": "https://api.github.com/users/PickleNik/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/PickleNik/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/PickleNik/subscriptions",
+        "organizations_url": "https://api.github.com/users/PickleNik/orgs",
+        "repos_url": "https://api.github.com/users/PickleNik/repos",
+        "events_url": "https://api.github.com/users/PickleNik/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/PickleNik/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 18
+    },
+    {
         "login": "mrzachnugent",
         "id": 63797719,
         "node_id": "MDQ6VXNlcjYzNzk3NzE5",
@@ -147,27 +168,6 @@ export const contributors = [
         "type": "User",
         "site_admin": false,
         "contributions": 16
-    },
-    {
-        "login": "PickleNik",
-        "id": 31113245,
-        "node_id": "MDQ6VXNlcjMxMTEzMjQ1",
-        "avatar_url": "https://avatars.githubusercontent.com/u/31113245?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/PickleNik",
-        "html_url": "https://github.com/PickleNik",
-        "followers_url": "https://api.github.com/users/PickleNik/followers",
-        "following_url": "https://api.github.com/users/PickleNik/following{/other_user}",
-        "gists_url": "https://api.github.com/users/PickleNik/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/PickleNik/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/PickleNik/subscriptions",
-        "organizations_url": "https://api.github.com/users/PickleNik/orgs",
-        "repos_url": "https://api.github.com/users/PickleNik/repos",
-        "events_url": "https://api.github.com/users/PickleNik/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/PickleNik/received_events",
-        "type": "User",
-        "site_admin": false,
-        "contributions": 13
     },
     {
         "login": "dannyhw",
