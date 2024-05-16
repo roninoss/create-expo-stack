@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.3
+
+### Patch Changes
+
+- [`e6bbd1c8b4687f44c9d1fd97b60b2ec3681eb822`](https://github.com/danstepanov/create-expo-stack/commit/e6bbd1c8b4687f44c9d1fd97b60b2ec3681eb822) Thanks [@danstepanov](https://github.com/danstepanov)! - upgrade expo dev client for sdk 51
+
 ## 2.9.2
 
 ### Patch Changes
