@@ -1,5 +1,17 @@
 # create-expo-stack
 
+## 2.9.0
+
+### Minor Changes
+
+- [`4006505675681c232b6c41059de3d76d8276b89f`](https://github.com/danstepanov/create-expo-stack/commit/4006505675681c232b6c41059de3d76d8276b89f) Thanks [@danstepanov](https://github.com/danstepanov)! - prevent expo install from updating libraries
+
+### Patch Changes
+
+- [`f9397f45525c14715bbde5c736ea6698009afb41`](https://github.com/danstepanov/create-expo-stack/commit/f9397f45525c14715bbde5c736ea6698009afb41) Thanks [@danstepanov](https://github.com/danstepanov)! - upgrade to expo sdk 51
+
+- [#266](https://github.com/danstepanov/create-expo-stack/pull/266) [`2e19daf72e3243978554f7ec88377ff552bc8828`](https://github.com/danstepanov/create-expo-stack/commit/2e19daf72e3243978554f7ec88377ff552bc8828) Thanks [@dannyhw](https://github.com/dannyhw)! - Add option to setup eas
+
 ## 2.8.0
 
 ### Minor Changes
