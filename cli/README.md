@@ -137,17 +137,17 @@ Thanks go to these wonderful people:
     </td></tr>
 <tr>
     <td align="center">
-        <a href="https://github.com/mrzachnugent">
-            <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
-            <br />
-            <sub><b>Zach Nugent</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/PickleNik">
             <img src="https://avatars.githubusercontent.com/u/31113245?v=4" width="100;" alt="PickleNik"/>
             <br />
             <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/mrzachnugent">
+            <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
+            <br />
+            <sub><b>Zach Nugent</b></sub>
         </a>
     </td>
     <td align="center">
