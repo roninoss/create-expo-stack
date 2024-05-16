@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.1
+
+### Patch Changes
+
+- [`c4a0be252fb76dea20eb3a9c9cd99f15fa43387a`](https://github.com/danstepanov/create-expo-stack/commit/c4a0be252fb76dea20eb3a9c9cd99f15fa43387a) Thanks [@danstepanov](https://github.com/danstepanov)! - remove expo-router overrides and resolutions given recent upgrade to 3.5
+
 ## 2.9.0
 
 ### Minor Changes
