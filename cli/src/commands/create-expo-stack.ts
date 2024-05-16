@@ -107,6 +107,10 @@ const command: GluegunCommand = {
         cliResults.flags.overwrite = true;
       }
 
+      if (options.eas) {
+        cliResults.flags.eas = true;
+      }
+
       await validateProjectName(
         exists,
         removeAsync,
@@ -345,6 +349,10 @@ const command: GluegunCommand = {
           // Add the package manager
           if (cliResults.flags.packageManager !== 'npm') {
             script += `--${cliResults.flags.packageManager}`;
+          }
+
+          if (cliResults.flags.eas) {
+            script += ` --eas`;
           }
 
           return script;

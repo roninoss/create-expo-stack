@@ -4,6 +4,7 @@ import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager
 import { AvailablePackages, CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
 import { outro, spinner } from '@clack/prompts';
+import { easConfigure } from './runEasConfigure';
 
 export async function printOutput(
   cliResults: CliResults,
@@ -97,6 +98,10 @@ export async function printOutput(
     s.stop(`Git initialized!`);
   }
 
+  if (cliResults.flags.eas) {
+    await easConfigure(cliResults, packageManager, toolbox);
+  }
+
   //	check if packages includes package with name "supabase"
   if (cliResults.packages.some((pkg) => pkg.name === 'supabase')) {
     success(`\nSuccess! 🎉 Now, here's what's next:`);
@@ -132,31 +137,39 @@ export async function printOutput(
     info(``);
   }
   let step = 1;
-  highlight(`${step}. cd ${projectName}`);
-  if (packageManager === 'npm') {
-    if (options.noInstall) highlight(`${++step}. npm install`);
-    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. npx expo prebuild --clean`);
-    }
-    highlight(`${++step}. npm run ios`);
-  } else if (packageManager === 'pnpm') {
-    if (options.noInstall) highlight(`${++step}. pnpm install`);
-    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. pnpm expo prebuild --clean`);
-    }
-    highlight(`${++step}. pnpm run ios`);
-  } else if (packageManager === 'bun') {
-    if (options.noInstall) highlight(`${++step}. bun install`);
-    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. bun expo prebuild --clean`);
-    }
-    highlight(`${++step}. bun run ios`);
+
+  const runCommand = 'npm' === packageManager ? `${packageManager} run` : packageManager;
+
+  if (flags.eas) {
+    info(`To build for development:`);
+    info(``);
+    highlight(`${step}. cd ${projectName}`);
+    if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
+    highlight(`${++step}. eas build --profile=development`);
+    highlight(`${++step}. ${runCommand} start`);
+
+    info(``);
+
+    step = 1;
+
+    info(`To create a build to share with others:`);
+    info(``);
+    highlight(`${step}. cd ${projectName}`);
+    if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
+    highlight(`${++step}. eas build --profile=preview`);
+
+    info(``);
+
+    info('To add additional ios users:');
+    info(``);
+    highlight(`eas device:create `);
   } else {
-    if (options.noInstall) highlight(`${++step}. yarn install`);
+    highlight(`${step}. cd ${projectName}`);
+    if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
     if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. yarn expo prebuild --clean`);
+      highlight(`${++step}. ${runCommand} expo prebuild`);
     }
-    highlight(`${++step}. yarn ios`);
+    highlight(`${++step}. ${runCommand} ios`);
   }
   info(``);
 

@@ -28,6 +28,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   // Project name already validated, just set cliResults
   cliResults.projectName = projectName;
   cliResults.flags.overwrite = !!options.overwrite;
+  cliResults.flags.eas = !!options.eas;
 
   // Clear default packages
   cliResults.packages = [];
@@ -369,6 +370,23 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     } else {
       success(`No problem, skipping authentication for now.`);
     }
+  }
+
+  const easEnabled = await confirm({
+    message: `Do you want to setup EAS`,
+    initialValue: false
+  });
+
+  if (isCancel(easEnabled)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+
+  if (easEnabled) {
+    cliResults.flags.eas = true;
+    success(`We'll setup EAS for you.`);
+  } else {
+    success(`No problem, skipping eas for now.`);
   }
 
   // Offer user ability to save configuration

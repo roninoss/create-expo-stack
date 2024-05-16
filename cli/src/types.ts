@@ -5,6 +5,7 @@ export interface CliFlags {
   overwrite: boolean;
   importAlias: string | boolean;
   packageManager: PackageManager;
+  eas: boolean;
 }
 
 export const availablePackages = [
