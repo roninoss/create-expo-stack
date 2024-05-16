@@ -14,7 +14,7 @@ import {
 import { getDefaultPackageManagerVersion } from './getPackageManager';
 import { loadConfigs, saveConfig } from './configStorage';
 
-const recommendedBunVersion = '1.0.14';
+const recommendedBunVersion = '1.0.22';
 
 export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
   const {
@@ -262,7 +262,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         }
       });
 
-      // If the user is using a version of bun that is anything but version 1.0.14, communicate a message
+      // If the user is using a version of bun that is anything but version 1.0.22, communicate a message
       if (
         cliResults.flags.packageManager === 'bun' &&
         defaultPackageManagerVersion &&
