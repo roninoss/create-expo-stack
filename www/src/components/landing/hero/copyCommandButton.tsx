@@ -16,7 +16,7 @@ const CopyCommandButton = () => {
         title="Copy the command to get started"
         id="command"
       >
-        <code id="command-text">npx create-expo-stack</code>
+        <code id="command-text">npx create-expo-stack@latest</code>
         {!value ? (
           <svg
             id="copy-icon"
