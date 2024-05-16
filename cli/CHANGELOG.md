@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.2
+
+### Patch Changes
+
+- [`5f606147aaf0d9e14f8a931a1d62d896dd91c785`](https://github.com/danstepanov/create-expo-stack/commit/5f606147aaf0d9e14f8a931a1d62d896dd91c785) Thanks [@danstepanov](https://github.com/danstepanov)! - add run to eas configure step because package managers
+
 ## 2.9.1
 
 ### Patch Changes
