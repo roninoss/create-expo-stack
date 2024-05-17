@@ -53,7 +53,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | React              | UI Framework        | v18     | The most popular UI framework in the world     |
 | TypeScript         | Language            | v5      | Static typechecking                            |
 | React Navigation   | Navigation          | v6      | Performant and consistent navigation framework |
-| Expo               | SDK                 | v50     | Allows (optional) Expo modules                 |
+| Expo               | SDK                 | v51     | Allows (optional) Expo modules                 |
 | Expo Font          | Custom Fonts        | v11     | Import custom fonts                            |
 | Expo Linking       | URL Handling        | v5      | Open your app via a URL                        |
 | Expo Router        | Navigation          | v3      | File-based routing in React-Native             |
