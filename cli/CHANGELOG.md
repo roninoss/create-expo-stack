@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.4
+
+### Patch Changes
+
+- [`6bc5f0d7c6ab81ef9949c7ef2c14e840df2ac369`](https://github.com/danstepanov/create-expo-stack/commit/6bc5f0d7c6ab81ef9949c7ef2c14e840df2ac369) Thanks [@danstepanov](https://github.com/danstepanov)! - make onPress optional for nativewind buttonprops
+
 ## 2.9.3
 
 ### Patch Changes
