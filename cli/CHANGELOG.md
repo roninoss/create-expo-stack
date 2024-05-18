@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.5
+
+### Patch Changes
+
+- [#295](https://github.com/danstepanov/create-expo-stack/pull/295) [`c548fdc9f15bbd3b5ae634cbe8db9dbed5e1e12c`](https://github.com/danstepanov/create-expo-stack/commit/c548fdc9f15bbd3b5ae634cbe8db9dbed5e1e12c) Thanks [@mrzachnugent](https://github.com/mrzachnugent)! - Makes the dark mode android navigation bar more transparent for NativeWindUI
+
 ## 2.9.4
 
 ### Patch Changes
