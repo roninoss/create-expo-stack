@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 298
+        "contributions": 309
     },
     {
         "login": "hqasmei",
@@ -188,7 +188,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/dannyhw/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 12
+        "contributions": 13
     },
     {
         "login": "kratos-respawned",
