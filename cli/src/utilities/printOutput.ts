@@ -6,6 +6,40 @@ import { copyBaseAssets } from './copyBaseAssets';
 import { outro, spinner } from '@clack/prompts';
 import { easConfigure } from './runEasConfigure';
 
+type STDIO = 'inherit' | 'ignore' | 'pipe' | 'overlapped';
+
+const onlyErrors = ['ignore', 'ignore', 'inherit'] as const;
+
+async function runSystemCommand({
+  command,
+  errorMessage,
+  stdio,
+  toolbox
+}: {
+  command: string;
+  toolbox: Toolbox;
+  stdio: readonly [STDIO, STDIO, STDIO] | STDIO | undefined;
+  errorMessage: string;
+}) {
+  const {
+    print: { error },
+    system
+  } = toolbox;
+
+  const result = await system.spawn(command, {
+    shell: true,
+    stdio
+  });
+
+  if (result.error || result.status !== 0) {
+    error(`${errorMessage}: ${JSON.stringify(result)}`);
+
+    error(`failed to run command: ${command}`);
+
+    return process.exit(1);
+  }
+}
+
 export async function printOutput(
   cliResults: CliResults,
   formattedFiles: any[],
@@ -14,8 +48,7 @@ export async function printOutput(
 ): Promise<void> {
   const {
     parameters: { options },
-    print: { info, success, highlight },
-    system
+    print: { info, success, highlight }
   } = toolbox;
 
   const { projectName, flags } = cliResults;
@@ -34,29 +67,39 @@ export async function printOutput(
   // check if npm option is set, otherwise set based on what the system is configure to use
   const packageManager = cliResults.flags.packageManager || getPackageManager(toolbox, cliResults);
 
+  const runCommand = 'npm' === packageManager ? `${packageManager} run` : packageManager;
+  const runnerType = getPackageManagerRunnerX(toolbox, cliResults);
+
   if (!options.noInstall && !flags.noInstall) {
     s.start(`Installing dependencies using ${packageManager}...`);
 
-    // install with yarn or npm i
-    await system.spawn(`cd ${projectName} && ${packageManager} install --silent`, {
-      shell: true
+    await runSystemCommand({
+      toolbox,
+      command: `cd ${projectName} && ${packageManager} install --silent`,
+      stdio: packageManager === 'npm' ? undefined : onlyErrors,
+      errorMessage: 'Error installing dependencies'
     });
 
     s.stop('Dependencies installed!');
 
     s.start('Updating Expo to latest version...');
 
-    await system.spawn(`cd ${projectName} && ${packageManager} install --silent expo@latest`, {
-      shell: true
+    await runSystemCommand({
+      toolbox,
+      command: `cd ${projectName} && ${packageManager} install --silent expo@latest`,
+      stdio: packageManager === 'npm' ? undefined : onlyErrors,
+      errorMessage: 'Error updating expo'
     });
 
     s.stop('Latest version of Expo installed!');
 
     s.start('Updating packages to expo compatible versions...');
 
-    await system.spawn(`cd ${projectName} && ${packageManager} expo install --fix --silent`, {
-      shell: true,
-      stdio: ['ignore', 'ignore', 'inherit']
+    await runSystemCommand({
+      toolbox,
+      command: `cd ${projectName} && ${runnerType} expo@latest install --fix`,
+      errorMessage: 'Error updating packages',
+      stdio: onlyErrors
     });
 
     s.stop('Packages updated!');
@@ -64,24 +107,26 @@ export async function printOutput(
     s.start(`Cleaning up your project...`);
 
     // format the files with prettier and eslint using installed packages.
-    await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
-      shell: true,
-      // To only show errors https://nodejs.org/api/child_process.html#optionsstdio
-      stdio: ['ignore', 'ignore', 'ignore']
+    await runSystemCommand({
+      toolbox,
+      command: `cd ${projectName} && ${packageManager} run format`,
+      errorMessage: 'Error formatting code',
+      stdio: onlyErrors
     });
 
     s.stop('Project files formatted!');
   } else {
-    const runnerType = getPackageManagerRunnerX(toolbox, cliResults);
-
     s.start(`No installation found.\nCleaning up your project using ${runnerType}...`);
+
     // Running prettier using global runners against the template.
     // Use --no-config to prevent using project's config (that may have plugins/dependencies)
-    await system.spawn(`${runnerType} prettier "${projectName}/**/*.{json,js,jsx,ts,tsx}" --no-config --write`, {
-      shell: true,
-      // To only show errors https://nodejs.org/api/child_process.html#optionsstdio
-      stdio: ['ignore', 'ignore', 'inherit']
+    await runSystemCommand({
+      toolbox,
+      command: `${runnerType} prettier "${projectName}/**/*.{json,js,jsx,ts,tsx}" --no-config --write`,
+      errorMessage: 'Error formatting code',
+      stdio: onlyErrors
     });
+
     s.stop('Project files formatted!');
   }
 
@@ -90,13 +135,14 @@ export async function printOutput(
     // initialize git repo and add first commit
     // get create expo stack version
     const cesVersion: string = require('../../package.json').version || '2.0.0';
-    await system.spawn(
-      `cd ${projectName} && git init --quiet && git add . && git commit -m "Initial commit" -m "Generated by create-expo-stack ${cesVersion}" --quiet`,
-      {
-        shell: true,
-        stdio: 'inherit'
-      }
-    );
+
+    await runSystemCommand({
+      toolbox,
+      command: `cd ${projectName} && git init --quiet && git add . && git commit -m "Initial commit" -m "Generated by create-expo-stack ${cesVersion}" --quiet`,
+      errorMessage: 'Error initializing git',
+      stdio: 'inherit'
+    });
+
     s.stop(`Git initialized!`);
   }
 
@@ -139,8 +185,6 @@ export async function printOutput(
     info(``);
   }
   let step = 1;
-
-  const runCommand = 'npm' === packageManager ? `${packageManager} run` : packageManager;
 
   if (flags.eas) {
     info(`To build for development:`);
