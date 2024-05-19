@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.7
+
+### Patch Changes
+
+- [#299](https://github.com/danstepanov/create-expo-stack/pull/299) [`c79fbe4e2347697be8ed2632f7ebbe9018fda733`](https://github.com/danstepanov/create-expo-stack/commit/c79fbe4e2347697be8ed2632f7ebbe9018fda733) Thanks [@dannyhw](https://github.com/dannyhw)! - fixes npm logging too much on install
+
 ## 2.9.6
 
 ### Patch Changes
