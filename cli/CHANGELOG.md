@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.6
+
+### Patch Changes
+
+- [#300](https://github.com/danstepanov/create-expo-stack/pull/300) [`5a80b6e72c6c0f5a36510a6a8893a38bb90f8fa0`](https://github.com/danstepanov/create-expo-stack/commit/5a80b6e72c6c0f5a36510a6a8893a38bb90f8fa0) Thanks [@danstepanov](https://github.com/danstepanov)! - add prebuild script to nativewindui
+
 ## 2.9.5
 
 ### Patch Changes
