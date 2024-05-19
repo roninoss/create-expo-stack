@@ -244,6 +244,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/claudesortwell">
+            <img src="https://avatars.githubusercontent.com/u/41422239?v=4" width="100;" alt="claudesortwell"/>
+            <br />
+            <sub><b>Claude</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/gwenoleR">
             <img src="https://avatars.githubusercontent.com/u/10418241?v=4" width="100;" alt="gwenoleR"/>
             <br />
@@ -256,15 +263,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Jeff Boek</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/zamplyy">
             <img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100;" alt="zamplyy"/>
             <br />
             <sub><b>Joar Karlsson</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Joehoel">
             <img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100;" alt="Joehoel"/>
@@ -299,7 +306,8 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Null</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/debugtheworldbot">
             <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
