@@ -33,23 +33,23 @@
     <% } %>
     <% if (props.stylingPackage?.name === "nativewindui") { %>
       "@roninoss/icons": "^0.0.4",
-      "@shopify/flash-list": "1.6.3",
+      "@shopify/flash-list": "1.6.4",
       "class-variance-authority": "^0.7.0",
       "clsx": "^2.1.0",
-      "expo-navigation-bar": "~2.8.1",
+      "expo-navigation-bar": "~3.0.4",
       "tailwind-merge": "^2.2.1",
       <% if (props.stylingPackage?.options.selectedComponents.includes('selectable-text')) { %>
       "react-native-uitextview": "^1.1.4",
       <% } %>
-      "react-native-pager-view": "6.2.3",
+      "react-native-pager-view": "6.3.0",
       <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
-        "@react-native-community/datetimepicker": "7.7.0",
+        "@react-native-community/datetimepicker": "8.0.1",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('segmented-control')) { %>
-        "@react-native-segmented-control/segmented-control": "2.4.1",
+        "@react-native-segmented-control/segmented-control": "2.5.2",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
-        "@react-native-picker/picker": "2.6.1",
+        "@react-native-picker/picker": "2.7.5",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
         "@gorhom/bottom-sheet": "^4",
@@ -61,13 +61,13 @@
         "zeego": "^1.9.1",
         "react-native-ios-context-menu": "^2.5.0",
         "react-native-ios-utilities": "^4.4.0",
-        "@react-native-menu/menu": "^0.9.1",
+        "@react-native-menu/menu": "^1.0.3",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
-        "expo-store-review": "~6.8.3",
+        "expo-store-review": "~7.0.2",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
-        "@react-native-community/slider": "4.4.2",
+        "@react-native-community/slider": "4.5.2",
       <% } %>
     <% } %>
     
@@ -109,11 +109,11 @@
     <% } %>
 
     <% if ((props.navigationPackage?.options.type === "drawer + tabs") && (props.navigationPackage?.name === "react-navigation")) { %>
-      "@react-navigation/drawer": "^6.6.6",
+      "@react-navigation/drawer": "^6.6.15",
       "@react-navigation/bottom-tabs": "^6.5.8",
       "react-native-reanimated": "~3.10.1",
     <% } else if (props.navigationPackage?.options.type === "drawer + tabs") { %>
-      "@react-navigation/drawer": "^6.6.6",
+      "@react-navigation/drawer": "^6.6.15",
       "@react-navigation/bottom-tabs": "^6.5.8",
     <% } %>
     
@@ -146,10 +146,10 @@
     "expo-localization": "~14.8.3",
   <% } %> 
   <% if (props.flags?.eas || props.stylingPackage?.name === "nativewindui") { %>
-    "expo-dev-client": "~4.0.10",      
+    "expo-dev-client": "~4.0.14",      
   <% } %>
 
-    "expo": "~51.0.7",
+    "expo": "^51.0.0",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-native": "0.74.1"
