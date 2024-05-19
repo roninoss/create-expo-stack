@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 309
+        "contributions": 310
     },
     {
         "login": "hqasmei",
@@ -167,7 +167,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/mrzachnugent/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 16
+        "contributions": 17
     },
     {
         "login": "dannyhw",
@@ -441,6 +441,27 @@ export const contributors = [
         "type": "User",
         "site_admin": false,
         "contributions": 2
+    },
+    {
+        "login": "claudesortwell",
+        "id": 41422239,
+        "node_id": "MDQ6VXNlcjQxNDIyMjM5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/41422239?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/claudesortwell",
+        "html_url": "https://github.com/claudesortwell",
+        "followers_url": "https://api.github.com/users/claudesortwell/followers",
+        "following_url": "https://api.github.com/users/claudesortwell/following{/other_user}",
+        "gists_url": "https://api.github.com/users/claudesortwell/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/claudesortwell/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/claudesortwell/subscriptions",
+        "organizations_url": "https://api.github.com/users/claudesortwell/orgs",
+        "repos_url": "https://api.github.com/users/claudesortwell/repos",
+        "events_url": "https://api.github.com/users/claudesortwell/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/claudesortwell/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 1
     },
     {
         "login": "gwenoleR",
