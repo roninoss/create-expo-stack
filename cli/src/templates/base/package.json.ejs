@@ -13,6 +13,11 @@
     "build:preview": "eas build --profile preview",
     "build:prod": "eas build --profile production",
     "prebuild": "expo prebuild",
+  <% } else if (props.stylingPackage?.name === "nativewind") { %>
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
   <% } else { %>
     "android": "expo start --android",
     "ios": "expo start --ios",
