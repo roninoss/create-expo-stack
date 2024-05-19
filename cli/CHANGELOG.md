@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.8
+
+### Patch Changes
+
+- [`dc92e401ed0b23f54d76fb387b9160984fbf9ea8`](https://github.com/danstepanov/create-expo-stack/commit/dc92e401ed0b23f54d76fb387b9160984fbf9ea8) Thanks [@danstepanov](https://github.com/danstepanov)! - bump dependencies for nativewindui
+
 ## 2.9.7
 
 ### Patch Changes
