@@ -36,25 +36,25 @@ export async function printOutput(
 
   if (!options.noInstall && !flags.noInstall) {
     s.start(`Installing dependencies using ${packageManager}...`);
+
     // install with yarn or npm i
     await system.spawn(`cd ${projectName} && ${packageManager} install --silent`, {
-      shell: true,
-      stdio: 'inherit'
+      shell: true
     });
+
     s.stop('Dependencies installed!');
 
     s.start('Updating Expo to latest version...');
 
     await system.spawn(`cd ${projectName} && ${packageManager} install --silent expo@latest`, {
-      shell: true,
-      stdio: ['ignore', 'ignore', 'inherit']
+      shell: true
     });
 
     s.stop('Latest version of Expo installed!');
 
     s.start('Updating packages to expo compatible versions...');
 
-    await system.spawn(`cd ${projectName} && ${packageManager} expo install --fix`, {
+    await system.spawn(`cd ${projectName} && ${packageManager} expo install --fix --silent`, {
       shell: true,
       stdio: ['ignore', 'ignore', 'inherit']
     });
@@ -62,12 +62,14 @@ export async function printOutput(
     s.stop('Packages updated!');
 
     s.start(`Cleaning up your project...`);
+
     // format the files with prettier and eslint using installed packages.
     await system.spawn(`cd ${projectName} && ${packageManager} run format`, {
       shell: true,
       // To only show errors https://nodejs.org/api/child_process.html#optionsstdio
       stdio: ['ignore', 'ignore', 'ignore']
     });
+
     s.stop('Project files formatted!');
   } else {
     const runnerType = getPackageManagerRunnerX(toolbox, cliResults);
