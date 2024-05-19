@@ -111,7 +111,7 @@ export async function printOutput(
       toolbox,
       command: `cd ${projectName} && ${packageManager} run format`,
       errorMessage: 'Error formatting code',
-      stdio: onlyErrors
+      stdio: undefined
     });
 
     s.stop('Project files formatted!');
