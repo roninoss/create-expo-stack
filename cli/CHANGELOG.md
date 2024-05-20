@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.9.9
+
+### Patch Changes
+
+- [`b5340ed144795d1fd5e541cc47dbd60988ec67aa`](https://github.com/danstepanov/create-expo-stack/commit/b5340ed144795d1fd5e541cc47dbd60988ec67aa) Thanks [@danstepanov](https://github.com/danstepanov)! - add npmrc file for pnpm projects that use NativeWind and Expo Router
+
 ## 2.9.8
 
 ### Patch Changes
