@@ -32,7 +32,7 @@ export function configureProjectFiles(
 
   const packageManager = getPackageManager(toolbox, cliResults);
   // Add npmrc file if user is using pnpm and expo router
-  if (packageManager === 'pnpm' && navigationPackage?.name === 'expo-router') {
+  if (packageManager === 'pnpm') {
     baseFiles.push('base/.npmrc.ejs');
   }
 
