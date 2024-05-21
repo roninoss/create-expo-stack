@@ -104,7 +104,7 @@ export async function printOutput(
       // NOTE yarn dlx is a nightmare so we're using npx :)
       command: `cd ${projectName} && ${isYarn ? 'npx' : runnerType} expo@latest install --fix`,
       errorMessage: 'Error updating packages',
-      stdio: isYarn || isNpm ? undefined : onlyErrors
+      stdio: undefined
     });
 
     s.stop('Packages updated!');
