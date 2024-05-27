@@ -5,40 +5,7 @@ import { AvailablePackages, CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
 import { outro, spinner } from '@clack/prompts';
 import { easConfigure } from './runEasConfigure';
-
-type STDIO = 'inherit' | 'ignore' | 'pipe' | 'overlapped';
-
-const onlyErrors = ['ignore', 'ignore', 'inherit'] as const;
-
-async function runSystemCommand({
-  command,
-  errorMessage,
-  stdio,
-  toolbox
-}: {
-  command: string;
-  toolbox: Toolbox;
-  stdio: readonly [STDIO, STDIO, STDIO] | STDIO | undefined;
-  errorMessage: string;
-}) {
-  const {
-    print: { error },
-    system
-  } = toolbox;
-
-  const result = await system.spawn(command, {
-    shell: true,
-    stdio
-  });
-
-  if (result.error || result.status !== 0) {
-    error(`${errorMessage}: ${JSON.stringify(result)}`);
-
-    error(`failed to run command: ${command}`);
-
-    return process.exit(1);
-  }
-}
+import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
 
 export async function printOutput(
   cliResults: CliResults,
@@ -78,7 +45,7 @@ export async function printOutput(
     await runSystemCommand({
       toolbox,
       command: `cd ${projectName} && ${packageManager} install --silent`,
-      stdio: packageManager === 'npm' ? undefined : onlyErrors,
+      stdio: packageManager === 'npm' ? undefined : ONLY_ERRORS,
       errorMessage: 'Error installing dependencies'
     });
 
@@ -91,7 +58,7 @@ export async function printOutput(
     await runSystemCommand({
       toolbox,
       command: `cd ${projectName} && ${packageManager} ${installCommand} --silent expo@latest`,
-      stdio: isNpm ? undefined : onlyErrors,
+      stdio: isNpm ? undefined : ONLY_ERRORS,
       errorMessage: 'Error updating expo'
     });
 
@@ -129,7 +96,7 @@ export async function printOutput(
       toolbox,
       command: `${runnerType} prettier "${projectName}/**/*.{json,js,jsx,ts,tsx}" --no-config --write`,
       errorMessage: 'Error formatting code',
-      stdio: onlyErrors
+      stdio: ONLY_ERRORS
     });
 
     s.stop('Project files formatted!');
