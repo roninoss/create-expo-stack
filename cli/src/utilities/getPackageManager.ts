@@ -9,12 +9,13 @@ export function getPackageManager(toolbox: Toolbox, cliResults: CliResults): Pac
   const {
     parameters: { options }
   } = toolbox;
+
   if (options.npm) return 'npm';
   if (options.yarn) return 'yarn';
   if (options.pnpm) return 'pnpm';
   if (options.bun) return 'bun';
 
-  if (cliResults.flags.packageManager !== 'npm') {
+  if (cliResults.flags.packageManager && cliResults.flags.packageManager !== 'npm') {
     return cliResults.flags.packageManager;
   }
 
@@ -31,9 +32,11 @@ export function getPackageManager(toolbox: Toolbox, cliResults: CliResults): Pac
     } else {
       return 'npm';
     }
-  } else {
+  } else if (cliResults.flags.packageManager) {
     // If no user agent is set, assume npm
     return cliResults.flags.packageManager;
+  } else {
+    return 'npm';
   }
 }
 export function getPackageManagerRunnerX(toolbox: Toolbox, cliResults: CliResults): PackageManagerRunnerX {
