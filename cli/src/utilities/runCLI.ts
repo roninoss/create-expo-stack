@@ -107,14 +107,12 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         return process.exit(0);
       }
       if (!shouldUseDefaultPackageManager) {
+        const packageManagers: PackageManager[] = ['npm', 'yarn', 'pnpm', 'bun'];
+
         const packageManagerSelect = await select({
           message: 'Gotcha! Which package manager would you like to use?',
-          options: [
-            { value: 'npm', label: 'npm' },
-            { value: 'yarn', label: 'yarn' },
-            { value: 'pnpm', label: 'pnpm' },
-            { value: 'bun', label: 'bun' }
-          ]
+          options: packageManagers.map((manager) => ({ value: manager, label: manager })),
+          initialValue: packageManagers[0]
         });
 
         if (isCancel(packageManagerSelect)) {
@@ -122,7 +120,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
           return process.exit(0);
         }
 
-        cliResults.flags.packageManager = packageManagerSelect as PackageManager;
+        cliResults.flags.packageManager = packageManagerSelect;
       }
     }
   } else {
