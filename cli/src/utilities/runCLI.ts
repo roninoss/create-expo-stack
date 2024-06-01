@@ -107,12 +107,15 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         return process.exit(0);
       }
       if (!shouldUseDefaultPackageManager) {
-        const packageManagers: PackageManager[] = ['npm', 'yarn', 'pnpm', 'bun'];
-
         const packageManagerSelect = await select({
           message: 'Gotcha! Which package manager would you like to use?',
-          options: packageManagers.map((manager) => ({ value: manager, label: manager })),
-          initialValue: packageManagers[0]
+          options: [
+            { value: 'npm', label: 'npm' },
+            { value: 'yarn', label: 'yarn' },
+            { value: 'pnpm', label: 'pnpm' },
+            { value: 'bun', label: 'bun' }
+          ] satisfies Array<{ value: PackageManager; label: string }>,
+          initialValue: 'npm' as PackageManager
         });
 
         if (isCancel(packageManagerSelect)) {
