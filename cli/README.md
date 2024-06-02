@@ -137,6 +137,13 @@ Thanks go to these wonderful people:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/dannyhw">
+            <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
+            <br />
+            <sub><b>Daniel Williams</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/PickleNik">
             <img src="https://avatars.githubusercontent.com/u/31113245?v=4" width="100;" alt="PickleNik"/>
             <br />
@@ -148,13 +155,6 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
             <br />
             <sub><b>Zach Nugent</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/dannyhw">
-            <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
-            <br />
-            <sub><b>Daniel Williams</b></sub>
         </a>
     </td>
     <td align="center">
