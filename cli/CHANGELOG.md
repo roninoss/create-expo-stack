@@ -1,5 +1,15 @@
 # create-expo-stack
 
+## 2.9.10
+
+### Patch Changes
+
+- [#307](https://github.com/danstepanov/create-expo-stack/pull/307) [`48765934e887d161527510cbd54d0caf15a09154`](https://github.com/danstepanov/create-expo-stack/commit/48765934e887d161527510cbd54d0caf15a09154) Thanks [@dannyhw](https://github.com/dannyhw)! - exits when eas and no install are chosen together since its not possible
+
+- [`695ba1bd4e6b5ac4f42b171b0fb240567fe6201a`](https://github.com/danstepanov/create-expo-stack/commit/695ba1bd4e6b5ac4f42b171b0fb240567fe6201a) Thanks [@danstepanov](https://github.com/danstepanov)! - silence expo package upgrade messages
+
+- [#310](https://github.com/danstepanov/create-expo-stack/pull/310) [`7a32de0e40b97e8a6f8864b046454d8c0b6f2f0e`](https://github.com/danstepanov/create-expo-stack/commit/7a32de0e40b97e8a6f8864b046454d8c0b6f2f0e) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: issues falling back to npm
+
 ## 2.9.9
 
 ### Patch Changes
