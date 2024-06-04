@@ -129,18 +129,18 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/ludwig-pro">
-            <img src="https://avatars.githubusercontent.com/u/62896243?v=4" width="100;" alt="ludwig-pro"/>
-            <br />
-            <sub><b>Ludwig</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
         <a href="https://github.com/dannyhw">
             <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
             <br />
             <sub><b>Daniel Williams</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/ludwig-pro">
+            <img src="https://avatars.githubusercontent.com/u/62896243?v=4" width="100;" alt="ludwig-pro"/>
+            <br />
+            <sub><b>Ludwig</b></sub>
         </a>
     </td>
     <td align="center">
