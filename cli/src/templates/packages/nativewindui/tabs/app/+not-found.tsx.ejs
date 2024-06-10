@@ -1,0 +1,130 @@
+import { Link, Stack } from 'expo-router';
+<% if (props.stylingPackage?.name === "nativewind" || "natiwindui") {%>
+  import { Text, View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  import { createStyleSheet, useStyles } from 'react-native-unistyles'
+  import { Text, View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+  import { StyleSheet, Text, View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { YStack } from "tamagui";
+	import { Container, Main, Subtitle, Title } from "../tamagui.config";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { Box, Text, makeStyles } from 'theme';
+<% } %>
+
+export default function NotFoundScreen() {
+<% if (props.stylingPackage?.name === "restyle") { %>
+  const styles = useStyles();
+<% } %>
+
+<% if (props.stylingPackage?.name === "unistyles") {%>
+  const { styles } = useStyles(stylesheet);
+<% } %>
+
+  return (
+      <% if (props.stylingPackage?.name === "nativewind" || "nativewindui") {%>
+        <>
+          <Stack.Screen options={{ title: "Oops!" }} />
+          <View className={styles.container}>
+            <Text className={styles.title}>This screen doesn't exist.</Text>
+            <Link href="/" className={styles.link}>
+              <Text className={styles.linkText}>Go to home screen!</Text>
+            </Link>
+          </View>
+        </>
+      <% } else if (props.stylingPackage?.name === "tamagui") {%>
+        <Container>
+          <Stack.Screen options={{ title: "Oops!" }} />
+          <Main>
+            <YStack>
+              <Title>This screen doesn't exist.</Title>
+              <Link href="/">
+                <Subtitle>Go to home screen!</Subtitle>
+              </Link>
+            </YStack>
+          </Main>
+        </Container>
+      <% } else if (props.stylingPackage?.name === "restyle") {%>
+        <>
+          <Stack.Screen options={{ title: 'Oops!' }} />
+          <Box flex={1} justifyContent="center" alignItems="center" padding="ml_24">
+            <Text variant="title">This screen doesn't exist.</Text>
+            <Link href="/" style={styles.link}>
+              <Text variant="body" color="blue">
+                Go to home screen!
+              </Text>
+            </Link>
+          </Box>
+        </>
+      <% } else { %>
+        <>
+          <Stack.Screen options={{ title: "Oops!" }} />
+          <View style={styles.container}>
+            <Text style={styles.title}>This screen doesn't exist.</Text>
+            <Link href="/" style={styles.link}>
+              <Text style={styles.linkText}>Go to home screen!</Text>
+            </Link>
+          </View>
+        </>
+      <% } %>
+  );
+}
+
+<% if (props.stylingPackage?.name === "nativewind" || "nativewindui") { %>
+  const styles = {
+		container: `items-center flex-1 justify-center p-5`,
+    title: `text-xl font-bold`,
+    link: `mt-4 pt-4`,
+    linkText: `text-base text-[#2e78b7]`,
+	};
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  const stylesheet = createStyleSheet((theme) => ({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 20,
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    link: {
+      marginTop: 16,
+      paddingVertical: 16,
+    },
+    linkText: {
+      fontSize: 14,
+      color: theme.colors.astral,
+    },
+  }));
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 20,
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    link: {
+      marginTop: 16,
+      paddingVertical: 16,
+    },
+    linkText: {
+      fontSize: 14,
+      color: '#2e78b7',
+    },
+  });
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  const useStyles = makeStyles((theme) => ({
+    link: {
+      marginTop: theme.spacing.m_16,
+      paddingVertical: theme.spacing.m_16,
+    },
+  }));
+<% } %>

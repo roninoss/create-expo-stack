@@ -23,7 +23,7 @@ const ensureConfigDirExists = async () => {
 
 export const saveConfig = async (config: AppConfig): Promise<void> => {
   await ensureConfigDirExists();
-  let configs = await loadConfigs();
+  const configs = await loadConfigs();
   await fs.writeFile(CONFIG_FILE, JSON.stringify(configs, null, 2));
 };
 

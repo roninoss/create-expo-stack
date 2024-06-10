@@ -45,23 +45,21 @@ export function generateProjectFiles(
       target = target.replace('packages/react-navigation/', '');
     }
 
-    if (stylingPackage?.name !== 'nativewindui') {
-      if (navigationPackage?.name === 'expo-router') {
-        target = target.replace('packages/expo-router/', '');
-        if (navigationPackage?.options?.type === 'stack') {
-          target = target.replace('stack/', '');
-        }
-        if (navigationPackage?.options?.type === 'tabs') {
-          target = target.replace('tabs/', '');
-        }
-        if (navigationPackage?.options?.type === 'drawer + tabs') {
-          target = target.replace('drawer/', '');
-        }
+    if (navigationPackage?.name === 'expo-router') {
+      target = target.replace('packages/expo-router/', '');
+      if (navigationPackage?.options?.type === 'stack') {
+        target = target.replace('stack/', '');
       }
+      if (navigationPackage?.options?.type === 'tabs') {
+        target = target.replace('tabs/', '');
+      }
+      if (navigationPackage?.options?.type === 'drawer + tabs') {
+        target = target.replace('drawer/', '');
+      }
+    }
 
-      if (internalizationPackage?.name === 'i18next') {
-        target = target.replace('packages/i18next/', '');
-      }
+    if (internalizationPackage?.name === 'i18next') {
+      target = target.replace('packages/i18next/', '');
     }
 
     const gen = toolbox.template.generate({

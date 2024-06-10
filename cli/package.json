@@ -26,6 +26,7 @@
     "clean-build": "rm -rf ./build",
     "compile": "tsc -p .",
     "copy-templates": "bun run copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
+    "dev": "bun run build && bun run bin/create-expo-stack.js",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix --resolve-plugins-relative-to . && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "lint-templates": "bun run ejslint ./src/templates",
     "prepublishOnly": "bun run build",
@@ -48,6 +49,7 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "ejs-lint": "^2.0.0",
+    "expo": "^51.0.11",
     "figlet": "^1.6.0",
     "gluegun": "latest",
     "gradient-string": "^2.0.2"

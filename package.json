@@ -55,6 +55,7 @@
   "packageManager": "bun@1.0.29",
   "dependencies": {
     "@clack/prompts": "^0.7.0",
+    "expo": "latest",
     "picocolors": "^1.0.0"
   }
 }
