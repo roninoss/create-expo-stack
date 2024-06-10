@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.10.0
+
+### Minor Changes
+
+- [`ccee444990d1934728335ee8f9f79ff4005b1083`](https://github.com/danstepanov/create-expo-stack/commit/ccee444990d1934728335ee8f9f79ff4005b1083) Thanks [@danstepanov](https://github.com/danstepanov)! - move nativewindui into styles
+
 ## 2.9.10
 
 ### Patch Changes
