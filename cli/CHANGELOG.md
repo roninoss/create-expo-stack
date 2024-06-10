@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.10.1
+
+### Patch Changes
+
+- [`3cfeb00ce4fde284b1a0d0928e8332848877872b`](https://github.com/danstepanov/create-expo-stack/commit/3cfeb00ce4fde284b1a0d0928e8332848877872b) Thanks [@danstepanov](https://github.com/danstepanov)! - use npx expo prebuild instead of npm run expo prebuild
+
 ## 2.10.0
 
 ### Minor Changes
