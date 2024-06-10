@@ -191,7 +191,5 @@ export async function printOutput(
   }
   info(``);
 
-  outro(
-    'If you frequently use create expo stack, please consider sponsoring the project ❤️\n- https://github.com/sponsors/danstepanov'
-  );
+  outro(`If you're looking to move even faster, I may be able to help!\n- https://x.com/danstepanov`);
 }
