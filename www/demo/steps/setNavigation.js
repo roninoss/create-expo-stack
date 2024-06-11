@@ -38,4 +38,6 @@ export async function setNavigation(cliResults) {
   } else {
     console.log(`No problem, skipping navigation for now.`);
   }
+
+  return navigationSelect;
 }

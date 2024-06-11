@@ -33,9 +33,9 @@ async function main() {
 
   await setPackageManager(cliResults);
 
-  await setNavigation(cliResults);
+  const navigationSelect = await setNavigation(cliResults);
 
-  await setStyles(cliResults);
+  await setStyles(cliResults, navigationSelect);
 
   await setAuthentication(cliResults);
 
