@@ -1,34 +1,16 @@
 const roadmapData = [
   {
     index: 0,
-    version: "v2.7.x",
-    date: "April",
-    active: true,
+    version: "v2.10.x",
+    date: "May",
+    active: false,
     title: "NativeWindUI Styling Option",
     description:
       "A free preview of NativeWindUI, a set of beautifully designed components based on Apple's Human Interface Guidelines using NativeWind.",
   },
   {
     index: 1,
-    version: "v2.8.x",
-    date: "May",
-    active: false,
-    title: "Unified Design System",
-    description:
-      "Not much thought went into our current aesthetic. We'd like to introduce an elegant theme across all of our styling libraries for you to use so you focus more on what you're actually trying to build.",
-  },
-  {
-    index: 2,
-    version: "v2.9.x",
-    date: "May",
-    active: false,
-    title: "Dark Mode Support",
-    description:
-      "Add a toggle within each variant of our templates to switch between light and dark modes, to enhance user interface accessibility.",
-  },
-  {
-    index: 3,
-    version: "v2.10.x",
+    version: "v2.11.x",
     date: "June",
     active: false,
     title: "Enhanced Testing Suite",
@@ -36,13 +18,31 @@ const roadmapData = [
       "Stability of the CLI is incredbily important to us. We're going to be enhancing our testing suite to validate folder structure, file creation, formatting, and compilation of the generated code.",
   },
   {
-    index: 5,
-    version: "v2.11.x",
+    index: 2,
+    version: "v2.12.x",
     date: "June",
     active: false,
     title: "Runtime Testing with Maestro",
     description:
       "Validate that the generated code is functions as expected. We'll ensure that navigation, component layout, and state management are all working as intended.",
+  },
+  {
+    index: 3,
+    version: "v2.13.x",
+    date: "July",
+    active: false,
+    title: "Unified Design System",
+    description:
+      "Not much thought went into our current aesthetic. We'd like to introduce an elegant theme across all of our styling libraries for you to use so you focus more on what you're actually trying to build.",
+  },
+  {
+    index: 4,
+    version: "v2.14.x",
+    date: "July",
+    active: false,
+    title: "Dark Mode Support",
+    description:
+      "Add a toggle within each variant of our templates to switch between light and dark modes, to enhance user interface accessibility.",
   },
 ];
 
