@@ -1,4 +1,4 @@
-Issue tracker is **ONLY** used for reporting bugs. New features should be discussed on our discord, in the #cli channel.
+Issue tracker is **ONLY** used for reporting bugs. New features should be discussed on our discord, in the #create-expo-stack channel.
 
 <!--- Provide a general summary of the issue in the Title above -->
 
@@ -26,15 +26,4 @@ Issue tracker is **ONLY** used for reporting bugs. New features should be discus
 
 ## Context (Environment)
 
-<!--- How has this issue affected you? What are you trying to accomplish? -->
-<!--- Providing context helps us come up with a solution that is most useful in the real world -->
-
-<!--- Provide a general summary of the issue in the Title above -->
-
-## Detailed Description
-
-<!--- Provide a detailed description of the change or addition you are proposing -->
-
-## Possible Implementation
-
-<!--- Not obligatory, but suggest an idea for implementing addition or change -->
+<!--- Which version of the CLI are you using and please share the output of running the CLI -->
