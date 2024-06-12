@@ -12,25 +12,37 @@ function generateStepsToRunProject(cliResults) {
   let output = color.blue(`${step}. cd ${cliResults.projectName}\n`);
   if (cliResults.flags.packageManager === "npm") {
     output += color.blue(`${++step}. npm install\n`);
-    if (stylingPackage.name === "unistyles") {
+    if (
+      stylingPackage.name === "unistyles" ||
+      stylingPackage.name === "nativewindui"
+    ) {
       output += color.blue(`${++step}. npx expo prebuild --clean\n`);
     }
     output += color.blue(`${++step}. npm run ios`);
   } else if (cliResults.flags.packageManager === "pnpm") {
     output += color.blue(`${++step}. pnpm install\n`);
-    if (stylingPackage.name === "unistyles") {
+    if (
+      stylingPackage.name === "unistyles" ||
+      stylingPackage.name === "nativewindui"
+    ) {
       output += color.blue(`${++step}. pnpm expo prebuild --clean\n`);
     }
     output += color.blue(`${++step}. pnpm run ios`);
   } else if (cliResults.flags.packageManager === "bun") {
     output += color.blue(`${++step}. bun install\n`);
-    if (stylingPackage.name === "unistyles") {
+    if (
+      stylingPackage.name === "unistyles" ||
+      stylingPackage.name === "nativewindui"
+    ) {
       output += color.blue(`${++step}. bun expo prebuild --clean\n`);
     }
     output += color.blue(`${++step}. bun run ios`);
   } else {
     output += color.blue(`${++step}. yarn install\n`);
-    if (stylingPackage.name === "unistyles") {
+    if (
+      stylingPackage.name === "unistyles" ||
+      stylingPackage.name === "nativewindui"
+    ) {
       output += color.blue(`${++step}. yarn expo prebuild --clean\n`);
     }
     output += color.blue(`${++step}. yarn ios`);
