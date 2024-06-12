@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.10.3
+
+### Patch Changes
+
+- [#319](https://github.com/danstepanov/create-expo-stack/pull/319) [`4cc5073ac9ed7aabbe0ac2d860f3297fbb142f72`](https://github.com/danstepanov/create-expo-stack/commit/4cc5073ac9ed7aabbe0ac2d860f3297fbb142f72) Thanks [@Savinvadim1312](https://github.com/Savinvadim1312)! - Fix unneceserry import of nativewind when not required
+
 ## 2.10.2
 
 ### Patch Changes
