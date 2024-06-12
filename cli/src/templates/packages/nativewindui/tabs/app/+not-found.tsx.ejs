@@ -1,5 +1,5 @@
 import { Link, Stack } from 'expo-router';
-<% if (props.stylingPackage?.name === "nativewind" || "natiwindui") {%>
+<% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) {%>
   import { Text, View } from 'react-native';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { createStyleSheet, useStyles } from 'react-native-unistyles'
@@ -23,7 +23,7 @@ export default function NotFoundScreen() {
 <% } %>
 
   return (
-      <% if (props.stylingPackage?.name === "nativewind" || "nativewindui") {%>
+      <% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) {%>
         <>
           <Stack.Screen options={{ title: "Oops!" }} />
           <View className={styles.container}>
@@ -71,7 +71,7 @@ export default function NotFoundScreen() {
   );
 }
 
-<% if (props.stylingPackage?.name === "nativewind" || "nativewindui") { %>
+<% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) { %>
   const styles = {
 		container: `items-center flex-1 justify-center p-5`,
     title: `text-xl font-bold`,

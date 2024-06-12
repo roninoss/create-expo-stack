@@ -1,6 +1,6 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
 const { getDefaultConfig } = require('expo/metro-config');
-<% if (props.stylingPackage?.name === "nativewind" || "nativewindui") { %>
+<% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) { %>
   const { withNativeWind } = require("nativewind/metro");
 <% } %>
 
