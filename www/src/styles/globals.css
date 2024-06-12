@@ -709,3 +709,7 @@ html {
     font 7s step-end infinite,
     movement 8s step-end infinite;
 }
+
+.xterm-viewport {
+  scrollbar-width: none;
+}
