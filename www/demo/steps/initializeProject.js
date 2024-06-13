@@ -1,4 +1,5 @@
 import { spinner } from "@clack/prompts";
+import color from "picocolors";
 
 var myHeaders = new Headers();
 myHeaders.append("Accept", "application/json");
@@ -27,7 +28,7 @@ export async function initializeProject(cliResults) {
     const { result } = await response.json();
     return fetchURL + result;
   } catch (error) {
-    console.log("error", error);
+    console.log(color.red("error", error));
   } finally {
     s.stop("Project initialized!");
   }

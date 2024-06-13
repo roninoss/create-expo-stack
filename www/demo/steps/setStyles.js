@@ -1,4 +1,5 @@
 import { cancel, isCancel, multiselect, select } from "@clack/prompts";
+import color from "picocolors";
 
 export async function setStyles(cliResults, navigationSelect) {
   const stylingSelect = await select({
@@ -86,14 +87,16 @@ export async function setStyles(cliResults, navigationSelect) {
         selectedComponents,
       },
     });
-    success(`You'll be styling with ease using NativeWindUI!`);
+    console.log(color.green(`You'll be styling with ease using NativeWindUI!`));
   } else {
     cliResults.packages.push({ name: stylingSelect, type: "styling" });
-    success(
-      `You'll be styling with ease using ${
-        stylingSelect.toString().charAt(0).toUpperCase() +
-        stylingSelect.toString().slice(1)
-      }!`,
+    console.log(
+      color.green(
+        `You'll be styling with ease using ${
+          stylingSelect.toString().charAt(0).toUpperCase() +
+          stylingSelect.toString().slice(1)
+        }!`,
+      ),
     );
   }
 }

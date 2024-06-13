@@ -1,4 +1,5 @@
 import { select, isCancel, cancel } from "@clack/prompts";
+import color from "picocolors";
 
 export async function setAuthentication(cliResults) {
   const authenticationSelect = await select({
@@ -19,6 +20,6 @@ export async function setAuthentication(cliResults) {
       type: "authentication",
     });
   } else {
-    console.log(`No problem, skipping authentication for now.`);
+    console.log(color.green(`No problem, skipping authentication for now.`));
   }
 }

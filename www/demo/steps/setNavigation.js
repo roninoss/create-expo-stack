@@ -1,4 +1,5 @@
 import { select, isCancel, cancel } from "@clack/prompts";
+import color from "picocolors";
 
 export async function setNavigation(cliResults) {
   const navigationSelect = await select({
@@ -34,9 +35,9 @@ export async function setNavigation(cliResults) {
         type: navigationType,
       },
     });
-    console.log(`Great, we'll use ${navigationSelect}!`);
+    console.log(color.green(`Great, we'll use ${navigationSelect}!`));
   } else {
-    console.log(`No problem, skipping navigation for now.`);
+    console.log(color.green(`No problem, skipping navigation for now.`));
   }
 
   return navigationSelect;
