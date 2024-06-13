@@ -12,7 +12,7 @@ const roadmapData = [
     index: 1,
     version: "v2.11.x",
     date: "June",
-    active: false,
+    active: true,
     title: "Enhanced Testing Suite",
     description:
       "Stability of the CLI is incredbily important to us. We're going to be enhancing our testing suite to validate folder structure, file creation, formatting, and compilation of the generated code.",
