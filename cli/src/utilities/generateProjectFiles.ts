@@ -72,6 +72,7 @@ export function generateProjectFiles(
       target: `./${projectName}/` + target,
       props: {
         authenticationPackage,
+        analyticsPackage,
         flags,
         navigationPackage,
         projectName,
