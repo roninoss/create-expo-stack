@@ -302,7 +302,7 @@ const command: GluegunCommand = {
 
         // Analytics packages
         if (options.vexoAnalytics || options['vexo-analytics'] || options.vexoanalytics) {
-          cliResults.packages.push({ name: 'vexo-analytics', type: 'analytics', options: {} });
+          cliResults.packages.push({ name: 'vexo-analytics', type: 'analytics' });
         }
 
         // By this point, all cliResults should be set
