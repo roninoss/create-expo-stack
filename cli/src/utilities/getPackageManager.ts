@@ -78,3 +78,9 @@ export function getDefaultPackageManagerVersion() {
     return userAgent.split(' ')[0].split('/')[1];
   }
 }
+
+export function getVersionForPackageManager(packageManager: PackageManager): string {
+  const version = require('child_process').execSync(`${packageManager} --version`);
+
+  return version.toString().replace('\n', '');
+}

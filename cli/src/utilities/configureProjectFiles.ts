@@ -1,6 +1,7 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 import { AvailablePackages, CliResults } from '../types';
-import { getPackageManager } from './getPackageManager';
+import { getPackageManager, getVersionForPackageManager } from './getPackageManager';
+import os from 'os';
 
 export function configureProjectFiles(
   authenticationPackage: AvailablePackages | undefined,
@@ -387,6 +388,24 @@ export function configureProjectFiles(
       files = [...files, ...i18nextFiles];
     }
   }
+
+  const packageManagerVersion = getVersionForPackageManager(cliResults.flags.packageManager);
+
+  const cesConfig = {
+    ...cliResults,
+    packageManager: {
+      type: cliResults.flags.packageManager,
+      version: packageManagerVersion
+    },
+    os: {
+      type: os.type(),
+      platform: os.platform(),
+      arch: os.arch(),
+      kernelVersion: os.release()
+    }
+  };
+
+  toolbox.filesystem.write(`./${cliResults.projectName}/cesconfig.json`, JSON.stringify(cesConfig, null, 2));
 
   return files;
 }
