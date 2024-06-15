@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.10.4
+
+### Patch Changes
+
+- [`187960d4a592621669aec033a873ea8548f5766a`](https://github.com/danstepanov/create-expo-stack/commit/187960d4a592621669aec033a873ea8548f5766a) Thanks [@danstepanov](https://github.com/danstepanov)! - generate cesconfig file for each project
+
 ## 2.10.3
 
 ### Patch Changes
