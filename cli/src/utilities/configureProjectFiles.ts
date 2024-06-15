@@ -1,7 +1,16 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
-import { AvailablePackages, CliResults } from '../types';
-import { getPackageManager, getVersionForPackageManager } from './getPackageManager';
 import os from 'os';
+import {
+  AuthenticationSelect,
+  AvailablePackages,
+  CliResults,
+  Internalization,
+  NavigationSelect,
+  NavigationTypes,
+  StylingSelect
+} from '../types';
+import { getPackageManager, getVersionForPackageManager } from './getPackageManager';
+import { storeConfigAnalytics } from './configAnalytics';
 
 export function configureProjectFiles(
   authenticationPackage: AvailablePackages | undefined,
@@ -408,6 +417,30 @@ export function configureProjectFiles(
   };
 
   toolbox.filesystem.write(`./${cliResults.projectName}/cesconfig.json`, JSON.stringify(cesConfig, null, 2));
+
+  const pkg = require('../../package.json');
+
+  storeConfigAnalytics({
+    timestamp: new Date().toISOString(),
+    cesVersion: pkg.version,
+    authType: authenticationPackage?.name as AuthenticationSelect,
+    navigationLibrary: navigationPackage?.name as NavigationSelect,
+    navigationType: navigationPackage?.options?.type as NavigationTypes,
+    stylingLibrary: stylingPackage?.name as StylingSelect,
+    packageManager: cliResults.flags.packageManager,
+    packageManagerVersion,
+    internalization: internalizationPackage?.name as Internalization,
+    nativeWindUIComponents: stylingPackage?.options?.selectedComponents,
+    eas: cliResults.flags.eas,
+    importAlias: cliResults.flags.importAlias,
+    noGit: cliResults.flags.noGit,
+    noInstall: cliResults.flags.noInstall,
+    overwrite: cliResults.flags.overwrite,
+    os: os.type(),
+    osPlatform: os.platform(),
+    osArch: os.arch(),
+    osRelease: os.release()
+  });
 
   return files;
 }

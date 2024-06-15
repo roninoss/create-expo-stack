@@ -57,6 +57,8 @@
     "@clack/prompts": "^0.7.0",
     "expo": "latest",
     "lucide-astro": "^0.395.0",
-    "picocolors": "^1.0.0"
+    "picocolors": "^1.0.0",
+    "google-auth-library": "^9.11.0",
+    "googleapis": "^140.0.0"
   }
 }
