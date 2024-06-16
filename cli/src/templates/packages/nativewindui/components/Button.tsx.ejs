@@ -2,13 +2,12 @@ import { forwardRef } from 'react';
 import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 type ButtonProps = {
-  onPress?: TouchableOpacityProps['onPress'];
   title?: string;
 } & TouchableOpacityProps;
 
-export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ onPress, title }, ref) => {
+export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ title, ...touchableProps }, ref) => {
   return (
-    <TouchableOpacity ref={ref} style={styles.button} onPress={onPress}>
+    <TouchableOpacity ref={ref} {...touchableProps} style={[styles.button, touchableProps.style]}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
