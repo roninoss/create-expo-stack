@@ -10,7 +10,7 @@ const terminalEl = document.querySelector<HTMLElement>("#terminal")!;
 
 window.addEventListener("load", async () => {
   const terminal = await createTerminal(terminalEl);
-  webcontainer = bootWebContainer(terminal);
+  webcontainer = bootWebContainer(terminal) as Promise<WebContainer>;
   await webcontainer;
 });
 
