@@ -1,10 +1,16 @@
-import { forwardRef } from 'react';
-import { Button as TButton, ButtonText } from '../tamagui.config';
+import { ComponentProps, forwardRef } from 'react';
+import { TamaguiElement } from 'tamagui';
 
-export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ onPress, title }, ref) => {
+import { Button as TButton } from '../tamagui.config';
+
+type ButtonProps = {
+  title: string;
+} & ComponentProps<typeof TButton>;
+
+export const Button = forwardRef<TamaguiElement, ButtonProps>(({ title, ...tButtonProps }, ref) => {
   return (
-    <TButton onPress={onPress}>
-      <ButtonText>{title}</ButtonText>
+    <TButton {...tButtonProps} ref={ref}>
+      {title}
     </TButton>
   );
 });
