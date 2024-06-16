@@ -4,7 +4,7 @@ import { createMedia } from "@tamagui/react-native-media-driver";
 import { shorthands } from "@tamagui/shorthands";
 import { themes, tokens } from "@tamagui/themes";
 <% if (props.navigationPackage?.type === "navigation") { %>
-	import { createTamagui, styled, SizableText, H1, YStack } from "tamagui";
+	import { createTamagui, styled, SizableText, H1, YStack, Button as ButtonTamagui } from "tamagui";
 <% } else { %>
   import { createTamagui } from "tamagui";
 <% } %>
@@ -54,33 +54,32 @@ const bodyFont = createInterFont();
     color: '#38434D',
     size: '$9',
   });
-<% } %>
-<% if (props.navigationPackage?.options.type === "stack") { %>
-	export const Button = styled(YStack, {
-		alignItems: 'center',
-		backgroundColor: '#6366F1',
-		borderRadius: 28,
-    hoverStyle: {
-			backgroundColor: '#5a5fcf',
-		},
-		justifyContent: 'center',
-    maxWidth: 500,
-		padding: 16,
-		shadowColor: '#000',
-		shadowOffset: {
-			height: 2,
-			width: 0,
-		},
-		shadowOpacity: 0.25,
-		shadowRadius: 3.84,
-	});
 
-	export const ButtonText = styled(SizableText, {
-		color: '#FFFFFF',
-		fontSize: 16,
-		fontWeight: '600',
-		textAlign: 'center',
-	});
+  export const Button = styled(ButtonTamagui, {
+    backgroundColor: '#6366F1',
+    borderRadius: 28,
+    hoverStyle: {
+      backgroundColor: '#5a5fcf',
+    },
+    pressStyle: {
+      backgroundColor: '#5a5fcf',
+    },
+    maxWidth: 500,
+
+    // Shaddows
+    shadowColor: '#000',
+    shadowOffset: {
+      height: 2,
+      width: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    // Button text
+    color: '#FFFFFF',
+    fontWeight: '600', // Is not passed down to the text. Probably a bug in Tamagui: https://github.com/tamagui/tamagui/issues/1156#issuecomment-1802594930
+    fontSize: 16,
+  });
 <% } %>
 
 const config = createTamagui({
