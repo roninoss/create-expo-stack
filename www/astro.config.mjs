@@ -6,6 +6,11 @@ import vercel from "@astrojs/vercel/static";
 // https://astro.build/config
 export default defineConfig({
   site: `https://createexpostack.com/`,
+  vite: {
+    ssr: {
+      noExternal: ["lucide-astro"],
+    },
+  },
   integrations: [react(), tailwind()],
   output: "static",
   adapter: vercel({
