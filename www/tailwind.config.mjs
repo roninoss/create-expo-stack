@@ -11,6 +11,11 @@ module.exports = {
       },
     },
     extend: {
+      transitionTimingFunction: {
+        "in-expo": "cubic-bezier(0.95, 0.05, 0.795, 0.035)",
+        "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
+        nwui: "cubic-bezier(0.175,0.885,0.32,2.275)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
