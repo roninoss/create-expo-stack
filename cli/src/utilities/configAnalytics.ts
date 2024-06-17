@@ -52,6 +52,11 @@ export async function storeConfigAnalytics({
   osArch: string;
   osRelease: string;
 } & Partial<CliFlags>) {
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+    console.log('Skipping analytics in development or test environment');
+    return;
+  }
+
   try {
     const auth = new GoogleAuth({
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
