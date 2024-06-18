@@ -52,6 +52,8 @@
     "expo": "^51.0.11",
     "figlet": "^1.6.0",
     "gluegun": "latest",
+    "google-auth-library": "^9.11.0",
+    "googleapis": "^140.0.0",
     "gradient-string": "^2.0.2"
   },
   "devDependencies": {
