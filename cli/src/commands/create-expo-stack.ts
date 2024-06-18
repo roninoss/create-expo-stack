@@ -207,24 +207,24 @@ const command: GluegunCommand = {
               selectedComponents: options.blank
                 ? []
                 : [
-                  'action-sheet',
-                  'activity-indicator',
-                  'activity-view',
-                  'alert',
-                  'avatar',
-                  'bottom-sheet',
-                  'context-menu',
-                  'date-picker',
-                  'dropdown-menu',
-                  'picker',
-                  'progress-indicator',
-                  'ratings-indicator',
-                  'segmented-control',
-                  'selectable-text',
-                  'slider',
-                  'text',
-                  'toggle'
-                ]
+                    'action-sheet',
+                    'activity-indicator',
+                    'activity-view',
+                    'alert',
+                    'avatar',
+                    'bottom-sheet',
+                    'context-menu',
+                    'date-picker',
+                    'dropdown-menu',
+                    'picker',
+                    'progress-indicator',
+                    'ratings-indicator',
+                    'segmented-control',
+                    'selectable-text',
+                    'slider',
+                    'text',
+                    'toggle'
+                  ]
             }
           });
           cliResults.packages.push({
