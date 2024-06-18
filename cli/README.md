@@ -122,25 +122,10 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/frankcalise">
-            <img src="https://avatars.githubusercontent.com/u/374022?v=4" width="100;" alt="frankcalise"/>
-            <br />
-            <sub><b>Frank Calise</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/dannyhw">
             <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
             <br />
             <sub><b>Daniel Williams</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/ludwig-pro">
-            <img src="https://avatars.githubusercontent.com/u/62896243?v=4" width="100;" alt="ludwig-pro"/>
-            <br />
-            <sub><b>Ludwig</b></sub>
         </a>
     </td>
     <td align="center">
@@ -148,6 +133,21 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/31113245?v=4" width="100;" alt="PickleNik"/>
             <br />
             <sub><b>Null</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/frankcalise">
+            <img src="https://avatars.githubusercontent.com/u/374022?v=4" width="100;" alt="frankcalise"/>
+            <br />
+            <sub><b>Frank Calise</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ludwig-pro">
+            <img src="https://avatars.githubusercontent.com/u/62896243?v=4" width="100;" alt="ludwig-pro"/>
+            <br />
+            <sub><b>Ludwig</b></sub>
         </a>
     </td>
     <td align="center">
@@ -208,20 +208,27 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Savinvadim1312">
+            <img src="https://avatars.githubusercontent.com/u/16936043?v=4" width="100;" alt="Savinvadim1312"/>
+            <br />
+            <sub><b>Savin Vadim</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/coyksdev">
             <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
             <br />
             <sub><b>Gerald</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/andrew-levy">
             <img src="https://avatars.githubusercontent.com/u/29075740?v=4" width="100;" alt="andrew-levy"/>
             <br />
             <sub><b>Andrew Levy</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/gialencar">
             <img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100;" alt="gialencar"/>
@@ -244,17 +251,53 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/debugtheworldbot">
-            <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
+        <a href="https://github.com/claudesortwell">
+            <img src="https://avatars.githubusercontent.com/u/41422239?v=4" width="100;" alt="claudesortwell"/>
             <br />
-            <sub><b>Pipizhu</b></sub>
+            <sub><b>Claude</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/bautistaaa">
-            <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
+        <a href="https://github.com/gwenoleR">
+            <img src="https://avatars.githubusercontent.com/u/10418241?v=4" width="100;" alt="gwenoleR"/>
             <br />
             <sub><b>Null</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/boek">
+            <img src="https://avatars.githubusercontent.com/u/1250545?v=4" width="100;" alt="boek"/>
+            <br />
+            <sub><b>Jeff Boek</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/zamplyy">
+            <img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100;" alt="zamplyy"/>
+            <br />
+            <sub><b>Joar Karlsson</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Joehoel">
+            <img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100;" alt="Joehoel"/>
+            <br />
+            <sub><b>Joël Kuijper</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/asapMaki">
+            <img src="https://avatars.githubusercontent.com/u/30200380?v=4" width="100;" alt="asapMaki"/>
+            <br />
+            <sub><b>Mahir Kadić</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Hacksore">
+            <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
+            <br />
+            <sub><b>Sean Boult</b></sub>
         </a>
     </td>
     <td align="center">
@@ -266,60 +309,17 @@ Thanks go to these wonderful people:
     </td></tr>
 <tr>
     <td align="center">
-        <a href="https://github.com/Savinvadim1312">
-            <img src="https://avatars.githubusercontent.com/u/16936043?v=4" width="100;" alt="Savinvadim1312"/>
-            <br />
-            <sub><b>Savin Vadim</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Hacksore">
-            <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
-            <br />
-            <sub><b>Sean Boult</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/asapMaki">
-            <img src="https://avatars.githubusercontent.com/u/30200380?v=4" width="100;" alt="asapMaki"/>
-            <br />
-            <sub><b>Mahir Kadić</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Joehoel">
-            <img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100;" alt="Joehoel"/>
-            <br />
-            <sub><b>Joël Kuijper</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/zamplyy">
-            <img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100;" alt="zamplyy"/>
-            <br />
-            <sub><b>Joar Karlsson</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/boek">
-            <img src="https://avatars.githubusercontent.com/u/1250545?v=4" width="100;" alt="boek"/>
-            <br />
-            <sub><b>Jeff Boek</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/gwenoleR">
-            <img src="https://avatars.githubusercontent.com/u/10418241?v=4" width="100;" alt="gwenoleR"/>
+        <a href="https://github.com/bautistaaa">
+            <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
             <br />
             <sub><b>Null</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/claudesortwell">
-            <img src="https://avatars.githubusercontent.com/u/41422239?v=4" width="100;" alt="claudesortwell"/>
+        <a href="https://github.com/debugtheworldbot">
+            <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
             <br />
-            <sub><b>Claude</b></sub>
+            <sub><b>Pipizhu</b></sub>
         </a>
     </td></tr>
 </table>
