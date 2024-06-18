@@ -1,5 +1,21 @@
 # create-expo-stack
 
+## 2.10.5
+
+### Patch Changes
+
+- [#325](https://github.com/danstepanov/create-expo-stack/pull/325) [`c39f05700dfd8eaca2d9eeb55d3dc5ad787e5846`](https://github.com/danstepanov/create-expo-stack/commit/c39f05700dfd8eaca2d9eeb55d3dc5ad787e5846) Thanks [@dannyhw](https://github.com/dannyhw)! - config analytics
+
+- [#329](https://github.com/danstepanov/create-expo-stack/pull/329) [`0aee6404d69b5df0c47b5c44bc076b477ae22d02`](https://github.com/danstepanov/create-expo-stack/commit/0aee6404d69b5df0c47b5c44bc076b477ae22d02) Thanks [@Savinvadim1312](https://github.com/Savinvadim1312)! - Pass down props for button components
+
+- [`0aafcb2f1b8cb849a4beb8f98e44ac1817a736c9`](https://github.com/danstepanov/create-expo-stack/commit/0aafcb2f1b8cb849a4beb8f98e44ac1817a736c9) Thanks [@danstepanov](https://github.com/danstepanov)! - add ces version to cesconfig.json
+
+- [#328](https://github.com/danstepanov/create-expo-stack/pull/328) [`486a9402b30239a68cb44497f98b7d44a7f4d67c`](https://github.com/danstepanov/create-expo-stack/commit/486a9402b30239a68cb44497f98b7d44a7f4d67c) Thanks [@Savinvadim1312](https://github.com/Savinvadim1312)! - Fix tamagui button
+
+- [`7b6454f123c010d57f3e3f542682f9a76a774d6c`](https://github.com/danstepanov/create-expo-stack/commit/7b6454f123c010d57f3e3f542682f9a76a774d6c) Thanks [@danstepanov](https://github.com/danstepanov)! - add missing analytics dependencies
+
+- [`910f13c11db2064037e1e0a44c27966e8945574f`](https://github.com/danstepanov/create-expo-stack/commit/910f13c11db2064037e1e0a44c27966e8945574f) Thanks [@danstepanov](https://github.com/danstepanov)! - properly set noGit and noInstall for analytics
+
 ## 2.10.4
 
 ### Patch Changes
