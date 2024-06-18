@@ -84,8 +84,8 @@ export async function storeConfigAnalytics({
             authType ?? '',
             eas ? 'true' : 'false',
             importAlias ? 'true' : 'false',
-            noGit ? 'false' : 'true', // reverse logic because column is "git"
-            noInstall ? 'false' : 'true', // reverse logic because column is "install"
+            noGit ? 'true' : 'false',
+            noInstall ? 'true' : 'false',
             overwrite ? 'true' : 'false',
             os ?? '',
             osPlatform ?? '',
