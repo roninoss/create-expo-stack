@@ -358,10 +358,7 @@ export function configureProjectFiles(
 
     // add supabase files if needed
     if (authenticationPackage?.name === 'supabase') {
-      const supabaseFiles = [
-        'packages/supabase/utils/supabase.ts.ejs',
-        'packages/supabase/.env.ejs'
-      ];
+      const supabaseFiles = ['packages/supabase/utils/supabase.ts.ejs', 'packages/supabase/.env.ejs'];
 
       files = [...files, ...supabaseFiles];
     }
