@@ -131,8 +131,11 @@ const command: GluegunCommand = {
         return void success(`\nCancelled... 👋 \n`);
       }
 
-      // Delete all files with projectName
-      await removeAsync(cliResults.projectName);
+      // we keep this around so we can check what went wrong
+      if (process.env.NODE_ENV !== 'test') {
+        // Delete all files with projectName
+        await removeAsync(cliResults.projectName);
+      }
 
       printSomethingWentWrong();
       throw err;
@@ -417,8 +420,10 @@ const command: GluegunCommand = {
         return void success(`\nUser cancelled to install recommended version of Bun... 👋 \n`);
       }
 
-      // Delete all files with projectName
-      await removeAsync(cliResults.projectName);
+      if (process.env.NODE_ENV !== 'test') {
+        // Delete all files with projectName
+        await removeAsync(cliResults.projectName);
+      }
 
       printSomethingWentWrong();
       throw err;
