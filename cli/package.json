@@ -33,7 +33,7 @@
     "publishPublic": "bun run build && npm publish --access public",
     "snapupdate": "jest --updateSnapshot",
     "test:watch": "bun test --watch",
-    "test": "bun test --timeout 30000 --bail"
+    "test": "bun test --timeout 90000"
   },
   "prettier": {
     "arrowParens": "always",

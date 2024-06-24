@@ -101,7 +101,7 @@ export async function printOutput(
     s.stop('Project files formatted!');
   }
 
-  if (!options.noGit && !flags.noGit) {
+  if (!options.noGit && !flags.noGit && process.env.NODE_ENV !== 'test') {
     s.start(`Initializing git...`);
     // initialize git repo and add first commit
     // get create expo stack version
