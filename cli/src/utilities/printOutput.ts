@@ -1,9 +1,8 @@
+import { outro, spinner } from '@clack/prompts';
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
-
-import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager';
 import { AvailablePackages, CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
-import { outro, spinner } from '@clack/prompts';
+import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager';
 import { easConfigure } from './runEasConfigure';
 import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
 

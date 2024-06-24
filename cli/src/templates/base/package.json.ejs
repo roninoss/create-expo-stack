@@ -180,7 +180,8 @@
     "typescript": "~5.3.3"
   },
   "eslintConfig": {
-    "extends": "universe/native"
+    "extends": "universe/native",
+    "root": true
   },
   <% if (props.navigationPackage?.name !== "expo-router") { %>
     "main": "node_modules/expo/AppEntry.js",
