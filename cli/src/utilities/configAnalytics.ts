@@ -65,7 +65,7 @@ export async function storeConfigAnalytics({
 
     const service = google.sheets({ version: 'v4', auth });
 
-    const result = await service.spreadsheets.values.append({
+    await service.spreadsheets.values.append({
       spreadsheetId: '1Nav_XXi8stJjaBBK8bX0CebRF5QKXU25BZc57I06yGQ',
       range: 'Sheet1!A:A',
       valueInputOption: 'RAW',
@@ -96,8 +96,6 @@ export async function storeConfigAnalytics({
       },
       insertDataOption: 'INSERT_ROWS'
     });
-
-    console.log(`${result.data.updates.updatedCells} cells appended.`);
 
     // return result;
   } catch (err) {
