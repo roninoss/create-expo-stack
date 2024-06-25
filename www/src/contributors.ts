@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 340
+        "contributions": 341
     },
     {
         "login": "hqasmei",
@@ -104,7 +104,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/dannyhw/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 22
+        "contributions": 23
     },
     {
         "login": "PickleNik",
