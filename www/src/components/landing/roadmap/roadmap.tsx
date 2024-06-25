@@ -12,23 +12,32 @@ const roadmapData = [
     index: 1,
     version: "v2.11.x",
     date: "June",
+    active: false,
+    title: "Vexo Analytics Support",
+    description:
+      "User analytics are key to rapid iteration. With Vexo, you can easily understand and visualize user behavior, enabling you to make impactful improvements to your app.",
+  },
+  {
+    index: 2,
+    version: "v2.12.x",
+    date: "July",
     active: true,
     title: "Enhanced Testing Suite",
     description:
       "Stability of the CLI is incredbily important to us. We're going to be enhancing our testing suite to validate folder structure, file creation, formatting, and compilation of the generated code.",
   },
   {
-    index: 2,
-    version: "v2.12.x",
-    date: "June",
+    index: 3,
+    version: "v2.13.x",
+    date: "July",
     active: false,
     title: "Runtime Testing with Maestro",
     description:
       "Validate that the generated code is functions as expected. We'll ensure that navigation, component layout, and state management are all working as intended.",
   },
   {
-    index: 3,
-    version: "v2.13.x",
+    index: 4,
+    version: "v2.14.x",
     date: "July",
     active: false,
     title: "Unified Design System",
@@ -36,8 +45,8 @@ const roadmapData = [
       "Not much thought went into our current aesthetic. We'd like to introduce an elegant theme across all of our styling libraries for you to use so you focus more on what you're actually trying to build.",
   },
   {
-    index: 4,
-    version: "v2.14.x",
+    index: 5,
+    version: "v2.15.x",
     date: "July",
     active: false,
     title: "Dark Mode Support",
