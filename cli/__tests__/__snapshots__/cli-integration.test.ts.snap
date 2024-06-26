@@ -121,9 +121,7 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
 
 exports[`generates a project with --expo-router, --nativewind, --npm, --overwrite 2`] = `
 "{
-  "cesVersion": "2.10.5",
   "default": {
-    "cesVersion": "2.10.5",
     "projectName": "myTestProject",
     "packages": [
       {
@@ -147,15 +145,9 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
       "eas": false
     },
     "packageManager": {
-      "type": "npm",
-      "version": "10.5.2"
+      "type": "npm"
     },
-    "os": {
-      "type": "Darwin",
-      "platform": "darwin",
-      "arch": "arm64",
-      "kernelVersion": "24.0.0"
-    }
+    "os": {}
   },
   "flags": {
     "noGit": false,
@@ -165,15 +157,9 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
     "packageManager": "npm",
     "eas": false
   },
-  "os": {
-    "type": "Darwin",
-    "platform": "darwin",
-    "arch": "arm64",
-    "kernelVersion": "24.0.0"
-  },
+  "os": {},
   "packageManager": {
-    "type": "npm",
-    "version": "10.5.2"
+    "type": "npm"
   },
   "packages": [
     {
@@ -313,9 +299,7 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
 
 exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrite 2`] = `
 "{
-  "cesVersion": "2.10.5",
   "default": {
-    "cesVersion": "2.10.5",
     "projectName": "myTestProject",
     "packages": [
       {
@@ -339,15 +323,9 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
       "eas": false
     },
     "packageManager": {
-      "type": "npm",
-      "version": "10.5.2"
+      "type": "npm"
     },
-    "os": {
-      "type": "Darwin",
-      "platform": "darwin",
-      "arch": "arm64",
-      "kernelVersion": "24.0.0"
-    }
+    "os": {}
   },
   "flags": {
     "noGit": false,
@@ -357,15 +335,9 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
     "packageManager": "npm",
     "eas": false
   },
-  "os": {
-    "type": "Darwin",
-    "platform": "darwin",
-    "arch": "arm64",
-    "kernelVersion": "24.0.0"
-  },
+  "os": {},
   "packageManager": {
-    "type": "npm",
-    "version": "10.5.2"
+    "type": "npm"
   },
   "packages": [
     {
@@ -505,9 +477,7 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
 
 exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --overwrite 2`] = `
 "{
-  "cesVersion": "2.10.5",
   "default": {
-    "cesVersion": "2.10.5",
     "projectName": "myTestProject",
     "packages": [
       {
@@ -531,15 +501,9 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
       "eas": false
     },
     "packageManager": {
-      "type": "npm",
-      "version": "10.5.2"
+      "type": "npm"
     },
-    "os": {
-      "type": "Darwin",
-      "platform": "darwin",
-      "arch": "arm64",
-      "kernelVersion": "24.0.0"
-    }
+    "os": {}
   },
   "flags": {
     "noGit": false,
@@ -549,15 +513,9 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
     "packageManager": "npm",
     "eas": false
   },
-  "os": {
-    "type": "Darwin",
-    "platform": "darwin",
-    "arch": "arm64",
-    "kernelVersion": "24.0.0"
-  },
+  "os": {},
   "packageManager": {
-    "type": "npm",
-    "version": "10.5.2"
+    "type": "npm"
   },
   "packages": [
     {
@@ -697,9 +655,7 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
 
 exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --overwrite 2`] = `
 "{
-  "cesVersion": "2.10.5",
   "default": {
-    "cesVersion": "2.10.5",
     "projectName": "myTestProject",
     "packages": [
       {
@@ -723,15 +679,9 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
       "eas": false
     },
     "packageManager": {
-      "type": "npm",
-      "version": "10.5.2"
+      "type": "npm"
     },
-    "os": {
-      "type": "Darwin",
-      "platform": "darwin",
-      "arch": "arm64",
-      "kernelVersion": "24.0.0"
-    }
+    "os": {}
   },
   "flags": {
     "noGit": false,
@@ -741,15 +691,9 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
     "packageManager": "npm",
     "eas": false
   },
-  "os": {
-    "type": "Darwin",
-    "platform": "darwin",
-    "arch": "arm64",
-    "kernelVersion": "24.0.0"
-  },
+  "os": {},
   "packageManager": {
-    "type": "npm",
-    "version": "10.5.2"
+    "type": "npm"
   },
   "packages": [
     {
@@ -889,9 +833,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
 
 exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite 2`] = `
 "{
-  "cesVersion": "2.10.5",
   "default": {
-    "cesVersion": "2.10.5",
     "projectName": "myTestProject",
     "packages": [
       {
@@ -915,15 +857,9 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
       "eas": false
     },
     "packageManager": {
-      "type": "npm",
-      "version": "10.5.2"
+      "type": "npm"
     },
-    "os": {
-      "type": "Darwin",
-      "platform": "darwin",
-      "arch": "arm64",
-      "kernelVersion": "24.0.0"
-    }
+    "os": {}
   },
   "flags": {
     "noGit": false,
@@ -933,15 +869,9 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
     "packageManager": "npm",
     "eas": false
   },
-  "os": {
-    "type": "Darwin",
-    "platform": "darwin",
-    "arch": "arm64",
-    "kernelVersion": "24.0.0"
-  },
+  "os": {},
   "packageManager": {
-    "type": "npm",
-    "version": "10.5.2"
+    "type": "npm"
   },
   "packages": [
     {
@@ -1081,9 +1011,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
 
 exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite 2`] = `
 "{
-  "cesVersion": "2.10.5",
   "default": {
-    "cesVersion": "2.10.5",
     "projectName": "myTestProject",
     "packages": [
       {
@@ -1107,15 +1035,9 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
       "eas": false
     },
     "packageManager": {
-      "type": "npm",
-      "version": "10.5.2"
+      "type": "npm"
     },
-    "os": {
-      "type": "Darwin",
-      "platform": "darwin",
-      "arch": "arm64",
-      "kernelVersion": "24.0.0"
-    }
+    "os": {}
   },
   "flags": {
     "noGit": false,
@@ -1125,15 +1047,9 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
     "packageManager": "npm",
     "eas": false
   },
-  "os": {
-    "type": "Darwin",
-    "platform": "darwin",
-    "arch": "arm64",
-    "kernelVersion": "24.0.0"
-  },
+  "os": {},
   "packageManager": {
-    "type": "npm",
-    "version": "10.5.2"
+    "type": "npm"
   },
   "packages": [
     {

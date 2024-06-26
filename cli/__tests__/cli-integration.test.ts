@@ -94,7 +94,20 @@ for (const packageManager of packageManagers) {
 
       const cesconfig = await import(`../${projectName}/cesconfig.json`);
 
-      expect(JSON.stringify(cesconfig, null, 2)).toMatchSnapshot();
+      const cesconfigWithoutOS = {
+        ...cesconfig,
+        cesVersion: undefined,
+        default: {
+          ...cesconfig.default,
+          cesVersion: undefined,
+          os: {},
+          packageManager: { ...cesconfig.default.packageManager, version: undefined }
+        },
+        os: {},
+        packageManager: { ...cesconfig.packageManager, version: undefined }
+      };
+
+      expect(JSON.stringify(cesconfigWithoutOS, null, 2)).toMatchSnapshot();
     });
   }
 }
