@@ -2,7 +2,7 @@ import Bun from 'bun';
 
 import { version } from '../package.json';
 
-import { test, expect } from 'bun:test';
+import { test, expect, afterEach } from 'bun:test';
 import * as path from 'node:path';
 
 type InputFlag = `--${string}`;
@@ -65,6 +65,10 @@ const popularCombinations = [
 // let i = 0;
 
 const projectName = `myTestProject`;
+
+afterEach(() => {
+  Bun.$`rm -rf ./myTestProject`;
+});
 
 for (const packageManager of packageManagers) {
   const packageManagerFlag = `--${packageManager}` as const;
