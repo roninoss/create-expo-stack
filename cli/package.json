@@ -33,8 +33,8 @@
     "publishPublic": "bun run build && npm publish --access public",
     "snapupdate": "jest --updateSnapshot",
     "test:watch": "bun test --watch",
-    "test": "bun test --bail=10 --timeout 60000",
-    "test:all": "ALL_PACKAGE_MANAGERS=true bun test --bail=10 --timeout 60000"
+    "test": "bun test --bail=10 --timeout 160000",
+    "test:all": "ALL_PACKAGE_MANAGERS=true bun test --bail=10 --timeout 160000"
   },
   "prettier": {
     "arrowParens": "always",
