@@ -53,6 +53,7 @@ test(`outputs help`, async () => {
   expect(output).toContain(`Info`);
 });
 
+// we could later generate all combinations and have a "run everything" option that only runs very rarely
 const popularCombinations = [
   ['--expo-router', '--nativewind'],
   ['--expo-router', '--stylesheet'],
@@ -86,6 +87,14 @@ for (const packageManager of packageManagers) {
       expect(output).toContain(packageManager);
 
       expect(output).toContain('Installing dependencies');
+
+      const pkgjson = await import(`../${projectName}/package.json`);
+
+      expect(JSON.stringify(pkgjson, null, 2)).toMatchSnapshot();
+
+      const cesconfig = await import(`../${projectName}/cesconfig.json`);
+
+      expect(JSON.stringify(cesconfig, null, 2)).toMatchSnapshot();
     });
   }
 }
