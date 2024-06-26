@@ -11,3 +11,4 @@
 .prettierignore
 bun.lockb
 LICENSE
+cli/__tests__/__snapshots__/*
