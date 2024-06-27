@@ -1,5 +1,15 @@
 # create-expo-stack
 
+## 2.11.0
+
+### Minor Changes
+
+- [#33](https://github.com/danstepanov/create-expo-stack/pull/33) [`3c394087a85cbc6e4fb84972093029e4094f3700`](https://github.com/danstepanov/create-expo-stack/commit/3c394087a85cbc6e4fb84972093029e4094f3700) Thanks [@falcoagustin](https://github.com/falcoagustin)! - Adds --vexo-analytics to enable vexo analytics
+
+### Patch Changes
+
+- [#335](https://github.com/danstepanov/create-expo-stack/pull/335) [`bad4a51309fd5006edeea44be80d77a8de3cbd07`](https://github.com/danstepanov/create-expo-stack/commit/bad4a51309fd5006edeea44be80d77a8de3cbd07) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: remove unnecessary console.log message
+
 ## 2.10.5
 
 ### Patch Changes
