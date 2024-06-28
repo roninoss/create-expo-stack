@@ -1,1069 +1,565 @@
 // Bun Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generates a project with --expo-router, --nativewind, --npm, --overwrite 1`] = `
-"{
-  "default": {
-    "name": "myTestProject",
-    "version": "1.0.0",
-    "main": "expo-router/entry",
-    "scripts": {
-      "android": "expo start --android",
-      "ios": "expo start --ios",
-      "start": "expo start",
-      "prebuild": "expo prebuild",
-      "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-      "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-      "web": "expo start --web"
-    },
-    "dependencies": {
-      "@expo/vector-icons": "^14.0.0",
-      "@react-navigation/native": "^6.1.7",
-      "expo": "^51.0.14",
-      "expo-constants": "~16.0.1",
-      "expo-linking": "~6.3.1",
-      "expo-router": "~3.5.14",
-      "expo-status-bar": "~1.12.1",
-      "expo-system-ui": "~3.0.4",
-      "expo-web-browser": "~13.0.3",
-      "nativewind": "^4.0.1",
-      "react": "18.2.0",
-      "react-dom": "18.2.0",
-      "react-native": "0.74.2",
-      "react-native-gesture-handler": "~2.16.1",
-      "react-native-reanimated": "~3.10.1",
-      "react-native-safe-area-context": "4.10.1",
-      "react-native-screens": "3.31.1",
-      "react-native-web": "~0.19.10"
-    },
-    "devDependencies": {
-      "@babel/core": "^7.20.0",
-      "@types/react": "~18.2.45",
-      "@typescript-eslint/eslint-plugin": "^7.7.0",
-      "@typescript-eslint/parser": "^7.7.0",
-      "eslint": "^8.57.0",
-      "eslint-config-universe": "^12.0.1",
-      "prettier": "^3.2.5",
-      "prettier-plugin-tailwindcss": "^0.5.11",
-      "tailwindcss": "^3.4.0",
-      "typescript": "~5.3.3"
-    },
-    "eslintConfig": {
-      "extends": "universe/native",
-      "root": true
-    },
-    "expo": {
-      "install": {
-        "exclude": [
-          "react-native-safe-area-context"
-        ]
-      }
-    },
-    "private": true
-  },
+{
   "dependencies": {
-    "@expo/vector-icons": "^14.0.0",
-    "@react-navigation/native": "^6.1.7",
-    "expo": "^51.0.14",
-    "expo-constants": "~16.0.1",
-    "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.14",
-    "expo-status-bar": "~1.12.1",
-    "expo-system-ui": "~3.0.4",
-    "expo-web-browser": "~13.0.3",
-    "nativewind": "^4.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.2",
-    "react-native-gesture-handler": "~2.16.1",
-    "react-native-reanimated": "~3.10.1",
-    "react-native-safe-area-context": "4.10.1",
-    "react-native-screens": "3.31.1",
-    "react-native-web": "~0.19.10"
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "eslint": "^8.57.0",
-    "eslint-config-universe": "^12.0.1",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.0",
-    "typescript": "~5.3.3"
+    "@babel/core": "",
+    "@types/react": "",
+    "@typescript-eslint/eslint-plugin": "",
+    "@typescript-eslint/parser": "",
+    "eslint": "",
+    "eslint-config-universe": "",
+    "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
+    "typescript": "",
   },
   "eslintConfig": {
     "extends": "universe/native",
-    "root": true
+    "root": true,
   },
   "expo": {
     "install": {
       "exclude": [
-        "react-native-safe-area-context"
-      ]
-    }
+        "react-native-safe-area-context",
+      ],
+    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
   "scripts": {
     "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
     "ios": "expo start --ios",
-    "start": "expo start",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
     "prebuild": "expo prebuild",
-    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-    "web": "expo start --web"
+    "start": "expo start",
+    "web": "expo start --web",
   },
-  "version": "1.0.0"
-}"
+  "version": "1.0.0",
+}
 `;
 
 exports[`generates a project with --expo-router, --nativewind, --npm, --overwrite 2`] = `
-"{
-  "default": {
-    "projectName": "myTestProject",
-    "packages": [
-      {
-        "name": "expo-router",
-        "type": "navigation",
-        "options": {
-          "type": "stack"
-        }
-      },
-      {
-        "name": "nativewind",
-        "type": "styling"
-      }
-    ],
-    "flags": {
-      "noGit": false,
-      "noInstall": false,
-      "overwrite": true,
-      "importAlias": true,
-      "packageManager": "npm",
-      "eas": false
-    },
-    "packageManager": {
-      "type": "npm"
-    },
-    "os": {}
-  },
+{
+  "cesVersion": undefined,
   "flags": {
+    "eas": false,
+    "importAlias": true,
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "importAlias": true,
     "packageManager": "npm",
-    "eas": false
   },
   "os": {},
   "packageManager": {
-    "type": "npm"
+    "type": "npm",
+    "version": undefined,
   },
   "packages": [
     {
       "name": "expo-router",
-      "type": "navigation",
       "options": {
-        "type": "stack"
-      }
+        "type": "stack",
+      },
+      "type": "navigation",
     },
     {
       "name": "nativewind",
-      "type": "styling"
-    }
+      "type": "styling",
+    },
   ],
-  "projectName": "myTestProject"
-}"
+  "projectName": "myTestProject",
+}
 `;
 
 exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrite 1`] = `
-"{
-  "default": {
-    "name": "myTestProject",
-    "version": "1.0.0",
-    "main": "expo-router/entry",
-    "scripts": {
-      "android": "expo start --android",
-      "ios": "expo start --ios",
-      "start": "expo start",
-      "prebuild": "expo prebuild",
-      "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-      "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-      "web": "expo start --web"
-    },
-    "dependencies": {
-      "@expo/vector-icons": "^14.0.0",
-      "@react-navigation/native": "^6.1.7",
-      "expo": "^51.0.14",
-      "expo-constants": "~16.0.1",
-      "expo-linking": "~6.3.1",
-      "expo-router": "~3.5.14",
-      "expo-status-bar": "~1.12.1",
-      "expo-system-ui": "~3.0.4",
-      "expo-web-browser": "~13.0.3",
-      "nativewind": "^4.0.1",
-      "react": "18.2.0",
-      "react-dom": "18.2.0",
-      "react-native": "0.74.2",
-      "react-native-gesture-handler": "~2.16.1",
-      "react-native-reanimated": "~3.10.1",
-      "react-native-safe-area-context": "4.10.1",
-      "react-native-screens": "3.31.1",
-      "react-native-web": "~0.19.10"
-    },
-    "devDependencies": {
-      "@babel/core": "^7.20.0",
-      "@types/react": "~18.2.45",
-      "@typescript-eslint/eslint-plugin": "^7.7.0",
-      "@typescript-eslint/parser": "^7.7.0",
-      "eslint": "^8.57.0",
-      "eslint-config-universe": "^12.0.1",
-      "prettier": "^3.2.5",
-      "prettier-plugin-tailwindcss": "^0.5.11",
-      "tailwindcss": "^3.4.0",
-      "typescript": "~5.3.3"
-    },
-    "eslintConfig": {
-      "extends": "universe/native",
-      "root": true
-    },
-    "expo": {
-      "install": {
-        "exclude": [
-          "react-native-safe-area-context"
-        ]
-      }
-    },
-    "private": true
-  },
+{
   "dependencies": {
-    "@expo/vector-icons": "^14.0.0",
-    "@react-navigation/native": "^6.1.7",
-    "expo": "^51.0.14",
-    "expo-constants": "~16.0.1",
-    "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.14",
-    "expo-status-bar": "~1.12.1",
-    "expo-system-ui": "~3.0.4",
-    "expo-web-browser": "~13.0.3",
-    "nativewind": "^4.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.2",
-    "react-native-gesture-handler": "~2.16.1",
-    "react-native-reanimated": "~3.10.1",
-    "react-native-safe-area-context": "4.10.1",
-    "react-native-screens": "3.31.1",
-    "react-native-web": "~0.19.10"
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "eslint": "^8.57.0",
-    "eslint-config-universe": "^12.0.1",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.0",
-    "typescript": "~5.3.3"
+    "@babel/core": "",
+    "@types/react": "",
+    "@typescript-eslint/eslint-plugin": "",
+    "@typescript-eslint/parser": "",
+    "eslint": "",
+    "eslint-config-universe": "",
+    "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
+    "typescript": "",
   },
   "eslintConfig": {
     "extends": "universe/native",
-    "root": true
+    "root": true,
   },
   "expo": {
     "install": {
       "exclude": [
-        "react-native-safe-area-context"
-      ]
-    }
+        "react-native-safe-area-context",
+      ],
+    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
   "scripts": {
     "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
     "ios": "expo start --ios",
-    "start": "expo start",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
     "prebuild": "expo prebuild",
-    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-    "web": "expo start --web"
+    "start": "expo start",
+    "web": "expo start --web",
   },
-  "version": "1.0.0"
-}"
+  "version": "1.0.0",
+}
 `;
 
 exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrite 2`] = `
-"{
-  "default": {
-    "projectName": "myTestProject",
-    "packages": [
-      {
-        "name": "expo-router",
-        "type": "navigation",
-        "options": {
-          "type": "stack"
-        }
-      },
-      {
-        "name": "nativewind",
-        "type": "styling"
-      }
-    ],
-    "flags": {
-      "noGit": false,
-      "noInstall": false,
-      "overwrite": true,
-      "importAlias": true,
-      "packageManager": "npm",
-      "eas": false
-    },
-    "packageManager": {
-      "type": "npm"
-    },
-    "os": {}
-  },
+{
+  "cesVersion": undefined,
   "flags": {
+    "eas": false,
+    "importAlias": true,
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "importAlias": true,
     "packageManager": "npm",
-    "eas": false
   },
   "os": {},
   "packageManager": {
-    "type": "npm"
+    "type": "npm",
+    "version": undefined,
   },
   "packages": [
     {
       "name": "expo-router",
-      "type": "navigation",
       "options": {
-        "type": "stack"
-      }
+        "type": "stack",
+      },
+      "type": "navigation",
     },
     {
       "name": "nativewind",
-      "type": "styling"
-    }
+      "type": "styling",
+    },
   ],
-  "projectName": "myTestProject"
-}"
+  "projectName": "myTestProject",
+}
 `;
 
 exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --overwrite 1`] = `
-"{
-  "default": {
-    "name": "myTestProject",
-    "version": "1.0.0",
-    "main": "expo-router/entry",
-    "scripts": {
-      "android": "expo start --android",
-      "ios": "expo start --ios",
-      "start": "expo start",
-      "prebuild": "expo prebuild",
-      "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-      "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-      "web": "expo start --web"
-    },
-    "dependencies": {
-      "@expo/vector-icons": "^14.0.0",
-      "@react-navigation/native": "^6.1.7",
-      "expo": "^51.0.14",
-      "expo-constants": "~16.0.1",
-      "expo-linking": "~6.3.1",
-      "expo-router": "~3.5.14",
-      "expo-status-bar": "~1.12.1",
-      "expo-system-ui": "~3.0.4",
-      "expo-web-browser": "~13.0.3",
-      "nativewind": "^4.0.1",
-      "react": "18.2.0",
-      "react-dom": "18.2.0",
-      "react-native": "0.74.2",
-      "react-native-gesture-handler": "~2.16.1",
-      "react-native-reanimated": "~3.10.1",
-      "react-native-safe-area-context": "4.10.1",
-      "react-native-screens": "3.31.1",
-      "react-native-web": "~0.19.10"
-    },
-    "devDependencies": {
-      "@babel/core": "^7.20.0",
-      "@types/react": "~18.2.45",
-      "@typescript-eslint/eslint-plugin": "^7.7.0",
-      "@typescript-eslint/parser": "^7.7.0",
-      "eslint": "^8.57.0",
-      "eslint-config-universe": "^12.0.1",
-      "prettier": "^3.2.5",
-      "prettier-plugin-tailwindcss": "^0.5.11",
-      "tailwindcss": "^3.4.0",
-      "typescript": "~5.3.3"
-    },
-    "eslintConfig": {
-      "extends": "universe/native",
-      "root": true
-    },
-    "expo": {
-      "install": {
-        "exclude": [
-          "react-native-safe-area-context"
-        ]
-      }
-    },
-    "private": true
-  },
+{
   "dependencies": {
-    "@expo/vector-icons": "^14.0.0",
-    "@react-navigation/native": "^6.1.7",
-    "expo": "^51.0.14",
-    "expo-constants": "~16.0.1",
-    "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.14",
-    "expo-status-bar": "~1.12.1",
-    "expo-system-ui": "~3.0.4",
-    "expo-web-browser": "~13.0.3",
-    "nativewind": "^4.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.2",
-    "react-native-gesture-handler": "~2.16.1",
-    "react-native-reanimated": "~3.10.1",
-    "react-native-safe-area-context": "4.10.1",
-    "react-native-screens": "3.31.1",
-    "react-native-web": "~0.19.10"
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "eslint": "^8.57.0",
-    "eslint-config-universe": "^12.0.1",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.0",
-    "typescript": "~5.3.3"
+    "@babel/core": "",
+    "@types/react": "",
+    "@typescript-eslint/eslint-plugin": "",
+    "@typescript-eslint/parser": "",
+    "eslint": "",
+    "eslint-config-universe": "",
+    "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
+    "typescript": "",
   },
   "eslintConfig": {
     "extends": "universe/native",
-    "root": true
+    "root": true,
   },
   "expo": {
     "install": {
       "exclude": [
-        "react-native-safe-area-context"
-      ]
-    }
+        "react-native-safe-area-context",
+      ],
+    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
   "scripts": {
     "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
     "ios": "expo start --ios",
-    "start": "expo start",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
     "prebuild": "expo prebuild",
-    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-    "web": "expo start --web"
+    "start": "expo start",
+    "web": "expo start --web",
   },
-  "version": "1.0.0"
-}"
+  "version": "1.0.0",
+}
 `;
 
 exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --overwrite 2`] = `
-"{
-  "default": {
-    "projectName": "myTestProject",
-    "packages": [
-      {
-        "name": "expo-router",
-        "type": "navigation",
-        "options": {
-          "type": "stack"
-        }
-      },
-      {
-        "name": "nativewind",
-        "type": "styling"
-      }
-    ],
-    "flags": {
-      "noGit": false,
-      "noInstall": false,
-      "overwrite": true,
-      "importAlias": true,
-      "packageManager": "npm",
-      "eas": false
-    },
-    "packageManager": {
-      "type": "npm"
-    },
-    "os": {}
-  },
+{
+  "cesVersion": undefined,
   "flags": {
+    "eas": false,
+    "importAlias": true,
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "importAlias": true,
     "packageManager": "npm",
-    "eas": false
   },
   "os": {},
   "packageManager": {
-    "type": "npm"
+    "type": "npm",
+    "version": undefined,
   },
   "packages": [
     {
       "name": "expo-router",
-      "type": "navigation",
       "options": {
-        "type": "stack"
-      }
+        "type": "stack",
+      },
+      "type": "navigation",
     },
     {
       "name": "nativewind",
-      "type": "styling"
-    }
+      "type": "styling",
+    },
   ],
-  "projectName": "myTestProject"
-}"
+  "projectName": "myTestProject",
+}
 `;
 
 exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --overwrite 1`] = `
-"{
-  "default": {
-    "name": "myTestProject",
-    "version": "1.0.0",
-    "main": "expo-router/entry",
-    "scripts": {
-      "android": "expo start --android",
-      "ios": "expo start --ios",
-      "start": "expo start",
-      "prebuild": "expo prebuild",
-      "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-      "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-      "web": "expo start --web"
-    },
-    "dependencies": {
-      "@expo/vector-icons": "^14.0.0",
-      "@react-navigation/native": "^6.1.7",
-      "expo": "^51.0.14",
-      "expo-constants": "~16.0.1",
-      "expo-linking": "~6.3.1",
-      "expo-router": "~3.5.14",
-      "expo-status-bar": "~1.12.1",
-      "expo-system-ui": "~3.0.4",
-      "expo-web-browser": "~13.0.3",
-      "nativewind": "^4.0.1",
-      "react": "18.2.0",
-      "react-dom": "18.2.0",
-      "react-native": "0.74.2",
-      "react-native-gesture-handler": "~2.16.1",
-      "react-native-reanimated": "~3.10.1",
-      "react-native-safe-area-context": "4.10.1",
-      "react-native-screens": "3.31.1",
-      "react-native-web": "~0.19.10"
-    },
-    "devDependencies": {
-      "@babel/core": "^7.20.0",
-      "@types/react": "~18.2.45",
-      "@typescript-eslint/eslint-plugin": "^7.7.0",
-      "@typescript-eslint/parser": "^7.7.0",
-      "eslint": "^8.57.0",
-      "eslint-config-universe": "^12.0.1",
-      "prettier": "^3.2.5",
-      "prettier-plugin-tailwindcss": "^0.5.11",
-      "tailwindcss": "^3.4.0",
-      "typescript": "~5.3.3"
-    },
-    "eslintConfig": {
-      "extends": "universe/native",
-      "root": true
-    },
-    "expo": {
-      "install": {
-        "exclude": [
-          "react-native-safe-area-context"
-        ]
-      }
-    },
-    "private": true
-  },
+{
   "dependencies": {
-    "@expo/vector-icons": "^14.0.0",
-    "@react-navigation/native": "^6.1.7",
-    "expo": "^51.0.14",
-    "expo-constants": "~16.0.1",
-    "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.14",
-    "expo-status-bar": "~1.12.1",
-    "expo-system-ui": "~3.0.4",
-    "expo-web-browser": "~13.0.3",
-    "nativewind": "^4.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.2",
-    "react-native-gesture-handler": "~2.16.1",
-    "react-native-reanimated": "~3.10.1",
-    "react-native-safe-area-context": "4.10.1",
-    "react-native-screens": "3.31.1",
-    "react-native-web": "~0.19.10"
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "eslint": "^8.57.0",
-    "eslint-config-universe": "^12.0.1",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.0",
-    "typescript": "~5.3.3"
+    "@babel/core": "",
+    "@types/react": "",
+    "@typescript-eslint/eslint-plugin": "",
+    "@typescript-eslint/parser": "",
+    "eslint": "",
+    "eslint-config-universe": "",
+    "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
+    "typescript": "",
   },
   "eslintConfig": {
     "extends": "universe/native",
-    "root": true
+    "root": true,
   },
   "expo": {
     "install": {
       "exclude": [
-        "react-native-safe-area-context"
-      ]
-    }
+        "react-native-safe-area-context",
+      ],
+    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
   "scripts": {
     "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
     "ios": "expo start --ios",
-    "start": "expo start",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
     "prebuild": "expo prebuild",
-    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-    "web": "expo start --web"
+    "start": "expo start",
+    "web": "expo start --web",
   },
-  "version": "1.0.0"
-}"
+  "version": "1.0.0",
+}
 `;
 
 exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --overwrite 2`] = `
-"{
-  "default": {
-    "projectName": "myTestProject",
-    "packages": [
-      {
-        "name": "expo-router",
-        "type": "navigation",
-        "options": {
-          "type": "stack"
-        }
-      },
-      {
-        "name": "nativewind",
-        "type": "styling"
-      }
-    ],
-    "flags": {
-      "noGit": false,
-      "noInstall": false,
-      "overwrite": true,
-      "importAlias": true,
-      "packageManager": "npm",
-      "eas": false
-    },
-    "packageManager": {
-      "type": "npm"
-    },
-    "os": {}
-  },
+{
+  "cesVersion": undefined,
   "flags": {
+    "eas": false,
+    "importAlias": true,
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "importAlias": true,
     "packageManager": "npm",
-    "eas": false
   },
   "os": {},
   "packageManager": {
-    "type": "npm"
+    "type": "npm",
+    "version": undefined,
   },
   "packages": [
     {
       "name": "expo-router",
-      "type": "navigation",
       "options": {
-        "type": "stack"
-      }
+        "type": "stack",
+      },
+      "type": "navigation",
     },
     {
       "name": "nativewind",
-      "type": "styling"
-    }
+      "type": "styling",
+    },
   ],
-  "projectName": "myTestProject"
-}"
+  "projectName": "myTestProject",
+}
 `;
 
 exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite 1`] = `
-"{
-  "default": {
-    "name": "myTestProject",
-    "version": "1.0.0",
-    "main": "expo-router/entry",
-    "scripts": {
-      "android": "expo start --android",
-      "ios": "expo start --ios",
-      "start": "expo start",
-      "prebuild": "expo prebuild",
-      "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-      "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-      "web": "expo start --web"
-    },
-    "dependencies": {
-      "@expo/vector-icons": "^14.0.0",
-      "@react-navigation/native": "^6.1.7",
-      "expo": "^51.0.14",
-      "expo-constants": "~16.0.1",
-      "expo-linking": "~6.3.1",
-      "expo-router": "~3.5.14",
-      "expo-status-bar": "~1.12.1",
-      "expo-system-ui": "~3.0.4",
-      "expo-web-browser": "~13.0.3",
-      "nativewind": "^4.0.1",
-      "react": "18.2.0",
-      "react-dom": "18.2.0",
-      "react-native": "0.74.2",
-      "react-native-gesture-handler": "~2.16.1",
-      "react-native-reanimated": "~3.10.1",
-      "react-native-safe-area-context": "4.10.1",
-      "react-native-screens": "3.31.1",
-      "react-native-web": "~0.19.10"
-    },
-    "devDependencies": {
-      "@babel/core": "^7.20.0",
-      "@types/react": "~18.2.45",
-      "@typescript-eslint/eslint-plugin": "^7.7.0",
-      "@typescript-eslint/parser": "^7.7.0",
-      "eslint": "^8.57.0",
-      "eslint-config-universe": "^12.0.1",
-      "prettier": "^3.2.5",
-      "prettier-plugin-tailwindcss": "^0.5.11",
-      "tailwindcss": "^3.4.0",
-      "typescript": "~5.3.3"
-    },
-    "eslintConfig": {
-      "extends": "universe/native",
-      "root": true
-    },
-    "expo": {
-      "install": {
-        "exclude": [
-          "react-native-safe-area-context"
-        ]
-      }
-    },
-    "private": true
-  },
+{
   "dependencies": {
-    "@expo/vector-icons": "^14.0.0",
-    "@react-navigation/native": "^6.1.7",
-    "expo": "^51.0.14",
-    "expo-constants": "~16.0.1",
-    "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.14",
-    "expo-status-bar": "~1.12.1",
-    "expo-system-ui": "~3.0.4",
-    "expo-web-browser": "~13.0.3",
-    "nativewind": "^4.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.2",
-    "react-native-gesture-handler": "~2.16.1",
-    "react-native-reanimated": "~3.10.1",
-    "react-native-safe-area-context": "4.10.1",
-    "react-native-screens": "3.31.1",
-    "react-native-web": "~0.19.10"
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "eslint": "^8.57.0",
-    "eslint-config-universe": "^12.0.1",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.0",
-    "typescript": "~5.3.3"
+    "@babel/core": "",
+    "@types/react": "",
+    "@typescript-eslint/eslint-plugin": "",
+    "@typescript-eslint/parser": "",
+    "eslint": "",
+    "eslint-config-universe": "",
+    "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
+    "typescript": "",
   },
   "eslintConfig": {
     "extends": "universe/native",
-    "root": true
+    "root": true,
   },
   "expo": {
     "install": {
       "exclude": [
-        "react-native-safe-area-context"
-      ]
-    }
+        "react-native-safe-area-context",
+      ],
+    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
   "scripts": {
     "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
     "ios": "expo start --ios",
-    "start": "expo start",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
     "prebuild": "expo prebuild",
-    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-    "web": "expo start --web"
+    "start": "expo start",
+    "web": "expo start --web",
   },
-  "version": "1.0.0"
-}"
+  "version": "1.0.0",
+}
 `;
 
 exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite 2`] = `
-"{
-  "default": {
-    "projectName": "myTestProject",
-    "packages": [
-      {
-        "name": "expo-router",
-        "type": "navigation",
-        "options": {
-          "type": "stack"
-        }
-      },
-      {
-        "name": "nativewind",
-        "type": "styling"
-      }
-    ],
-    "flags": {
-      "noGit": false,
-      "noInstall": false,
-      "overwrite": true,
-      "importAlias": true,
-      "packageManager": "npm",
-      "eas": false
-    },
-    "packageManager": {
-      "type": "npm"
-    },
-    "os": {}
-  },
+{
+  "cesVersion": undefined,
   "flags": {
+    "eas": false,
+    "importAlias": true,
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "importAlias": true,
     "packageManager": "npm",
-    "eas": false
   },
   "os": {},
   "packageManager": {
-    "type": "npm"
+    "type": "npm",
+    "version": undefined,
   },
   "packages": [
     {
       "name": "expo-router",
-      "type": "navigation",
       "options": {
-        "type": "stack"
-      }
+        "type": "stack",
+      },
+      "type": "navigation",
     },
     {
       "name": "nativewind",
-      "type": "styling"
-    }
+      "type": "styling",
+    },
   ],
-  "projectName": "myTestProject"
-}"
+  "projectName": "myTestProject",
+}
 `;
 
 exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite 1`] = `
-"{
-  "default": {
-    "name": "myTestProject",
-    "version": "1.0.0",
-    "main": "expo-router/entry",
-    "scripts": {
-      "android": "expo start --android",
-      "ios": "expo start --ios",
-      "start": "expo start",
-      "prebuild": "expo prebuild",
-      "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-      "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-      "web": "expo start --web"
-    },
-    "dependencies": {
-      "@expo/vector-icons": "^14.0.0",
-      "@react-navigation/native": "^6.1.7",
-      "expo": "^51.0.14",
-      "expo-constants": "~16.0.1",
-      "expo-linking": "~6.3.1",
-      "expo-router": "~3.5.14",
-      "expo-status-bar": "~1.12.1",
-      "expo-system-ui": "~3.0.4",
-      "expo-web-browser": "~13.0.3",
-      "nativewind": "^4.0.1",
-      "react": "18.2.0",
-      "react-dom": "18.2.0",
-      "react-native": "0.74.2",
-      "react-native-gesture-handler": "~2.16.1",
-      "react-native-reanimated": "~3.10.1",
-      "react-native-safe-area-context": "4.10.1",
-      "react-native-screens": "3.31.1",
-      "react-native-web": "~0.19.10"
-    },
-    "devDependencies": {
-      "@babel/core": "^7.20.0",
-      "@types/react": "~18.2.45",
-      "@typescript-eslint/eslint-plugin": "^7.7.0",
-      "@typescript-eslint/parser": "^7.7.0",
-      "eslint": "^8.57.0",
-      "eslint-config-universe": "^12.0.1",
-      "prettier": "^3.2.5",
-      "prettier-plugin-tailwindcss": "^0.5.11",
-      "tailwindcss": "^3.4.0",
-      "typescript": "~5.3.3"
-    },
-    "eslintConfig": {
-      "extends": "universe/native",
-      "root": true
-    },
-    "expo": {
-      "install": {
-        "exclude": [
-          "react-native-safe-area-context"
-        ]
-      }
-    },
-    "private": true
-  },
+{
   "dependencies": {
-    "@expo/vector-icons": "^14.0.0",
-    "@react-navigation/native": "^6.1.7",
-    "expo": "^51.0.14",
-    "expo-constants": "~16.0.1",
-    "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.14",
-    "expo-status-bar": "~1.12.1",
-    "expo-system-ui": "~3.0.4",
-    "expo-web-browser": "~13.0.3",
-    "nativewind": "^4.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.2",
-    "react-native-gesture-handler": "~2.16.1",
-    "react-native-reanimated": "~3.10.1",
-    "react-native-safe-area-context": "4.10.1",
-    "react-native-screens": "3.31.1",
-    "react-native-web": "~0.19.10"
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "eslint": "^8.57.0",
-    "eslint-config-universe": "^12.0.1",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.0",
-    "typescript": "~5.3.3"
+    "@babel/core": "",
+    "@types/react": "",
+    "@typescript-eslint/eslint-plugin": "",
+    "@typescript-eslint/parser": "",
+    "eslint": "",
+    "eslint-config-universe": "",
+    "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
+    "typescript": "",
   },
   "eslintConfig": {
     "extends": "universe/native",
-    "root": true
+    "root": true,
   },
   "expo": {
     "install": {
       "exclude": [
-        "react-native-safe-area-context"
-      ]
-    }
+        "react-native-safe-area-context",
+      ],
+    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
   "scripts": {
     "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
     "ios": "expo start --ios",
-    "start": "expo start",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
     "prebuild": "expo prebuild",
-    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
-    "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-    "web": "expo start --web"
+    "start": "expo start",
+    "web": "expo start --web",
   },
-  "version": "1.0.0"
-}"
+  "version": "1.0.0",
+}
 `;
 
 exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite 2`] = `
-"{
-  "default": {
-    "projectName": "myTestProject",
-    "packages": [
-      {
-        "name": "expo-router",
-        "type": "navigation",
-        "options": {
-          "type": "stack"
-        }
-      },
-      {
-        "name": "nativewind",
-        "type": "styling"
-      }
-    ],
-    "flags": {
-      "noGit": false,
-      "noInstall": false,
-      "overwrite": true,
-      "importAlias": true,
-      "packageManager": "npm",
-      "eas": false
-    },
-    "packageManager": {
-      "type": "npm"
-    },
-    "os": {}
-  },
+{
+  "cesVersion": undefined,
   "flags": {
+    "eas": false,
+    "importAlias": true,
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "importAlias": true,
     "packageManager": "npm",
-    "eas": false
   },
   "os": {},
   "packageManager": {
-    "type": "npm"
+    "type": "npm",
+    "version": undefined,
   },
   "packages": [
     {
       "name": "expo-router",
-      "type": "navigation",
       "options": {
-        "type": "stack"
-      }
+        "type": "stack",
+      },
+      "type": "navigation",
     },
     {
       "name": "nativewind",
-      "type": "styling"
-    }
+      "type": "styling",
+    },
   ],
-  "projectName": "myTestProject"
-}"
+  "projectName": "myTestProject",
+}
 `;
