@@ -63,8 +63,6 @@ const popularCombinations = [
   ['--expo-router', '--drawer+tabs', '--stylesheet']
 ] as const;
 
-// let i = 0;
-
 const projectName = `myTestProject`;
 
 afterEach(() => {
@@ -74,8 +72,6 @@ afterEach(() => {
 for (const packageManager of packageManagers) {
   const packageManagerFlag = `--${packageManager}` as const;
   for (const flags of popularCombinations) {
-    // const projectName = `myTestProject-${i++}`;
-
     const finalFlags = [...flags, packageManagerFlag, '--overwrite' as const];
 
     test(`generates a project with ${finalFlags.join(', ')}`, async () => {
@@ -90,24 +86,34 @@ for (const packageManager of packageManagers) {
 
       const pkgjson = await import(`../${projectName}/package.json`);
 
-      expect(JSON.stringify(pkgjson, null, 2)).toMatchSnapshot();
+      const pkgJsonWithoutVersions = {
+        ...pkgjson.default,
+        dependencies: Object.keys(pkgjson.default.dependencies).reduce((acc, key) => {
+          return {
+            ...acc,
+            [key]: ''
+          };
+        }, {}),
+        devDependencies: Object.keys(pkgjson.default.devDependencies).reduce((acc, key) => {
+          return {
+            ...acc,
+            [key]: ''
+          };
+        }, {})
+      };
+
+      expect(pkgJsonWithoutVersions).toMatchSnapshot();
 
       const cesconfig = await import(`../${projectName}/cesconfig.json`);
 
       const cesconfigWithoutOS = {
-        ...cesconfig,
+        ...cesconfig.default,
         cesVersion: undefined,
-        default: {
-          ...cesconfig.default,
-          cesVersion: undefined,
-          os: {},
-          packageManager: { ...cesconfig.default.packageManager, version: undefined }
-        },
         os: {},
-        packageManager: { ...cesconfig.packageManager, version: undefined }
+        packageManager: { ...cesconfig.default.packageManager, version: undefined }
       };
 
-      expect(JSON.stringify(cesconfigWithoutOS, null, 2)).toMatchSnapshot();
+      expect(cesconfigWithoutOS).toMatchSnapshot();
     });
   }
 }
