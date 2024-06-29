@@ -115,17 +115,17 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/ernestoresende">
-            <img src="https://avatars.githubusercontent.com/u/55156145?v=4" width="100;" alt="ernestoresende"/>
-            <br />
-            <sub><b>Ernesto Resende</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/dannyhw">
             <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
             <br />
             <sub><b>Daniel Williams</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ernestoresende">
+            <img src="https://avatars.githubusercontent.com/u/55156145?v=4" width="100;" alt="ernestoresende"/>
+            <br />
+            <sub><b>Ernesto Resende</b></sub>
         </a>
     </td>
     <td align="center">
