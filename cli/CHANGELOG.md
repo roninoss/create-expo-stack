@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.11.1
+
+### Patch Changes
+
+- [#340](https://github.com/danstepanov/create-expo-stack/pull/340) [`fc1fb3cfc713375c55e8f4360534b023462f9632`](https://github.com/danstepanov/create-expo-stack/commit/fc1fb3cfc713375c55e8f4360534b023462f9632) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: tests
+
+- [#336](https://github.com/danstepanov/create-expo-stack/pull/336) [`7f0f04765ac19e4c3825ea724ccc3624ac03b940`](https://github.com/danstepanov/create-expo-stack/commit/7f0f04765ac19e4c3825ea724ccc3624ac03b940) Thanks [@dannyhw](https://github.com/dannyhw)! - tests
+
 ## 2.11.0
 
 ### Minor Changes
