@@ -234,7 +234,7 @@ const command: GluegunCommand = {
             name: 'expo-router',
             type: 'navigation',
             options: {
-              type: 'drawer + tabs'
+              type: 'stack'
             }
           });
         } else if (options.tamagui) {
@@ -324,6 +324,12 @@ const command: GluegunCommand = {
             script += '--nativewindui ';
             if (cliResults.packages[0].options.selectedComponents.length === 0) {
               script += '--blank ';
+            }
+            // add --tabs or --drawer+tabs if navigation package is selected
+            if (cliResults.packages[1].options.type === 'tabs') {
+              script += '--tabs ';
+            } else if (cliResults.packages[1].options.type === 'drawer + tabs') {
+              script += '--drawer+tabs ';
             }
           } else {
             // Add the packages
