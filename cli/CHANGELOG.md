@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.2
+
+### Patch Changes
+
+- [`19d1caf3ebda5c90cb173268d5829b46e80b064b`](https://github.com/danstepanov/create-expo-stack/commit/19d1caf3ebda5c90cb173268d5829b46e80b064b) Thanks [@danstepanov](https://github.com/danstepanov)! - change default blank nativewindui template to use a stack navigator, instead of drawer+tabs
+
 ## 2.11.1
 
 ### Patch Changes
