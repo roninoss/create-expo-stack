@@ -208,7 +208,7 @@ export async function printOutput(
     highlight(`${step}. cd ${projectName}`);
     if (options.noInstall) highlight(`${++step}. ${packageManager} install`);
     if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. npx expo prebuild`);
+      highlight(`${++step}. npx expo prebuild --clean`);
     }
     highlight(`${++step}. ${runCommand} ios`);
   }
