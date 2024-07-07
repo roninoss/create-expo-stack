@@ -26,7 +26,7 @@ export const availablePackages = [
   'restyle',
   'unistyles',
   'i18next',
-  'vexo-analytics',
+  'vexo-analytics'
 ] as const;
 
 export type AuthenticationSelect = 'supabase' | 'firebase' | undefined;
@@ -45,12 +45,9 @@ export type SelectedComponents =
   | 'action-sheet'
   | 'activity-indicator'
   | 'activity-view'
-  | 'alert'
   | 'avatar'
   | 'bottom-sheet'
-  | 'context-menu'
   | 'date-picker'
-  | 'dropdown-menu'
   | 'picker'
   | 'progress-indicator'
   | 'ratings-indicator'

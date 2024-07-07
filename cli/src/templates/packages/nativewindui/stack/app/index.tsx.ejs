@@ -3,11 +3,7 @@ import { FlashList } from '@shopify/flash-list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
 import {
-  <% if (props.stylingPackage?.options.selectedComponents.includes('alert')) { %>
-  Alert,
-  <% } %>
-  <% if (
-  props.stylingPackage?.options.selectedComponents.includes('alert') || 
+  <% if ( 
   props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
   props.stylingPackage?.options.selectedComponents.includes('activity-view') || 
   props.stylingPackage?.options.selectedComponents.includes('bottom-sheet') 
@@ -16,11 +12,8 @@ import {
   ButtonProps,
   <% } %>
   Linking,
-  <% if (props.stylingPackage?.options.selectedComponents.includes('alert') || props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
+  <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
   Platform,
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('dropdown-menu')) { %>
-  Pressable,
   <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('activity-view')) { %>
   Share,
@@ -35,12 +28,6 @@ import { useActionSheet } from '@expo/react-native-action-sheet';
 import { Icon } from '@roninoss/icons';
 <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
 import * as StoreReview from 'expo-store-review';
-<% } %>
-<% if (props.stylingPackage?.options.selectedComponents.includes('context-menu')) { %>
-import * as ContextMenu from 'zeego/context-menu';
-<% } %>
-<% if (props.stylingPackage?.options.selectedComponents.includes('dropdown-menu')) { %>
-import * as DropdownMenu from 'zeego/dropdown-menu';
 <% } %>
 
 <% if (props.stylingPackage?.options.selectedComponents.includes('activity-indicator')) { %>
@@ -80,7 +67,6 @@ cssInterop(FlashList, {
   contentContainerClassName: 'contentContainerStyle',
 });
 <% if (
-  props.stylingPackage?.options.selectedComponents.includes('alert') || 
   props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
   props.stylingPackage?.options.selectedComponents.includes('activity-view') || 
   props.stylingPackage?.options.selectedComponents.includes('bottom-sheet') 
@@ -274,99 +260,6 @@ const COMPONENTS: ComponentItem[] = [
     }
   },
   <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('context-menu')) { %>
-  {
-    name: 'Context Menu',
-    component: function ContextMenuExample() {
-      const [isChecked, setIsChecked] = React.useState(true);
-      return (
-        <View>
-          <ContextMenu.Root style={{ borderRadius: 12 }}>
-            <ContextMenu.Trigger>
-              <View className='w-full h-36 rounded-xl border border-foreground border-dashed justify-center items-center'>
-                <Text>Press and hold me</Text>
-              </View>
-            </ContextMenu.Trigger>
-            <ContextMenu.Content>
-              <ContextMenu.Label children='Label 1' />
-              <ContextMenu.Item key='item-1'>
-                <ContextMenu.ItemTitle>Item 1</ContextMenu.ItemTitle>
-              </ContextMenu.Item>
-              <ContextMenu.Group>
-                <ContextMenu.Item key='item-2'>
-                  <ContextMenu.ItemTitle>Item 2</ContextMenu.ItemTitle>
-                </ContextMenu.Item>
-                <ContextMenu.CheckboxItem
-                  key='checkbox-example'
-                  value={isChecked}
-                  onValueChange={(val) => {
-                    setIsChecked(val === 'on');
-                  }}
-                >
-                  <ContextMenu.ItemTitle>Item 3</ContextMenu.ItemTitle>
-                  <ContextMenu.ItemIndicator />
-                </ContextMenu.CheckboxItem>
-              </ContextMenu.Group>
-              <ContextMenu.Separator />
-            </ContextMenu.Content>
-          </ContextMenu.Root>
-        </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('dropdown-menu')) { %>
-  {
-    name: 'Dropdown Menu',
-    component: function DropdownMenuExample() {
-      const { colors } = useColorScheme();
-      const [menu, setMenu] = React.useState<'primary' | 'destructive'>('primary');
-
-      return (
-        <View className='items-center'>
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger>
-              <Pressable className='flex-row items-center gap-1.5 android:gap-3'>
-                <Text>
-                  Selected: <Text style={{ color: colors[menu] }}>{menu}</Text>
-                </Text>
-                <View className='pl-0.5 opacity-70'>
-                  <Icon
-                    name='chevron-down'
-                    color={colors.foreground}
-                    size={21}
-                  />
-                </View>
-              </Pressable>
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Content>
-              <DropdownMenu.CheckboxItem
-                key='destructive'
-                value={menu === 'destructive'}
-                onValueChange={() => {
-                  setMenu('destructive');
-                }}
-              >
-                <DropdownMenu.ItemIndicator />
-                <DropdownMenu.ItemTitle children='destructive' />
-              </DropdownMenu.CheckboxItem>
-              <DropdownMenu.CheckboxItem
-                key='primary'
-                value={menu === 'primary'}
-                onValueChange={() => {
-                  setMenu('primary');
-                }}
-              >
-                <DropdownMenu.ItemIndicator />
-                <DropdownMenu.ItemTitle children='primary' />
-              </DropdownMenu.CheckboxItem>
-            </DropdownMenu.Content>
-          </DropdownMenu.Root>
-        </View>
-      );
-    },
-  },
-  <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('progress-indicator')) { %>
   {
     name: 'Progress Indicator',
@@ -398,62 +291,6 @@ const COMPONENTS: ComponentItem[] = [
       return (
         <View className='p-4 items-center'>
           <ActivityIndicator />
-        </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('alert')) { %>
-  {
-    name: 'Alert',
-    component: function AlertExample() {
-      const { colors } = useColorScheme();
-      return (
-        <View className='items-center'>
-          <DefaultButton
-            color={colors.destructive}
-            onPress={() => {
-              if (Platform.OS === 'ios') {
-                Alert.prompt(
-                  'Delete account?',
-                  'Enter your password to delete your account.',
-                  [
-                    {
-                      text: 'Cancel',
-                      onPress: () => console.log('Cancel Pressed'),
-                      style: 'cancel',
-                    },
-                    {
-                      text: 'Delete',
-                      style: 'destructive',
-                      onPress: () => console.log('Delete Pressed'),
-                    },
-                  ],
-                  'secure-text',
-                  '',
-                  'default'
-                );
-              } else {
-                Alert.alert(
-                  'Delete account?',
-                  'Enter your password to delete your account.',
-                  [
-                    {
-                      text: 'Cancel',
-                      onPress: () => console.log('Cancel Pressed'),
-                      style: 'cancel',
-                    },
-                    {
-                      text: 'Delete',
-                      style: 'destructive',
-                      onPress: () => console.log('Delete Pressed'),
-                    },
-                  ]
-                );
-              }
-            }}
-            title='Delete account'
-          />
         </View>
       );
     },

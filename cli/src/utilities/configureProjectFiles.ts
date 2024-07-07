@@ -136,10 +136,6 @@ export function configureProjectFiles(
       ];
     }
 
-    if (stylingPackage?.options.selectedComponents.includes('dropdown-menu')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Picker.tsx.ejs'];
-    }
-
     if (stylingPackage?.options.selectedComponents.includes('picker')) {
       nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Picker.tsx.ejs'];
     }
