@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.11.6
+
+### Patch Changes
+
+- [`b1fdd985b2ebfacd3e8f6b521c9c9bb0c55ce3cf`](https://github.com/roninoss/create-expo-stack/commit/b1fdd985b2ebfacd3e8f6b521c9c9bb0c55ce3cf) Thanks [@danstepanov](https://github.com/danstepanov)! - rekt by comments
+
+- [`603adb9e4fce762fa9adb4c21c8e304d7bcc3325`](https://github.com/roninoss/create-expo-stack/commit/603adb9e4fce762fa9adb4c21c8e304d7bcc3325) Thanks [@danstepanov](https://github.com/danstepanov)! - replace all instances of danstepanov/create-expo-stack with roninoss/create-expo-stack
+
 ## 2.11.5
 
 ### Patch Changes
