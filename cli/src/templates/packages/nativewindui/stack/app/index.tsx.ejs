@@ -45,9 +45,6 @@ import { Picker, PickerItem } from '~/components/nativewindui/Picker';
 <% if (props.stylingPackage?.options.selectedComponents.includes('progress-indicator')) { %>
 import { ProgressIndicator } from '~/components/nativewindui/ProgressIndicator';
 <% } %>
-<% if (props.stylingPackage?.options.selectedComponents.includes('segmented-control')) { %>
-import { SegmentedControl } from '~/components/nativewindui/SegmentedControl';
-<% } %>
 <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
 import { Sheet, useSheetRef } from '~/components/nativewindui/Sheet';
 <% } %>
@@ -230,23 +227,6 @@ const COMPONENTS: ComponentItem[] = [
             }}
           />
         </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('segmented-control')) { %>
-  {
-    name: 'Segmented Controls',
-    component: function SegmentedControlsExample() {
-      const [segment, setSegment] = React.useState(0);
-      return (
-        <SegmentedControl
-          values={['red', 'green', 'blue']}
-          selectedIndex={segment}
-          onChange={(event) => {
-            setSegment(event.nativeEvent.selectedSegmentIndex);
-          }}
-        />
       );
     },
   },

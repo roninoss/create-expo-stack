@@ -147,13 +147,6 @@ export function configureProjectFiles(
       ];
     }
 
-    if (stylingPackage?.options.selectedComponents.includes('segmented-control')) {
-      nativewindUIFiles = [
-        ...nativewindUIFiles,
-        'packages/nativewindui/components/nativewindui/SegmentedControl.tsx.ejs'
-      ];
-    }
-
     if (stylingPackage?.options.selectedComponents.includes('slider')) {
       nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Slider.tsx.ejs'];
     }

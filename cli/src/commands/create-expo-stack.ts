@@ -219,7 +219,6 @@ const command: GluegunCommand = {
                     'picker',
                     'progress-indicator',
                     'ratings-indicator',
-                    'segmented-control',
                     'selectable-text',
                     'slider',
                     'text',
