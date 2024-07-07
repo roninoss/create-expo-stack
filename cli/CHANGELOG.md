@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.3
+
+### Patch Changes
+
+- [`d6492a617feb144e84390de439ef5352d22994e5`](https://github.com/danstepanov/create-expo-stack/commit/d6492a617feb144e84390de439ef5352d22994e5) Thanks [@danstepanov](https://github.com/danstepanov)! - remove deprecated nativewindui components
+
 ## 2.11.2
 
 ### Patch Changes
