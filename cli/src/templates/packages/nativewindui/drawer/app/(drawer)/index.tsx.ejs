@@ -169,6 +169,19 @@ function Card({ children, title }: { children: React.ReactNode; title: string })
 let hasRequestedReview = false;
 <% } %>
 const COMPONENTS: ComponentItem[] = [
+  <% if (!props.stylingPackage?.options.selectedComponents.length) { %>
+  // ADD ANY ADDITIONAL COMPONENTS HERE
+  // {
+  //   name: 'Component Name',
+  //   component: function ComponentNameExample() {
+  //     return (
+  //       <View>
+  //         <Text>Component Example</Text>
+  //       </View>
+  //     );
+  //   },
+  // },
+  <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
   {
     name: 'Picker',

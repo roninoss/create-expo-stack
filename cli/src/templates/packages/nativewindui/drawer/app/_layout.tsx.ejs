@@ -32,6 +32,7 @@ export default function RootLayout() {
         key={`root-status-bar-${isDarkColorScheme ? 'light' : 'dark'}`}
         style={isDarkColorScheme ? 'light' : 'dark'}
       />
+      // WRAP YOUR APP WITH ANY ADDITIONAL PROVIDERS HERE
        <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <BottomSheetModalProvider>
