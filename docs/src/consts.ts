@@ -20,7 +20,7 @@ export type KnownLanguageCode = keyof typeof KNOWN_LANGUAGES;
 
 export const TWITTER_URL = `https://twitter.com/danstepanov`;
 
-export const EDIT_URL = `https://github.com/danstepanov/create-expo-stack`;
+export const EDIT_URL = `https://github.com/roninoss/create-expo-stack`;
 
 export const COMMUNITY_INVITE_URL = `https://createexpostack.com/discord`;
 

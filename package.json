@@ -5,7 +5,7 @@
   "description": "Root package for the create-expo-stack monorepo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danstepanov/create-expo-stack.git"
+    "url": "https://github.com/roninoss/create-expo-stack.git"
   },
   "license": "MIT",
   "workspaces": [

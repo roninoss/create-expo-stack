@@ -31,7 +31,7 @@ export default function ContributorsSection() {
         <a
           target="_blank"
           rel="noreferrer noopener"
-          href="https://github.com/danstepanov/create-expo-stack/blob/main/contributing.md"
+          href="https://github.com/roninoss/create-expo-stack/blob/main/contributing.md"
           className="cursor-pointer bg-neutral-700 rounded-full px-3 py-2 flex hover:no-underline text-neutral-200 hover:bg-neutral-600 duration-300 items-center"
         >
           <GitHubIcon className="mr-2 h-5 w-5" />

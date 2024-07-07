@@ -36,7 +36,7 @@ This project uses Bun, and should be run with Node.js on the latest available LT
 
 For external contributors, the best way to make changes to the project is to fork the repository and clone it locally:
 
-1. Fork the repository to your GitHub account: https://github.com/danstepanov/create-expo-stack/fork
+1. Fork the repository to your GitHub account: https://github.com/roninoss/create-expo-stack/fork
 
 2. Clone the forked repository locally:
 
@@ -146,7 +146,7 @@ If you've provided the relevant changeset summaries and the tests pass, then you
 ### Tests (`./__tests__`)
 
 - Tests to check every iteration of the CLI, using every kind of package manager
-- [These aren't perfect atm](https://github.com/danstepanov/create-expo-stack/issues/18)
+- [These aren't perfect atm](https://github.com/roninoss/create-expo-stack/issues/18)
 
 ### Commands (`./cli/src/commands`)
 

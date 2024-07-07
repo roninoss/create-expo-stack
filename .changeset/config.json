@@ -1,6 +1,11 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "danstepanov/create-expo-stack" }],
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "roninoss/create-expo-stack"
+    }
+  ],
   "commit": false,
   "updateInternalDependencies": "patch",
   "access": "public",

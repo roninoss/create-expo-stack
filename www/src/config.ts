@@ -12,7 +12,7 @@ export const OPEN_GRAPH = {
   twitter: "onlydans",
 };
 
-export const GITHUB_EDIT_URL = `https://github.com/danstepanov/create-expo-stack/tree/main/www`;
+export const GITHUB_EDIT_URL = `https://github.com/roninoss/create-expo-stack/tree/main/www`;
 
 export const COMMUNITY_INVITE_URL = `https://discord.gg/XS9qS2mvTR`;
 

@@ -36,7 +36,7 @@ const command: GluegunCommand = {
     const printSomethingWentWrong = () => {
       info(`\nOops, something went wrong while creating your project 😢`);
       info(
-        `\nIf this was unexpected, please open an issue: https://github.com/danstepanov/create-expo-stack#reporting-bugs--feedback`
+        `\nIf this was unexpected, please open an issue: https://github.com/roninoss/create-expo-stack#reporting-bugs--feedback`
       );
       info('');
     };
