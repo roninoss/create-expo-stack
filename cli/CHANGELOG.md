@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.5
+
+### Patch Changes
+
+- [`17634ae3324ff8280c5218e6a8dea3ab1f773da6`](https://github.com/danstepanov/create-expo-stack/commit/17634ae3324ff8280c5218e6a8dea3ab1f773da6) Thanks [@danstepanov](https://github.com/danstepanov)! - remove segmented-control
+
 ## 2.11.4
 
 ### Patch Changes
