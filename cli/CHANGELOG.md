@@ -1,5 +1,15 @@
 # create-expo-stack
 
+## 2.11.4
+
+### Patch Changes
+
+- [`9882067c1b7056db1683e99c4fd8a9397fc264f4`](https://github.com/danstepanov/create-expo-stack/commit/9882067c1b7056db1683e99c4fd8a9397fc264f4) Thanks [@danstepanov](https://github.com/danstepanov)! - add comments to help users find where to add code for NativeWindUI
+
+- [`42157aca9cd3047b18f915188b9f57bee0ea1371`](https://github.com/danstepanov/create-expo-stack/commit/42157aca9cd3047b18f915188b9f57bee0ea1371) Thanks [@danstepanov](https://github.com/danstepanov)! - i'm dumb and don't understand assertions
+
+- [`f24f6d376f7f151e587d8aea6b5101d6a3fe8cd1`](https://github.com/danstepanov/create-expo-stack/commit/f24f6d376f7f151e587d8aea6b5101d6a3fe8cd1) Thanks [@danstepanov](https://github.com/danstepanov)! - add --clean flag to prebuild command for nativewindui
+
 ## 2.11.3
 
 ### Patch Changes
