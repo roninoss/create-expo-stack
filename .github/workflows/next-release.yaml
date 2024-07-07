@@ -11,7 +11,7 @@ jobs:
   # Figure out if a next release is necessary. The release will only happen if at least one
   # changeset is present when this job runs.
   check-is-release:
-    if: ${{ github.repository_owner == 'danstepanov' }}
+    if: ${{ github.repository_owner == 'roninoss' }}
     name: Check if a next release is needed
     runs-on: ubuntu-latest
     outputs:

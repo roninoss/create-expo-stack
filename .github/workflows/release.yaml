@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   release:
-    if: ${{ github.repository_owner == 'danstepanov' }}
+    if: ${{ github.repository_owner == 'roninoss' }}
     name: Release
     runs-on: ubuntu-latest
     steps:
