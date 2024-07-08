@@ -127,12 +127,10 @@
 	<% if (props.authenticationPackage?.name === "supabase") { %>
 	    "@react-native-async-storage/async-storage": "1.21.0",
 		"@supabase/supabase-js": "^2.38.4",
-		"react-native-url-polyfill": "^2.0.0",
 	<% } %>
 
 	<% if (props.authenticationPackage?.name === "firebase") { %>
 	  "firebase": "^10.5.2",
-	  "react-native-url-polyfill": "^2.0.0",
 	<% } %>
   
   <% if (props.internalizationPackage?.name === "i18next") { %>
