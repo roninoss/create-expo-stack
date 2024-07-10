@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.7
+
+### Patch Changes
+
+- [#351](https://github.com/roninoss/create-expo-stack/pull/351) [`1318dd91d367f054c5460a3e6b4f5204ff9c4dcb`](https://github.com/roninoss/create-expo-stack/commit/1318dd91d367f054c5460a3e6b4f5204ff9c4dcb) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: path for not found with tabs setup
+
 ## 2.11.6
 
 ### Patch Changes
