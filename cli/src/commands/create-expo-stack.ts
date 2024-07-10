@@ -11,7 +11,7 @@ import {
   runIgnite,
   showHelp
 } from '../utilities';
-import { DEFAULT_APP_NAME, defaultOptions } from '../constants';
+import { DEFAULT_APP_NAME, defaultOptions, nativewindUIOptions } from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
 import { validateProjectName } from '../utilities/validateProjectName';
@@ -203,29 +203,22 @@ const command: GluegunCommand = {
         } else if (options.nativewindui) {
           cliResults = clearStylingPackages(cliResults);
           cliResults = clearNavigationPackages(cliResults);
+
+          const parsedComponents = options.selectedComponents
+            .split(',')
+            .map((c: string) => c.trim())
+            .filter((item) => nativewindUIOptions.includes(item));
+
+          const selectedComponents = parsedComponents.length ? parsedComponents : nativewindUIOptions;
+
           cliResults.packages.push({
             name: 'nativewindui',
             type: 'styling',
             options: {
-              selectedComponents: options.blank
-                ? []
-                : [
-                    'action-sheet',
-                    'activity-indicator',
-                    'activity-view',
-                    'avatar',
-                    'bottom-sheet',
-                    'date-picker',
-                    'picker',
-                    'progress-indicator',
-                    'ratings-indicator',
-                    'selectable-text',
-                    'slider',
-                    'text',
-                    'toggle'
-                  ]
+              selectedComponents: options.blank ? [] : selectedComponents
             }
           });
+
           cliResults.packages.push({
             name: 'expo-router',
             type: 'navigation',
@@ -316,15 +309,23 @@ const command: GluegunCommand = {
         const generateRerunScript = (cliResults: CliResults) => {
           let script = `npx create-expo-stack ${cliResults.projectName} `;
 
-          if (cliResults.packages.length > 0 && cliResults.packages[0].name === 'nativewindui') {
+          const nativewindUISelected = cliResults.packages.find((p) => p.name === 'nativewindui');
+
+          const navigationSelected = cliResults.packages.find((p) => p.type === 'navigation');
+
+          if (cliResults.packages.length > 0 && nativewindUISelected) {
             script += '--nativewindui ';
-            if (cliResults.packages[0].options.selectedComponents.length === 0) {
+
+            if (nativewindUISelected.options.selectedComponents.length === 0) {
               script += '--blank ';
+            } else if (nativewindUISelected.options.selectedComponents.length !== nativewindUIOptions.length) {
+              script += `--selected-components=${nativewindUISelected.options.selectedComponents.join(',')} `;
             }
+
             // add --tabs or --drawer+tabs if navigation package is selected
-            if (cliResults.packages[1].options.type === 'tabs') {
+            if (navigationSelected.options.type === 'tabs') {
               script += '--tabs ';
-            } else if (cliResults.packages[1].options.type === 'drawer + tabs') {
+            } else if (navigationSelected.options.type === 'drawer + tabs') {
               script += '--drawer+tabs ';
             }
           } else {

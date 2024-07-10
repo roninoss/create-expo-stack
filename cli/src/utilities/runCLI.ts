@@ -1,7 +1,7 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 import { confirm, isCancel, cancel, multiselect, select, text } from '@clack/prompts';
 
-import { defaultOptions } from '../constants';
+import { defaultOptions, nativewindUIOptions } from '../constants';
 import {
   AuthenticationSelect,
   CliResults,
@@ -281,8 +281,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   }
 
   if (stylingSelect === 'nativewindui') {
-    let selectedComponents: SelectedComponents[] = [];
-    selectedComponents = (await multiselect({
+    const selectedComponents = await multiselect({
       message: 'Which components would you like to explore?',
       options: [
         { value: 'action-sheet', label: 'Action Sheet' },
@@ -298,24 +297,10 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         { value: 'slider', label: 'Slider' },
         { value: 'text', label: 'Text' },
         { value: 'toggle', label: 'Toggle' }
-      ],
+      ] satisfies Array<{ value: SelectedComponents; label: string }>,
       required: false,
-      initialValues: [
-        'action-sheet',
-        'activity-indicator',
-        'activity-view',
-        'avatar',
-        'bottom-sheet',
-        'date-picker',
-        'picker',
-        'progress-indicator',
-        'ratings-indicator',
-        'selectable-text',
-        'slider',
-        'text',
-        'toggle'
-      ]
-    })) as SelectedComponents[];
+      initialValues: nativewindUIOptions
+    });
 
     if (isCancel(selectedComponents)) {
       cancel('Cancelled... 👋');
@@ -326,9 +311,10 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       name: 'nativewindui' as StylingSelect,
       type: 'styling',
       options: {
-        selectedComponents: selectedComponents as SelectedComponents[]
+        selectedComponents: selectedComponents
       }
     });
+
     success(`You'll be styling with ease using NativeWindUI!`);
   } else {
     cliResults.packages.push({ name: stylingSelect as StylingSelect, type: 'styling' });

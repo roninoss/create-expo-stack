@@ -31,8 +31,7 @@ export async function setStyles(cliResults, navigationSelect) {
   }
 
   if (stylingSelect === "nativewindui") {
-    let selectedComponents = [];
-    selectedComponents = await multiselect({
+    let selectedComponents = await multiselect({
       message: "Which components would you like to explore?",
       options: [
         { value: "action-sheet", label: "Action Sheet" },

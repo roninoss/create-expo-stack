@@ -1,4 +1,4 @@
-import { CliResults } from './types';
+import { CliResults, SelectedComponents } from './types';
 
 export const TITLE_TEXT = 'create expo stack';
 
@@ -16,3 +16,19 @@ export const defaultOptions: CliResults = {
     eas: false
   }
 };
+
+export const nativewindUIOptions: SelectedComponents[] = [
+  'action-sheet',
+  'activity-indicator',
+  'activity-view',
+  'avatar',
+  'bottom-sheet',
+  'date-picker',
+  'picker',
+  'progress-indicator',
+  'ratings-indicator',
+  'selectable-text',
+  'slider',
+  'text',
+  'toggle'
+];
