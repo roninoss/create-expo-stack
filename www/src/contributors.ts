@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 344
+        "contributions": 354
     },
     {
         "login": "hqasmei",
@@ -564,6 +564,27 @@ export const contributors = [
         "repos_url": "https://api.github.com/users/Hacksore/repos",
         "events_url": "https://api.github.com/users/Hacksore/events{/privacy}",
         "received_events_url": "https://api.github.com/users/Hacksore/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 1
+    },
+    {
+        "login": "imranbarbhuiya",
+        "id": 74945038,
+        "node_id": "MDQ6VXNlcjc0OTQ1MDM4",
+        "avatar_url": "https://avatars.githubusercontent.com/u/74945038?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/imranbarbhuiya",
+        "html_url": "https://github.com/imranbarbhuiya",
+        "followers_url": "https://api.github.com/users/imranbarbhuiya/followers",
+        "following_url": "https://api.github.com/users/imranbarbhuiya/following{/other_user}",
+        "gists_url": "https://api.github.com/users/imranbarbhuiya/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/imranbarbhuiya/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/imranbarbhuiya/subscriptions",
+        "organizations_url": "https://api.github.com/users/imranbarbhuiya/orgs",
+        "repos_url": "https://api.github.com/users/imranbarbhuiya/repos",
+        "events_url": "https://api.github.com/users/imranbarbhuiya/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/imranbarbhuiya/received_events",
         "type": "User",
         "site_admin": false,
         "contributions": 1
