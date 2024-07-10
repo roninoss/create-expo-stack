@@ -19,7 +19,7 @@
         ,[
         "expo-dev-launcher",
         {
-          "launchModeExperimental": "most-recent"
+          "launchMode": "most-recent"
         }
       ]
       <% } %>
@@ -38,7 +38,7 @@
         "experiments": {
           "tsconfigPaths": true
         },
-      <% } %> 
+      <% } %>
       "plugins": [
         <% if (props.internalizationPackage?.name === "i18next") { %>
           "expo-localization"
@@ -50,7 +50,7 @@
         [
           "expo-dev-launcher",
           {
-            "launchModeExperimental": "most-recent"
+            "launchMode": "most-recent"
           }
         ]
         <% } %>
