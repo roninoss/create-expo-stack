@@ -28,7 +28,7 @@ export async function initializeProject(cliResults) {
     const { result } = await response.json();
     return fetchURL + result;
   } catch (error) {
-    console.log(color.red("error", error));
+    console.log(color.red(`error ${JSON.stringify({ error }, null, 2)}`));
   } finally {
     s.stop("Project initialized!");
   }
