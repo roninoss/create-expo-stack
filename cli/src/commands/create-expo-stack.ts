@@ -309,24 +309,26 @@ const command: GluegunCommand = {
         const generateRerunScript = (cliResults: CliResults) => {
           let script = `npx create-expo-stack ${cliResults.projectName} `;
 
-          const nativewindUISelected = cliResults.packages.find((p) => p.name === 'nativewindui');
-          const nativeWindUIComponents = nativewindUISelected?.options.selectedComponents || [];
+          const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
-          const navigationSelected = cliResults.packages.find((p) => p.type === 'navigation');
-
-          if (cliResults.packages.length > 0 && nativewindUISelected) {
+          if (cliResults.packages.length > 0 && isNativeWindUISelected) {
             script += '--nativewindui ';
+
+            const nativeWindUIComponents =
+              cliResults.packages.find((p) => p.name === 'nativewindui')?.options.selectedComponents ?? [];
 
             if (nativeWindUIComponents.length === 0) {
               script += '--blank ';
-            } else if (nativewindUISelected.options.selectedComponents.length !== nativeWindUIOptions.length) {
-              script += `--selected-components=${nativewindUISelected.options.selectedComponents.join(',')} `;
+            } else if (nativeWindUIComponents.length !== nativeWindUIOptions.length) {
+              script += `--selected-components=${nativeWindUIComponents.join(',')} `;
             }
 
+            const navigationType = cliResults.packages.find((p) => p.type === 'navigation').options.type;
+
             // add --tabs or --drawer+tabs if navigation package is selected
-            if (navigationSelected.options.type === 'tabs') {
+            if (navigationType === 'tabs') {
               script += '--tabs ';
-            } else if (navigationSelected.options.type === 'drawer + tabs') {
+            } else if (navigationType === 'drawer + tabs') {
               script += '--drawer+tabs ';
             }
           } else {
