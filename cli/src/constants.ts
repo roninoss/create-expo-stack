@@ -17,7 +17,7 @@ export const defaultOptions: CliResults = {
   }
 };
 
-export const nativewindUIOptions: SelectedComponents[] = [
+export const nativeWindUIOptions: SelectedComponents[] = [
   'action-sheet',
   'activity-indicator',
   'activity-view',
