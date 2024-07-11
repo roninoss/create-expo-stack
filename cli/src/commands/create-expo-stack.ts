@@ -204,10 +204,11 @@ const command: GluegunCommand = {
           cliResults = clearStylingPackages(cliResults);
           cliResults = clearNavigationPackages(cliResults);
 
-          const parsedComponents = options.selectedComponents
-            .split(',')
-            .map((c: string) => c.trim())
-            .filter((item) => nativeWindUIOptions.includes(item));
+          const parsedComponents =
+            options?.selectedComponents
+              ?.split(',')
+              ?.map((c: string) => c.trim())
+              ?.filter((item) => nativeWindUIOptions.includes(item)) ?? [];
 
           const selectedComponents = parsedComponents.length ? parsedComponents : nativeWindUIOptions;
 
@@ -323,13 +324,21 @@ const command: GluegunCommand = {
               script += `--selected-components=${nativeWindUIComponents.join(',')} `;
             }
 
-            const navigationType = cliResults.packages.find((p) => p.type === 'navigation').options.type;
+            const chosenNavigationOption = cliResults.packages.find((p) => p.type === 'navigation');
 
-            // add --tabs or --drawer+tabs if navigation package is selected
-            if (navigationType === 'tabs') {
-              script += '--tabs ';
-            } else if (navigationType === 'drawer + tabs') {
-              script += '--drawer+tabs ';
+            const hasNavigationPackage = chosenNavigationOption !== undefined;
+
+            const navigationType = chosenNavigationOption.options.type;
+
+            if (hasNavigationPackage) {
+              script += `--${chosenNavigationOption.name} `;
+
+              // add --tabs or --drawer+tabs if navigation package is selected
+              if (navigationType === 'tabs') {
+                script += '--tabs ';
+              } else if (navigationType === 'drawer + tabs') {
+                script += '--drawer+tabs ';
+              }
             }
           } else {
             // Add the packages
