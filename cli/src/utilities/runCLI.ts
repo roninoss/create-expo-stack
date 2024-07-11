@@ -1,7 +1,7 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 import { confirm, isCancel, cancel, multiselect, select, text } from '@clack/prompts';
 
-import { defaultOptions, nativewindUIOptions } from '../constants';
+import { defaultOptions, nativeWindUIOptions } from '../constants';
 import {
   AuthenticationSelect,
   CliResults,
@@ -299,7 +299,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         { value: 'toggle', label: 'Toggle' }
       ] satisfies Array<{ value: SelectedComponents; label: string }>,
       required: false,
-      initialValues: nativewindUIOptions
+      initialValues: nativeWindUIOptions
     });
 
     if (isCancel(selectedComponents)) {
