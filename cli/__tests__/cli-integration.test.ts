@@ -60,10 +60,23 @@ const popularCombinations = [
   ['--expo-router', '--tabs', '--nativewind'],
   ['--expo-router', '--tabs', '--stylesheet'],
   ['--expo-router', '--drawer+tabs', '--nativewind'],
-  ['--expo-router', '--drawer+tabs', '--stylesheet']
+  ['--expo-router', '--drawer+tabs', '--stylesheet'],
+  // nativewindui selections
+  [
+    '--expo-router',
+    '--drawer+tabs',
+    '--nativewindui',
+    '--selected-components=date-picker,picker,selectable-text',
+    '--expo-router'
+  ],
+  // nativewindui no selections
+  ['--expo-router', '--drawer+tabs', '--nativewindui', '--expo-router'],
+  // nativewindui blank
+  ['--expo-router', '--drawer+tabs', '--nativewindui', '--blank', '--expo-router']
 ] as const;
 
 const projectName = `myTestProject`;
+const pathToProject = `../${projectName}`;
 
 afterEach(() => {
   Bun.$`rm -rf ./myTestProject`;
@@ -84,7 +97,7 @@ for (const packageManager of packageManagers) {
 
       expect(output).toContain('Installing dependencies');
 
-      const pkgjson = await import(`../${projectName}/package.json`);
+      const pkgjson = await import(`${pathToProject}/package.json`);
 
       const pkgJsonWithoutVersions = {
         ...pkgjson.default,
@@ -102,9 +115,9 @@ for (const packageManager of packageManagers) {
         }, {})
       };
 
-      expect(pkgJsonWithoutVersions).toMatchSnapshot();
+      expect(pkgJsonWithoutVersions).toMatchSnapshot(`${finalFlags.join(', ')}-package-json`);
 
-      const cesconfig = await import(`../${projectName}/cesconfig.json`);
+      const cesconfig = await import(`${pathToProject}/cesconfig.json`);
 
       const cesconfigWithoutOS = {
         ...cesconfig.default,
@@ -113,7 +126,12 @@ for (const packageManager of packageManagers) {
         packageManager: { ...cesconfig.default.packageManager, version: undefined }
       };
 
-      expect(cesconfigWithoutOS).toMatchSnapshot();
+      expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
+
+      const fileList =
+        await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*"`.text();
+
+      expect(fileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
     });
   }
 }
