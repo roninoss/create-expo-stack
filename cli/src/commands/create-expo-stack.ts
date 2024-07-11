@@ -310,6 +310,7 @@ const command: GluegunCommand = {
           let script = `npx create-expo-stack ${cliResults.projectName} `;
 
           const nativewindUISelected = cliResults.packages.find((p) => p.name === 'nativewindui');
+          const nativeWindUIComponents = nativewindUISelected?.options.selectedComponents || [];
 
           const navigationSelected = cliResults.packages.find((p) => p.type === 'navigation');
 
@@ -318,7 +319,7 @@ const command: GluegunCommand = {
 
             if (nativeWindUIComponents.length === 0) {
               script += '--blank ';
-            } else if (nativewindUISelected.options.selectedComponents.length !== nativewindUIOptions.length) {
+            } else if (nativewindUISelected.options.selectedComponents.length !== nativeWindUIOptions.length) {
               script += `--selected-components=${nativewindUISelected.options.selectedComponents.join(',')} `;
             }
 
