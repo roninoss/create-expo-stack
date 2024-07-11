@@ -311,7 +311,7 @@ const command: GluegunCommand = {
 
           const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
-          if (cliResults.packages.length > 0 && isNativeWindUISelected) {
+          if (isNativeWindUISelected) {
             script += '--nativewindui ';
 
             const nativeWindUIComponents =
