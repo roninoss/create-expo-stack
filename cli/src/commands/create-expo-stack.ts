@@ -11,7 +11,7 @@ import {
   runIgnite,
   showHelp
 } from '../utilities';
-import { DEFAULT_APP_NAME, defaultOptions, nativewindUIOptions } from '../constants';
+import { DEFAULT_APP_NAME, defaultOptions, nativeWindUIOptions } from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
 import { validateProjectName } from '../utilities/validateProjectName';
@@ -207,9 +207,9 @@ const command: GluegunCommand = {
           const parsedComponents = options.selectedComponents
             .split(',')
             .map((c: string) => c.trim())
-            .filter((item) => nativewindUIOptions.includes(item));
+            .filter((item) => nativeWindUIOptions.includes(item));
 
-          const selectedComponents = parsedComponents.length ? parsedComponents : nativewindUIOptions;
+          const selectedComponents = parsedComponents.length ? parsedComponents : nativeWindUIOptions;
 
           cliResults.packages.push({
             name: 'nativewindui',
@@ -316,7 +316,7 @@ const command: GluegunCommand = {
           if (cliResults.packages.length > 0 && nativewindUISelected) {
             script += '--nativewindui ';
 
-            if (nativewindUISelected.options.selectedComponents.length === 0) {
+            if (nativeWindUIComponents.length === 0) {
               script += '--blank ';
             } else if (nativewindUISelected.options.selectedComponents.length !== nativewindUIOptions.length) {
               script += `--selected-components=${nativewindUISelected.options.selectedComponents.join(',')} `;
