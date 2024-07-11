@@ -129,7 +129,7 @@ for (const packageManager of packageManagers) {
       expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
 
       const fileList =
-        await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*"`.text();
+        await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*" | sort`.text();
 
       expect(fileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
     });
