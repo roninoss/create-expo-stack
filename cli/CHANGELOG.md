@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.8
+
+### Patch Changes
+
+- [#354](https://github.com/roninoss/create-expo-stack/pull/354) [`0d81dc6cae3088284f0f7d3c4b114e48f1e2dce1`](https://github.com/roninoss/create-expo-stack/commit/0d81dc6cae3088284f0f7d3c4b114e48f1e2dce1) Thanks [@dannyhw](https://github.com/dannyhw)! - feat: you can now pass a comma separated list of nativewind ui components like --selected-components=date-picker,selectable-text
+
 ## 2.11.7
 
 ### Patch Changes
