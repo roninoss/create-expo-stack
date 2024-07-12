@@ -108,17 +108,17 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/sammoore">
-            <img src="https://avatars.githubusercontent.com/u/2035492?v=4" width="100;" alt="sammoore"/>
-            <br />
-            <sub><b>Sam Moore</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/dannyhw">
             <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
             <br />
             <sub><b>Daniel Williams</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/sammoore">
+            <img src="https://avatars.githubusercontent.com/u/2035492?v=4" width="100;" alt="sammoore"/>
+            <br />
+            <sub><b>Sam Moore</b></sub>
         </a>
     </td>
     <td align="center">
