@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 354
+        "contributions": 356
     },
     {
         "login": "hqasmei",
@@ -44,6 +44,27 @@ export const contributors = [
         "contributions": 62
     },
     {
+        "login": "dannyhw",
+        "id": 3481514,
+        "node_id": "MDQ6VXNlcjM0ODE1MTQ=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/3481514?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/dannyhw",
+        "html_url": "https://github.com/dannyhw",
+        "followers_url": "https://api.github.com/users/dannyhw/followers",
+        "following_url": "https://api.github.com/users/dannyhw/following{/other_user}",
+        "gists_url": "https://api.github.com/users/dannyhw/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/dannyhw/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/dannyhw/subscriptions",
+        "organizations_url": "https://api.github.com/users/dannyhw/orgs",
+        "repos_url": "https://api.github.com/users/dannyhw/repos",
+        "events_url": "https://api.github.com/users/dannyhw/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/dannyhw/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 43
+    },
+    {
         "login": "sammoore",
         "id": 2035492,
         "node_id": "MDQ6VXNlcjIwMzU0OTI=",
@@ -63,27 +84,6 @@ export const contributors = [
         "type": "User",
         "site_admin": false,
         "contributions": 43
-    },
-    {
-        "login": "dannyhw",
-        "id": 3481514,
-        "node_id": "MDQ6VXNlcjM0ODE1MTQ=",
-        "avatar_url": "https://avatars.githubusercontent.com/u/3481514?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/dannyhw",
-        "html_url": "https://github.com/dannyhw",
-        "followers_url": "https://api.github.com/users/dannyhw/followers",
-        "following_url": "https://api.github.com/users/dannyhw/following{/other_user}",
-        "gists_url": "https://api.github.com/users/dannyhw/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/dannyhw/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/dannyhw/subscriptions",
-        "organizations_url": "https://api.github.com/users/dannyhw/orgs",
-        "repos_url": "https://api.github.com/users/dannyhw/repos",
-        "events_url": "https://api.github.com/users/dannyhw/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/dannyhw/received_events",
-        "type": "User",
-        "site_admin": false,
-        "contributions": 32
     },
     {
         "login": "ernestoresende",
