@@ -230,6 +230,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/AlejandroGutierrezB">
+            <img src="https://avatars.githubusercontent.com/u/56408597?v=4" width="100;" alt="AlejandroGutierrezB"/>
+            <br />
+            <sub><b>Alejandro Gutierrez Barcenilla</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/andrew-levy">
             <img src="https://avatars.githubusercontent.com/u/29075740?v=4" width="100;" alt="andrew-levy"/>
             <br />
@@ -256,15 +263,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Gabimoncha</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/debugtheworldbot">
             <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
             <br />
             <sub><b>Pipizhu</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/bautistaaa">
             <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
@@ -299,15 +306,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Mahir Kadić</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Joehoel">
             <img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100;" alt="Joehoel"/>
             <br />
             <sub><b>Joël Kuijper</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/zamplyy">
             <img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100;" alt="zamplyy"/>
