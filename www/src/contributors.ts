@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 356
+        "contributions": 358
     },
     {
         "login": "hqasmei",
@@ -399,6 +399,27 @@ export const contributors = [
         "type": "User",
         "site_admin": false,
         "contributions": 3
+    },
+    {
+        "login": "AlejandroGutierrezB",
+        "id": 56408597,
+        "node_id": "MDQ6VXNlcjU2NDA4NTk3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/56408597?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/AlejandroGutierrezB",
+        "html_url": "https://github.com/AlejandroGutierrezB",
+        "followers_url": "https://api.github.com/users/AlejandroGutierrezB/followers",
+        "following_url": "https://api.github.com/users/AlejandroGutierrezB/following{/other_user}",
+        "gists_url": "https://api.github.com/users/AlejandroGutierrezB/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/AlejandroGutierrezB/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/AlejandroGutierrezB/subscriptions",
+        "organizations_url": "https://api.github.com/users/AlejandroGutierrezB/orgs",
+        "repos_url": "https://api.github.com/users/AlejandroGutierrezB/repos",
+        "events_url": "https://api.github.com/users/AlejandroGutierrezB/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/AlejandroGutierrezB/received_events",
+        "type": "User",
+        "site_admin": false,
+        "contributions": 2
     },
     {
         "login": "andrew-levy",
