@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.10
+
+### Patch Changes
+
+- [#360](https://github.com/roninoss/create-expo-stack/pull/360) [`df3cd62abc83e9749266f2d192d99be1dbfe5aaa`](https://github.com/roninoss/create-expo-stack/commit/df3cd62abc83e9749266f2d192d99be1dbfe5aaa) Thanks [@dannyhw](https://github.com/dannyhw)! - fix config storage
+
 ## 2.11.9
 
 ### Patch Changes
