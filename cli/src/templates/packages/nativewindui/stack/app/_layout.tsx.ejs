@@ -36,6 +36,7 @@ export default function RootLayout() {
         style={isDarkColorScheme ? 'light' : 'dark'}
       />
       {/* WRAP YOUR APP WITH ANY ADDITIONAL PROVIDERS HERE */}
+      {/* <ExampleProvider> */}
        <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <BottomSheetModalProvider>
@@ -56,6 +57,7 @@ export default function RootLayout() {
         </BottomSheetModalProvider>
       </GestureHandlerRootView>
       <% } %>
+      {/* </ExampleProvider> */}
     </>
   );
 }
