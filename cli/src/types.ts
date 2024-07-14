@@ -41,6 +41,8 @@ export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 
 export type Internalization = 'i18next';
 
+export type Analytics = 'vexo-analytics';
+
 export type SelectedComponents =
   | 'action-sheet'
   | 'activity-indicator'

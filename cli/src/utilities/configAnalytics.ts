@@ -1,6 +1,7 @@
 import { GoogleAuth } from 'google-auth-library';
 import { google } from 'googleapis';
 import {
+  Analytics,
   AuthenticationSelect,
   CliFlags,
   Internalization,
@@ -35,7 +36,8 @@ export async function storeConfigAnalytics({
   os,
   osPlatform,
   osArch,
-  osRelease
+  osRelease,
+  analytics
 }: {
   timestamp: string;
   cesVersion: string;
@@ -51,6 +53,7 @@ export async function storeConfigAnalytics({
   osPlatform: string;
   osArch: string;
   osRelease: string;
+  analytics: Analytics;
 } & Partial<CliFlags>) {
   if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     console.log('Skipping analytics in development or test environment');
@@ -90,7 +93,8 @@ export async function storeConfigAnalytics({
             os ?? '',
             osPlatform ?? '',
             osArch ?? '',
-            osRelease ?? ''
+            osRelease ?? '',
+            analytics ?? ''
           ]
         ]
       },

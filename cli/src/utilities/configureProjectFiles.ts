@@ -1,6 +1,7 @@
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 import os from 'os';
 import {
+  Analytics,
   AuthenticationSelect,
   AvailablePackages,
   CliResults,
@@ -436,7 +437,8 @@ export function configureProjectFiles(
     os: os.type(),
     osPlatform: os.platform(),
     osArch: os.arch(),
-    osRelease: os.release()
+    osRelease: os.release(),
+    analytics: analyticsPackage?.name as Analytics
   });
 
   return files;
