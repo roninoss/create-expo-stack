@@ -7,7 +7,7 @@
     "url": "https://github.com/roninoss/create-expo-stack.git",
     "directory": "cli"
   },
-  "homepage": "https://createexpostack.com",
+  "homepage": "https://rn.new",
   "license": "MIT",
   "types": "build/types/types.d.ts",
   "bin": {

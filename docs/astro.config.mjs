@@ -12,7 +12,7 @@ import remarkCodeTitles from "remark-code-titles";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://docs.createexpostack.com",
+  site: "https://docs.rn.new",
   output: "server",
   adapter: vercel(),
   integrations: [
