@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.11.9
+
+### Patch Changes
+
+- [#353](https://github.com/roninoss/create-expo-stack/pull/353) [`8ccbe1d8a6db329e3d62f24dbab69f462c21b2c6`](https://github.com/roninoss/create-expo-stack/commit/8ccbe1d8a6db329e3d62f24dbab69f462c21b2c6) Thanks [@AlejandroGutierrezB](https://github.com/AlejandroGutierrezB)! - Upgrade launchModeExperimental to use stable launchMode property in app.json.ejs
+
+- [`220ca6637106d4b4b1ad2b16b4f5c33623421d30`](https://github.com/roninoss/create-expo-stack/commit/220ca6637106d4b4b1ad2b16b4f5c33623421d30) Thanks [@danstepanov](https://github.com/danstepanov)! - replace instance of createexpostack.com with rn.new
+
 ## 2.11.8
 
 ### Patch Changes
