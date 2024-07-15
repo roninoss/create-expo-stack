@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.11
+
+### Patch Changes
+
+- [#363](https://github.com/roninoss/create-expo-stack/pull/363) [`0a3ff4501775c7e77f192b5891b0180f411034d6`](https://github.com/roninoss/create-expo-stack/commit/0a3ff4501775c7e77f192b5891b0180f411034d6) Thanks [@danstepanov](https://github.com/danstepanov)! - show avatar fallback if no avatar image is provided
+
 ## 2.11.10
 
 ### Patch Changes
