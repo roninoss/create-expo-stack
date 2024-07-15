@@ -31,7 +31,7 @@ const Avatar = React.forwardRef<
   React.ElementRef<typeof View>,
   React.ComponentPropsWithoutRef<typeof View> & AvatarRootProps
 >(({ alt, className, ...viewProps }, ref) => {
-  const [status, setStatus] = React.useState<AvatarState>('loading');
+  const [status, setStatus] = React.useState<AvatarState>('error');
   return (
     <RootContext.Provider value={{ alt, status, setStatus }}>
       <View
@@ -73,6 +73,10 @@ const AvatarImage = React.forwardRef<
     ref
   ) => {
     const { alt, setStatus, status } = useRootContext();
+
+    React.useLayoutEffect(() => {
+      setStatus('loading');
+    }, []);
 
     const onLoad = React.useCallback(
       (e: NativeSyntheticEvent<ImageLoadEventData>) => {
