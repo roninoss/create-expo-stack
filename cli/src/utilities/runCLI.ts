@@ -1,7 +1,8 @@
+import { cancel, confirm, isCancel, multiselect, select, text } from '@clack/prompts';
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
-import { confirm, isCancel, cancel, multiselect, select, text } from '@clack/prompts';
 
-import { defaultOptions, nativeWindUIOptions } from '../constants';
+import { semver } from 'gluegun';
+import { bunInstallationError, defaultOptions, nativeWindUIOptions } from '../constants';
 import {
   AuthenticationSelect,
   CliResults,
@@ -11,15 +12,17 @@ import {
   SelectedComponents,
   StylingSelect
 } from '../types';
-import { getDefaultPackageManagerVersion } from './getPackageManager';
 import { loadConfigs, saveConfig } from './configStorage';
+import { getDefaultPackageManagerVersion } from './getPackageManager';
 
-const recommendedBunVersion = '1.0.22';
+const priorWorkingBunVersion = '1.0.22'; // or less
+
+const minBunVersion = '1.1.11'; // or greater
 
 export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
   const {
     parameters: { options },
-    print: { info, success, warning }
+    print: { info, success, warning, highlight }
   } = toolbox;
 
   // Set the default options
@@ -191,31 +194,32 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     if (
       cliResults.flags.packageManager === 'bun' &&
       defaultPackageManagerVersion &&
-      defaultPackageManagerVersion !== recommendedBunVersion
+      semver.lt(defaultPackageManagerVersion, minBunVersion) &&
+      semver.gt(defaultPackageManagerVersion, priorWorkingBunVersion)
     ) {
       warning('⚠️' + ' ' + ` We've detected you're using Bun v${defaultPackageManagerVersion}.`);
       info('');
       warning(
-        `Some packages may not work correctly if you continue. We recommend using Bun v${recommendedBunVersion} until peerDependencies are properly resolved with bun install.`
+        `Some packages may not work correctly if you continue. We recommend using the latest version of Bun or at-least v${minBunVersion}.`
       );
-      warning(`For more information, visit https://github.com/oven-sh/bun/issues/4946`);
+      warning(`For more information, visit https://github.com/oven-sh/bun/issues/8406`);
       info('');
-      warning(`To switch to Bun v${recommendedBunVersion}, run:`);
+      warning(`To upgrade to Bun run:`);
       info('');
-      warning(`\tcurl -fsSL https://bun.sh/install | bash -s "bun-v${recommendedBunVersion}"`);
+      highlight(`bun upgrade`);
       info('');
       warning(`or visit bun.sh/docs/installation for other installation methods (e.g. via Homebrew, npm, etc).`);
       info('');
 
       const shouldContinue = await confirm({
-        message: `Would you like to continue without switching to Bun v${recommendedBunVersion}?`,
+        message: `Would you like to continue without upgrading Bun?`,
         initialValue: false
       });
 
-      if (isCancel(shouldContinue)) {
-        cancel('Cancelled... 👋');
-        return process.exit(0);
+      if (isCancel(shouldContinue) || !shouldContinue) {
+        throw new Error(bunInstallationError);
       }
+
       success(`Great, we'll use ${navigationSelect}!`);
     } else if (cliResults.flags.packageManager === 'bun' && !defaultPackageManagerVersion) {
       warning(
@@ -223,17 +227,17 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       );
       info('');
       warning(
-        `We recommend using Bun v${recommendedBunVersion} until peerDependencies are properly resolved with bun install. If you continue with a version that is not v${recommendedBunVersion}, some packages may not work correctly.`
+        `We recommend using the latest version of Bun or at-least v${minBunVersion}. If you continue with an earlier version, some packages may not work correctly.`
       );
-      warning(`For more information, visit https://github.com/oven-sh/bun/issues/4946`);
+      warning(`For more information, visit https://github.com/oven-sh/bun/issues/8406`);
       info('');
       warning(`To check your version of Bun, run:`);
       info('');
-      warning(`\tbun -version`);
+      highlight(`bun -version`);
       info('');
-      warning(`To switch to Bun v${recommendedBunVersion}, run:`);
+      warning(`To upgrade Bun run:`);
       info('');
-      warning(`\tcurl -fsSL https://bun.sh/install | bash -s "bun-v${recommendedBunVersion}"`);
+      highlight(`bun upgrade`);
       info('');
       warning(`or visit bun.sh/docs/installation for other installation methods (e.g. via Homebrew, npm, etc).`);
       info('');
@@ -243,10 +247,10 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         initialValue: false
       });
 
-      if (isCancel(shouldContinue)) {
-        cancel('Cancelled... 👋');
-        return process.exit(0);
+      if (isCancel(shouldContinue) || !shouldContinue) {
+        throw new Error(bunInstallationError);
       }
+
       success(`Great, we'll use ${navigationSelect}!`);
     }
   } else {
