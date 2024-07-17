@@ -1,8 +1,6 @@
 on:
   push:
     paths: ['cli/**']
-  pull_request:
-    paths: ['cli/**']
 name: run-tests
 jobs:
   build-and-test:

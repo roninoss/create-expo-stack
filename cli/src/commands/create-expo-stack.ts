@@ -11,16 +11,19 @@ import {
   runIgnite,
   showHelp
 } from '../utilities';
-import { DEFAULT_APP_NAME, defaultOptions, nativeWindUIOptions } from '../constants';
+import {
+  bunInstallationError,
+  DEFAULT_APP_NAME,
+  defaultOptions,
+  nativeWindUIOptions,
+  navigationValidationError,
+  projectNameValidationError
+} from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
 import { validateProjectName } from '../utilities/validateProjectName';
 import { cancel, intro, isCancel, text } from '@clack/prompts';
 import clearNavigationPackages from '../utilities/clearNavigationPackages';
-
-const navigationValidationError = `You must pass in either --react-navigation or --expo-router if you want to use the --tabs or --drawer+tabs options`;
-const projectNameValidationError = `A project with the name`;
-const bunInstallationError = 'User cancelled to install recommended version of Bun.';
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
@@ -69,7 +72,9 @@ const command: GluegunCommand = {
         !options.reactnavigation &&
         !options.expoRouter &&
         !options['expo-router'] &&
-        !options.exporouter
+        !options.exporouter &&
+        // nativewindui applies the expo router option by default
+        !options.nativewindui
       ) {
         // throw an error without a stack trace
         throw navigationValidationError;
@@ -224,7 +229,7 @@ const command: GluegunCommand = {
             name: 'expo-router',
             type: 'navigation',
             options: {
-              type: 'stack'
+              type: options.tabs ? 'tabs' : options['drawer+tabs'] ? 'drawer + tabs' : 'stack'
             }
           });
         } else if (options.tamagui) {
@@ -432,7 +437,7 @@ const command: GluegunCommand = {
       }
 
       if (err.message.includes(bunInstallationError)) {
-        return void success(`\nUser cancelled to install recommended version of Bun... 👋 \n`);
+        return void success(`\nCancelled to install recommended version of Bun.... 👋 \n`);
       }
 
       if (process.env.NODE_ENV !== 'test') {
