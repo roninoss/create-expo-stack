@@ -313,7 +313,7 @@ const command: GluegunCommand = {
 
         // Function that outputs a string given the CLI results and the packageManager. The outputted string should be a command that can be run to recreate the project
         const generateRerunScript = (cliResults: CliResults) => {
-          let script = `npx create-expo-stack ${cliResults.projectName} `;
+          let script = `npx create-expo-stack@latest ${cliResults.projectName} `;
 
           const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
