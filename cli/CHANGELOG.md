@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.12
+
+### Patch Changes
+
+- [#366](https://github.com/roninoss/create-expo-stack/pull/366) [`73648767a4921f999936b4c3ce0795010b75a204`](https://github.com/roninoss/create-expo-stack/commit/73648767a4921f999936b4c3ce0795010b75a204) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: tabs layout for NWUI and updated recommended bun version
+
 ## 2.11.11
 
 ### Patch Changes
