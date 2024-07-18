@@ -329,6 +329,7 @@ const command: GluegunCommand = {
               script += `--selected-components=${nativeWindUIComponents.join(',')} `;
             }
 
+            // this should always be expo router for nwui
             const chosenNavigationOption = cliResults.packages.find((p) => p.type === 'navigation');
 
             const hasNavigationPackage = chosenNavigationOption !== undefined;
@@ -336,9 +337,8 @@ const command: GluegunCommand = {
             const navigationType = chosenNavigationOption.options.type;
 
             if (hasNavigationPackage) {
-              script += `--${chosenNavigationOption.name} `;
-
-              // add --tabs or --drawer+tabs if navigation package is selected
+              // NOTE we don't need to add expo-router since its currently getting automatically added with nativewindui
+              // NOTE stack is default so doesn't need to applied.
               if (navigationType === 'tabs') {
                 script += '--tabs ';
               } else if (navigationType === 'drawer + tabs') {
