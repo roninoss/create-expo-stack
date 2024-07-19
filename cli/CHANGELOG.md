@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.13
+
+### Patch Changes
+
+- [#369](https://github.com/roninoss/create-expo-stack/pull/369) [`da2ef44b26a18fa34ed020fbcf8e3b367b05eeba`](https://github.com/roninoss/create-expo-stack/commit/da2ef44b26a18fa34ed020fbcf8e3b367b05eeba) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: rerun script more accurate for NWUI
+
 ## 2.11.12
 
 ### Patch Changes
