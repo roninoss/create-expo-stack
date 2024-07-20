@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.14
+
+### Patch Changes
+
+- [#373](https://github.com/roninoss/create-expo-stack/pull/373) [`35dd3b7f5a2a46c18fa59113990007cc5f202b72`](https://github.com/roninoss/create-expo-stack/commit/35dd3b7f5a2a46c18fa59113990007cc5f202b72) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: eas should now work when pnpm is selected
+
 ## 2.11.13
 
 ### Patch Changes
