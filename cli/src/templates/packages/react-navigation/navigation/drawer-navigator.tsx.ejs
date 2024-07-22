@@ -25,7 +25,7 @@ export default function DrawerNavigator({ navigation }: Props) {
       />
       <Drawer.Screen
         name="Tabs"
-        component={TabNavigator}
+        component={TabNavigator as React.ComponentType<any>}
         options={{
           headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
           drawerIcon: ({ size, color }) => (
