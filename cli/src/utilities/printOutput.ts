@@ -100,7 +100,7 @@ export async function printOutput(
       );
 
       await runSystemCommand({
-        command: `API_BASE_URL="https://nativewindui.com" npx --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${nativeWindUIComponents.join(' ')}`,
+        command: `EXPO_NO_GIT_STATUS=1 npx --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${nativeWindUIComponents.join(' ')}`,
         errorMessage: 'Error adding nativewindui components',
         toolbox,
         stdio: 'inherit'
