@@ -64,8 +64,6 @@ export function configureProjectFiles(
       'packages/nativewindui/components/HeaderButton.tsx.ejs',
       'packages/nativewindui/components/ScreenContent.tsx.ejs',
       'packages/nativewindui/components/TabBarIcon.tsx.ejs',
-      'packages/nativewindui/components/nativewindui/Text.tsx.ejs',
-      'packages/nativewindui/components/nativewindui/ThemeToggle.tsx.ejs',
       'packages/nativewindui/lib/useColorScheme.tsx.ejs',
       'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
       'packages/nativewindui/lib/cn.ts.ejs',
@@ -112,48 +110,6 @@ export function configureProjectFiles(
       nativewindUIFiles = [...nativewindUIFiles, ...nativewindUITabsFiles];
     } else if (navigationPackage?.options?.type === 'drawer + tabs') {
       nativewindUIFiles = [...nativewindUIFiles, ...nativewindUIDrawerFiles];
-    }
-
-    if (stylingPackage?.options.selectedComponents.includes('activity-indicator')) {
-      nativewindUIFiles = [
-        ...nativewindUIFiles,
-        'packages/nativewindui/components/nativewindui/ActivityIndicator.tsx.ejs'
-      ];
-    }
-
-    if (stylingPackage?.options.selectedComponents.includes('avatar')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Avatar.tsx.ejs'];
-    }
-
-    if (stylingPackage?.options.selectedComponents.includes('bottom-sheet')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Sheet.tsx.ejs'];
-    }
-
-    if (stylingPackage?.options.selectedComponents.includes('date-picker')) {
-      nativewindUIFiles = [
-        ...nativewindUIFiles,
-        'packages/nativewindui/components/nativewindui/DatePicker.android.tsx.ejs',
-        'packages/nativewindui/components/nativewindui/DatePicker.tsx.ejs'
-      ];
-    }
-
-    if (stylingPackage?.options.selectedComponents.includes('picker')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Picker.tsx.ejs'];
-    }
-
-    if (stylingPackage?.options.selectedComponents.includes('progress-indicator')) {
-      nativewindUIFiles = [
-        ...nativewindUIFiles,
-        'packages/nativewindui/components/nativewindui/ProgressIndicator.tsx.ejs'
-      ];
-    }
-
-    if (stylingPackage?.options.selectedComponents.includes('slider')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Slider.tsx.ejs'];
-    }
-
-    if (stylingPackage?.options.selectedComponents.includes('toggle')) {
-      nativewindUIFiles = [...nativewindUIFiles, 'packages/nativewindui/components/nativewindui/Toggle.tsx.ejs'];
     }
 
     files = nativewindUIFiles;

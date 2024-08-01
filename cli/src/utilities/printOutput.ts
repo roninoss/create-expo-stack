@@ -88,6 +88,24 @@ export async function printOutput(
     });
 
     s.stop('Project files formatted!');
+
+    const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
+
+    if (isNativeWindUISelected) {
+      const nativeWindUIComponents =
+        cliResults.packages.find((p) => p.name === 'nativewindui')?.options.selectedComponents ?? [];
+
+      console.log(
+        `cd ${cliResults.projectName} && API_BASE_URL="https://nativewindui.com" npx --yes nwui-cli@latest add ${nativeWindUIComponents.join(' ')}`
+      );
+
+      await runSystemCommand({
+        command: `API_BASE_URL="https://nativewindui.com" npx --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${nativeWindUIComponents.join(' ')}`,
+        errorMessage: 'Error adding nativewindui components',
+        toolbox,
+        stdio: 'inherit'
+      });
+    }
   } else {
     s.start(`No installation found.\nCleaning up your project using ${runnerType}...`);
 
