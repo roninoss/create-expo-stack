@@ -26,7 +26,7 @@
     "clean-build": "rm -rf ./build",
     "compile": "tsc -p .",
     "copy-templates": "bun run copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
-    "dev": "bun run build && NODE_ENV=development API_BASE_URL=\"https://nativewindui.com\" bun run bin/create-expo-stack.js",
+    "dev": "bun run build && NODE_ENV=development API_BASE_URL=https://nativewindui.com bun run bin/create-expo-stack.js",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix --resolve-plugins-relative-to . && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "lint-templates": "bun run ejslint ./src/templates",
     "prepublishOnly": "bun run build",
