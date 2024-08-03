@@ -32,10 +32,11 @@ export async function printOutput(
 
   // check if npm option is set, otherwise set based on what the system is configure to use
   const packageManager = cliResults.flags.packageManager || getPackageManager(toolbox, cliResults);
-  const isYarn = packageManager === 'yarn';
   const isNpm = packageManager === 'npm';
 
-  const runCommand = isNpm ? `${packageManager} run` : packageManager;
+  // seems like all package managers actually support the run command
+  const runCommand = `${packageManager} run`;
+
   const runnerType = getPackageManagerRunnerX(toolbox, cliResults);
 
   if (!options.noInstall && !flags.noInstall) {
@@ -70,7 +71,7 @@ export async function printOutput(
     await runSystemCommand({
       toolbox,
       // NOTE yarn dlx is a nightmare so we're using npx :)
-      command: `cd ${projectName} && ${isYarn ? 'npx' : runnerType} expo@latest install --fix`,
+      command: `cd ${projectName} && ${runnerType} expo@latest install --fix`,
       errorMessage: 'Error updating packages',
       stdio: undefined
     });
@@ -93,18 +94,30 @@ export async function printOutput(
 
     if (isNativeWindUISelected) {
       const nativeWindUIComponents =
-        cliResults.packages.find((p) => p.name === 'nativewindui')?.options.selectedComponents ?? [];
+        cliResults.packages.find((p) => p.name === 'nativewindui').options.selectedComponents ?? [];
 
-      console.log(
-        `cd ${cliResults.projectName} && API_BASE_URL="https://nativewindui.com" npx --yes nwui-cli@latest add ${nativeWindUIComponents.join(' ')}`
-      );
+      let finalList = nativeWindUIComponents;
 
-      await runSystemCommand({
-        command: `EXPO_NO_GIT_STATUS=1 npx --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${nativeWindUIComponents.join(' ')}`,
-        errorMessage: 'Error adding nativewindui components',
-        toolbox,
-        stdio: 'inherit'
-      });
+      // we shouldn't allow both text and selectable-text to be selected at the same time
+      if (
+        nativeWindUIComponents.some((component) => component === 'text') &&
+        nativeWindUIComponents.some((component) => component === 'selectable-text')
+      ) {
+        finalList = nativeWindUIComponents.filter((component) => component !== 'text');
+      }
+
+      if (nativeWindUIComponents.length > 0 && !options.blank) {
+        info(`Adding nativewindui components...`);
+
+        info(`${runnerType} nwui-cli@latest add ${finalList.join(' ')}`);
+
+        await runSystemCommand({
+          command: `EXPO_NO_GIT_STATUS=1 ${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalList.join(' ')}`,
+          errorMessage: 'Error adding nativewindui components',
+          toolbox,
+          stdio: 'inherit'
+        });
+      }
     }
   } else {
     s.start(`No installation found.\nCleaning up your project using ${runnerType}...`);

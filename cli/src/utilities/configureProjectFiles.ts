@@ -64,6 +64,7 @@ export function configureProjectFiles(
       'packages/nativewindui/components/HeaderButton.tsx.ejs',
       'packages/nativewindui/components/ScreenContent.tsx.ejs',
       'packages/nativewindui/components/TabBarIcon.tsx.ejs',
+      'packages/nativewindui/components/ThemeToggle.tsx.ejs',
       'packages/nativewindui/lib/useColorScheme.tsx.ejs',
       'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
       'packages/nativewindui/lib/cn.ts.ejs',
