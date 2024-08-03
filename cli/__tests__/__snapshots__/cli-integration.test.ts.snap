@@ -1,6 +1,6 @@
 // Bun Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`generates a project with --expo-router, --nativewind, --npm, --overwrite: --expo-router, --nativewind, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --nativewind --bun --overwrite: --expo-router, --nativewind, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -27,6 +27,7 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -61,7 +62,7 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
 }
 `;
 
-exports[`generates a project with --expo-router, --nativewind, --npm, --overwrite: --expo-router, --nativewind, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --nativewind --bun --overwrite: --expo-router, --nativewind, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -70,11 +71,11 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -94,7 +95,7 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
 }
 `;
 
-exports[`generates a project with --expo-router, --nativewind, --npm, --overwrite: --expo-router, --nativewind, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --nativewind --bun --overwrite: --expo-router, --nativewind, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app-env.d.ts
@@ -110,6 +111,7 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -119,7 +121,6 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
 ./myTestProject/expo-env.d.ts
 ./myTestProject/global.css
 ./myTestProject/metro.config.js
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tailwind.config.js
@@ -127,7 +128,7 @@ exports[`generates a project with --expo-router, --nativewind, --npm, --overwrit
 "
 `;
 
-exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrite: --expo-router, --stylesheet, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --stylesheet --bun --overwrite: --expo-router, --stylesheet, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -154,6 +155,7 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -188,7 +190,7 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
 }
 `;
 
-exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrite: --expo-router, --stylesheet, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --stylesheet --bun --overwrite: --expo-router, --stylesheet, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -197,11 +199,11 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -221,7 +223,7 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
 }
 `;
 
-exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrite: --expo-router, --stylesheet, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --stylesheet --bun --overwrite: --expo-router, --stylesheet, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app.json
@@ -236,6 +238,7 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -244,14 +247,13 @@ exports[`generates a project with --expo-router, --stylesheet, --npm, --overwrit
 ./myTestProject/components/ScreenContent.tsx
 ./myTestProject/expo-env.d.ts
 ./myTestProject/metro.config.js
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tsconfig.json
 "
 `;
 
-exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --overwrite: --expo-router, --tabs, --nativewind, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --tabs --nativewind --bun --overwrite: --expo-router, --tabs, --nativewind, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -278,6 +280,7 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -312,7 +315,7 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
 }
 `;
 
-exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --overwrite: --expo-router, --tabs, --nativewind, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --tabs --nativewind --bun --overwrite: --expo-router, --tabs, --nativewind, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -321,11 +324,11 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -345,7 +348,7 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
 }
 `;
 
-exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --overwrite: --expo-router, --tabs, --nativewind, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --tabs --nativewind --bun --overwrite: --expo-router, --tabs, --nativewind, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app-env.d.ts
@@ -364,6 +367,7 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -375,7 +379,6 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
 ./myTestProject/expo-env.d.ts
 ./myTestProject/global.css
 ./myTestProject/metro.config.js
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tailwind.config.js
@@ -383,7 +386,7 @@ exports[`generates a project with --expo-router, --tabs, --nativewind, --npm, --
 "
 `;
 
-exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --overwrite: --expo-router, --tabs, --stylesheet, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --tabs --stylesheet --bun --overwrite: --expo-router, --tabs, --stylesheet, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -410,6 +413,7 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -444,7 +448,7 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
 }
 `;
 
-exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --overwrite: --expo-router, --tabs, --stylesheet, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --tabs --stylesheet --bun --overwrite: --expo-router, --tabs, --stylesheet, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -453,11 +457,11 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -477,7 +481,7 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
 }
 `;
 
-exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --overwrite: --expo-router, --tabs, --stylesheet, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --tabs --stylesheet --bun --overwrite: --expo-router, --tabs, --stylesheet, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app.json
@@ -495,6 +499,7 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -505,14 +510,13 @@ exports[`generates a project with --expo-router, --tabs, --stylesheet, --npm, --
 ./myTestProject/components/TabBarIcon.tsx
 ./myTestProject/expo-env.d.ts
 ./myTestProject/metro.config.js
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tsconfig.json
 "
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun --overwrite: --expo-router, --drawer+tabs, --nativewind, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -539,6 +543,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -573,7 +578,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun --overwrite: --expo-router, --drawer+tabs, --nativewind, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -582,11 +587,11 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -606,7 +611,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewind, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun --overwrite: --expo-router, --drawer+tabs, --nativewind, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app-env.d.ts
@@ -628,6 +633,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -639,7 +645,6 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
 ./myTestProject/expo-env.d.ts
 ./myTestProject/global.css
 ./myTestProject/metro.config.js
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tailwind.config.js
@@ -647,7 +652,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewind, --
 "
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite: --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun --overwrite: --expo-router, --drawer+tabs, --stylesheet, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -674,6 +679,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -708,7 +714,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite: --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun --overwrite: --expo-router, --drawer+tabs, --stylesheet, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -717,11 +723,11 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -741,7 +747,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite: --expo-router, --drawer+tabs, --stylesheet, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun --overwrite: --expo-router, --drawer+tabs, --stylesheet, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app.json
@@ -762,6 +768,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -772,14 +779,13 @@ exports[`generates a project with --expo-router, --drawer+tabs, --stylesheet, --
 ./myTestProject/components/TabBarIcon.tsx
 ./myTestProject/expo-env.d.ts
 ./myTestProject/metro.config.js
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tsconfig.json
 "
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,selectable-text --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -806,6 +812,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -840,7 +847,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,selectable-text --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -849,11 +856,11 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -873,7 +880,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,selectable-text --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,selectable-text, --expo-router, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app.json
@@ -894,6 +901,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
@@ -903,12 +911,14 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/components/HeaderButton.tsx
 ./myTestProject/components/ScreenContent.tsx
 ./myTestProject/components/TabBarIcon.tsx
+./myTestProject/components/ThemeToggle.tsx
 ./myTestProject/components/nativewindui
-./myTestProject/components/nativewindui/DatePicker.android.tsx
-./myTestProject/components/nativewindui/DatePicker.tsx
+./myTestProject/components/nativewindui/DatePicker
+./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
+./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
+./myTestProject/components/nativewindui/DatePicker/index.ts
 ./myTestProject/components/nativewindui/Picker.tsx
 ./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/components/nativewindui/ThemeToggle.tsx
 ./myTestProject/global.css
 ./myTestProject/lib
 ./myTestProject/lib/cn.ts
@@ -916,7 +926,6 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/lib/useHeaderSearchBar.tsx
 ./myTestProject/metro.config.js
 ./myTestProject/nativewind-env.d.ts
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tailwind.config.js
@@ -927,7 +936,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 "
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -954,6 +963,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -988,7 +998,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -997,11 +1007,11 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -1021,7 +1031,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app.json
@@ -1042,6 +1052,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
@@ -1051,17 +1062,19 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/components/HeaderButton.tsx
 ./myTestProject/components/ScreenContent.tsx
 ./myTestProject/components/TabBarIcon.tsx
+./myTestProject/components/ThemeToggle.tsx
 ./myTestProject/components/nativewindui
 ./myTestProject/components/nativewindui/ActivityIndicator.tsx
 ./myTestProject/components/nativewindui/Avatar.tsx
-./myTestProject/components/nativewindui/DatePicker.android.tsx
-./myTestProject/components/nativewindui/DatePicker.tsx
+./myTestProject/components/nativewindui/DatePicker
+./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
+./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
+./myTestProject/components/nativewindui/DatePicker/index.ts
 ./myTestProject/components/nativewindui/Picker.tsx
 ./myTestProject/components/nativewindui/ProgressIndicator.tsx
 ./myTestProject/components/nativewindui/Sheet.tsx
 ./myTestProject/components/nativewindui/Slider.tsx
 ./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/components/nativewindui/ThemeToggle.tsx
 ./myTestProject/components/nativewindui/Toggle.tsx
 ./myTestProject/global.css
 ./myTestProject/lib
@@ -1070,7 +1083,6 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/lib/useHeaderSearchBar.tsx
 ./myTestProject/metro.config.js
 ./myTestProject/nativewind-env.d.ts
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tailwind.config.js
@@ -1081,7 +1093,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 "
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --npm, --overwrite-package-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
     "@expo/vector-icons": "",
@@ -1108,6 +1120,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
     "@types/react": "",
     "@typescript-eslint/eslint-plugin": "",
     "@typescript-eslint/parser": "",
+    "ajv": "",
     "eslint": "",
     "eslint-config-universe": "",
     "prettier": "",
@@ -1142,7 +1155,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --npm, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -1151,11 +1164,11 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
     "noGit": false,
     "noInstall": false,
     "overwrite": true,
-    "packageManager": "npm",
+    "packageManager": "bun",
   },
   "os": {},
   "packageManager": {
-    "type": "npm",
+    "type": "bun",
     "version": undefined,
   },
   "packages": [
@@ -1175,7 +1188,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 }
 `;
 
-exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --npm, --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --npm, --overwrite-file-list 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --bun, --overwrite-file-list 1`] = `
 "./myTestProject
 ./myTestProject/app
 ./myTestProject/app.json
@@ -1196,6 +1209,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
+./myTestProject/bun.lockb
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
@@ -1205,9 +1219,7 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/components/HeaderButton.tsx
 ./myTestProject/components/ScreenContent.tsx
 ./myTestProject/components/TabBarIcon.tsx
-./myTestProject/components/nativewindui
-./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/components/nativewindui/ThemeToggle.tsx
+./myTestProject/components/ThemeToggle.tsx
 ./myTestProject/global.css
 ./myTestProject/lib
 ./myTestProject/lib/cn.ts
@@ -1215,7 +1227,6 @@ exports[`generates a project with --expo-router, --drawer+tabs, --nativewindui, 
 ./myTestProject/lib/useHeaderSearchBar.tsx
 ./myTestProject/metro.config.js
 ./myTestProject/nativewind-env.d.ts
-./myTestProject/package-lock.json
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
 ./myTestProject/tailwind.config.js

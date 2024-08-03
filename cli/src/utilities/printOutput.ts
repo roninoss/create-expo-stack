@@ -112,10 +112,28 @@ export async function printOutput(
         info(`${runnerType} nwui-cli@latest add ${finalList.join(' ')}`);
 
         await runSystemCommand({
-          command: `EXPO_NO_GIT_STATUS=1 ${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalList.join(' ')}`,
+          command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalList.join(' ')}`,
           errorMessage: 'Error adding nativewindui components',
           toolbox,
-          stdio: 'inherit'
+          stdio: undefined,
+
+          // for some reason running as shell breaks nwui when running in ci
+          shell: false,
+
+          // this is how we pass env variables to the child process when not running as shell
+          env: {
+            ...process.env,
+            EXPO_NO_GIT_STATUS: '1',
+            ...(process.env.NODE_ENV === 'development' ? { API_BASE_URL: 'https://nativewindui.com' } : {})
+          }
+        });
+
+        // once we have the examples changes we can remove this👇
+        await runSystemCommand({
+          command: `rm -r ${projectName}/components/nativewindui/examples`,
+          errorMessage: 'Error removing nativewindui examples',
+          toolbox,
+          stdio: undefined
         });
       }
     }

@@ -37,9 +37,17 @@ const generateProject = async ({
 };
 
 // Run tests for each package manager
+
+// if we can find a good way to run tests in parallel we could go back to
+// running in npm by default but right now its unbearably slow
+
+// const packageManagers = process.env.ALL_PACKAGE_MANAGERS
+//   ? ([`npm`, `yarn`, `pnpm`, `bun`] as const)
+//   : (['npm'] as const);
+
 const packageManagers = process.env.ALL_PACKAGE_MANAGERS
   ? ([`npm`, `yarn`, `pnpm`, `bun`] as const)
-  : (['npm'] as const);
+  : (['bun'] as const);
 
 test(`outputs version`, async () => {
   const output = await cli([`--version`]);
@@ -87,7 +95,7 @@ for (const packageManager of packageManagers) {
   for (const flags of popularCombinations) {
     const finalFlags = [...flags, packageManagerFlag, '--overwrite' as const];
 
-    test(`generates a project with ${finalFlags.join(', ')}`, async () => {
+    test(`generates a project with ${finalFlags.join(' ')}`, async () => {
       const output = await generateProject({
         projectName: projectName,
         flags: finalFlags
