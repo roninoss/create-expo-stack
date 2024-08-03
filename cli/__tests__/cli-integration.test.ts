@@ -140,6 +140,15 @@ for (const packageManager of packageManagers) {
         await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*" | sort`.text();
 
       expect(fileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
+
+      const { stderr, stdout, exitCode } = await Bun.$`cd ${projectName} && bun run tsc --noEmit`;
+
+      if (exitCode !== 0) {
+        console.warn('stdout', stdout.toString());
+        console.warn('stderr', stderr.toString());
+      }
+
+      expect(exitCode).toBe(0);
     });
   }
 }
