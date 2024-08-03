@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
 
       ## Unfortuneately, bun doesn't support publishing to NPM registry yet
       - name: Setup Node.js

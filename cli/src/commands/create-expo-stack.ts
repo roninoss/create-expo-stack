@@ -124,6 +124,10 @@ const command: GluegunCommand = {
         cliResults.flags.overwrite
       );
     } catch (err: string | any) {
+      if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
+        error(`error: ${err}`);
+      }
+
       if (err === '') {
         // user cancelled/exited the interactive CLI
         return void success(`\nCancelled... 👋 \n`);
@@ -439,6 +443,10 @@ const command: GluegunCommand = {
         await printOutput(cliResults, formattedFiles, toolbox, stylingPackage);
       }
     } catch (err) {
+      if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
+        error(`error: ${err}`);
+      }
+
       if (err === '') {
         // user cancelled/exited the interactive CLI
         return void success(`\nCancelled... 👋 \n`);

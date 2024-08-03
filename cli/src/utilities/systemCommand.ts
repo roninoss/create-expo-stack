@@ -8,12 +8,16 @@ export async function runSystemCommand({
   command,
   errorMessage,
   stdio,
-  toolbox
+  toolbox,
+  shell = true,
+  env
 }: {
   command: string;
   toolbox: Toolbox;
   stdio: readonly [STDIO, STDIO, STDIO] | STDIO | undefined;
   errorMessage: string;
+  shell?: boolean;
+  env?: Record<string, string>;
 }) {
   const {
     print: { error },
@@ -21,8 +25,9 @@ export async function runSystemCommand({
   } = toolbox;
 
   const result = await system.spawn(command, {
-    shell: true,
-    stdio
+    shell,
+    stdio,
+    env
   });
 
   if (result.error || result.status !== 0) {
