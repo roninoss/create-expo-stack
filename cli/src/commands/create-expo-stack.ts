@@ -391,6 +391,14 @@ const command: GluegunCommand = {
 
         const { packages } = cliResults;
 
+        if (packages.some((p) => p.name === 'nativewindui') && cliResults.flags.noInstall) {
+          error(
+            `\nYou have selected the nativewindui package with the --no-install flag. This package requires dependencies to be installed. Please remove the --no-install flag to proceed.`
+          );
+
+          process.exit(1);
+        }
+
         // Define props to be passed into the templates
         const authenticationPackage = packages.find((p) => p.type === 'authentication') || undefined;
         const navigationPackage = packages.find((p) => p.type === 'navigation') || undefined;

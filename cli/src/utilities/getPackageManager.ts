@@ -39,13 +39,15 @@ export function getPackageManager(toolbox: Toolbox, cliResults: CliResults): Pac
     return 'npm';
   }
 }
+
 export function getPackageManagerRunnerX(toolbox: Toolbox, cliResults: CliResults): PackageManagerRunnerX {
   const {
     parameters: { options }
   } = toolbox;
 
   if (options.npm) return 'npx';
-  if (options.yarn) return 'yarn dlx';
+  // yarn dlx has issues
+  if (options.yarn) return 'npx';
   if (options.pnpm) return 'pnpx';
   if (options.bun) return 'bunx';
 
@@ -53,7 +55,8 @@ export function getPackageManagerRunnerX(toolbox: Toolbox, cliResults: CliResult
   const userAgent = process.env.npm_config_user_agent;
   if (userAgent) {
     if (userAgent.startsWith('yarn')) {
-      return 'yarn dlx';
+      // yarn dlx has issues
+      return 'npx';
     } else if (userAgent.startsWith('pnpm')) {
       return 'pnpx';
     } else if (userAgent.startsWith('bun')) {
@@ -63,7 +66,7 @@ export function getPackageManagerRunnerX(toolbox: Toolbox, cliResults: CliResult
     }
   } else {
     // Determine runner based on cliResults.flags.packageManager
-    if (cliResults.flags.packageManager === 'yarn') return 'yarn dlx';
+    if (cliResults.flags.packageManager === 'yarn') return 'npx'; // yarn dlx has issues
     if (cliResults.flags.packageManager === 'pnpm') return 'pnpx';
     if (cliResults.flags.packageManager === 'bun') return 'bunx';
 
