@@ -99,8 +99,6 @@ export async function printOutput(
 
       s.start(`Adding nativewindui components...`);
 
-      info(`${runnerType} nwui-cli@latest add ${finalComponents.join(' ')}`);
-
       await runSystemCommand({
         command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalComponents.join(' ')}`,
         errorMessage: 'Error adding nativewindui components',
