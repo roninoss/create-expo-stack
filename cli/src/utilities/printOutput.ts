@@ -95,30 +95,30 @@ export async function printOutput(
       const nativeWindUIComponents =
         cliResults.packages.find((p) => p.name === 'nativewindui').options.selectedComponents ?? [];
 
-      if (nativeWindUIComponents.length > 0 && !options.blank) {
-        s.start(`Adding nativewindui components...`);
+      const finalComponents = Array.from(new Set([...nativeWindUIComponents, 'text']));
 
-        info(`${runnerType} nwui-cli@latest add ${nativeWindUIComponents.join(' ')}`);
+      s.start(`Adding nativewindui components...`);
 
-        await runSystemCommand({
-          command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${nativeWindUIComponents.join(' ')}`,
-          errorMessage: 'Error adding nativewindui components',
-          toolbox,
-          stdio: undefined,
+      info(`${runnerType} nwui-cli@latest add ${finalComponents.join(' ')}`);
 
-          // for some reason running as shell breaks nwui when running in ci
-          shell: false,
+      await runSystemCommand({
+        command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalComponents.join(' ')}`,
+        errorMessage: 'Error adding nativewindui components',
+        toolbox,
+        stdio: undefined,
 
-          // this is how we pass env variables to the child process when not running as shell
-          env: {
-            ...process.env,
-            EXPO_NO_GIT_STATUS: '1',
-            ...(process.env.NODE_ENV === 'development' ? { API_BASE_URL: 'https://nativewindui.com' } : {})
-          }
-        });
+        // for some reason running as shell breaks nwui when running in ci
+        shell: false,
 
-        s.stop('Nativewindui components added!');
-      }
+        // this is how we pass env variables to the child process when not running as shell
+        env: {
+          ...process.env,
+          EXPO_NO_GIT_STATUS: '1',
+          ...(process.env.NODE_ENV === 'development' ? { API_BASE_URL: 'https://nativewindui.com' } : {})
+        }
+      });
+
+      s.stop('Nativewindui components added!');
     }
   } else {
     s.start(`No installation found.\nCleaning up your project using ${runnerType}...`);
