@@ -53,7 +53,6 @@ export type SelectedComponents =
   | 'picker'
   | 'progress-indicator'
   | 'ratings-indicator'
-  | 'selectable-text'
   | 'slider'
   | 'text'
   | 'toggle';

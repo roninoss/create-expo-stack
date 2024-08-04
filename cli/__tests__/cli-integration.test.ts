@@ -74,7 +74,7 @@ const popularCombinations = [
     '--expo-router',
     '--drawer+tabs',
     '--nativewindui',
-    '--selected-components=date-picker,picker,selectable-text',
+    '--selected-components=date-picker,picker,text',
     '--expo-router'
   ],
   // nativewindui no selections
