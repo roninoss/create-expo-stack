@@ -1237,6 +1237,10 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
 ./myTestProject/components/ScreenContent.tsx
 ./myTestProject/components/TabBarIcon.tsx
 ./myTestProject/components/ThemeToggle.tsx
+./myTestProject/components/nativewindui
+./myTestProject/components/nativewindui/Text.tsx
+./myTestProject/components/nativewindui/examples
+./myTestProject/components/nativewindui/examples/text.tsx
 ./myTestProject/global.css
 ./myTestProject/lib
 ./myTestProject/lib/cn.ts
