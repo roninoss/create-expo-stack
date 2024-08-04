@@ -219,13 +219,15 @@ const command: GluegunCommand = {
               ?.map((c: string) => c.trim())
               ?.filter((item) => nativeWindUIOptions.includes(item)) ?? [];
 
-          const selectedComponents = parsedComponents.length ? parsedComponents : nativeWindUIOptions;
+          const selectedComponents = parsedComponents.length
+            ? Array.from(new Set([...parsedComponents, 'text']))
+            : nativeWindUIOptions;
 
           cliResults.packages.push({
             name: 'nativewindui',
             type: 'styling',
             options: {
-              selectedComponents: options.blank ? [] : selectedComponents
+              selectedComponents: options.blank ? ['text'] : selectedComponents
             }
           });
 
