@@ -70,7 +70,6 @@ export async function printOutput(
 
     await runSystemCommand({
       toolbox,
-      // NOTE yarn dlx is a nightmare so we're using npx :)
       command: `cd ${projectName} && ${runnerType} expo@latest install --fix`,
       errorMessage: 'Error updating packages',
       stdio: undefined
