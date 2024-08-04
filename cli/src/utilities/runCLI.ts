@@ -298,7 +298,8 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         { value: 'progress-indicator', label: 'Progress Indicator' },
         { value: 'ratings-indicator', label: 'Ratings Indicator' },
         { value: 'slider', label: 'Slider' },
-        { value: 'text', label: 'Text' },
+        // We always include text so we don't need to provide this option
+        // { value: 'text', label: 'Text' },
         { value: 'toggle', label: 'Toggle' }
       ] satisfies Array<{ value: SelectedComponents; label: string }>,
       required: false,
@@ -314,7 +315,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       name: 'nativewindui' as StylingSelect,
       type: 'styling',
       options: {
-        selectedComponents: selectedComponents
+        selectedComponents: [...selectedComponents, 'text']
       }
     });
 

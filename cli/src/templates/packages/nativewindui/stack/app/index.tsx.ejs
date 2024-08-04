@@ -89,9 +89,7 @@ export default function Screen() {
       estimatedItemSize={200}
       contentContainerClassName="py-4 android:pb-12"
       extraData={searchValue}
-      <% if (props.stylingPackage?.options.selectedComponents.includes('text')) { %>
       removeClippedSubviews={false} // used for selecting text on android
-      <% } %>
       keyExtractor={keyExtractor}
       ItemSeparatorComponent={renderItemSeparator}
       renderItem={renderItem}
@@ -340,7 +338,6 @@ const COMPONENTS: ComponentItem[] = [
     },
   },
   <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('text')) { %>
   {
     name: 'Text',
     component: function TextExample() {
@@ -383,8 +380,6 @@ const COMPONENTS: ComponentItem[] = [
       );
     },
   },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('text')) { %>
   {
     name: 'Selectable Text',
     component: function SelectableTextExample() {
@@ -395,7 +390,6 @@ const COMPONENTS: ComponentItem[] = [
       );
     },
   },
-  <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
   {
     name: 'Ratings Indicator',
