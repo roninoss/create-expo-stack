@@ -315,7 +315,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       name: 'nativewindui' as StylingSelect,
       type: 'styling',
       options: {
-        selectedComponents: [...selectedComponents, 'text']
+        selectedComponents: Array.from(new Set([...selectedComponents, 'text']))
       }
     });
 
