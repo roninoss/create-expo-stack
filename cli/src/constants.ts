@@ -27,7 +27,6 @@ export const nativeWindUIOptions: SelectedComponents[] = [
   'picker',
   'progress-indicator',
   'ratings-indicator',
-  'selectable-text',
   'slider',
   'text',
   'toggle'

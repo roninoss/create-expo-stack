@@ -96,23 +96,13 @@ export async function printOutput(
       const nativeWindUIComponents =
         cliResults.packages.find((p) => p.name === 'nativewindui').options.selectedComponents ?? [];
 
-      let finalList = nativeWindUIComponents;
-
-      // we shouldn't allow both text and selectable-text to be selected at the same time
-      if (
-        nativeWindUIComponents.some((component) => component === 'text') &&
-        nativeWindUIComponents.some((component) => component === 'selectable-text')
-      ) {
-        finalList = nativeWindUIComponents.filter((component) => component !== 'text');
-      }
-
       if (nativeWindUIComponents.length > 0 && !options.blank) {
-        info(`Adding nativewindui components...`);
+        s.start(`Adding nativewindui components...`);
 
-        info(`${runnerType} nwui-cli@latest add ${finalList.join(' ')}`);
+        info(`${runnerType} nwui-cli@latest add ${nativeWindUIComponents.join(' ')}`);
 
         await runSystemCommand({
-          command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalList.join(' ')}`,
+          command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${nativeWindUIComponents.join(' ')}`,
           errorMessage: 'Error adding nativewindui components',
           toolbox,
           stdio: undefined,
@@ -128,13 +118,7 @@ export async function printOutput(
           }
         });
 
-        // once we have the examples changes we can remove this👇
-        await runSystemCommand({
-          command: `rm -r ${projectName}/components/nativewindui/examples`,
-          errorMessage: 'Error removing nativewindui examples',
-          toolbox,
-          stdio: undefined
-        });
+        s.stop('Nativewindui components added!');
       }
     }
   } else {

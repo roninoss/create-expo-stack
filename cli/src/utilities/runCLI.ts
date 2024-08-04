@@ -297,7 +297,6 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         { value: 'picker', label: 'Picker' },
         { value: 'progress-indicator', label: 'Progress Indicator' },
         { value: 'ratings-indicator', label: 'Ratings Indicator' },
-        { value: 'selectable-text', label: 'Selectable Text' },
         { value: 'slider', label: 'Slider' },
         { value: 'text', label: 'Text' },
         { value: 'toggle', label: 'Toggle' }
