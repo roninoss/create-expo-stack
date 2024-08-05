@@ -329,10 +329,13 @@ const command: GluegunCommand = {
             const nativeWindUIComponents =
               cliResults.packages.find((p) => p.name === 'nativewindui')?.options.selectedComponents ?? [];
 
-            if (nativeWindUIComponents.length === 0) {
+            // we do this to account for older stored config e.g that has selectable text in it
+            const onlyValidComponents = nativeWindUIComponents.filter((c) => nativeWindUIOptions.includes(c));
+
+            if (onlyValidComponents.length === 0) {
               script += '--blank ';
-            } else if (nativeWindUIComponents.length !== nativeWindUIOptions.length) {
-              script += `--selected-components=${nativeWindUIComponents.join(',')} `;
+            } else if (onlyValidComponents.length !== nativeWindUIOptions.length) {
+              script += `--selected-components=${onlyValidComponents.join(',')} `;
             }
 
             // this should always be expo router for nwui

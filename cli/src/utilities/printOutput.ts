@@ -1,5 +1,6 @@
 import { outro, spinner } from '@clack/prompts';
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
+import { nativeWindUIOptions } from '../constants';
 import { AvailablePackages, CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
 import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager';
@@ -95,7 +96,12 @@ export async function printOutput(
       const nativeWindUIComponents =
         cliResults.packages.find((p) => p.name === 'nativewindui').options.selectedComponents ?? [];
 
-      const finalComponents = Array.from(new Set([...nativeWindUIComponents, 'text']));
+      // we do this to account for older stored config e.g that has selectable text in it
+      const onlySupportedComponents = nativeWindUIComponents.filter((component) =>
+        nativeWindUIOptions.includes(component)
+      );
+
+      const finalComponents = Array.from(new Set([...onlySupportedComponents, 'text']));
 
       s.start(`Adding nativewindui components...`);
 
