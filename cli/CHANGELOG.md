@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.15
+
+### Patch Changes
+
+- [#379](https://github.com/roninoss/create-expo-stack/pull/379) [`6783c48b330bb854321ce10666ca50a8e2e5cc4f`](https://github.com/roninoss/create-expo-stack/commit/6783c48b330bb854321ce10666ca50a8e2e5cc4f) Thanks [@dannyhw](https://github.com/dannyhw)! - feat: uses nwui cli to generate project files for nwui
+
 ## 2.11.14
 
 ### Patch Changes
