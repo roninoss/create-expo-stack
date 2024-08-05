@@ -141,7 +141,7 @@ for (const packageManager of packageManagers) {
 
       expect(fileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
 
-      // once nwui cli text component is fixed we can remove this check
+      // once nwui cli examples are fixed we can remove this
       if (!finalFlags.includes('--nativewindui')) {
         const { stderr, stdout, exitCode } = await Bun.$`cd ${projectName} && bun run tsc --noEmit`;
 
