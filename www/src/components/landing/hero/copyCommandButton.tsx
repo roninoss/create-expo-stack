@@ -5,7 +5,7 @@ const CopyCommandButton = () => {
 
   function toggleIcon() {
     setDelayedCopyText();
-    copy("npx create-expo-stack");
+    copy("npx create-expo-stack@latest");
   }
 
   return (
