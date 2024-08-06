@@ -101,17 +101,17 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/hqasmei">
-            <img src="https://avatars.githubusercontent.com/u/39573679?v=4" width="100;" alt="hqasmei"/>
-            <br />
-            <sub><b>Hosna Qasmei</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/dannyhw">
             <img src="https://avatars.githubusercontent.com/u/3481514?v=4" width="100;" alt="dannyhw"/>
             <br />
             <sub><b>Daniel Williams</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/hqasmei">
+            <img src="https://avatars.githubusercontent.com/u/39573679?v=4" width="100;" alt="hqasmei"/>
+            <br />
+            <sub><b>Hosna Qasmei</b></sub>
         </a>
     </td>
     <td align="center">
