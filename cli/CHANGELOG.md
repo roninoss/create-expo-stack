@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.16
+
+### Patch Changes
+
+- [#382](https://github.com/roninoss/create-expo-stack/pull/382) [`8491601437cd5302f5627664489b7629e683581f`](https://github.com/roninoss/create-expo-stack/commit/8491601437cd5302f5627664489b7629e683581f) Thanks [@dannyhw](https://github.com/dannyhw)! - more checks on selected components list
+
 ## 2.11.15
 
 ### Patch Changes
