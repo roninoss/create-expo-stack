@@ -10,32 +10,32 @@ export async function validateProjectName(
   overwrite: boolean
 ): Promise<void> {
   const s = spinner();
+
   if (!exists(projectName)) {
     return;
   }
 
-  if (overwrite || (exists(projectName) === 'dir' && !prompt)) {
+  if (overwrite) {
     await removeAsync(projectName);
+
     return;
   }
 
-  if (prompt != null) {
-    const shouldDeleteExistingProject = await confirm({
-      message: `A folder with the name '${projectName}' already exists. Do you want to delete it?`,
-      initialValue: true
-    });
+  const shouldDeleteExistingProject = await confirm({
+    message: `A folder with the name '${projectName}' already exists. Do you want to delete it?`,
+    initialValue: true
+  });
 
-    if (isCancel(shouldDeleteExistingProject)) {
-      cancel('Cancelled... 👋');
-      return process.exit(0);
-    }
+  if (isCancel(shouldDeleteExistingProject)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
 
-    if (shouldDeleteExistingProject) {
-      s.start('Deleting existing project. This may take a minute...');
-      await removeAsync(projectName);
-      s.stop(`Deleted existing directory: ${projectName}`);
-      return;
-    }
+  if (shouldDeleteExistingProject) {
+    s.start('Deleting existing project. This may take a minute...');
+    await removeAsync(projectName);
+    s.stop(`Deleted existing directory: ${projectName}`);
+    return;
   }
 
   throw new Error(`A project with the name '${projectName}' already exists.`);
