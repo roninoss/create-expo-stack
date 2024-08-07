@@ -89,41 +89,6 @@ export async function printOutput(
     });
 
     s.stop('Project files formatted!');
-
-    const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
-
-    if (isNativeWindUISelected) {
-      const nativeWindUIComponents =
-        cliResults.packages.find((p) => p.name === 'nativewindui').options.selectedComponents ?? [];
-
-      // we do this to account for older stored config e.g that has selectable text in it
-      const onlySupportedComponents = nativeWindUIComponents.filter((component) =>
-        nativeWindUIOptions.includes(component)
-      );
-
-      const finalComponents = Array.from(new Set([...onlySupportedComponents, 'text']));
-
-      s.start(`Adding nativewindui components...`);
-
-      await runSystemCommand({
-        command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalComponents.join(' ')}`,
-        errorMessage: 'Error adding nativewindui components',
-        toolbox,
-        stdio: undefined,
-
-        // for some reason running as shell breaks nwui when running in ci
-        shell: false,
-
-        // this is how we pass env variables to the child process when not running as shell
-        env: {
-          ...process.env,
-          EXPO_NO_GIT_STATUS: '1',
-          ...(process.env.NODE_ENV === 'development' ? { API_BASE_URL: 'https://nativewindui.com' } : {})
-        }
-      });
-
-      s.stop('Nativewindui components added!');
-    }
   } else {
     s.start(`No installation found.\nCleaning up your project using ${runnerType}...`);
 
@@ -137,6 +102,41 @@ export async function printOutput(
     });
 
     s.stop('Project files formatted!');
+  }
+
+  const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
+
+  if (isNativeWindUISelected) {
+    const nativeWindUIComponents =
+      cliResults.packages.find((p) => p.name === 'nativewindui').options.selectedComponents ?? [];
+
+    // we do this to account for older stored config e.g that has selectable text in it
+    const onlySupportedComponents = nativeWindUIComponents.filter((component) =>
+      nativeWindUIOptions.includes(component)
+    );
+
+    const finalComponents = Array.from(new Set([...onlySupportedComponents, 'text']));
+
+    s.start(`Adding nativewindui components...`);
+
+    await runSystemCommand({
+      command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalComponents.join(' ')}`,
+      errorMessage: 'Error adding nativewindui components',
+      toolbox,
+      stdio: ONLY_ERRORS,
+
+      // for some reason running as shell breaks nwui when running in ci
+      shell: false,
+
+      // this is how we pass env variables to the child process when not running as shell
+      env: {
+        ...process.env,
+        EXPO_NO_GIT_STATUS: '1',
+        ...(process.env.NODE_ENV === 'development' ? { API_BASE_URL: 'https://nativewindui.com' } : {})
+      }
+    });
+
+    s.stop('Nativewindui components added!');
   }
 
   if (!options.noGit && !flags.noGit && process.env.NODE_ENV !== 'test') {
