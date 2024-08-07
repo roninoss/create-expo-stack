@@ -160,7 +160,7 @@ for (const packageManager of packageManagers) {
 test(`generates a default project with i18n`, async () => {
   const output = await generateProject({
     projectName: 'myTestProject',
-    flags: ['--default', `--i18next`, `--bun`]
+    flags: ['--default', `--i18next`, `--bun`, '--overwrite']
   });
 
   expect(output).toContain('--i18next');
