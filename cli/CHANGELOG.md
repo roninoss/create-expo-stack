@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.11.17
+
+### Patch Changes
+
+- [#387](https://github.com/roninoss/create-expo-stack/pull/387) [`bfb30b177924f815e1862c7a8a3c82c87dbcb38d`](https://github.com/roninoss/create-expo-stack/commit/bfb30b177924f815e1862c7a8a3c82c87dbcb38d) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: should always prompt about deleting unless using --overwrite
+
+- [#386](https://github.com/roninoss/create-expo-stack/pull/386) [`4793cc438515a8e44528a5cf7a3915a112e3433c`](https://github.com/roninoss/create-expo-stack/commit/4793cc438515a8e44528a5cf7a3915a112e3433c) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: allow adding nwui component without installing
+
 ## 2.11.16
 
 ### Patch Changes
