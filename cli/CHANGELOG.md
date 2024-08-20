@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.18
+
+### Patch Changes
+
+- [#390](https://github.com/roninoss/create-expo-stack/pull/390) [`d5fe3d31120f6b93ff188bff50753ba4e0030616`](https://github.com/roninoss/create-expo-stack/commit/d5fe3d31120f6b93ff188bff50753ba4e0030616) Thanks [@dannyhw](https://github.com/dannyhw)! - Allow for non interactive nwui setup
+
 ## 2.11.17
 
 ### Patch Changes
