@@ -26,15 +26,13 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
   const installFlag = cliResults.flags.noInstall ? '--no-install' : '';
 
   if (process.env.NODE_ENV === 'development') {
-    // @TODO fix this to be @latest once --no-install and --yes are live on stable
     toolbox.print.info(
-      `${runnerType} --yes nwui-cli@0.4.1-beta.1 add --yes ${installFlag} -d ${cliResults.projectName} ${finalComponents.join(' ')}`
+      `${runnerType} --yes nwui-cli@latest add --yes ${installFlag} -d ${cliResults.projectName} ${finalComponents.join(' ')}`
     );
   }
 
-  // @TODO fix this to be @latest once --no-install and --yes are live on stable
   await runSystemCommand({
-    command: `${runnerType} --yes nwui-cli@0.4.1-beta.1 add --yes ${installFlag} -d ${cliResults.projectName} ${finalComponents.join(' ')}`,
+    command: `${runnerType} --yes nwui-cli@latest add --yes ${installFlag} -d ${cliResults.projectName} ${finalComponents.join(' ')}`,
     errorMessage: 'Error adding nativewindui components',
     toolbox,
     stdio: ONLY_ERRORS,
