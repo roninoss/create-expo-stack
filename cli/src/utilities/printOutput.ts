@@ -212,7 +212,7 @@ export async function printOutput(
     highlight(`eas device:create `);
   } else {
     highlight(`${step}. cd ${projectName}`);
-    if (flags.noInstall) highlight(`${++step}. ${packageManager} install`);
+    if (!flags.noInstall) highlight(`${++step}. ${packageManager} install`);
     if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
       highlight(`${++step}. npx expo prebuild --clean`);
     }
