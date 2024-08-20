@@ -33,7 +33,11 @@ export const ALGOLIA = {
   apiKey: "XXXXXXXXXX",
 };
 
-export type OuterHeaders = "Getting Started" | "Deployment" | "Usage";
+export type OuterHeaders =
+  | "Create Expo Stack"
+  | "Getting Started"
+  | "Deployment"
+  | "Usage";
 
 export interface SidebarItem<
   TCode extends KnownLanguageCode = KnownLanguageCode,
@@ -63,6 +67,7 @@ export const SIDEBAR_HEADER_MAP: Record<
   Record<OuterHeaders, string>
 > = {
   en: {
+    "Create Expo Stack": "Create Expo Stack",
     "Getting Started": "Create Expo Stack",
     Usage: "Usage",
     Deployment: "Deployment",

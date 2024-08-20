@@ -1,11 +1,11 @@
 import { outro, spinner } from '@clack/prompts';
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
-import { nativeWindUIOptions } from '../constants';
 import { AvailablePackages, CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
 import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager';
 import { easConfigure } from './runEasConfigure';
 import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
+import { generateNWUI } from './generateNWUI';
 
 export async function printOutput(
   cliResults: CliResults,
@@ -78,6 +78,8 @@ export async function printOutput(
 
     s.stop('Packages updated!');
 
+    await generateNWUI(cliResults, toolbox);
+
     s.start(`Cleaning up your project...`);
 
     // format the files with prettier and eslint using installed packages.
@@ -90,7 +92,9 @@ export async function printOutput(
 
     s.stop('Project files formatted!');
   } else {
-    s.start(`No installation found.\nCleaning up your project using ${runnerType}...`);
+    await generateNWUI(cliResults, toolbox);
+
+    s.start(`formatting your project using ${runnerType} prettier...`);
 
     // Running prettier using global runners against the template.
     // Use --no-config to prevent using project's config (that may have plugins/dependencies)
@@ -102,41 +106,6 @@ export async function printOutput(
     });
 
     s.stop('Project files formatted!');
-  }
-
-  const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
-
-  if (isNativeWindUISelected) {
-    const nativeWindUIComponents =
-      cliResults.packages.find((p) => p.name === 'nativewindui').options.selectedComponents ?? [];
-
-    // we do this to account for older stored config e.g that has selectable text in it
-    const onlySupportedComponents = nativeWindUIComponents.filter((component) =>
-      nativeWindUIOptions.includes(component)
-    );
-
-    const finalComponents = Array.from(new Set([...onlySupportedComponents, 'text']));
-
-    s.start(`Adding nativewindui components...`);
-
-    await runSystemCommand({
-      command: `${runnerType} --yes nwui-cli@latest add --overwrite -d ${cliResults.projectName} ${finalComponents.join(' ')}`,
-      errorMessage: 'Error adding nativewindui components',
-      toolbox,
-      stdio: ONLY_ERRORS,
-
-      // for some reason running as shell breaks nwui when running in ci
-      shell: false,
-
-      // this is how we pass env variables to the child process when not running as shell
-      env: {
-        ...process.env,
-        EXPO_NO_GIT_STATUS: '1',
-        ...(process.env.NODE_ENV === 'development' ? { API_BASE_URL: 'https://nativewindui.com' } : {})
-      }
-    });
-
-    s.stop('Nativewindui components added!');
   }
 
   if (!options.noGit && !flags.noGit && process.env.NODE_ENV !== 'test') {
@@ -244,7 +213,7 @@ export async function printOutput(
     highlight(`eas device:create `);
   } else {
     highlight(`${step}. cd ${projectName}`);
-    if (!flags.noInstall) highlight(`${++step}. ${packageManager} install`);
+    if (flags.noInstall) highlight(`${++step}. ${packageManager} install`);
     if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
       highlight(`${++step}. npx expo prebuild --clean`);
     }

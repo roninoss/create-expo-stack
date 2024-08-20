@@ -15,9 +15,8 @@ import {
 import { loadConfigs, saveConfig } from './configStorage';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
 
-const priorWorkingBunVersion = '1.0.22'; // or less
-
-const minBunVersion = '1.1.11'; // or greater
+// based on eas default bun version https://docs.expo.dev/build-reference/infrastructure/#ios-server-images
+const minBunVersion = '1.1.13'; // or greater
 
 export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
   const {
@@ -194,8 +193,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     if (
       cliResults.flags.packageManager === 'bun' &&
       defaultPackageManagerVersion &&
-      semver.lt(defaultPackageManagerVersion, minBunVersion) &&
-      semver.gt(defaultPackageManagerVersion, priorWorkingBunVersion)
+      semver.lt(defaultPackageManagerVersion, minBunVersion)
     ) {
       warning('⚠️' + ' ' + ` We've detected you're using Bun v${defaultPackageManagerVersion}.`);
       info('');
