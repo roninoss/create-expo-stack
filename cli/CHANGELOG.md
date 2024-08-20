@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.19
+
+### Patch Changes
+
+- [`80d56834b320f0da55e8c6c7f9c42a0a5a6a9b0a`](https://github.com/roninoss/create-expo-stack/commit/80d56834b320f0da55e8c6c7f9c42a0a5a6a9b0a) Thanks [@danstepanov](https://github.com/danstepanov)! - revert changes in 2.11.17
+
 ## 2.11.18
 
 ### Patch Changes
