@@ -79,6 +79,8 @@ const popularCombinations = [
   ],
   // nativewindui no selections
   ['--expo-router', '--drawer+tabs', '--nativewindui', '--expo-router'],
+  // no install is important for the website cli that generates a project zip file
+  ['--nativewindui', '--no-install'],
   // nativewindui blank
   ['--expo-router', '--drawer+tabs', '--nativewindui', '--blank', '--expo-router']
 ] as const;
@@ -103,7 +105,9 @@ for (const packageManager of packageManagers) {
 
       expect(output).toContain(packageManager);
 
-      expect(output).toContain('Installing dependencies');
+      if (!finalFlags.includes('--no-install')) {
+        expect(output).toContain('Installing dependencies');
+      }
 
       const pkgjson = await import(`${pathToProject}/package.json`);
 
@@ -141,8 +145,8 @@ for (const packageManager of packageManagers) {
 
       expect(fileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
 
-      // once nwui cli examples are fixed we can remove this
-      if (!finalFlags.includes('--nativewindui')) {
+      // typecheck only works if we have packages installed
+      if (!finalFlags.includes('--no-install')) {
         const { stderr, stdout, exitCode } = await Bun.$`cd ${projectName} && bun run tsc --noEmit`;
 
         if (exitCode !== 0) {

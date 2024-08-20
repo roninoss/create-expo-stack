@@ -919,10 +919,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
 ./myTestProject/components/nativewindui/DatePicker/index.ts
 ./myTestProject/components/nativewindui/Picker.tsx
 ./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/components/nativewindui/examples
-./myTestProject/components/nativewindui/examples/date-picker.tsx
-./myTestProject/components/nativewindui/examples/picker.tsx
-./myTestProject/components/nativewindui/examples/text.tsx
 ./myTestProject/global.css
 ./myTestProject/lib
 ./myTestProject/lib/cn.ts
@@ -1080,19 +1076,156 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
 ./myTestProject/components/nativewindui/Slider.tsx
 ./myTestProject/components/nativewindui/Text.tsx
 ./myTestProject/components/nativewindui/Toggle.tsx
-./myTestProject/components/nativewindui/examples
-./myTestProject/components/nativewindui/examples/action-sheet.tsx
-./myTestProject/components/nativewindui/examples/activity-indicator.tsx
-./myTestProject/components/nativewindui/examples/activity-view.tsx
-./myTestProject/components/nativewindui/examples/avatar.tsx
-./myTestProject/components/nativewindui/examples/bottom-sheet.tsx
-./myTestProject/components/nativewindui/examples/date-picker.tsx
-./myTestProject/components/nativewindui/examples/picker.tsx
-./myTestProject/components/nativewindui/examples/progress-indicator.tsx
-./myTestProject/components/nativewindui/examples/ratings-indicator.tsx
-./myTestProject/components/nativewindui/examples/slider.tsx
-./myTestProject/components/nativewindui/examples/text.tsx
-./myTestProject/components/nativewindui/examples/toggle.tsx
+./myTestProject/global.css
+./myTestProject/lib
+./myTestProject/lib/cn.ts
+./myTestProject/lib/useColorScheme.tsx
+./myTestProject/lib/useHeaderSearchBar.tsx
+./myTestProject/metro.config.js
+./myTestProject/nativewind-env.d.ts
+./myTestProject/package.json
+./myTestProject/prettier.config.js
+./myTestProject/tailwind.config.js
+./myTestProject/theme
+./myTestProject/theme/colors.ts
+./myTestProject/theme/index.ts
+./myTestProject/tsconfig.json
+"
+`;
+
+exports[`generates a project with --nativewindui --no-install --bun --overwrite: --nativewindui, --no-install, --bun, --overwrite-package-json 1`] = `
+{
+  "dependencies": {
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
+  },
+  "devDependencies": {
+    "@babel/core": "",
+    "@types/react": "",
+    "@typescript-eslint/eslint-plugin": "",
+    "@typescript-eslint/parser": "",
+    "ajv": "",
+    "eslint": "",
+    "eslint-config-universe": "",
+    "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
+    "typescript": "",
+  },
+  "eslintConfig": {
+    "extends": "universe/native",
+    "root": true,
+  },
+  "expo": {
+    "install": {
+      "exclude": [
+        "react-native-safe-area-context",
+      ],
+    },
+  },
+  "main": "expo-router/entry",
+  "name": "myTestProject",
+  "private": true,
+  "scripts": {
+    "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
+    "ios": "expo start --ios",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
+    "prebuild": "expo prebuild",
+    "start": "expo start",
+    "web": "expo start --web",
+  },
+  "version": "1.0.0",
+}
+`;
+
+exports[`generates a project with --nativewindui --no-install --bun --overwrite: --nativewindui, --no-install, --bun, --overwrite-ces-config-json 1`] = `
+{
+  "cesVersion": undefined,
+  "flags": {
+    "eas": false,
+    "importAlias": true,
+    "noGit": false,
+    "noInstall": false,
+    "overwrite": true,
+    "packageManager": "bun",
+  },
+  "os": {},
+  "packageManager": {
+    "type": "bun",
+    "version": undefined,
+  },
+  "packages": [
+    {
+      "name": "expo-router",
+      "options": {
+        "type": "stack",
+      },
+      "type": "navigation",
+    },
+    {
+      "name": "nativewind",
+      "type": "styling",
+    },
+  ],
+  "projectName": "myTestProject",
+}
+`;
+
+exports[`generates a project with --nativewindui --no-install --bun --overwrite: --nativewindui, --no-install, --bun, --overwrite-file-list 1`] = `
+"./myTestProject
+./myTestProject/app
+./myTestProject/app.json
+./myTestProject/app/+html.tsx
+./myTestProject/app/+not-found.tsx
+./myTestProject/app/_layout.tsx
+./myTestProject/app/index.tsx
+./myTestProject/app/modal.tsx
+./myTestProject/assets
+./myTestProject/assets/adaptive-icon.png
+./myTestProject/assets/favicon.png
+./myTestProject/assets/icon.png
+./myTestProject/assets/splash.png
+./myTestProject/babel.config.js
+./myTestProject/cesconfig.json
+./myTestProject/components
+./myTestProject/components/BackButton.tsx
+./myTestProject/components/Button.tsx
+./myTestProject/components/Container.tsx
+./myTestProject/components/EditScreenInfo.tsx
+./myTestProject/components/HeaderButton.tsx
+./myTestProject/components/ScreenContent.tsx
+./myTestProject/components/TabBarIcon.tsx
+./myTestProject/components/ThemeToggle.tsx
+./myTestProject/components/nativewindui
+./myTestProject/components/nativewindui/ActivityIndicator.tsx
+./myTestProject/components/nativewindui/Avatar.tsx
+./myTestProject/components/nativewindui/DatePicker
+./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
+./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
+./myTestProject/components/nativewindui/DatePicker/index.ts
+./myTestProject/components/nativewindui/Picker.tsx
+./myTestProject/components/nativewindui/ProgressIndicator.tsx
+./myTestProject/components/nativewindui/Sheet.tsx
+./myTestProject/components/nativewindui/Slider.tsx
+./myTestProject/components/nativewindui/Text.tsx
+./myTestProject/components/nativewindui/Toggle.tsx
 ./myTestProject/global.css
 ./myTestProject/lib
 ./myTestProject/lib/cn.ts
@@ -1239,8 +1372,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
 ./myTestProject/components/ThemeToggle.tsx
 ./myTestProject/components/nativewindui
 ./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/components/nativewindui/examples
-./myTestProject/components/nativewindui/examples/text.tsx
 ./myTestProject/global.css
 ./myTestProject/lib
 ./myTestProject/lib/cn.ts
