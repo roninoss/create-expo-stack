@@ -28,11 +28,12 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
     : `--yes -d ${cliResults.projectName}`;
 
   if (process.env.NODE_ENV === 'development') {
-    toolbox.print.info(`${runnerType} --yes nwui-cli@latest add ${flags} ${finalComponents.join(' ')}`);
+    toolbox.print.info(`${runnerType} --yes nwui-cli@^0.4.1 add ${flags} ${finalComponents.join(' ')}`);
   }
 
+  // @latest is getting cached when using bunx
   await runSystemCommand({
-    command: `${runnerType} --yes nwui-cli@latest add ${flags} ${finalComponents.join(' ')}`,
+    command: `${runnerType} --yes nwui-cli@^0.4.1 add ${flags} ${finalComponents.join(' ')}`,
     errorMessage: 'Error adding nativewindui components',
     toolbox,
     stdio: ONLY_ERRORS,
