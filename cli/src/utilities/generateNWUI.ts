@@ -23,12 +23,12 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
 
   toolbox.print.info(`Adding nativewindui components...`);
 
-  const flags = cliResults.flags.noInstall ? `--yes --no-install -d ${cliResults.projectName}` : `--yes -d ${cliResults.projectName}`;
+  const flags = cliResults.flags.noInstall
+    ? `--yes --no-install -d ${cliResults.projectName}`
+    : `--yes -d ${cliResults.projectName}`;
 
   if (process.env.NODE_ENV === 'development') {
-    toolbox.print.info(
-      `${runnerType} --yes nwui-cli@latest add ${flags} ${finalComponents.join(' ')}`
-    );
+    toolbox.print.info(`${runnerType} --yes nwui-cli@latest add ${flags} ${finalComponents.join(' ')}`);
   }
 
   await runSystemCommand({
