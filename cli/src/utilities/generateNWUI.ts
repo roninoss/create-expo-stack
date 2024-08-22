@@ -3,6 +3,7 @@ import { CliResults } from '../types';
 import { nativeWindUIOptions } from '../constants';
 import { getPackageManagerRunnerX } from './getPackageManager';
 import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
+import { spinner } from '@clack/prompts';
 
 export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolbox) {
   const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
@@ -10,6 +11,8 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
   if (!isNativeWindUISelected) {
     return;
   }
+
+  const s = spinner();
 
   const runnerType = getPackageManagerRunnerX(toolbox, cliResults);
 
@@ -21,19 +24,22 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
 
   const finalComponents = Array.from(new Set([...onlySupportedComponents, 'text']));
 
-  toolbox.print.info(`Adding nativewindui components...`);
+  s.start(`Adding nativewindui components...`);
 
   const flags = cliResults.flags.noInstall
     ? `--yes --no-install -d ${cliResults.projectName}`
     : `--yes -d ${cliResults.projectName}`;
 
+  // --yes accepts installing packages without prompting
+  const runCommand = runnerType === 'npx' ? `${runnerType} --yes` : runnerType;
+
   if (process.env.NODE_ENV === 'development') {
-    toolbox.print.info(`${runnerType} --yes nwui-cli@^0.4.1 add ${flags} ${finalComponents.join(' ')}`);
+    toolbox.print.info(`${runCommand} nwui-cli@^0.4.1 add ${flags} ${finalComponents.join(' ')}`);
   }
 
   // @latest is getting cached when using bunx
   await runSystemCommand({
-    command: `${runnerType} --yes nwui-cli@^0.4.1 add ${flags} ${finalComponents.join(' ')}`,
+    command: `${runCommand} nwui-cli@^0.4.1 add ${flags} ${finalComponents.join(' ')}`,
     errorMessage: 'Error adding nativewindui components',
     toolbox,
     stdio: ONLY_ERRORS,
@@ -48,5 +54,5 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
     }
   });
 
-  toolbox.print.info('Nativewindui components added!');
+  s.stop('Nativewindui components added!');
 }
