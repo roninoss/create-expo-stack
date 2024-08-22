@@ -15,7 +15,8 @@ import {
 import { loadConfigs, saveConfig } from './configStorage';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
 
-const minBunVersion = '1.1.17'; // or greater
+// based on eas default bun version https://docs.expo.dev/build-reference/infrastructure/#ios-server-images
+const minBunVersion = '1.1.13'; // or greater
 
 export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
   const {
