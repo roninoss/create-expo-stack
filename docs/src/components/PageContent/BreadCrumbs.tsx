@@ -7,7 +7,7 @@ type SlugType = "" | "deployment" | "usage";
 
 export default function BreadCrumbs() {
   const lang = getLanguageFromURL(window.location.href);
-  const isRtl = getIsRtlFromLangCode(lang ?? "en");
+  const _isRtl = getIsRtlFromLangCode(lang ?? "en");
   const slugToEntryPath = (slug: SlugType): OuterHeaders => {
     switch (slug) {
       case "":
@@ -71,7 +71,7 @@ export default function BreadCrumbs() {
         Docs
       </div>
       <ChevronRightIcon className="h-4 w-4" />
-      {breadcrumbs.map((crumb, index) => (
+      {breadcrumbs.map((crumb, _index) => (
         <div key={crumb.key} className="font-medium text-foreground">
           {crumb.text}
         </div>
@@ -80,7 +80,7 @@ export default function BreadCrumbs() {
   );
 }
 
-function BreadCrumbsArrow(props: { isRtl: boolean }) {
+function _BreadCrumbsArrow(props: { isRtl: boolean }) {
   return (
     <svg
       className={clsx(props.isRtl && "rotate-180")}
