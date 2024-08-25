@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.11.20
+
+### Patch Changes
+
+- [#402](https://github.com/roninoss/create-expo-stack/pull/402) [`41915494797d9fcf63d416b1607404703817b623`](https://github.com/roninoss/create-expo-stack/commit/41915494797d9fcf63d416b1607404703817b623) Thanks [@salloom-domani](https://github.com/salloom-domani)! - add missing compoents dir to tailwind config
+
+- [#396](https://github.com/roninoss/create-expo-stack/pull/396) [`53ef2d97a77f705255778a1bfbe3227ef78f3221`](https://github.com/roninoss/create-expo-stack/commit/53ef2d97a77f705255778a1bfbe3227ef78f3221) Thanks [@dannyhw](https://github.com/dannyhw)! - re-add updated nwui components
+
 ## 2.11.19
 
 ### Patch Changes
