@@ -1,6 +1,7 @@
 # Create Expo Stack CLI
 
-[![Discord](https://img.shields.io/discord/1173879003191459860?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://expostack.dev/discord) [![NPM version][npm-image]][npm-url]
+[![Discord](https://img.shields.io/discord/1173879003191459860?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://expostack.dev/discord)
+[![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
 
 <p align="center">
@@ -8,7 +9,10 @@
 </p>
 
 <p align="center">
-  Get started by running <code>npx create-expo-stack</code>
+  Get started by running <code>npx create-expo-stack@latest</code>
+
+<p align="center">
+  🎉 Over 50k Expo projects generated using CES! 🎉
 
 ## Sponsors
 
@@ -20,11 +24,14 @@ Support this project by <a href="https://github.com/sponsors/danstepanov" target
 <a href="https://expo.dev/" target="_blank" style="margin: 10px;">
   <img src="https://expostack.dev/expo-logo.svg"  style="border-radius: 50%;">
 </a>
-<a href="https://github.com/derkweijers" target="_blank" style="margin: 10px;">
-  <img src="https://avatars.githubusercontent.com/u/11644998?v=4" height="64" width="64" style="border-radius: 50%;">
-</a>
 <a href="https://paradigmpost.com" target="_blank" style="margin: 10px;">
   <img src="https://expostack.dev/paradigmpost.png" height="64" width="64" style="border-radius: 50%;">
+</a>
+
+## Past Sponsors
+
+<a href="https://github.com/derkweijers" target="_blank" style="margin: 10px;">
+  <img src="https://avatars.githubusercontent.com/u/11644998?v=4" height="64" width="64" style="border-radius: 50%;">
 </a>
 
 ## Description
