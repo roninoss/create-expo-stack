@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     <% if (props.navigationPackage?.name === "react-navigation") { %>
-      content: ["./App.{js,ts,tsx}", "./components/**/*.{js,ts,tsx}", "./screens/**/*.{js,ts,tsx}, "./navigation/**/*.{js,ts,tsx}""],
+      content: ["./App.{js,ts,tsx}", "./components/**/*.{js,ts,tsx}", "./screens/**/*.{js,ts,tsx}", "./navigation/**/*.{js,ts,tsx}"],
     <% } else if (props.navigationPackage?.name === "expo-router") { %>
       content: ["./app/**/*.{js,ts,tsx}", "./components/**/*.{js,ts,tsx}"],
     <% } else { %>
