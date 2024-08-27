@@ -43,10 +43,6 @@ export function configureProjectFiles(
   }
 
   const packageManager = getPackageManager(toolbox, cliResults);
-  // Add npmrc file if user is using pnpm and expo router
-  if (packageManager === 'pnpm') {
-    baseFiles.push('base/.npmrc.ejs');
-  }
 
   if (stylingPackage?.name === 'nativewindui') {
     let nativewindUIFiles = [
@@ -351,6 +347,11 @@ export function configureProjectFiles(
 
       files = [...files, ...i18nextFiles];
     }
+  }
+
+  // Add npmrc file if user is using pnpm
+  if (packageManager === 'pnpm') {
+    files.push('base/.npmrc.ejs');
   }
 
   const packageManagerVersion = getVersionForPackageManager(cliResults.flags.packageManager);
