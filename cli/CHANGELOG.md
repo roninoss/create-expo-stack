@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.22
+
+### Patch Changes
+
+- [#406](https://github.com/roninoss/create-expo-stack/pull/406) [`c31dedbf8c3ebf87b9104d961962f6146195d8d1`](https://github.com/roninoss/create-expo-stack/commit/c31dedbf8c3ebf87b9104d961962f6146195d8d1) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: make sure npmrc gets added for pnpm
+
 ## 2.11.21
 
 ### Patch Changes
