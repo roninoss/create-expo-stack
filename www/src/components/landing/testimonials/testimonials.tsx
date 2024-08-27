@@ -1,12 +1,14 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { AUTHORS } from "../../../config";
 
 export default function Testimonials() {
   const innerScrollerRef = useRef<HTMLDivElement | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   interface Author {
     name: string;
-    position: string;
+    handle: string;
+    position?: string;
     image: string;
     alt: string;
     testimonial: string;
@@ -47,7 +49,7 @@ export default function Testimonials() {
           <figcaption className="mt-10 flex items-center gap-x-6">
             <img
               className="h-14 w-14 rounded-3xl bg-gray-50"
-              src={author.image}
+              src={`images/${author.image}`}
               alt={author.alt}
               width={56}
               height={56}
@@ -62,6 +64,8 @@ export default function Testimonials() {
     );
   };
 
+  const visibleTestimonials = showAll ? AUTHORS : AUTHORS.slice(0, 3);
+
   return (
     <section className="z-10 w-[90%] lg:w-[70%] sm:w-auto">
       <h1 className="text-center text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[4rem] xl:text-[4rem] pb-16 pt-24 2xl:pt-12">
@@ -72,11 +76,21 @@ export default function Testimonials() {
           ref={innerScrollerRef}
           className="infinite-scroll-x sm:w-max sm:pt-8 relative sm:flex flex-nowrap mx-auto grid max-w-2xl grid-cols-1 sm:mx-0 sm:max-w-none"
         >
-          {AUTHORS.map((author: Author, key: number) =>
+          {visibleTestimonials.map((author: Author, key: number) =>
             Testimonial(author, key),
           )}
         </div>
       </div>
+      {!showAll && AUTHORS.length > 3 && (
+        <div className="text-center my-4 md:hidden">
+          <button
+            onClick={() => setShowAll(true)}
+            className="bg-white text-black px-4 py-2 rounded-md hover:bg-gray-200 transition-colors"
+          >
+            Show More Reviews
+          </button>
+        </div>
+      )}
     </section>
   );
 }

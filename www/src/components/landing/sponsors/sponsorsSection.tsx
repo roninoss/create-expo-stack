@@ -24,7 +24,7 @@ export default function SponsorsSection() {
       </div>
 
       <div className="flex flex-col items-center gap-6">
-        <div className="flex flex-wrap gap-6 w-[18rem]items-center justify-center sm:w-[23rem]">
+        <div className="flex flex-wrap gap-6 w-[18rem]items-center justify-center">
           {SPONSORS.map((sponsor) => (
             <Sponsor sponsor={sponsor} key={SPONSORS.indexOf(sponsor)} />
           ))}

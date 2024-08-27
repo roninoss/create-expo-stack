@@ -45,38 +45,94 @@ export const SPONSORS = [
     html_url: "https://paradigmpost.com/",
     image_url: "/paradigmpost.png",
   },
+  {
+    id: 5,
+    name: "4ndrs",
+    html_url: "https://github.com/4ndrs",
+    image_url: "/4ndrs.jpeg",
+  },
 ];
 
 export const AUTHORS = [
   {
-    name: "Ansh Nanda",
-    position: "Software Engineer at Bluesky",
-    image: "images/ansh.jpeg",
+    name: "Vadim Savin",
+    handle: "vadimnotjustdev",
+    url: "https://x.com/VadimNotJustDev/status/1800413369150918821",
+    position: "Not Just Dev",
+    image: "vadim.jpeg",
+    alt: "vadim",
+    testimonial: `Next time you start a new expo project, just run:
+    
+    $ npx create-expo-stack`,
+  },
+  {
+    name: "Ansh",
+    handle: "anshnanda_",
+    url: "",
+    position: "Bluesky",
+    image: "ansh.jpeg",
     alt: "ansh",
     testimonial:
       "This is great! I've been using this for a ton of proof of concept applications. This serves my needs better than using create-expo-app.",
   },
   {
-    name: "Yefim Vedernikoff",
-    position: "Software Engineer at Partiful",
-    image: "images/yefim.jpeg",
+    name: "Yefim",
+    handle: "yefim",
+    position: "Partiful",
+    image: "yefim.jpeg",
     alt: "yefim",
     testimonial:
       "Thanks for building create-expo-stack! It's helped our team to quickly spin up apps and test various modules prior to adding them to our production application.",
   },
   {
+    name: "Jacek",
+    handle: "jpudysz",
+    position: "Unistyles",
+    image: "jacek.jpeg",
+    alt: "jacek",
+    testimonial:
+      "You can now build Unistyles powered apps with Create Expo Stack!",
+  },
+  {
     name: "Agustín Falco",
-    position: "Software Engineer at Vercel",
-    image: "images/agustin.jpeg",
+    handle: "falcoagustin",
+    position: "Vercel",
+    image: "agustin.jpeg",
     alt: "agustin",
     testimonial: "I’ve been checking out create-expo-stack! Very nice!!",
   },
   {
     name: "nexxel",
-    position: "Software Engineer at Dimension",
-    image: "images/nexxel.jpeg",
+    handle: "nexxeln",
+    position: "Leapflow",
+    image: "nexxel.jpeg",
     alt: "nexxel",
     testimonial: "Building a mobile app soon, def will use create-expo-stack!",
+  },
+  {
+    name: "Abaz Udosen",
+    handle: "abazudosen",
+    position: "One Afro Dev",
+    image: "abaz.jpeg",
+    alt: "abazudosen",
+    testimonial:
+      "Streamline your Expo project setup! Use npx create-expo-stack instead of npx create-expo-app to configure and install common packages easily.",
+  },
+  {
+    name: "Lucky Israel",
+    handle: "iluckyisrael",
+    image: "lucky.jpeg",
+    alt: "iluckyisrael",
+    testimonial:
+      "Use create-expo-stack to bootstrap your new react native projects, you'd thank @DanStepanov",
+  },
+  {
+    name: "FastheDeveloper",
+    handle: "fasthecr3ator",
+    image: "fasthe.jpeg",
+    alt: "fasthecr3ator",
+    testimonial:
+      "I recently found out create-expo-stack@latest and it's been a breeze setting up project details.",
   },
 ];
 
