@@ -20,7 +20,7 @@ const roadmapData = [
   {
     index: 2,
     version: "v2.12.x",
-    date: "July",
+    date: "August",
     active: true,
     title: "Enhanced Testing Suite",
     description:
@@ -29,25 +29,16 @@ const roadmapData = [
   {
     index: 3,
     version: "v2.13.x",
-    date: "July",
-    active: false,
-    title: "Runtime Testing with Maestro",
-    description:
-      "Validate that the generated code is functions as expected. We'll ensure that navigation, component layout, and state management are all working as intended.",
-  },
-  {
-    index: 4,
-    version: "v2.14.x",
-    date: "July",
+    date: "September",
     active: false,
     title: "Unified Design System",
     description:
       "Not much thought went into our current aesthetic. We'd like to introduce an elegant theme across all of our styling libraries for you to use so you focus more on what you're actually trying to build.",
   },
   {
-    index: 5,
-    version: "v2.15.x",
-    date: "July",
+    index: 4,
+    version: "v2.14.x",
+    date: "October",
     active: false,
     title: "Dark Mode Support",
     description:
@@ -95,9 +86,9 @@ export default function Roadmap() {
                 </div>
               </div>
               <div
-                className={`mb-2 flex w-full flex-col gap-2 rounded-lg bg-white/5 backdrop-saturate-150 px-4 py-4 backdrop-blur-[2px] ${
-                  item.active && "rounded-t-3xl"
-                }`}
+                className={
+                  "mb-2 flex w-full flex-col gap-2 rounded-lg bg-white/5 backdrop-saturate-150 px-4 py-4 backdrop-blur-[2px]"
+                }
               >
                 <h3 className="text-left sm:text-center text-base font-bold sm:text-lg">
                   {item.title}

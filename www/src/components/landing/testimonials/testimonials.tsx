@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AUTHORS } from "../../../config";
 
 export default function Testimonials() {
   const innerScrollerRef = useRef<HTMLDivElement | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   interface Author {
     name: string;
@@ -64,7 +65,18 @@ export default function Testimonials() {
     );
   };
 
-  const visibleTestimonials = showAll ? AUTHORS : AUTHORS.slice(0, 3);
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is the default breakpoint for md in Tailwind
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const visibleTestimonials =
+    !isMobile || showAll ? AUTHORS : AUTHORS.slice(0, 3);
 
   return (
     <section className="z-10 w-[90%] lg:w-[70%] sm:w-auto">
@@ -81,7 +93,7 @@ export default function Testimonials() {
           )}
         </div>
       </div>
-      {!showAll && AUTHORS.length > 3 && (
+      {isMobile && !showAll && AUTHORS.length > 3 && (
         <div className="text-center my-4 md:hidden">
           <button
             onClick={() => setShowAll(true)}
