@@ -20,7 +20,7 @@ export const contributors = [
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
         "site_admin": false,
-        "contributions": 378
+        "contributions": 380
     },
     {
         "login": "dannyhw",
