@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.21
+
+### Patch Changes
+
+- [`f9506edf2bb1bc36f0b17fcae043577742f8c6da`](https://github.com/roninoss/create-expo-stack/commit/f9506edf2bb1bc36f0b17fcae043577742f8c6da) Thanks [@danstepanov](https://github.com/danstepanov)! - add new sponsors to README
+
 ## 2.11.20
 
 ### Patch Changes
