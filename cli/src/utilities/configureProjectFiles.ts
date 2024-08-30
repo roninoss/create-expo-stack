@@ -308,6 +308,13 @@ export function configureProjectFiles(
       files = [...files, ...expoRouterFiles];
     }
 
+    // add clerk files if needed
+    if (authenticationPackage?.name === 'clerk') {
+      const clerkFiles = ['packages/clerk/.env.ejs'];
+
+      files = [...files, ...clerkFiles];
+    }
+
     // add supabase files if needed
     if (authenticationPackage?.name === 'supabase') {
       const supabaseFiles = ['packages/supabase/utils/supabase.ts.ejs', 'packages/supabase/.env.ejs'];
@@ -315,7 +322,7 @@ export function configureProjectFiles(
       files = [...files, ...supabaseFiles];
     }
 
-    // add supabase files if needed
+    // add firebase files if needed
     if (authenticationPackage?.name === 'firebase') {
       const firebaseFiles = [
         'packages/firebase/utils/firebase.ts.ejs',

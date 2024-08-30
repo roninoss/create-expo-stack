@@ -65,6 +65,7 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--react-navigation` | Use React Navigation for navigation, stack navigator by default                |
 | `--tabs`             | Use a Tab navigator (pass with either Expo Router or React Navigation flag)    |
 | `--drawer`           | Use a Drawer navigator (pass with either Expo Router or React Navigation flag) |
+| `--clerk`            | Use Clerk for authentication, initial configuration only                       |
 | `--firebase`         | Use Firebase for authentication, initial configuration only                    |
 | `--supabase`         | Use Supabase for authentication, initial configuration only                    |
 | `--vexo-analytics`   | Use Vexo Analytics for analytics, initial configuration only                   |

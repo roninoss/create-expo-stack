@@ -19,6 +19,10 @@ export function generateProjectFiles(
     const template = file;
     let target = file.replace('.ejs', '');
 
+    if (authenticationPackage?.name === 'clerk') {
+      target = target.replace('packages/clerk/', '');
+    }
+
     if (authenticationPackage?.name === 'supabase') {
       target = target.replace('packages/supabase/', '');
     }

@@ -27,6 +27,7 @@ export function showHelp(info, highlight, warning) {
   info('    	--drawer+tabs     Use drawer + tabs for navigation');
   info('');
   highlight('   Authentication Package Options');
+  info('      --clerk           User Clerk for authentication');
   info('    	--firebase        Use Firebase for authentication');
   info('    	--supabase        Use Supabase for authentication');
   info('');

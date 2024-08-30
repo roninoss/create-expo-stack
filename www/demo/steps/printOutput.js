@@ -54,8 +54,27 @@ export function printOutput(cliResults) {
   const stepsToRunProject = generateStepsToRunProject(cliResults);
   const authenticationPackage =
     cliResults.packages.find((p) => p.type === "authentication") || undefined;
-  //	check if packages includes package with name "supabase"
-  if (authenticationPackage && authenticationPackage.name === "supabase") {
+  //	check if packages includes package with name "clerk"
+  if (authenticationPackage && authenticationPackage.name === "clerk") {
+    return `${color.green(`\nSuccess! 🎉  Now, here's what's next:`)}
+    \n ${color.blue(
+      "Head over to https://dashboard.clerk.dev to create a new Clerk project.",
+    )}
+    \n${color.blue(`Get the Clerk Publishable API Key:`)}
+    \n1. Go to the API keys page in the Dashboard.
+    \n2. Find your Publishable API Key on this page.
+    \n3. Copy this key and paste it into your .env file.
+    \n4. Optionally, follow one of these guides to get started with Clerk:
+    \n${color.blue(`https://clerk.com/docs/quickstarts/expo`)}
+    \n${color.green(
+      `Once you're done, run the following to get started: `,
+    )}\n\n${stepsToRunProject}
+    `;
+    //	check if packages includes package with name "supabase"
+  } else if (
+    authenticationPackage &&
+    authenticationPackage.name === "supabase"
+  ) {
     return `${color.green(`\nSuccess! 🎉  Now, here's what's next:`)}
     \n${color.blue(
       "Head over to https://database.new to create a new Supabase project.",

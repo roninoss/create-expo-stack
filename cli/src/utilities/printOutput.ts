@@ -142,8 +142,20 @@ export async function printOutput(
     info(``);
   };
 
-  //	check if packages includes package with name "supabase"
-  if (cliResults.packages.some((pkg) => pkg.name === 'supabase')) {
+  if (cliResults.packages.some((pkg) => pkg.name === 'clerk')) {
+    success(`\nSuccess! 🎉  Now, here's what's next:`);
+    info(``);
+    highlight('Head over to https://dashboard.clerk.dev to create a new Clerk project.');
+    info(``);
+    highlight(`Get the Clerk Publishable API Key:`);
+    info(`1. Go to the API keys page in the Dashboard.`);
+    info(`2. Find your Publishable API Key on this page.`);
+    info(`3. Copy this key and paste it into your .env file.`);
+    info(`4. Optionally, follow one of these guides to get started with Clerk:`);
+    highlight(`https://clerk.com/docs/quickstarts/expo`);
+    success(`Once you're done, run the following to get started: `);
+    info(``);
+  } else if (cliResults.packages.some((pkg) => pkg.name === 'supabase')) {
     success(`\nSuccess! 🎉 Now, here's what's next:`);
     info(``);
     highlight('Head over to https://database.new to create a new Supabase project.');

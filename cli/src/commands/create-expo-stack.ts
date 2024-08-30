@@ -296,6 +296,14 @@ const command: GluegunCommand = {
           });
         }
 
+        if (options.clerk) {
+          // Add clerk package
+          cliResults.packages.push({
+            name: 'clerk',
+            type: 'authentication'
+          });
+        }
+
         // Internalization packages
         if (options.i18next) {
           cliResults.packages.push({

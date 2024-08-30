@@ -1,6 +1,10 @@
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 
+<% if (props.authenticationPackage?.name === "clerk") { %>
+  import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
+<% } %>
+
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
   import { InternalizationExample } from 'components/InternalizationExample';
@@ -28,46 +32,55 @@ import { StatusBar } from 'expo-status-bar';
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
 
-<% if (props.stylingPackage?.name === "restyle") {%>
-  export default function App() {   
-    return (
-      <ThemeProvider theme={theme}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    );
-  }
-<% } else if (props.stylingPackage?.name === "tamagui") {%>
-  export default function App() {
-    return (
-      <TamaguiProvider config={config}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } else { %>
-          <Text>Open up App.tsx to start working on your app!</Text>
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </TamaguiProvider>
-    );
-  }
-<% } else { %>
-  export default function App() {
-    return (
-      <>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </>
-    );
+export default function App() {   
+<% if (props.authenticationPackage?.name === "clerk") { %>
+  const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  if (!clerkPublishableKey) {
+    throw new Error('Missing EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY, add one in your .env file');
   }
 <% } %>
+
+  return (
+<% if (props.authenticationPackage?.name === "clerk") { %>
+    <ClerkProvider publishableKey={clerkPublishableKey}>
+      <ClerkLoaded>
+<% } else { %>
+    <>
+<% } %>
+<% if (props.stylingPackage?.name === "restyle") {%>
+        <ThemeProvider theme={theme}>
+          <ScreenContent title="Home" path="App.tsx">
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
+          </ScreenContent>
+          <StatusBar style="auto" />
+        </ThemeProvider>
+<% } else if (props.stylingPackage?.name === "tamagui") {%>
+        <TamaguiProvider config={config}>
+          <ScreenContent title="Home" path="App.tsx">
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } else { %>
+            <Text>Open up App.tsx to start working on your app!</Text>
+          <% } %>
+          </ScreenContent>
+          <StatusBar style="auto" />
+        </TamaguiProvider>
+<% } else { %>
+        <ScreenContent title="Home" path="App.tsx">
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } %>
+        </ScreenContent>
+        <StatusBar style="auto" />
+<% } %>
+<% if (props.authenticationPackage?.name === "clerk") { %>
+      </ClerkLoaded>
+    </ClerkProvider>
+<% } else { %>
+    </>
+<% } %>
+  );
+}
 

@@ -12,6 +12,9 @@ import '../unistyles';
   import '../translation';
 <% } %>
 
+<% if (props.authenticationPackage?.name === "clerk") { %>
+  import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
+<% } %>
 import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Stack } from 'expo-router';
@@ -43,6 +46,14 @@ export const unstable_settings = {
 };
 
 export default function RootLayout() {
+
+  <% if (props.authenticationPackage?.name === "clerk") { %>
+    const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+    if (!clerkPublishableKey) {
+      throw new Error('Missing EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY, add one in your .env file');
+    }
+  <% } %>
+
   <% if (props.stylingPackage?.name==="tamagui" ) { %>
     const [loaded] = useFonts({
       Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
@@ -64,12 +75,20 @@ export default function RootLayout() {
     	<% } else if (props.stylingPackage?.name === "restyle") { %>
     		<ThemeProvider theme={theme}>
     	<% } %>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <Stack>
-            <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
-          </Stack>
-        </GestureHandlerRootView>
+      <% if (props.authenticationPackage?.name === "clerk") { %>
+          <ClerkProvider publishableKey={clerkPublishableKey}>
+            <ClerkLoaded>
+      <% } %>
+              <GestureHandlerRootView style={{ flex: 1 }}>
+                <Stack>
+                  <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+                  <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
+                </Stack>
+              </GestureHandlerRootView>
+      <% if (props.authenticationPackage?.name === "clerk") { %>
+            </ClerkLoaded>
+          </ClerkProvider>
+      <% } %>
       <% if (props.stylingPackage?.name === "tamagui") { %>
         </TamaguiProvider>
       <% } else if (props.stylingPackage?.name === "restyle") { %>

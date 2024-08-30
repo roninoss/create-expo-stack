@@ -130,6 +130,10 @@
 	<% if (props.authenticationPackage?.name === "firebase") { %>
 	  "firebase": "^10.5.2",
 	<% } %>
+
+  <% if (props.authenticationPackage?.name === "clerk") { %>
+    "@clerk/clerk-expo": "^2.2.5",
+  <% } %>
   
   <% if (props.internalizationPackage?.name === "i18next") { %>
     "i18next": "^23.7.20",
