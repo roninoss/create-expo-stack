@@ -10,6 +10,10 @@ import './unistyles';
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
 <% } %>
+
+<% if (props.authenticationPackage?.name === "clerk") { %>
+  import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
+<% } %>
 import "react-native-gesture-handler";
 <% if (props.stylingPackage?.name === "tamagui") { %>
 	import React, { useEffect } from "react";
@@ -36,6 +40,13 @@ import "react-native-gesture-handler";
 <% } %>
 
 export default function App() {
+  <% if (props.authenticationPackage?.name === "clerk") { %>
+    const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+    if (!clerkPublishableKey) {
+      throw new Error('Missing EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY, add one in your .env file');
+    }
+  <% } %>
+
 	<% if (props.stylingPackage?.name === "tamagui") { %>
 		const [loaded] = useFonts({
 			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
@@ -51,19 +62,29 @@ export default function App() {
 		if (!loaded) {
 			return null;
 		}
+  <% } %>
 
-		return (
-			<TamaguiProvider config={config}>
-				<RootStack />
-			</TamaguiProvider>
-		);
-	<% } else if (props.stylingPackage?.name === "restyle") { %>
-		return (
+  return (
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+      <TamaguiProvider config={config}>
+    <% } %>
+    <% if (props.stylingPackage?.name === "restyle") { %>
       <ThemeProvider theme={theme}>
-        <RootStack />
+    <% } %>
+    <% if (props.authenticationPackage?.name === "clerk") { %>
+        <ClerkProvider>
+          <ClerkLoaded>
+    <% } %>
+            <RootStack />
+    <% if (props.authenticationPackage?.name === "clerk") { %>
+          </ClerkLoaded>
+        </ClerkProvider>
+    <% } %>
+    <% if (props.stylingPackage?.name === "restyle") { %>
       </ThemeProvider>
-    );
-	<% } else { %> 
-		return <RootStack />;
-	<% } %>
+    <% } %>
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+      </TamaguiProvider>
+    <% } %>
+  );
 }
