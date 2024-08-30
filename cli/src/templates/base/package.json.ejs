@@ -133,8 +133,11 @@
 
   <% if (props.authenticationPackage?.name === "clerk") { %>
     "@clerk/clerk-expo": "^2.2.5",
+    <% if (props.navigationPackage?.name !== "expo-router") { %>
+      "react-dom": "18.2.0",
+    <% } %>
   <% } %>
-  
+
   <% if (props.internalizationPackage?.name === "i18next") { %>
     "i18next": "^23.7.20",
     "react-i18next": "^14.0.1",
