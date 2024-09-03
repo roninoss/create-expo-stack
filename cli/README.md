@@ -47,7 +47,7 @@ You can also use flags such as `--noInstall`, `--noGit`, and `--default` in orde
 
 To get started, use npx to run the CLI tool. You will be prompted to opt into the features you want to use.
 
-`npx create-expo-stack`
+`npx create-expo-stack@latest`
 
 <img src="https://github.com/roninoss/create-expo-stack/assets/5482800/e709dd66-cb9b-463c-91f9-b842bb80585c" />
 
@@ -71,7 +71,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo Status Bar    | Status Bar Library  | v1      | Status bar support                             |
 | Expo System UI     | System UI Library   | v2      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v12     | Open links in the browser                      |
-| NativeWind         | UI Framework        | v4      | Tailwind CSS for React Native                  |
+| NativeWind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
 | Restyle            | UI Framework        | v2      | Theme-based styling library for React Native   |
 | Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
 | Unistyles          | UI Framework        | v2      | Superset of StyleSheet                         |
