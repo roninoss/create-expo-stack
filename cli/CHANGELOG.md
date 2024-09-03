@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.24
+
+### Patch Changes
+
+- [`b5374ea3cfc9c5ce4e08bd02c7abdedfb0f69282`](https://github.com/roninoss/create-expo-stack/commit/b5374ea3cfc9c5ce4e08bd02c7abdedfb0f69282) Thanks [@danstepanov](https://github.com/danstepanov)! - fix button margin for nativewind template
+
 ## 2.11.23
 
 ### Patch Changes
