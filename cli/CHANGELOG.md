@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.11.23
+
+### Patch Changes
+
+- [`26777731bf744f78563444defddfe283c1d9d7ca`](https://github.com/roninoss/create-expo-stack/commit/26777731bf744f78563444defddfe283c1d9d7ca) Thanks [@danstepanov](https://github.com/danstepanov)! - bump nativewind version to 4.1
+
 ## 2.11.22
 
 ### Patch Changes
