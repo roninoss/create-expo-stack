@@ -11,7 +11,8 @@ export function generateProjectFiles(
   packageManager: PackageManager,
   stylingPackage: AvailablePackages | undefined,
   toolbox: Toolbox,
-  internalizationPackage: AvailablePackages | undefined
+  internalizationPackage: AvailablePackages | undefined,
+  stateManagementPackage: AvailablePackages | undefined
 ) {
   const { projectName, packages, flags } = cliResults;
 
@@ -67,6 +68,10 @@ export function generateProjectFiles(
       target = target.replace('packages/vexo-analytics/', '');
     }
 
+    if (stateManagementPackage?.name === 'redux') {
+      target = target.replace('packages/redux/', '');
+    }
+
     const gen = toolbox.template.generate({
       template,
       target: `./${projectName}/` + target,
@@ -79,7 +84,8 @@ export function generateProjectFiles(
         packageManager,
         packages,
         stylingPackage,
-        internalizationPackage
+        internalizationPackage,
+        stateManagementPackage
       }
     });
 
