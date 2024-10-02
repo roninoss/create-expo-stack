@@ -4,6 +4,7 @@
 *.png
 *.ttf
 *.txt
+*.ico
 .editorconfig
 .env
 .gitignore
