@@ -21,7 +21,8 @@ export function configureProjectFiles(
   analyticsPackage: AvailablePackages | undefined,
   toolbox: Toolbox,
   cliResults: CliResults,
-  internalizationPackage: AvailablePackages | undefined
+  internalizationPackage: AvailablePackages | undefined,
+  stateManagementPackage: AvailablePackages | undefined
 ): string[] {
   // Define the files common to all templates to be generated
   let baseFiles = [
@@ -346,6 +347,13 @@ export function configureProjectFiles(
       ];
 
       files = [...files, ...i18nextFiles];
+    }
+
+    // add redux files if needed
+    if (stateManagementPackage?.name === 'redux') {
+      const reduxFiles = ['packages/redux/store/store.ts.ejs', 'packages/redux/store/reducers/demoSlice.ts.ejs'];
+
+      files = [...files, ...reduxFiles];
     }
   }
 

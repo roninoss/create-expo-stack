@@ -26,7 +26,8 @@ export const availablePackages = [
   'restyle',
   'unistyles',
   'i18next',
-  'vexo-analytics'
+  'vexo-analytics',
+  'redux'
 ] as const;
 
 export type AuthenticationSelect = 'supabase' | 'firebase' | undefined;
@@ -42,6 +43,8 @@ export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 export type Internalization = 'i18next';
 
 export type Analytics = 'vexo-analytics';
+
+export type StateManagement = 'redux' | undefined;
 
 export type SelectedComponents =
   | 'action-sheet'
@@ -59,7 +62,7 @@ export type SelectedComponents =
 
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
-  type: 'navigation' | 'styling' | 'authentication' | 'internationalization' | 'analytics';
+  type: 'navigation' | 'styling' | 'authentication' | 'internationalization' | 'analytics' | 'state-management';
   options?: { selectedComponents?: SelectedComponents[]; type?: NavigationTypes };
 };
 

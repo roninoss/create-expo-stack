@@ -1,61 +1,72 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
-  import '../global.css';
+import '../global.css';
 <% } %>
 
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import '../unistyles';
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
-  import '../translation';
+import '../translation';
 <% } %>
 
 <% if (props.stylingPackage?.name === "tamagui") { %>
-	import { useFonts } from 'expo-font';
-  import { SplashScreen, Stack } from 'expo-router';
-  import { useEffect } from 'react';
-  import { TamaguiProvider } from 'tamagui';
+import { useFonts } from 'expo-font';
+import { SplashScreen, Stack } from 'expo-router';
+import { useEffect } from 'react';
+import { TamaguiProvider } from 'tamagui';
 
-  import config from '../tamagui.config';
+import config from '../tamagui.config';
 <% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { ThemeProvider } from '@shopify/restyle';
-  import { theme } from 'theme';
+import { ThemeProvider } from '@shopify/restyle';
+import { theme } from 'theme';
 <% } %>
-	import { Stack } from "expo-router";
+import { Stack } from "expo-router";
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
-  import { vexo } from 'vexo-analytics';
+import { vexo } from 'vexo-analytics';
 
-  vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
+vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
+<% if (props.stateManagementPackage?.name === "redux") { %>
+import { Provider } from 'react-redux'
+import store from 'store/store'
+<% } %>
+
 
 export default function Layout() {
 
-  <% if (props.stylingPackage?.name === "tamagui") { %>
-  	const [loaded] = useFonts({
-			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-			InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
-		});
+<% if (props.stylingPackage?.name === "tamagui") { %>
+const [loaded] = useFonts({
+Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
+});
 
-		useEffect(() => {
-			if (loaded) {
-				SplashScreen.hideAsync();
-			}
-		}, [loaded]);
+useEffect(() => {
+if (loaded) {
+SplashScreen.hideAsync();
+}
+}, [loaded]);
 
-		if (!loaded) return null;
-  <% } %>
+if (!loaded) return null;
+<% } %>
 
-	return (
-		<% if (props.stylingPackage?.name === "tamagui") { %>
-			<TamaguiProvider config={config}>
-		<% } else if (props.stylingPackage?.name === "restyle") { %>
-			<ThemeProvider theme={theme}>
-		<% } %>
-		    <Stack />
-		<% if (props.stylingPackage?.name === "tamagui") { %>
-			</TamaguiProvider>
-		<% } else if (props.stylingPackage?.name === "restyle") { %>
-			</ThemeProvider >
-		<% } %>
-	);
+return (
+<% if (props.stylingPackage?.name === "tamagui") { %>
+<TamaguiProvider config={config}>
+  <% } else if (props.stylingPackage?.name === "restyle") { %>
+  <ThemeProvider theme={theme}>
+    <% } %>
+    <% if (props.stateManagementPackage?.name === "redux") { %>
+    <Provider store={store}>
+      <% } %>
+      <Stack />
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+    </Provider>
+    <% } %>
+    <% if (props.stylingPackage?.name === "tamagui") { %>
+</TamaguiProvider>
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+</ThemeProvider>
+<% } %>
+);
 }
