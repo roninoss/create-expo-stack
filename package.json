@@ -1,11 +1,11 @@
 {
-  "name": "create-expo-stack-repository",
+  "name": "rn-new-repository",
   "private": true,
   "version": "0.0.0",
-  "description": "Root package for the create-expo-stack monorepo",
+  "description": "Root package for the rn-new monorepo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/roninoss/create-expo-stack.git"
+    "url": "https://github.com/roninoss/rn-new.git"
   },
   "license": "MIT",
   "workspaces": [
@@ -15,9 +15,9 @@
   ],
   "scripts": {
     "build": "turbo build",
-    "build:cli": "turbo build --filter create-expo-stack",
-    "build:www": "turbo build --filter create-expo-stack-landing",
-    "build:docs": "turbo build --filter create-expo-stack-docs",
+    "build:cli": "turbo build --filter rn-new",
+    "build:www": "turbo build --filter rn-new-landing",
+    "build:docs": "turbo build --filter rn-new-docs",
     "dl-contrib": "bun scripts/generate-contributors.ts",
     "format": "eslint -c .eslintrc.js --fix \"**/*.{js,jsx,ts,tsx}\" && prettier \"**/*.{astro,css,ejs,js,json,jsx,md,mdx,mjs,ts,tsx,yaml,yml}\" --write",
     "prepare": "is-ci || husky install"

@@ -35,7 +35,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   // Clear default packages
   cliResults.packages = [];
 
-  // Check whether the user has any saved create expo stack configurations
+  // Check whether the user has any saved rn.new configurations
   const savedConfigs = await loadConfigs();
 
   // If the user has saved configurations, ask if they would like to use them

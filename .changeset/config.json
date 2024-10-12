@@ -3,13 +3,13 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "roninoss/create-expo-stack"
+      "repo": "roninoss/rn-new"
     }
   ],
   "commit": false,
   "updateInternalDependencies": "patch",
   "access": "public",
   "baseBranch": "main",
-  "fixed": [["create-expo-stack"]],
-  "ignore": ["create-expo-stack-docs", "create-expo-stack-landing"]
+  "fixed": [["rn-new"]],
+  "ignore": ["rn-new-docs", "rn-new-landing"]
 }

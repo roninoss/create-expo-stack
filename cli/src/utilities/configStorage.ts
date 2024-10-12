@@ -3,7 +3,7 @@ import path from 'path';
 import { CliResults } from '../types';
 import os from 'os';
 
-const CONFIG_DIR = path.join(os.homedir(), '.create-expo-stack');
+const CONFIG_DIR = path.join(os.homedir(), '.rn-new');
 const CONFIG_FILE = path.join(CONFIG_DIR, 'configurations.json');
 
 interface AppConfig {

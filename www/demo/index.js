@@ -23,7 +23,7 @@ async function main() {
 
   await renderTitle();
 
-  intro(`${color.bgCyan(color.black(" create-expo-stack "))}`);
+  intro(`${color.bgCyan(color.black(" rn-new "))}`);
 
   await setProjectName(cliResults);
 

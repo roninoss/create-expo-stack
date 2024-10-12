@@ -1,4 +1,4 @@
-# Create Expo Stack CLI
+# rn.new CLI
 
 [![Discord](https://img.shields.io/discord/1173879003191459860?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff)](https://expostack.dev/discord)
 [![NPM version][npm-image]][npm-url]
@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  Get started by running <code>npx create-expo-stack@latest</code>
+  Get started by running <code>npx rn-new@latest</code>
 
 <p align="center">
-  🎉 Over 50k Expo projects generated using CES! 🎉
+  🎉 Over 50k Expo projects generated using rn.new! 🎉
 
 ## Sponsors
 
@@ -47,15 +47,15 @@ You can also use flags such as `--noInstall`, `--noGit`, and `--default` in orde
 
 To get started, use npx to run the CLI tool. You will be prompted to opt into the features you want to use.
 
-`npx create-expo-stack@latest`
+`npx rn-new@latest`
 
-<img src="https://github.com/roninoss/create-expo-stack/assets/5482800/e709dd66-cb9b-463c-91f9-b842bb80585c" />
+<img src="https://github.com/roninoss/rn-new/assets/5482800/e709dd66-cb9b-463c-91f9-b842bb80585c" />
 
 ## Tech Stack for the templates
 
-Currently, all of the [templates](https://github.com/roninoss/create-expo-stack/tree/main/cli/src/templates) use the same versions of the following libraries. Not all of the templates include all of the libraries, but they are all available for use.
+Currently, all of the [templates](https://github.com/roninoss/rn-new/tree/main/cli/src/templates) use the same versions of the following libraries. Not all of the templates include all of the libraries, but they are all available for use.
 
-Each project is generated based on the results of the CLI, on a per-file basis. This approach makes this CLI extremely extendable and easy to use. Common files to all generated projects are stored in the [base template folder](https://github.com/roninoss/create-expo-stack/tree/main/cli/src/templates/base) while files pertaining to additional packages are stored in the [packages template folder](https://github.com/roninoss/create-expo-stack/tree/main/cli/src/templates/packages). Beyond adding files, this project makes use of [EJS](https://ejs.co/) in order to manipulate existing files as necessary.
+Each project is generated based on the results of the CLI, on a per-file basis. This approach makes this CLI extremely extendable and easy to use. Common files to all generated projects are stored in the [base template folder](https://github.com/roninoss/rn-new/tree/main/cli/src/templates/base) while files pertaining to additional packages are stored in the [packages template folder](https://github.com/roninoss/rn-new/tree/main/cli/src/templates/packages). Beyond adding files, this project makes use of [EJS](https://ejs.co/) in order to manipulate existing files as necessary.
 
 | Library            | Category            | Version | Description                                    |
 | ------------------ | ------------------- | ------- | ---------------------------------------------- |
@@ -86,7 +86,7 @@ If you run into problems or have feedback, first search the issues and discussio
 
 ## Contributing
 
-### [See this guide.](https://github.com/roninoss/create-expo-stack/blob/main/contributing.md)
+### [See this guide.](https://github.com/roninoss/rn-new/blob/main/contributing.md)
 
 Contributions are welcome! Please open a pull request or an issue if you would like to contribute. There are existing feature requests labeled as `[FR]` in the issues section of this repo.
 
@@ -378,6 +378,6 @@ Thanks go to these wonderful people:
 </table>
 <!-- readme: contributors -end -->
 
-[downloads-image]: https://img.shields.io/npm/dm/create-expo-stack?color=364fc7&logoColor=364fc7
-[npm-url]: https://www.npmjs.com/package/create-expo-stack
-[npm-image]: https://img.shields.io/npm/v/create-expo-stack?color=0b7285&logoColor=0b7285
+[downloads-image]: https://img.shields.io/npm/dm/rn-new?color=364fc7&logoColor=364fc7
+[npm-url]: https://www.npmjs.com/package/rn-new
+[npm-image]: https://img.shields.io/npm/v/rn-new?color=0b7285&logoColor=0b7285

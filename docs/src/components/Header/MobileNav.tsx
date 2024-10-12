@@ -5,15 +5,14 @@ import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 import { ScrollArea } from "../ui/scroll-area";
 import { SIDEBAR } from "@/consts";
-import { cn } from "@/lib/utils";
 
 // Define the MobileNav component
 export default function MobileNav() {
   // State to manage the sheet open/closed state
   const [open, setOpen] = useState(false);
 
-  // Extracting the "Create Expo Stack" array from the consts
-  const createExpoStackArray = SIDEBAR.en?.["Getting Started"];
+  // Extracting the "rn.new" array from the consts
+  const rnNewArray = SIDEBAR.en?.["Getting Started"];
 
   return (
     // Sheet component for mobile navigation
@@ -34,7 +33,7 @@ export default function MobileNav() {
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-10">
           <div className="flex flex-col space-y-3">
             {/* Map through the navigation array to create links */}
-            {createExpoStackArray?.map((item, idx) => (
+            {rnNewArray?.map((item, idx) => (
               <div key={idx}>
                 {/* MobileLink component for each navigation link */}
                 <a

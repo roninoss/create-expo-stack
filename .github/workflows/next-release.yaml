@@ -82,7 +82,7 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Build create-expo-stack
+      - name: Build rn-new
         run: bun run build:cli
 
       ## The change made to package.json here is ephemeral, as it will only run in CI

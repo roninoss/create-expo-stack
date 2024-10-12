@@ -356,9 +356,9 @@ export function configureProjectFiles(
 
   const packageManagerVersion = getVersionForPackageManager(cliResults.flags.packageManager);
 
-  const cesConfig = {
-    // Add the version of create expo stack used
-    cesVersion: require('../../package.json').version || '2.0.0',
+  const rnNewConfig = {
+    // Add the version of rn.new used
+    rnNewVersion: require('../../package.json').version || '2.0.0',
     ...cliResults,
     packageManager: {
       type: cliResults.flags.packageManager,
@@ -372,13 +372,13 @@ export function configureProjectFiles(
     }
   };
 
-  toolbox.filesystem.write(`./${cliResults.projectName}/cesconfig.json`, JSON.stringify(cesConfig, null, 2));
+  toolbox.filesystem.write(`./${cliResults.projectName}/rn-new-config.json`, JSON.stringify(rnNewConfig, null, 2));
 
   const pkg = require('../../package.json');
 
   storeConfigAnalytics({
     timestamp: new Date().toISOString(),
-    cesVersion: pkg.version,
+    rnNewVersion: pkg.version,
     authType: authenticationPackage?.name as AuthenticationSelect,
     navigationLibrary: navigationPackage?.name as NavigationSelect,
     navigationType: navigationPackage?.options?.type as NavigationTypes,

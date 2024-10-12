@@ -18,8 +18,8 @@ export default function ContributorsSection() {
       </h1>
       <div className="flex flex-col items-center gap-12">
         <p className="text-neutral-200/70 max-w-[50ch] text-center font-thin leading-loose">
-          Create Expo Stack is open-source and built by developers just like
-          you. These are some of the contributors who made this possible so far.
+          rn.new is open-source and built by developers just like you. These are
+          some of the contributors who made this possible so far.
         </p>
         {/* honeycomb grid for the future */}
         {/* [&>*:nth-child(9n_+_1)]:ml-[1.875rem] sm:[&>*:nth-child(9n_+_1)]:ml-[2.375rem] */}
@@ -31,7 +31,7 @@ export default function ContributorsSection() {
         <a
           target="_blank"
           rel="noreferrer noopener"
-          href="https://github.com/roninoss/create-expo-stack/blob/main/contributing.md"
+          href="https://github.com/roninoss/rn-new/blob/main/contributing.md"
           className="cursor-pointer bg-neutral-700 rounded-full px-3 py-2 flex hover:no-underline text-neutral-200 hover:bg-neutral-600 duration-300 items-center"
         >
           <GitHubIcon className="mr-2 h-5 w-5" />

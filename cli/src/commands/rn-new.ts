@@ -26,7 +26,7 @@ import { cancel, intro, isCancel, text } from '@clack/prompts';
 import clearNavigationPackages from '../utilities/clearNavigationPackages';
 
 const command: GluegunCommand = {
-  name: 'create-expo-stack',
+  name: 'rn-new',
   description: 'Create a new Expo project',
   run: async (toolbox) => {
     const {
@@ -39,7 +39,7 @@ const command: GluegunCommand = {
     const printSomethingWentWrong = () => {
       info(`\nOops, something went wrong while creating your project 😢`);
       info(
-        `\nIf this was unexpected, please open an issue: https://github.com/roninoss/create-expo-stack#reporting-bugs--feedback`
+        `\nIf this was unexpected, please open an issue: https://github.com/roninoss/rn-new#reporting-bugs--feedback`
       );
       info('');
     };
@@ -319,7 +319,7 @@ const command: GluegunCommand = {
 
         // Function that outputs a string given the CLI results and the packageManager. The outputted string should be a command that can be run to recreate the project
         const generateRerunScript = (cliResults: CliResults) => {
-          let script = `npx create-expo-stack@latest ${cliResults.projectName} `;
+          let script = `npx rn-new@latest ${cliResults.projectName} `;
 
           const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 

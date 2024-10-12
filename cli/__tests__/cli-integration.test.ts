@@ -8,7 +8,7 @@ import * as path from 'node:path';
 type InputFlag = `--${string}`;
 
 const cli = async (inputs: string[]) => {
-  const pathToFile = `${path.join(__dirname, '../', 'bin', 'create-expo-stack.js')}`;
+  const pathToFile = `${path.join(__dirname, '../', 'bin', 'rn-new.js')}`;
 
   console.log('running', `bun ${pathToFile} ${inputs.join(' ')}`);
 
@@ -129,16 +129,16 @@ for (const packageManager of packageManagers) {
 
       expect(pkgJsonWithoutVersions).toMatchSnapshot(`${finalFlags.join(', ')}-package-json`);
 
-      const cesconfig = await import(`${pathToProject}/cesconfig.json`);
+      const rnNewConfig = await import(`${pathToProject}/rn-new-config.json`);
 
-      const cesconfigWithoutOS = {
-        ...cesconfig.default,
-        cesVersion: undefined,
+      const rnNewConfigWithoutOS = {
+        ...rnNewConfig.default,
+        rnNewVersion: undefined,
         os: {},
-        packageManager: { ...cesconfig.default.packageManager, version: undefined }
+        packageManager: { ...rnNewConfig.default.packageManager, version: undefined }
       };
 
-      expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
+      expect(rnNewConfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-rn-new-config.json`);
 
       const fileList =
         await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*" | sort`.text();

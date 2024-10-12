@@ -19,7 +19,7 @@ const keys = Buffer.from(key_data, 'base64').toString('utf-8');
 
 export async function storeConfigAnalytics({
   timestamp,
-  cesVersion,
+  rnNewVersion,
   authType,
   internalization,
   nativeWindUIComponents = [],
@@ -40,7 +40,7 @@ export async function storeConfigAnalytics({
   analytics
 }: {
   timestamp: string;
-  cesVersion: string;
+  rnNewVersion: string;
   authType?: AuthenticationSelect;
   navigationLibrary?: NavigationSelect;
   navigationType?: NavigationTypes;
@@ -76,7 +76,7 @@ export async function storeConfigAnalytics({
         values: [
           [
             timestamp ?? '',
-            cesVersion ?? '',
+            rnNewVersion ?? '',
             navigationLibrary ?? '',
             navigationType ?? '',
             stylingLibrary ?? '',

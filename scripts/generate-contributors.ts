@@ -18,7 +18,7 @@ async function getOcto() {
   // get paginated contributors
   const res = await octokit.paginate(octokit.rest.repos.listContributors, {
     owner: 'danstepanov',
-    repo: 'create-expo-stack',
+    repo: 'rn-new',
     per_page: 100
   });
 
