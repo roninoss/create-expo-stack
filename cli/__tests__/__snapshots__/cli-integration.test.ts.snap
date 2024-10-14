@@ -62,9 +62,8 @@ exports[`generates a project with --expo-router --nativewind --bun --overwrite: 
 }
 `;
 
-exports[`generates a project with --expo-router --nativewind --bun --overwrite: --expo-router, --nativewind, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --nativewind --bun --overwrite: --expo-router, --nativewind, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -92,6 +91,7 @@ exports[`generates a project with --expo-router --nativewind --bun --overwrite: 
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -112,7 +112,6 @@ exports[`generates a project with --expo-router --nativewind --bun --overwrite: 
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
 ./myTestProject/components/Container.tsx
@@ -123,6 +122,7 @@ exports[`generates a project with --expo-router --nativewind --bun --overwrite: 
 ./myTestProject/metro.config.js
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tailwind.config.js
 ./myTestProject/tsconfig.json
 "
@@ -190,9 +190,8 @@ exports[`generates a project with --expo-router --stylesheet --bun --overwrite: 
 }
 `;
 
-exports[`generates a project with --expo-router --stylesheet --bun --overwrite: --expo-router, --stylesheet, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --stylesheet --bun --overwrite: --expo-router, --stylesheet, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -220,6 +219,7 @@ exports[`generates a project with --expo-router --stylesheet --bun --overwrite: 
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -239,7 +239,6 @@ exports[`generates a project with --expo-router --stylesheet --bun --overwrite: 
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
 ./myTestProject/components/Container.tsx
@@ -249,6 +248,7 @@ exports[`generates a project with --expo-router --stylesheet --bun --overwrite: 
 ./myTestProject/metro.config.js
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tsconfig.json
 "
 `;
@@ -315,9 +315,8 @@ exports[`generates a project with --expo-router --tabs --nativewind --bun --over
 }
 `;
 
-exports[`generates a project with --expo-router --tabs --nativewind --bun --overwrite: --expo-router, --tabs, --nativewind, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --tabs --nativewind --bun --overwrite: --expo-router, --tabs, --nativewind, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -345,6 +344,7 @@ exports[`generates a project with --expo-router --tabs --nativewind --bun --over
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -368,7 +368,6 @@ exports[`generates a project with --expo-router --tabs --nativewind --bun --over
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
 ./myTestProject/components/Container.tsx
@@ -381,6 +380,7 @@ exports[`generates a project with --expo-router --tabs --nativewind --bun --over
 ./myTestProject/metro.config.js
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tailwind.config.js
 ./myTestProject/tsconfig.json
 "
@@ -448,9 +448,8 @@ exports[`generates a project with --expo-router --tabs --stylesheet --bun --over
 }
 `;
 
-exports[`generates a project with --expo-router --tabs --stylesheet --bun --overwrite: --expo-router, --tabs, --stylesheet, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --tabs --stylesheet --bun --overwrite: --expo-router, --tabs, --stylesheet, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -478,6 +477,7 @@ exports[`generates a project with --expo-router --tabs --stylesheet --bun --over
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -500,7 +500,6 @@ exports[`generates a project with --expo-router --tabs --stylesheet --bun --over
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
 ./myTestProject/components/Container.tsx
@@ -512,6 +511,7 @@ exports[`generates a project with --expo-router --tabs --stylesheet --bun --over
 ./myTestProject/metro.config.js
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tsconfig.json
 "
 `;
@@ -578,9 +578,8 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun
 }
 `;
 
-exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun --overwrite: --expo-router, --drawer+tabs, --nativewind, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun --overwrite: --expo-router, --drawer+tabs, --nativewind, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -608,6 +607,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -634,7 +634,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
 ./myTestProject/components/Container.tsx
@@ -647,6 +646,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun
 ./myTestProject/metro.config.js
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tailwind.config.js
 ./myTestProject/tsconfig.json
 "
@@ -714,9 +714,8 @@ exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun
 }
 `;
 
-exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun --overwrite: --expo-router, --drawer+tabs, --stylesheet, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun --overwrite: --expo-router, --drawer+tabs, --stylesheet, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -744,6 +743,7 @@ exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -769,7 +769,6 @@ exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
 ./myTestProject/components/Container.tsx
@@ -781,6 +780,7 @@ exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun
 ./myTestProject/metro.config.js
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tsconfig.json
 "
 `;
@@ -847,9 +847,8 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
 }
 `;
 
-exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,text --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,text, --expo-router, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,text --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,text, --expo-router, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -877,6 +876,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -902,7 +902,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
 ./myTestProject/components/Button.tsx
@@ -928,6 +927,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
 ./myTestProject/nativewind-env.d.ts
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tailwind.config.js
 ./myTestProject/theme
 ./myTestProject/theme/colors.ts
@@ -998,9 +998,8 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
 }
 `;
 
-exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -1028,6 +1027,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -1053,7 +1053,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
 ./myTestProject/components/Button.tsx
@@ -1085,6 +1084,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
 ./myTestProject/nativewind-env.d.ts
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tailwind.config.js
 ./myTestProject/theme
 ./myTestProject/theme/colors.ts
@@ -1155,9 +1155,8 @@ exports[`generates a project with --nativewindui --no-install --bun --overwrite:
 }
 `;
 
-exports[`generates a project with --nativewindui --no-install --bun --overwrite: --nativewindui, --no-install, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --nativewindui --no-install --bun --overwrite: --nativewindui, --no-install, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -1185,6 +1184,7 @@ exports[`generates a project with --nativewindui --no-install --bun --overwrite:
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -1203,7 +1203,6 @@ exports[`generates a project with --nativewindui --no-install --bun --overwrite:
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
 ./myTestProject/components/Button.tsx
@@ -1235,6 +1234,7 @@ exports[`generates a project with --nativewindui --no-install --bun --overwrite:
 ./myTestProject/nativewind-env.d.ts
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tailwind.config.js
 ./myTestProject/theme
 ./myTestProject/theme/colors.ts
@@ -1305,9 +1305,8 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
 }
 `;
 
-exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --bun, --overwrite-rn-new-config.json 1`] = `
 {
-  "cesVersion": undefined,
   "flags": {
     "eas": false,
     "importAlias": true,
@@ -1335,6 +1334,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
     },
   ],
   "projectName": "myTestProject",
+  "rnNewVersion": undefined,
 }
 `;
 
@@ -1360,7 +1360,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
 ./myTestProject/bun.lockb
-./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
 ./myTestProject/components/Button.tsx
@@ -1381,6 +1380,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
 ./myTestProject/nativewind-env.d.ts
 ./myTestProject/package.json
 ./myTestProject/prettier.config.js
+./myTestProject/rn-new-config.json
 ./myTestProject/tailwind.config.js
 ./myTestProject/theme
 ./myTestProject/theme/colors.ts
