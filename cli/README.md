@@ -59,7 +59,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 
 | Library            | Category            | Version | Description                                    |
 | ------------------ | ------------------- | ------- | ---------------------------------------------- |
-| React Native       | Mobile Framework    | v0.73   | The best cross-platform mobile framework       |
+| React Native       | Mobile Framework    | v0.74   | The best cross-platform mobile framework       |
 | React              | UI Framework        | v18     | The most popular UI framework in the world     |
 | TypeScript         | Language            | v5      | Static typechecking                            |
 | React Navigation   | Navigation          | v6      | Performant and consistent navigation framework |
