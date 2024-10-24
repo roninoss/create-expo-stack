@@ -10,6 +10,7 @@ export interface CliFlags {
 
 export const availablePackages = [
   '@react-navigation/drawer',
+  'clerk',
   'expo-router',
   'expoRouter',
   'firebase',
@@ -29,7 +30,7 @@ export const availablePackages = [
   'vexo-analytics'
 ] as const;
 
-export type AuthenticationSelect = 'supabase' | 'firebase' | undefined;
+export type AuthenticationSelect = 'supabase' | 'firebase' | 'clerk' | undefined;
 
 export type NavigationSelect = 'react-navigation' | 'expo-router' | undefined;
 

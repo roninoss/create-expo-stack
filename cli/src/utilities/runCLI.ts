@@ -331,6 +331,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     message: 'What would you like to use for authentication?',
     options: [
       { value: undefined, label: 'None' },
+      { value: 'clerk', label: 'Clerk' },
       { value: 'supabase', label: 'Supabase' },
       { value: 'firebase', label: 'Firebase' }
     ]

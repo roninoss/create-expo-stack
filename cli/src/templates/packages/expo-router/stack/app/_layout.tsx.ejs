@@ -9,6 +9,9 @@ import '../unistyles';
   import '../translation';
 <% } %>
 
+<% if (props.authenticationPackage?.name === "clerk") { %>
+  import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
+<% } %>
 <% if (props.stylingPackage?.name === "tamagui") { %>
 	import { useFonts } from 'expo-font';
   import { SplashScreen, Stack } from 'expo-router';
@@ -30,6 +33,13 @@ import '../unistyles';
 
 export default function Layout() {
 
+  <% if (props.authenticationPackage?.name === "clerk") { %>
+    const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+    if (!clerkPublishableKey) {
+      throw new Error('Missing EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY, add one in your .env file');
+    }
+  <% } %>
+
   <% if (props.stylingPackage?.name === "tamagui") { %>
   	const [loaded] = useFonts({
 			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
@@ -46,16 +56,26 @@ export default function Layout() {
   <% } %>
 
 	return (
+    
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			<TamaguiProvider config={config}>
 		<% } else if (props.stylingPackage?.name === "restyle") { %>
 			<ThemeProvider theme={theme}>
 		<% } %>
-		    <Stack />
+    <% if (props.authenticationPackage?.name === "clerk") { %>
+        <ClerkProvider publishableKey={clerkPublishableKey}>
+          <ClerkLoaded>
+    <% } %>
+		        <Stack />
+    <% if (props.authenticationPackage?.name === "clerk") { %>
+          </ClerkLoaded>
+        </ClerkProvider>
+    <% } %>
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			</TamaguiProvider>
 		<% } else if (props.stylingPackage?.name === "restyle") { %>
 			</ThemeProvider >
 		<% } %>
+    
 	);
 }
