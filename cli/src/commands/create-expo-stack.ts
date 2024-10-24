@@ -309,6 +309,14 @@ const command: GluegunCommand = {
           cliResults.packages.push({ name: 'vexo-analytics', type: 'analytics' });
         }
 
+        if (options.redux) {
+          // Add redux package
+          cliResults.packages.push({
+            name: 'redux',
+            type: 'state-management'
+          });
+        }
+
         // By this point, all cliResults should be set
         info('');
         highlight('Your project configuration:');
@@ -407,6 +415,7 @@ const command: GluegunCommand = {
         const stylingPackage = packages.find((p) => p.type === 'styling');
         const internalizationPackage = packages.find((p) => p.type === 'internationalization');
         const analyticsPackage = packages.find((p) => p.type === 'analytics');
+        const stateManagementPackage = packages.find((p) => p.type === 'state-management') || undefined;
 
         let files: string[] = [];
 
@@ -418,7 +427,8 @@ const command: GluegunCommand = {
           analyticsPackage,
           toolbox,
           cliResults,
-          internalizationPackage
+          internalizationPackage,
+          stateManagementPackage
         );
 
         // Once all the files are defined, format and generate them
@@ -434,7 +444,8 @@ const command: GluegunCommand = {
           packageManager,
           stylingPackage,
           toolbox,
-          internalizationPackage
+          internalizationPackage,
+          stateManagementPackage
         );
 
         await printOutput(cliResults, formattedFiles, toolbox, stylingPackage);

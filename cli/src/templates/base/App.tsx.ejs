@@ -2,72 +2,95 @@ import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
-  import './translation';
-  import { InternalizationExample } from 'components/InternalizationExample';
+import './translation';
+import { InternalizationExample } from 'components/InternalizationExample';
 <% } %>
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
-  import './global.css';
+import './global.css';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
-  import './global.css';
-  import 'expo-dev-client';
+import './global.css';
+import 'expo-dev-client';
 <% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { ThemeProvider } from '@shopify/restyle';
-  import { theme } from 'theme';
+import { ThemeProvider } from '@shopify/restyle';
+import { theme } from 'theme';
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
-  <% if (!props.internalizationPackage) { %>
-    import { Text } from 'react-native';
-  <% } %>
-  import { TamaguiProvider } from 'tamagui';
-  import config from './tamagui.config';
+<% if (!props.internalizationPackage) { %>
+import { Text } from 'react-native';
+<% } %>
+import { TamaguiProvider } from 'tamagui';
+import config from './tamagui.config';
 <% } %>
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
-  import { vexo } from 'vexo-analytics';
+import { vexo } from 'vexo-analytics';
 
-  vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
+vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
+
+<% if (props.stateManagementPackage?.name === "redux") { %>
+import { Provider } from 'react-redux'
+import store from 'store/store'
+<% } %>
+
 
 <% if (props.stylingPackage?.name === "restyle") {%>
-  export default function App() {   
-    return (
-      <ThemeProvider theme={theme}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    );
-  }
+export default function App() {
+return (
+<ThemeProvider theme={theme}>
+  <% if (props.stateManagementPackage?.name === "redux") { %>
+  <Provider store={store}>
+    <% } %>
+    <ScreenContent title="Home" path="App.tsx">
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+      <InternalizationExample />
+      <% } %>
+    </ScreenContent>
+    <% if (props.stateManagementPackage?.name === "redux") { %>
+  </Provider>
+  <% } %>
+  <StatusBar style="auto" />
+</ThemeProvider>
+);
+}
 <% } else if (props.stylingPackage?.name === "tamagui") {%>
-  export default function App() {
-    return (
-      <TamaguiProvider config={config}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } else { %>
-          <Text>Open up App.tsx to start working on your app!</Text>
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </TamaguiProvider>
-    );
-  }
+export default function App() {
+return (
+<TamaguiProvider config={config}>
+  <% if (props.stateManagementPackage?.name === "redux") { %>
+  <Provider store={store}>
+    <% } %>
+    <ScreenContent title="Home" path="App.tsx">
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+      <InternalizationExample />
+      <% } else { %>
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <% } %>
+    </ScreenContent>
+    <% if (props.stateManagementPackage?.name === "redux") { %>
+  </Provider>
+  <% } %>
+  <StatusBar style="auto" />
+</TamaguiProvider>
+);
+}
 <% } else { %>
-  export default function App() {
-    return (
-      <>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </>
-    );
-  }
+export default function App() {
+return (
+<>
+  <% if (props.stateManagementPackage?.name === "redux") { %>
+  <Provider store={store}>
+    <% } %>
+    <ScreenContent title="Home" path="App.tsx">
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+      <InternalizationExample />
+      <% } %>
+    </ScreenContent>
+    <% if (props.stateManagementPackage?.name === "redux") { %>
+  </Provider>
+  <% } %>
+  <StatusBar style="auto" />
+</>
+);
+}
 <% } %>
-

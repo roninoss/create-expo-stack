@@ -10,7 +10,8 @@ import {
   NavigationTypes,
   PackageManager,
   SelectedComponents,
-  StylingSelect
+  StylingSelect,
+  StateManagement
 } from '../types';
 import { loadConfigs, saveConfig } from './configStorage';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
@@ -344,6 +345,24 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     cliResults.packages.push({ name: authenticationSelect as AuthenticationSelect, type: 'authentication' });
   } else {
     success(`No problem, skipping authentication for now.`);
+  }
+
+  const stateManagementSelect = await select({
+    message: 'What would you like to use for state management?',
+    options: [
+      { value: undefined, label: 'None' },
+      { value: 'redux', label: 'Redux' }
+    ]
+  });
+
+  if (isCancel(stateManagementSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+  if (stateManagementSelect) {
+    cliResults.packages.push({ name: stateManagementSelect as StateManagement, type: 'state-management' });
+  } else {
+    success(`No problem, skipping state management for now.`);
   }
 
   const easEnabled = await confirm({
