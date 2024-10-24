@@ -5,7 +5,7 @@ export const DEFAULT_STYLING_PACAKGE = {
 
 export const PROJECT_NAME = "my-expo-app";
 
-export const TITLE_TEXT = "create expo stack";
+export const TITLE_TEXT = "rn.new";
 
 // expo stack orange gradient
 export const expoStackTheme = {

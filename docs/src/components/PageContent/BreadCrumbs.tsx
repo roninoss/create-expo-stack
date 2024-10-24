@@ -11,7 +11,7 @@ export default function BreadCrumbs() {
   const slugToEntryPath = (slug: SlugType): OuterHeaders => {
     switch (slug) {
       case "":
-        return "Create Expo Stack";
+        return "rn.new";
       case "usage":
         return "Usage";
       case "deployment":

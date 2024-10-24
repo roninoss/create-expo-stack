@@ -1,17 +1,17 @@
 {
-  "name": "create-expo-stack",
+  "name": "rn-new",
   "version": "2.11.24",
   "description": "CLI tool to initialize a React Native application with Expo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/roninoss/create-expo-stack.git",
+    "url": "https://github.com/roninoss/rn-new.git",
     "directory": "cli"
   },
   "homepage": "https://rn.new",
   "license": "MIT",
   "types": "build/types/types.d.ts",
   "bin": {
-    "create-expo-stack": "bin/create-expo-stack.js"
+    "rn-new": "bin/rn-new.js"
   },
   "files": [
     "build",
@@ -26,7 +26,7 @@
     "clean-build": "rm -rf ./build",
     "compile": "tsc -p .",
     "copy-templates": "bun run copyfiles -u 2 -a \"./src/templates/**/*\" ./build/templates",
-    "dev": "bun run build && NODE_ENV=development bun run bin/create-expo-stack.js",
+    "dev": "bun run build && NODE_ENV=development bun run bin/rn-new.js",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix --resolve-plugins-relative-to . && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "lint-templates": "bun run ejslint ./src/templates",
     "prepublishOnly": "bun run build",

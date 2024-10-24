@@ -1,5 +1,5 @@
 export const SITE = {
-  title: "Create Expo Stack",
+  title: "rn.new",
   description: "The most configurable way to create an Expo app.",
   defaultLanguage: "en",
 } as const;
@@ -7,7 +7,7 @@ export const SITE = {
 export const OPEN_GRAPH = {
   image: {
     src: "default-og-image.png",
-    alt: "create expo stack logo",
+    alt: "rn.new logo",
   },
   twitter: "onlydans",
 };
@@ -20,11 +20,11 @@ export type KnownLanguageCode = keyof typeof KNOWN_LANGUAGES;
 
 export const TWITTER_URL = `https://twitter.com/danstepanov`;
 
-export const EDIT_URL = `https://github.com/roninoss/create-expo-stack`;
+export const EDIT_URL = `https://github.com/roninoss/rn-new`;
 
 export const COMMUNITY_INVITE_URL = `https://rn.new/discord`;
 
-export const CREATE_EXPO_STACK_URL = `https://rn.new/`;
+export const RN_NEW_URL = `https://rn.new/`;
 
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
@@ -34,7 +34,7 @@ export const ALGOLIA = {
 };
 
 export type OuterHeaders =
-  | "Create Expo Stack"
+  | "rn.new"
   | "Getting Started"
   | "Deployment"
   | "Usage";
@@ -67,8 +67,8 @@ export const SIDEBAR_HEADER_MAP: Record<
   Record<OuterHeaders, string>
 > = {
   en: {
-    "Create Expo Stack": "Create Expo Stack",
-    "Getting Started": "Create Expo Stack",
+    "rn.new": "rn.new",
+    "Getting Started": "rn.new",
     Usage: "Usage",
     Deployment: "Deployment",
   },

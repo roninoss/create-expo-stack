@@ -1,5 +1,5 @@
 export const SITE = {
-  title: "Create Expo Stack",
+  title: "rn.new",
   description: "The most configurable way to create an Expo app.",
   defaultLanguage: "en_US",
 };
@@ -7,12 +7,12 @@ export const SITE = {
 export const OPEN_GRAPH = {
   image: {
     src: "images/og-image.png",
-    alt: "Create Expo Stack: The best way to start a full-stack, typesafe Next.js app.",
+    alt: "rn.new: The most configurable way to create an Expo app.",
   },
   twitter: "onlydans",
 };
 
-export const GITHUB_EDIT_URL = `https://github.com/roninoss/create-expo-stack/tree/main/www`;
+export const GITHUB_EDIT_URL = `https://github.com/roninoss/rn-new/tree/main/www`;
 
 export const COMMUNITY_INVITE_URL = `https://discord.gg/XS9qS2mvTR`;
 
@@ -63,7 +63,7 @@ export const AUTHORS = [
     alt: "vadim",
     testimonial: `Next time you start a new expo project, just run:
     
-    $ npx create-expo-stack`,
+    $ npx rn-new`,
   },
   {
     name: "Ansh",
@@ -82,7 +82,7 @@ export const AUTHORS = [
     image: "yefim.jpeg",
     alt: "yefim",
     testimonial:
-      "Thanks for building create-expo-stack! It's helped our team to quickly spin up apps and test various modules prior to adding them to our production application.",
+      "Thanks for building rn-new! It's helped our team to quickly spin up apps and test various modules prior to adding them to our production application.",
   },
   {
     name: "Jacek",
@@ -90,8 +90,7 @@ export const AUTHORS = [
     position: "Unistyles",
     image: "jacek.jpeg",
     alt: "jacek",
-    testimonial:
-      "You can now build Unistyles powered apps with Create Expo Stack!",
+    testimonial: "You can now build Unistyles powered apps with rn.new!",
   },
   {
     name: "Agustín Falco",
@@ -99,7 +98,7 @@ export const AUTHORS = [
     position: "Vercel",
     image: "agustin.jpeg",
     alt: "agustin",
-    testimonial: "I’ve been checking out create-expo-stack! Very nice!!",
+    testimonial: "I’ve been checking out rn.new! Very nice!!",
   },
   {
     name: "nexxel",
@@ -107,7 +106,7 @@ export const AUTHORS = [
     position: "Leapflow",
     image: "nexxel.jpeg",
     alt: "nexxel",
-    testimonial: "Building a mobile app soon, def will use create-expo-stack!",
+    testimonial: "Building a mobile app soon, def will use rn-new!",
   },
   {
     name: "Abaz Udosen",
@@ -116,7 +115,7 @@ export const AUTHORS = [
     image: "abaz.jpeg",
     alt: "abazudosen",
     testimonial:
-      "Streamline your Expo project setup! Use npx create-expo-stack instead of npx create-expo-app to configure and install common packages easily.",
+      "Streamline your Expo project setup! Use npx rn-new instead of npx create-expo-app to configure and install common packages easily.",
   },
   {
     name: "Lucky Israel",
@@ -124,7 +123,7 @@ export const AUTHORS = [
     image: "lucky.jpeg",
     alt: "iluckyisrael",
     testimonial:
-      "Use create-expo-stack to bootstrap your new react native projects, you'd thank @DanStepanov",
+      "Use rn-new to bootstrap your new react native projects, you'd thank @DanStepanov",
   },
   {
     name: "FastheDeveloper",
@@ -132,7 +131,7 @@ export const AUTHORS = [
     image: "fasthe.jpeg",
     alt: "fasthecr3ator",
     testimonial:
-      "I recently found out create-expo-stack@latest and it's been a breeze setting up project details.",
+      "I recently found out rn-new@latest and it's been a breeze setting up project details.",
   },
 ];
 
@@ -184,7 +183,7 @@ export const SIDEBAR_HEADER_MAP: Record<
   Record<OuterHeaders, string>
 > = {
   en: {
-    "Getting Started": "Create Expo Stack",
+    "Getting Started": "rn.new",
     Usage: "Usage",
     Deployment: "Deployment",
   },

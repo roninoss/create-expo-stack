@@ -55,7 +55,7 @@ export default function Roadmap() {
       <div className="flex w-full max-w-3xl flex-col items-center px-4 sm:px-8">
         <div className="glow relative flex w-full flex-col items-center"></div>
         <h1 className="bg-gradient-to-r from-neutral-50 via-yellow-500 to-orange-500 bg-clip-text pb-6 text-center font-bold text-transparent text-3xl md:text-4xl">
-          What&apos;s next for Create Expo Stack?
+          What&apos;s next for rn.new?
         </h1>
         <p className="w-full pb-12 px-8 md:px-16 md:text-lg text-center leading-loose text-transparent font-thin bg-gradient-to-r from-neutral-400/70 via-neutral-300/70 to-orange-200/70 bg-clip-text">
           This is a list of features we&apos;re working on, and what we intend
@@ -112,8 +112,8 @@ export default function Roadmap() {
             >
               here
             </a>
-            . If you feel like there&apos;s something missing in Create Expo
-            Stack, you&apos;re welcome to pitch the core team in our Discord.
+            . If you feel like there&apos;s something missing in rn.new,
+            you&apos;re welcome to pitch the core team in our Discord.
           </p>
         </div>
       </div>

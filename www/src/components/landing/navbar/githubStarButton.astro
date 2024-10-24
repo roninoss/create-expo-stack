@@ -33,7 +33,7 @@ import { Sparkle, ChevronRight } from "lucide-astro";
     if (starCountElement) {
       starCountElement.classList.add("spinner");
 
-      fetch("https://api.github.com/repos/roninoss/create-expo-stack")
+      fetch("https://api.github.com/repos/roninoss/rn-new")
         .then((response) => response.json())
         .then((data) => {
           starCountElement.classList.remove("spinner");
@@ -50,7 +50,7 @@ import { Sparkle, ChevronRight } from "lucide-astro";
 <a
   target="_blank"
   rel="noreferrer noopener"
-  href="https://github.com/roninoss/create-expo-stack"
+  href="https://github.com/roninoss/rn-new"
   class="text-sm m-2 md:text-base group border hover:no-underline border-zinc-400/50 bg-gradient-to-r from-amber-500/30 to-white/5 rounded-full p-2 px-3 sm:p-1 sm:px-2 mx-auto flex gap-2 items-center text-zinc-50 font-thin duration-300 hover:border-zinc-300/50 shadow-[0_0_0.5rem_0_#fff2] hover:shadow-[0_0_5rem_0_#fff4]"
 >
   <Sparkle

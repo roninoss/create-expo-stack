@@ -1,50 +1,50 @@
 ---
 title: Installation
-description: Installation instructions for Create Expo Stack
+description: Installation instructions for rn.new
 ---
 
-To scaffold an app using `create-expo-stack`, run any of the following commands and answer the command prompt questions:
+To scaffold an app using `rn-new`, run any of the following commands and answer the command prompt questions:
 
 ### npm
 
 ```bash
-npm create expo-stack
+npx rn-new
 ```
 
 ### yarn
 
 ```bash
-yarn create expo-stack
+yarn dlx rn-new
 ```
 
 ### pnpm
 
 ```bash
-pnpm create expo-stack
+pnpm dlx rn-new
 ```
 
 ### bun
 
 ```bash
-bun create expo-stack
+bunx rn-new
 ```
 
-After your app has been initialized, be sure to follow any instructions outputed by the CLI. Additionally, please take note of the output project configuration as you can run the command highlighted to speed up your next project's initialization, using CES' non-interactive mode. Furthermore, the output should be provided in any issue you open for CES.
+After your app has been initialized, be sure to follow any instructions outputed by the CLI. Additionally, please take note of the output project configuration as you can run the command highlighted to speed up your next project's initialization, using rn.new's non-interactive mode. Furthermore, the output should be provided in any issue you open for rn.new.
 
 ### Example
 
-The following would scaffold a CES app with Expo Router, NativeWind, and Bun:
+The following would scaffold an rn.new app with Expo Router, NativeWind, and Bun:
 
 ### npm
 
 ```bash
-npm create expo-stack --expo-router --nativewind --bun
+npx rn-new --expo-router --nativewind --bun
 ```
 
 ### bun
 
 ```bash
-bun create expo-stack myapp --expo-router --nativewind --bun
+bunx rn-new myapp --expo-router --nativewind --bun
 ```
 
 ## Advanced Usage

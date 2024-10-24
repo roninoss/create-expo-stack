@@ -7,10 +7,10 @@ export async function run() {
   const argv = process.env.argv;
   // create a CLI runtime
   const cli = build()
-    .brand('create-expo-stack')
+    .brand('rn-new')
     .src(__dirname)
     .plugins('./node_modules', {
-      matching: 'create-expo-stack-*',
+      matching: 'rn-new-*',
       hidden: true
     })
     .version() // provides default for version, v, --version, -v
