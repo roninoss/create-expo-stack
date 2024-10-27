@@ -1,6 +1,6 @@
 {
   "name": "rn-new",
-  "version": "2.11.24",
+  "version": "2.11.25",
   "description": "CLI tool to initialize a React Native application with Expo",
   "repository": {
     "type": "git",

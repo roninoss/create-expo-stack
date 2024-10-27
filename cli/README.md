@@ -59,7 +59,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 
 | Library            | Category            | Version | Description                                    |
 | ------------------ | ------------------- | ------- | ---------------------------------------------- |
-| React Native       | Mobile Framework    | v0.73   | The best cross-platform mobile framework       |
+| React Native       | Mobile Framework    | v0.74   | The best cross-platform mobile framework       |
 | React              | UI Framework        | v18     | The most popular UI framework in the world     |
 | TypeScript         | Language            | v5      | Static typechecking                            |
 | React Navigation   | Navigation          | v6      | Performant and consistent navigation framework |
@@ -297,6 +297,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Viraj-10">
+            <img src="https://avatars.githubusercontent.com/u/66306233?v=4" width="100;" alt="Viraj-10"/>
+            <br />
+            <sub><b>Viraj Joshi</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Hacksore">
             <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
             <br />
@@ -309,15 +316,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Salloom</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ralacerda">
             <img src="https://avatars.githubusercontent.com/u/19380403?v=4" width="100;" alt="ralacerda"/>
             <br />
             <sub><b>Renato Lacerda</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/imranbarbhuiya">
             <img src="https://avatars.githubusercontent.com/u/74945038?v=4" width="100;" alt="imranbarbhuiya"/>
@@ -352,15 +359,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Jeff Boek</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/gwenoleR">
             <img src="https://avatars.githubusercontent.com/u/10418241?v=4" width="100;" alt="gwenoleR"/>
             <br />
             <sub><b>Null</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/claudesortwell">
             <img src="https://avatars.githubusercontent.com/u/41422239?v=4" width="100;" alt="claudesortwell"/>

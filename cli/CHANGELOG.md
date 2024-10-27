@@ -1,5 +1,11 @@
 # rn-new
 
+## 2.11.25
+
+### Patch Changes
+
+- [#421](https://github.com/roninoss/create-expo-stack/pull/421) [`8f9d35dead9b7e2ba6a1220043fee5a2c7a6e4ea`](https://github.com/roninoss/create-expo-stack/commit/8f9d35dead9b7e2ba6a1220043fee5a2c7a6e4ea) Thanks [@Viraj-10](https://github.com/Viraj-10)! - fix: nativewind version and dependencies
+
 ## 2.11.24
 
 ### Patch Changes
