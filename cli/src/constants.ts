@@ -1,6 +1,6 @@
 import { CliResults, SelectedComponents } from './types';
 
-export const TITLE_TEXT = 'rn.new';
+export const TITLE_TEXT = 'rn new';
 
 export const DEFAULT_APP_NAME = 'my-expo-app';
 

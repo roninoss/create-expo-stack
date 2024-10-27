@@ -72,10 +72,4 @@ export const SIDEBAR_HEADER_MAP: Record<
     Usage: "Usage",
     Deployment: "Deployment",
   },
-  // Translate the sidebar's "outer headers" here
-  // sv: {
-  //   "Create Expo Stack": "Create Expo Stack",
-  //   Usage: "Användarguide",
-  //   Deployment: "Deployment",
-  // },
 };

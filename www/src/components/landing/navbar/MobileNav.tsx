@@ -7,7 +7,7 @@ import { DOCS_URL } from "../../../config";
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
 
-  const createExpoStackArray = SIDEBAR.en?.["Getting Started"];
+  const rnNewStackArray = SIDEBAR.en?.["Getting Started"];
 
   return (
     <>
@@ -49,7 +49,7 @@ export default function MobileNav() {
           }}
         >
           <div className="flex flex-col space-y-3">
-            {createExpoStackArray?.map((item, key) => (
+            {rnNewStackArray?.map((item, key) => (
               <a key={key} href={`${DOCS_URL}/${item.link}`}>
                 {item.text}
               </a>
