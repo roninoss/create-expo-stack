@@ -6,6 +6,7 @@ import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager
 import { easConfigure } from './runEasConfigure';
 import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
 import { generateNWUI } from './generateNWUI';
+import { runSetupCI } from './runSetupCI';
 
 export async function printOutput(
   cliResults: CliResults,
@@ -126,6 +127,10 @@ export async function printOutput(
 
   if (cliResults.flags.eas) {
     await easConfigure(cliResults, packageManager, toolbox);
+  }
+
+  if (process.env.RUN_SETUP_CI === 'true') {
+    await runSetupCI(toolbox, cliResults);
   }
 
   const printVexoSteps = () => {
