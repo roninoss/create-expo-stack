@@ -5,7 +5,7 @@ const docs = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string().default(SITE.title),
-      description: z.string().default(SITE.description), 
+      description: z.string().default(SITE.description),
       lang: z.string().default(SITE.defaultLanguage),
       dir: z.union([z.literal("ltr"), z.literal("rtl")]).default("ltr"),
       image: z
