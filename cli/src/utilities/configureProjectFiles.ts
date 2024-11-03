@@ -349,13 +349,13 @@ export function configureProjectFiles(
 
       files = [...files, ...i18nextFiles];
     }
+  }
 
-    // add redux files if needed
-    if (stateManagementPackage?.name === 'redux') {
-      const reduxFiles = ['packages/redux/store/store.ts.ejs', 'packages/redux/store/reducers/demoSlice.ts.ejs'];
+  // add redux files if needed
+  if (stateManagementPackage?.name === 'redux') {
+    const reduxFiles = ['packages/redux/store/store.ts.ejs', 'packages/redux/store/reducers/demoSlice.ts.ejs'];
 
-      files = [...files, ...reduxFiles];
-    }
+    files = [...files, ...reduxFiles];
   }
 
   // Add npmrc file if user is using pnpm

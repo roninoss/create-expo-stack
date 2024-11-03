@@ -362,6 +362,13 @@ const command: GluegunCommand = {
                 script += '--drawer+tabs ';
               }
             }
+
+            const stateManagementPackage = cliResults.packages.find((p) => p.type === 'state-management');
+
+            if (stateManagementPackage) {
+              // currently only redux is supported
+              script += `--${stateManagementPackage.name} `;
+            }
           } else {
             // Add the packages
             cliResults.packages.forEach((p) => {
