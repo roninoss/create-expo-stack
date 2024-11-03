@@ -1,21 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface InitialState {
-demo: undefined;
+  demo: undefined;
 }
 
 const initialState: InitialState = {
-demo: undefined,
+  demo: undefined,
 };
 
 export const demoSlice = createSlice({
-name: 'demo',
-initialState,
-reducers: {
-setDemo: (state, action) => {
-state.demo = action.payload;
-},
-},
+  name: 'demo',
+  initialState,
+  reducers: {
+    setDemo: (state, action) => {
+      state.demo = action.payload;
+    },
+  },
 });
 
 export const { setDemo } = demoSlice.actions;

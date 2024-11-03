@@ -1,38 +1,38 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
-import './global.css';
+  import './global.css';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
-import './global.css';
-import 'expo-dev-client';
+  import './global.css';
+  import 'expo-dev-client';
 <% } %>
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import './unistyles';
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
-import './translation';
+  import './translation';
 <% } %>
 import "react-native-gesture-handler";
 <% if (props.stylingPackage?.name === "tamagui") { %>
-import React, { useEffect } from "react";
-import { TamaguiProvider } from 'tamagui';
-import * as SplashScreen from 'expo-splash-screen';
-import { useFonts } from 'expo-font';
+	import React, { useEffect } from "react";
+	import { TamaguiProvider } from 'tamagui';
+	import * as SplashScreen from 'expo-splash-screen';
+	import { useFonts } from 'expo-font';
 
-import config from './tamagui.config'
+	import config from './tamagui.config'
 
-SplashScreen.preventAutoHideAsync();
+	SplashScreen.preventAutoHideAsync();
 <% } else if (props.stylingPackage?.name === "restyle") { %>
-import { ThemeProvider } from '@shopify/restyle';
-import { theme } from 'theme';
+  import { ThemeProvider } from '@shopify/restyle';
+  import { theme } from 'theme';
 <% } %>
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
-import { vexo } from 'vexo-analytics';
+  import { vexo } from 'vexo-analytics';
 
-vexo(process.env.VEXO_API_KEY); // eslint-disable-line
+  vexo(process.env.VEXO_API_KEY); // eslint-disable-line
 
-import RootStack from "./navigation"; // eslint-disable-line
+  import RootStack from "./navigation"; // eslint-disable-line
 <% } else { %>
-import RootStack from "./navigation";
+  import RootStack from "./navigation";
 <% } %>
 <% if (props.stateManagementPackage?.name === "redux") { %>
 import { Provider } from 'react-redux'
@@ -40,56 +40,54 @@ import store from 'store/store'
 <% } %>
 
 export default function App() {
-<% if (props.stylingPackage?.name === "tamagui") { %>
-const [loaded] = useFonts({
-Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
-});
+	<% if (props.stylingPackage?.name === "tamagui") { %>
+		const [loaded] = useFonts({
+			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+			InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
+		});
 
-useEffect(() => {
-if (loaded) {
-SplashScreen.hideAsync();
-}
-}, [loaded])
+		useEffect(() => {
+			if (loaded) {
+				SplashScreen.hideAsync();
+			}
+		}, [loaded])
 
-if (!loaded) {
-return null;
-}
+		if (!loaded) {
+			return null;
+		}
 
-return (
-<TamaguiProvider config={config}>
-  <% if (props.stateManagementPackage?.name === "redux") { %>
-  <Provider store={store}>
-    <% } %>
-    <RootStack />
-    <% if (props.stateManagementPackage?.name === "redux") { %>
-  </Provider>
-  <% } %>
-</TamaguiProvider>
-);
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-return (
-<ThemeProvider theme={theme}>
-  <% if (props.stateManagementPackage?.name === "redux") { %>
-  <Provider store={store}>
-    <% } %>
-    <RootStack />
-    <% if (props.stateManagementPackage?.name === "redux") { %>
-  </Provider>
-
-  <% } %>
-</ThemeProvider>
-);
-<% } else { %>
-return(
-<% if (props.stateManagementPackage?.name === "redux") { %>
-<Provider store={store}>
-  <% } %>
-  <RootStack />
-  <% if (props.stateManagementPackage?.name === "redux") { %>
-</Provider>
-
-<% } %>
-)
-<% } %>
+		return (
+			<TamaguiProvider config={config}>
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        <Provider store={store}>
+        <% } %>
+          <RootStack />
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        </Provider>
+        <% } %>
+			</TamaguiProvider>
+		);
+	<% } else if (props.stylingPackage?.name === "restyle") { %>
+		return (
+      <ThemeProvider theme={theme}>
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        <Provider store={store}>
+        <% } %>
+          <RootStack />
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        </Provider>
+        <% } %>
+      </ThemeProvider>
+    );
+	<% } else { %> 
+    return (
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      <Provider store={store}>
+      <% } %>
+        <RootStack />
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      </Provider>
+      <% } %>
+    );
+	<% } %>
 }

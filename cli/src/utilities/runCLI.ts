@@ -359,6 +359,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     cancel('Cancelled... 👋');
     return process.exit(0);
   }
+
   if (stateManagementSelect) {
     cliResults.packages.push({ name: stateManagementSelect as StateManagement, type: 'state-management' });
   } else {

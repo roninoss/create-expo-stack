@@ -5,19 +5,19 @@ import demoReducer from './reducers/demoSlice'
 
 
 const rootReducer = combineReducers({
-demo: demoReducer,
+  demo: demoReducer,
 })
 
 
 const store = configureStore({
-reducer: rootReducer,
+  reducer: rootReducer,
 })
 
 export default store
 
 export type RootState = ReturnType<typeof store.getState>
 
-  type AppDispatch = typeof store.dispatch
+type AppDispatch = typeof store.dispatch
 
-  export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
-    export const useAppSelector = useSelector.withTypes<RootState>()
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppSelector = useSelector.withTypes<RootState>()

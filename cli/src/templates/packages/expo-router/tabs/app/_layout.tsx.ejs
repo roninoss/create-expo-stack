@@ -1,37 +1,37 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
-import '../global.css';
+  import '../global.css';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
-import '../global.css';
-import 'expo-dev-client';
+  import '../global.css';
+  import 'expo-dev-client';
 <% } %>
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import '../unistyles';
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
-import '../translation';
+  import '../translation';
 <% } %>
 
 <% if (props.stylingPackage?.name === "tamagui") { %>
-import React, { useEffect } from "react";
-import { TamaguiProvider } from 'tamagui'
-import { SplashScreen, Stack } from "expo-router";
-import { useFonts } from "expo-font";
+	import React, { useEffect } from "react";
+	import { TamaguiProvider } from 'tamagui'
+	import { SplashScreen, Stack } from "expo-router";
+	import { useFonts } from "expo-font";
 
-import config from '../tamagui.config'
+	import config from '../tamagui.config'
 
-SplashScreen.preventAutoHideAsync();
+	SplashScreen.preventAutoHideAsync();
 <% } else if (props.stylingPackage?.name === "restyle") { %>
-import { ThemeProvider } from '@shopify/restyle';
-import { Stack } from 'expo-router';
-import { theme } from 'theme';
+  import { ThemeProvider } from '@shopify/restyle';
+  import { Stack } from 'expo-router';
+  import { theme } from 'theme';
 <% } else { %>
-import { Stack } from "expo-router";
+	import { Stack } from "expo-router";
 <% } %>
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
-import { vexo } from 'vexo-analytics';
+  import { vexo } from 'vexo-analytics';
 
-vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
+  vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
 
 <% if (props.stateManagementPackage?.name === "redux") { %>
@@ -41,46 +41,46 @@ import store from 'store/store'
 
 
 export const unstable_settings = {
-// Ensure that reloading on `/modal` keeps a back button present.
-initialRouteName: "(tabs)",
+	// Ensure that reloading on `/modal` keeps a back button present.
+	initialRouteName: "(tabs)",
 };
 
 export default function RootLayout() {
-<% if (props.stylingPackage?.name === "tamagui") { %>
-const [loaded] = useFonts({
-Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
-});
+  	<% if (props.stylingPackage?.name === "tamagui") { %>
+    	const [loaded] = useFonts({
+      		Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+      		InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
+    	});
 
-useEffect(() => {
-if (loaded) {
-SplashScreen.hideAsync();
-}
-}, [loaded]);
+    	useEffect(() => {
+      		if (loaded) {
+        		SplashScreen.hideAsync();
+      		}
+    	}, [loaded]);
 
-if (!loaded) return null;
-<% } %>
+    	if (!loaded) return null;
+  	<% } %>
 
-return (
-<% if (props.stylingPackage?.name === "tamagui") { %>
-<TamaguiProvider config={config}>
-  <% } else if (props.stylingPackage?.name === "restyle") { %>
-  <ThemeProvider theme={theme}>
-    <% } %>
-    <% if (props.stateManagementPackage?.name === "redux") { %>
-    <Provider store={store}>
-      <% } %>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-      </Stack>
+  	return (
+    	<% if (props.stylingPackage?.name === "tamagui") { %>
+    		<TamaguiProvider config={config}>
+    	<% } else if (props.stylingPackage?.name === "restyle") { %>
+    		<ThemeProvider theme={theme}>
+    	<% } %>
       <% if (props.stateManagementPackage?.name === "redux") { %>
-    </Provider>
-    <% } %>
-    <% if (props.stylingPackage?.name === "tamagui") { %>
-</TamaguiProvider>
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-</ThemeProvider>
-<% } %>
-);
+      <Provider store={store}>
+      <% } %>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        </Stack>
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      </Provider>
+      <% } %>
+		<% if (props.stylingPackage?.name === "tamagui") { %>
+			</TamaguiProvider>
+		<% } else if (props.stylingPackage?.name === "restyle") { %>
+			</ThemeProvider>
+		<% } %>
+  	);
 }

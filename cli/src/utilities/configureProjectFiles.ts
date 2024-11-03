@@ -8,6 +8,7 @@ import {
   Internalization,
   NavigationSelect,
   NavigationTypes,
+  StateManagement,
   StylingSelect
 } from '../types';
 import { getPackageManager, getVersionForPackageManager } from './getPackageManager';
@@ -404,7 +405,8 @@ export function configureProjectFiles(
     osPlatform: os.platform(),
     osArch: os.arch(),
     osRelease: os.release(),
-    analytics: analyticsPackage?.name as Analytics
+    analytics: analyticsPackage?.name as Analytics,
+    stateManagement: stateManagementPackage?.name as StateManagement
   });
 
   return files;

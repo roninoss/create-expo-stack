@@ -9,6 +9,7 @@ import {
   NavigationTypes,
   PackageManager,
   SelectedComponents,
+  StateManagement,
   StylingSelect
 } from '../types';
 
@@ -54,6 +55,7 @@ export async function storeConfigAnalytics({
   osArch: string;
   osRelease: string;
   analytics: Analytics;
+  stateManagement?: StateManagement;
 } & Partial<CliFlags>) {
   if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
     console.log('Skipping analytics in development or test environment');
