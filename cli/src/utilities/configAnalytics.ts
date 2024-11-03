@@ -38,7 +38,8 @@ export async function storeConfigAnalytics({
   osPlatform,
   osArch,
   osRelease,
-  analytics
+  analytics,
+  stateManagement
 }: {
   timestamp: string;
   cesVersion: string;
@@ -96,7 +97,8 @@ export async function storeConfigAnalytics({
             osPlatform ?? '',
             osArch ?? '',
             osRelease ?? '',
-            analytics ?? ''
+            analytics ?? '',
+            stateManagement ?? ''
           ]
         ]
       },

@@ -1,5 +1,9 @@
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
+<% if (props.stateManagementPackage?.name === "redux") { %>
+import { Provider } from 'react-redux'
+import store from 'store/store'
+<% } %>
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
@@ -28,10 +32,6 @@ import { StatusBar } from 'expo-status-bar';
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
 
-<% if (props.stateManagementPackage?.name === "redux") { %>
-import { Provider } from 'react-redux'
-import store from 'store/store'
-<% } %>
 
 
 <% if (props.stylingPackage?.name === "restyle") {%>
