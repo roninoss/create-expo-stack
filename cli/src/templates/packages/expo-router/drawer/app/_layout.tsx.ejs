@@ -36,6 +36,11 @@ import { Stack } from 'expo-router';
 
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
+<% if (props.stateManagementPackage?.name === "redux") { %>
+import { Provider } from 'react-redux'
+import store from 'store/store'
+<% } %>
+
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
@@ -65,10 +70,16 @@ export default function RootLayout() {
     		<ThemeProvider theme={theme}>
     	<% } %>
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <Stack>
-            <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
-          </Stack>
+          <% if (props.stateManagementPackage?.name === "redux") { %>
+          <Provider store={store}>
+          <% } %>
+            <Stack>
+              <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+              <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
+            </Stack>
+          <% if (props.stateManagementPackage?.name === "redux") { %>
+          </Provider>
+          <% } %>
         </GestureHandlerRootView>
       <% if (props.stylingPackage?.name === "tamagui") { %>
         </TamaguiProvider>

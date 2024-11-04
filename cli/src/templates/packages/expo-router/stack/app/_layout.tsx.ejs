@@ -27,6 +27,11 @@ import '../unistyles';
 
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
+<% if (props.stateManagementPackage?.name === "redux") { %>
+import { Provider } from 'react-redux'
+import store from 'store/store'
+<% } %>
+
 
 export default function Layout() {
 
@@ -51,7 +56,13 @@ export default function Layout() {
 		<% } else if (props.stylingPackage?.name === "restyle") { %>
 			<ThemeProvider theme={theme}>
 		<% } %>
-		    <Stack />
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      <Provider store={store}>
+      <% } %>
+        <Stack />
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      </Provider>
+      <% } %>
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			</TamaguiProvider>
 		<% } else if (props.stylingPackage?.name === "restyle") { %>

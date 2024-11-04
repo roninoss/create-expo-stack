@@ -1,5 +1,9 @@
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
+<% if (props.stateManagementPackage?.name === "redux") { %>
+import { Provider } from 'react-redux'
+import store from 'store/store'
+<% } %>
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
@@ -28,15 +32,23 @@ import { StatusBar } from 'expo-status-bar';
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
 
+
+
 <% if (props.stylingPackage?.name === "restyle") {%>
   export default function App() {   
     return (
       <ThemeProvider theme={theme}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        <Provider store={store}>
+          <% } %>
+          <ScreenContent title="Home" path="App.tsx">
+            <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+            <% } %>
+          </ScreenContent>
+          <% if (props.stateManagementPackage?.name === "redux") { %>
+        </Provider>
         <% } %>
-        </ScreenContent>
         <StatusBar style="auto" />
       </ThemeProvider>
     );
@@ -45,13 +57,19 @@ import { StatusBar } from 'expo-status-bar';
   export default function App() {
     return (
       <TamaguiProvider config={config}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } else { %>
-          <Text>Open up App.tsx to start working on your app!</Text>
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        <Provider store={store}>
+          <% } %>
+          <ScreenContent title="Home" path="App.tsx">
+            <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+            <% } else { %>
+            <Text>Open up App.tsx to start working on your app!</Text>
+            <% } %>
+          </ScreenContent>
+          <% if (props.stateManagementPackage?.name === "redux") { %>
+        </Provider>
         <% } %>
-        </ScreenContent>
         <StatusBar style="auto" />
       </TamaguiProvider>
     );
@@ -60,11 +78,17 @@ import { StatusBar } from 'expo-status-bar';
   export default function App() {
     return (
       <>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        <Provider store={store}>
+          <% } %>
+          <ScreenContent title="Home" path="App.tsx">
+            <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+            <% } %>
+          </ScreenContent>
+          <% if (props.stateManagementPackage?.name === "redux") { %>
+        </Provider>
         <% } %>
-        </ScreenContent>
         <StatusBar style="auto" />
       </>
     );

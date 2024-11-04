@@ -1,6 +1,10 @@
 import '../global.css';
 import 'expo-dev-client';
 import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
+<% if (props.stateManagementPackage?.name === "redux") { %>
+import { Provider } from 'react-redux'
+import store from 'store/store'
+<% } %>
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 <% } %>
@@ -34,6 +38,10 @@ export default function RootLayout() {
       />
       {/* WRAP YOUR APP WITH ANY ADDITIONAL PROVIDERS HERE */}
       {/* <ExampleProvider> */}
+       
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      <Provider store={store}>
+      <% } %>
        <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <BottomSheetModalProvider>
@@ -53,6 +61,9 @@ export default function RootLayout() {
         <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
         </BottomSheetModalProvider>
       </GestureHandlerRootView>
+      <% } %>
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      </Provider>
       <% } %>
       {/* </ExampleProvider> */}
     </>

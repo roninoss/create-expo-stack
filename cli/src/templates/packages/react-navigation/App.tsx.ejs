@@ -34,6 +34,10 @@ import "react-native-gesture-handler";
 <% } else { %>
   import RootStack from "./navigation";
 <% } %>
+<% if (props.stateManagementPackage?.name === "redux") { %>
+import { Provider } from 'react-redux'
+import store from 'store/store'
+<% } %>
 
 export default function App() {
 	<% if (props.stylingPackage?.name === "tamagui") { %>
@@ -54,16 +58,36 @@ export default function App() {
 
 		return (
 			<TamaguiProvider config={config}>
-				<RootStack />
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        <Provider store={store}>
+        <% } %>
+          <RootStack />
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        </Provider>
+        <% } %>
 			</TamaguiProvider>
 		);
 	<% } else if (props.stylingPackage?.name === "restyle") { %>
 		return (
       <ThemeProvider theme={theme}>
-        <RootStack />
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        <Provider store={store}>
+        <% } %>
+          <RootStack />
+        <% if (props.stateManagementPackage?.name === "redux") { %>
+        </Provider>
+        <% } %>
       </ThemeProvider>
     );
 	<% } else { %> 
-		return <RootStack />;
+    return (
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      <Provider store={store}>
+      <% } %>
+        <RootStack />
+      <% if (props.stateManagementPackage?.name === "redux") { %>
+      </Provider>
+      <% } %>
+    );
 	<% } %>
 }

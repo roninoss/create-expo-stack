@@ -8,6 +8,7 @@ import {
   Internalization,
   NavigationSelect,
   NavigationTypes,
+  StateManagement,
   StylingSelect
 } from '../types';
 import { getPackageManager, getVersionForPackageManager } from './getPackageManager';
@@ -21,7 +22,8 @@ export function configureProjectFiles(
   analyticsPackage: AvailablePackages | undefined,
   toolbox: Toolbox,
   cliResults: CliResults,
-  internalizationPackage: AvailablePackages | undefined
+  internalizationPackage: AvailablePackages | undefined,
+  stateManagementPackage: AvailablePackages | undefined
 ): string[] {
   // Define the files common to all templates to be generated
   let baseFiles = [
@@ -349,6 +351,13 @@ export function configureProjectFiles(
     }
   }
 
+  // add redux files if needed
+  if (stateManagementPackage?.name === 'redux') {
+    const reduxFiles = ['packages/redux/store/store.ts.ejs', 'packages/redux/store/reducers/demoSlice.ts.ejs'];
+
+    files = [...files, ...reduxFiles];
+  }
+
   // Add npmrc file if user is using pnpm
   if (packageManager === 'pnpm') {
     files.push('base/.npmrc.ejs');
@@ -396,7 +405,8 @@ export function configureProjectFiles(
     osPlatform: os.platform(),
     osArch: os.arch(),
     osRelease: os.release(),
-    analytics: analyticsPackage?.name as Analytics
+    analytics: analyticsPackage?.name as Analytics,
+    stateManagement: stateManagementPackage?.name as StateManagement
   });
 
   return files;
