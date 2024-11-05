@@ -26,6 +26,7 @@ export const availablePackages = [
   'restyle',
   'unistyles',
   'i18next',
+  'zustand',
   'vexo-analytics'
 ] as const;
 
@@ -38,6 +39,8 @@ export type NavigationTypes = 'stack' | 'tabs' | 'drawer + tabs' | undefined;
 export type StylingSelect = 'nativewind' | 'restyle' | 'stylesheet' | 'tamagui' | 'unistyles' | 'nativewindui';
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
+
+export type StateManagementSelect = 'zustand' | undefined;
 
 export type Internalization = 'i18next';
 
@@ -59,7 +62,7 @@ export type SelectedComponents =
 
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
-  type: 'navigation' | 'styling' | 'authentication' | 'internationalization' | 'analytics';
+  type: 'navigation' | 'styling' | 'authentication' | 'internationalization' | 'state-management' | 'analytics';
   options?: { selectedComponents?: SelectedComponents[]; type?: NavigationTypes };
 };
 
