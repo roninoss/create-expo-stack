@@ -296,6 +296,15 @@ const command: GluegunCommand = {
           });
         }
 
+        // State Management packages
+        if (options.zustand) {
+          // Add zustand package
+          cliResults.packages.push({
+            name: 'zustand',
+            type: 'state-management'
+          });
+        }
+
         // Internalization packages
         if (options.i18next) {
           cliResults.packages.push({
@@ -354,6 +363,12 @@ const command: GluegunCommand = {
                 script += '--drawer+tabs ';
               }
             }
+
+            const stateManagementPackage = cliResults.packages.find((p) => p.type === 'state-management');
+
+            if (stateManagementPackage) {
+              script += `--${stateManagementPackage.name} `;
+            }
           } else {
             // Add the packages
             cliResults.packages.forEach((p) => {
@@ -408,6 +423,9 @@ const command: GluegunCommand = {
         const internalizationPackage = packages.find((p) => p.type === 'internationalization');
         const analyticsPackage = packages.find((p) => p.type === 'analytics');
 
+        //add the state management package if it is selected
+        const stateManagementPackage = packages.find((p) => p.type === 'state-management') || undefined;
+
         let files: string[] = [];
 
         files = configureProjectFiles(
@@ -418,7 +436,8 @@ const command: GluegunCommand = {
           analyticsPackage,
           toolbox,
           cliResults,
-          internalizationPackage
+          internalizationPackage,
+          stateManagementPackage
         );
 
         // Once all the files are defined, format and generate them
@@ -434,7 +453,8 @@ const command: GluegunCommand = {
           packageManager,
           stylingPackage,
           toolbox,
-          internalizationPackage
+          internalizationPackage,
+          stateManagementPackage
         );
 
         await printOutput(cliResults, formattedFiles, toolbox, stylingPackage);

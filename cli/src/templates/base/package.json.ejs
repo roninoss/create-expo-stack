@@ -67,6 +67,10 @@
         "@react-native-community/slider": "4.5.2",
       <% } %>
     <% } %>
+
+    <% if (props.stateManagementPackage?.name === "zustand") { %>
+      "zustand": "^4.5.1",
+    <% } %>
     
     <% if (props.stylingPackage?.name === "restyle") { %>
       "@shopify/restyle": "^2.4.2",

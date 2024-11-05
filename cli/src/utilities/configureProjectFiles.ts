@@ -21,7 +21,8 @@ export function configureProjectFiles(
   analyticsPackage: AvailablePackages | undefined,
   toolbox: Toolbox,
   cliResults: CliResults,
-  internalizationPackage: AvailablePackages | undefined
+  internalizationPackage: AvailablePackages | undefined,
+  stateManagementPackage: AvailablePackages | undefined
 ): string[] {
   // Define the files common to all templates to be generated
   let baseFiles = [
@@ -347,6 +348,12 @@ export function configureProjectFiles(
 
       files = [...files, ...i18nextFiles];
     }
+  }
+
+  // add state management files if needed
+  if (stateManagementPackage?.name === 'zustand') {
+    const zustandFiles = ['packages/zustand/store/store.ts.ejs'];
+    files = [...files, ...zustandFiles];
   }
 
   // Add npmrc file if user is using pnpm
