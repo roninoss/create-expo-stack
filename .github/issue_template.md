@@ -1,4 +1,4 @@
-Issue tracker is **ONLY** used for reporting bugs. New features should be discussed on our discord, in the #create-expo-stack channel.
+Issue tracker is **ONLY** used for reporting bugs. New features should be discussed on our discord, in the #rn-new channel.
 
 <!--- Provide a general summary of the issue in the Title above. -->
 
@@ -24,7 +24,7 @@ Issue tracker is **ONLY** used for reporting bugs. New features should be discus
 3.
 4.
 
-## CES Config File
+## rn-new Config File
 
 <!--- If you generated a project, copy and paste the contents of your -->
-<!--- cesconfig.json file, located in the root of your project. -->
+<!--- rn-new-config.json file, located in the root of your project. -->

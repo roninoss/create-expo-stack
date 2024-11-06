@@ -5,7 +5,7 @@ const CopyCommandButton = () => {
 
   function toggleIcon() {
     setDelayedCopyText();
-    copy("npx create-expo-stack@latest");
+    copy("npx rn-new@latest");
   }
 
   return (
@@ -16,7 +16,7 @@ const CopyCommandButton = () => {
         title="Copy the command to get started"
         id="command"
       >
-        <code id="command-text">npx create-expo-stack@latest</code>
+        <code id="command-text">npx rn-new@latest</code>
         {!value ? (
           <svg
             id="copy-icon"

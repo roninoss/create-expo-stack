@@ -1,4 +1,4 @@
-# Create Expo Stack: Docs
+# rn.new Stack: Docs
 
 ## 🧞 Commands
 

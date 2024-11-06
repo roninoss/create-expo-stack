@@ -3,7 +3,7 @@
   "redirects": [
     {
       "source": "/issues",
-      "destination": "https://github.com/roninoss/create-expo-stack/issues/new"
+      "destination": "https://github.com/roninoss/rn-new/issues/new"
     },
     {
       "source": "/discord",

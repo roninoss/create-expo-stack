@@ -4,7 +4,7 @@ export function showHelp(info, highlight, warning) {
   info('    Creates a new configurable Expo project');
   info('');
   highlight('  Usage');
-  warning('    $ npx create-expo-stack <project_name> [options]');
+  warning('    $ npx rn-new <project_name> [options]');
   info('');
   highlight('  Options');
   info('    -d, --default         Use the default options for creating a project');
@@ -54,6 +54,6 @@ export function showHelp(info, highlight, warning) {
   info('');
   info('    For example:');
   info(' ');
-  warning('    $ npx create-expo-stack myProject --reactnavigation --nativewind --noInstall');
+  warning('    $ npx rn-new myProject --reactnavigation --nativewind --noInstall');
   info('');
 }

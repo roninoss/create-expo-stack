@@ -9,7 +9,7 @@ async function createNextRelease() {
     const commitHash = (await new Response(proc.stdout).text()).trim();
 
     /**
-     * Parse the package.json for `create-expo-stack`, and update it with the new
+     * Parse the package.json for `rn-new`, and update it with the new
      * "next" (development) version based on the parsed changesets
      */
     const packageJson = await Bun.file(process.cwd() + '/cli/package.json').json();

@@ -1,20 +1,20 @@
-# Welcome to the Expo Stack contributing guide
+# Welcome to the rn.new contributing guide
 
-Thank you for investing your time to contribute to Create Expo Stack!
+Thank you for investing your time to contribute to rn.new!
 
 In this guide, you will get an overview of the contribution workflow from opening an issue to creating, reviewing, and merging a PR.
 
 ## New contributor guide
 
-Use this documentation and [](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to gain an understanding of how Create Expo Stack works and how to contribute to the project.
+Use this documentation and [diagram](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to gain an understanding of how rn.new works and how to contribute to the project.
 
 ## What can I contribute to?
 
-Before delving deeper on the collaborarion worflow, let's talk about what kind of contributions can be made. Make sure to refer to this [architectural diagram](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to understand how the CLI, installers and template scaffolding works in `create-expo-stack`.
+Before delving deeper on the collaborarion worflow, let's talk about what kind of contributions can be made. Make sure to refer to this [architectural diagram](https://link.excalidraw.com/l/398AFcdY0wd/1GY4R99h31c) to understand how the CLI, installers and template scaffolding works in `rn-new`.
 
 There are three main things you can usually contribute to:
 
-- **Docs**: Anything that would improve the documentation for Expo Stack (typo corrections, fact checking, benchmarks, updates, and/or guides).
+- **Docs**: Anything that would improve the documentation for rn.new (typo corrections, fact checking, benchmarks, updates, and/or guides).
 
 - **CLI**: If you would like to add a currently unsupported feature (a new styling library, auth providers, and/or a new CLI flag), you'll probably be submitting a new template, generator, and/or new CLI prompts.
 
@@ -36,14 +36,14 @@ This project uses Bun, and should be run with Node.js on the latest available LT
 
 For external contributors, the best way to make changes to the project is to fork the repository and clone it locally:
 
-1. Fork the repository to your GitHub account: https://github.com/roninoss/create-expo-stack/fork
+1. Fork the repository to your GitHub account: https://github.com/roninoss/rn-new/fork
 
 2. Clone the forked repository locally:
 
 ```shell
-$ git clone https://github.com/<YOUR_GITHUB_USERNAME>/create-expo-stack
+$ git clone https://github.com/<YOUR_GITHUB_USERNAME>/rn-new
 
-$ cd create-expo-stack
+$ cd rn-new
 ```
 
 3. Checkout on a new branch, and start adding your changes:
@@ -58,7 +58,7 @@ From here, you can run `bun install` to install all the dependencies for the pro
 
 ### Directory structure
 
-The Expo Stack homepage and documentation source-code can be found in the `/www` and `/docs` directories, respectively. The create-expo-stack application can be found in the `/cli` directory.
+The rn.new homepage and documentation source-code can be found in the `/www` and `/docs` directories, respectively. The rn-new application can be found in the `/cli` directory.
 
 Install all the workspace dependencies with: `bun install` on the project root.
 
@@ -76,11 +76,11 @@ $ cd www
 $ bun start
 ```
 
-<!-- To quickly setup `create-expo-stack` for local testing, you'll need to link a local version to run on your machine: -->
+<!-- To quickly setup `rn-new` for local testing, you'll need to link a local version to run on your machine: -->
 
 ### Running the CLI from the global executable
 
-To quickly setup `create-expo-stack` for local testing, it's recommended that you use the linking feature from package managers to create a global exectutable of the package:
+To quickly setup `rn-new` for local testing, it's recommended that you use the linking feature from package managers to create a global exectutable of the package:
 
 ```shell
 $ cd cli
@@ -98,28 +98,28 @@ $ pnpm link --global
 
 After linking, make sure to restart the terminal session or resource the shell profile. Ex.: `source ~/.zshrc`.
 
-You can check that the linking was performed correctly with `which create-expo-stack`, which should return the path to the global executable. If this returns `create-expo-stack not found`, this means that the linking has either failed, or you have a misconfigure `PATH` variable for your package manager's global installs.
+You can check that the linking was performed correctly with `which rn-new`, which should return the path to the global executable. If this returns `rn-new not found`, this means that the linking has either failed, or you have a misconfigure `PATH` variable for your package manager's global installs.
 
 ```shell
-$ which create-expo-stack
-# Example, linked with PNPM on macOS.: /Users/<username>/Library/pnpm/create-expo-stack
+$ which rn-new
+# Example, linked with PNPM on macOS.: /Users/<username>/Library/pnpm/rn-new
 ```
 
-Now you can run your own local version of create-expo-stack via `create-expo-stack`, anywhere on your machine. Here is the format for running a CLI command:
+Now you can run your own local version of rn.new via `rn-new`, anywhere on your machine. Here is the format for running a CLI command:
 
 ```shell
-$ create-expo-stack <PROJECT_NAME> <OPTIONS>
+$ rn-new <PROJECT_NAME> <OPTIONS>
 ```
 
 > Note: Linking via Bun is not possible. While Bun does provide a linking feature ([see here](https://bun.sh/docs/cli/link)), it does not seem to expose the executable binary like the other three package managers. If you know how to do this, please let us know!
 
-From here, any changes to the `/cli` source-code will reflect the behavior of the `create-expo-stack` binary. We recommend that you set up a `create-expo-stack-apps` directory (or a similar directory) where you can securely scaffold expo apps and test prompt combinations.
+From here, any changes to the `/cli` source-code will reflect the behavior of the `rn-new` binary. We recommend that you set up a `rn-new-apps` directory (or a similar directory) where you can securely scaffold expo apps and test prompt combinations.
 
 ### Make your changes
 
 Once you've made your changes and tested that it works locally, run the tests using `bun test` in the `/cli` directory. You should also add a test to cover your own contribution, if relevant. These tests take a while to run (we're working on this).
 
-If your changes alter and/or add to the behavior of the `create-expo-stack` CLI, or fixes a bug in it, then we encourage you to also create a **changeset**. A changeset is a quick summary that expresses the intention to bump the version of the package. This is used by our CI in order to automatically manage releases to NPM.
+If your changes alter and/or add to the behavior of the `rn-new` CLI, or fixes a bug in it, then we encourage you to also create a **changeset**. A changeset is a quick summary that expresses the intention to bump the version of the package. This is used by our CI in order to automatically manage releases to NPM.
 
 To introduce a new changeset, run:
 
@@ -146,11 +146,11 @@ If you've provided the relevant changeset summaries and the tests pass, then you
 ### Tests (`./__tests__`)
 
 - Tests to check every iteration of the CLI, using every kind of package manager
-- [These aren't perfect atm](https://github.com/roninoss/create-expo-stack/issues/18)
+- [These aren't perfect atm](https://github.com/roninoss/rn-new/issues/18)
 
 ### Commands (`./cli/src/commands`)
 
-- There is currently only one command, `create-expo-stack`. The function representing this command roughly breaks down into the following steps:
+- There is currently only one command, `rn-new`. The function representing this command roughly breaks down into the following steps:
   1. Show the “help” view if that option was passed in
   2. Render the ASCII art title
   3. Set the default CLI options
@@ -159,7 +159,7 @@ If you've provided the relevant changeset summaries and the tests pass, then you
   - User wants to use the default configuration
   - User wants to initialize a blank typescript template
   - User wants to run in non-interactive mode
-    - Running the tests for create-expo-stack uses non-interactive mode
+    - Running the tests for rn-new uses non-interactive mode
   5. Run the CLI prompts (optional)
      - Return object that conveys user specifications, overwriting default CLI options
   6. Assign project name based on whether user passed one in
@@ -184,11 +184,11 @@ If you've provided the relevant changeset summaries and the tests pass, then you
 
 ### Utilities (`./cli/src/utilities`)
 
-- An assortment of helper functions and abstracted chunks of functionality to support the `create-expo-stack` command.
+- An assortment of helper functions and abstracted chunks of functionality to support the `rn-new` command.
 
 ### Entry point (`./cli/src/cli.ts`)
 
-- Entry point for create-expo-stack
+- Entry point for rn-new
 
 ### Constants
 
@@ -205,4 +205,4 @@ If you've provided the relevant changeset summaries and the tests pass, then you
 
 ## Debugging
 
-When debugging, it can be useful to place a console log of the error in the the try catch block of `./cli/src/commands/create-expo-stack.ts`. This should give you a hint as to what is going wrong.
+When debugging, it can be useful to place a console log of the error in the the try catch block of `./cli/src/commands/rn-new.ts`. This should give you a hint as to what is going wrong.
