@@ -12,6 +12,7 @@ import './unistyles';
 <% } %>
 
 <% if (props.authenticationPackage?.name === "clerk") { %>
+  import * as SecureStore from 'expo-secure-store'
   import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
 <% } %>
 import "react-native-gesture-handler";
@@ -41,6 +42,31 @@ import "react-native-gesture-handler";
 
 export default function App() {
   <% if (props.authenticationPackage?.name === "clerk") { %>
+    const tokenCache = {
+      async getToken(key: string) {
+        try {
+          const item = await SecureStore.getItemAsync(key)
+          if (item) {
+            console.log(`${key} was used 🔐 \n`)
+          } else {
+            console.log('No values stored under key: ' + key)
+          }
+          return item
+        } catch (error) {
+          console.error('SecureStore get item error: ', error)
+          await SecureStore.deleteItemAsync(key)
+          return null
+        }
+      },
+      async saveToken(key: string, value: string) {
+        try {
+          return SecureStore.setItemAsync(key, value)
+        } catch (err) {
+          return
+        }
+      },
+    }
+
     const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
     if (!clerkPublishableKey) {
       throw new Error('Missing EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY, add one in your .env file');
@@ -72,7 +98,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
     <% } %>
     <% if (props.authenticationPackage?.name === "clerk") { %>
-        <ClerkProvider>
+        <ClerkProvider tokenCache={tokenCache} publishableKey={clerkPublishableKey}>
           <ClerkLoaded>
     <% } %>
             <RootStack />
