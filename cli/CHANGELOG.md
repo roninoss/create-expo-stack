@@ -1,5 +1,23 @@
 # create-expo-stack
 
+## 2.11.25
+
+### Patch Changes
+
+- [#421](https://github.com/roninoss/create-expo-stack/pull/421) [`8f9d35dead9b7e2ba6a1220043fee5a2c7a6e4ea`](https://github.com/roninoss/create-expo-stack/commit/8f9d35dead9b7e2ba6a1220043fee5a2c7a6e4ea) Thanks [@Viraj-10](https://github.com/Viraj-10)! - fix: nativewind version and dependencies
+
+## 2.11.24
+
+### Patch Changes
+
+- [`b5374ea3cfc9c5ce4e08bd02c7abdedfb0f69282`](https://github.com/roninoss/create-expo-stack/commit/b5374ea3cfc9c5ce4e08bd02c7abdedfb0f69282) Thanks [@danstepanov](https://github.com/danstepanov)! - fix button margin for nativewind template
+
+## 2.11.23
+
+### Patch Changes
+
+- [`26777731bf744f78563444defddfe283c1d9d7ca`](https://github.com/roninoss/create-expo-stack/commit/26777731bf744f78563444defddfe283c1d9d7ca) Thanks [@danstepanov](https://github.com/danstepanov)! - bump nativewind version to 4.1
+
 ## 2.11.22
 
 ### Patch Changes

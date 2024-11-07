@@ -74,5 +74,6 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--tamagui`          | Use Tamagui for styling                                                        |
 | `--restyle`          | Use Restyle for styling                                                        |
 | `--stylesheet`       | Use StyleSheet for styling, used by default                                    |
+| `--zustand`          | Use Zustand for state management                                               |
 | `--i18next`          | Use i18next for internationalization                                           |
 | `-i`, `--ignite`     | Initialize an opinionated starter using Infinite Red's Ignite                  |

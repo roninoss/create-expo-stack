@@ -47,7 +47,7 @@ You can also use flags such as `--noInstall`, `--noGit`, and `--default` in orde
 
 To get started, use npx to run the CLI tool. You will be prompted to opt into the features you want to use.
 
-`npx create-expo-stack`
+`npx create-expo-stack@latest`
 
 <img src="https://github.com/roninoss/create-expo-stack/assets/5482800/e709dd66-cb9b-463c-91f9-b842bb80585c" />
 
@@ -59,7 +59,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 
 | Library            | Category            | Version | Description                                    |
 | ------------------ | ------------------- | ------- | ---------------------------------------------- |
-| React Native       | Mobile Framework    | v0.73   | The best cross-platform mobile framework       |
+| React Native       | Mobile Framework    | v0.74   | The best cross-platform mobile framework       |
 | React              | UI Framework        | v18     | The most popular UI framework in the world     |
 | TypeScript         | Language            | v5      | Static typechecking                            |
 | React Navigation   | Navigation          | v6      | Performant and consistent navigation framework |
@@ -71,7 +71,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo Status Bar    | Status Bar Library  | v1      | Status bar support                             |
 | Expo System UI     | System UI Library   | v2      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v12     | Open links in the browser                      |
-| NativeWind         | UI Framework        | v4      | Tailwind CSS for React Native                  |
+| NativeWind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
 | Restyle            | UI Framework        | v2      | Theme-based styling library for React Native   |
 | Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
 | Unistyles          | UI Framework        | v2      | Superset of StyleSheet                         |
@@ -218,6 +218,21 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Savinvadim1312">
+            <img src="https://avatars.githubusercontent.com/u/16936043?v=4" width="100;" alt="Savinvadim1312"/>
+            <br />
+            <sub><b>Savin Vadim</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/b0iq">
+            <img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100;" alt="b0iq"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/coyksdev">
             <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
             <br />
@@ -225,39 +240,10 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Savinvadim1312">
-            <img src="https://avatars.githubusercontent.com/u/16936043?v=4" width="100;" alt="Savinvadim1312"/>
+        <a href="https://github.com/AlejandroGutierrezB">
+            <img src="https://avatars.githubusercontent.com/u/56408597?v=4" width="100;" alt="AlejandroGutierrezB"/>
             <br />
-            <sub><b>Savin Vadim</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/b0iq">
-            <img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100;" alt="b0iq"/>
-            <br />
-            <sub><b>Null</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/gabimoncha">
-            <img src="https://avatars.githubusercontent.com/u/39256258?v=4" width="100;" alt="gabimoncha"/>
-            <br />
-            <sub><b>Gabimoncha</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/mwarger">
-            <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
-            <br />
-            <sub><b>Mat Warger</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/gialencar">
-            <img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100;" alt="gialencar"/>
-            <br />
-            <sub><b>Gilson Alencar</b></sub>
+            <sub><b>Alejandro Gutierrez Barcenilla</b></sub>
         </a>
     </td>
     <td align="center">
@@ -268,39 +254,32 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/AlejandroGutierrezB">
-            <img src="https://avatars.githubusercontent.com/u/56408597?v=4" width="100;" alt="AlejandroGutierrezB"/>
+        <a href="https://github.com/gialencar">
+            <img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100;" alt="gialencar"/>
             <br />
-            <sub><b>Alejandro Gutierrez Barcenilla</b></sub>
+            <sub><b>Gilson Alencar</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/mwarger">
+            <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
+            <br />
+            <sub><b>Mat Warger</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/gabimoncha">
+            <img src="https://avatars.githubusercontent.com/u/39256258?v=4" width="100;" alt="gabimoncha"/>
+            <br />
+            <sub><b>Gabimoncha</b></sub>
         </a>
     </td></tr>
 <tr>
     <td align="center">
-        <a href="https://github.com/debugtheworldbot">
-            <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
+        <a href="https://github.com/ralacerda">
+            <img src="https://avatars.githubusercontent.com/u/19380403?v=4" width="100;" alt="ralacerda"/>
             <br />
-            <sub><b>Pipizhu</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/bautistaaa">
-            <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
-            <br />
-            <sub><b>Null</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/YounessHassoune">
-            <img src="https://avatars.githubusercontent.com/u/36106440?v=4" width="100;" alt="YounessHassoune"/>
-            <br />
-            <sub><b>YOUNESS HASSOUNE</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Hacksore">
-            <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
-            <br />
-            <sub><b>Sean Boult</b></sub>
+            <sub><b>Renato Lacerda</b></sub>
         </a>
     </td>
     <td align="center">
@@ -311,13 +290,55 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/ralacerda">
-            <img src="https://avatars.githubusercontent.com/u/19380403?v=4" width="100;" alt="ralacerda"/>
+        <a href="https://github.com/Hacksore">
+            <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
             <br />
-            <sub><b>Renato Lacerda</b></sub>
+            <sub><b>Sean Boult</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Viraj-10">
+            <img src="https://avatars.githubusercontent.com/u/66306233?v=4" width="100;" alt="Viraj-10"/>
+            <br />
+            <sub><b>Viraj Joshi</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/YounessHassoune">
+            <img src="https://avatars.githubusercontent.com/u/36106440?v=4" width="100;" alt="YounessHassoune"/>
+            <br />
+            <sub><b>YOUNESS HASSOUNE</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/abhishekmg">
+            <img src="https://avatars.githubusercontent.com/u/34393560?v=4" width="100;" alt="abhishekmg"/>
+            <br />
+            <sub><b>Null</b></sub>
         </a>
     </td></tr>
 <tr>
+    <td align="center">
+        <a href="https://github.com/bautistaaa">
+            <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/debugtheworldbot">
+            <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
+            <br />
+            <sub><b>Pipizhu</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/theblondealex">
+            <img src="https://avatars.githubusercontent.com/u/65453441?v=4" width="100;" alt="theblondealex"/>
+            <br />
+            <sub><b>TheBlondeAlex</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/imranbarbhuiya">
             <img src="https://avatars.githubusercontent.com/u/74945038?v=4" width="100;" alt="imranbarbhuiya"/>
@@ -338,7 +359,8 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Joël Kuijper</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/zamplyy">
             <img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100;" alt="zamplyy"/>
@@ -359,8 +381,7 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Null</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/claudesortwell">
             <img src="https://avatars.githubusercontent.com/u/41422239?v=4" width="100;" alt="claudesortwell"/>

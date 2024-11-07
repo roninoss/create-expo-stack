@@ -5,6 +5,7 @@ import { semver } from 'gluegun';
 import { bunInstallationError, defaultOptions, nativeWindUIOptions } from '../constants';
 import {
   AuthenticationSelect,
+  StateManagementSelect,
   CliResults,
   NavigationSelect,
   NavigationTypes,
@@ -325,6 +326,32 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         stylingSelect.toString().charAt(0).toUpperCase() + stylingSelect.toString().slice(1)
       }!`
     );
+  }
+
+  const stateManagementSelect = await select({
+    message: 'What would you like to use for state management?',
+    options: [
+      { value: undefined, label: 'None' },
+      { value: 'zustand', label: 'Zustand' }
+      // { value: 'mobx', label: 'MobX' },
+      // { value: 'redux', label: 'Redux' },
+    ]
+  });
+
+  if (isCancel(stateManagementSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+
+  if (stateManagementSelect) {
+    cliResults.packages.push({
+      name: stateManagementSelect as StateManagementSelect,
+      type: 'state-management'
+    });
+
+    success(`You'll be using ${stateManagementSelect} for state management.`);
+  } else {
+    success(`No problem, skipping state management for now.`);
   }
 
   const authenticationSelect = await select({

@@ -11,7 +11,8 @@ export function generateProjectFiles(
   packageManager: PackageManager,
   stylingPackage: AvailablePackages | undefined,
   toolbox: Toolbox,
-  internalizationPackage: AvailablePackages | undefined
+  internalizationPackage: AvailablePackages | undefined,
+  stateManagementPackage: AvailablePackages | undefined
 ) {
   const { projectName, packages, flags } = cliResults;
 
@@ -29,6 +30,11 @@ export function generateProjectFiles(
 
     if (authenticationPackage?.name === 'firebase') {
       target = target.replace('packages/firebase/', '');
+    }
+
+    //state management
+    if (stateManagementPackage?.name === 'zustand') {
+      target = target.replace('packages/zustand/', '');
     }
 
     target = target.replace('base/', '');
@@ -83,7 +89,8 @@ export function generateProjectFiles(
         packageManager,
         packages,
         stylingPackage,
-        internalizationPackage
+        internalizationPackage,
+        stateManagementPackage
       }
     });
 
