@@ -1,12 +1,12 @@
 import { forwardRef } from 'react';
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import { Text, makeStyles } from 'theme';
 
 type ButtonProps = {
   title?: string;
 } & TouchableOpacityProps;
 
-export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ title, ...touchableProps }, ref) => {
+export const Button = forwardRef<View, ButtonProps>(({ title, ...touchableProps }, ref) => {
   const styles = useStyles();
 
   return (
