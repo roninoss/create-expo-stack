@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
 type ButtonProps = {
@@ -7,7 +7,7 @@ type ButtonProps = {
 } & TouchableOpacityProps;
 
 
-export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ title, ...touchableProps }, ref) => {
+export const Button = forwardRef<View, ButtonProps>(({ title, ...touchableProps }, ref) => {
   const { theme } = useStyles();
 
   return (
