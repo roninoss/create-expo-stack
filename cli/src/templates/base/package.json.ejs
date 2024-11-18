@@ -90,14 +90,14 @@
     <% } %>
 
     <% if (props.navigationPackage?.type === "navigation") { %>
-      "@react-navigation/native": "^6.1.7",
-      "react-native-gesture-handler": "~2.16.1",
-      "react-native-safe-area-context": "4.10.1",
-      "react-native-screens": "3.31.1",
+      "@react-navigation/native": "^7.0.3",
+      "react-native-gesture-handler": "~2.20.2",
+      "react-native-safe-area-context": "4.12.0",
+      "react-native-screens": "~4.1.0",
     <% } %>
 
     <% if (props.navigationPackage?.name === "react-navigation") { %>
-      "@react-navigation/stack": "^6.3.17",
+      "@react-navigation/stack": "^7.0.4",
       "@expo/vector-icons": "^14.0.0",
     <% } %>
 
@@ -110,26 +110,26 @@
     <% } %>
 
     <% if (props.navigationPackage?.options.type === "tabs" && props.navigationPackage?.name === "react-navigation") { %>
-      "@react-navigation/bottom-tabs": "^6.5.8",
+      "@react-navigation/bottom-tabs": "^7.0.5",
     <% } %>
 
     <% if ((props.navigationPackage?.options.type === "drawer + tabs") && (props.navigationPackage?.name === "react-navigation")) { %>
-      "@react-navigation/drawer": "^6.6.15",
-      "@react-navigation/bottom-tabs": "^6.5.8",
+      "@react-navigation/drawer": "^7.0.0",
+      "@react-navigation/bottom-tabs": "^7.0.5",
       "react-native-reanimated": "~3.10.1",
     <% } else if (props.navigationPackage?.options.type === "drawer + tabs") { %>
-      "@react-navigation/drawer": "^6.6.15",
-      "@react-navigation/bottom-tabs": "^6.5.8",
+      "@react-navigation/drawer": "^7.0.0",
+      "@react-navigation/bottom-tabs": "^7.0.5",
     <% } %>
     
     <% if (props.navigationPackage?.name === "expo-router") { %>
       "@expo/vector-icons": "^14.0.0",
       "expo-linking": "~6.3.1",
-      "expo-router": "~3.5.14", 
+      "expo-router": "~4.0.6", 
       "expo-constants": "~16.0.1",     
       "expo-system-ui": "~3.0.4",
       "expo-web-browser": "~13.0.3",
-      "react-dom": "18.2.0",
+      "react-dom": "18.3.1",
       "react-native-reanimated": "~3.10.1",
       "react-native-web": "~0.19.10",
     <% } %>
@@ -153,10 +153,10 @@
     "expo-dev-launcher": "^4.0.22",      
   <% } %>
 
-    "expo": "^51.0.0",
+    "expo": "^52.0.7",
     "expo-status-bar": "~1.12.1",
-    "react": "18.2.0",
-    "react-native": "0.74.1"
+    "react": "18.3.1",
+    "react-native": "0.76.1"
   },
   "devDependencies": {
   <%# patch for this issue : https://github.com/expo/expo/issues/26641 %>
@@ -164,7 +164,7 @@
 	  "ajv": "^8.12.0",
 	<% } %>
     "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
+    "@types/react": "~18.3.12",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "@typescript-eslint/parser": "^7.7.0",
     "eslint": "^8.57.0",
@@ -185,13 +185,6 @@
   },
   <% if (props.navigationPackage?.name !== "expo-router") { %>
     "main": "node_modules/expo/AppEntry.js",
-  <% } %>
-  <% if (props.navigationPackage?.type === "navigation") { %>
-    "expo": {
-      "install": {
-        "exclude": ["react-native-safe-area-context"]
-      }
-    },
   <% } %>
   "private": true
 }
