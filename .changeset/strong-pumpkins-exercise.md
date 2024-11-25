@@ -2,4 +2,4 @@
 'create-expo-stack': patch
 ---
 
-fix: peer dep errors when using npm and expo 52
+fix: compatibility with expo 52 and react navigation 7
