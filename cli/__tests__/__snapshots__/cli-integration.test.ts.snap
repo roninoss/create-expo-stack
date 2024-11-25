@@ -39,13 +39,6 @@ exports[`generates a project with --expo-router --nativewind --bun --overwrite: 
     "extends": "universe/native",
     "root": true,
   },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
-  },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
@@ -167,13 +160,6 @@ exports[`generates a project with --expo-router --stylesheet --bun --overwrite: 
     "extends": "universe/native",
     "root": true,
   },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
-  },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
@@ -291,13 +277,6 @@ exports[`generates a project with --expo-router --tabs --nativewind --bun --over
   "eslintConfig": {
     "extends": "universe/native",
     "root": true,
-  },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
@@ -425,13 +404,6 @@ exports[`generates a project with --expo-router --tabs --stylesheet --bun --over
     "extends": "universe/native",
     "root": true,
   },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
-  },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
@@ -554,13 +526,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun
   "eslintConfig": {
     "extends": "universe/native",
     "root": true,
-  },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
@@ -691,13 +656,6 @@ exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun
     "extends": "universe/native",
     "root": true,
   },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
-  },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
@@ -823,13 +781,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
   "eslintConfig": {
     "extends": "universe/native",
     "root": true,
-  },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
@@ -974,13 +925,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
   "eslintConfig": {
     "extends": "universe/native",
     "root": true,
-  },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
@@ -1132,13 +1076,6 @@ exports[`generates a project with --nativewindui --no-install --bun --overwrite:
     "extends": "universe/native",
     "root": true,
   },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
-  },
   "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
@@ -1281,13 +1218,6 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
   "eslintConfig": {
     "extends": "universe/native",
     "root": true,
-  },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native-safe-area-context",
-      ],
-    },
   },
   "main": "expo-router/entry",
   "name": "myTestProject",
