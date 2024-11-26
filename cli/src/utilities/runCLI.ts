@@ -15,6 +15,7 @@ import {
 } from '../types';
 import { loadConfigs, saveConfig } from './configStorage';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
+import { isProjectCompatibleWithSetupCI } from './runSetupCI';
 
 // based on eas default bun version https://docs.expo.dev/build-reference/infrastructure/#ios-server-images
 const minBunVersion = '1.1.13'; // or greater
@@ -413,6 +414,26 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     }
 
     await saveConfig({ name, cliResults });
+  }
+
+  // Ask whether setup-ci should be run after the project is created
+  if (isProjectCompatibleWithSetupCI(toolbox, cliResults)) {
+    const shouldRunSetupCI = await confirm({
+      message: 'Would you like to run setup-ci to bootstrap CI with Github Actions workflows?',
+      initialValue: false
+    });
+
+    if (isCancel(shouldRunSetupCI)) {
+      cancel('Cancelled... 👋');
+      return process.exit(0);
+    }
+
+    if (shouldRunSetupCI) {
+      process.env.RUN_SETUP_CI = 'true';
+      success(`We'll run setup-ci after the project is created.`);
+    } else {
+      success(`No problem, skipping setup-ci for now.`);
+    }
   }
 
   return cliResults;
