@@ -32,7 +32,7 @@
       "nativewind": "latest",
       <%# This will already be installed if using expo-router (see below) %>
       <% if (props.navigationPackage?.name !== "expo-router") { %>
-        "react-native-reanimated": "~3.10.1",
+        "react-native-reanimated": "3.16.2",
       <% } %>
       <%# This will already be installed if using navigation (see below) %>
       <% if (props.navigationPackage?.type !== "navigation") { %>
@@ -116,7 +116,7 @@
     <% if ((props.navigationPackage?.options.type === "drawer + tabs") && (props.navigationPackage?.name === "react-navigation")) { %>
       "@react-navigation/drawer": "^7.0.0",
       "@react-navigation/bottom-tabs": "^7.0.5",
-      "react-native-reanimated": "~3.10.1",
+      "react-native-reanimated": "3.16.2",
     <% } else if (props.navigationPackage?.options.type === "drawer + tabs") { %>
       "@react-navigation/drawer": "^7.0.0",
       "@react-navigation/bottom-tabs": "^7.0.5",
@@ -130,7 +130,7 @@
       "expo-system-ui": "~3.0.4",
       "expo-web-browser": "~13.0.3",
       "react-dom": "18.3.1",
-      "react-native-reanimated": "~3.10.1",
+      "react-native-reanimated": "3.16.2",
       "react-native-web": "~0.19.10",
     <% } %>
 
@@ -149,8 +149,8 @@
     "expo-localization": "~14.8.3",
   <% } %> 
   <% if (props.flags?.eas || props.stylingPackage?.name === "nativewindui") { %>
-    "expo-dev-client": "~4.0.14",
-    "expo-dev-launcher": "^4.0.22",      
+    "expo-dev-client": "~5.0.4",
+    "expo-dev-launcher": "^5.0.17",      
   <% } %>
 
     "expo": "^52.0.7",
