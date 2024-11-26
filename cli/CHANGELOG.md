@@ -1,5 +1,19 @@
 # create-expo-stack
 
+## 2.12.0
+
+### Minor Changes
+
+- [#280](https://github.com/roninoss/create-expo-stack/pull/280) [`08c09d915dc6f6579446913a51994eb1898ed88d`](https://github.com/roninoss/create-expo-stack/commit/08c09d915dc6f6579446913a51994eb1898ed88d) Thanks [@theblondealex](https://github.com/theblondealex)! - Added a StateManagement Question with zustand to start and potentially more to follow
+
+  - setup with a question prompt just before the internationalization prompt
+  - --zustand flag to skip the prompt
+  - Adds a StateManagement folder to the project with a zustandStore.ts file to start with
+
+### Patch Changes
+
+- [#432](https://github.com/roninoss/create-expo-stack/pull/432) [`374aeb8fab91253d5bd9300a3a07c0d87f9562df`](https://github.com/roninoss/create-expo-stack/commit/374aeb8fab91253d5bd9300a3a07c0d87f9562df) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: compatibility with expo 52 and react navigation 7
+
 ## 2.11.25
 
 ### Patch Changes
