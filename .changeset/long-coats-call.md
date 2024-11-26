@@ -2,4 +2,4 @@
 'create-expo-stack': patch
 ---
 
-fix: nwui template by updating some versions
+fix: update expo-dev-launcher to 5.0.17 and expo-dev-client to 5.0.4
