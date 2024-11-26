@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.12.1
+
+### Patch Changes
+
+- [#435](https://github.com/roninoss/create-expo-stack/pull/435) [`6ada677a9a5f6295602fa24e6563a4262ec233d5`](https://github.com/roninoss/create-expo-stack/commit/6ada677a9a5f6295602fa24e6563a4262ec233d5) Thanks [@dannyhw](https://github.com/dannyhw)! - fix: update expo-dev-launcher to 5.0.17 and expo-dev-client to 5.0.4
+
 ## 2.12.0
 
 ### Minor Changes
