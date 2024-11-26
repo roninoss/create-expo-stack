@@ -1,6 +1,11 @@
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 
+<% if (props.authenticationPackage?.name === "clerk") { %>
+  import * as SecureStore from 'expo-secure-store'
+  import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
+<% } %>
+
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
   import { InternalizationExample } from 'components/InternalizationExample';
@@ -28,46 +33,79 @@ import { StatusBar } from 'expo-status-bar';
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
 
-<% if (props.stylingPackage?.name === "restyle") {%>
-  export default function App() {   
-    return (
-      <ThemeProvider theme={theme}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    );
+export default function App() {   
+<% if (props.authenticationPackage?.name === "clerk") { %>
+  const tokenCache = {
+    async getToken(key: string) {
+      try {
+        const item = await SecureStore.getItemAsync(key)
+        if (item) {
+          console.log(`${key} was used 🔐 \n`)
+        } else {
+          console.log('No values stored under key: ' + key)
+        }
+        return item
+      } catch (error) {
+        console.error('SecureStore get item error: ', error)
+        await SecureStore.deleteItemAsync(key)
+        return null
+      }
+    },
+    async saveToken(key: string, value: string) {
+      try {
+        return SecureStore.setItemAsync(key, value)
+      } catch (err) {
+        return
+      }
+    },
   }
-<% } else if (props.stylingPackage?.name === "tamagui") {%>
-  export default function App() {
-    return (
-      <TamaguiProvider config={config}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } else { %>
-          <Text>Open up App.tsx to start working on your app!</Text>
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </TamaguiProvider>
-    );
-  }
-<% } else { %>
-  export default function App() {
-    return (
-      <>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </>
-    );
+
+  const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  if (!clerkPublishableKey) {
+    throw new Error('Missing EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY, add one in your .env file');
   }
 <% } %>
 
+  return (
+<% if (props.authenticationPackage?.name === "clerk") { %>
+    <ClerkProvider tokenCache={tokenCache} publishableKey={clerkPublishableKey}>
+      <ClerkLoaded>
+<% } else { %>
+    <>
+<% } %>
+<% if (props.stylingPackage?.name === "restyle") {%>
+        <ThemeProvider theme={theme}>
+          <ScreenContent title="Home" path="App.tsx">
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } %>
+          </ScreenContent>
+          <StatusBar style="auto" />
+        </ThemeProvider>
+<% } else if (props.stylingPackage?.name === "tamagui") {%>
+        <TamaguiProvider config={config}>
+          <ScreenContent title="Home" path="App.tsx">
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <InternalizationExample />
+          <% } else { %>
+            <Text>Open up App.tsx to start working on your app!</Text>
+          <% } %>
+          </ScreenContent>
+          <StatusBar style="auto" />
+        </TamaguiProvider>
+<% } else { %>
+        <ScreenContent title="Home" path="App.tsx">
+        <% if (props.internalizationPackage?.name === "i18next") { %>
+          <InternalizationExample />
+        <% } %>
+        </ScreenContent>
+        <StatusBar style="auto" />
+<% } %>
+<% if (props.authenticationPackage?.name === "clerk") { %>
+      </ClerkLoaded>
+    </ClerkProvider>
+<% } else { %>
+    </>
+<% } %>
+  );
+}
