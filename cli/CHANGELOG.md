@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.12.2
+
+### Patch Changes
+
+- [`c5714b60c8c51a36a90b695078a043bfd304d27e`](https://github.com/roninoss/create-expo-stack/commit/c5714b60c8c51a36a90b695078a043bfd304d27e) Thanks [@danstepanov](https://github.com/danstepanov)! - update contact info in output script
+
 ## 2.12.1
 
 ### Patch Changes
