@@ -221,5 +221,5 @@ export async function printOutput(
   }
   info(``);
 
-  outro(`If you're looking to move even faster, I may be able to help!\n- https://x.com/danstepanov`);
+  outro(`If you're looking to move even faster, I may be able to help!\n- ces@danstepanov.com`);
 }
