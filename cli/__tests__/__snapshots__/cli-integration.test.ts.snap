@@ -104,7 +104,7 @@ exports[`generates a project with --expo-router --nativewind --bun --overwrite: 
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -224,7 +224,7 @@ exports[`generates a project with --expo-router --stylesheet --bun --overwrite: 
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -346,7 +346,7 @@ exports[`generates a project with --expo-router --tabs --nativewind --bun --over
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -471,7 +471,7 @@ exports[`generates a project with --expo-router --tabs --stylesheet --bun --over
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -598,7 +598,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -726,7 +726,7 @@ exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/Button.tsx
@@ -852,7 +852,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
@@ -864,6 +864,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
 ./myTestProject/components/TabBarIcon.tsx
 ./myTestProject/components/ThemeToggle.tsx
 ./myTestProject/components/nativewindui
+./myTestProject/components/nativewindui/Button.tsx
 ./myTestProject/components/nativewindui/DatePicker
 ./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
 ./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
@@ -996,7 +997,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
@@ -1010,6 +1011,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
 ./myTestProject/components/nativewindui
 ./myTestProject/components/nativewindui/ActivityIndicator.tsx
 ./myTestProject/components/nativewindui/Avatar.tsx
+./myTestProject/components/nativewindui/Button.tsx
 ./myTestProject/components/nativewindui/DatePicker
 ./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
 ./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
@@ -1153,6 +1155,7 @@ exports[`generates a project with --nativewindui --no-install --bun --overwrite:
 ./myTestProject/components/nativewindui
 ./myTestProject/components/nativewindui/ActivityIndicator.tsx
 ./myTestProject/components/nativewindui/Avatar.tsx
+./myTestProject/components/nativewindui/Button.tsx
 ./myTestProject/components/nativewindui/DatePicker
 ./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
 ./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
@@ -1289,7 +1292,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
 ./myTestProject/assets/icon.png
 ./myTestProject/assets/splash.png
 ./myTestProject/babel.config.js
-./myTestProject/bun.lockb
+./myTestProject/bun.lock
 ./myTestProject/cesconfig.json
 ./myTestProject/components
 ./myTestProject/components/BackButton.tsx
