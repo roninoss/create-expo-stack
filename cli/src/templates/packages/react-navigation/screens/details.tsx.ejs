@@ -1,6 +1,11 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { ScreenContent } from 'components/ScreenContent';
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+<% } else {%>
 import { StyleSheet, View } from 'react-native';
+<% } %>
 
 import { RootStackParamList } from '../navigation';
 
@@ -19,9 +24,20 @@ export default function Details() {
   );
 }
 
+<% if (props.stylingPackage?.name === "unistyles") { %>
+export const styles = StyleSheet.create((theme, rt) => ({
+    container: {
+        flex: 1,
+        padding: 24,
+        backgroundColor: theme.colors.background,
+        paddingBottom: rt.insets.bottom,
+    },
+}));
+<% } else { %>
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-  },
+    container: {
+        flex: 1,
+        padding: 24,
+    },
 });
+<% } %>
