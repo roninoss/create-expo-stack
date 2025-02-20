@@ -82,7 +82,7 @@ export default function NotFoundScreen() {
     linkText: `text-base text-[#2e78b7]`,
 	};
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
-  const styles = StyleSheet.create((theme) => ({
+const styles = StyleSheet.create((theme) => ({
     title: {
       fontSize: 20,
       fontWeight: 'bold',
@@ -96,9 +96,9 @@ export default function NotFoundScreen() {
       fontSize: 14,
       color: theme.colors.astral
     },
-  });
+}));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     title: {
       fontSize: 20,
       fontWeight: 'bold',
@@ -111,7 +111,7 @@ export default function NotFoundScreen() {
       fontSize: 14,
       color: '#2e78b7',
     },
-  });
+}));
 <% } else if (props.stylingPackage?.name === "restyle") { %>
   const useStyles = makeStyles((theme) => ({
     link: {
