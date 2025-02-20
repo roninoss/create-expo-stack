@@ -82,7 +82,9 @@ const popularCombinations = [
   // no install is important for the website cli that generates a project zip file
   ['--nativewindui', '--no-install'],
   // nativewindui blank
-  ['--expo-router', '--drawer+tabs', '--nativewindui', '--blank', '--expo-router']
+  ['--expo-router', '--drawer+tabs', '--nativewindui', '--blank', '--expo-router'],
+  // clerk expo-router tabs nativewind
+  ['--expo-router', '--tabs', '--clerk', '--nativewind']
 ] as const;
 
 const projectName = `myTestProject`;

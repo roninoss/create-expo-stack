@@ -9,6 +9,10 @@ import '../unistyles';
   import '../translation';
 <% } %>
 
+<% if (props.authenticationPackage?.name === "clerk") { %>
+  import * as SecureStore from 'expo-secure-store'
+  import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
+<% } %>
 <% if (props.stylingPackage?.name === "tamagui") { %>
 	import { useFonts } from 'expo-font';
   import { SplashScreen, Stack } from 'expo-router';
@@ -30,6 +34,38 @@ import '../unistyles';
 
 export default function Layout() {
 
+  <% if (props.authenticationPackage?.name === "clerk") { %>
+    const tokenCache = {
+      async getToken(key: string) {
+        try {
+          const item = await SecureStore.getItemAsync(key)
+          if (item) {
+            console.log(`${key} was used 🔐 \n`)
+          } else {
+            console.log('No values stored under key: ' + key)
+          }
+          return item
+        } catch (error) {
+          console.error('SecureStore get item error: ', error)
+          await SecureStore.deleteItemAsync(key)
+          return null
+        }
+      },
+      async saveToken(key: string, value: string) {
+        try {
+          return SecureStore.setItemAsync(key, value)
+        } catch (err) {
+          return
+        }
+      },
+    }
+
+    const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+    if (!clerkPublishableKey) {
+      throw new Error('Missing EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY, add one in your .env file');
+    }
+  <% } %>
+
   <% if (props.stylingPackage?.name === "tamagui") { %>
   	const [loaded] = useFonts({
 			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
@@ -46,16 +82,26 @@ export default function Layout() {
   <% } %>
 
 	return (
+    
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			<TamaguiProvider config={config}>
 		<% } else if (props.stylingPackage?.name === "restyle") { %>
 			<ThemeProvider theme={theme}>
 		<% } %>
-		    <Stack />
+    <% if (props.authenticationPackage?.name === "clerk") { %>
+        <ClerkProvider tokenCache={tokenCache} publishableKey={clerkPublishableKey}>
+          <ClerkLoaded>
+    <% } %>
+		        <Stack />
+    <% if (props.authenticationPackage?.name === "clerk") { %>
+          </ClerkLoaded>
+        </ClerkProvider>
+    <% } %>
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			</TamaguiProvider>
 		<% } else if (props.stylingPackage?.name === "restyle") { %>
 			</ThemeProvider >
 		<% } %>
+    
 	);
 }

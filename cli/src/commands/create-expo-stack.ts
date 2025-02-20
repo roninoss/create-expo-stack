@@ -296,6 +296,14 @@ const command: GluegunCommand = {
           });
         }
 
+        if (options.clerk) {
+          // Add clerk package
+          cliResults.packages.push({
+            name: 'clerk',
+            type: 'authentication'
+          });
+        }
+        
         // State Management packages
         if (options.zustand) {
           // Add zustand package
