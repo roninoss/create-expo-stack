@@ -1,24 +1,41 @@
 import { Text, View } from 'react-native';
-import { useStyles } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { EditScreenInfo } from './EditScreenInfo';
 
 type ScreenContentProps = {
-  title: string;
-  path: string;
-  children?: React.ReactNode;
+    title: string;
+    path: string;
+    children?: React.ReactNode;
 };
-
 
 export const ScreenContent = ({ title, path, children } : ScreenContentProps) => {
-  const { theme } = useStyles();
-
-  return (
-    <View style={theme.components.container}>
-      <Text style={theme.components.title}>{title}</Text>
-      <View style={theme.components.separator} />
-      <EditScreenInfo path={path} />
-      {children}
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <Text style={styles.title}>{title}</Text>
+            <View style={styles.separator} />
+            <EditScreenInfo path={path} />
+            {children}
+        </View>
+    );
 };
+
+const styles = StyleSheet.create(theme => ({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 24,
+    },
+    separator: {
+        height: 1,
+        marginVertical: 30,
+        width: '80%',
+        backgroundColor: theme.colors.typography,
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: theme.colors.typography,
+    },
+}));

@@ -1,5 +1,10 @@
 import { Stack } from 'expo-router';
+<% if (props.stylingPackage?.name === 'unistyles') { %>
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+<% } else { %>
 import { StyleSheet, View } from 'react-native';
+<% } %>
 
 import { ScreenContent } from '~/components/ScreenContent';
 
@@ -14,9 +19,19 @@ export default function Home() {
   );
 }
 
+<% if (props.stylingPackage?.name === 'unistyles') { %>
+const styles = StyleSheet.create(theme => ({
+    container: {
+        flex: 1,
+        padding: 24,
+        backgroundColor: theme.colors.background,
+    },
+}));
+<% } else { %>
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-  },
+    container: {
+        flex: 1,
+        padding: 24,
+    },
 });
+<% } %>

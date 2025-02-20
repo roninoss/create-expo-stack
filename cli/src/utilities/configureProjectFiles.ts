@@ -252,6 +252,7 @@ export function configureProjectFiles(
         expoRouterFiles.push('packages/nativewind/components/Button.tsx.ejs');
       } else if (stylingPackage?.name === 'unistyles') {
         expoRouterFiles.push('packages/unistyles/components/Button.tsx.ejs');
+        expoRouterFiles.push('packages/expo-router/index.js.ejs');
       } else if (stylingPackage?.name === 'tamagui') {
         expoRouterFiles.push('packages/tamagui/components/Button.tsx.ejs');
       } else if (stylingPackage?.name === 'stylesheet') {

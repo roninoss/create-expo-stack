@@ -3,6 +3,7 @@ node_modules
 npm-debug.log
 coverage
 .nyc_output
+.idea
 dist
 build
 myTestProject

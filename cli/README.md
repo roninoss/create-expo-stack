@@ -74,7 +74,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | NativeWind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
 | Restyle            | UI Framework        | v2      | Theme-based styling library for React Native   |
 | Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
-| Unistyles          | UI Framework        | v2      | Superset of StyleSheet                         |
+| Unistyles          | UI Framework        | v3      | Superset of StyleSheet                         |
 | Safe Area Context  | Safe Area Library   | v4      | Safe area support                              |
 | React Native Web   | Web Support         | v0.19   | React Native for Web                           |
 | Firebase           | Backend and Auth    | v10     | Cloud-hosted NoSQL database from Google        |
