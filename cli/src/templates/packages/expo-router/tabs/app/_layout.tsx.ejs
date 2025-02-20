@@ -3,6 +3,8 @@
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
   import '../global.css';
   import 'expo-dev-client';
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
+  import { useUnistyles } from "react-native-unistyles";
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import '../translation';
@@ -51,6 +53,9 @@ export default function RootLayout() {
 
     	if (!loaded) return null;
   	<% } %>
+    <% if (props.stylingPackage?.name === "unistyles") { %>
+        const { theme } = useUnistyles();
+    <% } %>
 
   	return (
     	<% if (props.stylingPackage?.name === "tamagui") { %>
@@ -58,7 +63,21 @@ export default function RootLayout() {
     	<% } else if (props.stylingPackage?.name === "restyle") { %>
     		<ThemeProvider theme={theme}>
     	<% } %>
-		<Stack>
+        <% if (props.stylingPackage?.name === "unistyles") { %>
+            <Stack
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: theme.colors.background,
+                    },
+                    headerTitleStyle: {
+                        color: theme.colors.typography,
+                    },
+                    headerTintColor: theme.colors.typography
+                }}
+            >
+        <% } else  { %>
+            <Stack>
+        <% } %>
 			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 			<Stack.Screen name="modal" options={{ presentation: "modal" }} />
 		</Stack>
