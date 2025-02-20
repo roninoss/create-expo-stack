@@ -1,3 +1,6 @@
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import './unistyles';
+<% } %>
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 
@@ -29,7 +32,7 @@ import { StatusBar } from 'expo-status-bar';
 <% } %>
 
 <% if (props.stylingPackage?.name === "restyle") {%>
-  export default function App() {   
+  export default function App() {
     return (
       <ThemeProvider theme={theme}>
         <ScreenContent title="Home" path="App.tsx">
