@@ -10,7 +10,8 @@ export async function runSystemCommand({
   stdio,
   toolbox,
   shell = true,
-  env
+  env,
+  failOnError = true
 }: {
   command: string;
   toolbox: Toolbox;
@@ -18,6 +19,7 @@ export async function runSystemCommand({
   errorMessage: string;
   shell?: boolean;
   env?: Record<string, string>;
+  failOnError?: boolean;
 }) {
   const {
     print: { error },
@@ -30,11 +32,13 @@ export async function runSystemCommand({
     env
   });
 
-  if (result.error || result.status !== 0) {
+  if (failOnError && (result.error || result.status !== 0)) {
     error(`${errorMessage}: ${JSON.stringify(result)}`);
 
     error(`failed to run command: ${command}`);
 
     return process.exit(1);
+  } else {
+    return result.stdout;
   }
 }
