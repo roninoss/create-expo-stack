@@ -1,13 +1,25 @@
 import { Tabs } from 'expo-router';
 import { TabBarIcon } from '~/components/TabBarIcon';
-
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import { useUnistyles } from "react-native-unistyles";
+<% } %>
 
 export default function TabLayout() {
+<% if (props.stylingPackage?.name === "unistyles") { %>
+  const { theme } = useUnistyles();
+<% } %>
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
+        <% if (props.stylingPackage?.name === "unistyles") { %>
+        tabBarActiveTintColor: theme.colors.astral,
+        tabBarStyle: {
+          backgroundColor: theme.colors.background,
+        }
+        <% } else { %>
         tabBarActiveTintColor: 'black',
+        <% } %>
       }}>
       <Tabs.Screen
         name="index"

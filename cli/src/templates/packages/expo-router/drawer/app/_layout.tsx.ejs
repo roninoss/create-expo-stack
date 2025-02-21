@@ -4,9 +4,6 @@
   import '../global.css';
   import 'expo-dev-client';
 <% } %>
-<% if (props.stylingPackage?.name === "unistyles") { %>
-import '../unistyles';
-<% } %>
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import '../translation';
@@ -27,8 +24,12 @@ import { Stack } from 'expo-router';
 	SplashScreen.preventAutoHideAsync();
 <% }  else if (props.stylingPackage?.name === "restyle") { %>
   import { ThemeProvider } from '@shopify/restyle';
-  
+
   import { theme } from '../theme';
+<% } %>
+
+<% if (props.stylingPackage?.name === "unistyles") { %>
+    import { useUnistyles } from "react-native-unistyles";
 <% } %>
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
@@ -57,6 +58,9 @@ export default function RootLayout() {
 
     if (!loaded) return null;
   <% } %>
+  <% if (props.stylingPackage?.name === "unistyles") { %>
+    const { theme } = useUnistyles();
+  <% } %>
 
   	return (
     	<% if (props.stylingPackage?.name === "tamagui") { %>
@@ -65,7 +69,28 @@ export default function RootLayout() {
     		<ThemeProvider theme={theme}>
     	<% } %>
         <GestureHandlerRootView style={{ flex: 1 }}>
+         <% if (props.stylingPackage?.name === "unistyles") { %>
+            <Stack
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: theme.colors.background,
+                    },
+                    headerTitleStyle: {
+                        color: theme.colors.typography,
+                    },
+                    headerTintColor: theme.colors.typography,
+                    drawerStyle: {
+                        backgroundColor: theme.colors.background,
+                    },
+                    drawerLabelStyle: {
+                        color: theme.colors.typography,
+                    },
+                    drawerInactiveTintColor: theme.colors.typography,
+                }}
+            >
+        <% } else  { %>
           <Stack>
+        <% } %>
             <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
           </Stack>

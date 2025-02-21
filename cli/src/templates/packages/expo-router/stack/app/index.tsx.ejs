@@ -1,5 +1,9 @@
 import { Stack, Link } from 'expo-router';
 
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import { StyleSheet } from 'react-native-unistyles';
+<% } %>
+
 import { Button } from '~/components/Button';
 import { Container } from '~/components/Container';
 import { ScreenContent } from '~/components/ScreenContent';
@@ -19,9 +23,21 @@ export default function Home() {
         <% } %>
         </ScreenContent>
         <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
-          <Button title="Show Details" />
+          <% if (props.stylingPackage?.name === "unistyles") { %>
+              <Button title="Show Details" style={styles.button} />
+          <% } else { %>
+              <Button title="Show Details" />
+          <% } %>
         </Link>
       </Container>
     </>
   );
 }
+
+<% if (props.stylingPackage?.name === "unistyles") { %>
+const styles = StyleSheet.create((theme) => ({
+    button: {
+        marginHorizontal: theme.margins.xl,
+    },
+}));
+<% } %>

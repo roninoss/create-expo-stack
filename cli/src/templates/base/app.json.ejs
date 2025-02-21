@@ -3,6 +3,9 @@
     "name": "<%= props.projectName %>",
     "slug": "<%= props.projectName %>",
     "version": "1.0.0",
+    <% if (props.stylingPackage?.name === "unistyles") { %>
+        "newArchEnabled": true,
+    <% } %>
     <% if (props.navigationPackage?.name === 'expo-router') { %>
       "scheme": "<%= props.projectName %>",
       "web": {
@@ -58,7 +61,7 @@
     <% } %>
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    <% if (props.stylingPackage?.name === "nativewindui") { %>
+    <% if (props.stylingPackage?.name === "nativewindui" || props.stylingPackage?.name === "unistyles") { %>
     "userInterfaceStyle": "automatic",
      <% } else { %>
      "userInterfaceStyle": "light",

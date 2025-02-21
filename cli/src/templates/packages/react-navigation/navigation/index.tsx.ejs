@@ -2,9 +2,13 @@
 	import { NavigationContainer } from "@react-navigation/native";
 	import { createStackNavigator } from "@react-navigation/stack";
 
+    <% if (props.stylingPackage?.name === "unistyles") { %>
+        import { useUnistyles } from 'react-native-unistyles';
+    <% } %>
+
 	import Overview from "../screens/overview";
 	import Details from "../screens/details";
-  import { BackButton } from '../components/BackButton';
+    import { BackButton } from '../components/BackButton';
 
 	export type RootStackParamList = {
 		Overview: undefined;
@@ -14,10 +18,25 @@
 	const Stack = createStackNavigator<RootStackParamList>();
 
 	export default function RootStack() {
-
+        <% if (props.stylingPackage?.name === "unistyles") { %>
+        const { theme } = useUnistyles();
+        <% } %>
 		return (
 			<NavigationContainer>
-				<Stack.Navigator initialRouteName="Overview">
+				<Stack.Navigator
+                    initialRouteName="Overview"
+                    <% if (props.stylingPackage?.name === "unistyles") { %>
+                    screenOptions={{
+                        headerStyle: {
+                            backgroundColor: theme.colors.background,
+                        },
+                        headerTitleStyle: {
+                            color: theme.colors.typography,
+                        },
+                        headerTintColor: theme.colors.typography,
+                    }}
+                    <% } %>
+                >
 					<Stack.Screen name="Overview" component={Overview} />
 					<Stack.Screen
 						name="Details"
@@ -34,6 +53,9 @@
 <% } else if (props.navigationPackage?.options.type === 'tabs') { %>
 	import { NavigationContainer } from "@react-navigation/native";
 	import { createStackNavigator } from "@react-navigation/stack";
+    <% if (props.stylingPackage?.name === "unistyles") { %>
+        import { useUnistyles } from 'react-native-unistyles';
+    <% } %>
 
 	import Modal from "../screens/modal";
 	import TabNavigator from "./tab-navigator";
@@ -46,9 +68,25 @@
 	const Stack = createStackNavigator<RootStackParamList>();
 
 	export default function RootStack() {
+        <% if (props.stylingPackage?.name === "unistyles") { %>
+        const { theme } = useUnistyles();
+        <% } %>
 		return (
 			<NavigationContainer>
-				<Stack.Navigator initialRouteName="TabNavigator">
+				<Stack.Navigator
+                    initialRouteName="TabNavigator"
+                    <% if (props.stylingPackage?.name === "unistyles") { %>
+                        screenOptions={{
+                            headerStyle: {
+                                backgroundColor: theme.colors.background,
+                            },
+                            headerTitleStyle: {
+                                color: theme.colors.typography,
+                            },
+                            headerTintColor: theme.colors.typography,
+                        }}
+                    <% } %>
+                >
 					<Stack.Screen
 						name="TabNavigator"
 						component={TabNavigator}
@@ -66,22 +104,41 @@
 	<% } else if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
 		import { NavigationContainer } from "@react-navigation/native";
 		import { createStackNavigator } from '@react-navigation/stack';
-	
+        <% if (props.stylingPackage?.name === "unistyles") { %>
+            import { useUnistyles } from 'react-native-unistyles';
+        <% } %>
+
 		import Modal from "../screens/modal";
 		import DrawerNavigator from "./drawer-navigator";
-	
+
 		export type RootStackParamList = {
 			DrawerNavigator: undefined;
 			Modal: undefined;
       TabNavigator: undefined;
 		};
-	
+
 		const Stack = createStackNavigator<RootStackParamList>();
-	
+
 		export default function RootStack() {
+            <% if (props.stylingPackage?.name === "unistyles") { %>
+            const { theme } = useUnistyles();
+            <% } %>
 			return (
 				<NavigationContainer>
-					<Stack.Navigator initialRouteName="DrawerNavigator">
+					<Stack.Navigator
+                        initialRouteName="DrawerNavigator"
+                        <% if (props.stylingPackage?.name === "unistyles") { %>
+                        screenOptions={{
+                            headerStyle: {
+                                backgroundColor: theme.colors.background,
+                            },
+                            headerTitleStyle: {
+                                color: theme.colors.typography,
+                            },
+                            headerTintColor: theme.colors.typography,
+                        }}
+                        <% } %>
+                    >
 						<Stack.Screen
 							name="DrawerNavigator"
 							component={DrawerNavigator}

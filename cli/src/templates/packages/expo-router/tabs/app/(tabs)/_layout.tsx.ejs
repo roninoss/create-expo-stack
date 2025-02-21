@@ -1,14 +1,31 @@
 import { Link, Tabs } from "expo-router";
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import { useUnistyles } from "react-native-unistyles";
+<% } %>
 import { HeaderButton } from '../../components/HeaderButton';
 import { TabBarIcon } from '../../components/TabBarIcon';
 
-
-
 export default function TabLayout() {
+<% if (props.stylingPackage?.name === "unistyles") { %>
+  const { theme } = useUnistyles();
+<% } %>
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
+        <% if (props.stylingPackage?.name === "unistyles") { %>
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+          },
+          headerTitleStyle: {
+            color: theme.colors.typography,
+          },
+          tabBarActiveTintColor: theme.colors.astral,
+          tabBarStyle: {
+             backgroundColor: theme.colors.background,
+          },
+          <% } else { %>
+          tabBarActiveTintColor: 'black',
+        <% } %>
       }}>
       <Tabs.Screen
         name='index'

@@ -3,7 +3,7 @@
 <% } %>
 
 <% if (props.stylingPackage?.name === "unistyles") { %>
-import '../unistyles';
+  import { useUnistyles } from "react-native-unistyles";
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import '../translation';
@@ -29,7 +29,9 @@ import '../unistyles';
 <% } %>
 
 export default function Layout() {
-
+  <% if (props.stylingPackage?.name === "unistyles") { %>
+    const { theme } = useUnistyles();
+  <% } %>
   <% if (props.stylingPackage?.name === "tamagui") { %>
   	const [loaded] = useFonts({
 			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
@@ -51,7 +53,21 @@ export default function Layout() {
 		<% } else if (props.stylingPackage?.name === "restyle") { %>
 			<ThemeProvider theme={theme}>
 		<% } %>
-		    <Stack />
+        <% if (props.stylingPackage?.name === "unistyles") { %>
+            <Stack
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: theme.colors.background,
+                    },
+                    headerTitleStyle: {
+                        color: theme.colors.typography,
+                    },
+                    headerTintColor: theme.colors.typography
+                }}
+            />
+        <% } else { %>
+            <Stack />
+        <% } %>
 		<% if (props.stylingPackage?.name === "tamagui") { %>
 			</TamaguiProvider>
 		<% } else if (props.stylingPackage?.name === "restyle") { %>

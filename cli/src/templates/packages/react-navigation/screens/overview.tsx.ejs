@@ -1,7 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { ScreenContent } from 'components/ScreenContent';
+<% if (props.stylingPackage?.name === "unistyles") { %>
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+<% } else {%>
 import { StyleSheet, View } from 'react-native';
+<% } %>
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import { InternalizationExample } from 'components/InternalizationExample';
@@ -34,10 +39,20 @@ export default function Overview() {
   );
 }
 
-
+<% if (props.stylingPackage?.name === "unistyles") { %>
+export const styles = StyleSheet.create((theme, rt) => ({
+    container: {
+        flex: 1,
+        padding: 24,
+        backgroundColor: theme.colors.background,
+        paddingBottom: rt.insets.bottom,
+    },
+}));
+<% } else { %>
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-  },
+    container: {
+        flex: 1,
+        padding: 24,
+    },
 });
+<% } %>

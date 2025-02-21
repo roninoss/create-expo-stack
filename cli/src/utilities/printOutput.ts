@@ -6,6 +6,7 @@ import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager
 import { easConfigure } from './runEasConfigure';
 import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
 import { generateNWUI } from './generateNWUI';
+import os from 'os';
 
 export async function printOutput(
   cliResults: CliResults,
@@ -15,7 +16,7 @@ export async function printOutput(
 ): Promise<void> {
   const {
     parameters: { options },
-    print: { info, success, highlight }
+    print: { info, success, highlight, warning }
   } = toolbox;
 
   const { projectName, flags } = cliResults;
@@ -126,6 +127,28 @@ export async function printOutput(
 
   if (cliResults.flags.eas) {
     await easConfigure(cliResults, packageManager, toolbox);
+  }
+
+  if (stylingPackage?.name === 'unistyles' && os.type() === 'Darwin') {
+    try {
+      const xcodeVersion = await runSystemCommand({
+        command: `xcodebuild -version | head -n 1 | awk '{print $2}'`,
+        errorMessage: 'failed to check xcode version',
+        stdio: 'pipe',
+        toolbox,
+        failOnError: false
+      });
+
+      const xcodeVersionString = String(xcodeVersion).trim();
+
+      if (xcodeVersionString === '16.2') {
+        warning(
+          '\nUnistyles is currently not compatible with xcode 16.2 due to an xcode bug, downgrade to 16.1 or lower to use Unistyles \nhttps://github.com/jpudysz/react-native-unistyles/issues/507'
+        );
+      }
+    } catch (_e: unknown) {
+      // ignore this error
+    }
   }
 
   const printVexoSteps = () => {

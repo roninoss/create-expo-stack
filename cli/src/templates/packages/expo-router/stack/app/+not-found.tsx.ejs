@@ -4,7 +4,7 @@ import { Link, Stack } from 'expo-router';
 
   import { Container } from '~/components/Container';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
-  import { createStyleSheet, useStyles } from 'react-native-unistyles'
+  import { StyleSheet } from 'react-native-unistyles'
   import { Text } from 'react-native';
 
   import { Container } from '~/components/Container';
@@ -24,10 +24,6 @@ import { Link, Stack } from 'expo-router';
 export default function NotFoundScreen() {
 <% if (props.stylingPackage?.name === "restyle") { %>
   const styles = useStyles();
-<% } %>
-
-<% if (props.stylingPackage?.name === "unistyles") {%>
-  const { styles } = useStyles(stylesheet)
 <% } %>
 
   return (
@@ -86,10 +82,11 @@ export default function NotFoundScreen() {
     linkText: `text-base text-[#2e78b7]`,
 	};
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
-  const stylesheet = createStyleSheet({
+const styles = StyleSheet.create((theme) => ({
     title: {
       fontSize: 20,
       fontWeight: 'bold',
+      color: theme.colors.typography,
     },
     link: {
       marginTop: 16,
@@ -97,11 +94,11 @@ export default function NotFoundScreen() {
     },
     linkText: {
       fontSize: 14,
-      color: '#2e78b7',
+      color: theme.colors.astral
     },
-  });
+}));
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     title: {
       fontSize: 20,
       fontWeight: 'bold',
@@ -114,7 +111,7 @@ export default function NotFoundScreen() {
       fontSize: 14,
       color: '#2e78b7',
     },
-  });
+});
 <% } else if (props.stylingPackage?.name === "restyle") { %>
   const useStyles = makeStyles((theme) => ({
     link: {

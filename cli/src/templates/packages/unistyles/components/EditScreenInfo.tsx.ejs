@@ -1,61 +1,64 @@
 import { Text, View } from 'react-native';
-import { createStyleSheet, useStyles } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
-import { useTranslation } from 'react-i18next';
+    import { useTranslation } from 'react-i18next';
 <% } %>
 
 export const EditScreenInfo = ({ path }: { path: string }) => {
-  const { styles } = useStyles(stylesheet);
 <% if (props.internalizationPackage?.name === "i18next") { %>
-  const { t } = useTranslation();
-  const title = t('getStarted');
-  const description = t('changeCode')
+    const { t } = useTranslation();
+    const title = t('getStarted');
+    const description = t('changeCode')
 <% } else { %>
-  const title = "Open up the code for this screen:"
-  const description = "Change any of the text, save the file, and your app will automatically update."
+    const title = "Open up the code for this screen:"
+    const description = "Change any of the text, save the file, and your app will automatically update."
 <% } %>
-  return (
-    <View>
-      <View style={styles.getStartedContainer}>
-        <Text style={styles.getStartedText}>{title}</Text>
-        <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-          <Text>{path}</Text>
+    return (
+        <View>
+            <View style={styles.getStartedContainer}>
+                <Text style={styles.getStartedText}>{title}</Text>
+                <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+                    <Text style={styles.text}>{path}</Text>
+                </View>
+                <Text style={styles.getStartedText}>
+                    {description}
+                </Text>
+            </View>
         </View>
-        <Text style={styles.getStartedText}>
-          {description}
-        </Text>
-      </View>
-    </View>
-  );
+    );
 }
 
-const stylesheet = createStyleSheet({
-  codeHighlightContainer: {
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  getStartedText: {
-    fontSize: 17,
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  helpContainer: {
-    alignItems: 'center',
-    marginHorizontal: 20,
-    marginTop: 15,
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    textAlign: 'center',
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-});
+const styles = StyleSheet.create((theme) => ({
+    codeHighlightContainer: {
+        borderRadius: 3,
+        paddingHorizontal: 4,
+    },
+    getStartedContainer: {
+        alignItems: 'center',
+        marginHorizontal: 50,
+    },
+    text: {
+        color: theme.colors.typography,
+    },
+    getStartedText: {
+        fontSize: 17,
+        lineHeight: 24,
+        textAlign: 'center',
+        color: theme.colors.typography,
+    },
+    helpContainer: {
+        alignItems: 'center',
+        marginHorizontal: 20,
+        marginTop: 15,
+    },
+    helpLink: {
+        paddingVertical: 15,
+    },
+    helpLinkText: {
+        textAlign: 'center',
+    },
+    homeScreenFilename: {
+        marginVertical: 7,
+    },
+}));

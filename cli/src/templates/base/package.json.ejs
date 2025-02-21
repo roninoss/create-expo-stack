@@ -1,9 +1,11 @@
 {
   "name": "<%= props.projectName %>",
   "version": "1.0.0",
-  <% if (props.navigationPackage?.name === "expo-router") { %>
-  "main": "expo-router/entry",
-  <% } %>
+<% if (props.navigationPackage?.name === "expo-router" && props.stylingPackage?.name === 'unistyles') { %>
+    "main": "index.js",
+<% } else if (props.navigationPackage?.name === "expo-router") { %>
+    "main": "expo-router/entry",
+<% } %>
   "scripts": {
   <% if (props.flags?.eas) { %>
     "start": "expo start --dev-client",
@@ -71,7 +73,7 @@
     <% if (props.stateManagementPackage?.name === "zustand") { %>
       "zustand": "^4.5.1",
     <% } %>
-    
+
     <% if (props.stylingPackage?.name === "restyle") { %>
       "@shopify/restyle": "^2.4.2",
     <% } %>
@@ -87,7 +89,9 @@
     <% } %>
 
     <% if (props.stylingPackage?.name === "unistyles") { %>
-      "react-native-unistyles": "^2.1.1",
+        "react-native-unistyles": "3.0.0-nightly-20250220",
+        "react-native-nitro-modules": "0.22.1",
+        "react-native-edge-to-edge": "1.4.3",
     <% } %>
 
     <% if (props.navigationPackage?.type === "navigation") { %>
@@ -122,12 +126,12 @@
       "@react-navigation/drawer": "^7.0.0",
       "@react-navigation/bottom-tabs": "^7.0.5",
     <% } %>
-    
+
     <% if (props.navigationPackage?.name === "expo-router") { %>
       "@expo/vector-icons": "^14.0.0",
       "expo-linking": "~6.3.1",
-      "expo-router": "~4.0.6", 
-      "expo-constants": "~16.0.1",     
+      "expo-router": "~4.0.6",
+      "expo-constants": "~16.0.1",
       "expo-system-ui": "~3.0.4",
       "expo-web-browser": "~13.0.3",
       "react-dom": "18.3.1",
@@ -143,15 +147,15 @@
 	<% if (props.authenticationPackage?.name === "firebase") { %>
 	  "firebase": "^10.5.2",
 	<% } %>
-  
+
   <% if (props.internalizationPackage?.name === "i18next") { %>
     "i18next": "^23.7.20",
     "react-i18next": "^14.0.1",
     "expo-localization": "~14.8.3",
-  <% } %> 
+  <% } %>
   <% if (props.flags?.eas || props.stylingPackage?.name === "nativewindui") { %>
     "expo-dev-client": "~5.0.4",
-    "expo-dev-launcher": "^5.0.17",      
+    "expo-dev-launcher": "^5.0.17",
   <% } %>
 
     "expo": "^52.0.7",
