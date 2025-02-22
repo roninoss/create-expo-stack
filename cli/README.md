@@ -376,6 +376,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/jpudysz">
+            <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
+            <br />
+            <sub><b>Jacek Pudysz</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/gwenoleR">
             <img src="https://avatars.githubusercontent.com/u/10418241?v=4" width="100;" alt="gwenoleR"/>
             <br />
