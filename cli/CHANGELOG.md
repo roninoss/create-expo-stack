@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.12.3
+
+### Patch Changes
+
+- [#454](https://github.com/roninoss/create-expo-stack/pull/454) [`65aeca36ba6261638ca43854d7f4b380cfe6132a`](https://github.com/roninoss/create-expo-stack/commit/65aeca36ba6261638ca43854d7f4b380cfe6132a) Thanks [@dannyhw](https://github.com/dannyhw)! - Update tamagui in template to latest version
+
 ## 2.12.2
 
 ### Patch Changes
