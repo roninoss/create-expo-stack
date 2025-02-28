@@ -261,20 +261,27 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/jpudysz">
+            <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
+            <br />
+            <sub><b>Jacek Pudysz</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/mwarger">
             <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
             <br />
             <sub><b>Mat Warger</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/gabimoncha">
             <img src="https://avatars.githubusercontent.com/u/39256258?v=4" width="100;" alt="gabimoncha"/>
             <br />
             <sub><b>Gabimoncha</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ralacerda">
             <img src="https://avatars.githubusercontent.com/u/19380403?v=4" width="100;" alt="ralacerda"/>
@@ -309,15 +316,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>YOUNESS HASSOUNE</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/abhishekmg">
             <img src="https://avatars.githubusercontent.com/u/34393560?v=4" width="100;" alt="abhishekmg"/>
             <br />
             <sub><b>Null</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/bautistaaa">
             <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
@@ -352,15 +359,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Mahir Kadić</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Joehoel">
             <img src="https://avatars.githubusercontent.com/u/31251240?v=4" width="100;" alt="Joehoel"/>
             <br />
             <sub><b>Joël Kuijper</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/zamplyy">
             <img src="https://avatars.githubusercontent.com/u/26258710?v=4" width="100;" alt="zamplyy"/>
@@ -373,13 +380,6 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/1250545?v=4" width="100;" alt="boek"/>
             <br />
             <sub><b>Jeff Boek</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/jpudysz">
-            <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
-            <br />
-            <sub><b>Jacek Pudysz</b></sub>
         </a>
     </td>
     <td align="center">
