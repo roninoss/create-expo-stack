@@ -19,8 +19,9 @@ export const contributors = [
         "events_url": "https://api.github.com/users/danstepanov/events{/privacy}",
         "received_events_url": "https://api.github.com/users/danstepanov/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
-        "contributions": 385
+        "contributions": 397
     },
     {
         "login": "dannyhw",
@@ -40,8 +41,9 @@ export const contributors = [
         "events_url": "https://api.github.com/users/dannyhw/events{/privacy}",
         "received_events_url": "https://api.github.com/users/dannyhw/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
-        "contributions": 73
+        "contributions": 84
     },
     {
         "login": "hqasmei",
@@ -61,6 +63,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/hqasmei/events{/privacy}",
         "received_events_url": "https://api.github.com/users/hqasmei/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 62
     },
@@ -82,6 +85,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/sammoore/events{/privacy}",
         "received_events_url": "https://api.github.com/users/sammoore/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 43
     },
@@ -103,6 +107,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/ernestoresende/events{/privacy}",
         "received_events_url": "https://api.github.com/users/ernestoresende/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 26
     },
@@ -124,6 +129,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/PickleNik/events{/privacy}",
         "received_events_url": "https://api.github.com/users/PickleNik/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 22
     },
@@ -145,6 +151,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/frankcalise/events{/privacy}",
         "received_events_url": "https://api.github.com/users/frankcalise/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 21
     },
@@ -166,6 +173,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/ludwig-pro/events{/privacy}",
         "received_events_url": "https://api.github.com/users/ludwig-pro/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 20
     },
@@ -187,6 +195,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/mrzachnugent/events{/privacy}",
         "received_events_url": "https://api.github.com/users/mrzachnugent/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 17
     },
@@ -208,6 +217,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/alejorod/events{/privacy}",
         "received_events_url": "https://api.github.com/users/alejorod/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 14
     },
@@ -229,6 +239,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/kratos-respawned/events{/privacy}",
         "received_events_url": "https://api.github.com/users/kratos-respawned/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 9
     },
@@ -250,6 +261,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/finnbayer/events{/privacy}",
         "received_events_url": "https://api.github.com/users/finnbayer/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 8
     },
@@ -271,6 +283,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/saimon24/events{/privacy}",
         "received_events_url": "https://api.github.com/users/saimon24/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 7
     },
@@ -292,6 +305,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/todevmilen/events{/privacy}",
         "received_events_url": "https://api.github.com/users/todevmilen/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 6
     },
@@ -313,6 +327,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/alitnk/events{/privacy}",
         "received_events_url": "https://api.github.com/users/alitnk/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 5
     },
@@ -334,6 +349,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/catalinmiron/events{/privacy}",
         "received_events_url": "https://api.github.com/users/catalinmiron/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 4
     },
@@ -355,6 +371,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/coyksdev/events{/privacy}",
         "received_events_url": "https://api.github.com/users/coyksdev/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 3
     },
@@ -376,6 +393,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/Savinvadim1312/events{/privacy}",
         "received_events_url": "https://api.github.com/users/Savinvadim1312/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 3
     },
@@ -397,8 +415,31 @@ export const contributors = [
         "events_url": "https://api.github.com/users/b0iq/events{/privacy}",
         "received_events_url": "https://api.github.com/users/b0iq/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 3
+    },
+    {
+        "login": "rohan-sircar",
+        "id": 47449547,
+        "node_id": "MDQ6VXNlcjQ3NDQ5NTQ3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/47449547?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/rohan-sircar",
+        "html_url": "https://github.com/rohan-sircar",
+        "followers_url": "https://api.github.com/users/rohan-sircar/followers",
+        "following_url": "https://api.github.com/users/rohan-sircar/following{/other_user}",
+        "gists_url": "https://api.github.com/users/rohan-sircar/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/rohan-sircar/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/rohan-sircar/subscriptions",
+        "organizations_url": "https://api.github.com/users/rohan-sircar/orgs",
+        "repos_url": "https://api.github.com/users/rohan-sircar/repos",
+        "events_url": "https://api.github.com/users/rohan-sircar/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/rohan-sircar/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false,
+        "contributions": 2
     },
     {
         "login": "gabimoncha",
@@ -418,6 +459,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/gabimoncha/events{/privacy}",
         "received_events_url": "https://api.github.com/users/gabimoncha/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 2
     },
@@ -439,6 +481,29 @@ export const contributors = [
         "events_url": "https://api.github.com/users/mwarger/events{/privacy}",
         "received_events_url": "https://api.github.com/users/mwarger/received_events",
         "type": "User",
+        "user_view_type": "public",
+        "site_admin": false,
+        "contributions": 2
+    },
+    {
+        "login": "jpudysz",
+        "id": 9088288,
+        "node_id": "MDQ6VXNlcjkwODgyODg=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/9088288?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jpudysz",
+        "html_url": "https://github.com/jpudysz",
+        "followers_url": "https://api.github.com/users/jpudysz/followers",
+        "following_url": "https://api.github.com/users/jpudysz/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jpudysz/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jpudysz/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jpudysz/subscriptions",
+        "organizations_url": "https://api.github.com/users/jpudysz/orgs",
+        "repos_url": "https://api.github.com/users/jpudysz/repos",
+        "events_url": "https://api.github.com/users/jpudysz/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jpudysz/received_events",
+        "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 2
     },
@@ -460,6 +525,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/gialencar/events{/privacy}",
         "received_events_url": "https://api.github.com/users/gialencar/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 2
     },
@@ -481,6 +547,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/andrew-levy/events{/privacy}",
         "received_events_url": "https://api.github.com/users/andrew-levy/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 2
     },
@@ -502,8 +569,31 @@ export const contributors = [
         "events_url": "https://api.github.com/users/AlejandroGutierrezB/events{/privacy}",
         "received_events_url": "https://api.github.com/users/AlejandroGutierrezB/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 2
+    },
+    {
+        "login": "theblondealex",
+        "id": 65453441,
+        "node_id": "MDQ6VXNlcjY1NDUzNDQx",
+        "avatar_url": "https://avatars.githubusercontent.com/u/65453441?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/theblondealex",
+        "html_url": "https://github.com/theblondealex",
+        "followers_url": "https://api.github.com/users/theblondealex/followers",
+        "following_url": "https://api.github.com/users/theblondealex/following{/other_user}",
+        "gists_url": "https://api.github.com/users/theblondealex/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/theblondealex/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/theblondealex/subscriptions",
+        "organizations_url": "https://api.github.com/users/theblondealex/orgs",
+        "repos_url": "https://api.github.com/users/theblondealex/repos",
+        "events_url": "https://api.github.com/users/theblondealex/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/theblondealex/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false,
+        "contributions": 1
     },
     {
         "login": "debugtheworldbot",
@@ -523,6 +613,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/debugtheworldbot/events{/privacy}",
         "received_events_url": "https://api.github.com/users/debugtheworldbot/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -544,6 +635,29 @@ export const contributors = [
         "events_url": "https://api.github.com/users/bautistaaa/events{/privacy}",
         "received_events_url": "https://api.github.com/users/bautistaaa/received_events",
         "type": "User",
+        "user_view_type": "public",
+        "site_admin": false,
+        "contributions": 1
+    },
+    {
+        "login": "abhishekmg",
+        "id": 34393560,
+        "node_id": "MDQ6VXNlcjM0MzkzNTYw",
+        "avatar_url": "https://avatars.githubusercontent.com/u/34393560?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/abhishekmg",
+        "html_url": "https://github.com/abhishekmg",
+        "followers_url": "https://api.github.com/users/abhishekmg/followers",
+        "following_url": "https://api.github.com/users/abhishekmg/following{/other_user}",
+        "gists_url": "https://api.github.com/users/abhishekmg/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/abhishekmg/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/abhishekmg/subscriptions",
+        "organizations_url": "https://api.github.com/users/abhishekmg/orgs",
+        "repos_url": "https://api.github.com/users/abhishekmg/repos",
+        "events_url": "https://api.github.com/users/abhishekmg/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/abhishekmg/received_events",
+        "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -565,6 +679,29 @@ export const contributors = [
         "events_url": "https://api.github.com/users/YounessHassoune/events{/privacy}",
         "received_events_url": "https://api.github.com/users/YounessHassoune/received_events",
         "type": "User",
+        "user_view_type": "public",
+        "site_admin": false,
+        "contributions": 1
+    },
+    {
+        "login": "Viraj-10",
+        "id": 66306233,
+        "node_id": "MDQ6VXNlcjY2MzA2MjMz",
+        "avatar_url": "https://avatars.githubusercontent.com/u/66306233?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Viraj-10",
+        "html_url": "https://github.com/Viraj-10",
+        "followers_url": "https://api.github.com/users/Viraj-10/followers",
+        "following_url": "https://api.github.com/users/Viraj-10/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Viraj-10/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Viraj-10/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Viraj-10/subscriptions",
+        "organizations_url": "https://api.github.com/users/Viraj-10/orgs",
+        "repos_url": "https://api.github.com/users/Viraj-10/repos",
+        "events_url": "https://api.github.com/users/Viraj-10/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Viraj-10/received_events",
+        "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -586,6 +723,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/Hacksore/events{/privacy}",
         "received_events_url": "https://api.github.com/users/Hacksore/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -607,6 +745,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/salloom-domani/events{/privacy}",
         "received_events_url": "https://api.github.com/users/salloom-domani/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -628,6 +767,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/ralacerda/events{/privacy}",
         "received_events_url": "https://api.github.com/users/ralacerda/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -649,6 +789,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/imranbarbhuiya/events{/privacy}",
         "received_events_url": "https://api.github.com/users/imranbarbhuiya/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -670,6 +811,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/asapMaki/events{/privacy}",
         "received_events_url": "https://api.github.com/users/asapMaki/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -691,6 +833,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/Joehoel/events{/privacy}",
         "received_events_url": "https://api.github.com/users/Joehoel/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -712,6 +855,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/zamplyy/events{/privacy}",
         "received_events_url": "https://api.github.com/users/zamplyy/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -733,6 +877,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/boek/events{/privacy}",
         "received_events_url": "https://api.github.com/users/boek/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -754,6 +899,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/gwenoleR/events{/privacy}",
         "received_events_url": "https://api.github.com/users/gwenoleR/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -775,6 +921,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/claudesortwell/events{/privacy}",
         "received_events_url": "https://api.github.com/users/claudesortwell/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     },
@@ -796,6 +943,7 @@ export const contributors = [
         "events_url": "https://api.github.com/users/falcoagustin/events{/privacy}",
         "received_events_url": "https://api.github.com/users/falcoagustin/received_events",
         "type": "User",
+        "user_view_type": "public",
         "site_admin": false,
         "contributions": 1
     }
