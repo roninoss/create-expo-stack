@@ -1,4 +1,15 @@
 export function showHelp(info, highlight, warning) {
+  info('\nUsage:');
+  highlight('  npx create-expo-stack <project-name> [options]\n');
+
+  info('Options:');
+  highlight('  --help, -h          Show this help message');
+  highlight('  --default, -d       Skip the CLI and use the default configuration');
+  highlight('  --nonInteractive    Skip the CLI and use options passed via command line');
+  highlight('  --overwrite         Overwrite the target directory if it exists');
+  highlight('  --noInstall         Skip installing dependencies');
+  highlight('  --noGit            Skip git initialization');
+  highlight('  --publish          Create a GitHub repository and push the code');
   info('');
   highlight('  Info');
   info('    Creates a new configurable Expo project');
@@ -6,6 +17,9 @@ export function showHelp(info, highlight, warning) {
   highlight('  Usage');
   warning('    $ npx create-expo-stack <project_name> [options]');
   info('');
+  highlight('  Commands:');
+  highlight('    create <project-name>  Create a new Expo project');
+  highlight('    publish               Publish current project to GitHub\n');
   highlight('  Options');
   info('    -d, --default         Use the default options for creating a project');
   info('        --noInstall       Skip installing npm packages or CocoaPods');

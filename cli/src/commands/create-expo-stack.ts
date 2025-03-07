@@ -9,7 +9,8 @@ import {
   renderTitle,
   runCLI,
   runIgnite,
-  showHelp
+  showHelp,
+  publishToGitHub
 } from '../utilities';
 import {
   bunInstallationError,
@@ -43,9 +44,22 @@ const command: GluegunCommand = {
       );
       info('');
     };
+
+    // Handle help flag
     if (options.help || options.h) {
       showHelp(info, highlight, warning);
+      return;
+    }
 
+    // Handle publish flag
+    if (options.publish) {
+      info('\nPublishing current project to GitHub...');
+      const repoUrl = await publishToGitHub(toolbox, process.cwd().split('/').pop() || '');
+
+      if (repoUrl) {
+        success('\n🎉 Successfully published to GitHub!');
+        info(`\n📎 Repository URL: ${repoUrl}`);
+      }
       return;
     }
 
@@ -458,6 +472,17 @@ const command: GluegunCommand = {
         );
 
         await printOutput(cliResults, formattedFiles, toolbox, stylingPackage);
+
+        // Add publish command handling after project creation
+        if (options.publish) {
+          info('\nPublishing to GitHub...');
+          const repoUrl = await publishToGitHub(toolbox, cliResults.projectName);
+
+          if (repoUrl) {
+            success('\n🎉 Successfully published to GitHub!');
+            info(`\n📎 Repository URL: ${repoUrl}`);
+          }
+        }
       }
     } catch (err) {
       if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
