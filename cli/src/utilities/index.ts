@@ -7,3 +7,4 @@ export * from './runCLI';
 export * from './runIgnite';
 export * from './showHelp';
 export * from './usePackage';
+export * from './publishToGitHub';
