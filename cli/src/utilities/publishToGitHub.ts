@@ -143,7 +143,7 @@ export const publishToGitHub = async (toolbox: GluegunToolbox, projectName: stri
     // Push the code to the new repository
     info('\nPushing code to the new repository...');
     try {
-      execSync('git push -u origin main', { stdio: 'ignore' });
+      execSync(`git push -u origin ${execSync('git rev-parse --abbrev-ref HEAD')}`, { stdio: 'ignore' });
     } catch (e) {
       error(`\nFailed to push code to the new repository. ${e.message}`);
       return null;
