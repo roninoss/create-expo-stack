@@ -1,5 +1,15 @@
 # create-expo-stack
 
+## 2.13.0
+
+### Minor Changes
+
+- [#465](https://github.com/roninoss/create-expo-stack/pull/465) [`18c2a366fd42037362437c1f098f2f7fd354714f`](https://github.com/roninoss/create-expo-stack/commit/18c2a366fd42037362437c1f098f2f7fd354714f) Thanks [@danstepanov](https://github.com/danstepanov)! - add a publish command
+
+### Patch Changes
+
+- [#464](https://github.com/roninoss/create-expo-stack/pull/464) [`361fcd40b0801d684d2a4f6ed00c28854f218970`](https://github.com/roninoss/create-expo-stack/commit/361fcd40b0801d684d2a4f6ed00c28854f218970) Thanks [@danstepanov](https://github.com/danstepanov)! - add jsx config for TS
+
 ## 2.12.3
 
 ### Patch Changes
