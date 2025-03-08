@@ -1,5 +1,12 @@
 # create-expo-stack
 
+## 2.13.3
+
+### Patch Changes
+
+- 4e63aeb: update tests
+- 3bea7bc: update snapshots
+
 ## 2.13.2
 
 ### Patch Changes

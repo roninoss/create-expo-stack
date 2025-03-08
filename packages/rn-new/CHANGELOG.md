@@ -1,5 +1,15 @@
 # rn-new
 
+## 2.13.3
+
+### Patch Changes
+
+- 4e63aeb: update tests
+- 3bea7bc: update snapshots
+- Updated dependencies [4e63aeb]
+- Updated dependencies [3bea7bc]
+  - create-expo-stack@2.13.3
+
 ## 2.13.2
 
 ### Patch Changes
