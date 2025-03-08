@@ -53,6 +53,18 @@ const command: GluegunCommand = {
 
     // Handle publish flag
     if (options.publish) {
+      // Check if app.json exists
+      if (!exists('app.json')) {
+        const shouldContinue = await prompt.confirm(
+          'No app.json file found. This does not seem to be an Expo project. Would you like to continue anyway?'
+        );
+
+        if (!shouldContinue) {
+          info('\nPublication cancelled.');
+          return;
+        }
+      }
+
       info('\nPublishing current project to GitHub...');
       const repoUrl = await publishToGitHub(toolbox, process.cwd().split('/').pop() || '');
 
