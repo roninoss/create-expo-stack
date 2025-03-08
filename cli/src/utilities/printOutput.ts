@@ -244,5 +244,11 @@ export async function printOutput(
   }
   info(``);
 
+  if (!options.publish) {
+    info('To create a GitHub repository for this project, run:');
+    highlight('npx rn-new --publish');
+    info(``);
+  }
+
   outro(`If you're looking to move even faster, I may be able to help!\n- ces@danstepanov.com`);
 }
