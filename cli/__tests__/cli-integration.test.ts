@@ -140,7 +140,8 @@ for (const packageManager of packageManagers) {
         os: {},
         packageManager: { ...cesconfig.default.packageManager, version: undefined },
         flags: {
-          ...cesconfig.default.flags
+          ...cesconfig.default.flags,
+          publish: false
         }
       };
 
