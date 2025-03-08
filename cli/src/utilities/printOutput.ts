@@ -244,7 +244,7 @@ export async function printOutput(
   }
   info(``);
 
-  if (!options.publish) {
+  if (!flags.publish) {
     info('To create a GitHub repository for this project, run:');
     highlight('npx rn-new --publish');
     info(``);

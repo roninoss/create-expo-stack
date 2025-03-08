@@ -13,7 +13,8 @@ export const defaultOptions: CliResults = {
     overwrite: false,
     importAlias: '~/',
     packageManager: undefined,
-    eas: false
+    eas: false,
+    publish: false
   }
 };
 

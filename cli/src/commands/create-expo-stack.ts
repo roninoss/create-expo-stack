@@ -175,6 +175,7 @@ const command: GluegunCommand = {
         cliResults.flags.noInstall =
           options.noInstall || (typeof options.install === 'boolean' && !options.install) || false;
         cliResults.flags.noGit = options.noGit || (typeof options.git === 'boolean' && !options.git) || false;
+        cliResults.flags.publish = !!options.publish;
 
         // Validate import alias string forward slash and asterisk
         if (typeof options.importAlias === 'string') {

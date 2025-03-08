@@ -6,6 +6,7 @@ export interface CliFlags {
   importAlias: string | boolean;
   packageManager: PackageManager;
   eas: boolean;
+  publish: boolean;
 }
 
 export const availablePackages = [
