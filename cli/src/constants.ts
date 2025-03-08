@@ -1,6 +1,8 @@
 import { CliResults, SelectedComponents } from './types';
 
-export const TITLE_TEXT = 'create expo stack';
+export const CES_TITLE = 'create expo stack';
+export const RN_NEW_TITLE = 'rn  new';
+export const TITLE_TEXT = process.argv[1]?.includes('rn-new') ? RN_NEW_TITLE : CES_TITLE;
 
 export const DEFAULT_APP_NAME = 'my-expo-app';
 

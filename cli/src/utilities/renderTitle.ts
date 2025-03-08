@@ -5,14 +5,22 @@ import { TITLE_TEXT } from '../constants';
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
 // expo stack orange gradient
-const expoStackTheme = {
+const theme = {
   orange: '#f97316',
   between: 'f2940f',
   yellow: '#eab308'
 };
 
+// // rn new blue gradient
+// const rnNewTheme = {
+//   blue: '#3b82f6',
+//   between: '#2563eb',
+//   indigo: '#4f46e5'
+// };
+
 export async function renderTitle(toolbox: Toolbox) {
-  const cesGradient = gradient(Object.values(expoStackTheme));
+  // const isRnNew = process.argv[1]?.includes('rn-new');
+  const cesGradient = gradient(Object.values(theme));
 
   const {
     print: { error }
@@ -24,13 +32,12 @@ export async function renderTitle(toolbox: Toolbox) {
       font: 'Standard',
       horizontalLayout: 'fitted',
       verticalLayout: 'fitted',
-      width: 40,
+      width: 45,
       whitespaceBreak: true
     },
     (err, data) => {
       if (err) {
         error('Something went wrong...');
-
         return;
       }
 
