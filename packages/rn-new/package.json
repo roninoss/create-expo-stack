@@ -1,0 +1,29 @@
+{
+  "name": "rn-new",
+  "version": "2.13.0",
+  "description": "Shorthand for create-expo-stack",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roninoss/create-expo-stack.git",
+    "directory": "packages/rn-new"
+  },
+  "homepage": "https://rn.new",
+  "license": "MIT",
+  "bin": "./bin/rn-new.js",
+  "files": [
+    "bin"
+  ],
+  "scripts": {
+    "build": "bun run clean && bun run compile",
+    "clean": "rm -rf ./bin",
+    "compile": "mkdir -p bin && printf '#!/usr/bin/env node\n\ntry {\n  require(\"create-expo-stack/bin/create-expo-stack.js\");\n} catch (error) {\n  console.error(\"Error: Could not find create-expo-stack package.\");\n  console.error(\"Please ensure create-expo-stack is installed globally.\");\n  process.exit(1);\n}\n' > bin/rn-new.js && chmod +x bin/rn-new.js",
+    "prepublishOnly": "bun run build"
+  },
+  "dependencies": {
+    "create-expo-stack": "^2.13.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": false
+  }
+}

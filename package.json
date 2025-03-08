@@ -11,13 +11,15 @@
   "workspaces": [
     "cli",
     "www",
-    "docs"
+    "docs",
+    "packages/rn-new"
   ],
   "scripts": {
     "build": "turbo build",
     "build:cli": "turbo build --filter create-expo-stack",
     "build:www": "turbo build --filter create-expo-stack-landing",
     "build:docs": "turbo build --filter create-expo-stack-docs",
+    "build:rn-new": "turbo build --filter rn-new",
     "dl-contrib": "bun scripts/generate-contributors.ts",
     "format": "eslint -c .eslintrc.js --fix \"**/*.{js,jsx,ts,tsx}\" && prettier \"**/*.{astro,css,ejs,js,json,jsx,md,mdx,mjs,ts,tsx,yaml,yml}\" --write",
     "prepare": "is-ci || husky install"

@@ -1,15 +1,11 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": [
-    "@changesets/changelog-github",
-    {
-      "repo": "roninoss/create-expo-stack"
-    }
-  ],
+  "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
+  "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "updateInternalDependencies": "patch",
+  "fixed": [["create-expo-stack", "rn-new"]],
+  "linked": [],
   "access": "public",
   "baseBranch": "main",
-  "fixed": [["create-expo-stack"]],
-  "ignore": ["create-expo-stack-docs", "create-expo-stack-landing"]
+  "updateInternalDependencies": "patch",
+  "ignore": ["create-expo-stack-landing", "create-expo-stack-docs"]
 }
