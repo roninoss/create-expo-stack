@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.13.1
+
+### Patch Changes
+
+- 5896d7e: add line at the end of CES run telling people about publish flag
+
 ## 2.13.0
 
 ### Minor Changes
