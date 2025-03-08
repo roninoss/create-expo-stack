@@ -65,6 +65,7 @@ exports[`generates a project with --expo-router --nativewind --bun --overwrite: 
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -186,6 +187,7 @@ exports[`generates a project with --expo-router --stylesheet --bun --overwrite: 
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -304,6 +306,7 @@ exports[`generates a project with --expo-router --tabs --nativewind --bun --over
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -430,6 +433,7 @@ exports[`generates a project with --expo-router --tabs --stylesheet --bun --over
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -553,6 +557,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -682,6 +687,7 @@ exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -808,6 +814,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -953,6 +960,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -1104,6 +1112,7 @@ exports[`generates a project with --nativewindui --no-install --bun --overwrite:
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
@@ -1248,6 +1257,7 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
     "noInstall": false,
     "overwrite": true,
     "packageManager": "bun",
+    "publish": false,
   },
   "os": {},
   "packageManager": {
