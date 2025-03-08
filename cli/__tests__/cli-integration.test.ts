@@ -98,6 +98,9 @@ for (const packageManager of packageManagers) {
     const finalFlags = [...flags, packageManagerFlag, '--overwrite' as const];
 
     test(`generates a project with ${finalFlags.join(' ')}`, async () => {
+      // Increase timeout to 30 seconds for project generation
+      Bun.sleep(30000);
+
       const output = await generateProject({
         projectName: projectName,
         flags: finalFlags
@@ -135,7 +138,10 @@ for (const packageManager of packageManagers) {
         ...cesconfig.default,
         cesVersion: undefined,
         os: {},
-        packageManager: { ...cesconfig.default.packageManager, version: undefined }
+        packageManager: { ...cesconfig.default.packageManager, version: undefined },
+        flags: {
+          ...cesconfig.default.flags
+        }
       };
 
       expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
