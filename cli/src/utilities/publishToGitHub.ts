@@ -90,9 +90,17 @@ export const publishToGitHub = async (toolbox: GluegunToolbox, projectName: stri
         return null;
       }
     } catch (e) {
-      // Creating a new Github repository
-      info('\nCreating new repository...');
+      error('\nFailed to check if repository exists.');
+      return null;
+    }
+
+    // Creating a new Github repository
+    info('\nCreating new repository...');
+    try {
       execSync(`gh repo create ${projectName} --public`, { stdio: 'pipe' });
+    } catch (e) {
+      error('\nFailed to create new repository.');
+      return null;
     }
 
     info('\nConfiguring git credentials...');
