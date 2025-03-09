@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.13.6
+
+### Patch Changes
+
+- 4d46e00: add README to rn-new, update sponsorship link
+- Updated dependencies [4d46e00]
+  - create-expo-stack@2.13.6
+
 ## 2.13.5
 
 ### Patch Changes
