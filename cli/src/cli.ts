@@ -4,7 +4,7 @@ import { build } from 'gluegun';
  * Create the cli and kick it off
  */
 export async function run() {
-  const argv = process.env.argv;
+  const argv = process.argv;
   // create a CLI runtime
   const cli = build()
     .brand('create-expo-stack')
