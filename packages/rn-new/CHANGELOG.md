@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.13.5
+
+### Patch Changes
+
+- a8e8d14: ensure publish script creates a repo
+- Updated dependencies [a8e8d14]
+  - create-expo-stack@2.13.5
+
 ## 2.13.4
 
 ### Patch Changes
