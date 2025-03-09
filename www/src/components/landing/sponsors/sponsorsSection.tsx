@@ -12,7 +12,7 @@ export default function SponsorsSection() {
           <span className="text-balance font-thin text-neutral-200/70">
             Support this project by{" "}
             <a
-              href="https://github.com/sponsors/danstepanov"
+              href="https://github.com/sponsors/roninoss"
               target="_blank"
               className="underline underline-offset-2 hover:text-white text-white/80 duration-150"
             >
