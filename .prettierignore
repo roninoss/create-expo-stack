@@ -13,3 +13,4 @@
 bun.lockb
 LICENSE
 cli/__tests__/__snapshots__/*
+README.md
