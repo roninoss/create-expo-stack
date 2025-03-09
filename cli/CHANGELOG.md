@@ -1,5 +1,13 @@
 # create-expo-stack
 
+## 2.13.4
+
+### Patch Changes
+
+- f60a24c: change wording on the website use rn-new
+- 63b5423: conditionally show create-expo-stack vs rn-new
+- fbf11af: fix typo
+
 ## 2.13.3
 
 ### Patch Changes
