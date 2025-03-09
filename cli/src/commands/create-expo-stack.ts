@@ -508,7 +508,7 @@ const command: GluegunCommand = {
       }
 
       if (err.message.includes(bunInstallationError)) {
-        return void success(`\nCancelled to install recommended version of Bun.... 👋 \n`);
+        return void success(`\nCancelled to install recommended version of Bun... 👋 \n`);
       }
 
       if (process.env.NODE_ENV !== 'test') {
