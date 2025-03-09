@@ -94,10 +94,18 @@ export const publishToGitHub = async (toolbox: GluegunToolbox, projectName: stri
       return null;
     }
 
+    // Ask user if they want the repository to be public or private
+    const visibilityResponse = await toolbox.prompt.ask({
+      type: 'select',
+      name: 'visibility',
+      message: 'Would you like the repository to be public or private?',
+      choices: ['public', 'private']
+    });
+
     // Creating a new Github repository
     info('\nCreating new repository...');
     try {
-      execSync(`gh repo create ${projectName} --public`, { stdio: 'pipe' });
+      execSync(`gh repo create ${projectName} --${visibilityResponse.visibility}`, { stdio: 'pipe' });
     } catch (e) {
       error('\nFailed to create new repository.');
       return null;
