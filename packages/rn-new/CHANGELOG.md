@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.14.1
+
+### Patch Changes
+
+- 1ba9008: prompt user whether they want to publish public or private repo"
+- Updated dependencies [1ba9008]
+  - create-expo-stack@2.14.1
+
 ## 2.14.0
 
 ### Minor Changes
