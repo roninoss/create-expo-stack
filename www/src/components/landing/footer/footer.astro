@@ -1,5 +1,8 @@
 ---
+import { version } from "../../../../../cli/package.json";
 
+// Extract major and minor version numbers
+const [major, minor] = version.split(".").slice(0, 2);
 ---
 
 <footer
@@ -10,7 +13,7 @@
       <span
         class="bg-white/30 border border-white/50 px-1.5 py-0.5 rounded-full text-xs"
       >
-        v2.11
+        v{major}.{minor}
       </span>
       <div class="flex gap-2 md:hidden ml-2 items-center">
         <a
