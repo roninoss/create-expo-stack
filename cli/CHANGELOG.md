@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.14.0
+
+### Minor Changes
+
+- 1c5e187: pass flags to rn-new
+
 ## 2.13.6
 
 ### Patch Changes
