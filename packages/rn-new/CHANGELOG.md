@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.14.2
+
+### Patch Changes
+
+- 8d06aaf: replace all uses of FlashList with LegendList
+- Updated dependencies [8d06aaf]
+  - create-expo-stack@2.14.2
+
 ## 2.14.1
 
 ### Patch Changes
