@@ -1,5 +1,5 @@
 import { useHeaderHeight } from '@react-navigation/elements';
-import { FlashList } from '@shopify/flash-list';
+import { LegendList } from '@legendapp/list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
 import {
@@ -60,7 +60,7 @@ import { useColorScheme } from '~/lib/useColorScheme';
 import { useHeaderSearchBar } from '~/lib/useHeaderSearchBar';
 
 
-cssInterop(FlashList, {
+cssInterop(LegendList, {
   className: 'style',
   contentContainerClassName: 'contentContainerStyle',
 });
@@ -82,7 +82,7 @@ export default function Screen() {
     : COMPONENTS;
 
   return (
-    <FlashList
+    <LegendList
       contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
       data={data}
@@ -94,6 +94,7 @@ export default function Screen() {
       ItemSeparatorComponent={renderItemSeparator}
       renderItem={renderItem}
       ListEmptyComponent={COMPONENTS.length === 0 ? ListEmptyComponent : undefined}
+      recycleItems
     />
   );
 }
