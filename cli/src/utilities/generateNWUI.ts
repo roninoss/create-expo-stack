@@ -27,19 +27,19 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
   s.start(`Adding nativewindui components...`);
 
   const flags = cliResults.flags.noInstall
-    ? `--yes --no-install -d ${cliResults.projectName}`
-    : `--yes -d ${cliResults.projectName}`;
+    ? `--yes --no-install --quiet -d ${cliResults.projectName}`
+    : `--yes --quiet -d ${cliResults.projectName}`;
 
   // --yes accepts installing packages without prompting
   const runCommand = runnerType === 'npx' ? `${runnerType} --yes` : runnerType;
 
   if (process.env.NODE_ENV === 'development') {
-    toolbox.print.info(`${runCommand} nwui-cli@^0.4.1 add ${flags} ${finalComponents.join(' ')}`);
+    toolbox.print.info(`${runCommand} nwui-cli@latest add ${flags} ${finalComponents.join(' ')}`);
   }
 
   // @latest is getting cached when using bunx
   await runSystemCommand({
-    command: `${runCommand} nwui-cli@^0.4.1 add ${flags} ${finalComponents.join(' ')}`,
+    command: `${runCommand} nwui-cli@latest add ${flags} ${finalComponents.join(' ')}`,
     errorMessage: 'Error adding nativewindui components',
     toolbox,
     stdio: ONLY_ERRORS,
