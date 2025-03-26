@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.14.3
+
+### Patch Changes
+
+- 20f0cf7: suppress nativewindui logs
+
 ## 2.14.2
 
 ### Patch Changes
