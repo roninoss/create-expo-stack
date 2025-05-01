@@ -148,9 +148,15 @@ for (const packageManager of packageManagers) {
       expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
 
       const fileList =
-        await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*" | sort`.text();
+        await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*"`.text();
 
-      expect(fileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
+      // sort the file list for consistent snapshotting
+      const sortedFileList = fileList
+        .split('\n')
+        .filter(Boolean)
+        .toSorted((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+
+      expect(sortedFileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
 
       // typecheck only works if we have packages installed
       if (!finalFlags.includes('--no-install')) {
