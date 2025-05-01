@@ -90,36 +90,37 @@ exports[`generates a project with --expo-router --nativewind --bun --overwrite: 
 `;
 
 exports[`generates a project with --expo-router --nativewind --bun --overwrite: --expo-router, --nativewind, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app-env.d.ts
-./myTestProject/app.json
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/details.tsx
-./myTestProject/app/index.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/expo-env.d.ts
-./myTestProject/global.css
-./myTestProject/metro.config.js
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tailwind.config.js
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app-env.d.ts",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/details.tsx",
+  "./myTestProject/app/index.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/global.css",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --expo-router --stylesheet --bun --overwrite: --expo-router, --stylesheet, --bun, --overwrite-package-json 1`] = `
@@ -212,33 +213,34 @@ exports[`generates a project with --expo-router --stylesheet --bun --overwrite: 
 `;
 
 exports[`generates a project with --expo-router --stylesheet --bun --overwrite: --expo-router, --stylesheet, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app.json
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/details.tsx
-./myTestProject/app/index.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/expo-env.d.ts
-./myTestProject/metro.config.js
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/details.tsx",
+  "./myTestProject/app/index.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --expo-router --tabs --nativewind --bun --overwrite: --expo-router, --tabs, --nativewind, --bun, --overwrite-package-json 1`] = `
@@ -331,41 +333,42 @@ exports[`generates a project with --expo-router --tabs --nativewind --bun --over
 `;
 
 exports[`generates a project with --expo-router --tabs --nativewind --bun --overwrite: --expo-router, --tabs, --nativewind, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app-env.d.ts
-./myTestProject/app.json
-./myTestProject/app/(tabs)
-./myTestProject/app/(tabs)/_layout.tsx
-./myTestProject/app/(tabs)/index.tsx
-./myTestProject/app/(tabs)/two.tsx
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/modal.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/HeaderButton.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/components/TabBarIcon.tsx
-./myTestProject/expo-env.d.ts
-./myTestProject/global.css
-./myTestProject/metro.config.js
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tailwind.config.js
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app-env.d.ts",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(tabs)",
+  "./myTestProject/app/(tabs)/_layout.tsx",
+  "./myTestProject/app/(tabs)/index.tsx",
+  "./myTestProject/app/(tabs)/two.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/global.css",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --expo-router --tabs --stylesheet --bun --overwrite: --expo-router, --tabs, --stylesheet, --bun, --overwrite-package-json 1`] = `
@@ -458,38 +461,39 @@ exports[`generates a project with --expo-router --tabs --stylesheet --bun --over
 `;
 
 exports[`generates a project with --expo-router --tabs --stylesheet --bun --overwrite: --expo-router, --tabs, --stylesheet, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app.json
-./myTestProject/app/(tabs)
-./myTestProject/app/(tabs)/_layout.tsx
-./myTestProject/app/(tabs)/index.tsx
-./myTestProject/app/(tabs)/two.tsx
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/modal.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/HeaderButton.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/components/TabBarIcon.tsx
-./myTestProject/expo-env.d.ts
-./myTestProject/metro.config.js
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(tabs)",
+  "./myTestProject/app/(tabs)/_layout.tsx",
+  "./myTestProject/app/(tabs)/index.tsx",
+  "./myTestProject/app/(tabs)/two.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun --overwrite: --expo-router, --drawer+tabs, --nativewind, --bun, --overwrite-package-json 1`] = `
@@ -582,44 +586,45 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --nativewind --bun --overwrite: --expo-router, --drawer+tabs, --nativewind, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app-env.d.ts
-./myTestProject/app.json
-./myTestProject/app/(drawer)
-./myTestProject/app/(drawer)/(tabs)
-./myTestProject/app/(drawer)/(tabs)/_layout.tsx
-./myTestProject/app/(drawer)/(tabs)/index.tsx
-./myTestProject/app/(drawer)/(tabs)/two.tsx
-./myTestProject/app/(drawer)/_layout.tsx
-./myTestProject/app/(drawer)/index.tsx
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/modal.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/HeaderButton.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/components/TabBarIcon.tsx
-./myTestProject/expo-env.d.ts
-./myTestProject/global.css
-./myTestProject/metro.config.js
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tailwind.config.js
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app-env.d.ts",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/global.css",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun --overwrite: --expo-router, --drawer+tabs, --stylesheet, --bun, --overwrite-package-json 1`] = `
@@ -712,41 +717,42 @@ exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --stylesheet --bun --overwrite: --expo-router, --drawer+tabs, --stylesheet, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app.json
-./myTestProject/app/(drawer)
-./myTestProject/app/(drawer)/(tabs)
-./myTestProject/app/(drawer)/(tabs)/_layout.tsx
-./myTestProject/app/(drawer)/(tabs)/index.tsx
-./myTestProject/app/(drawer)/(tabs)/two.tsx
-./myTestProject/app/(drawer)/_layout.tsx
-./myTestProject/app/(drawer)/index.tsx
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/modal.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/HeaderButton.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/components/TabBarIcon.tsx
-./myTestProject/expo-env.d.ts
-./myTestProject/metro.config.js
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,text --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,text, --expo-router, --bun, --overwrite-package-json 1`] = `
@@ -839,60 +845,61 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --s
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,text --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --selected-components=date-picker,picker,text, --expo-router, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app.json
-./myTestProject/app/(drawer)
-./myTestProject/app/(drawer)/(tabs)
-./myTestProject/app/(drawer)/(tabs)/_layout.tsx
-./myTestProject/app/(drawer)/(tabs)/index.tsx
-./myTestProject/app/(drawer)/(tabs)/two.tsx
-./myTestProject/app/(drawer)/_layout.tsx
-./myTestProject/app/(drawer)/index.tsx
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/modal.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/BackButton.tsx
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/HeaderButton.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/components/TabBarIcon.tsx
-./myTestProject/components/ThemeToggle.tsx
-./myTestProject/components/nativewindui
-./myTestProject/components/nativewindui/Button.tsx
-./myTestProject/components/nativewindui/DatePicker
-./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
-./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
-./myTestProject/components/nativewindui/DatePicker/index.ts
-./myTestProject/components/nativewindui/Picker.tsx
-./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/global.css
-./myTestProject/lib
-./myTestProject/lib/cn.ts
-./myTestProject/lib/useColorScheme.tsx
-./myTestProject/lib/useHeaderSearchBar.tsx
-./myTestProject/metro.config.js
-./myTestProject/nativewind-env.d.ts
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tailwind.config.js
-./myTestProject/theme
-./myTestProject/theme/colors.ts
-./myTestProject/theme/index.ts
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/BackButton.tsx",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/nativewindui",
+  "./myTestProject/components/nativewindui/Button.tsx",
+  "./myTestProject/components/nativewindui/DatePicker",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/index.ts",
+  "./myTestProject/components/nativewindui/Picker.tsx",
+  "./myTestProject/components/nativewindui/Text.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/components/ThemeToggle.tsx",
+  "./myTestProject/global.css",
+  "./myTestProject/lib",
+  "./myTestProject/lib/cn.ts",
+  "./myTestProject/lib/useColorScheme.tsx",
+  "./myTestProject/lib/useHeaderSearchBar.tsx",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/theme",
+  "./myTestProject/theme/colors.ts",
+  "./myTestProject/theme/index.ts",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --bun, --overwrite-package-json 1`] = `
@@ -985,66 +992,67 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --e
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --expo-router, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app.json
-./myTestProject/app/(drawer)
-./myTestProject/app/(drawer)/(tabs)
-./myTestProject/app/(drawer)/(tabs)/_layout.tsx
-./myTestProject/app/(drawer)/(tabs)/index.tsx
-./myTestProject/app/(drawer)/(tabs)/two.tsx
-./myTestProject/app/(drawer)/_layout.tsx
-./myTestProject/app/(drawer)/index.tsx
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/modal.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/BackButton.tsx
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/HeaderButton.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/components/TabBarIcon.tsx
-./myTestProject/components/ThemeToggle.tsx
-./myTestProject/components/nativewindui
-./myTestProject/components/nativewindui/ActivityIndicator.tsx
-./myTestProject/components/nativewindui/Avatar.tsx
-./myTestProject/components/nativewindui/Button.tsx
-./myTestProject/components/nativewindui/DatePicker
-./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
-./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
-./myTestProject/components/nativewindui/DatePicker/index.ts
-./myTestProject/components/nativewindui/Picker.tsx
-./myTestProject/components/nativewindui/ProgressIndicator.tsx
-./myTestProject/components/nativewindui/Sheet.tsx
-./myTestProject/components/nativewindui/Slider.tsx
-./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/components/nativewindui/Toggle.tsx
-./myTestProject/global.css
-./myTestProject/lib
-./myTestProject/lib/cn.ts
-./myTestProject/lib/useColorScheme.tsx
-./myTestProject/lib/useHeaderSearchBar.tsx
-./myTestProject/metro.config.js
-./myTestProject/nativewind-env.d.ts
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tailwind.config.js
-./myTestProject/theme
-./myTestProject/theme/colors.ts
-./myTestProject/theme/index.ts
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/BackButton.tsx",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/nativewindui",
+  "./myTestProject/components/nativewindui/ActivityIndicator.tsx",
+  "./myTestProject/components/nativewindui/Avatar.tsx",
+  "./myTestProject/components/nativewindui/Button.tsx",
+  "./myTestProject/components/nativewindui/DatePicker",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/index.ts",
+  "./myTestProject/components/nativewindui/Picker.tsx",
+  "./myTestProject/components/nativewindui/ProgressIndicator.tsx",
+  "./myTestProject/components/nativewindui/Sheet.tsx",
+  "./myTestProject/components/nativewindui/Slider.tsx",
+  "./myTestProject/components/nativewindui/Text.tsx",
+  "./myTestProject/components/nativewindui/Toggle.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/components/ThemeToggle.tsx",
+  "./myTestProject/global.css",
+  "./myTestProject/lib",
+  "./myTestProject/lib/cn.ts",
+  "./myTestProject/lib/useColorScheme.tsx",
+  "./myTestProject/lib/useHeaderSearchBar.tsx",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/theme",
+  "./myTestProject/theme/colors.ts",
+  "./myTestProject/theme/index.ts",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --nativewindui --no-install --bun --overwrite: --nativewindui, --no-install, --bun, --overwrite-package-json 1`] = `
@@ -1137,59 +1145,60 @@ exports[`generates a project with --nativewindui --no-install --bun --overwrite:
 `;
 
 exports[`generates a project with --nativewindui --no-install --bun --overwrite: --nativewindui, --no-install, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app.json
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/index.tsx
-./myTestProject/app/modal.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/BackButton.tsx
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/HeaderButton.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/components/TabBarIcon.tsx
-./myTestProject/components/ThemeToggle.tsx
-./myTestProject/components/nativewindui
-./myTestProject/components/nativewindui/ActivityIndicator.tsx
-./myTestProject/components/nativewindui/Avatar.tsx
-./myTestProject/components/nativewindui/Button.tsx
-./myTestProject/components/nativewindui/DatePicker
-./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx
-./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx
-./myTestProject/components/nativewindui/DatePicker/index.ts
-./myTestProject/components/nativewindui/Picker.tsx
-./myTestProject/components/nativewindui/ProgressIndicator.tsx
-./myTestProject/components/nativewindui/Sheet.tsx
-./myTestProject/components/nativewindui/Slider.tsx
-./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/components/nativewindui/Toggle.tsx
-./myTestProject/global.css
-./myTestProject/lib
-./myTestProject/lib/cn.ts
-./myTestProject/lib/useColorScheme.tsx
-./myTestProject/lib/useHeaderSearchBar.tsx
-./myTestProject/metro.config.js
-./myTestProject/nativewind-env.d.ts
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tailwind.config.js
-./myTestProject/theme
-./myTestProject/theme/colors.ts
-./myTestProject/theme/index.ts
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/index.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/BackButton.tsx",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/nativewindui",
+  "./myTestProject/components/nativewindui/ActivityIndicator.tsx",
+  "./myTestProject/components/nativewindui/Avatar.tsx",
+  "./myTestProject/components/nativewindui/Button.tsx",
+  "./myTestProject/components/nativewindui/DatePicker",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/index.ts",
+  "./myTestProject/components/nativewindui/Picker.tsx",
+  "./myTestProject/components/nativewindui/ProgressIndicator.tsx",
+  "./myTestProject/components/nativewindui/Sheet.tsx",
+  "./myTestProject/components/nativewindui/Slider.tsx",
+  "./myTestProject/components/nativewindui/Text.tsx",
+  "./myTestProject/components/nativewindui/Toggle.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/components/ThemeToggle.tsx",
+  "./myTestProject/global.css",
+  "./myTestProject/lib",
+  "./myTestProject/lib/cn.ts",
+  "./myTestProject/lib/useColorScheme.tsx",
+  "./myTestProject/lib/useHeaderSearchBar.tsx",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/theme",
+  "./myTestProject/theme/colors.ts",
+  "./myTestProject/theme/index.ts",
+  "./myTestProject/tsconfig.json",
+]
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --bun, --overwrite-package-json 1`] = `
@@ -1282,52 +1291,53 @@ exports[`generates a project with --expo-router --drawer+tabs --nativewindui --b
 `;
 
 exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --bun --overwrite: --expo-router, --drawer+tabs, --nativewindui, --blank, --expo-router, --bun, --overwrite-file-list 1`] = `
-"./myTestProject
-./myTestProject/app
-./myTestProject/app.json
-./myTestProject/app/(drawer)
-./myTestProject/app/(drawer)/(tabs)
-./myTestProject/app/(drawer)/(tabs)/_layout.tsx
-./myTestProject/app/(drawer)/(tabs)/index.tsx
-./myTestProject/app/(drawer)/(tabs)/two.tsx
-./myTestProject/app/(drawer)/_layout.tsx
-./myTestProject/app/(drawer)/index.tsx
-./myTestProject/app/+html.tsx
-./myTestProject/app/+not-found.tsx
-./myTestProject/app/_layout.tsx
-./myTestProject/app/modal.tsx
-./myTestProject/assets
-./myTestProject/assets/adaptive-icon.png
-./myTestProject/assets/favicon.png
-./myTestProject/assets/icon.png
-./myTestProject/assets/splash.png
-./myTestProject/babel.config.js
-./myTestProject/bun.lock
-./myTestProject/cesconfig.json
-./myTestProject/components
-./myTestProject/components/BackButton.tsx
-./myTestProject/components/Button.tsx
-./myTestProject/components/Container.tsx
-./myTestProject/components/EditScreenInfo.tsx
-./myTestProject/components/HeaderButton.tsx
-./myTestProject/components/ScreenContent.tsx
-./myTestProject/components/TabBarIcon.tsx
-./myTestProject/components/ThemeToggle.tsx
-./myTestProject/components/nativewindui
-./myTestProject/components/nativewindui/Text.tsx
-./myTestProject/global.css
-./myTestProject/lib
-./myTestProject/lib/cn.ts
-./myTestProject/lib/useColorScheme.tsx
-./myTestProject/lib/useHeaderSearchBar.tsx
-./myTestProject/metro.config.js
-./myTestProject/nativewind-env.d.ts
-./myTestProject/package.json
-./myTestProject/prettier.config.js
-./myTestProject/tailwind.config.js
-./myTestProject/theme
-./myTestProject/theme/colors.ts
-./myTestProject/theme/index.ts
-./myTestProject/tsconfig.json
-"
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.json",
+  "./myTestProject/components",
+  "./myTestProject/components/BackButton.tsx",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/nativewindui",
+  "./myTestProject/components/nativewindui/Text.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/components/ThemeToggle.tsx",
+  "./myTestProject/global.css",
+  "./myTestProject/lib",
+  "./myTestProject/lib/cn.ts",
+  "./myTestProject/lib/useColorScheme.tsx",
+  "./myTestProject/lib/useHeaderSearchBar.tsx",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/theme",
+  "./myTestProject/theme/colors.ts",
+  "./myTestProject/theme/index.ts",
+  "./myTestProject/tsconfig.json",
+]
 `;
