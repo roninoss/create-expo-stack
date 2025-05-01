@@ -59,24 +59,24 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 
 | Library            | Category            | Version | Description                                    |
 | ------------------ | ------------------- | ------- | ---------------------------------------------- |
-| React Native       | Mobile Framework    | v0.76   | The best cross-platform mobile framework       |
-| React              | UI Framework        | v18     | The most popular UI framework in the world     |
+| React Native       | Mobile Framework    | v0.79   | The best cross-platform mobile framework       |
+| React              | UI Framework        | v19     | The most popular UI framework in the world     |
 | TypeScript         | Language            | v5      | Static typechecking                            |
 | React Navigation   | Navigation          | v7      | Performant and consistent navigation framework |
-| Expo               | SDK                 | v52     | Allows (optional) Expo modules                 |
-| Expo Font          | Custom Fonts        | v11     | Import custom fonts                            |
-| Expo Linking       | URL Handling        | v5      | Open your app via a URL                        |
-| Expo Router        | Navigation          | v3      | File-based routing in React-Native             |
-| Expo Splash Screen | Splash Screen       | v0.18   | Custom splash screen                           |
-| Expo Status Bar    | Status Bar Library  | v1      | Status bar support                             |
-| Expo System UI     | System UI Library   | v2      | System UI support                              |
-| Expo Web Browser   | Web Browser Library | v12     | Open links in the browser                      |
+| Expo               | SDK                 | v53     | Allows (optional) Expo modules                 |
+| Expo Font          | Custom Fonts        | v13     | Import custom fonts                            |
+| Expo Linking       | URL Handling        | v7      | Open your app via a URL                        |
+| Expo Router        | Navigation          | v5      | File-based routing in React-Native             |
+| Expo Splash Screen | Splash Screen       | v0.27   | Custom splash screen                           |
+| Expo Status Bar    | Status Bar Library  | v2      | Status bar support                             |
+| Expo System UI     | System UI Library   | v5      | System UI support                              |
+| Expo Web Browser   | Web Browser Library | v14     | Open links in the browser                      |
 | NativeWind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
 | Restyle            | UI Framework        | v2      | Theme-based styling library for React Native   |
 | Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
 | Unistyles          | UI Framework        | v3      | Superset of StyleSheet                         |
-| Safe Area Context  | Safe Area Library   | v4      | Safe area support                              |
-| React Native Web   | Web Support         | v0.19   | React Native for Web                           |
+| Safe Area Context  | Safe Area Library   | v5      | Safe area support                              |
+| React Native Web   | Web Support         | v0.20   | React Native for Web                           |
 | Firebase           | Backend and Auth    | v10     | Cloud-hosted NoSQL database from Google        |
 | Supabase           | Backend and Auth    | v2      | Open source Firebase alternative               |
 
@@ -218,10 +218,10 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/jpudysz">
-            <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
+        <a href="https://github.com/coyksdev">
+            <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
             <br />
-            <sub><b>Jacek Pudysz</b></sub>
+            <sub><b>Gerald</b></sub>
         </a>
     </td>
     <td align="center">
@@ -237,13 +237,6 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100;" alt="b0iq"/>
             <br />
             <sub><b>Null</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/coyksdev">
-            <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
-            <br />
-            <sub><b>Gerald</b></sub>
         </a>
     </td>
     <td align="center">
@@ -265,6 +258,13 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
             <br />
             <sub><b>Mat Warger</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/jpudysz">
+            <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
+            <br />
+            <sub><b>Jacek Pudysz</b></sub>
         </a>
     </td>
     <td align="center">
