@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.15.0
+
+### Minor Changes
+
+- 235d6e5: fix: update to expo 53
+
 ## 2.14.3
 
 ### Patch Changes
