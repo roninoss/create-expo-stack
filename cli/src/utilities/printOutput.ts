@@ -44,12 +44,13 @@ export async function printOutput(
   if (!options.noInstall && !flags.noInstall) {
     s.start(`Installing dependencies using ${packageManager}...`);
     // attempt to improve npm install speeds by disabling audit and progress
-    const additionalFlags = packageManager === 'npm' ? '--silent --no-audit --progress=false' : '--silent';
+
+    const additionalFlags = isNpm ? '--silent --no-audit --progress=false --legacy-peer-deps' : '--silent';
 
     await runSystemCommand({
       toolbox,
       command: `cd ${projectName} && ${packageManager} install ${additionalFlags}`,
-      stdio: packageManager === 'npm' ? undefined : ONLY_ERRORS,
+      stdio: isNpm ? undefined : ONLY_ERRORS,
       errorMessage: 'Error installing dependencies'
     });
 
@@ -72,7 +73,7 @@ export async function printOutput(
 
     await runSystemCommand({
       toolbox,
-      command: `cd ${projectName} && ${runnerType} expo@latest install --fix`,
+      command: `cd ${projectName} && ${runnerType} expo@latest install --fix ${isNpm ? `-- ${additionalFlags}` : ``}`,
       errorMessage: 'Error updating packages',
       stdio: undefined
     });
