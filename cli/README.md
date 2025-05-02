@@ -218,10 +218,10 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/coyksdev">
-            <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
+        <a href="https://github.com/jpudysz">
+            <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
             <br />
-            <sub><b>Gerald</b></sub>
+            <sub><b>Jacek Pudysz</b></sub>
         </a>
     </td>
     <td align="center">
@@ -237,6 +237,13 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100;" alt="b0iq"/>
             <br />
             <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/coyksdev">
+            <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
+            <br />
+            <sub><b>Gerald</b></sub>
         </a>
     </td>
     <td align="center">
@@ -258,13 +265,6 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
             <br />
             <sub><b>Mat Warger</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/jpudysz">
-            <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
-            <br />
-            <sub><b>Jacek Pudysz</b></sub>
         </a>
     </td>
     <td align="center">
