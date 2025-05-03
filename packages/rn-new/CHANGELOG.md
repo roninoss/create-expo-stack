@@ -1,5 +1,18 @@
 # rn-new
 
+## 2.16.0
+
+### Minor Changes
+
+- 0c3702b: chore: update Expo to 53.0.6 and React Native to 0.79.2
+
+### Patch Changes
+
+- 6a4697a: fixes for peer deps when using npm
+- Updated dependencies [0c3702b]
+- Updated dependencies [6a4697a]
+  - create-expo-stack@2.16.0
+
 ## 2.15.0
 
 ### Minor Changes
