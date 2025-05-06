@@ -21,7 +21,7 @@ export async function run() {
   const isVersionOk = major > 20 || (major === 20 && minor >= 19);
 
   if (!isVersionOk) {
-    console.error(`Error: create-expo-stack requires Node.js version 20.19.0 or higher, or version 22.0.0 or higher.`);
+    console.error(`Error: rn-new requires Node.js version 20.19.0 or higher, or version 22.0.0 or higher.`);
     console.error(`You are currently running Node.js ${process.versions.node}.`);
     console.error('Please update your Node.js version.');
     process.exit(1);
