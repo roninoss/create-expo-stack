@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.18.0
+
+### Minor Changes
+
+- 81c6bef: enforce using a version of node.js that supports requiring ESM modules for the latest version of nwui-cli
+
 ## 2.16.0
 
 ### Minor Changes
