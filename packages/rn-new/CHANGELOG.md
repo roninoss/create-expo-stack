@@ -1,5 +1,12 @@
 # rn-new
 
+## 2.18.0
+
+### Patch Changes
+
+- Updated dependencies [81c6bef]
+  - create-expo-stack@2.18.0
+
 ## 2.16.0
 
 ### Minor Changes
