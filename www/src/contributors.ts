@@ -21,7 +21,7 @@ export const contributors = [
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
-        "contributions": 420
+        "contributions": 424
     },
     {
         "login": "dannyhw",
@@ -43,7 +43,7 @@ export const contributors = [
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
-        "contributions": 84
+        "contributions": 89
     },
     {
         "login": "hqasmei",
@@ -87,7 +87,7 @@ export const contributors = [
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
-        "contributions": 43
+        "contributions": 44
     },
     {
         "login": "ernestoresende",
@@ -310,22 +310,22 @@ export const contributors = [
         "contributions": 6
     },
     {
-        "login": "alitnk",
+        "login": "cerpinn",
         "id": 35243344,
         "node_id": "MDQ6VXNlcjM1MjQzMzQ0",
         "avatar_url": "https://avatars.githubusercontent.com/u/35243344?v=4",
         "gravatar_id": "",
-        "url": "https://api.github.com/users/alitnk",
-        "html_url": "https://github.com/alitnk",
-        "followers_url": "https://api.github.com/users/alitnk/followers",
-        "following_url": "https://api.github.com/users/alitnk/following{/other_user}",
-        "gists_url": "https://api.github.com/users/alitnk/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/alitnk/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/alitnk/subscriptions",
-        "organizations_url": "https://api.github.com/users/alitnk/orgs",
-        "repos_url": "https://api.github.com/users/alitnk/repos",
-        "events_url": "https://api.github.com/users/alitnk/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/alitnk/received_events",
+        "url": "https://api.github.com/users/cerpinn",
+        "html_url": "https://github.com/cerpinn",
+        "followers_url": "https://api.github.com/users/cerpinn/followers",
+        "following_url": "https://api.github.com/users/cerpinn/following{/other_user}",
+        "gists_url": "https://api.github.com/users/cerpinn/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/cerpinn/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/cerpinn/subscriptions",
+        "organizations_url": "https://api.github.com/users/cerpinn/orgs",
+        "repos_url": "https://api.github.com/users/cerpinn/repos",
+        "events_url": "https://api.github.com/users/cerpinn/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/cerpinn/received_events",
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
