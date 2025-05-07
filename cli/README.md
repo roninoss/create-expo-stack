@@ -204,8 +204,8 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/alitnk">
-            <img src="https://avatars.githubusercontent.com/u/35243344?v=4" width="100;" alt="alitnk"/>
+        <a href="https://github.com/cerpinn">
+            <img src="https://avatars.githubusercontent.com/u/35243344?v=4" width="100;" alt="cerpinn"/>
             <br />
             <sub><b>Alireza Zamani</b></sub>
         </a>
