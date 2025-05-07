@@ -18,6 +18,8 @@ export const Button = forwardRef<View, ButtonProps>(({ title, ...touchableProps 
   );
 });
 
+Button.displayName = 'Button';
+
 const useStyles = makeStyles((theme) => ({
   button: {
     alignItems: 'center',

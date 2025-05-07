@@ -257,15 +257,15 @@ const COMPONENTS: ComponentItem[] = [
     name: 'Progress Indicator',
     component: function ProgressIndicatorExample() {
       const [progress, setProgress] = React.useState(13);
-      let id: ReturnType<typeof setInterval> | null = null;
-      React.useEffect(() => {
-        if (!id) {
-          id = setInterval(() => {
+      const id = React.useRef<ReturnType<typeof setInterval> | null>(null);
+       React.useEffect(() => {
+        if (!id.current) {
+          id.current = setInterval(() => {
             setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
           }, 1000);
         }
         return () => {
-          if (id) clearInterval(id);
+          if (id.current) clearInterval(id.current);
         };
       }, []);
       return (
