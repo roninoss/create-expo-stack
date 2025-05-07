@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.18.1
+
+### Patch Changes
+
+- 09536bd: Update eslint config to eslint 9 and newer expo config package
+
 ## 2.18.0
 
 ### Minor Changes
