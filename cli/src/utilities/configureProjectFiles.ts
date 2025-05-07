@@ -31,6 +31,7 @@ export function configureProjectFiles(
     'base/App.tsx.ejs',
     'base/babel.config.js.ejs',
     'base/package.json.ejs',
+    'base/eslint.config.js.ejs',
     'base/.gitignore.ejs',
     'base/prettier.config.js.ejs'
   ];
@@ -51,6 +52,7 @@ export function configureProjectFiles(
       'base/app.json.ejs',
       'base/babel.config.js.ejs',
       'base/package.json.ejs',
+      'base/eslint.config.js.ejs',
       'base/.gitignore.ejs',
       'base/prettier.config.js.ejs',
       'packages/expo-router/metro.config.js.ejs',

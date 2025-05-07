@@ -264,15 +264,15 @@ const COMPONENTS: ComponentItem[] = [
     name: 'Progress Indicator',
     component: function ProgressIndicatorExample() {
       const [progress, setProgress] = React.useState(13);
-      let id: ReturnType<typeof setInterval> | null = null;
-      React.useEffect(() => {
-        if (!id) {
-          id = setInterval(() => {
+      const id = React.useRef<ReturnType<typeof setInterval> | null>(null);
+       React.useEffect(() => {
+        if (!id.current) {
+          id.current = setInterval(() => {
             setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
           }, 1000);
         }
         return () => {
-          if (id) clearInterval(id);
+          if (id.current) clearInterval(id.current);
         };
       }, []);
       return (
@@ -431,7 +431,7 @@ const COMPONENTS: ComponentItem[] = [
             <Text className="w-6 text-center text-muted-foreground">·</Text>
             <View className="flex-1">
               <Text variant="caption1" className="text-muted-foreground">
-                Don't call StoreReview.requestReview() from a button
+                {"Don't call StoreReview.requestReview() from a button"}
               </Text>
             </View>
           </View>
@@ -439,7 +439,7 @@ const COMPONENTS: ComponentItem[] = [
             <Text className="w-6 text-center text-muted-foreground">·</Text>
             <View className="flex-1">
               <Text variant="caption1" className="text-muted-foreground">
-                Don't request a review when the user is doing something time sensitive.
+                {"Don't request a review when the user is doing something time sensitive."}
               </Text>
             </View>
           </View>
@@ -447,8 +447,7 @@ const COMPONENTS: ComponentItem[] = [
             <Text className="w-6 text-center text-muted-foreground">·</Text>
             <View className="flex-1">
               <Text variant="caption1" className="text-muted-foreground">
-                Don't ask the user any questions before or while presenting the rating button or
-                card.
+                {"Don't ask the user any questions before or while presenting the rating button or card."}
               </Text>
             </View>
           </View>
