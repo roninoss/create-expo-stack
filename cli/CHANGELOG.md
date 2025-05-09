@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.18.2
+
+### Patch Changes
+
+- 4d5bd5d: fix: remove unused code, replace code causing format script to fail
+
 ## 2.18.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.18.2
+
+### Patch Changes
+
+- 4d5bd5d: fix: remove unused code, replace code causing format script to fail
+- Updated dependencies [4d5bd5d]
+  - create-expo-stack@2.18.2
+
 ## 2.18.1
 
 ### Patch Changes
