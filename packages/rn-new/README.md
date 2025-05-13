@@ -12,7 +12,7 @@
   Get started by running <code>npx rn-new@latest</code>
 
 <p align="center">
-  🎉 Over 50k Expo projects generated using CES! 🎉
+  🎉 Over 100k Expo projects generated using CES! 🎉
 
 ## Sponsors
 
