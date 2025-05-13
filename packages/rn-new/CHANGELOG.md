@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.18.3
+
+### Patch Changes
+
+- cf24de5: chore: bump number of projects created with rn-new
+- Updated dependencies [cf24de5]
+  - create-expo-stack@2.18.3
+
 ## 2.18.2
 
 ### Patch Changes
