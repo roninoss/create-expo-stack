@@ -225,25 +225,25 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/coyksdev">
+            <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
+            <br />
+            <sub><b>Gerald</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/Savinvadim1312">
             <img src="https://avatars.githubusercontent.com/u/16936043?v=4" width="100;" alt="Savinvadim1312"/>
             <br />
             <sub><b>Savin Vadim</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/b0iq">
             <img src="https://avatars.githubusercontent.com/u/106549013?v=4" width="100;" alt="b0iq"/>
             <br />
             <sub><b>Null</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/coyksdev">
-            <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
-            <br />
-            <sub><b>Gerald</b></sub>
         </a>
     </td>
     <td align="center">
