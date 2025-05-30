@@ -63,6 +63,14 @@ test(`outputs help`, async () => {
 
 // we could later generate all combinations and have a "run everything" option that only runs very rarely
 const popularCombinations = [
+  // for reference, these are the react-navigation combinations
+  // ['--react-navigation', '--tabs', '--stylesheet'],
+  // ['--react-navigation', '--tabs+drawer', '--stylesheet'],
+  // ['--react-navigation', '--stack', '--stylesheet'],
+  // ['--react-navigation', '--tabs', '--unistyles'],
+  // ['--react-navigation', '--tabs+drawer', '--unistyles'],
+  // ['--react-navigation', '--stack', '--unistyles'],
+
   ['--expo-router', '--nativewind'],
   ['--expo-router', '--stylesheet'],
   ['--expo-router', '--tabs', '--nativewind'],
