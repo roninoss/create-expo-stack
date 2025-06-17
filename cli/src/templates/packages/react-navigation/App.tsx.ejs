@@ -6,6 +6,8 @@
 <% } %>
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import './unistyles';
+import { DefaultTheme } from '@react-navigation/native';
+import { useUnistyles } from 'react-native-unistyles';
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
@@ -63,6 +65,24 @@ export default function App() {
         <RootStack />
       </ThemeProvider>
     );
+	<% } else if (props.stylingPackage?.name === "unistyles")  { %> 
+    const { theme, rt } = useUnistyles();
+
+    const mergedTheme = {
+      ...DefaultTheme,
+      colors: {
+        background: theme.colors.background,
+        text: theme.colors.typography,
+        primary: theme.colors.astral,
+        secondary: theme.colors.cornflowerBlue,
+        border: theme.colors.limedSpruce,
+        card: theme.colors.background,
+        notification: theme.colors.astral,
+      },
+      dark: rt.colorScheme === 'dark',
+    };
+
+    return <RootStack theme={mergedTheme} />;
 	<% } else { %> 
 		return <RootStack />;
 	<% } %>

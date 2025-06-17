@@ -1,4 +1,4 @@
-import { RouteProp, useRoute } from '@react-navigation/native';
+import type { StaticScreenProps } from '@react-navigation/native';
 import { ScreenContent } from 'components/ScreenContent';
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import { View } from 'react-native';
@@ -7,18 +7,16 @@ import { StyleSheet } from 'react-native-unistyles';
 import { StyleSheet, View } from 'react-native';
 <% } %>
 
-import { RootStackParamList } from '../navigation';
+type Props = StaticScreenProps<{
+  name: string;
+}>;
 
-type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
-
-export default function Details() {
-  const router = useRoute<DetailsScreenRouteProp>();
-
+export default function Details({ route }: Props) {
   return (
     <View style={styles.container}>
       <ScreenContent
         path="screens/details.tsx"
-        title={`Showing details for user ${router.params.name}`}
+        title={`Showing details for user ${route.params?.name}`}
       />
     </View>
   );

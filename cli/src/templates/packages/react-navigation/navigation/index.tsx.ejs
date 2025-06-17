@@ -1,156 +1,105 @@
 <% if (props.navigationPackage?.options.type === 'stack') { %>
-	import { NavigationContainer } from "@react-navigation/native";
-	import { createStackNavigator } from "@react-navigation/stack";
-
-    <% if (props.stylingPackage?.name === "unistyles") { %>
-        import { useUnistyles } from 'react-native-unistyles';
-    <% } %>
-
+	import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
+	import { createStackNavigator } from '@react-navigation/stack';
 	import Overview from "../screens/overview";
 	import Details from "../screens/details";
-    import { BackButton } from '../components/BackButton';
+  import { BackButton } from '../components/BackButton';
 
-	export type RootStackParamList = {
-		Overview: undefined;
-		Details: { name: string };
-	};
+	const Stack = createStackNavigator({
+    screens: {
+      Overview: {
+        screen: Overview,
+      },
+      Details: {
+        screen: Details,
+        options: ({ navigation }) => ({
+          headerLeft: () => <BackButton onPress={navigation.goBack} />,
+        })
+      },
+    }
+  });
 
-	const Stack = createStackNavigator<RootStackParamList>();
+  type RootStackParamList = StaticParamList<typeof Stack>;
 
-	export default function RootStack() {
-        <% if (props.stylingPackage?.name === "unistyles") { %>
-        const { theme } = useUnistyles();
-        <% } %>
-		return (
-			<NavigationContainer>
-				<Stack.Navigator
-                    initialRouteName="Overview"
-                    <% if (props.stylingPackage?.name === "unistyles") { %>
-                    screenOptions={{
-                        headerStyle: {
-                            backgroundColor: theme.colors.background,
-                        },
-                        headerTitleStyle: {
-                            color: theme.colors.typography,
-                        },
-                        headerTintColor: theme.colors.typography,
-                    }}
-                    <% } %>
-                >
-					<Stack.Screen name="Overview" component={Overview} />
-					<Stack.Screen
-						name="Details"
-						component={Details}
-							options={({ navigation }) => ({
-                headerLeft: () => <BackButton onPress={navigation.goBack} />,
-							})}
-					/>
-				</Stack.Navigator>
-			</NavigationContainer>
-		);
-	}
+  declare global {
+    namespace ReactNavigation {
+      // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+      interface RootParamList extends RootStackParamList {}
+    }
+  }
+
+  export default createStaticNavigation(Stack);
 
 <% } else if (props.navigationPackage?.options.type === 'tabs') { %>
-	import { NavigationContainer } from "@react-navigation/native";
+  import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
 	import { createStackNavigator } from "@react-navigation/stack";
-    <% if (props.stylingPackage?.name === "unistyles") { %>
-        import { useUnistyles } from 'react-native-unistyles';
-    <% } %>
-
 	import Modal from "../screens/modal";
 	import TabNavigator from "./tab-navigator";
 
-	export type RootStackParamList = {
-		TabNavigator: undefined;
-		Modal: undefined;
-	};
 
-	const Stack = createStackNavigator<RootStackParamList>();
+	const Stack = createStackNavigator({
+    screens: {
+      TabNavigator: {
+        screen: TabNavigator,
+        options: {
+          headerShown: false,
+        },
+      },
+      Modal: {
+        screen: Modal,
+        options: {
+          presentation: "modal",
+          headerLeft: () => null,
+        },
+      },
+    }
+  });
 
-	export default function RootStack() {
-        <% if (props.stylingPackage?.name === "unistyles") { %>
-        const { theme } = useUnistyles();
-        <% } %>
-		return (
-			<NavigationContainer>
-				<Stack.Navigator
-                    initialRouteName="TabNavigator"
-                    <% if (props.stylingPackage?.name === "unistyles") { %>
-                        screenOptions={{
-                            headerStyle: {
-                                backgroundColor: theme.colors.background,
-                            },
-                            headerTitleStyle: {
-                                color: theme.colors.typography,
-                            },
-                            headerTintColor: theme.colors.typography,
-                        }}
-                    <% } %>
-                >
-					<Stack.Screen
-						name="TabNavigator"
-						component={TabNavigator}
-						options={{ headerShown: false }}
-					/>
-					<Stack.Screen
-						name="Modal"
-						component={Modal}
-						options={{ presentation: "modal", headerLeft: () => null }}
-					/>
-				</Stack.Navigator>
-			</NavigationContainer>
-		);
-	}
-	<% } else if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
-		import { NavigationContainer } from "@react-navigation/native";
+  type RootStackParamList = StaticParamList<typeof Stack>;
+
+  declare global {
+    namespace ReactNavigation {
+      // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+      interface RootParamList extends RootStackParamList {}
+    }
+  }
+
+  export default createStaticNavigation(Stack);
+
+<% } else if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
+	  import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
 		import { createStackNavigator } from '@react-navigation/stack';
-        <% if (props.stylingPackage?.name === "unistyles") { %>
-            import { useUnistyles } from 'react-native-unistyles';
-        <% } %>
-
 		import Modal from "../screens/modal";
 		import DrawerNavigator from "./drawer-navigator";
 
-		export type RootStackParamList = {
-			DrawerNavigator: undefined;
-			Modal: undefined;
-      TabNavigator: undefined;
-		};
+	
+    const Stack = createStackNavigator({
+      screens: {
+        DrawerNavigator: {
+          screen: DrawerNavigator,
+          options: {
+            headerShown: false,
+          },
+        },
+        Modal: {
+          screen: Modal,
+          options: {
+            presentation: "modal",
+            headerLeft: () => null,
+          },
+        },
+      }
+    });
 
-		const Stack = createStackNavigator<RootStackParamList>();
+    type RootStackParamList = StaticParamList<typeof Stack>;
 
-		export default function RootStack() {
-            <% if (props.stylingPackage?.name === "unistyles") { %>
-            const { theme } = useUnistyles();
-            <% } %>
-			return (
-				<NavigationContainer>
-					<Stack.Navigator
-                        initialRouteName="DrawerNavigator"
-                        <% if (props.stylingPackage?.name === "unistyles") { %>
-                        screenOptions={{
-                            headerStyle: {
-                                backgroundColor: theme.colors.background,
-                            },
-                            headerTitleStyle: {
-                                color: theme.colors.typography,
-                            },
-                            headerTintColor: theme.colors.typography,
-                        }}
-                        <% } %>
-                    >
-						<Stack.Screen
-							name="DrawerNavigator"
-							component={DrawerNavigator}
-							options={{ headerShown: false }}
-						/>
-						<Stack.Screen
-							name="Modal"
-							component={Modal}
-							options={{ presentation: "modal", headerLeft: () => null }}
-						/>
-					</Stack.Navigator>
-				</NavigationContainer>
-			);
-		}
+    declare global {
+      namespace ReactNavigation {
+        // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+        interface RootParamList extends RootStackParamList {}
+      }
+    }
+
+    export default createStaticNavigation(Stack);
+	
 <% } %>

@@ -1,60 +1,38 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StackScreenProps } from '@react-navigation/stack';
-<% if (props.stylingPackage?.name === "unistyles") { %>
-import { useUnistyles } from 'react-native-unistyles';
-<% } %>
-import { RootStackParamList } from '.';
 import { HeaderButton } from '../components/HeaderButton';
 import { TabBarIcon } from '../components/TabBarIcon';
 import One from '../screens/one';
 import Two from '../screens/two';
 
-const Tab = createBottomTabNavigator();
-
-type Props = StackScreenProps<RootStackParamList, 'TabNavigator'>;
-
-export default function TabLayout({ navigation }: Props) {
-  <% if (props.stylingPackage?.name === "unistyles") { %>
-  const { theme } = useUnistyles();
-  <% } %>
-  return (
-    <Tab.Navigator
-        screenOptions={{
-        <% if (props.stylingPackage?.name === "unistyles") { %>
-            headerStyle: {
-                backgroundColor: theme.colors.background,
-            },
-            headerTitleStyle: {
-                color: theme.colors.typography,
-            },
-            tabBarActiveTintColor: theme.colors.astral,
-            tabBarStyle: {
-                backgroundColor: theme.colors.background,
-            },
-        <% } else { %>
-            tabBarActiveTintColor: 'black',
-        <% } %>
-	    <% if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
+const Tab = createBottomTabNavigator({
+  screenOptions: function ScreenOptions() {
+    return {
+      <% if (props.stylingPackage?.name !== "unistyles") { %>
+        tabBarActiveTintColor: 'black',
+      <% } %>
+      <% if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
         headerShown: false,
       <% } %>
-      }}>
-      <Tab.Screen
-        name="One"
-        component={One}
-        options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
-        }}
-      />
-      <Tab.Screen
-        name="Two"
-        component={Two}
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-    </Tab.Navigator>
-  );
-}
+    }
+  },
+  screens: {
+    One: {
+      screen: One,
+      options: ({ navigation }) => ({
+        title: 'Tab One',
+        tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
+      })
+    },
+    Two: {
+      screen: Two,
+      options: {
+        title: 'Tab Two',
+        tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+      }
+    },
+  }
+});
+
+export default Tab;
+
