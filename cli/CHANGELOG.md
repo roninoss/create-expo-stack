@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.18.4
+
+### Patch Changes
+
+- 76f79ae: chore: add comment to cesconfig.json to indicate it is an optional file for debugging purposes
+
 ## 2.18.3
 
 ### Patch Changes
