@@ -27,4 +27,4 @@ Issue tracker is **ONLY** used for reporting bugs. New features should be discus
 ## CES Config File
 
 <!--- If you generated a project, copy and paste the contents of your -->
-<!--- cesconfig.json file, located in the root of your project. -->
+<!--- cesconfig.jsonc file, located in the root of your project. -->

@@ -383,7 +383,7 @@ export function configureProjectFiles(
   };
 
   toolbox.filesystem.write(
-    `./${cliResults.projectName}/cesconfig.json`,
+    `./${cliResults.projectName}/cesconfig.jsonc`,
     `// This is an optional configuration file used primarily for debugging purposes when reporting issues.
 // It is safe to delete this file as it does not affect the functionality of your application.
 ${JSON.stringify(cesConfig, null, 2)}`

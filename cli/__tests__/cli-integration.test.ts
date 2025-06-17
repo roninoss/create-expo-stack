@@ -132,7 +132,7 @@ for (const packageManager of packageManagers) {
 
       expect(pkgJsonWithoutVersions).toMatchSnapshot(`${finalFlags.join(', ')}-package-json`);
 
-      const cesconfig = await import(`${pathToProject}/cesconfig.json`);
+      const cesconfig = await import(`${pathToProject}/cesconfig.jsonc`);
 
       const cesconfigWithoutOS = {
         ...cesconfig.default,
