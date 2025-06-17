@@ -382,7 +382,12 @@ export function configureProjectFiles(
     }
   };
 
-  toolbox.filesystem.write(`./${cliResults.projectName}/cesconfig.json`, JSON.stringify(cesConfig, null, 2));
+  toolbox.filesystem.write(
+    `./${cliResults.projectName}/cesconfig.json`,
+    `// This is an optional configuration file used primarily for debugging purposes when reporting issues.
+// It is safe to delete this file as it does not affect the functionality of your application.
+${JSON.stringify(cesConfig, null, 2)}`
+  );
 
   const pkg = require('../../package.json');
 
