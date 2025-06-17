@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.18.5
+
+### Patch Changes
+
+- 121618b: chore: change cesconfig.json to cesconfig.jsonc
+
 ## 2.18.4
 
 ### Patch Changes
