@@ -34,6 +34,7 @@
     "snapshot-update": "bun test --bail=1 --timeout 160000 --update-snapshots",
     "test:watch": "bun test --watch",
     "test": "bun test --bail=1 --timeout 160000",
+    "test:skip-snapshots": "INCLUDE_REACT_NAVIGATION_TESTS=1 SKIP_SNAPSHOTS=1 bun test bun test --bail=1 --timeout 160000",
     "test:all": "ALL_PACKAGE_MANAGERS=true bun test --bail=1 --timeout 160000"
   },
   "prettier": {

@@ -28,7 +28,8 @@
     }
   }
 
-  export default createStaticNavigation(Stack);
+  const Navigation = createStaticNavigation(Stack);
+  export default Navigation;
 
 <% } else if (props.navigationPackage?.options.type === 'tabs') { %>
   import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
@@ -64,7 +65,8 @@
     }
   }
 
-  export default createStaticNavigation(Stack);
+  const Navigation = createStaticNavigation(Stack);
+  export default Navigation;
 
 <% } else if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
 	  import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
@@ -100,6 +102,7 @@
       }
     }
 
-    export default createStaticNavigation(Stack);
+    const Navigation = createStaticNavigation(Stack);
+  export default Navigation;
 	
 <% } %>
