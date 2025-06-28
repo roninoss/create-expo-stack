@@ -1,4 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import { Text } from '~/components/nativewindui/Text';
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
 import { useTranslation } from 'react-i18next';
@@ -15,11 +17,15 @@ export default function EditScreenInfo({ path }: { path: string }) {
 <% } %>
   return (
     <View style={styles.getStartedContainer}>
-      <Text style={styles.getStartedText}>{title}</Text>
+      <Text variant="heading" className="text-center">
+        {title}
+      </Text>
       <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
         <Text>{path}</Text>
       </View>
-      <Text style={styles.getStartedText}>{description}</Text>
+      <Text variant="body" className="text-center">
+        {description}
+      </Text>
     </View>
   );
 }
@@ -32,11 +38,6 @@ const styles = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
-  },
-  getStartedText: {
-    fontSize: 17,
-    lineHeight: 24,
-    textAlign: 'center',
   },
   helpContainer: {
     alignItems: 'center',
