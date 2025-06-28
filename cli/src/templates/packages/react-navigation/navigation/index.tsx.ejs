@@ -19,12 +19,12 @@
     }
   });
 
-  type RootStackParamList = StaticParamList<typeof Stack>;
+  type RootNavigatorParamList = StaticParamList<typeof Stack>;
 
   declare global {
     namespace ReactNavigation {
       // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-      interface RootParamList extends RootStackParamList {}
+      interface RootParamList extends RootNavigatorParamList {}
     }
   }
 
@@ -56,12 +56,12 @@
     }
   });
 
-  type RootStackParamList = StaticParamList<typeof Stack>;
+  type RootNavigatorParamList = StaticParamList<typeof Stack>;
 
   declare global {
     namespace ReactNavigation {
       // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-      interface RootParamList extends RootStackParamList {}
+      interface RootParamList extends RootNavigatorParamList {}
     }
   }
 
@@ -93,12 +93,12 @@
       }
     });
 
-    type RootStackParamList = StaticParamList<typeof Stack>;
+    type RootNavigatorParamList = StaticParamList<typeof Stack>;
 
     declare global {
       namespace ReactNavigation {
         // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-        interface RootParamList extends RootStackParamList {}
+        interface RootParamList extends RootNavigatorParamList {}
       }
     }
 
