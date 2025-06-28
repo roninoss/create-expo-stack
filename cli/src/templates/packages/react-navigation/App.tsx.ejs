@@ -8,6 +8,11 @@
 import './unistyles';
 import { DefaultTheme } from '@react-navigation/native';
 import { useUnistyles } from 'react-native-unistyles';
+import { useMemo } from 'react';
+<% } else if (props.stylingPackage?.name === "tamagui" || props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %>
+import { DefaultTheme } from '@react-navigation/native';
+import { useColorScheme } from 'react-native';
+import { useMemo } from 'react';
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
@@ -32,9 +37,9 @@ import "react-native-gesture-handler";
 
   vexo(process.env.VEXO_API_KEY); // eslint-disable-line
 
-  import RootStack from "./navigation"; // eslint-disable-line
+  import Navigation from "./navigation"; // eslint-disable-line
 <% } else { %>
-  import RootStack from "./navigation";
+  import Navigation from "./navigation";
 <% } %>
 
 export default function App() {
@@ -43,6 +48,12 @@ export default function App() {
 			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
 			InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
 		});
+
+		const colorScheme = useColorScheme();
+		const mergedTheme = useMemo(() => ({
+			...DefaultTheme,
+			dark: colorScheme === 'dark',
+		}), [colorScheme]);
 
 		useEffect(() => {
 			if (loaded) {
@@ -56,19 +67,25 @@ export default function App() {
 
 		return (
 			<TamaguiProvider config={config}>
-				<RootStack />
+				<Navigation theme={mergedTheme} />
 			</TamaguiProvider>
 		);
 	<% } else if (props.stylingPackage?.name === "restyle") { %>
+		const colorScheme = useColorScheme();
+		const mergedTheme = useMemo(() => ({
+			...DefaultTheme,
+			dark: colorScheme === 'dark',
+		}), [colorScheme]);
+
 		return (
       <ThemeProvider theme={theme}>
-        <RootStack />
+        <Navigation theme={mergedTheme} />
       </ThemeProvider>
     );
 	<% } else if (props.stylingPackage?.name === "unistyles")  { %> 
     const { theme, rt } = useUnistyles();
 
-    const mergedTheme = {
+    const mergedTheme = useMemo(() => ({
       ...DefaultTheme,
       colors: {
         background: theme.colors.background,
@@ -80,10 +97,18 @@ export default function App() {
         notification: theme.colors.astral,
       },
       dark: rt.colorScheme === 'dark',
-    };
+    }), [theme.colors.background, theme.colors.typography, theme.colors.astral, theme.colors.cornflowerBlue, theme.colors.limedSpruce, rt.colorScheme]);
 
-    return <RootStack theme={mergedTheme} />;
+    return <Navigation theme={mergedTheme} />;
+	<% } else if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %> 
+		const colorScheme = useColorScheme();
+		const mergedTheme = useMemo(() => ({
+			...DefaultTheme,
+			dark: colorScheme === 'dark',
+		}), [colorScheme]);
+
+		return <Navigation theme={mergedTheme} />;
 	<% } else { %> 
-		return <RootStack />;
+		return <Navigation />;
 	<% } %>
 }

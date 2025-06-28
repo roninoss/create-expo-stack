@@ -49,6 +49,8 @@ const packageManagers = process.env.ALL_PACKAGE_MANAGERS
   ? ([`npm`, `yarn`, `pnpm`, `bun`] as const)
   : (['bun'] as const);
 
+const skipSnapshots = !!process.env.SKIP_SNAPSHOTS;
+
 test(`outputs version`, async () => {
   const output = await cli([`--version`]);
 
@@ -61,16 +63,30 @@ test(`outputs help`, async () => {
   expect(output).toContain(`Info`);
 });
 
-// we could later generate all combinations and have a "run everything" option that only runs very rarely
-const popularCombinations = [
-  // for reference, these are the react-navigation combinations
-  // ['--react-navigation', '--tabs', '--stylesheet'],
-  // ['--react-navigation', '--tabs+drawer', '--stylesheet'],
-  // ['--react-navigation', '--stack', '--stylesheet'],
-  // ['--react-navigation', '--tabs', '--unistyles'],
-  // ['--react-navigation', '--tabs+drawer', '--unistyles'],
-  // ['--react-navigation', '--stack', '--unistyles'],
+// React Navigation combinations - covering all styling packages and navigation types
+// to test color scheme support and Navigation component naming
+const reactNavigationCombinations = [
+  ['--react-navigation', '--tabs', '--stylesheet'],
+  ['--react-navigation', '--tabs', '--nativewind'],
+  ['--react-navigation', '--tabs', '--tamagui'],
+  ['--react-navigation', '--tabs', '--restyle'],
+  ['--react-navigation', '--tabs', '--unistyles'],
 
+  ['--react-navigation', '--drawer+tabs', '--stylesheet'],
+  ['--react-navigation', '--drawer+tabs', '--nativewind'],
+  ['--react-navigation', '--drawer+tabs', '--tamagui'],
+  ['--react-navigation', '--drawer+tabs', '--restyle'],
+  ['--react-navigation', '--drawer+tabs', '--unistyles'],
+
+  ['--react-navigation', '--stack', '--stylesheet'],
+  ['--react-navigation', '--stack', '--nativewind'],
+  ['--react-navigation', '--stack', '--tamagui'],
+  ['--react-navigation', '--stack', '--restyle'],
+  ['--react-navigation', '--stack', '--unistyles']
+] as const;
+
+// Core combinations that run by default
+const coreCombinations = [
   ['--expo-router', '--nativewind'],
   ['--expo-router', '--stylesheet'],
   ['--expo-router', '--tabs', '--nativewind'],
@@ -92,6 +108,11 @@ const popularCombinations = [
   // nativewindui blank
   ['--expo-router', '--drawer+tabs', '--nativewindui', '--blank', '--expo-router']
 ] as const;
+
+// Combine all combinations based on environment variables
+const popularCombinations = process.env.INCLUDE_REACT_NAVIGATION_TESTS
+  ? [...coreCombinations, ...reactNavigationCombinations]
+  : coreCombinations;
 
 const projectName = `myTestProject`;
 const pathToProject = `../${projectName}`;
@@ -138,7 +159,9 @@ for (const packageManager of packageManagers) {
         }, {})
       };
 
-      expect(pkgJsonWithoutVersions).toMatchSnapshot(`${finalFlags.join(', ')}-package-json`);
+      if (!skipSnapshots) {
+        expect(pkgJsonWithoutVersions).toMatchSnapshot(`${finalFlags.join(', ')}-package-json`);
+      }
 
       const cesconfig = await import(`${pathToProject}/cesconfig.json`);
 
@@ -153,7 +176,9 @@ for (const packageManager of packageManagers) {
         }
       };
 
-      expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
+      if (!skipSnapshots) {
+        expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
+      }
 
       const fileList =
         await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*"`.text();
@@ -164,7 +189,9 @@ for (const packageManager of packageManagers) {
         .filter(Boolean)
         .toSorted((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
 
-      expect(sortedFileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
+      if (!skipSnapshots) {
+        expect(sortedFileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
+      }
 
       // typecheck only works if we have packages installed
       if (!finalFlags.includes('--no-install')) {
