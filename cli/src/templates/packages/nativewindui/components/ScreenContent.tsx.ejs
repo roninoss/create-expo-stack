@@ -1,4 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import { Text } from '~/components/nativewindui/Text';
 
 import EditScreenInfo from './EditScreenInfo';
 
@@ -11,7 +13,9 @@ type ScreenContentProps = {
 export const ScreenContent = ({ title, path, children }: ScreenContentProps) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      <Text variant="title1" className="text-center">
+        {title}
+      </Text>
       <View style={styles.separator} />
       <EditScreenInfo path={path} />
       {children}
@@ -30,9 +34,5 @@ const styles = StyleSheet.create({
     height: 1,
     marginVertical: 30,
     width: '80%',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
   },
 });
