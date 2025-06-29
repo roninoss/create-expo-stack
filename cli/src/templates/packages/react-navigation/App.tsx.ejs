@@ -6,11 +6,11 @@
 <% } %>
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import './unistyles';
-import { DefaultTheme } from '@react-navigation/native';
+import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { useUnistyles } from 'react-native-unistyles';
 import { useMemo } from 'react';
 <% } else if (props.stylingPackage?.name === "tamagui" || props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %>
-import { DefaultTheme } from '@react-navigation/native';
+import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { useColorScheme } from 'react-native';
 import { useMemo } from 'react';
 <% } %>
@@ -19,7 +19,7 @@ import { useMemo } from 'react';
 <% } %>
 import "react-native-gesture-handler";
 <% if (props.stylingPackage?.name === "tamagui") { %>
-	import React, { useEffect } from "react";
+	import React from "react";
 	import { TamaguiProvider } from 'tamagui';
 	import * as SplashScreen from 'expo-splash-screen';
 	import { useFonts } from 'expo-font';
@@ -50,16 +50,7 @@ export default function App() {
 		});
 
 		const colorScheme = useColorScheme();
-		const mergedTheme = useMemo(() => ({
-			...DefaultTheme,
-			dark: colorScheme === 'dark',
-		}), [colorScheme]);
-
-		useEffect(() => {
-			if (loaded) {
-				SplashScreen.hideAsync();
-			}
-		}, [loaded])
+		const theme = useMemo(() => colorScheme === 'dark' ? DarkTheme : DefaultTheme, [colorScheme]);
 
 		if (!loaded) {
 			return null;
@@ -67,27 +58,26 @@ export default function App() {
 
 		return (
 			<TamaguiProvider config={config}>
-				<Navigation theme={mergedTheme} />
+				<Navigation theme={theme} onReady={() => SplashScreen.hideAsync()} />
 			</TamaguiProvider>
 		);
 	<% } else if (props.stylingPackage?.name === "restyle") { %>
 		const colorScheme = useColorScheme();
-		const mergedTheme = useMemo(() => ({
-			...DefaultTheme,
-			dark: colorScheme === 'dark',
-		}), [colorScheme]);
+		const navigationTheme = useMemo(() => colorScheme === 'dark' ? DarkTheme : DefaultTheme, [colorScheme]);
 
 		return (
       <ThemeProvider theme={theme}>
-        <Navigation theme={mergedTheme} />
+        <Navigation theme={navigationTheme} />
       </ThemeProvider>
     );
 	<% } else if (props.stylingPackage?.name === "unistyles")  { %> 
     const { theme, rt } = useUnistyles();
 
+    const baseTheme = rt.colorScheme === 'dark' ? DarkTheme : DefaultTheme;
     const mergedTheme = useMemo(() => ({
-      ...DefaultTheme,
+      ...baseTheme,
       colors: {
+        ...baseTheme.colors,
         background: theme.colors.background,
         text: theme.colors.typography,
         primary: theme.colors.astral,
@@ -96,18 +86,14 @@ export default function App() {
         card: theme.colors.background,
         notification: theme.colors.astral,
       },
-      dark: rt.colorScheme === 'dark',
-    }), [theme.colors.background, theme.colors.typography, theme.colors.astral, theme.colors.cornflowerBlue, theme.colors.limedSpruce, rt.colorScheme]);
+    }), [baseTheme, theme.colors.background, theme.colors.typography, theme.colors.astral, theme.colors.cornflowerBlue, theme.colors.limedSpruce]);
 
     return <Navigation theme={mergedTheme} />;
 	<% } else if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %> 
 		const colorScheme = useColorScheme();
-		const mergedTheme = useMemo(() => ({
-			...DefaultTheme,
-			dark: colorScheme === 'dark',
-		}), [colorScheme]);
+		const theme = useMemo(() => colorScheme === 'dark' ? DarkTheme : DefaultTheme, [colorScheme]);
 
-		return <Navigation theme={mergedTheme} />;
+		return <Navigation theme={theme} />;
 	<% } else { %> 
 		return <Navigation />;
 	<% } %>
