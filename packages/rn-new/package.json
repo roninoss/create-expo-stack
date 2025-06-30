@@ -1,6 +1,6 @@
 {
   "name": "rn-new",
-  "version": "2.18.5",
+  "version": "2.18.6",
   "description": "Shorthand for create-expo-stack",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "prepublishOnly": "bun run build"
   },
   "dependencies": {
-    "create-expo-stack": "^2.18.5"
+    "create-expo-stack": "^2.18.6"
   },
   "publishConfig": {
     "access": "public",
