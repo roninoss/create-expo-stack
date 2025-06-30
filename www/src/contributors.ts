@@ -21,7 +21,7 @@ export const contributors = [
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
-        "contributions": 424
+        "contributions": 431
     },
     {
         "login": "dannyhw",
@@ -43,7 +43,7 @@ export const contributors = [
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
-        "contributions": 89
+        "contributions": 94
     },
     {
         "login": "hqasmei",
@@ -131,7 +131,7 @@ export const contributors = [
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
-        "contributions": 22
+        "contributions": 23
     },
     {
         "login": "frankcalise",
@@ -373,6 +373,28 @@ export const contributors = [
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
+        "contributions": 4
+    },
+    {
+        "login": "coyksdev",
+        "id": 19565694,
+        "node_id": "MDQ6VXNlcjE5NTY1Njk0",
+        "avatar_url": "https://avatars.githubusercontent.com/u/19565694?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/coyksdev",
+        "html_url": "https://github.com/coyksdev",
+        "followers_url": "https://api.github.com/users/coyksdev/followers",
+        "following_url": "https://api.github.com/users/coyksdev/following{/other_user}",
+        "gists_url": "https://api.github.com/users/coyksdev/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/coyksdev/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/coyksdev/subscriptions",
+        "organizations_url": "https://api.github.com/users/coyksdev/orgs",
+        "repos_url": "https://api.github.com/users/coyksdev/repos",
+        "events_url": "https://api.github.com/users/coyksdev/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/coyksdev/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false,
         "contributions": 3
     },
     {
@@ -414,28 +436,6 @@ export const contributors = [
         "repos_url": "https://api.github.com/users/b0iq/repos",
         "events_url": "https://api.github.com/users/b0iq/events{/privacy}",
         "received_events_url": "https://api.github.com/users/b0iq/received_events",
-        "type": "User",
-        "user_view_type": "public",
-        "site_admin": false,
-        "contributions": 3
-    },
-    {
-        "login": "coyksdev",
-        "id": 19565694,
-        "node_id": "MDQ6VXNlcjE5NTY1Njk0",
-        "avatar_url": "https://avatars.githubusercontent.com/u/19565694?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/coyksdev",
-        "html_url": "https://github.com/coyksdev",
-        "followers_url": "https://api.github.com/users/coyksdev/followers",
-        "following_url": "https://api.github.com/users/coyksdev/following{/other_user}",
-        "gists_url": "https://api.github.com/users/coyksdev/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/coyksdev/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/coyksdev/subscriptions",
-        "organizations_url": "https://api.github.com/users/coyksdev/orgs",
-        "repos_url": "https://api.github.com/users/coyksdev/repos",
-        "events_url": "https://api.github.com/users/coyksdev/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/coyksdev/received_events",
         "type": "User",
         "user_view_type": "public",
         "site_admin": false,
