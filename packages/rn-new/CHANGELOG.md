@@ -1,5 +1,15 @@
 # rn-new
 
+## 2.18.6
+
+### Patch Changes
+
+- 1dd14ce: chore: useless change for deploy changeset
+- ea34f2b: Updates react navigation templates to use static configuration
+- Updated dependencies [1dd14ce]
+- Updated dependencies [ea34f2b]
+  - create-expo-stack@2.18.6
+
 ## 2.18.5
 
 ### Patch Changes
