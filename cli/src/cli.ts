@@ -23,7 +23,7 @@ export async function run() {
   if (!isVersionOk) {
     console.error(`Error: rn-new requires Node.js version 20.19.0 or higher, or version 22.0.0 or higher.`);
     console.error(`You are currently running Node.js ${process.versions.node}.`);
-    console.error('Please update your Node.js version.');
+    console.error('Please update your Node version.');
     process.exit(1);
   }
 
