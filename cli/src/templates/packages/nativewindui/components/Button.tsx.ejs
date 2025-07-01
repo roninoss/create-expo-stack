@@ -1,5 +1,7 @@
 import { forwardRef } from 'react';
-import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
+
+import { Text } from '~/components/nativewindui/Text';
 
 type ButtonProps = {
   title?: string;
@@ -7,35 +9,20 @@ type ButtonProps = {
 
 export const Button = forwardRef<View, ButtonProps>(({ title, ...touchableProps }, ref) => {
   return (
-    <TouchableOpacity ref={ref} {...touchableProps} style={[styles.button, touchableProps.style]}>
-      <Text style={styles.buttonText}>{title}</Text>
+    <TouchableOpacity
+      ref={ref}
+      {...touchableProps}
+      className={`${styles.button} ${touchableProps.className || ''}`}>
+      <Text variant="callout" className={styles.buttonText}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 });
 
 Button.displayName = 'Button';
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#6366F1',
-    borderRadius: 24,
-    elevation: 5,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    padding: 16,
-    shadowColor: '#000',
-    shadowOffset: {
-      height: 2,
-      width: 0,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
-  buttonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-});
+const styles = {
+  button: 'items-center bg-primary rounded-3xl p-4 flex-row justify-center shadow-lg',
+  buttonText: 'text-primary-foreground font-semibold text-center',
+};

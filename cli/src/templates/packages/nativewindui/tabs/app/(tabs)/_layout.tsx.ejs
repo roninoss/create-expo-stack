@@ -1,14 +1,16 @@
 import { Link, Tabs } from "expo-router";
 import { HeaderButton } from '../../components/HeaderButton';
 import { TabBarIcon } from '../../components/TabBarIcon';
+import { useColorScheme } from '~/lib/useColorScheme';
 
 
 
 export default function TabLayout() {
+  const { colors } = useColorScheme();
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: colors.foreground,
       }}>
       <Tabs.Screen
         name='index'

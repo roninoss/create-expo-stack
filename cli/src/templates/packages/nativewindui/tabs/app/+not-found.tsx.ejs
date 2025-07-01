@@ -1,6 +1,9 @@
 import { Link, Stack } from 'expo-router';
-<% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) {%>
+<% if (props.stylingPackage?.name === "nativewind") {%>
   import { Text, View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "nativewindui") {%>
+  import { View } from 'react-native';
+  import { Text } from '~/components/nativewindui/Text';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { createStyleSheet, useStyles } from 'react-native-unistyles'
   import { Text, View } from 'react-native';
@@ -23,13 +26,23 @@ export default function NotFoundScreen() {
 <% } %>
 
   return (
-      <% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) {%>
+      <% if (props.stylingPackage?.name === "nativewind") {%>
         <>
-          <Stack.Screen options={{ title: "Oops!" }} />
+          <Stack.Screen options={{ title: 'Oops!' }} />
           <View className={styles.container}>
             <Text className={styles.title}>{"This screen doesn't exist."}</Text>
             <Link href="/" className={styles.link}>
               <Text className={styles.linkText}>Go to home screen!</Text>
+            </Link>
+          </View>
+        </>
+      <% } else if (props.stylingPackage?.name === "nativewindui") {%>
+        <>
+          <Stack.Screen options={{ title: 'Oops!' }} />
+          <View className={styles.container}>
+            <Text variant="title2" className={styles.title}>{"This screen doesn't exist."}</Text>
+            <Link href="/" className={styles.link}>
+              <Text variant="body" className={styles.linkText}>Go to home screen!</Text>
             </Link>
           </View>
         </>
@@ -71,13 +84,13 @@ export default function NotFoundScreen() {
   );
 }
 
-<% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) { %>
+<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
   const styles = {
-		container: `items-center flex-1 justify-center p-5`,
-    title: `text-xl font-bold`,
-    link: `mt-4 pt-4`,
-    linkText: `text-base text-[#2e78b7]`,
-	};
+    container: 'items-center flex-1 justify-center p-5',
+    title: 'font-bold text-center',
+    link: 'mt-4 pt-4',
+    linkText: 'text-primary',
+  };
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   const stylesheet = createStyleSheet((theme) => ({
     container: {
