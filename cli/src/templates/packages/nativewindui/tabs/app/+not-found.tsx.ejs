@@ -84,7 +84,7 @@ export default function NotFoundScreen() {
   );
 }
 
-<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
+<% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) { %>
   const styles = {
     container: 'items-center flex-1 justify-center p-5',
     title: 'font-bold text-center',
