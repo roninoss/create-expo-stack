@@ -16,6 +16,7 @@ export const availablePackages = [
   'firebase',
   'nativewind',
   'nativewindui',
+  'nwui',
   'react-navigation',
   'reactNavigation',
   'react-native-gesture-handler',
