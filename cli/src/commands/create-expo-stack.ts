@@ -78,8 +78,10 @@ const command: GluegunCommand = {
     // Conditionally skip running the CLI
     const useDefault = (options.default !== undefined && options.default) || (options.d !== undefined && options.d);
     const skipCLI = options.nonInteractive;
-    const useBlankTypescript =
-      options.nativewindui == undefined ? options.blank || false : (options.blank && options.nativewindui) || false;
+
+    // Check for nativewindui flag (support both --nativewindui and --nwui)
+    const isNativewindUI = options.nativewindui || options.nwui;
+    const useBlankTypescript = !isNativewindUI ? options.blank || false : (options.blank && isNativewindUI) || false;
 
     // Check if any of the options were passed in via the command
     const optionsPassedIn = availablePackages.some((condition) => options[condition] !== undefined);
@@ -100,7 +102,7 @@ const command: GluegunCommand = {
         !options['expo-router'] &&
         !options.exporouter &&
         // nativewindui applies the expo router option by default
-        !options.nativewindui
+        !isNativewindUI
       ) {
         // throw an error without a stack trace
         throw navigationValidationError;
@@ -236,7 +238,7 @@ const command: GluegunCommand = {
             name: 'nativewind',
             type: 'styling'
           });
-        } else if (options.nativewindui) {
+        } else if (isNativewindUI) {
           cliResults = clearStylingPackages(cliResults);
           cliResults = clearNavigationPackages(cliResults);
 
@@ -360,7 +362,8 @@ const command: GluegunCommand = {
           const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
           if (isNativeWindUISelected) {
-            script += '--nativewindui ';
+            const flagToUse = options.nwui ? 'nwui' : 'nativewindui';
+            script += `--${flagToUse} `;
 
             const nativeWindUIComponents =
               cliResults.packages.find((p) => p.name === 'nativewindui')?.options.selectedComponents ?? [];
