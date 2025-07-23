@@ -1,5 +1,12 @@
 # create-expo-stack
 
+## 2.18.7
+
+### Patch Changes
+
+- 3518843: chore: update snapshot to reflect use of jsonc ces config 2
+- 144e9eb: chore: update snapshot to reflect use of jsonc ces config
+
 ## 2.18.6
 
 ### Patch Changes
