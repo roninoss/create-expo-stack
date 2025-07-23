@@ -141,7 +141,7 @@ for (const packageManager of packageManagers) {
         expect(output).toContain('Installing dependencies');
       }
 
-      const pkgjson = await import(`${pathToProject}/package.json`);
+      const pkgjson = await import(path.resolve(pathToProject, 'package.json'));
 
       const pkgJsonWithoutVersions = {
         ...pkgjson.default,
@@ -164,7 +164,9 @@ for (const packageManager of packageManagers) {
       }
 
       const cesconfigText = await Bun.file(`${pathToProject}/cesconfig.jsonc`).text();
-      const cesconfig = JSON.parse(cesconfigText);
+      // Strip single-line comments from JSONC
+      const cleanedText = cesconfigText.replace(/^\s*\/\/.*$/gm, '');
+      const cesconfig = JSON.parse(cleanedText);
 
       const cesconfigWithoutOS = {
         ...cesconfig,
