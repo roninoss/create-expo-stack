@@ -115,7 +115,7 @@ const popularCombinations = process.env.INCLUDE_REACT_NAVIGATION_TESTS
   : coreCombinations;
 
 const projectName = `myTestProject`;
-const pathToProject = `../${projectName}`;
+const pathToProject = `./${projectName}`;
 
 afterEach(() => {
   Bun.$`rm -rf ./myTestProject`;
@@ -163,15 +163,16 @@ for (const packageManager of packageManagers) {
         expect(pkgJsonWithoutVersions).toMatchSnapshot(`${finalFlags.join(', ')}-package-json`);
       }
 
-      const cesconfig = await import(`${pathToProject}/cesconfig.jsonc`);
+      const cesconfigText = await Bun.file(`${pathToProject}/cesconfig.jsonc`).text();
+      const cesconfig = JSON.parse(cesconfigText);
 
       const cesconfigWithoutOS = {
-        ...cesconfig.default,
+        ...cesconfig,
         cesVersion: undefined,
         os: {},
-        packageManager: { ...cesconfig.default.packageManager, version: undefined },
+        packageManager: { ...cesconfig.packageManager, version: undefined },
         flags: {
-          ...cesconfig.default.flags,
+          ...cesconfig.flags,
           publish: false
         }
       };

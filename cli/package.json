@@ -51,7 +51,7 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "ejs-lint": "^2.0.0",
-    "expo": "~53.0.6",
+    "expo": "^53.0.20",
     "figlet": "^1.6.0",
     "gluegun": "latest",
     "google-auth-library": "^9.11.0",
