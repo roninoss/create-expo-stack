@@ -233,8 +233,8 @@ Thanks go to these wonderful people:
     </td></tr>
 <tr>
     <td align="center">
-        <a href="https://github.com/Savinvadim1312">
-            <img src="https://avatars.githubusercontent.com/u/16936043?v=4" width="100;" alt="Savinvadim1312"/>
+        <a href="https://github.com/VadimNotJustDev">
+            <img src="https://avatars.githubusercontent.com/u/16936043?v=4" width="100;" alt="VadimNotJustDev"/>
             <br />
             <sub><b>Savin Vadim</b></sub>
         </a>
