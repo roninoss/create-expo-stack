@@ -1,12 +1,18 @@
 import { outro, spinner } from '@clack/prompts';
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
+import os from 'os';
 import { AvailablePackages, CliResults } from '../types';
 import { copyBaseAssets } from './copyBaseAssets';
+import { generateNWUI } from './generateNWUI';
 import { getPackageManager, getPackageManagerRunnerX } from './getPackageManager';
 import { easConfigure } from './runEasConfigure';
 import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
-import { generateNWUI } from './generateNWUI';
-import os from 'os';
+import { appendFile, writeFile } from 'fs/promises';
+
+const yarnRcFixes = `
+enableGlobalCache: false
+
+nodeLinker: node-modules`;
 
 export async function printOutput(
   cliResults: CliResults,
@@ -46,6 +52,21 @@ export async function printOutput(
     // attempt to improve npm install speeds by disabling audit and progress
 
     const additionalFlags = isNpm ? '--silent --no-audit --progress=false --legacy-peer-deps' : '--silent';
+
+    if (packageManager === 'yarn') {
+      // create empty yarn.lock to stop yarn from complaining
+      await writeFile(`${projectName}/yarn.lock`, '');
+
+      // apply fixes to .yarnrc.yml to stop issues with PnP and caching
+      await appendFile(`${projectName}/.yarnrc.yml`, yarnRcFixes);
+
+      await runSystemCommand({
+        toolbox,
+        command: `cd ${projectName} && yarn set version stable`,
+        stdio: ONLY_ERRORS,
+        errorMessage: 'Error setting yarn version'
+      });
+    }
 
     await runSystemCommand({
       toolbox,

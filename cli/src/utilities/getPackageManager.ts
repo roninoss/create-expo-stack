@@ -83,7 +83,13 @@ export function getDefaultPackageManagerVersion() {
 }
 
 export function getVersionForPackageManager(packageManager: PackageManager): string {
-  const version = require('child_process').execSync(`${packageManager} --version`);
+  try {
+    const version = require('child_process').execSync(`${packageManager} --version`);
 
-  return version.toString().replace('\n', '');
+    return version.toString().replace('\n', '');
+  } catch (_error) {
+    // this happens with yarn because its dumb
+    console.log(`Error getting version for package manager ${packageManager}`);
+    return 'unknown';
+  }
 }
