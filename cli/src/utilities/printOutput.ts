@@ -56,19 +56,6 @@ export async function printOutput(
 
     s.stop('Dependencies installed!');
 
-    s.start('Updating Expo to latest version...');
-
-    const installCommand = packageManager === 'yarn' ? 'add' : 'install';
-
-    await runSystemCommand({
-      toolbox,
-      command: `cd ${projectName} && ${packageManager} ${installCommand} ${additionalFlags} expo@latest`,
-      stdio: isNpm ? undefined : ONLY_ERRORS,
-      errorMessage: 'Error updating expo'
-    });
-
-    s.stop('Latest version of Expo installed!');
-
     s.start('Updating packages to expo compatible versions...');
 
     await runSystemCommand({
