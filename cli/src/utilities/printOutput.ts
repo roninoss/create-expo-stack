@@ -51,7 +51,22 @@ export async function printOutput(
     s.start(`Installing dependencies using ${packageManager}...`);
     // attempt to improve npm install speeds by disabling audit and progress
 
-    const additionalFlags = isNpm ? '--silent --no-audit --progress=false --legacy-peer-deps' : '--silent';
+    const additionalFlags = isNpm ? '--silent --no-audit --progress=false --legacy-peer-deps' : '';
+
+    if (packageManager === 'yarn') {
+      // create empty yarn.lock to stop yarn from complaining
+      await writeFile(`${projectName}/yarn.lock`, '');
+
+      // apply fixes to .yarnrc.yml to stop issues with PnP and caching
+      await appendFile(`${projectName}/.yarnrc.yml`, yarnRcFixes);
+
+      await runSystemCommand({
+        toolbox,
+        command: `cd ${projectName} && yarn set version stable`,
+        stdio: ONLY_ERRORS,
+        errorMessage: 'Error setting yarn version'
+      });
+    }
 
     if (packageManager === 'yarn') {
       // create empty yarn.lock to stop yarn from complaining
@@ -83,7 +98,7 @@ export async function printOutput(
       toolbox,
       command: `cd ${projectName} && ${runnerType} expo@latest install --fix ${isNpm ? `-- ${additionalFlags}` : ``}`,
       errorMessage: 'Error updating packages',
-      stdio: undefined
+      stdio: ONLY_ERRORS
     });
 
     s.stop('Packages updated!');

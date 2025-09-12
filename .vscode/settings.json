@@ -10,5 +10,6 @@
     "*.ejs": "ejs",
     "*.h": "objective-c",
     "*.m": "objective-c"
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

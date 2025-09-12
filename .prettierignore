@@ -10,7 +10,8 @@
 .gitignore
 .husky/pre-commit
 .prettierignore
-bun.lockb
 LICENSE
 cli/__tests__/__snapshots__/*
 README.md
+bun.lock
+cli/__tests__/cli-integration.test.mts.snapshot

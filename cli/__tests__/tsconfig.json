@@ -1,25 +1,21 @@
 {
   "compilerOptions": {
-    "types": ["bun-types"],
-
-    "lib": ["ESNext"],
-    "module": "esnext",
+    "lib": ["ESNext", "ES2024"],
+    "module": "nodenext",
     "target": "esnext",
-
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "moduleDetection": "force",
-
-    "jsx": "react-jsx",
     "allowJs": true,
-
+    "resolveJsonModule": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "composite": true,
     "downlevelIteration": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
-  "include": ["**/*.test.ts"]
+  "include": ["./cli-integration.test.mts"]
 }

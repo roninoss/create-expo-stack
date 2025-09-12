@@ -31,11 +31,10 @@
     "lint-templates": "bun run ejslint ./src/templates",
     "prepublishOnly": "bun run build",
     "publishPublic": "bun run build && npm publish --access public",
-    "snapshot-update": "bun test --bail=1 --timeout 160000 --update-snapshots",
-    "test:watch": "bun test --watch",
-    "test": "bun test --bail=1 --timeout 160000",
-    "test:skip-snapshots": "INCLUDE_REACT_NAVIGATION_TESTS=1 SKIP_SNAPSHOTS=1 bun test bun test --bail=1 --timeout 160000",
-    "test:all": "ALL_PACKAGE_MANAGERS=true bun test --bail=1 --timeout 160000"
+    "snapshot-update": "node --test --test-update-snapshots __tests__/cli-integration.test.mts",
+    "test": "node --test __tests__/cli-integration.test.mts",
+    "test:skip-snapshots": "INCLUDE_REACT_NAVIGATION_TESTS=1 SKIP_SNAPSHOTS=1 node --test __tests__/cli-integration.test.mts",
+    "test:all": "ALL_PACKAGE_MANAGERS=true node --test __tests__/cli-integration.test.mts"
   },
   "prettier": {
     "arrowParens": "always",
@@ -49,9 +48,9 @@
     "useTabs": false
   },
   "dependencies": {
-    "@clack/prompts": "^0.7.0",
+    "@clack/prompts": "^0.11.0",
     "ejs-lint": "^2.0.0",
-    "expo": "^53.0.20",
+    "expo": "^54.0.6",
     "figlet": "^1.6.0",
     "gluegun": "latest",
     "google-auth-library": "^9.11.0",
