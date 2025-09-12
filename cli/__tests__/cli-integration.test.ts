@@ -49,7 +49,7 @@ const packageManagers = process.env.ALL_PACKAGE_MANAGERS
   ? ([`npm`, `yarn`, `pnpm`, `bun`] as const)
   : (['bun'] as const);
 
-const skipSnapshots = !!process.env.SKIP_SNAPSHOTS;
+const skipSnapshots = process.env.SKIP_SNAPSHOTS === '1';
 
 test(`outputs version`, async () => {
   const output = await cli([`--version`]);
