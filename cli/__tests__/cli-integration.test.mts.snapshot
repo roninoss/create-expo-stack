@@ -1,0 +1,1335 @@
+exports[`generates a project with --expo-router --drawer+tabs --nativewind --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewind --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "drawer + tabs"
+      }
+    },
+    {
+      "name": "nativewind",
+      "type": "styling"
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewind --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app-env.d.ts",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/global.css",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "nativewindui",
+      "type": "styling",
+      "options": {
+        "selectedComponents": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "drawer + tabs"
+      }
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --blank --expo-router --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/BackButton.tsx",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/nativewindui",
+  "./myTestProject/components/nativewindui/Text.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/components/ThemeToggle.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/global.css",
+  "./myTestProject/lib",
+  "./myTestProject/lib/cn.ts",
+  "./myTestProject/lib/useColorScheme.tsx",
+  "./myTestProject/lib/useHeaderSearchBar.tsx",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/theme",
+  "./myTestProject/theme/colors.ts",
+  "./myTestProject/theme/index.ts",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "nativewindui",
+      "type": "styling",
+      "options": {
+        "selectedComponents": [
+          "action-sheet",
+          "activity-indicator",
+          "activity-view",
+          "avatar",
+          "bottom-sheet",
+          "date-picker",
+          "picker",
+          "progress-indicator",
+          "ratings-indicator",
+          "slider",
+          "text",
+          "toggle"
+        ]
+      }
+    },
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "drawer + tabs"
+      }
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --expo-router --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/BackButton.tsx",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/nativewindui",
+  "./myTestProject/components/nativewindui/ActivityIndicator.tsx",
+  "./myTestProject/components/nativewindui/Avatar.tsx",
+  "./myTestProject/components/nativewindui/Button.tsx",
+  "./myTestProject/components/nativewindui/DatePicker",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/index.ts",
+  "./myTestProject/components/nativewindui/Picker.tsx",
+  "./myTestProject/components/nativewindui/ProgressIndicator.tsx",
+  "./myTestProject/components/nativewindui/Sheet.tsx",
+  "./myTestProject/components/nativewindui/Slider.tsx",
+  "./myTestProject/components/nativewindui/Text.tsx",
+  "./myTestProject/components/nativewindui/Toggle.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/components/ThemeToggle.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/global.css",
+  "./myTestProject/lib",
+  "./myTestProject/lib/cn.ts",
+  "./myTestProject/lib/useColorScheme.tsx",
+  "./myTestProject/lib/useHeaderSearchBar.tsx",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/theme",
+  "./myTestProject/theme/colors.ts",
+  "./myTestProject/theme/index.ts",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,text --expo-router --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,text --expo-router --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "nativewindui",
+      "type": "styling",
+      "options": {
+        "selectedComponents": [
+          "date-picker",
+          "picker",
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "drawer + tabs"
+      }
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --nativewindui --selected-components=date-picker,picker,text --expo-router --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/BackButton.tsx",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/nativewindui",
+  "./myTestProject/components/nativewindui/Button.tsx",
+  "./myTestProject/components/nativewindui/DatePicker",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/index.ts",
+  "./myTestProject/components/nativewindui/Picker.tsx",
+  "./myTestProject/components/nativewindui/Text.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/components/ThemeToggle.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/global.css",
+  "./myTestProject/lib",
+  "./myTestProject/lib/cn.ts",
+  "./myTestProject/lib/useColorScheme.tsx",
+  "./myTestProject/lib/useHeaderSearchBar.tsx",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/theme",
+  "./myTestProject/theme/colors.ts",
+  "./myTestProject/theme/index.ts",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --stylesheet --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --stylesheet --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "drawer + tabs"
+      }
+    },
+    {
+      "name": "stylesheet",
+      "type": "styling"
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --drawer+tabs --stylesheet --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(drawer)",
+  "./myTestProject/app/(drawer)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)",
+  "./myTestProject/app/(drawer)/(tabs)/_layout.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/index.tsx",
+  "./myTestProject/app/(drawer)/(tabs)/two.tsx",
+  "./myTestProject/app/(drawer)/index.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --expo-router --nativewind --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --nativewind --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "stack"
+      }
+    },
+    {
+      "name": "nativewind",
+      "type": "styling"
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --nativewind --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app-env.d.ts",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/details.tsx",
+  "./myTestProject/app/index.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/global.css",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --expo-router --stylesheet --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --stylesheet --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "stack"
+      }
+    },
+    {
+      "name": "stylesheet",
+      "type": "styling"
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --stylesheet --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/details.tsx",
+  "./myTestProject/app/index.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --expo-router --tabs --nativewind --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --tabs --nativewind --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "tabs"
+      }
+    },
+    {
+      "name": "nativewind",
+      "type": "styling"
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --tabs --nativewind --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app-env.d.ts",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(tabs)",
+  "./myTestProject/app/(tabs)/_layout.tsx",
+  "./myTestProject/app/(tabs)/index.tsx",
+  "./myTestProject/app/(tabs)/two.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/global.css",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --expo-router --tabs --stylesheet --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --expo-router --tabs --stylesheet --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "tabs"
+      }
+    },
+    {
+      "name": "stylesheet",
+      "type": "styling"
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": false,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --expo-router --tabs --stylesheet --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/(tabs)",
+  "./myTestProject/app/(tabs)/_layout.tsx",
+  "./myTestProject/app/(tabs)/index.tsx",
+  "./myTestProject/app/(tabs)/two.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package-lock.json",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tsconfig.json"
+]
+`;
+
+exports[`generates a project with --nativewindui --no-install --npm --overwrite --no-git 1`] = `
+{
+  "name": "myTestProject",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "start": "expo start",
+    "prebuild": "expo prebuild",
+    "lint": "eslint \\"**/*.{js,jsx,ts,tsx}\\" && prettier -c \\"**/*.{js,jsx,ts,tsx,json}\\"",
+    "format": "eslint \\"**/*.{js,jsx,ts,tsx}\\" --fix && prettier \\"**/*.{js,jsx,ts,tsx,json}\\" --write",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "nativewind": "",
+    "@react-navigation/native": "",
+    "react-native-gesture-handler": "",
+    "react-native-screens": "",
+    "@expo/vector-icons": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-constants": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react-dom": "",
+    "react-native-web": "",
+    "react-native-reanimated": "",
+    "react-native-worklets": "",
+    "react-native-safe-area-context": "",
+    "expo": "",
+    "expo-status-bar": "",
+    "react": "",
+    "react-native": ""
+  },
+  "devDependencies": {
+    "ajv": "",
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "tailwindcss": "",
+    "prettier-plugin-tailwindcss": "",
+    "typescript": ""
+  },
+  "private": true
+}
+`;
+
+exports[`generates a project with --nativewindui --no-install --npm --overwrite --no-git 2`] = `
+{
+  "projectName": "myTestProject",
+  "packages": [
+    {
+      "name": "nativewindui",
+      "type": "styling",
+      "options": {
+        "selectedComponents": [
+          "action-sheet",
+          "activity-indicator",
+          "activity-view",
+          "avatar",
+          "bottom-sheet",
+          "date-picker",
+          "picker",
+          "progress-indicator",
+          "ratings-indicator",
+          "slider",
+          "text",
+          "toggle"
+        ]
+      }
+    },
+    {
+      "name": "expo-router",
+      "type": "navigation",
+      "options": {
+        "type": "stack"
+      }
+    }
+  ],
+  "flags": {
+    "noGit": true,
+    "noInstall": true,
+    "overwrite": true,
+    "importAlias": true,
+    "packageManager": "npm",
+    "eas": false,
+    "publish": false
+  },
+  "packageManager": {
+    "type": "npm"
+  },
+  "os": {}
+}
+`;
+
+exports[`generates a project with --nativewindui --no-install --npm --overwrite --no-git 3`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/index.tsx",
+  "./myTestProject/app/modal.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/BackButton.tsx",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/HeaderButton.tsx",
+  "./myTestProject/components/nativewindui",
+  "./myTestProject/components/nativewindui/ActivityIndicator.tsx",
+  "./myTestProject/components/nativewindui/Avatar.tsx",
+  "./myTestProject/components/nativewindui/Button.tsx",
+  "./myTestProject/components/nativewindui/DatePicker",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.android.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/DatePicker.tsx",
+  "./myTestProject/components/nativewindui/DatePicker/index.ts",
+  "./myTestProject/components/nativewindui/Picker.tsx",
+  "./myTestProject/components/nativewindui/ProgressIndicator.tsx",
+  "./myTestProject/components/nativewindui/Sheet.tsx",
+  "./myTestProject/components/nativewindui/Slider.tsx",
+  "./myTestProject/components/nativewindui/Text.tsx",
+  "./myTestProject/components/nativewindui/Toggle.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/components/TabBarIcon.tsx",
+  "./myTestProject/components/ThemeToggle.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/global.css",
+  "./myTestProject/lib",
+  "./myTestProject/lib/cn.ts",
+  "./myTestProject/lib/useColorScheme.tsx",
+  "./myTestProject/lib/useHeaderSearchBar.tsx",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tailwind.config.js",
+  "./myTestProject/theme",
+  "./myTestProject/theme/colors.ts",
+  "./myTestProject/theme/index.ts",
+  "./myTestProject/tsconfig.json"
+]
+`;

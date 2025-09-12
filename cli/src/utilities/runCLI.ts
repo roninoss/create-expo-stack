@@ -354,7 +354,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     success(`No problem, skipping state management for now.`);
   }
 
-  const authenticationSelect = await select({
+  const authenticationSelect = await select<'supabase' | 'firebase'>({
     message: 'What would you like to use for authentication?',
     options: [
       { value: undefined, label: 'None' },

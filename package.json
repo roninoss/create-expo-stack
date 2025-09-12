@@ -56,8 +56,8 @@
   },
   "packageManager": "bun@1.2.11",
   "dependencies": {
-    "@clack/prompts": "^0.7.0",
-    "expo": "~53.0.6",
+    "@clack/prompts": "^0.11.0",
+    "expo": "~54.0.6",
     "lucide-astro": "^0.395.0",
     "picocolors": "^1.0.0",
     "google-auth-library": "^9.11.0",
