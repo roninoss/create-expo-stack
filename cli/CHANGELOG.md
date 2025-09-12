@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.18.8
+
+### Patch Changes
+
+- 3490940: Make sure we install expo 53 until we are ready for 54
+
 ## 2.18.7
 
 ### Patch Changes
