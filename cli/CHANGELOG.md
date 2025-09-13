@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.18.10
+
+### Patch Changes
+
+- 4e1352e: fix for extra comma
+
 ## 2.18.9
 
 ### Patch Changes
