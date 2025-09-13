@@ -186,8 +186,8 @@
   <% if (props.navigationPackage?.name !== "expo-router") { %>
     "main": "node_modules/expo/AppEntry.js",
   <% } %>
-  "private": true,
   <% if  (props.packageManager === "yarn"){ %>
-    "packageManager": "yarn@4.9.4"
+    "packageManager": "yarn@4.9.4",
   <% } %>
+  "private": true
 }
