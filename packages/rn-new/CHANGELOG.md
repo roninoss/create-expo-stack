@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.18.9
+
+### Patch Changes
+
+- fa77014: fixes for yarn project generations
+- Updated dependencies [fa77014]
+  - create-expo-stack@2.18.9
+
 ## 2.18.8
 
 ### Patch Changes

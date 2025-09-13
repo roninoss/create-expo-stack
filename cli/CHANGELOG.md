@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.18.9
+
+### Patch Changes
+
+- fa77014: fixes for yarn project generations
+
 ## 2.18.8
 
 ### Patch Changes
