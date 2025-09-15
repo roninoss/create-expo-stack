@@ -354,13 +354,15 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     success(`No problem, skipping state management for now.`);
   }
 
+  const authenticationOptions: Array<{ value: AuthenticationSelect; label: string }> = [
+    { value: undefined, label: 'None' },
+    { value: 'supabase', label: 'Supabase' },
+    { value: 'firebase', label: 'Firebase' }
+  ];
+
   const authenticationSelect = await select({
     message: 'What would you like to use for authentication?',
-    options: [
-      { value: undefined, label: 'None' },
-      { value: 'supabase', label: 'Supabase' },
-      { value: 'firebase', label: 'Firebase' }
-    ]
+    options: authenticationOptions
   });
 
   if (isCancel(authenticationSelect)) {
