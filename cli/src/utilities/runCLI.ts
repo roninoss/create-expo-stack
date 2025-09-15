@@ -354,12 +354,12 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     success(`No problem, skipping state management for now.`);
   }
 
-  const authenticationSelect = await select<'supabase' | 'firebase'>({
+  const authenticationSelect = await select({
     message: 'What would you like to use for authentication?',
     options: [
-      { value: undefined, label: 'None' },
-      { value: 'supabase', label: 'Supabase' },
-      { value: 'firebase', label: 'Firebase' }
+      { value: undefined as AuthenticationSelect, label: 'None' },
+      { value: 'supabase' as AuthenticationSelect, label: 'Supabase' },
+      { value: 'firebase' as AuthenticationSelect, label: 'Firebase' }
     ]
   });
 
@@ -368,7 +368,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     return process.exit(0);
   }
   if (authenticationSelect) {
-    cliResults.packages.push({ name: authenticationSelect as AuthenticationSelect, type: 'authentication' });
+    cliResults.packages.push({ name: authenticationSelect as 'firebase' | 'supabase', type: 'authentication' });
   } else {
     success(`No problem, skipping authentication for now.`);
   }
