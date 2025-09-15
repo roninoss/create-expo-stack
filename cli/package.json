@@ -33,8 +33,7 @@
     "publishPublic": "bun run build && npm publish --access public",
     "snapshot-update": "node --test --test-update-snapshots __tests__/cli-integration.test.mts",
     "test": "node --test __tests__/cli-integration.test.mts",
-    "test:skip-snapshots": "INCLUDE_REACT_NAVIGATION_TESTS=1 SKIP_SNAPSHOTS=1 node --test __tests__/cli-integration.test.mts",
-    "test:all": "ALL_PACKAGE_MANAGERS=true node --test __tests__/cli-integration.test.mts"
+    "test:skip-snapshots": "INCLUDE_REACT_NAVIGATION_TESTS=1 SKIP_SNAPSHOTS=1 node --test __tests__/cli-integration.test.mts"
   },
   "prettier": {
     "arrowParens": "always",
