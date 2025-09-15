@@ -354,7 +354,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     success(`No problem, skipping state management for now.`);
   }
 
-  const authenticationSelect = await select<AuthenticationSelect>({
+  const authenticationSelect = await select({
     message: 'What would you like to use for authentication?',
     options: [
       { value: undefined, label: 'None' },
@@ -368,7 +368,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     return process.exit(0);
   }
   if (authenticationSelect) {
-    cliResults.packages.push({ name: authenticationSelect, type: 'authentication' });
+    cliResults.packages.push({ name: authenticationSelect as AuthenticationSelect, type: 'authentication' });
   } else {
     success(`No problem, skipping authentication for now.`);
   }
