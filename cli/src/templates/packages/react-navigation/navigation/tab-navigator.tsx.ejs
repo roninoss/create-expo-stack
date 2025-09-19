@@ -5,16 +5,13 @@ import One from '../screens/one';
 import Two from '../screens/two';
 
 const Tab = createBottomTabNavigator({
+  <% if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
   screenOptions: function ScreenOptions() {
     return {
-      <% if (props.stylingPackage?.name !== "unistyles") { %>
-        tabBarActiveTintColor: 'black',
-      <% } %>
-      <% if (props.navigationPackage?.options.type === 'drawer + tabs') { %>
         headerShown: false,
-      <% } %>
     }
   },
+  <% } %>
   screens: {
     One: {
       screen: One,

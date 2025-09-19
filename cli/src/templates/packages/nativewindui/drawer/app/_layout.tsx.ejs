@@ -12,7 +12,7 @@ import { StatusBar } from 'expo-status-bar';
 <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 <% } %>
-
+import { ComponentProps } from 'react';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { useColorScheme, useInitialAndroidBarSync } from '~/lib/useColorScheme';
 import { NAV_THEME } from '~/theme';
@@ -61,15 +61,15 @@ export default function RootLayout() {
 
 const SCREEN_OPTIONS = {
   animation: 'ios_from_right', // for android
-} as const;
+} satisfies ComponentProps<typeof Stack>['screenOptions'];
 
 const DRAWER_OPTIONS = {
   headerShown: false,
-} as const;
+} satisfies ComponentProps<typeof Stack.Screen>['options'];
 
 const MODAL_OPTIONS = {
   presentation: 'modal',
   animation: 'fade_from_bottom', // for android
   title: 'Settings',
   headerRight: () => <ThemeToggle />,
-} as const;
+} satisfies ComponentProps<typeof Stack.Screen>['options'];
