@@ -11,12 +11,14 @@
   "license": "MIT",
   "bin": "./bin/rn-new.js",
   "files": [
-    "bin"
+    "bin",
+    "lib"
   ],
   "scripts": {
-    "build": "bun run clean && bun run compile",
-    "clean": "rm -rf ./bin",
-    "compile": "mkdir -p bin && printf '#!/usr/bin/env node\n\ntry {\n  require(\"create-expo-stack/bin/create-expo-stack.js\");\n} catch (error) {\n  console.error(\"Error: Could not find create-expo-stack package.\");\n  console.error(\"Please ensure create-expo-stack is installed globally.\");\n  process.exit(1);\n}\n' > bin/rn-new.js && chmod +x bin/rn-new.js",
+    "build": "bun run clean && bun run compile && bun run copy-ai-interface",
+    "clean": "rm -rf ./bin ./lib",
+    "compile": "mkdir -p bin && cp src/rn-new.js bin/rn-new.js && chmod +x bin/rn-new.js",
+    "copy-ai-interface": "mkdir -p lib && cp src/ai-interface.js lib/ai-interface.js",
     "prepublishOnly": "bun run build"
   },
   "dependencies": {
