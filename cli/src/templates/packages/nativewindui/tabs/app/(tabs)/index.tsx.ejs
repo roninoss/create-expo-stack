@@ -264,8 +264,8 @@ const COMPONENTS: ComponentItem[] = [
     name: 'Progress Indicator',
     component: function ProgressIndicatorExample() {
       const [progress, setProgress] = React.useState(13);
-      let id: ReturnType<typeof setInterval> | null = null;
       React.useEffect(() => {
+        let id: ReturnType<typeof setInterval> | null = null;
         if (!id) {
           id = setInterval(() => {
             setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
@@ -507,7 +507,7 @@ const COMPONENTS: ComponentItem[] = [
             title='Open Bottom Sheet'
             onPress={() => bottomSheetModalRef.current?.present()}
           />
-          <Sheet ref={bottomSheetModalRef} snapPoints={[200]}>
+          <Sheet ref={bottomSheetModalRef} snapPoints={[200]} enableDynamicSizing={false}>
             <View className='flex-1 justify-center items-center pb-8'>
               <Text>@gorhom/bottom-sheet 🎉</Text>
             </View>
