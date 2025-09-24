@@ -2,7 +2,7 @@ name: Release Next
 on:
   push:
     branches:
-      - main
+      - next
 
 permissions:
   id-token: write
