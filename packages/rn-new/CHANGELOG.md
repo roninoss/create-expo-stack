@@ -1,5 +1,25 @@
 # rn-new
 
+## 2.19.0
+
+### Minor Changes
+
+- 9578d52: expo54 support
+
+### Patch Changes
+
+- e230be0: fix: actually fix types for authentication selection
+- bd64fca: fix: resolve TypeScript error in authentication select options
+- 5dbc6f2: fix: types for authentication selection
+- bd64fca: feat: add React import and white background to ScreenContent templates
+- Updated dependencies [e230be0]
+- Updated dependencies [9578d52]
+- Updated dependencies [9e33b9c]
+- Updated dependencies [bd64fca]
+- Updated dependencies [5dbc6f2]
+- Updated dependencies [bd64fca]
+  - create-expo-stack@2.19.0
+
 ## 2.18.10
 
 ### Patch Changes
