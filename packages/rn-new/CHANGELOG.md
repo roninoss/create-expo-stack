@@ -1,5 +1,20 @@
 # rn-new
 
+## 2.18.11
+
+### Patch Changes
+
+- 86a446b: fix: actually fix types for authentication selection
+- 0154a06: fix: resolve TypeScript error in authentication select options
+- 13f2a69: fix: types for authentication selection
+- 0154a06: feat: add React import and white background to ScreenContent templates
+- Updated dependencies [86a446b]
+- Updated dependencies [30ac5c4]
+- Updated dependencies [0154a06]
+- Updated dependencies [13f2a69]
+- Updated dependencies [0154a06]
+  - create-expo-stack@2.18.11
+
 ## 2.18.10
 
 ### Patch Changes

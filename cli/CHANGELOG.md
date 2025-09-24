@@ -1,5 +1,15 @@
 # create-expo-stack
 
+## 2.18.11
+
+### Patch Changes
+
+- 86a446b: fix: actually fix types for authentication selection
+- 30ac5c4: fixes eas setup
+- 0154a06: fix: resolve TypeScript error in authentication select options
+- 13f2a69: fix: types for authentication selection
+- 0154a06: feat: add React import and white background to ScreenContent templates
+
 ## 2.18.10
 
 ### Patch Changes
@@ -184,7 +194,6 @@
 ### Minor Changes
 
 - [#280](https://github.com/roninoss/create-expo-stack/pull/280) [`08c09d915dc6f6579446913a51994eb1898ed88d`](https://github.com/roninoss/create-expo-stack/commit/08c09d915dc6f6579446913a51994eb1898ed88d) Thanks [@theblondealex](https://github.com/theblondealex)! - Added a StateManagement Question with zustand to start and potentially more to follow
-
   - setup with a question prompt just before the internationalization prompt
   - --zustand flag to skip the prompt
   - Adds a StateManagement folder to the project with a zustandStore.ts file to start with
@@ -798,7 +807,6 @@
 ### Patch Changes
 
 - [`026b97e`](https://github.com/roninoss/create-expo-stack/commit/026b97ee02f370ee1ee10dad9877b540a3c623d7) Thanks [@danstepanov](https://github.com/danstepanov)! - - symlink README
-
   - add shortlink for discord
   - update contributors
   - add header labels and descriptor to README
