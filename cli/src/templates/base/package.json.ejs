@@ -31,7 +31,10 @@
   },
   "dependencies": {
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
-      "nativewind": "latest",
+      "@tailwindcss/postcss": "^4.1.13",
+      "nativewind": "5.0.0-preview.0",
+      "postcss": "^8.5.6",
+      "react-native-css": "^3.0.0-preview.5",
     <% } %>
     <% if (props.stylingPackage?.name === "nativewindui") { %>
       "@roninoss/icons": "^0.0.4",
@@ -148,7 +151,7 @@
   <% } %>
 
 
-    "react-native-reanimated": "~4.1.0",
+    "react-native-reanimated": "~4.1.1",
     "react-native-worklets": "0.5.1",
 
 
@@ -170,8 +173,8 @@
     "eslint-config-prettier": "^10.1.2",
     "prettier": "^3.2.5",
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
-      "tailwindcss": "^3.4.0",
-      "prettier-plugin-tailwindcss": "^0.5.11",
+      "tailwindcss": "^4.1.13",
+      "prettier-plugin-tailwindcss": "^0.6.14",
     <% } %>
     <% if (props.stylingPackage?.name === "tamagui") { %>
       "@tamagui/babel-plugin": "^1.132.23",

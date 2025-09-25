@@ -123,10 +123,10 @@ export function configureProjectFiles(
         'packages/nativewind/components/Container.tsx.ejs',
         'packages/nativewind/components/ScreenContent.tsx.ejs',
         'packages/nativewind/components/EditScreenInfo.tsx.ejs',
-        'packages/nativewind/tailwind.config.js.ejs',
-        'packages/nativewind/app-env.d.ts',
+        'packages/nativewind/global.css',
         'packages/nativewind/metro.config.js',
-        'packages/nativewind/global.css'
+        'packages/nativewind/nativewind-env.d.ts',
+        'packages/nativewind/postcss.config.mjs'
       ];
 
       files = [...files, ...nativewindFiles];
