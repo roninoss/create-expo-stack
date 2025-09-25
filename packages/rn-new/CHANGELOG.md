@@ -1,5 +1,18 @@
 # rn-new
 
+## 2.20.0
+
+### Minor Changes
+
+- 7f9c8bc: add support for nativewind v5 preview
+
+### Patch Changes
+
+- ff2bed4: simplify version specification for nativewind v5 and react-native-css
+- Updated dependencies [ff2bed4]
+- Updated dependencies [7f9c8bc]
+  - create-expo-stack@2.20.0
+
 ## 2.19.0
 
 ### Minor Changes
