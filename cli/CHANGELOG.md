@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.19.1
+
+### Patch Changes
+
+- 18ea758: random change for the version bump
+
 ## 2.19.0
 
 ### Minor Changes

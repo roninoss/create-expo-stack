@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.19.1
+
+### Patch Changes
+
+- 18ea758: random change for the version bump
+- Updated dependencies [18ea758]
+  - create-expo-stack@2.19.1
+
 ## 2.19.0
 
 ### Minor Changes
