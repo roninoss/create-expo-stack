@@ -2,7 +2,7 @@ name: Release Next
 on:
   push:
     branches:
-      - main
+      - next
 
 permissions:
   id-token: write
@@ -102,4 +102,7 @@ jobs:
           bun run build:cli
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           cd ./cli
+          npm publish --provenance --access public --ignore-scripts --tag next
+          cd ../packages/rn-new
+          bun run build
           npm publish --provenance --access public --ignore-scripts --tag next

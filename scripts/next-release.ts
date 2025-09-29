@@ -24,6 +24,21 @@ async function createNextRelease() {
 
       const content = JSON.stringify(packageJson, null, '\t') + '\n';
       await Bun.write(process.cwd() + '/cli/package.json', content);
+
+      /**
+       * Also update the rn-new package.json with the same next version
+       */
+      const rnNewPackageJson = await Bun.file(process.cwd() + '/packages/rn-new/package.json').json();
+      const rnNewVersion = releasePlan.releases.find((release) => release.name === rnNewPackageJson.name)?.newVersion;
+
+      if (rnNewVersion) {
+        rnNewPackageJson.version = `${rnNewVersion}-next.${commitHash}`;
+        // Update the dependency to point to the next version of create-expo-stack
+        rnNewPackageJson.dependencies['create-expo-stack'] = `^${newNextVersion}-next.${commitHash}`;
+
+        const rnNewContent = JSON.stringify(rnNewPackageJson, null, '\t') + '\n';
+        await Bun.write(process.cwd() + '/packages/rn-new/package.json', rnNewContent);
+      }
     }
   } catch (error) {
     console.log(error);
