@@ -1,5 +1,20 @@
 # rn-new
 
+## 2.19.0
+
+### Minor Changes
+
+- 8f5726d: update stack templates to work with nwui-cli 0.5.5, ensure blank nativewind v4.1 template works, ensure blank nativewindui template works, ensure all components nativewindui template works, change all instance of NativeWind to Nativewind and NativewindUI
+
+### Patch Changes
+
+- 3541ab4: update tests to only test nativewind and nativewindui stack templates
+- d6fc7f8: temporarily disable tab and drawer templates
+- Updated dependencies [8f5726d]
+- Updated dependencies [3541ab4]
+- Updated dependencies [d6fc7f8]
+  - create-expo-stack@2.19.0
+
 ## 2.18.11
 
 ### Patch Changes
