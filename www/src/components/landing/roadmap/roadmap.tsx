@@ -4,9 +4,9 @@ const roadmapData = [
     version: "v2.10.x",
     date: "May",
     active: false,
-    title: "NativeWindUI Styling Option",
+    title: "NativewindUI Styling Option",
     description:
-      "A free preview of NativeWindUI, a set of beautifully designed components based on Apple's Human Interface Guidelines using NativeWind.",
+      "A free preview of NativewindUI, a set of beautifully designed components based on Apple's Human Interface Guidelines using Nativewind.",
   },
   {
     index: 1,

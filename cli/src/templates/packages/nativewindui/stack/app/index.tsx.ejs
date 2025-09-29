@@ -1,79 +1,63 @@
 import { useHeaderHeight } from '@react-navigation/elements';
-import { LegendList } from '@legendapp/list';
+import { FlashList } from '@shopify/flash-list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
 import {
+  Alert,
   <% if ( 
   props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
-  props.stylingPackage?.options.selectedComponents.includes('activity-view') || 
-  props.stylingPackage?.options.selectedComponents.includes('bottom-sheet') 
+  props.stylingPackage?.options.selectedComponents.includes('activity-view') 
   ) { %>
   Button as RNButton,
   ButtonProps,
   <% } %>
   Linking,
-  <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
-  Platform,
-  <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('activity-view')) { %>
   Share,
   <% } %>
   useWindowDimensions,
   View,
-  Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SearchBarProps } from 'react-native-screens';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { useActionSheet } from '@expo/react-native-action-sheet';
 <% } %>
-import { Icon } from '@roninoss/icons';
-<% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
-import * as StoreReview from 'expo-store-review';
-<% } %>
+import { useNavigation } from '@react-navigation/native';
+import * as Haptics from 'expo-haptics';
 
 <% if (props.stylingPackage?.options.selectedComponents.includes('activity-indicator')) { %>
-import { ActivityIndicator } from '~/components/nativewindui/ActivityIndicator';
+import { ActivityIndicator } from '@/components/nativewindui/ActivityIndicator';
 <% } %>
 <% if (props.stylingPackage?.options.selectedComponents.includes('avatar')) { %>
-import { Avatar, AvatarFallback, AvatarImage } from '~/components/nativewindui/Avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/nativewindui/Avatar';
 <% } %>
+import { Button } from '@/components/nativewindui/Button';
 <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
-import { DatePicker } from '~/components/nativewindui/DatePicker';
+import { DatePicker } from '@/components/nativewindui/DatePicker';
 <% } %>
+import { Icon } from '@/components/nativewindui/Icon';
 <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
-import { Picker, PickerItem } from '~/components/nativewindui/Picker';
+import { Picker, PickerItem } from '@/components/nativewindui/Picker';
 <% } %>
 <% if (props.stylingPackage?.options.selectedComponents.includes('progress-indicator')) { %>
-import { ProgressIndicator } from '~/components/nativewindui/ProgressIndicator';
-<% } %>
-<% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
-import { Sheet, useSheetRef } from '~/components/nativewindui/Sheet';
+import { ProgressIndicator } from '@/components/nativewindui/ProgressIndicator';
 <% } %>
 <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
-import { Slider } from '~/components/nativewindui/Slider';
+import { Slider } from '@/components/nativewindui/Slider';
 <% } %>
-import { Text } from '~/components/nativewindui/Text';
+import { Text } from '@/components/nativewindui/Text';
 <% if (props.stylingPackage?.options.selectedComponents.includes('toggle')) { %>
-import { Toggle } from '~/components/nativewindui/Toggle';
+import { Toggle } from '@/components/nativewindui/Toggle';
 <% } %>
-import { useColorScheme } from '~/lib/useColorScheme';
-import { useHeaderSearchBar } from '~/lib/useHeaderSearchBar';
+import { useColorScheme } from '@/lib/useColorScheme';
+import { COLORS } from '@/theme/colors';
 
-
-cssInterop(LegendList, {
+cssInterop(FlashList, {
   className: 'style',
   contentContainerClassName: 'contentContainerStyle',
 });
-<% if (
-  props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
-  props.stylingPackage?.options.selectedComponents.includes('activity-view') || 
-  props.stylingPackage?.options.selectedComponents.includes('bottom-sheet') 
-  ) { %>
-function DefaultButton({ color, ...props }: ButtonProps) {
-  const { colors } = useColorScheme();
-  return <RNButton color={color ?? colors.primary} {...props} />;
-}
-<% } %>
+
 export default function Screen() {
   const searchValue = useHeaderSearchBar({ hideWhenScrolling: COMPONENTS.length === 0 });
 
@@ -82,20 +66,46 @@ export default function Screen() {
     : COMPONENTS;
 
   return (
-    <LegendList
+    <FlashList
       contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
       data={data}
       estimatedItemSize={200}
       contentContainerClassName="py-4 android:pb-12"
       extraData={searchValue}
+      removeClippedSubviews={false} // used for slecting text on android
       keyExtractor={keyExtractor}
       ItemSeparatorComponent={renderItemSeparator}
       renderItem={renderItem}
       ListEmptyComponent={COMPONENTS.length === 0 ? ListEmptyComponent : undefined}
-      recycleItems
     />
   );
+}
+
+function useHeaderSearchBar(props: SearchBarProps = {}) {
+  const { colorScheme, colors } = useColorScheme();
+  const navigation = useNavigation();
+  const [search, setSearch] = React.useState('');
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerSearchBarOptions: {
+        placeholder: 'Search...',
+        barTintColor: colorScheme === 'dark' ? COLORS.black : COLORS.white,
+        textColor: colors.foreground,
+        tintColor: colors.primary,
+        headerIconColor: colors.foreground,
+        hintTextColor: colors.grey,
+        hideWhenScrolling: false,
+        onChangeText(ev) {
+          setSearch(ev.nativeEvent.text);
+        },
+        ...props,
+      } satisfies SearchBarProps,
+    });
+  }, [navigation, colorScheme]);
+  
+  return search;
 }
 
 function ListEmptyComponent() {
@@ -107,7 +117,7 @@ function ListEmptyComponent() {
 
   return (
     <View style={{ height }} className="flex-1 items-center justify-center gap-1 px-12">
-      <Icon name="file-plus-outline" size={42} color={colors.grey} />
+      <Icon name="doc.badge.plus" size={42} color={colors.grey} />
         <Text variant='title3' className='pb-1 text-center font-semibold'>
           No Components Installed
         </Text>
@@ -118,7 +128,7 @@ function ListEmptyComponent() {
             variant='subhead'
             className='text-primary'
           >
-            NativeWindUI
+            NativewindUI
           </Text>
           {' website.'}
         </Text>
@@ -154,9 +164,7 @@ function Card({ children, title }: { children: React.ReactNode; title: string })
     </View>
   );
 }
-<% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
-let hasRequestedReview = false;
-<% } %>
+
 const COMPONENTS: ComponentItem[] = [
   <% if (!props.stylingPackage?.options.selectedComponents.length) { %>
   // ADD ANY ADDITIONAL COMPONENTS HERE
@@ -171,12 +179,207 @@ const COMPONENTS: ComponentItem[] = [
   //   },
   // },
   <% } %>
+  <% if (props.stylingPackage?.options.selectedComponents.includes('avatar')) { %>
+  {
+    name: 'Avatar',
+    component: function AvatarExample() {
+      const TWITTER_AVATAR_URI = 'https://pbs.twimg.com/profile_images/1782428433898708992/1voyv4_A_400x400.jpg';
+      return (
+        <View className='items-center'>
+          <Avatar alt="NativewindUI Avatar">
+            <AvatarImage source={{ uri: TWITTER_AVATAR_URI }} />
+            <AvatarFallback>
+              <Text>NWUI</Text>
+            </AvatarFallback>
+          </Avatar>
+        </View>
+      );
+    },
+  },
+  <% } %>
+  // {
+  //   name: 'Button',
+  //   component: function ProgressIndicatorExample() {
+  //     function onPress() {
+  //       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  //     }
+  //     return (
+  //       <View className="items-center justify-center gap-4 p-4">
+  //         <Button onPress={onPress}>
+  //           <Icon name="play.fill" className="ios:size-4 text-white" />
+  //           <Text>Primary</Text>
+  //         </Button>
+  //         <Button onPress={onPress} variant="secondary">
+  //           <Text>Secondary</Text>
+  //         </Button>
+  //         <Button onPress={onPress} variant="tonal">
+  //           <Text>Tonal</Text>
+  //         </Button>
+  //         <Button onPress={onPress} variant="plain">
+  //           <Text>Plain</Text>
+  //         </Button>
+  //         <Button onPress={onPress} variant="tonal" size="icon">
+  //           <Icon name="heart.fill" className="ios:text-primary size-5 text-foreground" />
+  //         </Button>
+  //       </View>
+  //     );
+  //   },
+  // },
+  <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
+  {
+    name: 'Slider',
+    component: function SliderExample() {
+      const [sliderValue, setSliderValue] = React.useState(0.5);
+      return <Slider value={sliderValue} onValueChange={setSliderValue} minimumValue={0} maximumValue={1} />;
+    },
+  },
+  <% } %>
+  <% if (props.stylingPackage?.options.selectedComponents.includes('activity-indicator')) { %>
+  {
+    name: 'Activity Indicator',
+    component: function ActivityIndicatorExample() {
+      return (
+        <View className='items-center p-4'>
+          <ActivityIndicator />
+        </View>
+      );
+    },
+  },
+  <% } %>
+  <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
+  {
+    name: 'Action Sheet',
+    component: function ActionSheetExample() {
+      const { colorScheme, colors } = useColorScheme();
+      const { showActionSheetWithOptions } = useActionSheet();
+      
+      return (
+        <View className='items-center'>
+          <Button
+            variant='secondary'
+            onPress={async () => {
+              const options = ['Delete', 'Save', 'Cancel'];
+              const destructiveButtonIndex = 0;
+              const cancelButtonIndex = 2;
+
+              showActionSheetWithOptions(
+                {
+                  options,
+                  cancelButtonIndex,
+                  destructiveButtonIndex,
+                  containerStyle: {
+                    backgroundColor: colorScheme === 'dark' ? 'black' : 'white',
+                  },
+                  textStyle: {
+                    color: colors.foreground,
+                  },
+                },
+                (selectedIndex) => {
+                  switch (selectedIndex) {
+                    case 1:
+                      // Save
+                      break;
+
+                    case destructiveButtonIndex:
+                      // Delete
+                      break;
+
+                    case cancelButtonIndex:
+                    // Canceled
+                  }
+                }
+              );
+            }}>
+            <Text>Open action sheet</Text>
+          </Button>
+        </View>
+      );
+    },
+  },
+  <% } %>
+  <% if (props.stylingPackage?.options.selectedComponents.includes('progress-indicator')) { %>
+  {
+    name: 'Progress Indicator',
+    component: function ProgressIndicatorExample() {
+      const [progress, setProgress] = React.useState(13);
+      let id: ReturnType<typeof setInterval> | null = null;
+       React.useEffect(() => {
+        if (!id) {
+          id = setInterval(() => {
+            setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
+          }, 1000);
+        }
+        return () => {
+          if (id) clearInterval(id);
+        };
+      }, []);
+      return (
+        <View className='p-4'>
+          <ProgressIndicator value={progress} />
+        </View>
+      );
+    },
+  },
+  <% } %>
+  <% if (props.stylingPackage?.options.selectedComponents.includes('activity-view')) { %>
+  {
+    name: 'Activity View',
+    component: function ActivityViewExample() {
+      return (
+        <View className='items-center'>
+          <Button
+            variant='tonal'
+            onPress={async () => {
+              try {
+                const result = await Share.share({
+                  message: 'NativewindUI | Native feeling UI with TailwindCSS.',
+                });
+                if (result.action === Share.sharedAction) {
+                  if (result.activityType) {
+                    // shared with activity type of result.activityType
+                  } else {
+                    // shared
+                  }
+                } else if (result.action === Share.dismissedAction) {
+                  // dismissed
+                }
+              } catch (error: any) {
+                Alert.alert(error.message);
+              }
+            }}>
+            <Text>Share a message</Text>
+          </Button>
+        </View>
+      );
+    },
+  },
+  <% } %>
+  <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
+  {
+    name: 'Date Picker',
+    component: function DatePickerExample() {
+      const [date, setDate] = React.useState(new Date());
+      return (
+        <View className='items-center'>
+          <DatePicker
+            value={date}
+            mode='datetime'
+            onChange={(ev) => {
+              setDate(new Date(ev.nativeEvent.timestamp));
+            }}
+          />
+        </View>
+      );
+    },
+  },
+  <% } %>
   <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
   {
     name: 'Picker',
     component: function PickerExample() {
       const { colors } = useColorScheme();
       const [picker, setPicker] = React.useState('blue');
+
       return (
         <Picker
           selectedValue={picker}
@@ -211,34 +414,48 @@ const COMPONENTS: ComponentItem[] = [
     },
   },
   <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
-  {
-    name: 'Date Picker',
-    component: function DatePickerExample() {
-      const [date, setDate] = React.useState(new Date());
-      return (
-        <View className='items-center'>
-          <DatePicker
-            value={date}
-            mode='datetime'
-            onChange={(ev) => {
-              setDate(new Date(ev.nativeEvent.timestamp));
-            }}
-          />
-        </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
-  {
-    name: 'Slider',
-    component: function SliderExample() {
-      const [sliderValue, setSliderValue] = React.useState(0.5);
-      return <Slider value={sliderValue} onValueChange={setSliderValue} />;
-    },
-  },
-  <% } %>
+//   {
+//    name: 'Text',
+//     component: function TextExample() {
+//       return (
+//        <View className="gap-2">
+//          <Text variant="largeTitle" className="text-center">
+//            Large Title
+//          </Text>
+//          <Text variant="title1" className="text-center">
+//            Title 1
+//          </Text>
+//          <Text variant="title2" className="text-center">
+//            Title 2
+//          </Text>
+//          <Text variant="title3" className="text-center">
+//            Title 3
+//          </Text>
+//          <Text variant="heading" className="text-center">
+//            Heading
+//          </Text>
+//          <Text variant="body" className="text-center">
+//            Body
+//          </Text>
+//          <Text variant="callout" className="text-center">
+//            Callout
+//          </Text>
+//          <Text variant="subhead" className="text-center">
+//            Subhead
+//          </Text>
+//          <Text variant="footnote" className="text-center">
+//            Footnote
+//          </Text>
+//          <Text variant="caption1" className="text-center">
+//            Caption 1
+//          </Text>
+//          <Text variant="caption2" className="text-center">
+//            Caption 2
+//          </Text>
+//         </View>
+//       );
+//     },
+//   },
   <% if (props.stylingPackage?.options.selectedComponents.includes('toggle')) { %>
   {
     name: 'Toggle',
@@ -250,282 +467,6 @@ const COMPONENTS: ComponentItem[] = [
         </View>
       );
     }
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('progress-indicator')) { %>
-  {
-    name: 'Progress Indicator',
-    component: function ProgressIndicatorExample() {
-      const [progress, setProgress] = React.useState(13);
-      const id = React.useRef<ReturnType<typeof setInterval> | null>(null);
-       React.useEffect(() => {
-        if (!id.current) {
-          id.current = setInterval(() => {
-            setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
-          }, 1000);
-        }
-        return () => {
-          if (id.current) clearInterval(id.current);
-        };
-      }, []);
-      return (
-        <View className='p-4'>
-          <ProgressIndicator value={progress} />
-        </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('activity-indicator')) { %>
-  {
-    name: 'Activity Indicator',
-    component: function ActivityIndicatorExample() {
-      return (
-        <View className='p-4 items-center'>
-          <ActivityIndicator />
-        </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
-  {
-    name: 'Action Sheet',
-    component: function ActionSheetExample() {
-      const { colorScheme, colors } = useColorScheme();
-      const { showActionSheetWithOptions } = useActionSheet();
-      return (
-        <View className='items-center'>
-          <DefaultButton
-            color={'grey'}
-            onPress={async () => {
-              const options = ['Delete', 'Save', 'Cancel'];
-              const destructiveButtonIndex = 0;
-              const cancelButtonIndex = 2;
-
-              showActionSheetWithOptions(
-                {
-                  options,
-                  cancelButtonIndex,
-                  destructiveButtonIndex,
-                  containerStyle: {
-                    backgroundColor: colorScheme === 'dark' ? 'black' : 'white',
-                  },
-                  textStyle: {
-                    color: colors.foreground,
-                  },
-                },
-                (selectedIndex) => {
-                  switch (selectedIndex) {
-                    case 1:
-                      // Save
-                      break;
-
-                    case destructiveButtonIndex:
-                      // Delete
-                      break;
-
-                    case cancelButtonIndex:
-                    // Canceled
-                  }
-                }
-              );
-            }}
-            title='Open action sheet'
-          />
-        </View>
-      );
-    },
-  },
-  <% } %>
-  {
-    name: 'Text',
-    component: function TextExample() {
-      return (
-        <View className='gap-2'>
-          <Text variant='largeTitle' className='text-center'>
-            Large Title
-          </Text>
-          <Text variant='title1' className='text-center'>
-            Title 1
-          </Text>
-          <Text variant='title2' className='text-center'>
-            Title 2
-          </Text>
-          <Text variant='title3' className='text-center'>
-            Title 3
-          </Text>
-          <Text variant='heading' className='text-center'>
-            Heading
-          </Text>
-          <Text variant='body' className='text-center'>
-            Body
-          </Text>
-          <Text variant='callout' className='text-center'>
-            Callout
-          </Text>
-          <Text variant='subhead' className='text-center'>
-            Subhead
-          </Text>
-          <Text variant='footnote' className='text-center'>
-            Footnote
-          </Text>
-          <Text variant='caption1' className='text-center'>
-            Caption 1
-          </Text>
-          <Text variant='caption2' className='text-center'>
-            Caption 2
-          </Text>
-        </View>
-      );
-    },
-  },
-  {
-    name: 'Selectable Text',
-    component: function SelectableTextExample() {
-      return (
-        <Text uiTextView selectable>
-          Long press or double press this text
-        </Text>
-      );
-    },
-  },
-  <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
-  {
-    name: 'Ratings Indicator',
-    component: function RatingsIndicatorExample() {
-      React.useEffect(() => {
-        async function showRequestReview() {
-          if (hasRequestedReview) return;
-          try {
-            if (await StoreReview.hasAction()) {
-              await StoreReview.requestReview();
-            }
-          } catch (error) {
-            console.log(
-              'FOR ANDROID: Make sure you meet all conditions to be able to test and use it: https://developer.android.com/guide/playcore/in-app-review/test#troubleshooting',
-              error
-            );
-          } finally {
-            hasRequestedReview = true;
-          }
-        }
-        const timeout = setTimeout(() => {
-          showRequestReview();
-        }, 1000);
-
-        return () => clearTimeout(timeout);
-      }, []);
-
-      return (
-        <View className="gap-3">
-          <Text className="pb-2 text-center font-semibold">Please follow the guidelines.</Text>
-          <View className="flex-row">
-            <Text className="w-6 text-center text-muted-foreground">·</Text>
-            <View className="flex-1">
-              <Text variant="caption1" className="text-muted-foreground">
-                Do not call StoreReview.requestReview() from a button
-              </Text>
-            </View>
-          </View>
-          <View className="flex-row">
-            <Text className="w-6 text-center text-muted-foreground">·</Text>
-            <View className="flex-1">
-              <Text variant="caption1" className="text-muted-foreground">
-                Do not request a review when the user is doing something time sensitive.
-              </Text>
-            </View>
-          </View>
-          <View className="flex-row">
-            <Text className="w-6 text-center text-muted-foreground">·</Text>
-            <View className="flex-1">
-              <Text variant="caption1" className="text-muted-foreground">
-                Do not ask the user any questions before or while presenting the rating button or
-                card.
-              </Text>
-            </View>
-          </View>
-        </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('activity-view')) { %>
-  {
-    name: 'Activity View',
-    component: function ActivityViewExample() {
-      return (
-        <View className='items-center'>
-          <DefaultButton
-            onPress={async () => {
-              try {
-                const result = await Share.share({
-                  message: 'NativeWindUI | Familiar interface, native feel.',
-                });
-                if (result.action === Share.sharedAction) {
-                  if (result.activityType) {
-                    // shared with activity type of result.activityType
-                  } else {
-                    // shared
-                  }
-                } else if (result.action === Share.dismissedAction) {
-                  // dismissed
-                }
-              } catch (error: any) {
-                Alert.alert(error.message);
-              }
-            }}
-            title='Share a message'
-          />
-        </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
-  {
-    name: 'Bottom Sheet',
-    component: function BottomSheetExample() {
-      const { colorScheme } = useColorScheme();
-      const bottomSheetModalRef = useSheetRef();
-
-      return (
-        <View className='items-center'>
-          <DefaultButton
-            color={
-              colorScheme === 'dark' && Platform.OS === 'ios'
-                ? 'white'
-                : 'black'
-            }
-            title='Open Bottom Sheet'
-            onPress={() => bottomSheetModalRef.current?.present()}
-          />
-          <Sheet ref={bottomSheetModalRef} snapPoints={[200]}>
-            <View className='flex-1 justify-center items-center pb-8'>
-              <Text>@gorhom/bottom-sheet 🎉</Text>
-            </View>
-          </Sheet>
-        </View>
-      );
-    },
-  },
-  <% } %>
-  <% if (props.stylingPackage?.options.selectedComponents.includes('avatar')) { %>
-  {
-    name: 'Avatar',
-    component: function AvatarExample() {
-      const TWITTER_AVATAR_URI = 'https://pbs.twimg.com/profile_images/1782428433898708992/1voyv4_A_400x400.jpg';
-      return (
-        <View className='items-center'>
-          <Avatar alt="NativeWindUI Avatar">
-            <AvatarImage source={{ uri: TWITTER_AVATAR_URI }} />
-            <AvatarFallback>
-              <Text>NUI</Text>
-            </AvatarFallback>
-          </Avatar>
-        </View>
-      );
-    },
   },
   <% } %>
 ];

@@ -7,15 +7,15 @@ export async function setStyles(cliResults, navigationSelect) {
     options:
       navigationSelect === "expo-router"
         ? [
-            { value: "nativewindui", label: "NativeWindUI" },
-            { value: "nativewind", label: "NativeWind" },
+            { value: "nativewindui", label: "NativewindUI" },
+            { value: "nativewind", label: "Nativewind" },
             { value: "restyle", label: "Restyle" },
             { value: "stylesheet", label: "StyleSheet" },
             { value: "tamagui", label: "Tamagui (experimental)" },
             { value: "unistyles", label: "Unistyles" },
           ]
         : [
-            { value: "nativewind", label: "NativeWind" },
+            { value: "nativewind", label: "Nativewind" },
             { value: "restyle", label: "Restyle" },
             { value: "stylesheet", label: "StyleSheet" },
             { value: "tamagui", label: "Tamagui (experimental)" },
@@ -38,7 +38,6 @@ export async function setStyles(cliResults, navigationSelect) {
         { value: "activity-indicator", label: "Activity Indicator" },
         { value: "activity-view", label: "Activity View" },
         { value: "avatar", label: "Avatar" },
-        { value: "bottom-sheet", label: "Bottom Sheet" },
         { value: "date-picker", label: "Date Picker" },
         { value: "picker", label: "Picker" },
         { value: "progress-indicator", label: "Progress Indicator" },
@@ -54,7 +53,6 @@ export async function setStyles(cliResults, navigationSelect) {
         "activity-indicator",
         "activity-view",
         "avatar",
-        "bottom-sheet",
         "date-picker",
         "picker",
         "progress-indicator",
@@ -78,7 +76,7 @@ export async function setStyles(cliResults, navigationSelect) {
         selectedComponents,
       },
     });
-    console.log(color.green(`You'll be styling with ease using NativeWindUI!`));
+    console.log(color.green(`You'll be styling with ease using NativewindUI!`));
   } else {
     cliResults.packages.push({ name: stylingSelect, type: "styling" });
     console.log(

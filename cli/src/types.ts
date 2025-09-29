@@ -53,7 +53,7 @@ export type SelectedComponents =
   | 'activity-indicator'
   | 'activity-view'
   | 'avatar'
-  | 'bottom-sheet'
+  | 'button'
   | 'date-picker'
   | 'picker'
   | 'progress-indicator'

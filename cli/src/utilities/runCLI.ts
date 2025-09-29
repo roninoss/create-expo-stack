@@ -2,7 +2,7 @@ import { cancel, confirm, isCancel, multiselect, select, text } from '@clack/pro
 import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 
 import { semver } from 'gluegun';
-import { bunInstallationError, defaultOptions, nativeWindUIOptions } from '../constants';
+import { bunInstallationError, defaultOptions, nativewindUIOptions } from '../constants';
 import {
   AuthenticationSelect,
   StateManagementSelect,
@@ -261,15 +261,15 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     options:
       navigationSelect === 'expo-router'
         ? [
-            { value: 'nativewindui', label: 'NativeWindUI' },
-            { value: 'nativewind', label: 'NativeWind' },
+            { value: 'nativewindui', label: 'NativewindUI' },
+            { value: 'nativewind', label: 'Nativewind' },
             { value: 'restyle', label: 'Restyle' },
             { value: 'stylesheet', label: 'StyleSheet' },
             { value: 'tamagui', label: 'Tamagui (experimental)' },
             { value: 'unistyles', label: 'Unistyles' }
           ]
         : [
-            { value: 'nativewind', label: 'NativeWind' },
+            { value: 'nativewind', label: 'Nativewind' },
             { value: 'restyle', label: 'Restyle' },
             { value: 'stylesheet', label: 'StyleSheet' },
             { value: 'tamagui', label: 'Tamagui (experimental)' },
@@ -291,18 +291,18 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         { value: 'activity-indicator', label: 'Activity Indicator' },
         { value: 'activity-view', label: 'Activity View' },
         { value: 'avatar', label: 'Avatar' },
-        { value: 'bottom-sheet', label: 'Bottom Sheet' },
         { value: 'date-picker', label: 'Date Picker' },
         { value: 'picker', label: 'Picker' },
         { value: 'progress-indicator', label: 'Progress Indicator' },
         { value: 'ratings-indicator', label: 'Ratings Indicator' },
         { value: 'slider', label: 'Slider' },
-        // We always include text so we don't need to provide this option
+        // We always include text and button so we don't need to provide this option
         // { value: 'text', label: 'Text' },
+        // { value: 'button', label: 'Button' },
         { value: 'toggle', label: 'Toggle' }
       ] satisfies Array<{ value: SelectedComponents; label: string }>,
       required: false,
-      initialValues: nativeWindUIOptions
+      initialValues: nativewindUIOptions
     });
 
     if (isCancel(selectedComponents)) {
@@ -314,11 +314,11 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       name: 'nativewindui' as StylingSelect,
       type: 'styling',
       options: {
-        selectedComponents: Array.from(new Set([...selectedComponents, 'text']))
+        selectedComponents: Array.from(new Set([...selectedComponents, 'text', 'button']))
       }
     });
 
-    success(`You'll be styling with ease using NativeWindUI!`);
+    success(`You'll be styling with ease using NativewindUI!`);
   } else {
     cliResults.packages.push({ name: stylingSelect as StylingSelect, type: 'styling' });
     success(

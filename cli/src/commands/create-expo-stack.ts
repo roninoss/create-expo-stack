@@ -16,7 +16,7 @@ import {
   bunInstallationError,
   DEFAULT_APP_NAME,
   defaultOptions,
-  nativeWindUIOptions,
+  nativewindUIOptions,
   navigationValidationError,
   projectNameValidationError
 } from '../constants';
@@ -246,11 +246,11 @@ const command: GluegunCommand = {
             options?.selectedComponents
               ?.split(',')
               ?.map((c: string) => c.trim())
-              ?.filter((item) => nativeWindUIOptions.includes(item)) ?? [];
+              ?.filter((item) => nativewindUIOptions.includes(item)) ?? [];
 
           const selectedComponents = parsedComponents.length
-            ? Array.from(new Set([...parsedComponents, 'text']))
-            : nativeWindUIOptions;
+            ? Array.from(new Set([...parsedComponents, 'text', 'button']))
+            : nativewindUIOptions;
 
           cliResults.packages.push({
             name: 'nativewindui',
@@ -359,21 +359,21 @@ const command: GluegunCommand = {
         const generateRerunScript = (cliResults: CliResults) => {
           let script = `npx rn-new@latest ${cliResults.projectName} `;
 
-          const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
+          const isNativewindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
-          if (isNativeWindUISelected) {
+          if (isNativewindUISelected) {
             const flagToUse = options.nwui ? 'nwui' : 'nativewindui';
             script += `--${flagToUse} `;
 
-            const nativeWindUIComponents =
+            const nativewindUIComponents =
               cliResults.packages.find((p) => p.name === 'nativewindui')?.options.selectedComponents ?? [];
 
             // we do this to account for older stored config e.g that has selectable text in it
-            const onlyValidComponents = nativeWindUIComponents.filter((c) => nativeWindUIOptions.includes(c));
+            const onlyValidComponents = nativewindUIComponents.filter((c) => nativewindUIOptions.includes(c));
 
             if (onlyValidComponents.length === 0) {
               script += '--blank ';
-            } else if (onlyValidComponents.length !== nativeWindUIOptions.length) {
+            } else if (onlyValidComponents.length !== nativewindUIOptions.length) {
               script += `--selected-components=${onlyValidComponents.join(',')} `;
             }
 

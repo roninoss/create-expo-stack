@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 import { useHeaderHeight } from '@react-navigation/elements';
-import { LegendList } from '@legendapp/list';
+import { FlashList } from '@shopify/flash-list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
 import {
@@ -72,7 +72,7 @@ export default function Home() {
     <>
       <Stack.Screen options={{ title: 'Tab One' }} />
       <Container>
-        <LegendList
+        <FlashList
           contentInsetAdjustmentBehavior="automatic"
           keyboardShouldPersistTaps="handled"
           data={data}
@@ -83,14 +83,13 @@ export default function Home() {
           ItemSeparatorComponent={renderItemSeparator}
           renderItem={renderItem}
           ListEmptyComponent={COMPONENTS.length === 0 ? ListEmptyComponent : undefined}
-          recycleItems
         />
       </Container>
     </>
   );
 }
 
-cssInterop(LegendList, {
+cssInterop(FlashList, {
   className: 'style',
   contentContainerClassName: 'contentContainerStyle',
 });
@@ -125,7 +124,7 @@ function ListEmptyComponent() {
             variant='subhead'
             className='text-primary'
           >
-            NativeWindUI
+            NativewindUI
           </Text>
           {' website.'}
         </Text>
@@ -467,7 +466,7 @@ const COMPONENTS: ComponentItem[] = [
             onPress={async () => {
               try {
                 const result = await Share.share({
-                  message: 'NativeWindUI | Familiar interface, native feel.',
+                  message: 'NativewindUI | Familiar interface, native feel.',
                 });
                 if (result.action === Share.sharedAction) {
                   if (result.activityType) {
@@ -524,7 +523,7 @@ const COMPONENTS: ComponentItem[] = [
       const TWITTER_AVATAR_URI = 'https://pbs.twimg.com/profile_images/1782428433898708992/1voyv4_A_400x400.jpg';
       return (
         <View className='items-center'>
-          <Avatar alt="NativeWindUI Avatar">
+          <Avatar alt="NativewindUI Avatar">
             <AvatarImage source={{ uri: TWITTER_AVATAR_URI }} />
             <AvatarFallback>
               <Text>NUI</Text>

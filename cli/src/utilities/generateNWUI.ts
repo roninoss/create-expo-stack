@@ -1,14 +1,14 @@
 import { GluegunToolbox } from 'gluegun';
 import { CliResults } from '../types';
-import { nativeWindUIOptions } from '../constants';
+import { nativewindUIOptions } from '../constants';
 import { getPackageManagerRunnerX } from './getPackageManager';
 import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
 import { spinner } from '@clack/prompts';
 
 export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolbox) {
-  const isNativeWindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
+  const isNativewindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
-  if (!isNativeWindUISelected) {
+  if (!isNativewindUISelected) {
     return;
   }
 
@@ -16,13 +16,13 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
 
   const runnerType = getPackageManagerRunnerX(toolbox, cliResults);
 
-  const nativeWindUIComponents =
+  const nativewindUIComponents =
     cliResults.packages.find((p) => p.name === 'nativewindui').options.selectedComponents ?? [];
 
   // we do this to account for older stored config e.g that has selectable text in it
-  const onlySupportedComponents = nativeWindUIComponents.filter((component) => nativeWindUIOptions.includes(component));
+  const onlySupportedComponents = nativewindUIComponents.filter((component) => nativewindUIOptions.includes(component));
 
-  const finalComponents = Array.from(new Set([...onlySupportedComponents, 'text']));
+  const finalComponents = Array.from(new Set([...onlySupportedComponents, 'text', 'button']));
 
   s.start(`Adding nativewindui components...`);
 
