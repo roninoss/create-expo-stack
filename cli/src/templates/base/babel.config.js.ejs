@@ -22,9 +22,7 @@ module.exports = function(api) {
         ]);
     <% } %>
 
-  <% if (props.navigationPackage?.options.type === "drawer + tabs") { %>
-    plugins.push('react-native-reanimated/plugin');
-  <% } %>
+  plugins.push('react-native-reanimated/plugin');
 
   return {
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>

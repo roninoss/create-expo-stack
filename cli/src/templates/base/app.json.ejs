@@ -8,6 +8,7 @@
     <% } %>
     <% if (props.navigationPackage?.name === 'expo-router') { %>
       "scheme": "<%= props.projectName %>",
+      "platforms": ["ios", "android"],
       "web": {
         "bundler": "metro",
         "output": "static",

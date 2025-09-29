@@ -31,42 +31,29 @@
   },
   "dependencies": {
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
-      "nativewind": "latest",
-      <%# This will already be installed if using expo-router (see below) %>
-      <% if (props.navigationPackage?.name !== "expo-router") { %>
-        "react-native-reanimated": "~3.17.4",
-      <% } %>
-      <%# This will already be installed if using navigation (see below) %>
-      <% if (props.navigationPackage?.type !== "navigation") { %>
-        "react-native-safe-area-context": "5.3.0",
-      <% } %>
+      "nativewind": "4.1.21",
     <% } %>
     <% if (props.stylingPackage?.name === "nativewindui") { %>
-      "@roninoss/icons": "^0.0.4",
-      "@legendapp/list": "^1.0.7",
+      "@shopify/flash-list": "1.7.6",
       "class-variance-authority": "^0.7.0",
       "clsx": "^2.1.0",
-      "expo-navigation-bar": "~3.0.4",
       "tailwind-merge": "^2.2.1",
-      "react-native-uitextview": "2.0.0-rc.10",
-      "react-native-pager-view": "6.3.0",
+      "react-native-uitextview": "^1.1.4",
+      "rn-icon-mapper": "^0.0.1",
       <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
-        "@react-native-community/datetimepicker": "8.0.1",
+        "@react-native-community/datetimepicker": "8.4.1",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
-        "@react-native-picker/picker": "2.7.5",
-      <% } %>
-      <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
-        "@gorhom/bottom-sheet": "^4",
+        "@react-native-picker/picker": "2.11.1",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
         "@expo/react-native-action-sheet": "^4.0.1",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
-        "expo-store-review": "~7.0.2",
+        "expo-store-review": "~8.1.5",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
-        "@react-native-community/slider": "4.5.2",
+        "@react-native-community/slider": "4.5.6",
       <% } %>
     <% } %>
 
@@ -95,10 +82,9 @@
     <% } %>
 
     <% if (props.navigationPackage?.type === "navigation") { %>
-      "@react-navigation/native": "^7.0.3",
+      "@react-navigation/native": "^7.1.6",
       "react-native-gesture-handler": "~2.24.0",
-      "react-native-safe-area-context": "5.3.0",
-      "react-native-screens": "~4.10.0",
+      "react-native-screens": "~4.11.1",
     <% } %>
 
     <% if (props.navigationPackage?.name === "react-navigation") { %>
@@ -121,21 +107,19 @@
     <% if ((props.navigationPackage?.options.type === "drawer + tabs") && (props.navigationPackage?.name === "react-navigation")) { %>
       "@react-navigation/drawer": "^7.0.0",
       "@react-navigation/bottom-tabs": "^7.0.5",
-      "react-native-reanimated": "~3.17.4",
     <% } else if (props.navigationPackage?.options.type === "drawer + tabs") { %>
       "@react-navigation/drawer": "^7.0.0",
       "@react-navigation/bottom-tabs": "^7.0.5",
     <% } %>
 
     <% if (props.navigationPackage?.name === "expo-router") { %>
-      "@expo/vector-icons": "^14.0.0",
-      "expo-linking": "~7.1.4",
-      "expo-router": "~5.0.3",
-      "expo-constants": "~17.1.4",
-      "expo-system-ui": "~5.0.6",
-      "expo-web-browser": "~14.1.6",
+      "expo-linking": "~7.1.7",
+      "expo-haptics": "~14.1.4",
+      "expo-router": "~5.1.7",
+      "expo-constants": "~17.1.7",
+      "expo-symbols": "~0.4.5",
+      "expo-system-ui": "~5.0.11",
       "react-dom": "19.0.0",
-      "react-native-reanimated": "~3.17.4",
       "react-native-web": "^0.20.0",
     <% } %>
 
@@ -154,24 +138,21 @@
     "expo-localization": "~14.8.3",
   <% } %>
   <% if (props.flags?.eas || props.stylingPackage?.name === "nativewindui") { %>
-    "expo-dev-client": "~5.1.7",
-    "expo-dev-launcher": "^5.0.17",
+    "expo-dev-client": "~5.2.4",
   <% } %>
 
+    "react-native-reanimated": "~3.17.4",
+    "react-native-safe-area-context": "5.4.0",
     "expo": "~53.0.6",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
-    "react-native": "0.79.2"
+    "react-native": "0.79.5"
   },
   "devDependencies": {
-  <%# patch for this issue : https://github.com/expo/expo/issues/26641 %>
-  <% if ((props.packageManager === "bun" || props.packageManager === "npm") && props.navigationPackage?.name === "expo-router") { %>
-	  "ajv": "^8.12.0",
-	<% } %>
     "@babel/core": "^7.20.0",
     "@types/react": "~19.0.10",
     "eslint": "^9.25.1",
-    "eslint-config-expo": "^9.2.0",
+    "eslint-config-expo": "~10.0.0",
     "eslint-config-prettier": "^10.1.2",
     "prettier": "^3.2.5",
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
@@ -181,7 +162,10 @@
     <% if (props.stylingPackage?.name === "tamagui") { %>
       "@tamagui/babel-plugin": "^1.125.8",
     <% } %>
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.2"
+  },
+  "eslintConfig": {
+    "extends": "universe/native"
   },
   <% if (props.navigationPackage?.name !== "expo-router") { %>
     "main": "node_modules/expo/AppEntry.js",

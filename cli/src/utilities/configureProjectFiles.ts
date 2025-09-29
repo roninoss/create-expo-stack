@@ -56,25 +56,33 @@ export function configureProjectFiles(
       'base/.gitignore.ejs',
       'base/prettier.config.js.ejs',
       'packages/expo-router/metro.config.js.ejs',
-      'packages/nativewindui/components/BackButton.tsx.ejs',
-      'packages/nativewindui/components/Button.tsx.ejs',
-      'packages/nativewindui/components/Container.tsx.ejs',
-      'packages/nativewindui/components/EditScreenInfo.tsx.ejs',
-      'packages/nativewindui/components/HeaderButton.tsx.ejs',
-      'packages/nativewindui/components/ScreenContent.tsx.ejs',
-      'packages/nativewindui/components/TabBarIcon.tsx.ejs',
-      'packages/nativewindui/components/ThemeToggle.tsx.ejs',
+      'packages/nativewindui/components/nativewindui/ThemeToggle.tsx.ejs',
+      'packages/nativewindui/components/nativewindui/Icon/index.ts.ejs',
+      'packages/nativewindui/components/nativewindui/Icon/Icon.tsx.ejs',
+      'packages/nativewindui/components/nativewindui/Icon/Icon.ios.tsx.ejs',
+      'packages/nativewindui/components/nativewindui/Icon/types.ts.ejs',
       'packages/nativewindui/lib/useColorScheme.tsx.ejs',
-      'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
       'packages/nativewindui/lib/cn.ts.ejs',
       'packages/nativewindui/theme/colors.ts.ejs',
       'packages/nativewindui/theme/index.ts.ejs',
+      'packages/nativewindui/theme/with-opacity.ts.ejs',
       'packages/nativewindui/tailwind.config.js.ejs',
       'packages/nativewindui/nativewind-env.d.ts.ejs',
       'packages/nativewindui/global.css.ejs'
     ];
 
-    const nativeWindUIStackFiles = [
+    // Add navigation-specific components only when needed
+    if (navigationPackage?.options?.type === 'tabs' || navigationPackage?.options?.type === 'drawer + tabs') {
+      nativewindUIFiles.push(
+        'packages/nativewindui/components/Container.tsx.ejs',
+        'packages/nativewindui/components/EditScreenInfo.tsx.ejs',
+        'packages/nativewindui/components/HeaderButton.tsx.ejs',
+        'packages/nativewindui/components/ScreenContent.tsx.ejs',
+        'packages/nativewindui/components/TabBarIcon.tsx.ejs'
+      );
+    }
+
+    const nativewindUIStackFiles = [
       'packages/nativewindui/stack/app/_layout.tsx.ejs',
       'packages/nativewindui/stack/app/index.tsx.ejs',
       'packages/nativewindui/stack/app/modal.tsx.ejs',
@@ -105,7 +113,7 @@ export function configureProjectFiles(
     ];
 
     if (navigationPackage?.options?.type === 'stack') {
-      nativewindUIFiles = [...nativewindUIFiles, ...nativeWindUIStackFiles];
+      nativewindUIFiles = [...nativewindUIFiles, ...nativewindUIStackFiles];
     } else if (navigationPackage?.options?.type === 'tabs') {
       nativewindUIFiles = [...nativewindUIFiles, ...nativewindUITabsFiles];
     } else if (navigationPackage?.options?.type === 'drawer + tabs') {
@@ -124,7 +132,7 @@ export function configureProjectFiles(
         'packages/nativewind/components/ScreenContent.tsx.ejs',
         'packages/nativewind/components/EditScreenInfo.tsx.ejs',
         'packages/nativewind/tailwind.config.js.ejs',
-        'packages/nativewind/app-env.d.ts',
+        'packages/nativewind/nativewind-env.d.ts',
         'packages/nativewind/metro.config.js',
         'packages/nativewind/global.css'
       ];
@@ -401,7 +409,7 @@ ${JSON.stringify(cesConfig, null, 2)}`
     packageManager: cliResults.flags.packageManager,
     packageManagerVersion,
     internalization: internalizationPackage?.name as Internalization,
-    nativeWindUIComponents: stylingPackage?.options?.selectedComponents,
+    nativewindUIComponents: stylingPackage?.options?.selectedComponents,
     eas: cliResults.flags.eas,
     importAlias: cliResults.flags.importAlias,
     noGit: cliResults.flags.noGit,

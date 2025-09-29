@@ -22,7 +22,7 @@ export async function storeConfigAnalytics({
   cesVersion,
   authType,
   internalization,
-  nativeWindUIComponents = [],
+  nativewindUIComponents = [],
   navigationLibrary,
   navigationType,
   packageManager,
@@ -48,7 +48,7 @@ export async function storeConfigAnalytics({
   packageManager: PackageManager;
   packageManagerVersion: string;
   internalization?: Internalization;
-  nativeWindUIComponents?: SelectedComponents[];
+  nativewindUIComponents?: SelectedComponents[];
   os: string;
   osPlatform: string;
   osArch: string;
@@ -83,7 +83,7 @@ export async function storeConfigAnalytics({
             packageManager,
             packageManagerVersion ?? '',
             internalization ?? '',
-            nativeWindUIComponents?.join(',') ?? '',
+            nativewindUIComponents?.join(',') ?? '',
             authType ?? '',
             eas ? 'true' : 'false',
             importAlias ? 'true' : 'false',

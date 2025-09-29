@@ -2,23 +2,23 @@ import { Link, Stack } from 'expo-router';
 <% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) {%>
   import { Text } from 'react-native';
 
-  import { Container } from '~/components/Container';
+  import { Container } from '@/components/Container';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { createStyleSheet, useStyles } from 'react-native-unistyles'
   import { Text } from 'react-native';
 
-  import { Container } from '~/components/Container';
+  import { Container } from '@/components/Container';
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   import { StyleSheet, Text } from 'react-native';
 
-  import { Container } from '~/components/Container';
+  import { Container } from '@/components/Container';
 <% } else if (props.stylingPackage?.name === "tamagui") { %>
   import { YStack } from "tamagui";
 	import { Container, Main, Subtitle, Title } from "../tamagui.config";
 <% } else if (props.stylingPackage?.name === "restyle") { %>
   import { Box, Text, makeStyles } from 'theme';
 
-  import { Container } from '~/components/Container';
+  import { Container } from '@/components/Container';
 <% } %>
 
 export default function NotFoundScreen() {
