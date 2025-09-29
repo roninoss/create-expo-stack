@@ -125,7 +125,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
           cancel('Cancelled... 👋');
           return process.exit(0);
         }
-
+        // random comment for the versioning change
         cliResults.flags.packageManager = packageManagerSelect;
       }
     }
