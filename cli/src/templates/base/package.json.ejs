@@ -164,11 +164,8 @@
     <% } %>
     "typescript": "~5.9.2"
   },
-  "eslintConfig": {
-    "extends": "universe/native"
-  },
   <% if (props.navigationPackage?.name !== "expo-router") { %>
-    "main": "node_modules/expo/AppEntry.js",
+    "main": "expo-router/entry",
   <% } %>
   <% if  (props.packageManager === "yarn"){ %>
     "packageManager": "yarn@4.9.4",

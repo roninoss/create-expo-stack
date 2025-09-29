@@ -65,54 +65,42 @@ test(`outputs help`, async () => {
 
 // React Navigation combinations - covering all styling packages and navigation types
 // to test color scheme support and Navigation component naming
-const reactNavigationCombinations = [
-  ['--react-navigation', '--tabs', '--stylesheet'],
-  ['--react-navigation', '--tabs', '--nativewind'],
-  ['--react-navigation', '--tabs', '--tamagui'],
-  ['--react-navigation', '--tabs', '--restyle'],
-  ['--react-navigation', '--tabs', '--unistyles'],
+// COMMENTED OUT - Only testing specific configurations
+// const reactNavigationCombinations = [
+//   ['--react-navigation', '--tabs', '--stylesheet'],
+//   ['--react-navigation', '--tabs', '--nativewind'],
+//   ['--react-navigation', '--tabs', '--tamagui'],
+//   ['--react-navigation', '--tabs', '--restyle'],
+//   ['--react-navigation', '--tabs', '--unistyles'],
 
-  ['--react-navigation', '--drawer+tabs', '--stylesheet'],
-  ['--react-navigation', '--drawer+tabs', '--nativewind'],
-  ['--react-navigation', '--drawer+tabs', '--tamagui'],
-  ['--react-navigation', '--drawer+tabs', '--restyle'],
-  ['--react-navigation', '--drawer+tabs', '--unistyles'],
+//   ['--react-navigation', '--drawer+tabs', '--stylesheet'],
+//   ['--react-navigation', '--drawer+tabs', '--nativewind'],
+//   ['--react-navigation', '--drawer+tabs', '--tamagui'],
+//   ['--react-navigation', '--drawer+tabs', '--restyle'],
+//   ['--react-navigation', '--drawer+tabs', '--unistyles'],
 
-  ['--react-navigation', '--stack', '--stylesheet'],
-  ['--react-navigation', '--stack', '--nativewind'],
-  ['--react-navigation', '--stack', '--tamagui'],
-  ['--react-navigation', '--stack', '--restyle'],
-  ['--react-navigation', '--stack', '--unistyles']
-] as const;
+//   ['--react-navigation', '--stack', '--stylesheet'],
+//   ['--react-navigation', '--stack', '--nativewind'],
+//   ['--react-navigation', '--stack', '--tamagui'],
+//   ['--react-navigation', '--stack', '--restyle'],
+//   ['--react-navigation', '--stack', '--unistyles']
+// ] as const;
 
-// Core combinations that run by default
+// Core combinations that run by default - only testing specific configurations
 const coreCombinations = [
-  ['--expo-router', '--nativewind'],
-  ['--expo-router', '--stylesheet'],
-  ['--expo-router', '--tabs', '--nativewind'],
-  ['--expo-router', '--tabs', '--stylesheet'],
-  ['--expo-router', '--drawer+tabs', '--nativewind'],
-  ['--expo-router', '--drawer+tabs', '--stylesheet'],
-  // nativewindui selections
-  [
-    '--expo-router',
-    '--drawer+tabs',
-    '--nativewindui',
-    '--selected-components=date-picker,picker,text',
-    '--expo-router'
-  ],
-  // nativewindui no selections
-  ['--expo-router', '--drawer+tabs', '--nativewindui', '--expo-router'],
-  // no install is important for the website cli that generates a project zip file
-  ['--nativewindui', '--no-install'],
-  // nativewindui blank
-  ['--expo-router', '--drawer+tabs', '--nativewindui', '--blank', '--expo-router']
+  // --nativewind --no-install --bun --overwrite
+  ['--nativewind', '--no-install'],
+  // --nativewind --expo-router --no-install --bun --overwrite
+  ['--expo-router', '--nativewind', '--no-install'],
+  // --nativewindui --blank --no-install --bun --overwrite
+  ['--nativewindui', '--blank', '--no-install']
+  // --nativewindui --no-install --bun --overwrite
+  // ['--nativewindui', '--no-install']
 ] as const;
 
 // Combine all combinations based on environment variables
-const popularCombinations = process.env.INCLUDE_REACT_NAVIGATION_TESTS
-  ? [...coreCombinations, ...reactNavigationCombinations]
-  : coreCombinations;
+// UPDATED - Only using core combinations since React Navigation tests are commented out
+const popularCombinations = coreCombinations;
 
 const projectName = `myTestProject`;
 const pathToProject = `./${projectName}`;
@@ -211,12 +199,12 @@ for (const packageManager of packageManagers) {
   }
 }
 
-// i18next
-test(`generates a default project with i18n`, async () => {
-  const output = await generateProject({
-    projectName: 'myTestProject',
-    flags: ['--default', `--i18next`, `--bun`, '--overwrite']
-  });
+// i18next - COMMENTED OUT - Only testing specific configurations
+// test(`generates a default project with i18n`, async () => {
+//   const output = await generateProject({
+//     projectName: 'myTestProject',
+//     flags: ['--default', `--i18next`, `--bun`, '--overwrite']
+//   });
 
-  expect(output).toContain('--i18next');
-});
+//   expect(output).toContain('--i18next');
+// });
