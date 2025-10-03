@@ -40,6 +40,8 @@
       "tailwind-merge": "^2.2.1",
       "react-native-uitextview": "^1.1.4",
       "rn-icon-mapper": "^0.0.1",
+      "expo-haptics": "~14.1.4",
+      "expo-symbols": "~0.4.5",
       <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
         "@react-native-community/datetimepicker": "8.4.1",
       <% } %>
@@ -83,13 +85,13 @@
 
     <% if (props.navigationPackage?.type === "navigation") { %>
       "@react-navigation/native": "^7.1.6",
-      "react-native-gesture-handler": "~2.24.0",
-      "react-native-screens": "~4.11.1",
+      "react-native-gesture-handler": "~2.28.0",
+      "react-native-screens": "~4.16.0",
     <% } %>
 
     <% if (props.navigationPackage?.name === "react-navigation") { %>
-      "@react-navigation/stack": "^7.0.4",
-      "@expo/vector-icons": "^14.0.0",
+      "@react-navigation/stack": "^7.4.8",
+      "@expo/vector-icons": "^15.0.2",
     <% } %>
 
     <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
@@ -97,7 +99,7 @@
     <% } %>
 
     <% if ((props.navigationPackage?.name === "react-navigation") && (props.stylingPackage?.name === "tamagui")) { %>
-      "expo-splash-screen": "~0.27.4",
+      "expo-splash-screen": "~31.0.9",
     <% } %>
 
     <% if (props.navigationPackage?.options.type === "tabs" && props.navigationPackage?.name === "react-navigation") { %>
@@ -113,14 +115,14 @@
     <% } %>
 
     <% if (props.navigationPackage?.name === "expo-router") { %>
-      "expo-linking": "~7.1.7",
-      "expo-haptics": "~14.1.4",
-      "expo-router": "~5.1.7",
-      "expo-constants": "~17.1.7",
-      "expo-symbols": "~0.4.5",
-      "expo-system-ui": "~5.0.11",
-      "react-dom": "19.0.0",
-      "react-native-web": "^0.20.0",
+      "@expo/vector-icons": "^15.0.2",
+      "expo-linking": "~8.0.8",
+      "expo-router": "~6.0.2",
+      "expo-constants": "~18.0.8",
+      "expo-system-ui": "~6.0.7",
+      "expo-web-browser": "~15.0.7",
+      "react-dom": "19.1.0",
+      "react-native-web": "^0.21.0",
     <% } %>
 
 	<% if (props.authenticationPackage?.name === "supabase") { %>
@@ -138,19 +140,21 @@
     "expo-localization": "~14.8.3",
   <% } %>
   <% if (props.flags?.eas || props.stylingPackage?.name === "nativewindui") { %>
-    "expo-dev-client": "~5.2.4",
+    "expo-dev-client": "~6.0.12",
   <% } %>
 
-    "react-native-reanimated": "~3.17.4",
-    "react-native-safe-area-context": "5.4.0",
-    "expo": "~53.0.6",
-    "expo-status-bar": "~2.2.3",
-    "react": "19.0.0",
-    "react-native": "0.79.5"
+    "react-native-reanimated": "~4.1.1",
+    "react-native-worklets": "0.5.1",
+
+    "react-native-safe-area-context": "~5.6.0",
+    "expo": "~54.0.4",
+    "expo-status-bar": "~3.0.8",
+    "react": "19.1.0",
+    "react-native": "0.81.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@types/react": "~19.0.10",
+    "@types/react": "~19.1.10",
     "eslint": "^9.25.1",
     "eslint-config-expo": "~10.0.0",
     "eslint-config-prettier": "^10.1.2",
@@ -165,7 +169,7 @@
     "typescript": "~5.9.2"
   },
   <% if (props.navigationPackage?.name !== "expo-router") { %>
-    "main": "expo-router/entry",
+    "main": "node_modules/expo/AppEntry.js",
   <% } %>
   <% if  (props.packageManager === "yarn"){ %>
     "packageManager": "yarn@4.9.4",
