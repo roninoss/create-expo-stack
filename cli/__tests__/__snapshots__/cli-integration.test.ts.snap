@@ -1324,6 +1324,7 @@ exports[`generates a project with --nativewind --no-install --bun --overwrite: -
     "react-native": "",
     "react-native-reanimated": "",
     "react-native-safe-area-context": "",
+    "react-native-worklets": "",
   },
   "devDependencies": {
     "@babel/core": "",
@@ -1336,7 +1337,7 @@ exports[`generates a project with --nativewind --no-install --bun --overwrite: -
     "tailwindcss": "",
     "typescript": "",
   },
-  "main": "expo-router/entry",
+  "main": "node_modules/expo/AppEntry.js",
   "name": "myTestProject",
   "private": true,
   "scripts": {
@@ -1416,6 +1417,7 @@ exports[`generates a project with --expo-router --nativewind --no-install --bun 
     "react-native": "",
     "react-native-reanimated": "",
     "react-native-safe-area-context": "",
+    "react-native-worklets": "",
   },
   "devDependencies": {
     "@babel/core": "",
@@ -1428,7 +1430,7 @@ exports[`generates a project with --expo-router --nativewind --no-install --bun 
     "tailwindcss": "",
     "typescript": "",
   },
-  "main": "expo-router/entry",
+  "main": "node_modules/expo/AppEntry.js",
   "name": "myTestProject",
   "private": true,
   "scripts": {
@@ -1522,6 +1524,7 @@ exports[`generates a project with --nativewindui --blank --no-install --bun --ov
     "react-native": "",
     "react-native-reanimated": "",
     "react-native-safe-area-context": "",
+    "react-native-worklets": "",
   },
   "devDependencies": {
     "@babel/core": "",
@@ -1534,7 +1537,7 @@ exports[`generates a project with --nativewindui --blank --no-install --bun --ov
     "tailwindcss": "",
     "typescript": "",
   },
-  "main": "expo-router/entry",
+  "main": "node_modules/expo/AppEntry.js",
   "name": "myTestProject",
   "private": true,
   "scripts": {

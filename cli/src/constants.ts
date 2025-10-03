@@ -25,6 +25,7 @@ export const nativewindUIOptions: SelectedComponents[] = [
   'activity-indicator',
   'activity-view',
   'avatar',
+  'button',
   'date-picker',
   'picker',
   'progress-indicator',

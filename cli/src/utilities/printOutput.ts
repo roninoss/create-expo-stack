@@ -51,7 +51,7 @@ export async function printOutput(
     s.start(`Installing dependencies using ${packageManager}...`);
     // attempt to improve npm install speeds by disabling audit and progress
 
-    const additionalFlags = isNpm ? '--silent --no-audit --progress=false --legacy-peer-deps' : '--silent';
+    const additionalFlags = isNpm ? '--silent --no-audit --progress=false --legacy-peer-deps' : '';
 
     if (packageManager === 'yarn') {
       // create empty yarn.lock to stop yarn from complaining
@@ -97,7 +97,7 @@ export async function printOutput(
       toolbox,
       command: `cd ${projectName} && ${runCommand} format`,
       errorMessage: 'Error formatting code',
-      stdio: undefined
+      stdio: ONLY_ERRORS
     });
 
     s.stop('Project files formatted!');

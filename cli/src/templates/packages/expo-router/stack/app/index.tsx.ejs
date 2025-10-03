@@ -1,5 +1,11 @@
 import { Stack, Link } from 'expo-router';
 
+<% if (props.stylingPackage?.name === "nativewind") { %>
+import { View } from 'react-native';
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+import { StyleSheet, View } from 'react-native';
+<% } %>
+
 <% if (props.stylingPackage?.name === "unistyles") { %>
 import { StyleSheet } from 'react-native-unistyles';
 <% } %>
@@ -14,7 +20,11 @@ import { ScreenContent } from '@/components/ScreenContent';
 
 export default function Home() {
   return (
-    <>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %>
+      <View className={styles.container}>
+    <% } else { %>
+      <>
+    <% } %>
       <Stack.Screen options={{ title: 'Home' }} />
       <Container>
         <ScreenContent path="app/index.tsx" title="Home">
@@ -30,14 +40,33 @@ export default function Home() {
           <% } %>
         </Link>
       </Container>
-    </>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %>
+      </View>
+    <% } else { %>
+      </>
+    <% } %>
   );
 }
 
-<% if (props.stylingPackage?.name === "unistyles") { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
+const styles = {
+  container: "flex flex-1 bg-white",
+}
+<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+}
+<% } else if (props.stylingPackage?.name === "unistyles") { %>
 const styles = StyleSheet.create((theme) => ({
-    button: {
-        marginHorizontal: theme.margins.xl,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  button: {
+      marginHorizontal: theme.margins.xl,
+  },
 }));
 <% } %>
