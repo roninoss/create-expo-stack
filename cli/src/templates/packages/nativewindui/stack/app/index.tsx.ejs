@@ -3,7 +3,9 @@ import { FlashList } from '@shopify/flash-list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
 import {
+  <% if (props.stylingPackage?.options.selectedComponents.includes('activity-view')) { %>
   Alert,
+  <% } %>
   <% if ( 
   props.stylingPackage?.options.selectedComponents.includes('action-sheet') || 
   props.stylingPackage?.options.selectedComponents.includes('activity-view') 
@@ -24,7 +26,11 @@ import { SearchBarProps } from 'react-native-screens';
 import { useActionSheet } from '@expo/react-native-action-sheet';
 <% } %>
 import { useNavigation } from '@react-navigation/native';
+<% if (props.stylingPackage?.options.selectedComponents.includes('button')) { %>
 import * as Haptics from 'expo-haptics';
+<% } else { %>
+// import * as Haptics from 'expo-haptics';
+<% } %>
 
 <% if (props.stylingPackage?.options.selectedComponents.includes('activity-indicator')) { %>
 import { ActivityIndicator } from '@/components/nativewindui/ActivityIndicator';
@@ -32,7 +38,11 @@ import { ActivityIndicator } from '@/components/nativewindui/ActivityIndicator';
 <% if (props.stylingPackage?.options.selectedComponents.includes('avatar')) { %>
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/nativewindui/Avatar';
 <% } %>
+<% if (props.stylingPackage?.options.selectedComponents.includes('button')) { %>
 import { Button } from '@/components/nativewindui/Button';
+<% } else { %>
+// import { Button } from '@/components/nativewindui/Button';
+<% } %>
 <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
 import { DatePicker } from '@/components/nativewindui/DatePicker';
 <% } %>
@@ -46,7 +56,11 @@ import { ProgressIndicator } from '@/components/nativewindui/ProgressIndicator';
 <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
 import { Slider } from '@/components/nativewindui/Slider';
 <% } %>
+<% if (props.stylingPackage?.options.selectedComponents.includes('text')) { %>
 import { Text } from '@/components/nativewindui/Text';
+<% } else { %>
+// import { Text } from '@/components/nativewindui/Text';
+<% } %>
 <% if (props.stylingPackage?.options.selectedComponents.includes('toggle')) { %>
 import { Toggle } from '@/components/nativewindui/Toggle';
 <% } %>
@@ -103,6 +117,7 @@ function useHeaderSearchBar(props: SearchBarProps = {}) {
         ...props,
       } satisfies SearchBarProps,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigation, colorScheme]);
   
   return search;
@@ -199,7 +214,7 @@ const COMPONENTS: ComponentItem[] = [
   <% } %>
   // {
   //   name: 'Button',
-  //   component: function ProgressIndicatorExample() {
+  //   component: function ButtonExample() {
   //     function onPress() {
   //       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   //     }
