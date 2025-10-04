@@ -12,66 +12,32 @@ import { Link, Stack } from 'expo-router';
   import { StyleSheet, Text } from 'react-native';
 
   import { Container } from '~/components/Container';
-<% } else if (props.stylingPackage?.name === "tamagui") { %>
-  import { YStack } from "tamagui";
-	import { Container, Main, Subtitle, Title } from "../tamagui.config";
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { Box, Text, makeStyles } from 'theme';
-
-  import { Container } from '~/components/Container';
 <% } %>
 
 export default function NotFoundScreen() {
-<% if (props.stylingPackage?.name === "restyle") { %>
-  const styles = useStyles();
-<% } %>
 
   return (
-      <% if (props.stylingPackage?.name === "nativewind") {%>
-        <>
-          <Stack.Screen options={{ title: "Oops!" }} />
-          <Container>
-            <Text className={styles.title}>{"This screen doesn't exist."}</Text>
-            <Link href="/" className={styles.link}>
-              <Text className={styles.linkText}>Go to home screen!</Text>
-            </Link>
-          </Container>
-        </>
-      <% } else if (props.stylingPackage?.name === "tamagui") {%>
+    <% if (props.stylingPackage?.name === "nativewind") {%>
+      <>
+        <Stack.Screen options={{ title: "Oops!" }} />
         <Container>
-          <Stack.Screen options={{ title: "Oops!" }} />
-          <Main>
-            <YStack>
-              <Title>{"This screen doesn't exist."}</Title>
-              <Link href="/">
-                <Subtitle>Go to home screen!</Subtitle>
-              </Link>
-            </YStack>
-          </Main>
+          <Text className={styles.title}>{"This screen doesn't exist."}</Text>
+          <Link href="/" className={styles.link}>
+            <Text className={styles.linkText}>Go to home screen!</Text>
+          </Link>
         </Container>
-      <% } else if (props.stylingPackage?.name === "restyle") {%>
-        <>
-          <Stack.Screen options={{ title: 'Oops!' }} />
-          <Container>
-            <Text variant="title">{"This screen doesn't exist."}</Text>
-            <Link href="/" style={styles.link}>
-              <Text variant="body" color="blue">
-                Go to home screen!
-              </Text>
-            </Link>
-          </Container>
-        </>
-      <% } else { %>
-        <>
-          <Stack.Screen options={{ title: "Oops!" }} />
-          <Container>
-            <Text style={styles.title}>{"This screen doesn't exist."}</Text>
-            <Link href="/" style={styles.link}>
-              <Text style={styles.linkText}>Go to home screen!</Text>
-            </Link>
-          </Container>
-        </>
-      <% } %>
+      </>
+    <% } else { %>
+      <>
+        <Stack.Screen options={{ title: "Oops!" }} />
+        <Container>
+          <Text style={styles.title}>{"This screen doesn't exist."}</Text>
+          <Link href="/" style={styles.link}>
+            <Text style={styles.linkText}>Go to home screen!</Text>
+          </Link>
+        </Container>
+      </>
+    <% } %>
   );
 }
 
@@ -112,11 +78,4 @@ export default function NotFoundScreen() {
       color: '#2e78b7',
     },
   });
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  const useStyles = makeStyles((theme) => ({
-    link: {
-      marginTop: theme.spacing.m_16,
-      paddingVertical: theme.spacing.m_16,
-    },
-  }));
 <% } %>

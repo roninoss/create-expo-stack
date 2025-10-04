@@ -24,8 +24,6 @@ export const availablePackages = [
   'reactnavigation',
   'stylesheet',
   'supabase',
-  'tamagui',
-  'restyle',
   'unistyles',
   'i18next',
   'zustand',
@@ -38,7 +36,7 @@ export type NavigationSelect = 'react-navigation' | 'expo-router' | undefined;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer + tabs' | undefined;
 
-export type StylingSelect = 'nativewind' | 'restyle' | 'stylesheet' | 'tamagui' | 'unistyles' | 'nativewindui';
+export type StylingSelect = 'nativewind' | 'stylesheet' | 'unistyles' | 'nativewindui';
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 
