@@ -2,25 +2,15 @@ module.exports = function(api) {
   api.cache(true);
   let plugins = [];
 
-  <% if (props.stylingPackage?.name === "tamagui") { %>
+  <% if (props.stylingPackage?.name === "unistyles") { %>
     plugins.push([
-      '@tamagui/babel-plugin',
+      'react-native-unistyles/plugin',
       {
-        components: ['tamagui'],
-        config: './tamagui.config.ts',
-      },
+        autoProcessRoot: 'app',
+        autoProcessImports: ['~/components']
+      }
     ]);
   <% } %>
-
-    <% if (props.stylingPackage?.name === "unistyles") { %>
-        plugins.push([
-            'react-native-unistyles/plugin',
-            {
-                autoProcessRoot: 'app',
-                autoProcessImports: ['~/components']
-            }
-        ]);
-    <% } %>
 
   plugins.push('react-native-worklets/plugin');
 

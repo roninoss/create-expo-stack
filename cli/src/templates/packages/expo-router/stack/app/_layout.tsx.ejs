@@ -8,18 +8,6 @@
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import '../translation';
 <% } %>
-
-<% if (props.stylingPackage?.name === "tamagui") { %>
-	import { useFonts } from 'expo-font';
-  import { SplashScreen, Stack } from 'expo-router';
-  import { useEffect } from 'react';
-  import { TamaguiProvider } from 'tamagui';
-
-  import config from '../tamagui.config';
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { ThemeProvider } from '@shopify/restyle';
-  import { theme } from 'theme';
-<% } %>
 	import { Stack } from "expo-router";
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
@@ -32,46 +20,22 @@ export default function Layout() {
   <% if (props.stylingPackage?.name === "unistyles") { %>
     const { theme } = useUnistyles();
   <% } %>
-  <% if (props.stylingPackage?.name === "tamagui") { %>
-  	const [loaded] = useFonts({
-			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-			InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
-		});
-
-		useEffect(() => {
-			if (loaded) {
-				SplashScreen.hideAsync();
-			}
-		}, [loaded]);
-
-		if (!loaded) return null;
-  <% } %>
 
 	return (
-		<% if (props.stylingPackage?.name === "tamagui") { %>
-			<TamaguiProvider config={config}>
-		<% } else if (props.stylingPackage?.name === "restyle") { %>
-			<ThemeProvider theme={theme}>
-		<% } %>
-        <% if (props.stylingPackage?.name === "unistyles") { %>
-            <Stack
-                screenOptions={{
-                    headerStyle: {
-                        backgroundColor: theme.colors.background,
-                    },
-                    headerTitleStyle: {
-                        color: theme.colors.typography,
-                    },
-                    headerTintColor: theme.colors.typography
-                }}
-            />
-        <% } else { %>
-            <Stack />
-        <% } %>
-		<% if (props.stylingPackage?.name === "tamagui") { %>
-			</TamaguiProvider>
-		<% } else if (props.stylingPackage?.name === "restyle") { %>
-			</ThemeProvider >
-		<% } %>
+    <% if (props.stylingPackage?.name === "unistyles") { %>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+          },
+          headerTitleStyle: {
+            color: theme.colors.typography,
+          },
+          headerTintColor: theme.colors.typography
+        }}
+      />
+    <% } else { %>
+      <Stack />
+    <% } %>
 	);
 }

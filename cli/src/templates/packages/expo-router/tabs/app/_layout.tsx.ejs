@@ -9,23 +9,7 @@
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import '../translation';
 <% } %>
-
-<% if (props.stylingPackage?.name === "tamagui") { %>
-	import React, { useEffect } from "react";
-	import { TamaguiProvider } from 'tamagui'
-	import { SplashScreen, Stack } from "expo-router";
-	import { useFonts } from "expo-font";
-
-	import config from '../tamagui.config'
-
-	SplashScreen.preventAutoHideAsync();
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { ThemeProvider } from '@shopify/restyle';
-  import { Stack } from 'expo-router';
-  import { theme } from 'theme';
-<% } else { %>
 	import { Stack } from "expo-router";
-<% } %>
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
   import { vexo } from 'vexo-analytics';
@@ -39,30 +23,11 @@ export const unstable_settings = {
 };
 
 export default function RootLayout() {
-  	<% if (props.stylingPackage?.name === "tamagui") { %>
-    	const [loaded] = useFonts({
-      		Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-      		InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf")
-    	});
+  <% if (props.stylingPackage?.name === "unistyles") { %>
+    const { theme } = useUnistyles();
+  <% } %>
 
-    	useEffect(() => {
-      		if (loaded) {
-        		SplashScreen.hideAsync();
-      		}
-    	}, [loaded]);
-
-    	if (!loaded) return null;
-  	<% } %>
-    <% if (props.stylingPackage?.name === "unistyles") { %>
-        const { theme } = useUnistyles();
-    <% } %>
-
-  	return (
-    	<% if (props.stylingPackage?.name === "tamagui") { %>
-    		<TamaguiProvider config={config}>
-    	<% } else if (props.stylingPackage?.name === "restyle") { %>
-    		<ThemeProvider theme={theme}>
-    	<% } %>
+  return (
         <% if (props.stylingPackage?.name === "unistyles") { %>
             <Stack
                 screenOptions={{
@@ -78,13 +43,8 @@ export default function RootLayout() {
         <% } else  { %>
             <Stack>
         <% } %>
-			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-			<Stack.Screen name="modal" options={{ presentation: "modal" }} />
-		</Stack>
-		<% if (props.stylingPackage?.name === "tamagui") { %>
-			</TamaguiProvider>
-		<% } else if (props.stylingPackage?.name === "restyle") { %>
-			</ThemeProvider>
-		<% } %>
-  	);
+		<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+		<Stack.Screen name="modal" options={{ presentation: "modal" }} />
+	</Stack>
+  );
 }

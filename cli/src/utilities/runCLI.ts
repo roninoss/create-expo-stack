@@ -263,16 +263,12 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         ? [
             { value: 'nativewindui', label: 'NativewindUI' },
             { value: 'nativewind', label: 'Nativewind' },
-            { value: 'restyle', label: 'Restyle' },
             { value: 'stylesheet', label: 'StyleSheet' },
-            { value: 'tamagui', label: 'Tamagui (experimental)' },
             { value: 'unistyles', label: 'Unistyles' }
           ]
         : [
             { value: 'nativewind', label: 'Nativewind' },
-            { value: 'restyle', label: 'Restyle' },
             { value: 'stylesheet', label: 'StyleSheet' },
-            { value: 'tamagui', label: 'Tamagui (experimental)' },
             { value: 'unistyles', label: 'Unistyles' }
           ],
     initialValue: navigationSelect === 'expo-router' ? 'nativewindui' : 'nativewind'

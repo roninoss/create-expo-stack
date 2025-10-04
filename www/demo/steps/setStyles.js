@@ -9,16 +9,12 @@ export async function setStyles(cliResults, navigationSelect) {
         ? [
             { value: "nativewindui", label: "NativewindUI" },
             { value: "nativewind", label: "Nativewind" },
-            { value: "restyle", label: "Restyle" },
             { value: "stylesheet", label: "StyleSheet" },
-            { value: "tamagui", label: "Tamagui (experimental)" },
             { value: "unistyles", label: "Unistyles" },
           ]
         : [
             { value: "nativewind", label: "Nativewind" },
-            { value: "restyle", label: "Restyle" },
             { value: "stylesheet", label: "StyleSheet" },
-            { value: "tamagui", label: "Tamagui (experimental)" },
             { value: "unistyles", label: "Unistyles" },
           ],
     initialValue:

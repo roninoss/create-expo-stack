@@ -35,14 +35,10 @@ export function generateProjectFiles(
 
     target = target.replace('base/', '');
 
-    if (stylingPackage?.name === 'tamagui') {
-      target = target.replace('packages/tamagui/', '');
-    } else if (stylingPackage?.name === 'unistyles') {
+    if (stylingPackage?.name === 'unistyles') {
       target = target.replace('packages/unistyles/', '');
     } else if (stylingPackage?.name === 'nativewind') {
       target = target.replace('packages/nativewind/', '');
-    } else if (stylingPackage?.name === 'restyle') {
-      target = target.replace('packages/restyle/', '');
     } else if (stylingPackage?.name === 'nativewindui') {
       target = target.replace('packages/nativewindui/', '');
     }

@@ -39,7 +39,7 @@ Support this project by <a href="https://github.com/sponsors/roninoss" target="_
 
 ## Description
 
-This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, styling with NativeWind, Restyle, StyleSheets, or Tamagui and authentication via Supabase or Firebase.
+This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, styling with NativeWind, Unistyles, or StyleSheets and authentication via Supabase or Firebase.
 
 You can also use flags such as `--noInstall`, `--noGit`, and `--default` in order to customize your project. The CLI will attempt to automatically determine your package manager of choice but you can also pass in your preferred package manager via `--npm`, `--yarn`, `--pnpm`, or `--bun`. Roadmap coming soon...
 
@@ -72,8 +72,6 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo System UI     | System UI Library   | v5      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v14     | Open links in the browser                      |
 | NativeWind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
-| Restyle            | UI Framework        | v2      | Theme-based styling library for React Native   |
-| Tamagui            | UI Framework        | v1      | Universal UI with a smart optimizing compiler  |
 | Unistyles          | UI Framework        | v3      | Superset of StyleSheet                         |
 | Safe Area Context  | Safe Area Library   | v5      | Safe area support                              |
 | React Native Web   | Web Support         | v0.20   | React Native for Web                           |
