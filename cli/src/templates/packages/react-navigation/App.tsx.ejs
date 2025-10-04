@@ -9,7 +9,7 @@ import './unistyles';
 import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { useUnistyles } from 'react-native-unistyles';
 import { useMemo } from 'react';
-<% } else if (props.stylingPackage?.name === "tamagui" || props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %>
+<% } else if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %>
 import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { useColorScheme } from 'react-native';
 import { useMemo } from 'react';
@@ -18,19 +18,6 @@ import { useMemo } from 'react';
   import './translation';
 <% } %>
 import "react-native-gesture-handler";
-<% if (props.stylingPackage?.name === "tamagui") { %>
-	import React from "react";
-	import { TamaguiProvider } from 'tamagui';
-	import * as SplashScreen from 'expo-splash-screen';
-	import { useFonts } from 'expo-font';
-
-	import config from './tamagui.config'
-
-	SplashScreen.preventAutoHideAsync();
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { ThemeProvider } from '@shopify/restyle';
-  import { theme } from 'theme';
-<% } %>
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
   import { vexo } from 'vexo-analytics';
@@ -43,34 +30,7 @@ import "react-native-gesture-handler";
 <% } %>
 
 export default function App() {
-	<% if (props.stylingPackage?.name === "tamagui") { %>
-		const [loaded] = useFonts({
-			Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
-			InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
-		});
-
-		const colorScheme = useColorScheme();
-		const theme = useMemo(() => colorScheme === 'dark' ? DarkTheme : DefaultTheme, [colorScheme]);
-
-		if (!loaded) {
-			return null;
-		}
-
-		return (
-			<TamaguiProvider config={config}>
-				<Navigation theme={theme} onReady={() => SplashScreen.hideAsync()} />
-			</TamaguiProvider>
-		);
-	<% } else if (props.stylingPackage?.name === "restyle") { %>
-		const colorScheme = useColorScheme();
-		const navigationTheme = useMemo(() => colorScheme === 'dark' ? DarkTheme : DefaultTheme, [colorScheme]);
-
-		return (
-      <ThemeProvider theme={theme}>
-        <Navigation theme={navigationTheme} />
-      </ThemeProvider>
-    );
-	<% } else if (props.stylingPackage?.name === "unistyles")  { %> 
+	<% if (props.stylingPackage?.name === "unistyles")  { %> 
     const { theme, rt } = useUnistyles();
 
     const baseTheme = rt.colorScheme === 'dark' ? DarkTheme : DefaultTheme;

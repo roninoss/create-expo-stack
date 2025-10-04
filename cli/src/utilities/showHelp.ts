@@ -49,8 +49,6 @@ export function showHelp(info, highlight, warning) {
   info('');
   highlight('   Styling Package Options');
   info('    	--nativewind      Use Nativewind for styling');
-  info('    	--tamagui         Use Tamagui for styling');
-  info('    	--restyle         Use Restyle for styling');
   info('    	--unistyles       Use Unistyles for styling');
   info('	--stylesheet      Use StyleSheet for styling');
   info('');
