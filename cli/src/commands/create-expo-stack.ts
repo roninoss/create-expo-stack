@@ -267,13 +267,6 @@ const command: GluegunCommand = {
               type: options.tabs ? 'tabs' : options['drawer+tabs'] ? 'drawer + tabs' : 'stack'
             }
           });
-        } else if (options.tamagui) {
-          cliResults = clearStylingPackages(cliResults);
-          // Add tamagui package
-          cliResults.packages.push({
-            name: 'tamagui',
-            type: 'styling'
-          });
         } else if (options.unistyles) {
           cliResults = clearStylingPackages(cliResults);
           // Add unistyles package
@@ -288,17 +281,6 @@ const command: GluegunCommand = {
             name: 'stylesheet',
             type: 'styling'
           });
-        } else if (options.restyle) {
-          try {
-            cliResults = clearStylingPackages(cliResults);
-            // Add stylesheet package
-            cliResults.packages.push({
-              name: 'restyle',
-              type: 'styling'
-            });
-          } catch (error) {
-            console.log({ error });
-          }
         }
         // if there is no style package, add stylesheet
         else if (cliResults.packages.find((p) => p.type === 'styling') === undefined) {

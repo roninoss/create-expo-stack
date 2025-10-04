@@ -69,20 +69,14 @@ test(`outputs help`, async () => {
 // const reactNavigationCombinations = [
 //   ['--react-navigation', '--tabs', '--stylesheet'],
 //   ['--react-navigation', '--tabs', '--nativewind'],
-//   ['--react-navigation', '--tabs', '--tamagui'],
-//   ['--react-navigation', '--tabs', '--restyle'],
 //   ['--react-navigation', '--tabs', '--unistyles'],
 
 //   ['--react-navigation', '--drawer+tabs', '--stylesheet'],
 //   ['--react-navigation', '--drawer+tabs', '--nativewind'],
-//   ['--react-navigation', '--drawer+tabs', '--tamagui'],
-//   ['--react-navigation', '--drawer+tabs', '--restyle'],
 //   ['--react-navigation', '--drawer+tabs', '--unistyles'],
 
 //   ['--react-navigation', '--stack', '--stylesheet'],
 //   ['--react-navigation', '--stack', '--nativewind'],
-//   ['--react-navigation', '--stack', '--tamagui'],
-//   ['--react-navigation', '--stack', '--restyle'],
 //   ['--react-navigation', '--stack', '--unistyles']
 // ] as const;
 

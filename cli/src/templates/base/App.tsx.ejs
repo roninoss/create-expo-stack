@@ -14,15 +14,6 @@ import { StatusBar } from 'expo-status-bar';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
   import './global.css';
   import 'expo-dev-client';
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { ThemeProvider } from '@shopify/restyle';
-  import { theme } from 'theme';
-<% } else if (props.stylingPackage?.name === "tamagui") { %>
-  <% if (!props.internalizationPackage) { %>
-    import { Text } from 'react-native';
-  <% } %>
-  import { TamaguiProvider } from 'tamagui';
-  import config from './tamagui.config';
 <% } %>
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
@@ -31,46 +22,16 @@ import { StatusBar } from 'expo-status-bar';
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
 <% } %>
 
-<% if (props.stylingPackage?.name === "restyle") {%>
-  export default function App() {
-    return (
-      <ThemeProvider theme={theme}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    );
-  }
-<% } else if (props.stylingPackage?.name === "tamagui") {%>
-  export default function App() {
-    return (
-      <TamaguiProvider config={config}>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } else { %>
-          <Text>Open up App.tsx to start working on your app!</Text>
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </TamaguiProvider>
-    );
-  }
-<% } else { %>
-  export default function App() {
-    return (
-      <>
-        <ScreenContent title="Home" path="App.tsx">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <StatusBar style="auto" />
-      </>
-    );
-  }
-<% } %>
+export default function App() {
+  return (
+    <>
+      <ScreenContent title="Home" path="App.tsx">
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <InternalizationExample />
+      <% } %>
+      </ScreenContent>
+      <StatusBar style="auto" />
+    </>
+  );
+}
 
