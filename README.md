@@ -69,7 +69,9 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo Status Bar    | Status Bar Library  | v3      | Status bar support                             |
 | Expo System UI     | System UI Library   | v6      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v15     | Open links in the browser                      |
-| NativeWind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
+| NativeWind         | UI Framework        | v5      | Tailwind CSS for React Native                  |
+| Tailwind CSS       | CSS Framework       | v4.1    | Utility-first CSS framework                    |
+| React Native CSS   | CSS Engine          | latest  | CSS support for React Native                   |
 | Unistyles          | UI Framework        | v3      | Superset of StyleSheet                         |
 | Safe Area Context  | Safe Area Library   | v5.6    | Safe area support                              |
 | React Native Web   | Web Support         | v0.21   | React Native for Web                           |

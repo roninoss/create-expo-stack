@@ -31,7 +31,10 @@
   },
   "dependencies": {
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
-      "nativewind": "4.1.21",
+      "nativewind": "preview",
+      "react-native-css": "latest",
+      "postcss": "^8.5.6",
+      "@tailwindcss/postcss": "^4.1.13",
     <% } %>
     <% if (props.stylingPackage?.name === "nativewindui") { %>
       "@shopify/flash-list": "2.0.2",
@@ -143,8 +146,8 @@
     "eslint-config-prettier": "^10.1.2",
     "prettier": "^3.2.5",
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
-      "tailwindcss": "^3.4.0",
-      "prettier-plugin-tailwindcss": "^0.5.11",
+      "tailwindcss": "^4.1.13",
+      "prettier-plugin-tailwindcss": "^0.6.14",
     <% } %>
     "typescript": "~5.9.2"
   },
