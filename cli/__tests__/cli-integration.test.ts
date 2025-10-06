@@ -95,16 +95,16 @@ const nativewindCombinations = [
   ['--nativewind', '--expo-router', '--no-install']
 ] as const;
 
-// const nativewinduiCombinations = [
-//   ['--nativewindui'],
-//   ['--nativewindui', '--no-install'],
-//   ['--nativewindui', '--blank'],
-//   ['--nativewindui', '--blank', '--no-install']
-// ] as const;
+const nativewinduiCombinations = [
+  ['--nativewindui'],
+  ['--nativewindui', '--no-install'],
+  ['--nativewindui', '--blank'],
+  ['--nativewindui', '--blank', '--no-install']
+] as const;
 
 // Combine all combinations based on environment variables
 // UPDATED - Only using core combinations since React Navigation tests are commented out
-const popularCombinations = [...styleSheetCombinations, ...nativewindCombinations];
+const popularCombinations = [...styleSheetCombinations, ...nativewindCombinations, ...nativewinduiCombinations];
 
 const projectName = `myTestProject`;
 const pathToProject = `./${projectName}`;
