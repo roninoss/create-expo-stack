@@ -35,7 +35,7 @@ export function showHelp(info, highlight, warning) {
   info('    -h, --help            Usage info');
   info('');
   highlight('   Navigation Package Options');
-  info('    	--exporouter      Use Expo Router for navigation');
+  // info('    	--exporouter      Use Expo Router for navigation'); // Temporarily disabled
   info('    	--reactnavigation Use React Navigation for navigation');
   info('    	--tabs            Use tabs for navigation');
   info('    	--drawer+tabs     Use drawer + tabs for navigation');

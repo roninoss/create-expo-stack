@@ -156,10 +156,10 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     message: 'What would you like to use for Navigation?',
     options: [
       { value: 'react-navigation', label: 'React Navigation' },
-      { value: 'expo-router', label: 'Expo Router' },
+      // { value: 'expo-router', label: 'Expo Router' }, // Temporarily disabled
       { value: undefined, label: 'None' }
     ],
-    initialValue: 'expo-router'
+    initialValue: undefined
   });
 
   if (isCancel(navigationSelect)) {
@@ -258,20 +258,13 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
 
   const stylingSelect = await select({
     message: 'What would you like to use for styling?',
-    options:
-      navigationSelect === 'expo-router'
-        ? [
-            { value: 'nativewindui', label: 'NativewindUI' },
-            { value: 'nativewind', label: 'Nativewind' },
-            { value: 'stylesheet', label: 'StyleSheet' },
-            { value: 'unistyles', label: 'Unistyles' }
-          ]
-        : [
-            { value: 'nativewind', label: 'Nativewind' },
-            { value: 'stylesheet', label: 'StyleSheet' },
-            { value: 'unistyles', label: 'Unistyles' }
-          ],
-    initialValue: navigationSelect === 'expo-router' ? 'nativewindui' : 'nativewind'
+    options: [
+      // Note: nativewindui temporarily disabled (was only shown when expo-router was selected)
+      { value: 'nativewind', label: 'Nativewind' },
+      { value: 'stylesheet', label: 'StyleSheet' },
+      { value: 'unistyles', label: 'Unistyles' }
+    ],
+    initialValue: 'nativewind'
   });
 
   if (isCancel(stylingSelect)) {

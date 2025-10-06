@@ -83,28 +83,28 @@ const styleSheetCombinations = [
   ['--blank'],
   ['--blank', '--no-install'],
   ['--stylesheet'],
-  ['--stylesheet', '--no-install'],
-  ['--stylesheet', '--expo-router'],
-  ['--stylesheet', '--expo-router', '--no-install']
+  ['--stylesheet', '--no-install']
+  // ['--stylesheet', '--expo-router'], // Temporarily disabled
+  // ['--stylesheet', '--expo-router', '--no-install'] // Temporarily disabled
 ] as const;
 
 const nativewindCombinations = [
   ['--nativewind'],
-  ['--nativewind', '--no-install'],
-  ['--nativewind', '--expo-router'],
-  ['--nativewind', '--expo-router', '--no-install']
+  ['--nativewind', '--no-install']
+  // ['--nativewind', '--expo-router'],
+  // ['--nativewind', '--expo-router', '--no-install']
 ] as const;
 
-const nativewinduiCombinations = [
-  ['--nativewindui'],
-  ['--nativewindui', '--no-install'],
-  ['--nativewindui', '--blank'],
-  ['--nativewindui', '--blank', '--no-install']
-] as const;
+// const nativewinduiCombinations = [
+//   ['--nativewindui'],
+//   ['--nativewindui', '--no-install'],
+//   ['--nativewindui', '--blank'],
+//   ['--nativewindui', '--blank', '--no-install']
+// ] as const;
 
 // Combine all combinations based on environment variables
 // UPDATED - Only using core combinations since React Navigation tests are commented out
-const popularCombinations = [...styleSheetCombinations, ...nativewindCombinations, ...nativewinduiCombinations];
+const popularCombinations = [...styleSheetCombinations, ...nativewindCombinations];
 
 const projectName = `myTestProject`;
 const pathToProject = `./${projectName}`;
