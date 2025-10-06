@@ -9,7 +9,6 @@ type InputFlag = `--${string}`;
 
 const cli = async (inputs: string[]) => {
   const pathToFile = `${path.join(__dirname, '../', 'bin', 'create-expo-stack.js')}`;
-
   console.log('running', `bun ${pathToFile} ${inputs.join(' ')}`);
 
   const { stdout, exitCode, success, stderr } = Bun.spawnSync(['bun', pathToFile, ...inputs]);
@@ -75,26 +74,37 @@ test(`outputs help`, async () => {
 //   ['--react-navigation', '--drawer+tabs', '--nativewind'],
 //   ['--react-navigation', '--drawer+tabs', '--unistyles'],
 
-//   ['--react-navigation', '--stack', '--stylesheet'],
-//   ['--react-navigation', '--stack', '--nativewind'],
-//   ['--react-navigation', '--stack', '--unistyles']
-// ] as const;
+// ['--react-navigation', '--stack', '--stylesheet'],
+// ['--react-navigation', '--stack', '--nativewind'],
+// ['--react-navigation', '--stack', '--unistyles']
+// ] as const ;
 
-// Core combinations that run by default - only testing specific configurations
-const coreCombinations = [
-  // --nativewind --no-install --bun --overwrite
-  ['--nativewind', '--no-install'],
-  // --nativewind --expo-router --no-install --bun --overwrite
-  ['--expo-router', '--nativewind', '--no-install'],
-  // --nativewindui --blank --no-install --bun --overwrite
-  ['--nativewindui', '--blank', '--no-install']
-  // --nativewindui --no-install --bun --overwrite
-  // ['--nativewindui', '--no-install']
+const styleSheetCombinations = [
+  ['--blank'],
+  ['--blank', '--no-install'],
+  ['--stylesheet'],
+  ['--stylesheet', '--no-install'],
+  ['--stylesheet', '--expo-router'],
+  ['--stylesheet', '--expo-router', '--no-install']
 ] as const;
+
+const nativewindCombinations = [
+  ['--nativewind'],
+  ['--nativewind', '--no-install'],
+  ['--nativewind', '--expo-router'],
+  ['--nativewind', '--expo-router', '--no-install']
+] as const;
+
+// const nativewinduiCombinations = [
+//   ['--nativewindui'],
+//   ['--nativewindui', '--no-install'],
+//   ['--nativewindui', '--blank'],
+//   ['--nativewindui', '--blank', '--no-install']
+// ] as const;
 
 // Combine all combinations based on environment variables
 // UPDATED - Only using core combinations since React Navigation tests are commented out
-const popularCombinations = coreCombinations;
+const popularCombinations = [...styleSheetCombinations, ...nativewindCombinations];
 
 const projectName = `myTestProject`;
 const pathToProject = `./${projectName}`;
@@ -123,17 +133,17 @@ for (const packageManager of packageManagers) {
         expect(output).toContain('Installing dependencies');
       }
 
-      const pkgjson = await import(path.resolve(pathToProject, 'package.json'));
+      const pkgjson = await Bun.file(`${pathToProject}/package.json`).json();
 
       const pkgJsonWithoutVersions = {
-        ...pkgjson.default,
-        dependencies: Object.keys(pkgjson.default.dependencies).reduce((acc, key) => {
+        ...pkgjson,
+        dependencies: Object.keys(pkgjson.dependencies).reduce((acc, key) => {
           return {
             ...acc,
             [key]: ''
           };
         }, {}),
-        devDependencies: Object.keys(pkgjson.default.devDependencies).reduce((acc, key) => {
+        devDependencies: Object.keys(pkgjson.devDependencies).reduce((acc, key) => {
           return {
             ...acc,
             [key]: ''
