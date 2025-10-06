@@ -1,5 +1,24 @@
 # rn-new
 
+## 2.20.0
+
+### Minor Changes
+
+- 0e9d284: update nativewindui templates to support sdk 54
+- 13cc470: remove restyle and tamagui
+- f093546: add expo sdk 54 support for nativewind v4.1.21, nativewindui, and blank stack templates
+
+### Patch Changes
+
+- 07f6ace: add expo router support for stack templates using expo sdk 54
+- c149667: update test snapshots after removing tamagui and restyle
+- Updated dependencies [07f6ace]
+- Updated dependencies [c149667]
+- Updated dependencies [0e9d284]
+- Updated dependencies [13cc470]
+- Updated dependencies [f093546]
+  - create-expo-stack@2.20.0
+
 ## 2.19.1
 
 ### Patch Changes
