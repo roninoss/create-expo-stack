@@ -84,7 +84,6 @@ export default function Screen() {
       contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
       data={data}
-      estimatedItemSize={200}
       contentContainerClassName="py-4 android:pb-12"
       extraData={searchValue}
       removeClippedSubviews={false} // used for slecting text on android
@@ -105,7 +104,6 @@ function useHeaderSearchBar(props: SearchBarProps = {}) {
     navigation.setOptions({
       headerSearchBarOptions: {
         placeholder: 'Search...',
-        barTintColor: colorScheme === 'dark' ? COLORS.black : COLORS.white,
         textColor: colors.foreground,
         tintColor: colors.primary,
         headerIconColor: colors.foreground,
@@ -317,8 +315,9 @@ const COMPONENTS: ComponentItem[] = [
     name: 'Progress Indicator',
     component: function ProgressIndicatorExample() {
       const [progress, setProgress] = React.useState(13);
-      let id: ReturnType<typeof setInterval> | null = null;
+
        React.useEffect(() => {
+        let id: ReturnType<typeof setInterval> | null = null;
         if (!id) {
           id = setInterval(() => {
             setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
@@ -478,7 +477,7 @@ const COMPONENTS: ComponentItem[] = [
       const [switchValue, setSwitchValue] = React.useState(true);
       return (
         <View className='items-center'>
-          <Toggle value={switchValue} onValueChange={setSwitchValue} />
+          <Toggle value={switchValue} onValueChange={setSwitchValue} className='mx-auto' />
         </View>
       );
     }
