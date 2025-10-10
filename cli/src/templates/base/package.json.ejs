@@ -157,5 +157,10 @@
   <% if  (props.packageManager === "yarn"){ %>
     "packageManager": "yarn@4.9.4",
   <% } %>
+  <% if (props.stylingPackage?.name === "nativewind") { %>
+    "resolutions": {
+      "lightningcss": "1.30.1"
+    },
+  <% } %>
   "private": true
 }

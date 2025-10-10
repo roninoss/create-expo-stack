@@ -128,7 +128,6 @@ export function configureProjectFiles(
     // modify base files with nativewind specifications
     if (stylingPackage?.name === 'nativewind') {
       const nativewindFiles = [
-        'packages/nativewind/components/Container.tsx.ejs',
         'packages/nativewind/components/ScreenContent.tsx.ejs',
         'packages/nativewind/components/EditScreenInfo.tsx.ejs',
         'packages/nativewind/nativewind-env.d.ts',

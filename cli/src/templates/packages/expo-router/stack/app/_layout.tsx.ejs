@@ -34,6 +34,11 @@ export default function Layout() {
           headerTintColor: theme.colors.typography
         }}
       />
+    <% } else if (props.stylingPackage?.name === "nativewind") { %>
+      <Stack>
+        <Stack.Screen name="index" options={{ title: 'Home' }} />
+        <Stack.Screen name="details" options={{ title: 'Details' }} />
+      </Stack>
     <% } else { %>
       <Stack />
     <% } %>

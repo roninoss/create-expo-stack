@@ -1,10 +1,10 @@
+// Learn more https://docs.expo.io/guides/customizing-metro
 const { getDefaultConfig } = require('expo/metro-config');
 <% if (props.stylingPackage?.name === "nativewind") { %>
   const { withNativewind } = require("nativewind/metro");
 <% } %>
 
 /** @type {import('expo/metro-config').MetroConfig} */
-// eslint-disable-next-line no-undef
 const config = getDefaultConfig(__dirname);
 
 <% if (props.stylingPackage?.name === "nativewind") { %>

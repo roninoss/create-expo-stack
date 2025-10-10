@@ -1,15 +1,20 @@
-import { Stack, Link } from 'expo-router';
 <% if (props.stylingPackage?.name === "stylesheet") { %>
 import { StyleSheet, View } from 'react-native';
+import { Stack, Link } from 'expo-router';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
 import { StyleSheet } from 'react-native-unistyles';
+import { Stack, Link } from 'expo-router';
 import { View } from 'react-native';
 <% } else { %>
 import { View } from 'react-native';
+import { router } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 <% } %>
 
 import { Button } from '@/components/Button';
+<% if (props.stylingPackage?.name !== "nativewind") { %>
 import { Container } from '@/components/Container';
+<% } %>
 import { ScreenContent } from '@/components/ScreenContent';
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
@@ -17,34 +22,54 @@ import { ScreenContent } from '@/components/ScreenContent';
 <% } %>
 
 export default function Home() {
+  <% if (props.stylingPackage?.name === "nativewind") { %>
+    const insets = useSafeAreaInsets();
+  <% } %>
   return (
     <% if (props.stylingPackage?.name === "nativewind") { %>
-      <View className={styles.container}>
+      <View className="flex-1 px-4 bg-white">
+      <% if (props.internalizationPackage?.name === "i18next") { %>
+        <ScreenContent path="app/index.tsx" title="Home">
+          <InternalizationExample />
+        </ScreenContent>
+      <% } else { %>
+      <ScreenContent path="app/index.tsx" title="Home" />
+      <% } %>
+      <View className={styles.buttonWrapper} style={{ paddingBottom: insets.bottom }}>
+        <Button
+          title="Show Details"
+          onPress={() => router.push({ pathname: '/details', params: { name: 'Dan' } })} 
+        />
+      </View>
+    </View>
     <% } else { %>
       <View style={styles.container}>
-    <% } %>
-      <Stack.Screen options={{ title: 'Home' }} />
-      <Container>
-        <ScreenContent path="app/index.tsx" title="Home">
-        <% if (props.internalizationPackage?.name === "i18next") { %>
-          <InternalizationExample />
-        <% } %>
-        </ScreenContent>
-        <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
-          <% if (props.stylingPackage?.name === "unistyles") { %>
-              <Button title="Show Details" style={styles.button} />
+        <Stack.Screen options={{ title: 'Home' }} />
+        <Container>
+          <% if (props.internalizationPackage?.name === "i18next") { %>
+            <ScreenContent path="app/index.tsx" title="Home">
+              <InternalizationExample />
+            </ScreenContent>
           <% } else { %>
-              <Button title="Show Details" />
+            <ScreenContent path="app/index.tsx" title="Home" />
           <% } %>
-        </Link>
-      </Container>
-    </View>
+          <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
+            <% if (props.stylingPackage?.name === "unistyles") { %>
+                <Button title="Show Details" style={styles.button} />
+            <% } else { %>
+                <Button title="Show Details" />
+            <% } %>
+          </Link>
+        </Container>
+      </View>
+    <% } %>
   );
 }
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
 const styles = {
-  container: "flex flex-1 bg-white",
+  buttonWrapper: "w-full",
+  container: "flex flex-1 bg-white px-4",
 }
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 const styles = StyleSheet.create({

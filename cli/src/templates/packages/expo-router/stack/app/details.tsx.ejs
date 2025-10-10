@@ -3,12 +3,12 @@ import { StyleSheet, View } from 'react-native';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
-<% } else { %>
-import { View } from 'react-native';
 <% } %>
 import { Stack, useLocalSearchParams } from 'expo-router';
 
+<% if (props.stylingPackage?.name !== "nativewind") { %>
 import { Container } from '@/components/Container';
+<% } %>
 import { ScreenContent } from '@/components/ScreenContent';
 
 export default function Details() {
@@ -16,23 +16,22 @@ export default function Details() {
 
   return (
     <% if (props.stylingPackage?.name === "nativewind") { %>
-      <View className={styles.container}>
+      <>
+        <Stack.Screen options={{ title: 'Details' }} />
+        <ScreenContent path="screens/details.tsx" title={`Showing details for user ${name}`} />
+      </>
     <% } else { %>
       <View style={styles.container}>
+        <Stack.Screen options={{ title: 'Details' }} />
+        <Container>
+          <ScreenContent path="screens/details.tsx" title={`Showing details for user ${name}`} />
+        </Container>
+      </View>
     <% } %>
-      <Stack.Screen options={{ title: 'Details' }} />
-      <Container>
-        <ScreenContent path="screens/details.tsx" title={`Showing details for user ${name}`} />
-      </Container>
-    </View>
   );
 }
 
-<% if (props.stylingPackage?.name === "nativewind") { %>
-const styles = {
-  container: "flex flex-1 bg-white",
-}
-<% } else if (props.stylingPackage?.name === "stylesheet") { %>
+<% if (props.stylingPackage?.name === "stylesheet") { %>
 const styles = StyleSheet.create({
   container: {
     flex: 1,

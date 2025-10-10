@@ -2,16 +2,13 @@ import { Link, Stack } from 'expo-router';
 <% if (props.stylingPackage?.name === "nativewind") {%>
   import { Text, View } from 'react-native';
 
-  import { Container } from '@/components/Container';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { StyleSheet } from 'react-native-unistyles'
   import { Text, View } from 'react-native';
 
-  import { Container } from '@/components/Container';
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   import { StyleSheet, Text, View } from 'react-native';
 
-  import { Container } from '@/components/Container';
 <% } %>
 
 export default function NotFoundScreen() {
@@ -20,22 +17,22 @@ export default function NotFoundScreen() {
     <% if (props.stylingPackage?.name === "nativewind") { %>
       <View className={styles.container}>
         <Stack.Screen options={{ title: "Oops!" }} />
-        <Container>
+        <View className={styles.contentContainer}>
           <Text className={styles.title}>{"This screen doesn't exist."}</Text>
           <Link href="/" className={styles.link}>
             <Text className={styles.linkText}>Go to home screen!</Text>
           </Link>
-        </Container>
+        </View>
       </View>
     <% } else { %>
       <View style={styles.container}>
         <Stack.Screen options={{ title: "Oops!" }} />
-        <Container>
+        <View className={styles.contentContainer}>
           <Text style={styles.title}>{"This screen doesn't exist."}</Text>
           <Link href="/" style={styles.link}>
             <Text style={styles.linkText}>Go to home screen!</Text>
           </Link>
-        </Container>
+        </View>
       </View>
     <% } %>
   );
@@ -44,6 +41,7 @@ export default function NotFoundScreen() {
 <% if (props.stylingPackage?.name === "nativewind") { %>
   const styles = {
     container: `flex flex-1 bg-white`,
+    contentContainer: `flex flex-1 m-6`,
     title: `text-xl font-bold`,
     link: `mt-4 pt-4`,
     linkText: `text-base text-[#2e78b7]`,
@@ -53,6 +51,10 @@ const styles = StyleSheet.create((theme) => ({
     container: {
       flex: 1,
       backgroundColor: 'white',
+    },
+    contentContainer: {
+      flex: 1,
+      margin: 24,
     },
     title: {
       fontSize: 20,
@@ -73,6 +75,10 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: 'white',
+    },
+    contentContainer: {
+      flex: 1,
+      margin: 24,
     },
     title: {
       fontSize: 20,
