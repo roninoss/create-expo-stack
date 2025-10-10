@@ -342,6 +342,229 @@ exports[`generates a project with --stylesheet --no-install --bun --overwrite: -
 ]
 `;
 
+exports[`generates a project with --stylesheet --expo-router --bun --overwrite: --stylesheet, --expo-router, --bun, --overwrite-package-json 1`] = `
+{
+  "dependencies": {
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
+    "react-native-worklets": "",
+  },
+  "devDependencies": {
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "typescript": "",
+  },
+  "main": "expo-router/entry",
+  "name": "myTestProject",
+  "private": true,
+  "scripts": {
+    "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
+    "ios": "expo start --ios",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
+    "start": "expo start",
+    "web": "expo start --web",
+  },
+  "version": "1.0.0",
+}
+`;
+
+exports[`generates a project with --stylesheet --expo-router --bun --overwrite: --stylesheet, --expo-router, --bun, --overwrite-ces-config-json 1`] = `
+{
+  "cesVersion": undefined,
+  "flags": {
+    "eas": false,
+    "importAlias": true,
+    "noGit": false,
+    "noInstall": false,
+    "overwrite": true,
+    "packageManager": "bun",
+    "publish": false,
+  },
+  "os": {},
+  "packageManager": {
+    "type": "bun",
+    "version": undefined,
+  },
+  "packages": [
+    {
+      "name": "expo-router",
+      "options": {
+        "type": "stack",
+      },
+      "type": "navigation",
+    },
+    {
+      "name": "stylesheet",
+      "type": "styling",
+    },
+  ],
+  "projectName": "myTestProject",
+}
+`;
+
+exports[`generates a project with --stylesheet --expo-router --bun --overwrite: --stylesheet, --expo-router, --bun, --overwrite-file-list 1`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/details.tsx",
+  "./myTestProject/app/index.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/bun.lock",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tsconfig.json",
+]
+`;
+
+exports[`generates a project with --stylesheet --expo-router --no-install --bun --overwrite: --stylesheet, --expo-router, --no-install, --bun, --overwrite-package-json 1`] = `
+{
+  "dependencies": {
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
+    "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "react": "",
+    "react-dom": "",
+    "react-native": "",
+    "react-native-gesture-handler": "",
+    "react-native-reanimated": "",
+    "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
+    "react-native-worklets": "",
+  },
+  "devDependencies": {
+    "@babel/core": "",
+    "@types/react": "",
+    "eslint": "",
+    "eslint-config-expo": "",
+    "eslint-config-prettier": "",
+    "prettier": "",
+    "typescript": "",
+  },
+  "main": "expo-router/entry",
+  "name": "myTestProject",
+  "private": true,
+  "scripts": {
+    "android": "expo start --android",
+    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
+    "ios": "expo start --ios",
+    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
+    "start": "expo start",
+    "web": "expo start --web",
+  },
+  "version": "1.0.0",
+}
+`;
+
+exports[`generates a project with --stylesheet --expo-router --no-install --bun --overwrite: --stylesheet, --expo-router, --no-install, --bun, --overwrite-ces-config-json 1`] = `
+{
+  "cesVersion": undefined,
+  "flags": {
+    "eas": false,
+    "importAlias": true,
+    "noGit": false,
+    "noInstall": true,
+    "overwrite": true,
+    "packageManager": "bun",
+    "publish": false,
+  },
+  "os": {},
+  "packageManager": {
+    "type": "bun",
+    "version": undefined,
+  },
+  "packages": [
+    {
+      "name": "expo-router",
+      "options": {
+        "type": "stack",
+      },
+      "type": "navigation",
+    },
+    {
+      "name": "stylesheet",
+      "type": "styling",
+    },
+  ],
+  "projectName": "myTestProject",
+}
+`;
+
+exports[`generates a project with --stylesheet --expo-router --no-install --bun --overwrite: --stylesheet, --expo-router, --no-install, --bun, --overwrite-file-list 1`] = `
+[
+  "./myTestProject",
+  "./myTestProject/app",
+  "./myTestProject/app.json",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/details.tsx",
+  "./myTestProject/app/index.tsx",
+  "./myTestProject/assets",
+  "./myTestProject/assets/adaptive-icon.png",
+  "./myTestProject/assets/favicon.png",
+  "./myTestProject/assets/icon.png",
+  "./myTestProject/assets/splash.png",
+  "./myTestProject/babel.config.js",
+  "./myTestProject/cesconfig.jsonc",
+  "./myTestProject/components",
+  "./myTestProject/components/Button.tsx",
+  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/EditScreenInfo.tsx",
+  "./myTestProject/components/ScreenContent.tsx",
+  "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/package.json",
+  "./myTestProject/prettier.config.js",
+  "./myTestProject/tsconfig.json",
+]
+`;
+
 exports[`generates a project with --nativewind --bun --overwrite: --nativewind, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
@@ -371,6 +594,9 @@ exports[`generates a project with --nativewind --bun --overwrite: --nativewind, 
   "main": "node_modules/expo/AppEntry.js",
   "name": "myTestProject",
   "private": true,
+  "resolutions": {
+    "lightningcss": "1.30.1",
+  },
   "scripts": {
     "android": "expo start --android",
     "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
@@ -425,7 +651,6 @@ exports[`generates a project with --nativewind --bun --overwrite: --nativewind, 
   "./myTestProject/bun.lock",
   "./myTestProject/cesconfig.jsonc",
   "./myTestProject/components",
-  "./myTestProject/components/Container.tsx",
   "./myTestProject/components/EditScreenInfo.tsx",
   "./myTestProject/components/ScreenContent.tsx",
   "./myTestProject/eslint.config.js",
@@ -468,6 +693,9 @@ exports[`generates a project with --nativewind --no-install --bun --overwrite: -
   "main": "node_modules/expo/AppEntry.js",
   "name": "myTestProject",
   "private": true,
+  "resolutions": {
+    "lightningcss": "1.30.1",
+  },
   "scripts": {
     "android": "expo start --android",
     "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
@@ -521,7 +749,6 @@ exports[`generates a project with --nativewind --no-install --bun --overwrite: -
   "./myTestProject/babel.config.js",
   "./myTestProject/cesconfig.jsonc",
   "./myTestProject/components",
-  "./myTestProject/components/Container.tsx",
   "./myTestProject/components/EditScreenInfo.tsx",
   "./myTestProject/components/ScreenContent.tsx",
   "./myTestProject/eslint.config.js",
@@ -535,15 +762,30 @@ exports[`generates a project with --nativewind --no-install --bun --overwrite: -
 ]
 `;
 
-exports[`generates a project with --blank --no-install --bun --overwrite: --blank, --bun, --overwrite-package-json 1`] = `
+exports[`generates a project with --nativewind --expo-router --bun --overwrite: --nativewind, --expo-router, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "@tailwindcss/postcss": "",
     "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
     "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "postcss": "",
     "react": "",
+    "react-dom": "",
     "react-native": "",
+    "react-native-css": "",
+    "react-native-gesture-handler": "",
     "react-native-reanimated": "",
     "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
     "react-native-worklets": "",
   },
   "devDependencies": {
@@ -553,16 +795,22 @@ exports[`generates a project with --blank --no-install --bun --overwrite: --blan
     "eslint-config-expo": "",
     "eslint-config-prettier": "",
     "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
     "typescript": "",
   },
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
+  "resolutions": {
+    "lightningcss": "1.30.1",
+  },
   "scripts": {
     "android": "expo start --android",
     "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
     "ios": "expo start --ios",
     "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
+    "prebuild": "expo prebuild",
     "start": "expo start",
     "web": "expo start --web",
   },
@@ -570,7 +818,7 @@ exports[`generates a project with --blank --no-install --bun --overwrite: --blan
 }
 `;
 
-exports[`generates a project with --blank --no-install --bun --overwrite: --blank, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --nativewind --expo-router --bun --overwrite: --nativewind, --expo-router, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -589,7 +837,14 @@ exports[`generates a project with --blank --no-install --bun --overwrite: --blan
   },
   "packages": [
     {
-      "name": "stylesheet",
+      "name": "expo-router",
+      "options": {
+        "type": "stack",
+      },
+      "type": "navigation",
+    },
+    {
+      "name": "nativewind",
       "type": "styling",
     },
   ],
@@ -597,11 +852,16 @@ exports[`generates a project with --blank --no-install --bun --overwrite: --blan
 }
 `;
 
-exports[`generates a project with --blank --no-install --bun --overwrite: --blank, --bun, --overwrite-file-list 1`] = `
+exports[`generates a project with --nativewind --expo-router --bun --overwrite: --nativewind, --expo-router, --bun, --overwrite-file-list 1`] = `
 [
   "./myTestProject",
+  "./myTestProject/app",
   "./myTestProject/app.json",
-  "./myTestProject/App.tsx",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/details.tsx",
+  "./myTestProject/app/index.tsx",
   "./myTestProject/assets",
   "./myTestProject/assets/adaptive-icon.png",
   "./myTestProject/assets/favicon.png",
@@ -611,25 +871,45 @@ exports[`generates a project with --blank --no-install --bun --overwrite: --blan
   "./myTestProject/bun.lock",
   "./myTestProject/cesconfig.jsonc",
   "./myTestProject/components",
-  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/Button.tsx",
   "./myTestProject/components/EditScreenInfo.tsx",
   "./myTestProject/components/ScreenContent.tsx",
   "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
+  "./myTestProject/global.css",
+  "./myTestProject/metro.config.js",
+  "./myTestProject/nativewind-env.d.ts",
   "./myTestProject/package.json",
+  "./myTestProject/postcss.config.mjs",
   "./myTestProject/prettier.config.js",
   "./myTestProject/tsconfig.json",
 ]
 `;
 
-exports[`generates a project with --stylesheet --bun --overwrite: --blank, --no-install, --bun, --overwrite-package-json 1`] = `
+exports[`generates a project with --nativewind --expo-router --no-install --bun --overwrite: --nativewind, --expo-router, --no-install, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
+    "@expo/vector-icons": "",
+    "@react-navigation/native": "",
+    "@tailwindcss/postcss": "",
     "expo": "",
+    "expo-constants": "",
+    "expo-linking": "",
+    "expo-router": "",
     "expo-status-bar": "",
+    "expo-system-ui": "",
+    "expo-web-browser": "",
+    "nativewind": "",
+    "postcss": "",
     "react": "",
+    "react-dom": "",
     "react-native": "",
+    "react-native-css": "",
+    "react-native-gesture-handler": "",
     "react-native-reanimated": "",
     "react-native-safe-area-context": "",
+    "react-native-screens": "",
+    "react-native-web": "",
     "react-native-worklets": "",
   },
   "devDependencies": {
@@ -639,16 +919,22 @@ exports[`generates a project with --stylesheet --bun --overwrite: --blank, --no-
     "eslint-config-expo": "",
     "eslint-config-prettier": "",
     "prettier": "",
+    "prettier-plugin-tailwindcss": "",
+    "tailwindcss": "",
     "typescript": "",
   },
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "expo-router/entry",
   "name": "myTestProject",
   "private": true,
+  "resolutions": {
+    "lightningcss": "1.30.1",
+  },
   "scripts": {
     "android": "expo start --android",
     "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
     "ios": "expo start --ios",
     "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
+    "prebuild": "expo prebuild",
     "start": "expo start",
     "web": "expo start --web",
   },
@@ -656,7 +942,7 @@ exports[`generates a project with --stylesheet --bun --overwrite: --blank, --no-
 }
 `;
 
-exports[`generates a project with --stylesheet --bun --overwrite: --blank, --no-install, --bun, --overwrite-ces-config-json 1`] = `
+exports[`generates a project with --nativewind --expo-router --no-install --bun --overwrite: --nativewind, --expo-router, --no-install, --bun, --overwrite-ces-config-json 1`] = `
 {
   "cesVersion": undefined,
   "flags": {
@@ -675,97 +961,12 @@ exports[`generates a project with --stylesheet --bun --overwrite: --blank, --no-
   },
   "packages": [
     {
-      "name": "stylesheet",
-      "type": "styling",
+      "name": "expo-router",
+      "options": {
+        "type": "stack",
+      },
+      "type": "navigation",
     },
-  ],
-  "projectName": "myTestProject",
-}
-`;
-
-exports[`generates a project with --stylesheet --bun --overwrite: --blank, --no-install, --bun, --overwrite-file-list 1`] = `
-[
-  "./myTestProject",
-  "./myTestProject/app.json",
-  "./myTestProject/App.tsx",
-  "./myTestProject/assets",
-  "./myTestProject/assets/adaptive-icon.png",
-  "./myTestProject/assets/favicon.png",
-  "./myTestProject/assets/icon.png",
-  "./myTestProject/assets/splash.png",
-  "./myTestProject/babel.config.js",
-  "./myTestProject/cesconfig.jsonc",
-  "./myTestProject/components",
-  "./myTestProject/components/Container.tsx",
-  "./myTestProject/components/EditScreenInfo.tsx",
-  "./myTestProject/components/ScreenContent.tsx",
-  "./myTestProject/eslint.config.js",
-  "./myTestProject/package.json",
-  "./myTestProject/prettier.config.js",
-  "./myTestProject/tsconfig.json",
-]
-`;
-
-exports[`generates a project with --nativewind --no-install --bun --overwrite: --nativewind, --bun, --overwrite-package-json 1`] = `
-{
-  "dependencies": {
-    "@tailwindcss/postcss": "",
-    "expo": "",
-    "expo-status-bar": "",
-    "nativewind": "",
-    "postcss": "",
-    "react": "",
-    "react-native": "",
-    "react-native-css": "",
-    "react-native-reanimated": "",
-    "react-native-safe-area-context": "",
-    "react-native-worklets": "",
-  },
-  "devDependencies": {
-    "@babel/core": "",
-    "@types/react": "",
-    "eslint": "",
-    "eslint-config-expo": "",
-    "eslint-config-prettier": "",
-    "prettier": "",
-    "prettier-plugin-tailwindcss": "",
-    "tailwindcss": "",
-    "typescript": "",
-  },
-  "main": "node_modules/expo/AppEntry.js",
-  "name": "myTestProject",
-  "private": true,
-  "scripts": {
-    "android": "expo start --android",
-    "format": "eslint "**/*.{js,jsx,ts,tsx}" --fix && prettier "**/*.{js,jsx,ts,tsx,json}" --write",
-    "ios": "expo start --ios",
-    "lint": "eslint "**/*.{js,jsx,ts,tsx}" && prettier -c "**/*.{js,jsx,ts,tsx,json}"",
-    "prebuild": "expo prebuild",
-    "start": "expo start",
-    "web": "expo start --web",
-  },
-  "version": "1.0.0",
-}
-`;
-
-exports[`generates a project with --nativewind --no-install --bun --overwrite: --nativewind, --bun, --overwrite-ces-config-json 1`] = `
-{
-  "cesVersion": undefined,
-  "flags": {
-    "eas": false,
-    "importAlias": true,
-    "noGit": false,
-    "noInstall": false,
-    "overwrite": true,
-    "packageManager": "bun",
-    "publish": false,
-  },
-  "os": {},
-  "packageManager": {
-    "type": "bun",
-    "version": undefined,
-  },
-  "packages": [
     {
       "name": "nativewind",
       "type": "styling",
@@ -775,24 +976,29 @@ exports[`generates a project with --nativewind --no-install --bun --overwrite: -
 }
 `;
 
-exports[`generates a project with --nativewind --no-install --bun --overwrite: --nativewind, --bun, --overwrite-file-list 1`] = `
+exports[`generates a project with --nativewind --expo-router --no-install --bun --overwrite: --nativewind, --expo-router, --no-install, --bun, --overwrite-file-list 1`] = `
 [
   "./myTestProject",
+  "./myTestProject/app",
   "./myTestProject/app.json",
-  "./myTestProject/App.tsx",
+  "./myTestProject/app/_layout.tsx",
+  "./myTestProject/app/+html.tsx",
+  "./myTestProject/app/+not-found.tsx",
+  "./myTestProject/app/details.tsx",
+  "./myTestProject/app/index.tsx",
   "./myTestProject/assets",
   "./myTestProject/assets/adaptive-icon.png",
   "./myTestProject/assets/favicon.png",
   "./myTestProject/assets/icon.png",
   "./myTestProject/assets/splash.png",
   "./myTestProject/babel.config.js",
-  "./myTestProject/bun.lock",
   "./myTestProject/cesconfig.jsonc",
   "./myTestProject/components",
-  "./myTestProject/components/Container.tsx",
+  "./myTestProject/components/Button.tsx",
   "./myTestProject/components/EditScreenInfo.tsx",
   "./myTestProject/components/ScreenContent.tsx",
   "./myTestProject/eslint.config.js",
+  "./myTestProject/expo-env.d.ts",
   "./myTestProject/global.css",
   "./myTestProject/metro.config.js",
   "./myTestProject/nativewind-env.d.ts",

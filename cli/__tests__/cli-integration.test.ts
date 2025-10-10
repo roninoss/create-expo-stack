@@ -83,16 +83,16 @@ const styleSheetCombinations = [
   ['--blank'],
   ['--blank', '--no-install'],
   ['--stylesheet'],
-  ['--stylesheet', '--no-install']
-  // ['--stylesheet', '--expo-router'], // Temporarily disabled
-  // ['--stylesheet', '--expo-router', '--no-install'] // Temporarily disabled
+  ['--stylesheet', '--no-install'],
+  ['--stylesheet', '--expo-router'],
+  ['--stylesheet', '--expo-router', '--no-install']
 ] as const;
 
 const nativewindCombinations = [
   ['--nativewind'],
-  ['--nativewind', '--no-install']
-  // ['--nativewind', '--expo-router'],
-  // ['--nativewind', '--expo-router', '--no-install']
+  ['--nativewind', '--no-install'],
+  ['--nativewind', '--expo-router'],
+  ['--nativewind', '--expo-router', '--no-install']
 ] as const;
 
 // const nativewinduiCombinations = [
