@@ -156,10 +156,10 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     message: 'What would you like to use for Navigation?',
     options: [
       { value: 'react-navigation', label: 'React Navigation' },
-      // { value: 'expo-router', label: 'Expo Router' }, // Temporarily disabled
+      { value: 'expo-router', label: 'Expo Router' },
       { value: undefined, label: 'None' }
     ],
-    initialValue: undefined
+    initialValue: 'expo-router'
   });
 
   if (isCancel(navigationSelect)) {
