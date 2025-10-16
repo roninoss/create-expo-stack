@@ -1,5 +1,17 @@
 # rn-new
 
+## 2.20.1
+
+### Patch Changes
+
+- a722655: fix(build): add @types/node to resolve TypeScript compilation errors
+- a6dbb07: fix(cli): replace fs-jetpack type import with local definition
+- 48f80cc: set nativewind to latest rather than v4.1
+- Updated dependencies [a722655]
+- Updated dependencies [a6dbb07]
+- Updated dependencies [48f80cc]
+  - create-expo-stack@2.20.1
+
 ## 2.20.0
 
 ### Minor Changes
