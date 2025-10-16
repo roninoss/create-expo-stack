@@ -1,6 +1,8 @@
 import { cancel, confirm, isCancel, spinner } from '@clack/prompts';
-import { ExistsResult } from 'fs-jetpack/types';
 import { GluegunPrompt } from 'gluegun';
+
+// Type from fs-jetpack (transitive dependency via gluegun)
+type ExistsResult = false | 'dir' | 'file' | 'other';
 
 export async function validateProjectName(
   exists: (path: string) => ExistsResult,
