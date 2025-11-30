@@ -307,6 +307,14 @@ const command: GluegunCommand = {
           });
         }
 
+        if (options.convex) {
+          // Add convex package
+          cliResults.packages.push({
+            name: 'convex',
+            type: 'authentication'
+          });
+        }
+
         // State Management packages
         if (options.zustand) {
           // Add zustand package

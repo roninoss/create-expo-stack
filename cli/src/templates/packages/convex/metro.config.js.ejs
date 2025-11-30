@@ -1,0 +1,16 @@
+const { getDefaultConfig } = require('expo/metro-config');
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  const { withNativeWind } = require("nativewind/metro");
+<% } %>
+
+/** @type {import('expo/metro-config').MetroConfig} */
+// eslint-disable-next-line no-undef
+const config = getDefaultConfig(__dirname);
+
+config.resolver.unstable_enablePackageExports = true; 
+
+<% if (props.stylingPackage?.name === "nativewind") { %>
+  module.exports = withNativeWind(config, { input: "./global.css" });
+<% } else { %>
+  module.exports = config;
+<% } %>

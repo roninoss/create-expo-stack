@@ -353,7 +353,8 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   const authenticationOptions: Array<{ value: AuthenticationSelect; label: string }> = [
     { value: undefined, label: 'None' },
     { value: 'supabase', label: 'Supabase' },
-    { value: 'firebase', label: 'Firebase' }
+    { value: 'firebase', label: 'Firebase' },
+    { value: 'convex', label: 'Convex + Better Auth' }
   ];
 
   const authenticationSelect = await select({

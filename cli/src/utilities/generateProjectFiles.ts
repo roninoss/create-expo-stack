@@ -28,6 +28,10 @@ export function generateProjectFiles(
       target = target.replace('packages/firebase/', '');
     }
 
+    if (authenticationPackage?.name === 'convex') {
+      target = target.replace('packages/convex/', '');
+    }
+
     //state management
     if (stateManagementPackage?.name === 'zustand') {
       target = target.replace('packages/zustand/', '');

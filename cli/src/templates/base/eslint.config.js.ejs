@@ -10,6 +10,9 @@ module.exports = defineConfig([
   {
     rules: {
       'react/display-name': 'off',
+      // Disable unresolved import errors for Convex generated files
+      // These files are created when running 'convex dev'
+      'import/no-unresolved': ['error', { ignore: ['\\.\\/\\_generated\\/'] }],
     },
   },
 ]);

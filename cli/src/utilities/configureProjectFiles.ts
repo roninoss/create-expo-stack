@@ -288,7 +288,7 @@ export function configureProjectFiles(
       files = [...files, ...supabaseFiles];
     }
 
-    // add supabase files if needed
+    // add firebase files if needed
     if (authenticationPackage?.name === 'firebase') {
       const firebaseFiles = [
         'packages/firebase/utils/firebase.ts.ejs',
@@ -297,6 +297,21 @@ export function configureProjectFiles(
       ];
 
       files = [...files, ...firebaseFiles];
+    }
+
+    // add convex files if needed
+    if (authenticationPackage?.name === 'convex') {
+      const convexFiles = [
+        'packages/convex/convex/auth.config.ts.ejs',
+        'packages/convex/convex/auth.ts.ejs',
+        'packages/convex/convex/http.ts.ejs',
+        'packages/convex/convex/convex.config.ts.ejs',
+        'packages/convex/lib/auth-client.ts.ejs',
+        'packages/convex/.env.local.ejs',
+        'packages/convex/metro.config.js.ejs'
+      ];
+
+      files = [...files, ...convexFiles];
     }
 
     // add vexo analytics files if needed
