@@ -10,9 +10,10 @@ module.exports = defineConfig([
   {
     rules: {
       'react/display-name': 'off',
-      // Disable unresolved import errors for Convex generated files
-      // These files are created when running 'convex dev'
-      'import/no-unresolved': ['error', { ignore: ['\\.\\/\\_generated\\/'] }],
+      // Disable unresolved import errors for:
+      // 1. Convex generated files (created when running 'convex dev')
+      // 2. Path alias imports (e.g., @/lib/auth-client)
+      'import/no-unresolved': ['error', { ignore: ['\\\\.\\\\/\\\\_generated\\\\/', '^@\\\\/'] }],
     },
   },
 ]);

@@ -28,33 +28,59 @@ import "react-native-gesture-handler";
 <% } else { %>
   import Navigation from "./navigation";
 <% } %>
+<% if (props.authenticationPackage?.name === "convex") { %>
+  import { ConvexReactClient } from "convex/react";
+  import { ConvexBetterAuthProvider } from "@convex-dev/better-auth/react";
+  import { authClient } from "@/lib/auth-client";
+
+  const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL as string, {
+    // Optionally pause queries until the user is authenticated
+    expectAuth: true, 
+    unsavedChangesWarning: false, 
+  });
+<% } %>
 
 export default function App() {
-	<% if (props.stylingPackage?.name === "unistyles")  { %> 
-    const { theme, rt } = useUnistyles();
+	<% if (props.stylingPackage?.name === "unistyles")  { %>
+    const { theme: uniTheme, rt } = useUnistyles();
 
     const baseTheme = rt.colorScheme === 'dark' ? DarkTheme : DefaultTheme;
-    const mergedTheme = useMemo(() => ({
+    const theme = useMemo(() => ({
       ...baseTheme,
       colors: {
         ...baseTheme.colors,
-        background: theme.colors.background,
-        text: theme.colors.typography,
-        primary: theme.colors.astral,
-        secondary: theme.colors.cornflowerBlue,
-        border: theme.colors.limedSpruce,
-        card: theme.colors.background,
-        notification: theme.colors.astral,
+        background: uniTheme.colors.background,
+        text: uniTheme.colors.typography,
+        primary: uniTheme.colors.astral,
+        secondary: uniTheme.colors.cornflowerBlue,
+        border: uniTheme.colors.limedSpruce,
+        card: uniTheme.colors.background,
+        notification: uniTheme.colors.astral,
       },
-    }), [baseTheme, theme.colors.background, theme.colors.typography, theme.colors.astral, theme.colors.cornflowerBlue, theme.colors.limedSpruce]);
-
-    return <Navigation theme={mergedTheme} />;
-	<% } else if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %> 
-		const colorScheme = useColorScheme();
+    }), [baseTheme, uniTheme.colors.background, uniTheme.colors.typography, uniTheme.colors.astral, uniTheme.colors.cornflowerBlue, uniTheme.colors.limedSpruce]);
+  <% } %>
+  <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %>
+    const colorScheme = useColorScheme();
 		const theme = useMemo(() => colorScheme === 'dark' ? DarkTheme : DefaultTheme, [colorScheme]);
+  <% } %>
 
-		return <Navigation theme={theme} />;
-	<% } else { %> 
-		return <Navigation />;
-	<% } %>
+  return (
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet" || props.stylingPackage?.name === "unistyles") { %>
+      <% if (props.authenticationPackage?.name === "convex") { %>
+        <ConvexBetterAuthProvider client={convex} authClient={authClient}>
+          <Navigation theme={theme} />
+        </ConvexBetterAuthProvider>
+      <% } else {%>
+        <Navigation theme={theme} />
+      <%}%>
+    <% } else { %>
+      <% if (props.authenticationPackage?.name === "convex") { %>
+        <ConvexBetterAuthProvider client={convex} authClient={authClient}>
+          <Navigation />
+        </ConvexBetterAuthProvider>
+      <% } else {%>
+        <Navigation />
+      <%}%>
+    <% } %>
+  )
 }
