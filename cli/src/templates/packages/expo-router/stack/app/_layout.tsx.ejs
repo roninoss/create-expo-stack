@@ -1,7 +1,6 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import '../global.css';
 <% } %>
-
 <% if (props.stylingPackage?.name === "unistyles") { %>
   import { useUnistyles } from "react-native-unistyles";
 <% } %>
@@ -9,7 +8,6 @@
   import '../translation';
 <% } %>
 	import { Stack } from "expo-router";
-
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
   import { vexo } from 'vexo-analytics';
 
