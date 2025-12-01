@@ -13,7 +13,8 @@ module.exports = defineConfig([
       // Disable unresolved import errors for:
       // 1. Convex generated files (created when running 'convex dev')
       // 2. Path alias imports (e.g., @/lib/auth-client)
-      'import/no-unresolved': ['error', { ignore: ['\\\\.\\\\/\\\\_generated\\\\/', '^@\\\\/'] }],
+      // 3. Convex auth-client imports (relative or absolute)
+      'import/no-unresolved': ['error', { ignore: ['\\\\.\\\\/\\\\_generated\\\\/', '^@\\\\/','lib/auth-client'] }],
     },
   },
 ]);
