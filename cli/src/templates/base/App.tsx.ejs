@@ -24,7 +24,7 @@ import { StatusBar } from 'expo-status-bar';
 <% if (props.authenticationPackage?.name === "convex") { %>
   import { ConvexReactClient } from "convex/react";
   import { ConvexBetterAuthProvider } from "@convex-dev/better-auth/react";
-  import { authClient } from "../lib/auth-client";
+  import { authClient } from "@/lib/auth-client";
 
   const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL as string, {
     // Optionally pause queries until the user is authenticated

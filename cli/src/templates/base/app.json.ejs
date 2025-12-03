@@ -6,8 +6,8 @@
     <% if (props.stylingPackage?.name === "unistyles") { %>
         "newArchEnabled": true,
     <% } %>
+    "scheme": "<%= props.projectName %>",
     <% if (props.navigationPackage?.name === 'expo-router') { %>
-      "scheme": "<%= props.projectName %>",
       "platforms": ["ios", "android"],
       "web": {
         "bundler": "metro",
