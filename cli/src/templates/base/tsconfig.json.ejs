@@ -11,7 +11,7 @@
         <% if  (props.navigationPackage?.name === "expo-router" && props.flags.importAlias === true) { %>
         "@/*": ["*"]
         <% } else if  (props.flags.importAlias === true) { %>
-        "@/*": ["src/*"]
+        "@/*": ["src/*", "*"]
         <% } else { %>
         "<%= props.flags.importAlias %>": ["src/*"]
         <% } %>

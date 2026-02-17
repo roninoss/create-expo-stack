@@ -24,13 +24,14 @@ export const availablePackages = [
   'reactnavigation',
   'stylesheet',
   'supabase',
+  'convex',
   'unistyles',
   'i18next',
   'zustand',
   'vexo-analytics'
 ] as const;
 
-export type AuthenticationSelect = 'supabase' | 'firebase' | undefined;
+export type AuthenticationSelect = 'supabase' | 'firebase' | 'convex' | undefined;
 
 export type NavigationSelect = 'react-navigation' | 'expo-router' | undefined;
 

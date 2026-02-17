@@ -1,7 +1,6 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import '../global.css';
 <% } %>
-
 <% if (props.stylingPackage?.name === "unistyles") { %>
   import { useUnistyles } from "react-native-unistyles";
 <% } %>
@@ -9,11 +8,21 @@
   import '../translation';
 <% } %>
 	import { Stack } from "expo-router";
-
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
   import { vexo } from 'vexo-analytics';
 
   vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
+<% } %>
+<% if (props.authenticationPackage?.name === "convex") { %>
+  import { ConvexReactClient } from "convex/react";
+  import { ConvexBetterAuthProvider } from "@convex-dev/better-auth/react";
+  import { authClient } from "@/lib/auth-client";
+
+  const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL as string, {
+    // Optionally pause queries until the user is authenticated
+    expectAuth: true, 
+    unsavedChangesWarning: false, 
+  });
 <% } %>
 
 export default function Layout() {
@@ -22,20 +31,40 @@ export default function Layout() {
   <% } %>
 
 	return (
-    <% if (props.stylingPackage?.name === "unistyles") { %>
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: theme.colors.background,
-          },
-          headerTitleStyle: {
-            color: theme.colors.typography,
-          },
-          headerTintColor: theme.colors.typography
-        }}
-      />
-    <% } else { %>
-      <Stack />
-    <% } %>
+    <% if (props.authenticationPackage?.name === "convex") { %>
+      <ConvexBetterAuthProvider client={convex} authClient={authClient}>
+        <% if (props.stylingPackage?.name === "unistyles") { %>
+          <Stack
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: theme.colors.background,
+              },
+              headerTitleStyle: {
+                color: theme.colors.typography,
+              },
+              headerTintColor: theme.colors.typography
+            }}
+          />
+        <% } else { %>
+          <Stack />
+        <% } %>
+      </ConvexBetterAuthProvider>
+    <% } else {%>
+      <% if (props.stylingPackage?.name === "unistyles") { %>
+        <Stack
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: theme.colors.background,
+            },
+            headerTitleStyle: {
+              color: theme.colors.typography,
+            },
+            headerTintColor: theme.colors.typography
+          }}
+        />
+      <% } else { %>
+        <Stack />
+      <% } %>
+    <%}%>
 	);
 }
