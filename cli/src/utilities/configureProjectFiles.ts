@@ -37,11 +37,7 @@ export function configureProjectFiles(
   ];
 
   if (stylingPackage?.name === 'stylesheet') {
-    baseFiles = baseFiles.concat([
-      'base/components/Container.tsx.ejs',
-      'base/components/ScreenContent.tsx.ejs',
-      'base/components/EditScreenInfo.tsx.ejs'
-    ]);
+    baseFiles = baseFiles.concat(['base/components/ScreenContent.tsx.ejs', 'base/components/EditScreenInfo.tsx.ejs']);
   }
 
   const packageManager = getPackageManager(toolbox, cliResults);
@@ -128,7 +124,6 @@ export function configureProjectFiles(
     // modify base files with nativewind specifications
     if (stylingPackage?.name === 'nativewind') {
       const nativewindFiles = [
-        'packages/nativewind/components/Container.tsx.ejs',
         'packages/nativewind/components/ScreenContent.tsx.ejs',
         'packages/nativewind/components/EditScreenInfo.tsx.ejs',
         'packages/nativewind/tailwind.config.js.ejs',
@@ -144,7 +139,6 @@ export function configureProjectFiles(
     // modify base files with unis specifications
     if (stylingPackage?.name === 'unistyles') {
       const unistylesFiles = [
-        'packages/unistyles/components/Container.tsx.ejs',
         'packages/unistyles/components/ScreenContent.tsx.ejs',
         'packages/unistyles/components/EditScreenInfo.tsx.ejs',
         'packages/unistyles/breakpoints.ts.ejs',
@@ -222,11 +216,14 @@ export function configureProjectFiles(
       let expoRouterFiles = ['packages/expo-router/expo-env.d.ts', 'packages/expo-router/metro.config.js.ejs'];
 
       if (stylingPackage?.name === 'nativewind') {
+        expoRouterFiles.push('packages/nativewind/components/Container.tsx.ejs');
         expoRouterFiles.push('packages/nativewind/components/Button.tsx.ejs');
       } else if (stylingPackage?.name === 'unistyles') {
+        expoRouterFiles.push('packages/unistyles/components/Container.tsx.ejs');
         expoRouterFiles.push('packages/unistyles/components/Button.tsx.ejs');
         expoRouterFiles.push('packages/expo-router/index.js.ejs');
       } else if (stylingPackage?.name === 'stylesheet') {
+        expoRouterFiles.push('base/components/Container.tsx.ejs');
         expoRouterFiles.push('base/components/Button.tsx.ejs');
       }
 

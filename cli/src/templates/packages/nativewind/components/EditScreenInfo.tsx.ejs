@@ -4,8 +4,11 @@ import { Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 <% } %>
 
+interface EditScreenInfoProps {
+  path: string;
+}
 
-export const EditScreenInfo = ({ path }: { path: string }) => {
+export const EditScreenInfo: React.FC<EditScreenInfoProps> = ({ path }) => {
 <% if (props.internalizationPackage?.name === "i18next") { %>
   const { t } = useTranslation();
   const title = t('getStarted');
@@ -18,7 +21,7 @@ export const EditScreenInfo = ({ path }: { path: string }) => {
     <View>
       <View className={styles.getStartedContainer}>
         <Text className={styles.getStartedText}>{title}</Text>
-        <View className={styles.codeHighlightContainer + styles.homeScreenFilename}>
+        <View className={`${styles.codeHighlightContainer} ${styles.homeScreenFilename}`}>
           <Text>{path}</Text>
         </View>
         <Text className={styles.getStartedText}>

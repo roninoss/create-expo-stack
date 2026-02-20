@@ -1,5 +1,6 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import '../global.css';
+  import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
   import '../global.css';
   import 'expo-dev-client';
@@ -28,6 +29,9 @@ export default function RootLayout() {
   <% } %>
 
   return (
+    <% if (props.stylingPackage?.name === "nativewind") { %>
+    <SafeAreaProvider>
+    <% } %>
         <% if (props.stylingPackage?.name === "unistyles") { %>
             <Stack
                 screenOptions={{
@@ -46,5 +50,8 @@ export default function RootLayout() {
 		<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 		<Stack.Screen name="modal" options={{ presentation: "modal" }} />
 	</Stack>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
+    </SafeAreaProvider>
+    <% } %>
   );
 }

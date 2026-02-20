@@ -11,6 +11,7 @@ import { StatusBar } from 'expo-status-bar';
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import './global.css';
+  import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
   import './global.css';
   import 'expo-dev-client';
@@ -24,14 +25,21 @@ import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   return (
+    <% if (props.stylingPackage?.name === "nativewind") { %>
+    <SafeAreaProvider>
+    <% } else { %>
     <>
+    <% } %>
       <ScreenContent title="Home" path="App.tsx">
       <% if (props.internalizationPackage?.name === "i18next") { %>
         <InternalizationExample />
       <% } %>
       </ScreenContent>
       <StatusBar style="auto" />
+    <% if (props.stylingPackage?.name === "nativewind") { %>
+    </SafeAreaProvider>
+    <% } else { %>
     </>
+    <% } %>
   );
 }
-

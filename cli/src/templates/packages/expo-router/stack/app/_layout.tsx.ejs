@@ -1,5 +1,6 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import '../global.css';
+  import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } %>
 
 <% if (props.stylingPackage?.name === "unistyles") { %>
@@ -34,6 +35,10 @@ export default function Layout() {
           headerTintColor: theme.colors.typography
         }}
       />
+    <% } else if (props.stylingPackage?.name === "nativewind") { %>
+      <SafeAreaProvider>
+        <Stack />
+      </SafeAreaProvider>
     <% } else { %>
       <Stack />
     <% } %>
