@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.21.2
+
+### Patch Changes
+
+- cd7064e: Use p-safe without offset and add white background to Nativewind Container component.
+- Updated dependencies [cd7064e]
+  - create-expo-stack@2.21.2
+
 ## 2.21.1
 
 ### Patch Changes
