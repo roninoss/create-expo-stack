@@ -1,5 +1,12 @@
 # rn-new
 
+## 2.20.2
+
+### Patch Changes
+
+- Updated dependencies [674e22c]
+  - create-expo-stack@2.20.2
+
 ## 2.20.1
 
 ### Patch Changes
