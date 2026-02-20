@@ -62,22 +62,17 @@ test(`outputs help`, async () => {
   expect(output).toContain(`Info`);
 });
 
-// React Navigation combinations - covering all styling packages and navigation types
-// to test color scheme support and Navigation component naming
-// COMMENTED OUT - Only testing specific configurations
-// const reactNavigationCombinations = [
-//   ['--react-navigation', '--tabs', '--stylesheet'],
-//   ['--react-navigation', '--tabs', '--nativewind'],
-//   ['--react-navigation', '--tabs', '--unistyles'],
-
-//   ['--react-navigation', '--drawer+tabs', '--stylesheet'],
-//   ['--react-navigation', '--drawer+tabs', '--nativewind'],
-//   ['--react-navigation', '--drawer+tabs', '--unistyles'],
-
-// ['--react-navigation', '--stack', '--stylesheet'],
-// ['--react-navigation', '--stack', '--nativewind'],
-// ['--react-navigation', '--stack', '--unistyles']
-// ] as const ;
+const reactNavigationCombinations = [
+  ['--react-navigation', '--stack', '--stylesheet'],
+  ['--react-navigation', '--stack', '--nativewind'],
+  ['--react-navigation', '--stack', '--unistyles'],
+  ['--react-navigation', '--tabs', '--stylesheet'],
+  ['--react-navigation', '--tabs', '--nativewind'],
+  ['--react-navigation', '--tabs', '--unistyles'],
+  ['--react-navigation', '--drawer+tabs', '--stylesheet'],
+  ['--react-navigation', '--drawer+tabs', '--nativewind'],
+  ['--react-navigation', '--drawer+tabs', '--unistyles']
+] as const;
 
 const styleSheetCombinations = [
   ['--blank'],
@@ -102,9 +97,12 @@ const nativewinduiCombinations = [
   ['--nativewindui', '--blank', '--no-install']
 ] as const;
 
-// Combine all combinations based on environment variables
-// UPDATED - Only using core combinations since React Navigation tests are commented out
-const popularCombinations = [...styleSheetCombinations, ...nativewindCombinations, ...nativewinduiCombinations];
+const popularCombinations = [
+  ...styleSheetCombinations,
+  ...nativewindCombinations,
+  ...nativewinduiCombinations,
+  ...reactNavigationCombinations
+];
 
 const projectName = `myTestProject`;
 const pathToProject = `./${projectName}`;
