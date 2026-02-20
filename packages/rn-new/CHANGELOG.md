@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.21.1
+
+### Patch Changes
+
+- dc9748c: Fix import alias mismatch in expo-router and Nativewind UI tabs/drawer templates by replacing `~/` with `@/` to match the generated tsconfig path alias.
+- Updated dependencies [dc9748c]
+  - create-expo-stack@2.21.1
+
 ## 2.21.0
 
 ### Minor Changes
