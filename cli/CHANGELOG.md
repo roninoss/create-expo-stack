@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.21.3
+
+### Patch Changes
+
+- 47f09af: Re-enable tabs and drawer+tabs navigation options in interactive CLI prompts.
+
 ## 2.21.2
 
 ### Patch Changes
