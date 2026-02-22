@@ -1,22 +1,27 @@
 import getReleasePlan from '@changesets/get-release-plan';
 
-/** Check if a "next" / development release is necessary based on the presence of changesets */
+/**
+ * Checks if a "next" or development release is necessary based on the presence of changesets.
+ * Outputs "true" or "false" to stdout.
+ */
 async function checkIsRelease() {
-  const releasePlan = await getReleasePlan(process.cwd());
+  const currentDir = process.cwd();
+  const packageJsonPath = `${currentDir}/cli/package.json`;
 
   try {
-    const packageJson = await Bun.file(process.cwd() + '/cli/package.json').json();
-    const newNextVersion = releasePlan.releases.find((release) => release.name === packageJson.name)?.newVersion;
+    const releasePlan = await getReleasePlan(currentDir);
+    const packageJson = await Bun.file(packageJsonPath).json();
 
-    if (newNextVersion == null) {
-      await Bun.write(Bun.stdout, 'false\n');
-    } else {
-      await Bun.write(Bun.stdout, 'true\n');
-    }
+    const newNextVersion = releasePlan?.releases?.find(
+      (release) => release.name === packageJson.name
+    )?.newVersion;
+
+    await Bun.write(Bun.stdout, `${newNextVersion != null}\n`);
   } catch (error) {
-    console.log(error);
+    console.error('Error during release check:', error);
     process.exit(1);
   }
 }
 
+// Run the release check
 await checkIsRelease();
