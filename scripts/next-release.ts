@@ -34,7 +34,7 @@ async function createNextRelease() {
       if (rnNewVersion) {
         rnNewPackageJson.version = `${rnNewVersion}-next.${commitHash}`;
         // Update the dependency to point to the next version of create-expo-stack
-        rnNewPackageJson.dependencies['create-expo-stack'] = `^${newNextVersion}-next.${commitHash}`;
+        rnNewPackageJson.dependencies['create-expo-stack'] = `${newNextVersion}-next.${commitHash}`;
 
         const rnNewContent = JSON.stringify(rnNewPackageJson, null, '\t') + '\n';
         await Bun.write(process.cwd() + '/packages/rn-new/package.json', rnNewContent);
