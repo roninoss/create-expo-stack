@@ -1,5 +1,6 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import './global.css';
+  import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
   import './global.css';
   import 'expo-dev-client';
@@ -49,7 +50,12 @@ export default function App() {
     }), [baseTheme, theme.colors.background, theme.colors.typography, theme.colors.astral, theme.colors.cornflowerBlue, theme.colors.limedSpruce]);
 
     return <Navigation theme={mergedTheme} />;
-	<% } else if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "stylesheet") { %> 
+	<% } else if (props.stylingPackage?.name === "nativewind") { %> 
+		const colorScheme = useColorScheme();
+		const theme = useMemo(() => colorScheme === 'dark' ? DarkTheme : DefaultTheme, [colorScheme]);
+
+		return <SafeAreaProvider><Navigation theme={theme} /></SafeAreaProvider>;
+	<% } else if (props.stylingPackage?.name === "stylesheet") { %> 
 		const colorScheme = useColorScheme();
 		const theme = useMemo(() => colorScheme === 'dark' ? DarkTheme : DefaultTheme, [colorScheme]);
 

@@ -2,16 +2,16 @@ import { Link, Stack } from 'expo-router';
 <% if (props.stylingPackage?.name === "nativewind") {%>
   import { Text } from 'react-native';
 
-  import { Container } from '~/components/Container';
+  import { Container } from '@/components/Container';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { StyleSheet } from 'react-native-unistyles'
   import { Text } from 'react-native';
 
-  import { Container } from '~/components/Container';
+  import { Container } from '@/components/Container';
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   import { StyleSheet, Text } from 'react-native';
 
-  import { Container } from '~/components/Container';
+  import { Container } from '@/components/Container';
 <% } %>
 
 export default function NotFoundScreen() {

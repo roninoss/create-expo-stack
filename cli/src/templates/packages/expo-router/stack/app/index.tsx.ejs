@@ -8,7 +8,6 @@ import { View } from 'react-native';
 <% } else { %>
 import { View } from 'react-native';
 import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 <% } %>
 
 import { Button } from '@/components/Button';
@@ -22,12 +21,9 @@ import { ScreenContent } from '@/components/ScreenContent';
 <% } %>
 
 export default function Home() {
-  <% if (props.stylingPackage?.name === "nativewind") { %>
-    const insets = useSafeAreaInsets();
-  <% } %>
   return (
     <% if (props.stylingPackage?.name === "nativewind") { %>
-      <View className="flex-1 px-4 bg-white">
+      <View className={styles.container}>
       <% if (props.internalizationPackage?.name === "i18next") { %>
         <ScreenContent path="app/index.tsx" title="Home">
           <InternalizationExample />
@@ -35,7 +31,7 @@ export default function Home() {
       <% } else { %>
       <ScreenContent path="app/index.tsx" title="Home" />
       <% } %>
-      <View className={styles.buttonWrapper} style={{ paddingBottom: insets.bottom }}>
+      <View className={styles.buttonWrapper}>
         <Button
           title="Show Details"
           onPress={() => router.push({ pathname: '/details', params: { name: 'Dan' } })} 
@@ -68,9 +64,9 @@ export default function Home() {
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
 const styles = {
-  buttonWrapper: "w-full",
-  container: "flex flex-1 bg-white px-4",
-}
+  container: "flex flex-1 p-safe bg-white",
+  buttonWrapper: "w-full pb-safe",
+};
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 const styles = StyleSheet.create({
   container: {

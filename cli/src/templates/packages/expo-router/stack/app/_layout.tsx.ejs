@@ -1,5 +1,6 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import '../global.css';
+  import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } %>
 
 <% if (props.stylingPackage?.name === "unistyles") { %>
@@ -35,10 +36,12 @@ export default function Layout() {
         }}
       />
     <% } else if (props.stylingPackage?.name === "nativewind") { %>
-      <Stack>
-        <Stack.Screen name="index" options={{ title: 'Home' }} />
-        <Stack.Screen name="details" options={{ title: 'Details' }} />
-      </Stack>
+      <SafeAreaProvider>
+        <Stack>
+          <Stack.Screen name="index" options={{ title: 'Home' }} />
+          <Stack.Screen name="details" options={{ title: 'Details' }} />
+        </Stack>
+      </SafeAreaProvider>
     <% } else { %>
       <Stack />
     <% } %>

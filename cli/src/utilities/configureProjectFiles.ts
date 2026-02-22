@@ -223,6 +223,9 @@ export function configureProjectFiles(
 
       if (stylingPackage?.name === 'nativewind') {
         expoRouterFiles.push('packages/nativewind/components/Button.tsx.ejs');
+        if (navigationPackage?.options?.type === 'drawer + tabs') {
+          expoRouterFiles.push('packages/nativewind/components/Container.tsx.ejs');
+        }
       } else if (stylingPackage?.name === 'unistyles') {
         expoRouterFiles.push('packages/unistyles/components/Button.tsx.ejs');
         expoRouterFiles.push('packages/expo-router/index.js.ejs');

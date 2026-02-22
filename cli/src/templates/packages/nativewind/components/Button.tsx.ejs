@@ -1,9 +1,9 @@
 import { forwardRef } from 'react';
 import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 
-type ButtonProps = {
+interface ButtonProps extends TouchableOpacityProps {
   title: string;
-} & TouchableOpacityProps;
+}
 
 export const Button = forwardRef<View, ButtonProps>(({ title, ...touchableProps }, ref) => {
   return (

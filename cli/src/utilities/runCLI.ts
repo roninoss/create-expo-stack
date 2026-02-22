@@ -171,9 +171,9 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     const navigationType = await select({
       message: 'What type of navigation would you like to use?',
       options: [
-        { value: 'stack', label: 'Stack' }
-        // { value: 'tabs', label: 'Tabs' },
-        // { value: 'drawer + tabs', label: 'Drawer + Tabs' }
+        { value: 'stack', label: 'Stack' },
+        { value: 'tabs', label: 'Tabs' },
+        { value: 'drawer + tabs', label: 'Drawer + Tabs' }
       ]
     });
 

@@ -1,5 +1,6 @@
 <% if (props.stylingPackage?.name === "nativewind") { %>
   import '../global.css';
+  import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
   import '../global.css';
   import 'expo-dev-client';
@@ -35,7 +36,14 @@ export default function RootLayout() {
 
   return (
         <GestureHandlerRootView style={{ flex: 1 }}>
-         <% if (props.stylingPackage?.name === "unistyles") { %>
+        <% if (props.stylingPackage?.name === "nativewind") { %>
+          <SafeAreaProvider>
+            <Stack>
+              <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+              <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
+            </Stack>
+          </SafeAreaProvider>
+        <% } else if (props.stylingPackage?.name === "unistyles") { %>
             <Stack
                 screenOptions={{
                     headerStyle: {
@@ -54,12 +62,15 @@ export default function RootLayout() {
                     drawerInactiveTintColor: theme.colors.typography,
                 }}
             >
-        <% } else  { %>
-          <Stack>
-        <% } %>
             <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
           </Stack>
+        <% } else { %>
+          <Stack>
+            <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
+          </Stack>
+        <% } %>
         </GestureHandlerRootView>
   );
 }
