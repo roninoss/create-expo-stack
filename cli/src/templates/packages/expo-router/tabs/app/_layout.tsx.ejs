@@ -21,7 +21,10 @@
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
   import { vexo } from 'vexo-analytics';
 
-  vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
+  const vexoApiKey = process.env.EXPO_PUBLIC_VEXO_API_KEY;
+  if (vexoApiKey) {
+    vexo(vexoApiKey);
+  }
 <% } %>
 
 export const unstable_settings = {
