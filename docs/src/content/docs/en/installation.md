@@ -69,7 +69,10 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--supabase`         | Use Supabase for authentication, initial configuration only                    |
 | `--vexo-analytics`   | Use Vexo Analytics for analytics, initial configuration only                   |
 | `--nativewind`       | Use Nativewind for styling                                                     |
+| `--uniwind`          | Use Uniwind for styling                                                        |
 | `--unistyles`        | Use Unistyles for styling                                                      |
+| `--restyle`          | Use Restyle for styling                                                        |
+| `--tamagui`          | Use Tamagui for styling                                                        |
 | `--stylesheet`       | Use StyleSheet for styling, used by default                                    |
 | `--zustand`          | Use Zustand for state management                                               |
 | `--i18next`          | Use i18next for internationalization                                           |

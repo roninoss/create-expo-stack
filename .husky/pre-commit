@@ -9,7 +9,12 @@ if git diff-index --cached HEAD | tr '\t' ' ' | sed 's/^.*[ ]//' | grep '^cli/' 
 	echo "It looks likes you've made changes within the \`cli/\` folder."
 	printf "Would you like to run \`bun run changeset\` to update the changelog? (Y/n): "
 
-	read res < /dev/tty
+	if ! read res < /dev/tty; then
+		echo ""
+		echo "(Skipping changeset prompt: no TTY available)"
+		echo ""
+		exit 0
+	fi
 	case $res in
 		""|Y|y)
 			if bun run changeset < /dev/tty; then

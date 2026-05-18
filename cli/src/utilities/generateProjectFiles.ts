@@ -15,6 +15,8 @@ export function generateProjectFiles(
   stateManagementPackage: AvailablePackages | undefined
 ) {
   const { projectName, packages, flags } = cliResults;
+  const projectSlug = toExpoSlug(projectName);
+  const projectScheme = toExpoScheme(projectName);
 
   return files.reduce((prev, file) => {
     const template = file;
@@ -39,6 +41,13 @@ export function generateProjectFiles(
       target = target.replace('packages/unistyles/', '');
     } else if (stylingPackage?.name === 'nativewind') {
       target = target.replace('packages/nativewind/', '');
+    } else if (stylingPackage?.name === 'uniwind') {
+      target = target.replace('packages/nativewind/', '');
+      target = target.replace('packages/uniwind/', '');
+    } else if (stylingPackage?.name === 'restyle') {
+      target = target.replace('packages/restyle/', '');
+    } else if (stylingPackage?.name === 'tamagui') {
+      target = target.replace('packages/tamagui/', '');
     } else if (stylingPackage?.name === 'nativewindui') {
       target = target.replace('packages/nativewindui/', '');
     }
@@ -78,6 +87,8 @@ export function generateProjectFiles(
         flags,
         navigationPackage,
         projectName,
+        projectScheme,
+        projectSlug,
         packageManager,
         packages,
         stylingPackage,
@@ -88,4 +99,25 @@ export function generateProjectFiles(
 
     return prev.concat([gen]);
   }, formattedFiles);
+}
+
+function toExpoSlug(projectName: string): string {
+  const slug = projectName
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+  return slug || 'expo-app';
+}
+
+function toExpoScheme(projectName: string): string {
+  const scheme = projectName
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9+.-]+/g, '-')
+    .replace(/^[^a-z]+/, '')
+    .replace(/-+$/g, '');
+
+  return scheme || 'expo-app';
 }

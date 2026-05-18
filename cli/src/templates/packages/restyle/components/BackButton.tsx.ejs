@@ -1,0 +1,19 @@
+import { Pressable } from 'react-native';
+import { createBox, createText } from '@shopify/restyle';
+
+import type { Theme } from '../theme';
+
+const Box = createBox<Theme>();
+const Text = createText<Theme>();
+
+export const BackButton = ({ onPress }: { onPress: () => void }) => {
+  return (
+    <Pressable onPress={onPress}>
+      <Box flexDirection="row" alignItems="center" paddingLeft="lg">
+        <Text variant="body" color="primary">
+          {'<'} Back
+        </Text>
+      </Box>
+    </Pressable>
+  );
+};

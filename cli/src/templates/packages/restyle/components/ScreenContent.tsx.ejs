@@ -1,0 +1,30 @@
+import React from 'react';
+import { createBox, createText } from '@shopify/restyle';
+
+import EditScreenInfo from './EditScreenInfo';
+import type { Theme } from '../theme';
+
+const Box = createBox<Theme>();
+const Text = createText<Theme>();
+
+type ScreenContentProps = {
+  title: string;
+  path: string;
+  children?: React.ReactNode;
+};
+
+export const ScreenContent = ({ title, path, children }: ScreenContentProps) => {
+  return (
+    <Box
+      flex={1}
+      alignItems="center"
+      justifyContent="center"
+      padding="lg"
+      backgroundColor="background">
+      <Text variant="header">{title}</Text>
+      <Box height={1} width="80%" backgroundColor="border" marginVertical="lg" />
+      <EditScreenInfo path={path} />
+      {children}
+    </Box>
+  );
+};

@@ -5,8 +5,10 @@ import { semver } from 'gluegun';
 import { bunInstallationError, defaultOptions, nativewindUIOptions } from '../constants';
 import {
   AuthenticationSelect,
+  Analytics,
   StateManagementSelect,
   CliResults,
+  Internalization,
   NavigationSelect,
   NavigationTypes,
   PackageManager,
@@ -263,11 +265,15 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
         ? [
             { value: 'nativewindui', label: 'NativewindUI' },
             { value: 'nativewind', label: 'Nativewind' },
+            { value: 'restyle', label: 'Restyle' },
+            { value: 'tamagui', label: 'Tamagui' },
             { value: 'stylesheet', label: 'StyleSheet' },
             { value: 'unistyles', label: 'Unistyles' }
           ]
         : [
             { value: 'nativewind', label: 'Nativewind' },
+            { value: 'restyle', label: 'Restyle' },
+            { value: 'tamagui', label: 'Tamagui' },
             { value: 'stylesheet', label: 'StyleSheet' },
             { value: 'unistyles', label: 'Unistyles' }
           ],
@@ -369,6 +375,46 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     cliResults.packages.push({ name: authenticationSelect as AuthenticationSelect, type: 'authentication' });
   } else {
     success(`No problem, skipping authentication for now.`);
+  }
+
+  const internationalizationSelect = await select({
+    message: 'Would you like to include internationalization?',
+    options: [
+      { value: undefined, label: 'None' },
+      { value: 'i18next', label: 'i18next' }
+    ]
+  });
+
+  if (isCancel(internationalizationSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+
+  if (internationalizationSelect) {
+    cliResults.packages.push({ name: internationalizationSelect as Internalization, type: 'internationalization' });
+    success(`We'll add ${internationalizationSelect} for internationalization.`);
+  } else {
+    success(`No problem, skipping internationalization for now.`);
+  }
+
+  const analyticsSelect = await select({
+    message: 'Would you like to include analytics?',
+    options: [
+      { value: undefined, label: 'None' },
+      { value: 'vexo-analytics', label: 'Vexo Analytics' }
+    ]
+  });
+
+  if (isCancel(analyticsSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+
+  if (analyticsSelect) {
+    cliResults.packages.push({ name: analyticsSelect as Analytics, type: 'analytics' });
+    success(`We'll add ${analyticsSelect} for analytics.`);
+  } else {
+    success(`No problem, skipping analytics for now.`);
   }
 
   const easEnabled = await confirm({
