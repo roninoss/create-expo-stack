@@ -1,5 +1,5 @@
 import { Link, Stack } from 'expo-router';
-<% if (props.stylingPackage?.name === "nativewind") {%>
+<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") {%>
   import { Text } from 'react-native';
 
   import { Container } from '@/components/Container';
@@ -21,7 +21,7 @@ import { Link, Stack } from 'expo-router';
 export default function NotFoundScreen() {
 
   return (
-    <% if (props.stylingPackage?.name === "nativewind") {%>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") {%>
       <>
         <Stack.Screen options={{ title: "Oops!" }} />
         <Container>
@@ -45,7 +45,7 @@ export default function NotFoundScreen() {
   );
 }
 
-<% if (props.stylingPackage?.name === "nativewind") { %>
+<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
   const styles = {
     title: `text-xl font-bold`,
     link: `mt-4 pt-4`,
