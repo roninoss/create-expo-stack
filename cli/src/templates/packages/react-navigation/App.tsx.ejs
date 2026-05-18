@@ -23,7 +23,10 @@ import "react-native-gesture-handler";
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
   import { vexo } from 'vexo-analytics';
 
-  vexo(process.env.VEXO_API_KEY); // eslint-disable-line
+  const vexoApiKey = process.env.EXPO_PUBLIC_VEXO_API_KEY || process.env.VEXO_API_KEY;
+  if (vexoApiKey) {
+    vexo(vexoApiKey); // eslint-disable-line
+  }
 
   import Navigation from "./navigation"; // eslint-disable-line
 <% } else { %>
