@@ -487,7 +487,6 @@ const command: GluegunCommand = {
         const stylingPackage = packages.find((p) => p.type === 'styling');
         const internalizationPackage = packages.find((p) => p.type === 'internationalization');
         const analyticsPackage = packages.find((p) => p.type === 'analytics');
-        const softwareMansionPackages = packages.filter((p) => p.type === 'software-mansion');
 
         //add the state management package if it is selected
         const stateManagementPackage = packages.find((p) => p.type === 'state-management') || undefined;
@@ -503,8 +502,7 @@ const command: GluegunCommand = {
           toolbox,
           cliResults,
           internalizationPackage,
-          stateManagementPackage,
-          softwareMansionPackages
+          stateManagementPackage
         );
 
         // Once all the files are defined, format and generate them

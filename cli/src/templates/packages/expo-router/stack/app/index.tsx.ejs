@@ -18,7 +18,7 @@ import { ScreenContent } from '@/components/ScreenContent';
 
 export default function Home() {
   return (
-    <% if (props.stylingPackage?.name === "nativewind") { %>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
       <View className={styles.container}>
     <% } else { %>
       <View style={styles.container}>
@@ -42,7 +42,7 @@ export default function Home() {
   );
 }
 
-<% if (props.stylingPackage?.name === "nativewind") { %>
+<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
 const styles = {
   container: "flex flex-1 bg-white",
 }

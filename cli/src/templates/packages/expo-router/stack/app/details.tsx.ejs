@@ -15,7 +15,7 @@ export default function Details() {
   const { name } = useLocalSearchParams();
 
   return (
-    <% if (props.stylingPackage?.name === "nativewind") { %>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
       <View className={styles.container}>
     <% } else { %>
       <View style={styles.container}>
@@ -28,7 +28,7 @@ export default function Details() {
   );
 }
 
-<% if (props.stylingPackage?.name === "nativewind") { %>
+<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
 const styles = {
   container: "flex flex-1 bg-white",
 }

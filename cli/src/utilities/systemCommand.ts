@@ -4,6 +4,14 @@ type STDIO = 'inherit' | 'ignore' | 'pipe' | 'overlapped';
 
 export const ONLY_ERRORS = ['ignore', 'ignore', 'inherit'] as const;
 
+export function quoteShellArg(value: string): string {
+  if (process.platform === 'win32') {
+    return `"${value.replace(/"/g, '""')}"`;
+  }
+
+  return `'${value.replace(/'/g, `'\\''`)}'`;
+}
+
 export async function runSystemCommand({
   command,
   errorMessage,
