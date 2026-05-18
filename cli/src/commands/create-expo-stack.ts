@@ -22,6 +22,7 @@ import {
 } from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
+import { quoteShellArg } from '../utilities/systemCommand';
 import { validateProjectName } from '../utilities/validateProjectName';
 import { cancel, intro, isCancel, text } from '@clack/prompts';
 import clearNavigationPackages from '../utilities/clearNavigationPackages';
@@ -238,6 +239,24 @@ const command: GluegunCommand = {
             name: 'nativewind',
             type: 'styling'
           });
+        } else if (options.uniwind) {
+          cliResults = clearStylingPackages(cliResults);
+          cliResults.packages.push({
+            name: 'uniwind',
+            type: 'styling'
+          });
+        } else if (options.restyle) {
+          cliResults = clearStylingPackages(cliResults);
+          cliResults.packages.push({
+            name: 'restyle',
+            type: 'styling'
+          });
+        } else if (options.tamagui) {
+          cliResults = clearStylingPackages(cliResults);
+          cliResults.packages.push({
+            name: 'tamagui',
+            type: 'styling'
+          });
         } else if (isNativewindUI) {
           cliResults = clearStylingPackages(cliResults);
           cliResults = clearNavigationPackages(cliResults);
@@ -329,6 +348,40 @@ const command: GluegunCommand = {
           cliResults.packages.push({ name: 'vexo-analytics', type: 'analytics' });
         }
 
+        if (
+          options.reactNativeGestureHandler ||
+          options['react-native-gesture-handler'] ||
+          options['gesture-handler'] ||
+          options.gestureHandler
+        ) {
+          cliResults.packages.push({ name: 'react-native-gesture-handler', type: 'software-mansion' });
+        }
+
+        if (options.reactNativeReanimated || options['react-native-reanimated'] || options.reanimated) {
+          cliResults.packages.push({ name: 'react-native-reanimated', type: 'software-mansion' });
+        }
+
+        if (options.reactNativeScreens || options['react-native-screens'] || options.screens) {
+          cliResults.packages.push({ name: 'react-native-screens', type: 'software-mansion' });
+        }
+
+        if (options.reactNativeSvg || options['react-native-svg'] || options.svg) {
+          cliResults.packages.push({ name: 'react-native-svg', type: 'software-mansion' });
+        }
+
+        if (
+          options.reactNativeKeyboardController ||
+          options['react-native-keyboard-controller'] ||
+          options['keyboard-controller'] ||
+          options.keyboardController
+        ) {
+          cliResults.packages.push({ name: 'react-native-keyboard-controller', type: 'software-mansion' });
+        }
+
+        if (options.reactNativeWorklets || options['react-native-worklets'] || options.worklets) {
+          cliResults.packages.push({ name: 'react-native-worklets', type: 'software-mansion' });
+        }
+
         // By this point, all cliResults should be set
         info('');
         highlight('Your project configuration:');
@@ -339,7 +392,7 @@ const command: GluegunCommand = {
 
         // Function that outputs a string given the CLI results and the packageManager. The outputted string should be a command that can be run to recreate the project
         const generateRerunScript = (cliResults: CliResults) => {
-          let script = `npx rn-new@latest ${cliResults.projectName} `;
+          let script = `npx rn-new@latest ${quoteShellArg(cliResults.projectName)} `;
 
           const isNativewindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
@@ -434,6 +487,7 @@ const command: GluegunCommand = {
         const stylingPackage = packages.find((p) => p.type === 'styling');
         const internalizationPackage = packages.find((p) => p.type === 'internationalization');
         const analyticsPackage = packages.find((p) => p.type === 'analytics');
+        const softwareMansionPackages = packages.filter((p) => p.type === 'software-mansion');
 
         //add the state management package if it is selected
         const stateManagementPackage = packages.find((p) => p.type === 'state-management') || undefined;
@@ -449,7 +503,8 @@ const command: GluegunCommand = {
           toolbox,
           cliResults,
           internalizationPackage,
-          stateManagementPackage
+          stateManagementPackage,
+          softwareMansionPackages
         );
 
         // Once all the files are defined, format and generate them

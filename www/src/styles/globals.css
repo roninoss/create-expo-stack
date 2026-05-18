@@ -102,6 +102,38 @@ html {
   }
 }
 
+.hero-rotate {
+  translate: -50% 0;
+  opacity: 0;
+  animation: none;
+}
+
+.hero-rotate-delay {
+  animation-delay: 0s;
+}
+
+.group:hover .hero-rotate {
+  animation: hero-rotate 6s steps(1, end) infinite;
+}
+
+.group:hover .hero-rotate-delay {
+  animation-delay: 3s;
+}
+
+@keyframes hero-rotate {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 .disappear-reappear {
   translate: 0 0 !important;
   animation: disappear-reappear 3s steps(1, end) 1 forwards;

@@ -5,11 +5,13 @@
 *.ttf
 *.txt
 *.ico
+*.log
 .editorconfig
 .env
 .gitignore
 .husky/pre-commit
 .prettierignore
+.playwright-mcp
 bun.lockb
 LICENSE
 cli/__tests__/__snapshots__/*

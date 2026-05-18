@@ -5,6 +5,12 @@
 
 <% if (props.stylingPackage?.name === "unistyles") { %>
   import { useUnistyles } from "react-native-unistyles";
+<% } else if (props.stylingPackage?.name === "restyle") { %>
+  import { ThemeProvider } from '@shopify/restyle';
+  import { theme } from '../theme';
+<% } else if (props.stylingPackage?.name === "tamagui") { %>
+  import { TamaguiProvider } from 'tamagui';
+  import config from '../tamagui.config';
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import '../translation';
@@ -23,6 +29,11 @@ export default function Layout() {
   <% } %>
 
 	return (
+    <% if (props.stylingPackage?.name === "restyle") { %>
+      <ThemeProvider theme={theme}>
+    <% } else if (props.stylingPackage?.name === "tamagui") { %>
+      <TamaguiProvider config={config}>
+    <% } %>
     <% if (props.stylingPackage?.name === "unistyles") { %>
       <Stack
         screenOptions={{
@@ -41,6 +52,11 @@ export default function Layout() {
       </SafeAreaProvider>
     <% } else { %>
       <Stack />
+    <% } %>
+    <% if (props.stylingPackage?.name === "restyle") { %>
+      </ThemeProvider>
+    <% } else if (props.stylingPackage?.name === "tamagui") { %>
+      </TamaguiProvider>
     <% } %>
 	);
 }
