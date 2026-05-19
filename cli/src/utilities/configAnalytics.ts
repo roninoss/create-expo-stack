@@ -4,7 +4,7 @@ import {
   Analytics,
   AuthenticationSelect,
   CliFlags,
-  Internalization,
+  Internationalization,
   NavigationSelect,
   NavigationTypes,
   PackageManager,
@@ -47,7 +47,7 @@ export async function storeConfigAnalytics({
   stylingLibrary?: StylingSelect;
   packageManager: PackageManager;
   packageManagerVersion: string;
-  internalization?: Internalization;
+  internalization?: Internationalization;
   nativewindUIComponents?: SelectedComponents[];
   os: string;
   osPlatform: string;

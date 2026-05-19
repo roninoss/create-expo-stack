@@ -1,12 +1,12 @@
 import { forwardRef } from 'react';
 import { Button as TamaguiButton } from 'tamagui';
-import type { ButtonProps as TamaguiButtonProps } from 'tamagui';
+import type { ButtonProps as TamaguiButtonProps, TamaguiElement } from 'tamagui';
 
 type ButtonProps = {
   title?: string;
 } & TamaguiButtonProps;
 
-export const Button = forwardRef<any, ButtonProps>(({ title, ...props }, ref) => {
+export const Button = forwardRef<TamaguiElement, ButtonProps>(({ title, ...props }, ref) => {
   return (
     <TamaguiButton ref={ref} backgroundColor="$blue10" color="white" borderRadius="$8" {...props}>
       {title}

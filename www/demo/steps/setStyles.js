@@ -8,11 +8,13 @@ export async function setStyles(cliResults, navigationSelect) {
       navigationSelect === "expo-router"
         ? [
             { value: "nativewindui", label: "NativewindUI" },
+            { value: "uniwind", label: "Uniwind" },
             { value: "nativewind", label: "Nativewind" },
             { value: "stylesheet", label: "StyleSheet" },
             { value: "unistyles", label: "Unistyles" },
           ]
         : [
+            { value: "uniwind", label: "Uniwind" },
             { value: "nativewind", label: "Nativewind" },
             { value: "stylesheet", label: "StyleSheet" },
             { value: "unistyles", label: "Unistyles" },
