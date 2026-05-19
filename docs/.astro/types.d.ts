@@ -248,6 +248,13 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".md"] };
+"en/usage/software-mansion.md": {
+	id: "en/usage/software-mansion.md";
+  slug: "en/usage/software-mansion";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
 "en/usage/supabase.md": {
 	id: "en/usage/supabase.md";
   slug: "en/usage/supabase";
@@ -265,6 +272,13 @@ declare module 'astro:content' {
 "en/usage/unistyles.md": {
 	id: "en/usage/unistyles.md";
   slug: "en/usage/unistyles";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
+"en/usage/uniwind.md": {
+	id: "en/usage/uniwind.md";
+  slug: "en/usage/uniwind";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">

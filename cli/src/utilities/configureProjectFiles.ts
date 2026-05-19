@@ -5,7 +5,7 @@ import {
   AuthenticationSelect,
   AvailablePackages,
   CliResults,
-  Internalization,
+  Internationalization,
   NavigationSelect,
   NavigationTypes,
   StylingSelect
@@ -137,6 +137,7 @@ export function configureProjectFiles(
 
     if (stylingPackage?.name === 'uniwind') {
       const uniwindFiles = [
+        // Uniwind intentionally reuses NativeWind's utility-class component templates.
         'packages/nativewind/components/ScreenContent.tsx.ejs',
         'packages/nativewind/components/EditScreenInfo.tsx.ejs',
         'packages/uniwind/global.css'
@@ -418,7 +419,7 @@ ${JSON.stringify(cesConfig, null, 2)}`
     stylingLibrary: stylingPackage?.name as StylingSelect,
     packageManager: cliResults.flags.packageManager,
     packageManagerVersion,
-    internalization: internalizationPackage?.name as Internalization,
+    internalization: internalizationPackage?.name as Internationalization,
     nativewindUIComponents: stylingPackage?.options?.selectedComponents,
     eas: cliResults.flags.eas,
     importAlias: cliResults.flags.importAlias,

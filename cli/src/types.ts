@@ -64,7 +64,7 @@ export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 
 export type StateManagementSelect = 'zustand' | undefined;
 
-export type Internalization = 'i18next';
+export type Internationalization = 'i18next';
 
 export type Analytics = 'vexo-analytics';
 

@@ -17,7 +17,7 @@ const config = getDefaultConfig(__dirname);
 <% } else if (props.stylingPackage?.name === "uniwind") { %>
   module.exports = withUniwindConfig(config, {
     cssEntryFile: "./global.css",
-    dtsFile: "./src/uniwind-types.d.ts"
+    dtsFile: "./uniwind-types.d.ts"
   });
 <% } else { %>
   module.exports = config;

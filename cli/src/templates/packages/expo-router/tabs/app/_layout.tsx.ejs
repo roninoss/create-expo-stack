@@ -1,7 +1,7 @@
 <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
   import '../global.css';
   import { SafeAreaProvider } from 'react-native-safe-area-context';
-<% } else if (props.stylingPackage?.name === "nativewinui") { %>
+<% } else if (props.stylingPackage?.name === "nativewindui") { %>
   import '../global.css';
   import 'expo-dev-client';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
@@ -39,38 +39,46 @@ export default function RootLayout() {
 
   return (
     <% if (props.stylingPackage?.name === "restyle") { %>
-    <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        </Stack>
+      </ThemeProvider>
     <% } else if (props.stylingPackage?.name === "tamagui") { %>
-    <TamaguiProvider config={config}>
-    <% } %>
-    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
-    <SafeAreaProvider>
-    <% } %>
-        <% if (props.stylingPackage?.name === "unistyles") { %>
-            <Stack
-                screenOptions={{
-                    headerStyle: {
-                        backgroundColor: theme.colors.background,
-                    },
-                    headerTitleStyle: {
-                        color: theme.colors.typography,
-                    },
-                    headerTintColor: theme.colors.typography
-                }}
-            >
-        <% } else  { %>
-            <Stack>
-        <% } %>
-		<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-		<Stack.Screen name="modal" options={{ presentation: "modal" }} />
-	</Stack>
-    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
-    </SafeAreaProvider>
-    <% } %>
-    <% if (props.stylingPackage?.name === "restyle") { %>
-    </ThemeProvider>
-    <% } else if (props.stylingPackage?.name === "tamagui") { %>
-    </TamaguiProvider>
+      <TamaguiProvider config={config}>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        </Stack>
+      </TamaguiProvider>
+    <% } else if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+      <SafeAreaProvider>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        </Stack>
+      </SafeAreaProvider>
+    <% } else if (props.stylingPackage?.name === "unistyles") { %>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+          },
+          headerTitleStyle: {
+            color: theme.colors.typography,
+          },
+          headerTintColor: theme.colors.typography
+        }}
+      >
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+      </Stack>
+    <% } else { %>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+      </Stack>
     <% } %>
   );
 }

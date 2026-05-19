@@ -8,11 +8,12 @@ import {
   Analytics,
   StateManagementSelect,
   CliResults,
-  Internalization,
+  Internationalization,
   NavigationSelect,
   NavigationTypes,
   PackageManager,
   SelectedComponents,
+  SoftwareMansionSelect,
   StylingSelect
 } from '../types';
 import { loadConfigs, saveConfig } from './configStorage';
@@ -20,6 +21,30 @@ import { getDefaultPackageManagerVersion } from './getPackageManager';
 
 // based on eas default bun version https://docs.expo.dev/build-reference/infrastructure/#ios-server-images
 const minBunVersion = '1.1.13'; // or greater
+
+const softwareMansionOptions: Array<{ value: SoftwareMansionSelect; label: string }> = [
+  { value: 'react-native-gesture-handler', label: 'React Native Gesture Handler' },
+  { value: 'react-native-reanimated', label: 'React Native Reanimated (included by default)' },
+  { value: 'react-native-screens', label: 'React Native Screens' },
+  { value: 'react-native-svg', label: 'React Native SVG' },
+  { value: 'react-native-keyboard-controller', label: 'React Native Keyboard Controller' },
+  { value: 'react-native-worklets', label: 'React Native Worklets (included by default)' }
+];
+
+function shouldAddSoftwareMansionPackage(name: SoftwareMansionSelect, cliResults: CliResults): boolean {
+  if (cliResults.packages.some((pkg) => pkg.name === name)) {
+    return false;
+  }
+
+  if (
+    (name === 'react-native-gesture-handler' || name === 'react-native-screens') &&
+    cliResults.packages.some((pkg) => pkg.type === 'navigation')
+  ) {
+    return false;
+  }
+
+  return name !== 'react-native-reanimated' && name !== 'react-native-worklets';
+}
 
 export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
   const {
@@ -264,6 +289,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       navigationSelect === 'expo-router'
         ? [
             { value: 'nativewindui', label: 'NativewindUI' },
+            { value: 'uniwind', label: 'Uniwind' },
             { value: 'nativewind', label: 'Nativewind' },
             { value: 'restyle', label: 'Restyle' },
             { value: 'tamagui', label: 'Tamagui' },
@@ -271,6 +297,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
             { value: 'unistyles', label: 'Unistyles' }
           ]
         : [
+            { value: 'uniwind', label: 'Uniwind' },
             { value: 'nativewind', label: 'Nativewind' },
             { value: 'restyle', label: 'Restyle' },
             { value: 'tamagui', label: 'Tamagui' },
@@ -329,6 +356,24 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       }!`
     );
   }
+
+  const softwareMansionSelect = await multiselect({
+    message: 'Which optional Software Mansion packages would you like to add?',
+    options: softwareMansionOptions,
+    required: false,
+    initialValues: []
+  });
+
+  if (isCancel(softwareMansionSelect)) {
+    cancel('Cancelled... ðŸ‘‹');
+    return process.exit(0);
+  }
+
+  softwareMansionSelect
+    .filter((pkg) => shouldAddSoftwareMansionPackage(pkg, cliResults))
+    .forEach((pkg) => {
+      cliResults.packages.push({ name: pkg, type: 'software-mansion' });
+    });
 
   const stateManagementSelect = await select({
     message: 'What would you like to use for state management?',
@@ -391,7 +436,10 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
   }
 
   if (internationalizationSelect) {
-    cliResults.packages.push({ name: internationalizationSelect as Internalization, type: 'internationalization' });
+    cliResults.packages.push({
+      name: internationalizationSelect as Internationalization,
+      type: 'internationalization'
+    });
     success(`We'll add ${internationalizationSelect} for internationalization.`);
   } else {
     success(`No problem, skipping internationalization for now.`);

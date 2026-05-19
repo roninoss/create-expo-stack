@@ -32,11 +32,6 @@ export default function Layout() {
   <% } %>
 
 	return (
-    <% if (props.stylingPackage?.name === "restyle") { %>
-      <ThemeProvider theme={theme}>
-    <% } else if (props.stylingPackage?.name === "tamagui") { %>
-      <TamaguiProvider config={config}>
-    <% } %>
     <% if (props.stylingPackage?.name === "unistyles") { %>
       <Stack
         screenOptions={{
@@ -53,13 +48,16 @@ export default function Layout() {
       <SafeAreaProvider>
         <Stack />
       </SafeAreaProvider>
-    <% } else { %>
-      <Stack />
-    <% } %>
-    <% if (props.stylingPackage?.name === "restyle") { %>
+    <% } else if (props.stylingPackage?.name === "restyle") { %>
+      <ThemeProvider theme={theme}>
+        <Stack />
       </ThemeProvider>
     <% } else if (props.stylingPackage?.name === "tamagui") { %>
+      <TamaguiProvider config={config}>
+        <Stack />
       </TamaguiProvider>
+    <% } else { %>
+      <Stack />
     <% } %>
 	);
 }

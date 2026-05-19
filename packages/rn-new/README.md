@@ -43,6 +43,8 @@ This CLI tool is designed to help you get started with React Native and Expo as 
 
 You can also use flags such as `--noInstall`, `--noGit`, and `--default` in order to customize your project. The CLI will attempt to automatically determine your package manager of choice but you can also pass in your preferred package manager via `--npm`, `--yarn`, `--pnpm`, or `--bun`. Roadmap coming soon...
 
+Software Mansion foundations are available from both the interactive prompt and non-interactive flags. Reanimated and Worklets are included by default; Gesture Handler and Screens are included automatically with navigation templates; SVG and Keyboard Controller can be added when your app needs them.
+
 ## Usage
 
 To get started, use npx to run the CLI tool. You will be prompted to opt into the features you want to use.
@@ -63,6 +65,12 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | React              | UI Framework        | v18     | The most popular UI framework in the world     |
 | TypeScript         | Language            | v5      | Static typechecking                            |
 | React Navigation   | Navigation          | v7      | Performant and consistent navigation framework |
+| React Native Gesture Handler | Native Foundation | v2.30   | Touch and gesture primitives                   |
+| React Native Reanimated | Native Foundation | v4.2    | Native-thread animations                       |
+| React Native Screens | Native Foundation | v4.23   | Native navigation screen primitives            |
+| React Native SVG   | Native Foundation   | v15.15  | SVG rendering for React Native                 |
+| React Native Keyboard Controller | Native Foundation | v1.20 | Keyboard-aware interactions                    |
+| React Native Worklets | Native Foundation | v0.7    | Worklet runtime support                        |
 | Expo               | SDK                 | v52     | Allows (optional) Expo modules                 |
 | Expo Font          | Custom Fonts        | v11     | Import custom fonts                            |
 | Expo Linking       | URL Handling        | v5      | Open your app via a URL                        |

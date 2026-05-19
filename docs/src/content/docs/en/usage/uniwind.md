@@ -5,6 +5,8 @@ description: Using Uniwind
 
 Uniwind brings Tailwind v4 to React Native with a fast, CSS-first workflow and native-friendly utilities.
 
+Read the upstream setup and API docs at [uniwind.dev](https://uniwind.dev).
+
 ## Key Features
 
 - **Tailwind v4 syntax:** Use modern Tailwind features with a React Native-compatible runtime.
@@ -13,4 +15,4 @@ Uniwind brings Tailwind v4 to React Native with a fast, CSS-first workflow and n
 
 ## Notes
 
-When Uniwind is selected, Create Expo Stack configures `global.css` and the Metro config for the Uniwind pipeline.
+When Uniwind is selected, Create Expo Stack configures `global.css`, Tailwind CSS v4, and the Metro config for the Uniwind pipeline.

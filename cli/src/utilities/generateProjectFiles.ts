@@ -42,6 +42,7 @@ export function generateProjectFiles(
     } else if (stylingPackage?.name === 'nativewind') {
       target = target.replace('packages/nativewind/', '');
     } else if (stylingPackage?.name === 'uniwind') {
+      // Uniwind shares NativeWind's utility-class component templates.
       target = target.replace('packages/nativewind/', '');
       target = target.replace('packages/uniwind/', '');
     } else if (stylingPackage?.name === 'restyle') {
@@ -101,7 +102,7 @@ export function generateProjectFiles(
   }, formattedFiles);
 }
 
-function toExpoSlug(projectName: string): string {
+export function toExpoSlug(projectName: string): string {
   const slug = projectName
     .trim()
     .toLowerCase()
@@ -111,7 +112,7 @@ function toExpoSlug(projectName: string): string {
   return slug || 'expo-app';
 }
 
-function toExpoScheme(projectName: string): string {
+export function toExpoScheme(projectName: string): string {
   const scheme = projectName
     .trim()
     .toLowerCase()
