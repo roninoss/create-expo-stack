@@ -1,23 +1,20 @@
 import '../global.css';
 import 'expo-dev-client';
-import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
-import { Icon } from '@roninoss/icons';
+import { ThemeProvider as NavThemeProvider } from 'expo-router/react-navigation';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 <% } %>
 <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 <% } %>
-import { Link, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, View } from 'react-native';
 <% if (props.stylingPackage?.options.selectedComponents.includes('bottom-sheet')) { %>
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 <% } %>
 
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { cn } from '@/lib/cn';
-import { useColorScheme, useInitialAndroidBarSync } from '@/lib/useColorScheme';
+import { ThemeToggle } from '@/components/nativewindui/ThemeToggle';
+import { useColorScheme } from '@/lib/useColorScheme';
 import { NAV_THEME } from '@/theme';
 
 export {
@@ -26,7 +23,6 @@ export {
 } from 'expo-router';
 
 export default function RootLayout() {
-  useInitialAndroidBarSync();
   const { colorScheme, isDarkColorScheme } = useColorScheme();
 
   return (

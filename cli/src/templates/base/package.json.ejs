@@ -50,10 +50,10 @@
       "tailwind-merge": "^2.2.1",
       "react-native-uitextview": "^1.1.4",
       "rn-icon-mapper": "^0.0.1",
-      "expo-haptics": "~55.0.14",
-      "expo-symbols": "~55.0.8",
+      "expo-haptics": "~56.0.3",
+      "expo-symbols": "~56.0.5",
       <% if (props.stylingPackage?.options.selectedComponents.includes('date-picker')) { %>
-        "@react-native-community/datetimepicker": "8.6.0",
+        "@react-native-community/datetimepicker": "9.1.0",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('picker')) { %>
         "@react-native-picker/picker": "2.11.4",
@@ -62,10 +62,10 @@
         "@expo/react-native-action-sheet": "^4.0.1",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
-        "expo-store-review": "~55.0.13",
+        "expo-store-review": "~56.0.3",
       <% } %>
       <% if (props.stylingPackage?.options.selectedComponents.includes('slider')) { %>
-        "@react-native-community/slider": "5.1.2",
+        "@react-native-community/slider": "5.2.0",
       <% } %>
     <% } %>
 
@@ -79,30 +79,30 @@
         "react-native-edge-to-edge": "1.6.0",
     <% } %>
 
-    <% if (props.navigationPackage?.type === "navigation") { %>
+    <% if (props.navigationPackage?.name === "react-navigation") { %>
       "@react-navigation/native": "^7.1.6",
     <% } %>
 
     <% if (props.navigationPackage?.type === "navigation" || props.packages?.some((p) => p.name === "react-native-gesture-handler")) { %>
-      "react-native-gesture-handler": "~2.30.0",
+      "react-native-gesture-handler": "~2.31.1",
     <% } %>
 
     <% if (props.navigationPackage?.type === "navigation" || props.packages?.some((p) => p.name === "react-native-screens")) { %>
-      "react-native-screens": "~4.23.0",
+      "react-native-screens": "4.25.2",
     <% } %>
 
     <% if (props.packages?.some((p) => p.name === "react-native-svg")) { %>
-      "react-native-svg": "15.15.3",
+      "react-native-svg": "15.15.4",
     <% } %>
 
     <% if (props.packages?.some((p) => p.name === "react-native-keyboard-controller")) { %>
-      "react-native-keyboard-controller": "1.20.7",
+      "react-native-keyboard-controller": "1.21.6",
     <% } %>
 
     <% if (props.navigationPackage?.name === "react-navigation") { %>
       "@react-navigation/stack": "^7.4.8",
       "@expo/vector-icons": "^15.0.2",
-      "expo-font": "~55.0.7",
+      "expo-font": "~56.0.5",
     <% } %>
 
     <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
@@ -116,21 +116,18 @@
     <% if ((props.navigationPackage?.options.type === "drawer + tabs") && (props.navigationPackage?.name === "react-navigation")) { %>
       "@react-navigation/drawer": "^7.0.0",
       "@react-navigation/bottom-tabs": "^7.0.5",
-    <% } else if (props.navigationPackage?.options.type === "drawer + tabs") { %>
-      "@react-navigation/drawer": "^7.0.0",
-      "@react-navigation/bottom-tabs": "^7.0.5",
     <% } %>
 
     <% if (props.navigationPackage?.name === "expo-router") { %>
-      "@expo/log-box": "55.0.12",
+      "@expo/log-box": "^56.0.12",
       "@expo/vector-icons": "^15.0.2",
-      "expo-font": "~55.0.7",
-      "expo-linking": "~55.0.15",
-      "expo-router": "~55.0.14",
-      "expo-constants": "~55.0.16",
-      "expo-system-ui": "~55.0.17",
-      "expo-web-browser": "~55.0.15",
-      "react-dom": "19.2.0",
+      "expo-font": "~56.0.5",
+      "expo-linking": "~56.0.11",
+      "expo-router": "~56.2.6",
+      "expo-constants": "~56.0.15",
+      "expo-system-ui": "~56.0.5",
+      "expo-web-browser": "~56.0.5",
+      "react-dom": "19.2.3",
       "react-native-web": "~0.21.0",
     <% } %>
 
@@ -146,27 +143,28 @@
   <% if (props.internalizationPackage?.name === "i18next") { %>
     "i18next": "^23.7.20",
     "react-i18next": "^14.0.1",
-    "expo-localization": "~55.0.13",
+    "expo-localization": "~56.0.6",
   <% } %>
   <% if (props.flags?.eas || props.stylingPackage?.name === "nativewindui") { %>
-    "expo-dev-client": "~55.0.32",
-    "expo-device": "~55.0.16",
+    "expo-dev-client": "~56.0.15",
+    "expo-device": "~56.0.4",
   <% } %>
 
-    "react-native-reanimated": "4.2.1",
-    "react-native-worklets": "0.7.4",
+    "react-native-reanimated": "4.3.1",
+    "react-native-worklets": "0.8.3",
 
-    "react-native-safe-area-context": "~5.6.2",
-    "expo": "~55.0.23",
-    "expo-status-bar": "~55.0.6",
-    "react": "19.2.0",
-    "react-native": "0.83.6"
+    "react-native-safe-area-context": "~5.7.0",
+    "expo": "~56.0.4",
+    "expo-splash-screen": "~56.0.10",
+    "expo-status-bar": "~56.0.4",
+    "react": "19.2.3",
+    "react-native": "0.85.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~19.2.2",
     "eslint": "^9.25.1",
-    "eslint-config-expo": "~55.0.0",
+    "eslint-config-expo": "~56.0.4",
     "eslint-config-prettier": "^10.1.2",
     "prettier": "^3.2.5",
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
@@ -179,7 +177,7 @@
     <% if (props.stylingPackage?.name === "tamagui") { %>
       "@tamagui/babel-plugin": "^1.118.0",
     <% } %>
-    "typescript": "~5.9.2"
+    "typescript": "~6.0.3"
   },
   <% if (props.navigationPackage?.name !== "expo-router") { %>
     "main": "node_modules/expo/AppEntry.js",

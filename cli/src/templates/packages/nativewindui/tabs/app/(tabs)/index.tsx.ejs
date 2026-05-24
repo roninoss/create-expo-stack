@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router';
-import { useHeaderHeight } from '@react-navigation/elements';
+import { useHeaderHeight } from 'expo-router/react-navigation';
 import { FlashList } from '@shopify/flash-list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
@@ -27,12 +27,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { useActionSheet } from '@expo/react-native-action-sheet';
 <% } %>
-import { Icon } from '@roninoss/icons';
 <% if (props.stylingPackage?.options.selectedComponents.includes('ratings-indicator')) { %>
 import * as StoreReview from 'expo-store-review';
 <% } %>
 
 import { Container } from '@/components/Container';
+import { Icon } from '@/components/nativewindui/Icon';
 <% if (props.stylingPackage?.options.selectedComponents.includes('activity-indicator')) { %>
 import { ActivityIndicator } from '@/components/nativewindui/ActivityIndicator';
 <% } %>
@@ -76,7 +76,6 @@ export default function Home() {
           contentInsetAdjustmentBehavior="automatic"
           keyboardShouldPersistTaps="handled"
           data={data}
-          estimatedItemSize={200}
           contentContainerClassName="py-4 android:pb-12"
           extraData={searchValue}
           keyExtractor={keyExtractor}
@@ -113,7 +112,7 @@ function ListEmptyComponent() {
 
   return (
     <View style={{ height }} className="flex-1 items-center justify-center gap-1 px-12">
-      <Icon name="file-plus-outline" size={42} color={colors.grey} />
+      <Icon name="doc.badge.plus" size={42} color={colors.grey} />
         <Text variant='title3' className='pb-1 text-center font-semibold'>
           No Components Installed
         </Text>
