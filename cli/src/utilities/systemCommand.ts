@@ -19,6 +19,7 @@ export async function runSystemCommand({
   toolbox,
   shell = true,
   env,
+  cwd,
   failOnError = true
 }: {
   command: string;
@@ -27,6 +28,7 @@ export async function runSystemCommand({
   errorMessage: string;
   shell?: boolean;
   env?: Record<string, string>;
+  cwd?: string;
   failOnError?: boolean;
 }) {
   const {
@@ -37,7 +39,8 @@ export async function runSystemCommand({
   const result = await system.spawn(command, {
     shell,
     stdio,
-    env
+    env: env ? { ...process.env, ...env } : process.env,
+    cwd
   });
 
   if (failOnError && (result.error || result.status !== 0)) {

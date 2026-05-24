@@ -3,19 +3,21 @@
   "compilerOptions": {
     <% if (props.flags.importAlias) { %>
     "strict": true,
-    "baseUrl": ".",
     "paths": {
       <% if (props.stylingPackage?.name === 'nativewindui') { %>
-        "@/*": [ "./*" ]
+        "@/*": [ "./*" ],
       <% } else { %>  
         <% if  (props.navigationPackage?.name === "expo-router" && props.flags.importAlias === true) { %>
-        "@/*": ["*"]
+        "@/*": ["./*"],
         <% } else if  (props.flags.importAlias === true) { %>
-        "@/*": ["src/*"]
+        "@/*": ["./src/*"],
         <% } else { %>
-        "<%= props.flags.importAlias %>": ["src/*"]
+        "<%= props.flags.importAlias %>": ["./src/*"],
         <% } %>
       <% } %>
+      "components/*": ["./components/*"],
+      "core/*": ["./core/*"],
+      "translation/*": ["./translation/*"]
     }
     <% } else { %>
       "strict": true
@@ -26,11 +28,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "css-env.d.ts"
     <% if (props.stylingPackage?.name === 'nativewind' || props.stylingPackage?.name === 'nativewindui') { %>
-      "expo-env.d.ts",
+      ,
       "nativewind-env.d.ts"
-    <% } else { %>
-      "expo-env.d.ts"
     <% } %>
   ]
   <% } else { %>

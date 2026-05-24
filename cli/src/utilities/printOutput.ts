@@ -27,6 +27,7 @@ export async function printOutput(
 
   const { projectName, flags } = cliResults;
   const projectDir = quoteShellArg(projectName);
+  const projectCwd = projectName;
   const s = spinner();
 
   // Output the results to the user
@@ -47,6 +48,14 @@ export async function printOutput(
   const runCommand = `${packageManager} run`;
 
   const runnerType = getPackageManagerRunnerX(toolbox, cliResults);
+  const expoCommand =
+    packageManager === 'pnpm'
+      ? 'pnpm exec expo'
+      : packageManager === 'yarn'
+        ? 'yarn expo'
+        : packageManager === 'bun'
+          ? 'bunx expo'
+          : 'npx expo@latest';
   const pnpmInstallEnv = packageManager === 'pnpm' ? { PNPM_CONFIG_STRICT_DEP_BUILDS: 'false' } : undefined;
 
   if (!options.noInstall && !flags.noInstall) {
@@ -68,30 +77,42 @@ export async function printOutput(
 
       await runSystemCommand({
         toolbox,
-        command: `cd ${projectDir} && yarn set version stable`,
+        command: 'yarn set version stable',
         stdio: ONLY_ERRORS,
-        errorMessage: 'Error setting yarn version'
+        errorMessage: 'Error setting yarn version',
+        cwd: projectCwd
       });
     }
 
     await runSystemCommand({
       toolbox,
-      command: `cd ${projectDir} && ${packageManager} install ${additionalFlags}`,
+      command: `${packageManager} install ${additionalFlags}`,
       stdio: isNpm ? undefined : ONLY_ERRORS,
       errorMessage: 'Error installing dependencies',
-      env: pnpmInstallEnv
+      env: pnpmInstallEnv,
+      cwd: projectCwd
     });
 
     s.stop('Dependencies installed!');
 
     s.start('Updating packages to expo compatible versions...');
 
+    const expoInstallFixCommand =
+      packageManager === 'pnpm'
+        ? 'pnpm exec expo install --fix'
+        : packageManager === 'yarn'
+          ? 'yarn expo install --fix'
+          : packageManager === 'bun'
+            ? 'bunx expo install --fix'
+            : `npx expo@latest install --fix ${isNpm ? `-- ${additionalFlags}` : ``}`;
+
     await runSystemCommand({
       toolbox,
-      command: `cd ${projectDir} && ${runnerType} expo@latest install --fix ${isNpm ? `-- ${additionalFlags}` : ``}`,
+      command: expoInstallFixCommand,
       errorMessage: 'Error updating packages',
       stdio: undefined,
-      env: pnpmInstallEnv
+      env: pnpmInstallEnv,
+      cwd: projectCwd
     });
 
     s.stop('Packages updated!');
@@ -103,10 +124,11 @@ export async function printOutput(
     // format the files with prettier and eslint using installed packages.
     await runSystemCommand({
       toolbox,
-      command: `cd ${projectDir} && ${runCommand} format`,
+      command: `${runCommand} format`,
       errorMessage: 'Error formatting code',
       stdio: ONLY_ERRORS,
-      env: pnpmInstallEnv
+      env: pnpmInstallEnv,
+      cwd: projectCwd
     });
 
     s.stop('Project files formatted!');
@@ -136,14 +158,15 @@ export async function printOutput(
 
     await runSystemCommand({
       toolbox,
-      command: `cd ${projectDir} && git init --quiet && git add . && git commit --no-verify --no-gpg-sign -m "Initial commit" -m ${generatedByMessage} --quiet`,
+      command: `git init --quiet && git add . && git commit --no-verify --no-gpg-sign -m "Initial commit" -m ${generatedByMessage} --quiet`,
       errorMessage: 'Error initializing git',
       stdio: ONLY_ERRORS,
       env: {
         GIT_TERMINAL_PROMPT: '0',
         GIT_EDITOR: 'true',
         GCM_INTERACTIVE: 'Never'
-      }
+      },
+      cwd: projectCwd
     });
 
     s.stop(`Git initialized!`);
@@ -262,7 +285,7 @@ export async function printOutput(
     highlight(`${step}. cd ${projectDir}`);
     if (flags.noInstall) highlight(`${++step}. ${packageManager} install`);
     if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
-      highlight(`${++step}. npx expo prebuild --clean`);
+      highlight(`${++step}. ${expoCommand} prebuild --clean`);
     }
     highlight(`${++step}. ${runCommand} ios`);
   }

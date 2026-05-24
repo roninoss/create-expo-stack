@@ -3,7 +3,7 @@ import '@/global.css';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 <% } %>
-import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
+import { ThemeProvider as NavThemeProvider } from 'expo-router/react-navigation';
 import * as Device from 'expo-device';
 import { Link, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';

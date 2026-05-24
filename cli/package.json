@@ -1,6 +1,6 @@
 {
-  "name": "create-expo-stack",
-  "version": "2.21.3",
+  "name": "@mr.dj2u/create-expo-stack",
+  "version": "2.21.3-mrdj.1",
   "description": "CLI tool to initialize a React Native application with Expo",
   "repository": {
     "type": "git",
@@ -51,7 +51,7 @@
   "dependencies": {
     "@clack/prompts": "^0.11.0",
     "ejs-lint": "^2.0.0",
-    "expo": "^54.0.6",
+    "expo": "~56.0.4",
     "figlet": "^1.6.0",
     "gluegun": "latest",
     "google-auth-library": "^9.11.0",
@@ -71,6 +71,7 @@
     "prettier": "^3.1.0"
   },
   "publishConfig": {
+    "access": "public",
     "provenance": false
   }
 }

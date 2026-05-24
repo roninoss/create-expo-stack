@@ -4,6 +4,7 @@ import { version } from '../package.json';
 
 import { test, expect, afterEach } from 'bun:test';
 import * as path from 'node:path';
+import * as fs from 'node:fs/promises';
 
 type InputFlag = `--${string}`;
 
@@ -107,9 +108,33 @@ const popularCombinations = [
 const projectName = `myTestProject`;
 const pathToProject = `./${projectName}`;
 
-afterEach(() => {
-  Bun.$`rm -rf ./myTestProject`;
+afterEach(async () => {
+  await fs.rm(pathToProject, { recursive: true, force: true });
 });
+
+const listProjectFiles = async (dir: string, displayPath: string): Promise<string[]> => {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const files: string[] = [];
+
+  for (const entry of entries) {
+    const childDisplayPath = `${displayPath}/${entry.name}`;
+
+    if (
+      childDisplayPath.startsWith(`${pathToProject}/node_modules`) ||
+      childDisplayPath.startsWith(`${pathToProject}/.git`)
+    ) {
+      continue;
+    }
+
+    files.push(childDisplayPath);
+
+    if (entry.isDirectory()) {
+      files.push(...(await listProjectFiles(path.join(dir, entry.name), childDisplayPath)));
+    }
+  }
+
+  return files;
+};
 
 for (const packageManager of packageManagers) {
   const packageManagerFlag = `--${packageManager}` as const;
@@ -173,14 +198,10 @@ for (const packageManager of packageManagers) {
         expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
       }
 
-      const fileList =
-        await Bun.$`find ./${projectName} -not -path "./${projectName}/node_modules*" -not -path "./${projectName}/.git*"`.text();
-
       // sort the file list for consistent snapshotting
-      const sortedFileList = fileList
-        .split('\n')
-        .filter(Boolean)
-        .toSorted((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+      const sortedFileList = [pathToProject, ...(await listProjectFiles(pathToProject, pathToProject))].toSorted(
+        (a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' })
+      );
 
       if (!skipSnapshots) {
         expect(sortedFileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);

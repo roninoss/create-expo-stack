@@ -1,27 +1,32 @@
 {
   "expo": {
     "name": "<%= props.projectName %>",
-    "slug": "<%= props.projectName %>",
+    "slug": "<%= props.projectSlug %>",
     "version": "1.0.0",
-    <% if (props.stylingPackage?.name === "unistyles") { %>
-        "newArchEnabled": true,
-    <% } %>
     <% if (props.navigationPackage?.name === 'expo-router') { %>
-      "scheme": "<%= props.projectName %>",
-      "platforms": ["ios", "android"],
+      "scheme": "<%= props.projectScheme %>",
+      "platforms": ["ios", "android", "web"],
       "web": {
         "bundler": "metro",
         "output": "static",
         "favicon": "./assets/favicon.png"
       },
       "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "backgroundColor": "#ffffff"
+        }
+      ]
       <% if (props.internalizationPackage?.name === "i18next") { %>
         ,"expo-localization"
       <% } %>
     ],
       "experiments": {
-        "typedRoutes": true
+        "typedRoutes": true,
+        "reactCompiler": true
         <% if (props.flags.importAlias) { %>
           ,"tsconfigPaths": true
         <% } %>
@@ -30,14 +35,22 @@
       "web": {
         "favicon": "./assets/favicon.png"
       },
-      <% if (props.flags.importAlias) { %>
-        "experiments": {
-          "tsconfigPaths": true
-        },
-      <% } %>
+      "experiments": {
+        "reactCompiler": true
+        <% if (props.flags.importAlias) { %>
+          ,"tsconfigPaths": true
+        <% } %>
+      },
       "plugins": [
+        [
+          "expo-splash-screen",
+          {
+            "image": "./assets/splash.png",
+            "backgroundColor": "#ffffff"
+          }
+        ]
         <% if (props.internalizationPackage?.name === "i18next") { %>
-          "expo-localization"
+          ,"expo-localization"
         <% } %>
       ],
     <% } %>
@@ -48,11 +61,6 @@
      <% } else { %>
      "userInterfaceStyle": "light",
     <% } %>
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "assetBundlePatterns": [
       "**/*"
     ],
