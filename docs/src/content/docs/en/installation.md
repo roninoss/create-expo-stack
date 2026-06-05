@@ -33,7 +33,7 @@ After your app has been initialized, be sure to follow any instructions outputed
 
 ### Example
 
-The following would scaffold a CES app with Expo Router, NativeWind, and Bun:
+The following would scaffold a CES app with Expo Router, Nativewind, and Bun:
 
 ### npm
 
