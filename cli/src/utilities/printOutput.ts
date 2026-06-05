@@ -259,5 +259,7 @@ export async function printOutput(
     info(``);
   }
 
-  outro(`If you're looking to move even faster, I may be able to help!\n- ces@danstepanov.com`);
+  outro(
+    `If you're looking to move even faster, the team at Ronin can help you build it:\n- https://ronindevs.com/?utm_source=rn_new&utm_medium=cli`
+  );
 }
