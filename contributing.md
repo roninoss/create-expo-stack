@@ -54,6 +54,9 @@ git checkout -b <BRANCH_NAME>
 
 When you're ready to submit your changes, push your branch to your forked repository and open a pull request against the `main` branch of the source repository.
 
+> [!NOTE]
+> `main` tracks the current stable Expo version, while `next` tracks the upcoming beta. `next` is eventually merged into `main` once that beta becomes stable. Open your PR against `main`. If a change applies to both lines (for example a copy or docs tweak that isn't tied to a specific Expo version), open it against both `main` and `next`, since the two branches are not automatically kept in sync.
+
 From here, you can run `bun install` to install all the dependencies for the project.
 
 ### Directory structure
