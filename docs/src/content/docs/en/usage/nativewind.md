@@ -1,9 +1,9 @@
 ---
-title: NativeWind
-description: Using NativeWind
+title: Nativewind
+description: Using Nativewind
 ---
 
-NativeWind is a styling solution that leverages Tailwind CSS as a scripting language to create a universal styling system for React Native applications. It enables the sharing of styled components across all React Native platforms while utilizing the most suitable style engine for each platform—CSS StyleSheet on the web and StyleSheet.create for native.
+Nativewind is a styling solution that leverages Tailwind CSS as a scripting language to create a universal styling system for React Native applications. It enables the sharing of styled components across all React Native platforms while utilizing the most suitable style engine for each platform—CSS StyleSheet on the web and StyleSheet.create for native.
 
 ## Key Features
 
@@ -21,7 +21,7 @@ NativeWind is a styling solution that leverages Tailwind CSS as a scripting lang
 
 ## Universal Style System
 
-A universal style system, as implemented by NativeWind, includes:
+A universal style system, as implemented by Nativewind, includes:
 
 - **Static Styles:** Basic static styles for components.
 - **UI State Styles:** Styles for UI states like active, hover, focus, etc.
@@ -34,4 +34,4 @@ A universal style system, as implemented by NativeWind, includes:
 
 - **Best Rendering Engine:** Utilizes the best rendering engine available for each platform, using CSS for web and providing a compatibility layer between React Native and CSS for native.
 
-By offering these features, NativeWind allows developers to focus on building their systems rather than creating a custom style system, making it a universal styling solution for React Native platforms.
+By offering these features, Nativewind allows developers to focus on building their systems rather than creating a custom style system, making it a universal styling solution for React Native platforms.
