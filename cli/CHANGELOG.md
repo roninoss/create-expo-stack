@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.21.4
+
+### Patch Changes
+
+- 37cbbae: Point the post-scaffold CLI outro at the Ronin booking funnel (ronindevs.com) instead of a bare email.
+
 ## 2.21.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.21.4
+
+### Patch Changes
+
+- 37cbbae: Point the post-scaffold CLI outro at the Ronin booking funnel (ronindevs.com) instead of a bare email.
+- Updated dependencies [37cbbae]
+  - create-expo-stack@2.21.4
+
 ## 2.21.3
 
 ### Patch Changes
