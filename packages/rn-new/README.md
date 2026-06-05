@@ -39,7 +39,7 @@ Support this project by <a href="https://github.com/sponsors/roninoss" target="_
 
 ## Description
 
-This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, styling with NativeWind, Unistyles, or StyleSheets and authentication via Supabase or Firebase.
+This CLI tool is designed to help you get started with React Native and Expo as quickly as possible. The CLI options allow you to configure your project with Typescript, file-based routing with Expo Router, configuration-based navigation via React-Navigation, styling with Nativewind, Unistyles, or StyleSheets and authentication via Supabase or Firebase.
 
 You can also use flags such as `--noInstall`, `--noGit`, and `--default` in order to customize your project. The CLI will attempt to automatically determine your package manager of choice but you can also pass in your preferred package manager via `--npm`, `--yarn`, `--pnpm`, or `--bun`. Roadmap coming soon...
 
@@ -71,7 +71,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo Status Bar    | Status Bar Library  | v1      | Status bar support                             |
 | Expo System UI     | System UI Library   | v2      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v12     | Open links in the browser                      |
-| NativeWind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
+| Nativewind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
 | Unistyles          | UI Framework        | v3      | Superset of StyleSheet                         |
 | Safe Area Context  | Safe Area Library   | v4      | Safe area support                              |
 | React Native Web   | Web Support         | v0.19   | React Native for Web                           |
