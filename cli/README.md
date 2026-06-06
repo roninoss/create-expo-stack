@@ -209,17 +209,17 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/catalinmiron">
-            <img src="https://avatars.githubusercontent.com/u/2805320?v=4" width="100;" alt="catalinmiron"/>
-            <br />
-            <sub><b>Catalin Miron</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/jpudysz">
             <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
             <br />
             <sub><b>Jacek Pudysz</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/catalinmiron">
+            <img src="https://avatars.githubusercontent.com/u/2805320?v=4" width="100;" alt="catalinmiron"/>
+            <br />
+            <sub><b>Catalin Miron</b></sub>
         </a>
     </td>
     <td align="center">
@@ -245,34 +245,12 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/AlejandroGutierrezB">
-            <img src="https://avatars.githubusercontent.com/u/56408597?v=4" width="100;" alt="AlejandroGutierrezB"/>
+        <a href="https://github.com/rohan-sircar">
+            <img src="https://avatars.githubusercontent.com/u/47449547?v=4" width="100;" alt="rohan-sircar"/>
             <br />
-            <sub><b>Alejandro Gutierrez Barcenilla</b></sub>
+            <sub><b>Rohan Sircar</b></sub>
         </a>
     </td>
-    <td align="center">
-        <a href="https://github.com/andrew-levy">
-            <img src="https://avatars.githubusercontent.com/u/29075740?v=4" width="100;" alt="andrew-levy"/>
-            <br />
-            <sub><b>Andrew Levy</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/gialencar">
-            <img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100;" alt="gialencar"/>
-            <br />
-            <sub><b>Gilson Alencar</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/mwarger">
-            <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
-            <br />
-            <sub><b>Mat Warger</b></sub>
-        </a>
-    </td></tr>
-<tr>
     <td align="center">
         <a href="https://github.com/gabimoncha">
             <img src="https://avatars.githubusercontent.com/u/39256258?v=4" width="100;" alt="gabimoncha"/>
@@ -281,38 +259,60 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/rohan-sircar">
-            <img src="https://avatars.githubusercontent.com/u/47449547?v=4" width="100;" alt="rohan-sircar"/>
+        <a href="https://github.com/mwarger">
+            <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
             <br />
-            <sub><b>Rohan Sircar</b></sub>
+            <sub><b>Mat Warger</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/ralacerda">
-            <img src="https://avatars.githubusercontent.com/u/19380403?v=4" width="100;" alt="ralacerda"/>
+        <a href="https://github.com/gialencar">
+            <img src="https://avatars.githubusercontent.com/u/11895696?v=4" width="100;" alt="gialencar"/>
             <br />
-            <sub><b>Renato Lacerda</b></sub>
+            <sub><b>Gilson Alencar</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/andrew-levy">
+            <img src="https://avatars.githubusercontent.com/u/29075740?v=4" width="100;" alt="andrew-levy"/>
+            <br />
+            <sub><b>Andrew Levy</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/salloom-domani">
-            <img src="https://avatars.githubusercontent.com/u/76164955?v=4" width="100;" alt="salloom-domani"/>
+        <a href="https://github.com/AlejandroGutierrezB">
+            <img src="https://avatars.githubusercontent.com/u/56408597?v=4" width="100;" alt="AlejandroGutierrezB"/>
             <br />
-            <sub><b>Salloom</b></sub>
+            <sub><b>Alejandro Gutierrez Barcenilla</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Hacksore">
-            <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
+        <a href="https://github.com/theblondealex">
+            <img src="https://avatars.githubusercontent.com/u/65453441?v=4" width="100;" alt="theblondealex"/>
             <br />
-            <sub><b>Sean Boult</b></sub>
+            <sub><b>TheBlondeAlex</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Viraj-10">
-            <img src="https://avatars.githubusercontent.com/u/66306233?v=4" width="100;" alt="Viraj-10"/>
+        <a href="https://github.com/debugtheworldbot">
+            <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
             <br />
-            <sub><b>Viraj Joshi</b></sub>
+            <sub><b>Pipizhu</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/bautistaaa">
+            <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/abhishekmg">
+            <img src="https://avatars.githubusercontent.com/u/34393560?v=4" width="100;" alt="abhishekmg"/>
+            <br />
+            <sub><b>Null</b></sub>
         </a>
     </td></tr>
 <tr>
@@ -324,31 +324,31 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/abhishekmg">
-            <img src="https://avatars.githubusercontent.com/u/34393560?v=4" width="100;" alt="abhishekmg"/>
+        <a href="https://github.com/Viraj-10">
+            <img src="https://avatars.githubusercontent.com/u/66306233?v=4" width="100;" alt="Viraj-10"/>
             <br />
-            <sub><b>Null</b></sub>
+            <sub><b>Viraj Joshi</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/bautistaaa">
-            <img src="https://avatars.githubusercontent.com/u/3660667?v=4" width="100;" alt="bautistaaa"/>
+        <a href="https://github.com/Hacksore">
+            <img src="https://avatars.githubusercontent.com/u/996134?v=4" width="100;" alt="Hacksore"/>
             <br />
-            <sub><b>Null</b></sub>
+            <sub><b>Sean Boult</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/debugtheworldbot">
-            <img src="https://avatars.githubusercontent.com/u/62830430?v=4" width="100;" alt="debugtheworldbot"/>
+        <a href="https://github.com/salloom-domani">
+            <img src="https://avatars.githubusercontent.com/u/76164955?v=4" width="100;" alt="salloom-domani"/>
             <br />
-            <sub><b>Pipizhu</b></sub>
+            <sub><b>Salloom</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/theblondealex">
-            <img src="https://avatars.githubusercontent.com/u/65453441?v=4" width="100;" alt="theblondealex"/>
+        <a href="https://github.com/ralacerda">
+            <img src="https://avatars.githubusercontent.com/u/19380403?v=4" width="100;" alt="ralacerda"/>
             <br />
-            <sub><b>TheBlondeAlex</b></sub>
+            <sub><b>Renato Lacerda</b></sub>
         </a>
     </td>
     <td align="center">
@@ -362,6 +362,13 @@ Thanks go to these wonderful people:
     <td align="center">
         <a href="https://github.com/NomadNiko">
             <img src="https://avatars.githubusercontent.com/u/123768788?v=4" width="100;" alt="NomadNiko"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/marcm0de">
+            <img src="https://avatars.githubusercontent.com/u/141629050?v=4" width="100;" alt="marcm0de"/>
             <br />
             <sub><b>Null</b></sub>
         </a>
@@ -393,15 +400,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Jeff Boek</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/gwenoleR">
             <img src="https://avatars.githubusercontent.com/u/10418241?v=4" width="100;" alt="gwenoleR"/>
             <br />
             <sub><b>Null</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/claudesortwell">
             <img src="https://avatars.githubusercontent.com/u/41422239?v=4" width="100;" alt="claudesortwell"/>
