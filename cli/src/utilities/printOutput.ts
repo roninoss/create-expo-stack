@@ -67,6 +67,7 @@ export async function printOutput(
       : packageManager === 'pnpm'
         ? '--config.strict-dep-builds=false'
         : '';
+    const installCommand = `${packageManager} install${additionalFlags ? ` ${additionalFlags}` : ''}`;
 
     if (packageManager === 'yarn') {
       // create empty yarn.lock to stop yarn from complaining
@@ -86,7 +87,7 @@ export async function printOutput(
 
     await runSystemCommand({
       toolbox,
-      command: `${packageManager} install ${additionalFlags}`,
+      command: installCommand,
       stdio: isNpm ? undefined : ONLY_ERRORS,
       errorMessage: 'Error installing dependencies',
       env: pnpmInstallEnv,

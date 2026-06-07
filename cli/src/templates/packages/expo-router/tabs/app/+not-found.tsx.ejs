@@ -1,8 +1,6 @@
 import { Link, Stack } from 'expo-router';
 <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") {%>
   import { Text, View } from 'react-native';
-<% } else if (props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "tamagui") { %>
-  import { StyleSheet, Text, View } from 'react-native';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { StyleSheet } from 'react-native-unistyles'
   import { Text, View } from 'react-native';
@@ -65,27 +63,6 @@ export default function NotFoundScreen() {
       color: theme.colors.astral,
     },
   }));
-<% } else if (props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "tamagui") { %>
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: 20,
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: 'bold',
-    },
-    link: {
-      marginTop: 16,
-      paddingVertical: 16,
-    },
-    linkText: {
-      fontSize: 14,
-      color: '#2e78b7',
-    },
-  });
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
   const styles = StyleSheet.create({
     container: {

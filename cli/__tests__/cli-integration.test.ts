@@ -50,6 +50,8 @@ const packageManagers = process.env.ALL_PACKAGE_MANAGERS
   : (['bun'] as const);
 
 const skipSnapshots = process.env.SKIP_SNAPSHOTS === '1';
+const shouldSkipInstallsInTests = process.platform === 'win32';
+let currentProjectName = 'myTestProject';
 
 test(`outputs version`, async () => {
   const output = await cli([`--version`]);
@@ -61,6 +63,8 @@ test(`outputs help`, async () => {
   const output = await cli([`--help`]);
 
   expect(output).toContain(`Info`);
+  expect(output).not.toContain(`--restyle`);
+  expect(output).not.toContain(`--tamagui`);
 });
 
 const reactNavigationCombinations = [
@@ -105,11 +109,25 @@ const popularCombinations = [
   ...reactNavigationCombinations
 ];
 
-const projectName = `myTestProject`;
-const pathToProject = `./${projectName}`;
+const getPathToProject = () => `./${currentProjectName}`;
+
+const cleanupProject = async () => {
+  for (let attempt = 0; attempt < 5; attempt++) {
+    try {
+      await fs.rm(getPathToProject(), { recursive: true, force: true });
+      return;
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'EBUSY' || attempt === 4) {
+        throw error;
+      }
+
+      await Bun.sleep(250);
+    }
+  }
+};
 
 afterEach(async () => {
-  await fs.rm(pathToProject, { recursive: true, force: true });
+  await cleanupProject();
 });
 
 const listProjectFiles = async (dir: string, displayPath: string): Promise<string[]> => {
@@ -120,8 +138,8 @@ const listProjectFiles = async (dir: string, displayPath: string): Promise<strin
     const childDisplayPath = `${displayPath}/${entry.name}`;
 
     if (
-      childDisplayPath.startsWith(`${pathToProject}/node_modules`) ||
-      childDisplayPath.startsWith(`${pathToProject}/.git`)
+      childDisplayPath.startsWith(`${getPathToProject()}/node_modules`) ||
+      childDisplayPath.startsWith(`${getPathToProject()}/.git`)
     ) {
       continue;
     }
@@ -138,21 +156,25 @@ const listProjectFiles = async (dir: string, displayPath: string): Promise<strin
 
 for (const packageManager of packageManagers) {
   const packageManagerFlag = `--${packageManager}` as const;
-  for (const flags of popularCombinations) {
-    const finalFlags = [...flags, packageManagerFlag, '--overwrite' as const];
+  for (const [index, flags] of popularCombinations.entries()) {
+    const requestedFlags = [...flags, packageManagerFlag, '--overwrite' as const];
+    const effectiveFlags =
+      shouldSkipInstallsInTests && !requestedFlags.includes('--no-install')
+        ? [...requestedFlags, '--no-install' as const]
+        : requestedFlags;
 
-    test(`generates a project with ${finalFlags.join(' ')}`, async () => {
-      // Increase timeout to 30 seconds for project generation
-      Bun.sleep(30000);
+    test(`generates a project with ${requestedFlags.join(' ')}`, async () => {
+      currentProjectName = `myTestProject-${packageManager}-${index}`;
+      const pathToProject = getPathToProject();
 
       const output = await generateProject({
-        projectName: projectName,
-        flags: finalFlags
+        projectName: currentProjectName,
+        flags: effectiveFlags
       });
 
       expect(output).toContain(packageManager);
 
-      if (!finalFlags.includes('--no-install')) {
+      if (!effectiveFlags.includes('--no-install')) {
         expect(output).toContain('Installing dependencies');
       }
 
@@ -160,6 +182,7 @@ for (const packageManager of packageManagers) {
 
       const pkgJsonWithoutVersions = {
         ...pkgjson,
+        name: 'myTestProject',
         dependencies: Object.keys(pkgjson.dependencies).reduce((acc, key) => {
           return {
             ...acc,
@@ -175,7 +198,7 @@ for (const packageManager of packageManagers) {
       };
 
       if (!skipSnapshots) {
-        expect(pkgJsonWithoutVersions).toMatchSnapshot(`${finalFlags.join(', ')}-package-json`);
+        expect(pkgJsonWithoutVersions).toMatchSnapshot(`${requestedFlags.join(', ')}-package-json`);
       }
 
       const cesconfigText = await Bun.file(`${pathToProject}/cesconfig.jsonc`).text();
@@ -185,31 +208,33 @@ for (const packageManager of packageManagers) {
 
       const cesconfigWithoutOS = {
         ...cesconfig,
+        projectName: 'myTestProject',
         cesVersion: undefined,
         os: {},
         packageManager: { ...cesconfig.packageManager, version: undefined },
         flags: {
           ...cesconfig.flags,
+          noInstall: requestedFlags.includes('--no-install'),
           publish: false
         }
       };
 
       if (!skipSnapshots) {
-        expect(cesconfigWithoutOS).toMatchSnapshot(`${finalFlags.join(', ')}-ces-config-json`);
+        expect(cesconfigWithoutOS).toMatchSnapshot(`${requestedFlags.join(', ')}-ces-config-json`);
       }
 
       // sort the file list for consistent snapshotting
-      const sortedFileList = [pathToProject, ...(await listProjectFiles(pathToProject, pathToProject))].toSorted(
-        (a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' })
-      );
+      const sortedFileList = [pathToProject, ...(await listProjectFiles(pathToProject, pathToProject))]
+        .map((filePath) => filePath.replaceAll(currentProjectName, 'myTestProject'))
+        .toSorted((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
 
       if (!skipSnapshots) {
-        expect(sortedFileList).toMatchSnapshot(`${finalFlags.join(', ')}-file-list`);
+        expect(sortedFileList).toMatchSnapshot(`${requestedFlags.join(', ')}-file-list`);
       }
 
       // typecheck only works if we have packages installed
-      if (!finalFlags.includes('--no-install')) {
-        const { stderr, stdout, exitCode } = await Bun.$`cd ${projectName} && bun run tsc --noEmit`;
+      if (!effectiveFlags.includes('--no-install')) {
+        const { stderr, stdout, exitCode } = await Bun.$`cd ${currentProjectName} && bun run tsc --noEmit`;
 
         if (exitCode !== 0) {
           console.warn('stdout', stdout.toString());

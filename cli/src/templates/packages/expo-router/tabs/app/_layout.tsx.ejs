@@ -6,12 +6,6 @@
   import 'expo-dev-client';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { useUnistyles } from "react-native-unistyles";
-<% } else if (props.stylingPackage?.name === "restyle") { %>
-  import { ThemeProvider } from '@shopify/restyle';
-  import { theme } from '../theme';
-<% } else if (props.stylingPackage?.name === "tamagui") { %>
-  import { TamaguiProvider } from 'tamagui';
-  import config from '../tamagui.config';
 <% } %>
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import '../translation';
@@ -38,21 +32,7 @@ export default function RootLayout() {
   <% } %>
 
   return (
-    <% if (props.stylingPackage?.name === "restyle") { %>
-      <ThemeProvider theme={theme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-        </Stack>
-      </ThemeProvider>
-    <% } else if (props.stylingPackage?.name === "tamagui") { %>
-      <TamaguiProvider config={config}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-        </Stack>
-      </TamaguiProvider>
-    <% } else if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
       <SafeAreaProvider>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />

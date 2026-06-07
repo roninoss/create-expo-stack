@@ -12,16 +12,6 @@ module.exports = function(api) {
     ]);
   <% } %>
 
-  <% if (props.stylingPackage?.name === "tamagui") { %>
-    plugins.push([
-      '@tamagui/babel-plugin',
-      {
-        config: './tamagui.config.ts',
-        components: ['tamagui']
-      }
-    ]);
-  <% } %>
-
   plugins.push('react-native-worklets/plugin');
 
   return {

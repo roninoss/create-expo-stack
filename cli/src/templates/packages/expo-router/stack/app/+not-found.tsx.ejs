@@ -3,10 +3,6 @@ import { Link, Stack } from 'expo-router';
   import { Text, View } from 'react-native';
 
   import { Container } from '@/components/Container';
-<% } else if (props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "tamagui") { %>
-  import { StyleSheet, Text, View } from 'react-native';
-
-  import { Container } from '@/components/Container';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
   import { StyleSheet } from 'react-native-unistyles'
   import { Text, View } from 'react-native';
@@ -72,25 +68,6 @@ const styles = StyleSheet.create((theme) => ({
       color: theme.colors.astral
     },
 }));
-<% } else if (props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "tamagui") { %>
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'white',
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: 'bold',
-    },
-    link: {
-      marginTop: 16,
-      paddingVertical: 16,
-    },
-    linkText: {
-      fontSize: 14,
-      color: '#2e78b7',
-    },
-});
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 const styles = StyleSheet.create({
     container: {

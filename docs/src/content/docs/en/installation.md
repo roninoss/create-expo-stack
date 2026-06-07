@@ -71,8 +71,6 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--nativewind`                       | Use Nativewind for styling                                                     |
 | `--uniwind`                          | Use Uniwind for styling                                                        |
 | `--unistyles`                        | Use Unistyles for styling                                                      |
-| `--restyle`                          | Use Restyle for styling                                                        |
-| `--tamagui`                          | Use Tamagui for styling                                                        |
 | `--stylesheet`                       | Use StyleSheet for styling, used by default                                    |
 | `--react-native-gesture-handler`     | Add React Native Gesture Handler when navigation is not selected               |
 | `--react-native-screens`             | Add React Native Screens when navigation is not selected                       |

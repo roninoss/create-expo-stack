@@ -32,11 +32,9 @@ export const availablePackages = [
   'keyboardController',
   'reactnavigation',
   'screens',
-  'restyle',
   'stylesheet',
   'supabase',
   'svg',
-  'tamagui',
   'uniwind',
   'unistyles',
   'worklets',
@@ -51,14 +49,7 @@ export type NavigationSelect = 'react-navigation' | 'expo-router' | undefined;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer + tabs' | undefined;
 
-export type StylingSelect =
-  | 'nativewind'
-  | 'stylesheet'
-  | 'unistyles'
-  | 'nativewindui'
-  | 'uniwind'
-  | 'restyle'
-  | 'tamagui';
+export type StylingSelect = 'nativewind' | 'stylesheet' | 'unistyles' | 'nativewindui' | 'uniwind';
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 

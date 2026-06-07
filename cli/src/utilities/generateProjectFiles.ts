@@ -45,10 +45,6 @@ export function generateProjectFiles(
       // Uniwind shares NativeWind's utility-class component templates.
       target = target.replace('packages/nativewind/', '');
       target = target.replace('packages/uniwind/', '');
-    } else if (stylingPackage?.name === 'restyle') {
-      target = target.replace('packages/restyle/', '');
-    } else if (stylingPackage?.name === 'tamagui') {
-      target = target.replace('packages/tamagui/', '');
     } else if (stylingPackage?.name === 'nativewindui') {
       target = target.replace('packages/nativewindui/', '');
     }

@@ -43,7 +43,7 @@ This CLI tool is designed to help you get started with React Native and Expo as 
 
 You can also use flags such as `--noInstall`, `--noGit`, and `--default` in order to customize your project. The CLI will attempt to automatically determine your package manager of choice but you can also pass in your preferred package manager via `--npm`, `--yarn`, `--pnpm`, or `--bun`. Roadmap coming soon...
 
-Software Mansion foundations are available from both the interactive prompt and non-interactive flags. Reanimated and Worklets are included by default; Gesture Handler and Screens are included automatically with navigation templates; SVG and Keyboard Controller can be added when your app needs them.
+Software Mansion foundations are available from both the interactive prompt and non-interactive flags. Reanimated and Worklets are included by default; Gesture Handler and Screens are selected by default in the interactive prompt and included automatically with navigation templates; SVG and Keyboard Controller can be added when your app needs them.
 
 ## Usage
 
@@ -71,7 +71,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | React Native SVG   | Native Foundation   | v15.15  | SVG rendering for React Native                 |
 | React Native Keyboard Controller | Native Foundation | v1.20 | Keyboard-aware interactions                    |
 | React Native Worklets | Native Foundation | v0.7    | Worklet runtime support                        |
-| Expo               | SDK                 | v53     | Allows (optional) Expo modules                 |
+| Expo               | SDK                 | v56     | Allows (optional) Expo modules                 |
 | Expo Font          | Custom Fonts        | v13     | Import custom fonts                            |
 | Expo Linking       | URL Handling        | v7      | Open your app via a URL                        |
 | Expo Router        | Navigation          | v5      | File-based routing in React-Native             |
@@ -80,6 +80,7 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 | Expo System UI     | System UI Library   | v5      | System UI support                              |
 | Expo Web Browser   | Web Browser Library | v14     | Open links in the browser                      |
 | Nativewind         | UI Framework        | v4.1    | Tailwind CSS for React Native                  |
+| Uniwind            | UI Framework        | v1.6    | Tailwind v4 for React Native                   |
 | Unistyles          | UI Framework        | v3      | Superset of StyleSheet                         |
 | Safe Area Context  | Safe Area Library   | v5      | Safe area support                              |
 | React Native Web   | Web Support         | v0.20   | React Native for Web                           |

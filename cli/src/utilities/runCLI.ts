@@ -23,12 +23,19 @@ import { getDefaultPackageManagerVersion } from './getPackageManager';
 const minBunVersion = '1.1.13'; // or greater
 
 const softwareMansionOptions: Array<{ value: SoftwareMansionSelect; label: string }> = [
-  { value: 'react-native-gesture-handler', label: 'React Native Gesture Handler' },
+  { value: 'react-native-gesture-handler', label: 'React Native Gesture Handler (included with navigation)' },
   { value: 'react-native-reanimated', label: 'React Native Reanimated (included by default)' },
-  { value: 'react-native-screens', label: 'React Native Screens' },
+  { value: 'react-native-screens', label: 'React Native Screens (included with navigation)' },
   { value: 'react-native-svg', label: 'React Native SVG' },
   { value: 'react-native-keyboard-controller', label: 'React Native Keyboard Controller' },
   { value: 'react-native-worklets', label: 'React Native Worklets (included by default)' }
+];
+
+const defaultSoftwareMansionPackages: SoftwareMansionSelect[] = [
+  'react-native-gesture-handler',
+  'react-native-reanimated',
+  'react-native-screens',
+  'react-native-worklets'
 ];
 
 function shouldAddSoftwareMansionPackage(name: SoftwareMansionSelect, cliResults: CliResults): boolean {
@@ -291,16 +298,12 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
             { value: 'nativewindui', label: 'NativewindUI' },
             { value: 'uniwind', label: 'Uniwind' },
             { value: 'nativewind', label: 'Nativewind' },
-            { value: 'restyle', label: 'Restyle' },
-            { value: 'tamagui', label: 'Tamagui' },
             { value: 'stylesheet', label: 'StyleSheet' },
             { value: 'unistyles', label: 'Unistyles' }
           ]
         : [
             { value: 'uniwind', label: 'Uniwind' },
             { value: 'nativewind', label: 'Nativewind' },
-            { value: 'restyle', label: 'Restyle' },
-            { value: 'tamagui', label: 'Tamagui' },
             { value: 'stylesheet', label: 'StyleSheet' },
             { value: 'unistyles', label: 'Unistyles' }
           ],
@@ -361,7 +364,7 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     message: 'Which optional Software Mansion packages would you like to add?',
     options: softwareMansionOptions,
     required: false,
-    initialValues: []
+    initialValues: defaultSoftwareMansionPackages
   });
 
   if (isCancel(softwareMansionSelect)) {
@@ -369,7 +372,9 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     return process.exit(0);
   }
 
-  softwareMansionSelect
+  const selectedSoftwareMansionPackages = softwareMansionSelect as SoftwareMansionSelect[];
+
+  selectedSoftwareMansionPackages
     .filter((pkg) => shouldAddSoftwareMansionPackage(pkg, cliResults))
     .forEach((pkg) => {
       cliResults.packages.push({ name: pkg, type: 'software-mansion' });

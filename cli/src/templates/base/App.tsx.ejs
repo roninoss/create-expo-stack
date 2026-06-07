@@ -4,16 +4,6 @@ import './unistyles';
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 
-<% if (props.stylingPackage?.name === "restyle") { %>
-  import { ThemeProvider } from '@shopify/restyle';
-  import { theme } from './theme';
-<% } %>
-
-<% if (props.stylingPackage?.name === "tamagui") { %>
-  import { TamaguiProvider } from 'tamagui';
-  import config from './tamagui.config';
-<% } %>
-
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
   import { InternalizationExample } from 'components/InternalizationExample';
@@ -22,7 +12,7 @@ import { StatusBar } from 'expo-status-bar';
 <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
   import './global.css';
   import { SafeAreaProvider } from 'react-native-safe-area-context';
-<% } else if (props.stylingPackage?.name === "nativewinui") { %>
+<% } else if (props.stylingPackage?.name === "nativewindui") { %>
   import './global.css';
   import 'expo-dev-client';
 <% } %>
@@ -40,10 +30,6 @@ export default function App() {
   return (
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
       <SafeAreaProvider>
-    <% } else if (props.stylingPackage?.name === "restyle") { %>
-      <ThemeProvider theme={theme}>
-    <% } else if (props.stylingPackage?.name === "tamagui") { %>
-      <TamaguiProvider config={config}>
     <% } else { %>
       <>
     <% } %>
@@ -55,10 +41,6 @@ export default function App() {
       <StatusBar style="auto" />
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
       </SafeAreaProvider>
-    <% } else if (props.stylingPackage?.name === "restyle") { %>
-      </ThemeProvider>
-    <% } else if (props.stylingPackage?.name === "tamagui") { %>
-      </TamaguiProvider>
     <% } else { %>
       </>
     <% } %>

@@ -1,5 +1,5 @@
 import { Stack, Link } from 'expo-router';
-<% if (props.stylingPackage?.name === "stylesheet" || props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "tamagui") { %>
+<% if (props.stylingPackage?.name === "stylesheet") { %>
 import { StyleSheet, View } from 'react-native';
 <% } else if (props.stylingPackage?.name === "unistyles") { %>
 import { StyleSheet } from 'react-native-unistyles';
@@ -46,13 +46,6 @@ export default function Home() {
 const styles = {
   container: "flex flex-1 bg-white",
 }
-<% } else if (props.stylingPackage?.name === "restyle" || props.stylingPackage?.name === "tamagui") { %>
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-});
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 const styles = StyleSheet.create({
   container: {

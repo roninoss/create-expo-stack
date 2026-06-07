@@ -173,32 +173,6 @@ export function configureProjectFiles(
       files = [...files, ...unistylesFiles];
     }
 
-    if (stylingPackage?.name === 'restyle') {
-      const restyleFiles = [
-        'packages/restyle/components/ScreenContent.tsx.ejs',
-        'packages/restyle/components/EditScreenInfo.tsx.ejs',
-        'packages/restyle/components/Button.tsx.ejs',
-        'packages/restyle/components/BackButton.tsx.ejs',
-        'packages/restyle/components/Container.tsx.ejs',
-        'packages/restyle/theme.ts.ejs'
-      ];
-
-      files = [...files, ...restyleFiles];
-    }
-
-    if (stylingPackage?.name === 'tamagui') {
-      const tamaguiFiles = [
-        'packages/tamagui/components/ScreenContent.tsx.ejs',
-        'packages/tamagui/components/EditScreenInfo.tsx.ejs',
-        'packages/tamagui/components/Button.tsx.ejs',
-        'packages/tamagui/components/BackButton.tsx.ejs',
-        'packages/tamagui/components/Container.tsx.ejs',
-        'packages/tamagui/tamagui.config.ts.ejs'
-      ];
-
-      files = [...files, ...tamaguiFiles];
-    }
-
     // add react navigation files if needed
     // modify base files with react navigation specifications
     if (navigationPackage?.name === 'react-navigation') {
@@ -214,12 +188,6 @@ export function configureProjectFiles(
       } else if (stylingPackage?.name === 'unistyles') {
         reactNavigationFiles.push('packages/unistyles/components/Button.tsx.ejs');
         reactNavigationFiles.push('packages/unistyles/components/BackButton.tsx.ejs');
-      } else if (stylingPackage?.name === 'restyle') {
-        reactNavigationFiles.push('packages/restyle/components/Button.tsx.ejs');
-        reactNavigationFiles.push('packages/restyle/components/BackButton.tsx.ejs');
-      } else if (stylingPackage?.name === 'tamagui') {
-        reactNavigationFiles.push('packages/tamagui/components/Button.tsx.ejs');
-        reactNavigationFiles.push('packages/tamagui/components/BackButton.tsx.ejs');
       } else {
         reactNavigationFiles.push('base/components/Button.tsx.ejs');
         reactNavigationFiles.push('base/components/BackButton.tsx.ejs');
@@ -278,12 +246,6 @@ export function configureProjectFiles(
         expoRouterFiles.push('packages/unistyles/components/Container.tsx.ejs');
         expoRouterFiles.push('packages/unistyles/components/Button.tsx.ejs');
         expoRouterFiles.push('packages/expo-router/index.js.ejs');
-      } else if (stylingPackage?.name === 'restyle') {
-        expoRouterFiles.push('packages/restyle/components/Container.tsx.ejs');
-        expoRouterFiles.push('packages/restyle/components/Button.tsx.ejs');
-      } else if (stylingPackage?.name === 'tamagui') {
-        expoRouterFiles.push('packages/tamagui/components/Container.tsx.ejs');
-        expoRouterFiles.push('packages/tamagui/components/Button.tsx.ejs');
       } else if (stylingPackage?.name === 'stylesheet') {
         expoRouterFiles.push('base/components/Container.tsx.ejs');
         expoRouterFiles.push('base/components/Button.tsx.ejs');
