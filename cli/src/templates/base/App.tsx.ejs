@@ -9,7 +9,7 @@ import { StatusBar } from 'expo-status-bar';
   import { InternalizationExample } from 'components/InternalizationExample';
 <% } %>
 
-<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import './global.css';
   import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } else if (props.stylingPackage?.name === "nativewindui") { %>
@@ -28,7 +28,7 @@ import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   return (
-    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
       <SafeAreaProvider>
     <% } else { %>
       <>
@@ -39,7 +39,7 @@ export default function App() {
       <% } %>
       </ScreenContent>
       <StatusBar style="auto" />
-    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
       </SafeAreaProvider>
     <% } else { %>
       </>

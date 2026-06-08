@@ -69,7 +69,6 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--supabase`                         | Use Supabase for authentication, initial configuration only                    |
 | `--vexo-analytics`                   | Use Vexo Analytics for analytics, initial configuration only                   |
 | `--nativewind`                       | Use Nativewind for styling                                                     |
-| `--uniwind`                          | Use Uniwind for styling                                                        |
 | `--unistyles`                        | Use Unistyles for styling                                                      |
 | `--stylesheet`                       | Use StyleSheet for styling, used by default                                    |
 | `--react-native-gesture-handler`     | Add React Native Gesture Handler when navigation is not selected               |

@@ -296,13 +296,11 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
       navigationSelect === 'expo-router'
         ? [
             { value: 'nativewindui', label: 'NativewindUI' },
-            { value: 'uniwind', label: 'Uniwind' },
             { value: 'nativewind', label: 'Nativewind' },
             { value: 'stylesheet', label: 'StyleSheet' },
             { value: 'unistyles', label: 'Unistyles' }
           ]
         : [
-            { value: 'uniwind', label: 'Uniwind' },
             { value: 'nativewind', label: 'Nativewind' },
             { value: 'stylesheet', label: 'StyleSheet' },
             { value: 'unistyles', label: 'Unistyles' }

@@ -1,4 +1,4 @@
-<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import '../global.css';
   import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } else if (props.stylingPackage?.name === "nativewinui") { %>
@@ -39,7 +39,7 @@ export default function RootLayout() {
 
   return (
         <GestureHandlerRootView style={{ flex: 1 }}>
-        <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+        <% if (props.stylingPackage?.name === "nativewind") { %>
           <SafeAreaProvider>
         <% } %>
          <% if (props.stylingPackage?.name === "unistyles") { %>
@@ -67,7 +67,7 @@ export default function RootLayout() {
             <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
           </Stack>
-        <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+        <% if (props.stylingPackage?.name === "nativewind") { %>
           </SafeAreaProvider>
         <% } %>
         </GestureHandlerRootView>

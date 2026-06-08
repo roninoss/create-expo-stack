@@ -15,7 +15,7 @@
     "build:preview": "eas build --profile preview",
     "build:prod": "eas build --profile production",
     "prebuild": "expo prebuild",
-  <% } else if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+  <% } else if (props.stylingPackage?.name === "nativewind") { %>
     "android": "expo start --android",
     "ios": "expo start --ios",
     "start": "expo start",
@@ -32,9 +32,6 @@
   "dependencies": {
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
       "nativewind": "latest",
-    <% } %>
-    <% if (props.stylingPackage?.name === "uniwind") { %>
-      "uniwind": "^1.6.4",
     <% } %>
     <% if (props.stylingPackage?.name === "nativewindui") { %>
       "@shopify/flash-list": "2.0.2",
@@ -163,9 +160,6 @@
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
       "tailwindcss": "^3.4.0",
       "prettier-plugin-tailwindcss": "^0.5.11",
-    <% } %>
-    <% if (props.stylingPackage?.name === "uniwind") { %>
-      "tailwindcss": "^4.2.4",
     <% } %>
     "typescript": "~6.0.3"
   },

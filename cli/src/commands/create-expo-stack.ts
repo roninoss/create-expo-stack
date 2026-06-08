@@ -286,12 +286,6 @@ const command: GluegunCommand = {
             name: 'nativewind',
             type: 'styling'
           });
-        } else if (options.uniwind) {
-          cliResults = clearStylingPackages(cliResults);
-          cliResults.packages.push({
-            name: 'uniwind',
-            type: 'styling'
-          });
         } else if (isNativewindUI) {
           cliResults = clearStylingPackages(cliResults);
           cliResults = clearNavigationPackages(cliResults);

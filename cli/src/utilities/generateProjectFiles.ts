@@ -41,10 +41,6 @@ export function generateProjectFiles(
       target = target.replace('packages/unistyles/', '');
     } else if (stylingPackage?.name === 'nativewind') {
       target = target.replace('packages/nativewind/', '');
-    } else if (stylingPackage?.name === 'uniwind') {
-      // Uniwind shares NativeWind's utility-class component templates.
-      target = target.replace('packages/nativewind/', '');
-      target = target.replace('packages/uniwind/', '');
     } else if (stylingPackage?.name === 'nativewindui') {
       target = target.replace('packages/nativewindui/', '');
     }

@@ -2,8 +2,6 @@
 const { getDefaultConfig } = require('expo/metro-config');
 <% if (["nativewind", "nativewindui"].includes(props.stylingPackage?.name)) { %>
   const { withNativeWind } = require("nativewind/metro");
-<% } else if (props.stylingPackage?.name === "uniwind") { %>
-  const { withUniwindConfig } = require("uniwind/metro");
 <% } %>
 
 /** @type {import('expo/metro-config').MetroConfig} */
@@ -14,11 +12,6 @@ const config = getDefaultConfig(__dirname);
   module.exports = withNativeWind(config, { input: "./global.css" });
 <% } else if (props.stylingPackage?.name === "nativewindui") { %>
   module.exports = withNativeWind(config, { input: "./global.css", inlineRem: 16 });
-<% } else if (props.stylingPackage?.name === "uniwind") { %>
-  module.exports = withUniwindConfig(config, {
-    cssEntryFile: "./global.css",
-    dtsFile: "./uniwind-types.d.ts"
-  });
 <% } else { %>
   module.exports = config;
 <% } %>

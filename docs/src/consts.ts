@@ -63,7 +63,6 @@ export const SIDEBAR: Sidebar = {
       { text: "Expo Router", link: "en/usage/expo-router" },
       { text: "React Navigation", link: "en/usage/react-navigation" },
       { text: "NativeWind", link: "en/usage/nativewind" },
-      { text: "Uniwind", link: "en/usage/uniwind" },
       { text: "Unistyles", link: "en/usage/unistyles" },
       { text: "Software Mansion", link: "en/usage/software-mansion" },
       { text: "Supabase", link: "en/usage/supabase" },

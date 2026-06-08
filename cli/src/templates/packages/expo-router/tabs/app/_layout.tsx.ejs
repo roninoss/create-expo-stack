@@ -1,4 +1,4 @@
-<% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+<% if (props.stylingPackage?.name === "nativewind") { %>
   import '../global.css';
   import { SafeAreaProvider } from 'react-native-safe-area-context';
 <% } else if (props.stylingPackage?.name === "nativewindui") { %>
@@ -32,7 +32,7 @@ export default function RootLayout() {
   <% } %>
 
   return (
-    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "uniwind") { %>
+    <% if (props.stylingPackage?.name === "nativewind") { %>
       <SafeAreaProvider>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />

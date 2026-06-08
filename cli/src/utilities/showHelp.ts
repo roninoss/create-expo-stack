@@ -49,9 +49,8 @@ export function showHelp(info, highlight, warning) {
   info('');
   highlight('   Styling Package Options');
   info('    	--nativewind      Use Nativewind for styling');
-  info('    	--uniwind        Use Uniwind for styling');
   info('    	--unistyles       Use Unistyles for styling');
-  info('	--stylesheet      Use StyleSheet for styling');
+	info('	--stylesheet      Use StyleSheet for styling');
   info('');
   highlight('   Software Mansion Package Options');
   info('    	--react-native-gesture-handler  Add React Native Gesture Handler when navigation is not selected');

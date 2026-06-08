@@ -65,6 +65,7 @@ test(`outputs help`, async () => {
   expect(output).toContain(`Info`);
   expect(output).not.toContain(`--restyle`);
   expect(output).not.toContain(`--tamagui`);
+  expect(output).not.toContain(`--uniwind`);
 });
 
 const reactNavigationCombinations = [

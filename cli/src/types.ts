@@ -35,7 +35,6 @@ export const availablePackages = [
   'stylesheet',
   'supabase',
   'svg',
-  'uniwind',
   'unistyles',
   'worklets',
   'i18next',
@@ -49,7 +48,7 @@ export type NavigationSelect = 'react-navigation' | 'expo-router' | undefined;
 
 export type NavigationTypes = 'stack' | 'tabs' | 'drawer + tabs' | undefined;
 
-export type StylingSelect = 'nativewind' | 'stylesheet' | 'unistyles' | 'nativewindui' | 'uniwind';
+export type StylingSelect = 'nativewind' | 'stylesheet' | 'unistyles' | 'nativewindui';
 
 export type PackageManager = 'yarn' | 'npm' | 'pnpm' | 'bun';
 
