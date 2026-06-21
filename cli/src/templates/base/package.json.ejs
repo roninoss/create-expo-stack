@@ -70,10 +70,24 @@
         "react-native-edge-to-edge": "1.6.0",
     <% } %>
 
-    <% if (props.navigationPackage?.type === "navigation") { %>
+    <% if (props.navigationPackage?.name === "react-navigation") { %>
       "@react-navigation/native": "^7.1.6",
+    <% } %>
+
+    <% if (props.navigationPackage?.type === "navigation" || props.packages?.some((p) => p.name === "react-native-gesture-handler")) { %>
       "react-native-gesture-handler": "~2.31.1",
+    <% } %>
+
+    <% if (props.navigationPackage?.type === "navigation" || props.packages?.some((p) => p.name === "react-native-screens")) { %>
       "react-native-screens": "4.25.2",
+    <% } %>
+
+    <% if (props.packages?.some((p) => p.name === "react-native-svg")) { %>
+      "react-native-svg": "15.15.4",
+    <% } %>
+
+    <% if (props.packages?.some((p) => p.name === "react-native-keyboard-controller")) { %>
+      "react-native-keyboard-controller": "1.21.6",
     <% } %>
 
     <% if (props.navigationPackage?.name === "react-navigation") { %>
@@ -91,9 +105,6 @@
     <% } %>
 
     <% if ((props.navigationPackage?.options.type === "drawer + tabs") && (props.navigationPackage?.name === "react-navigation")) { %>
-      "@react-navigation/drawer": "^7.0.0",
-      "@react-navigation/bottom-tabs": "^7.0.5",
-    <% } else if (props.navigationPackage?.options.type === "drawer + tabs") { %>
       "@react-navigation/drawer": "^7.0.0",
       "@react-navigation/bottom-tabs": "^7.0.5",
     <% } %>

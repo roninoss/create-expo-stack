@@ -51,26 +51,32 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 
 ### Options
 
-| Option               | Description                                                                    |
-| -------------------- | ------------------------------------------------------------------------------ |
-| `-d`, `--default`    | Bypass the CLI and initialize an empty Expo project                            |
-| `--npm`              | Selects npm to be your project's package manager                               |
-| `--yarn`             | Selects yarn to be your project's package manager                              |
-| `--pnpm`             | Selects pnpm to be your project's package manager                              |
-| `--bun`              | Selects bun to be your project's package manager                               |
-| `--no-git`           | Do not initialize a new git repo in the project                                |
-| `--no-install`       | Generate project without installing dependencies                               |
-| `--import-alias`     | Enable TypeScript path aliases                                                 |
-| `--expo-router`      | Use Expo Router for navigation, stack navigator by default                     |
-| `--react-navigation` | Use React Navigation for navigation, stack navigator by default                |
-| `--tabs`             | Use a Tab navigator (pass with either Expo Router or React Navigation flag)    |
-| `--drawer`           | Use a Drawer navigator (pass with either Expo Router or React Navigation flag) |
-| `--firebase`         | Use Firebase for authentication, initial configuration only                    |
-| `--supabase`         | Use Supabase for authentication, initial configuration only                    |
-| `--vexo-analytics`   | Use Vexo Analytics for analytics, initial configuration only                   |
-| `--nativewind`       | Use Nativewind for styling                                                     |
-| `--unistyles`        | Use Unistyles for styling                                                      |
-| `--stylesheet`       | Use StyleSheet for styling, used by default                                    |
-| `--zustand`          | Use Zustand for state management                                               |
-| `--i18next`          | Use i18next for internationalization                                           |
-| `-i`, `--ignite`     | Initialize an opinionated starter using Infinite Red's Ignite                  |
+| Option                               | Description                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------ |
+| `-d`, `--default`                    | Bypass the CLI and initialize an empty Expo project                            |
+| `--npm`                              | Selects npm to be your project's package manager                               |
+| `--yarn`                             | Selects yarn to be your project's package manager                              |
+| `--pnpm`                             | Selects pnpm to be your project's package manager                              |
+| `--bun`                              | Selects bun to be your project's package manager                               |
+| `--no-git`                           | Do not initialize a new git repo in the project                                |
+| `--no-install`                       | Generate project without installing dependencies                               |
+| `--import-alias`                     | Enable TypeScript path aliases                                                 |
+| `--expo-router`                      | Use Expo Router for navigation, stack navigator by default                     |
+| `--react-navigation`                 | Use React Navigation for navigation, stack navigator by default                |
+| `--tabs`                             | Use a Tab navigator (pass with either Expo Router or React Navigation flag)    |
+| `--drawer`                           | Use a Drawer navigator (pass with either Expo Router or React Navigation flag) |
+| `--firebase`                         | Use Firebase for authentication, initial configuration only                    |
+| `--supabase`                         | Use Supabase for authentication, initial configuration only                    |
+| `--vexo-analytics`                   | Use Vexo Analytics for analytics, initial configuration only                   |
+| `--nativewind`                       | Use Nativewind for styling                                                     |
+| `--unistyles`                        | Use Unistyles for styling                                                      |
+| `--stylesheet`                       | Use StyleSheet for styling, used by default                                    |
+| `--react-native-gesture-handler`     | Add React Native Gesture Handler when navigation is not selected               |
+| `--react-native-screens`             | Add React Native Screens when navigation is not selected                       |
+| `--react-native-svg`                 | Add React Native SVG                                                           |
+| `--react-native-keyboard-controller` | Add React Native Keyboard Controller                                           |
+| `--reanimated`                       | React Native Reanimated is included by default                                 |
+| `--worklets`                         | React Native Worklets is included by default                                   |
+| `--zustand`                          | Use Zustand for state management                                               |
+| `--i18next`                          | Use i18next for internationalization                                           |
+| `-i`, `--ignite`                     | Initialize an opinionated starter using Infinite Red's Ignite                  |

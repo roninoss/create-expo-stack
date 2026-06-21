@@ -20,12 +20,59 @@ import {
   navigationValidationError,
   projectNameValidationError
 } from '../constants';
-import { CliResults, availablePackages } from '../types';
+import { CliResults, SoftwareMansionSelect, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
 import { quoteShellArg } from '../utilities/systemCommand';
 import { validateProjectName } from '../utilities/validateProjectName';
 import { cancel, intro, isCancel, text } from '@clack/prompts';
 import clearNavigationPackages from '../utilities/clearNavigationPackages';
+
+const softwareMansionFlagOptions: Array<{ name: SoftwareMansionSelect; aliases: string[] }> = [
+  {
+    name: 'react-native-gesture-handler',
+    aliases: ['reactNativeGestureHandler', 'react-native-gesture-handler', 'gesture-handler', 'gestureHandler']
+  },
+  {
+    name: 'react-native-reanimated',
+    aliases: ['reactNativeReanimated', 'react-native-reanimated', 'reanimated']
+  },
+  {
+    name: 'react-native-screens',
+    aliases: ['reactNativeScreens', 'react-native-screens', 'screens']
+  },
+  {
+    name: 'react-native-svg',
+    aliases: ['reactNativeSvg', 'react-native-svg', 'svg']
+  },
+  {
+    name: 'react-native-keyboard-controller',
+    aliases: [
+      'reactNativeKeyboardController',
+      'react-native-keyboard-controller',
+      'keyboard-controller',
+      'keyboardController'
+    ]
+  },
+  {
+    name: 'react-native-worklets',
+    aliases: ['reactNativeWorklets', 'react-native-worklets', 'worklets']
+  }
+];
+
+function shouldAddSoftwareMansionPackage(name: SoftwareMansionSelect, cliResults: CliResults): boolean {
+  if (cliResults.packages.some((pkg) => pkg.name === name)) {
+    return false;
+  }
+
+  if (
+    (name === 'react-native-gesture-handler' || name === 'react-native-screens') &&
+    cliResults.packages.some((pkg) => pkg.type === 'navigation')
+  ) {
+    return false;
+  }
+
+  return name !== 'react-native-reanimated' && name !== 'react-native-worklets';
+}
 
 const command: GluegunCommand = {
   name: 'create-expo-stack',
@@ -329,6 +376,12 @@ const command: GluegunCommand = {
         if (options.vexoAnalytics || options['vexo-analytics'] || options.vexoanalytics) {
           cliResults.packages.push({ name: 'vexo-analytics', type: 'analytics' });
         }
+
+        softwareMansionFlagOptions.forEach(({ name, aliases }) => {
+          if (aliases.some((alias) => options[alias]) && shouldAddSoftwareMansionPackage(name, cliResults)) {
+            cliResults.packages.push({ name, type: 'software-mansion' });
+          }
+        });
 
         // By this point, all cliResults should be set
         info('');
