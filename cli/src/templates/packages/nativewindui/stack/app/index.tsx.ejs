@@ -1,4 +1,4 @@
-import { useHeaderHeight } from '@react-navigation/elements';
+import { useHeaderHeight } from 'expo-router/react-navigation';
 import { FlashList } from '@shopify/flash-list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
@@ -25,7 +25,7 @@ import { SearchBarProps } from 'react-native-screens';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { useActionSheet } from '@expo/react-native-action-sheet';
 <% } %>
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from 'expo-router/react-navigation';
 <% if (props.stylingPackage?.options.selectedComponents.includes('button')) { %>
 import * as Haptics from 'expo-haptics';
 <% } else { %>
@@ -315,16 +315,13 @@ const COMPONENTS: ComponentItem[] = [
     name: 'Progress Indicator',
     component: function ProgressIndicatorExample() {
       const [progress, setProgress] = React.useState(13);
+      React.useEffect(() => {
+        const intervalId = setInterval(() => {
+          setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
+        }, 1000);
 
-       React.useEffect(() => {
-        let id: ReturnType<typeof setInterval> | null = null;
-        if (!id) {
-          id = setInterval(() => {
-            setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
-          }, 1000);
-        }
         return () => {
-          if (id) clearInterval(id);
+          clearInterval(intervalId);
         };
       }, []);
       return (

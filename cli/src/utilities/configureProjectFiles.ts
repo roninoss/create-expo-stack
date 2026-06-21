@@ -60,6 +60,7 @@ export function configureProjectFiles(
       'packages/nativewindui/components/nativewindui/Icon/Icon.ios.tsx.ejs',
       'packages/nativewindui/components/nativewindui/Icon/types.ts.ejs',
       'packages/nativewindui/lib/useColorScheme.tsx.ejs',
+      'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
       'packages/nativewindui/lib/cn.ts.ejs',
       'packages/nativewindui/theme/colors.ts.ejs',
       'packages/nativewindui/theme/index.ts.ejs',
