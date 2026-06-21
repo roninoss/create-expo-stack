@@ -22,6 +22,7 @@ import {
 } from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
+import { quoteShellArg } from '../utilities/systemCommand';
 import { validateProjectName } from '../utilities/validateProjectName';
 import { cancel, intro, isCancel, text } from '@clack/prompts';
 import clearNavigationPackages from '../utilities/clearNavigationPackages';
@@ -339,7 +340,7 @@ const command: GluegunCommand = {
 
         // Function that outputs a string given the CLI results and the packageManager. The outputted string should be a command that can be run to recreate the project
         const generateRerunScript = (cliResults: CliResults) => {
-          let script = `npx rn-new@latest ${cliResults.projectName} `;
+          let script = `npx rn-new@latest ${quoteShellArg(cliResults.projectName)} `;
 
           const isNativewindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 

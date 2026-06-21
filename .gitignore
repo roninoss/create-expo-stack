@@ -11,3 +11,5 @@ myTestProject
 package-lock.json
 .env
 cli/my-expo-app
+.playwright-mcp
+cli/my-*-app*
