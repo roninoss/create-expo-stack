@@ -1,6 +1,6 @@
 import '../global.css';
 import 'expo-dev-client';
-import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
+import { ThemeProvider as NavThemeProvider } from 'expo-router/react-navigation';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 <% } %>
@@ -13,8 +13,8 @@ import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 <% } %>
 
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { useColorScheme, useInitialAndroidBarSync } from '@/lib/useColorScheme';
+import { ThemeToggle } from '@/components/nativewindui/ThemeToggle';
+import { useColorScheme } from '@/lib/useColorScheme';
 import { NAV_THEME } from '@/theme';
 
 export {
@@ -23,7 +23,6 @@ export {
 } from 'expo-router';
 
 export default function RootLayout() {
-  useInitialAndroidBarSync();
   const { colorScheme, isDarkColorScheme } = useColorScheme();
 
   return (
