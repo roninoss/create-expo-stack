@@ -15,6 +15,8 @@ export function generateProjectFiles(
   stateManagementPackage: AvailablePackages | undefined
 ) {
   const { projectName, packages, flags } = cliResults;
+  const projectSlug = toExpoSlug(projectName);
+  const projectScheme = toExpoScheme(projectName);
 
   return files.reduce((prev, file) => {
     const template = file;
@@ -78,6 +80,8 @@ export function generateProjectFiles(
         flags,
         navigationPackage,
         projectName,
+        projectScheme,
+        projectSlug,
         packageManager,
         packages,
         stylingPackage,
@@ -88,4 +92,25 @@ export function generateProjectFiles(
 
     return prev.concat([gen]);
   }, formattedFiles);
+}
+
+export function toExpoSlug(projectName: string): string {
+  const slug = projectName
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+  return slug || 'expo-app';
+}
+
+export function toExpoScheme(projectName: string): string {
+  const scheme = projectName
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9+.-]+/g, '-')
+    .replace(/^[^a-z]+/, '')
+    .replace(/-+$/g, '');
+
+  return scheme || 'expo-app';
 }

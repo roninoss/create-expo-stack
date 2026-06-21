@@ -33,7 +33,8 @@ export function configureProjectFiles(
     'base/package.json.ejs',
     'base/eslint.config.js.ejs',
     'base/.gitignore.ejs',
-    'base/prettier.config.js.ejs'
+    'base/prettier.config.js.ejs',
+    'base/css-env.d.ts.ejs'
   ];
 
   if (stylingPackage?.name === 'stylesheet') {
@@ -51,6 +52,7 @@ export function configureProjectFiles(
       'base/eslint.config.js.ejs',
       'base/.gitignore.ejs',
       'base/prettier.config.js.ejs',
+      'base/css-env.d.ts.ejs',
       'packages/expo-router/metro.config.js.ejs',
       'packages/nativewindui/components/nativewindui/ThemeToggle.tsx.ejs',
       'packages/nativewindui/components/nativewindui/Icon/index.ts.ejs',
