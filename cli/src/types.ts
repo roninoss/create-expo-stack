@@ -19,12 +19,24 @@ export const availablePackages = [
   'nwui',
   'react-navigation',
   'reactNavigation',
+  'gesture-handler',
+  'gestureHandler',
+  'reanimated',
   'react-native-gesture-handler',
   'react-native-reanimated',
+  'react-native-keyboard-controller',
+  'react-native-screens',
+  'react-native-svg',
+  'react-native-worklets',
+  'keyboard-controller',
+  'keyboardController',
   'reactnavigation',
+  'screens',
   'stylesheet',
   'supabase',
+  'svg',
   'unistyles',
+  'worklets',
   'i18next',
   'zustand',
   'vexo-analytics'
@@ -46,6 +58,14 @@ export type Internalization = 'i18next';
 
 export type Analytics = 'vexo-analytics';
 
+export type SoftwareMansionSelect =
+  | 'react-native-gesture-handler'
+  | 'react-native-reanimated'
+  | 'react-native-keyboard-controller'
+  | 'react-native-screens'
+  | 'react-native-svg'
+  | 'react-native-worklets';
+
 export type SelectedComponents =
   | 'action-sheet'
   | 'activity-indicator'
@@ -62,7 +82,14 @@ export type SelectedComponents =
 
 export type AvailablePackages = {
   name: (typeof availablePackages)[number];
-  type: 'navigation' | 'styling' | 'authentication' | 'internationalization' | 'state-management' | 'analytics';
+  type:
+    | 'navigation'
+    | 'styling'
+    | 'authentication'
+    | 'internationalization'
+    | 'state-management'
+    | 'analytics'
+    | 'software-mansion';
   options?: { selectedComponents?: SelectedComponents[]; type?: NavigationTypes };
 };
 

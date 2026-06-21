@@ -59,6 +59,15 @@ export const SIDEBAR: Sidebar = {
       { text: "Introduction", link: "en/introduction" },
       { text: "Installation", link: "en/installation" },
     ],
+    Usage: [
+      { text: "Expo Router", link: "en/usage/expo-router" },
+      { text: "React Navigation", link: "en/usage/react-navigation" },
+      { text: "NativeWind", link: "en/usage/nativewind" },
+      { text: "Unistyles", link: "en/usage/unistyles" },
+      { text: "Software Mansion", link: "en/usage/software-mansion" },
+      { text: "Supabase", link: "en/usage/supabase" },
+      { text: "Firebase", link: "en/usage/firebase" },
+    ],
   },
 };
 

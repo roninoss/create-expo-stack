@@ -1,0 +1,115 @@
+---
+
+---
+
+<a
+  target="_blank"
+  rel="noreferrer noopener"
+  href="https://swmansion.com/"
+  class="software-mansion-card group hover:no-underline relative overflow-hidden shadow-[inset_0_0_3rem_#001A7255] hover:shadow-[inset_0_0_8rem_#001A7288,0_0_2rem_#F7C94A66] border-[#7394FF]/50 hover:border-[#F7C94A]/80 bg-[#001A72] text-[#FCFCFF] p-4 flex-grow rounded-3xl flex flex-col items-start duration-500"
+>
+  <svg
+    aria-label="Software Mansion"
+    fill="none"
+    viewBox="0 0 190 130"
+    xmlns="http://www.w3.org/2000/svg"
+    class="software-mansion-logo absolute -right-1 -top-1 w-36 h-auto z-10"
+    preserveAspectRatio="xMidYMid meet"
+  >
+    <path class="logo-face" d="M58 48H184V92H58V48Z" fill="#FCFCFF"></path>
+    <path class="logo-top" d="M20 12H146L184 48H58L20 12Z" fill="#EDF0FE"
+    ></path>
+    <path class="logo-side" d="M20 12L58 48V92L20 56V12Z" fill="#D0E2FF"></path>
+    <path
+      class="logo-outline"
+      d="M58 48H184V92H58V48ZM20 12H146L184 48H58L20 12ZM20 12V56L58 92V48L20 12Z"
+      stroke="#001A72"
+      stroke-width="2.8"
+      stroke-linejoin="round"></path>
+    <g class="logo-wordmark" fill="#001A72">
+      <text
+        x="88"
+        y="67"
+        font-size="15"
+        font-weight="900"
+        font-family="Arial, sans-serif">software</text
+      >
+      <text
+        x="88"
+        y="83"
+        font-size="15"
+        font-weight="900"
+        font-family="Arial, sans-serif">mansion</text
+      >
+      <text
+        x="158"
+        y="83"
+        font-size="4.8"
+        font-weight="900"
+        font-family="Arial, sans-serif">TM</text
+      >
+    </g>
+  </svg>
+  <div
+    class="bg-[#F7C94A] group-hover:bg-[#FFE294] duration-500 font-bold text-[#001A72] rounded-full px-2 text-sm"
+  >
+    core
+  </div>
+  <h1 class="text-2xl mt-2 text-[#EBAC00]">Software Mansion</h1>
+  <span
+    class="font-thin max-w-[24ch] mt-1 text-[#FCFCFF] opacity-80 group-hover:opacity-100 duration-1000"
+  >
+    Gestures, Screens, SVG, Animations, and Keyboard Control.
+  </span>
+</a>
+
+<style>
+  .software-mansion-logo :global(path) {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .software-mansion-logo :global(.logo-face),
+  .software-mansion-logo :global(.logo-top),
+  .software-mansion-logo :global(.logo-side),
+  .software-mansion-logo :global(.logo-outline) {
+    transition: d 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .software-mansion-card:hover .software-mansion-logo :global(.logo-face) {
+    d: path("M76 36H166V126H76V36Z");
+  }
+
+  .software-mansion-card:hover .software-mansion-logo :global(.logo-top) {
+    d: path("M28 0H118L166 36H76L28 0Z");
+  }
+
+  .software-mansion-card:hover .software-mansion-logo :global(.logo-side) {
+    d: path("M28 0L76 36V126L28 90V0Z");
+  }
+
+  .software-mansion-card:hover .software-mansion-logo :global(.logo-outline) {
+    d: path(
+      "M76 36H166V126H76V36ZM28 0H118L166 36H76L28 0ZM28 0V90L76 126V36L28 0Z"
+    );
+  }
+
+  .software-mansion-logo :global(.logo-wordmark) {
+    transform-box: fill-box;
+    transform-origin: left top;
+    transition: transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .software-mansion-card:hover .software-mansion-logo :global(.logo-wordmark) {
+    transform: translate(-4px, 13px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .software-mansion-logo :global(.logo-face),
+    .software-mansion-logo :global(.logo-top),
+    .software-mansion-logo :global(.logo-side),
+    .software-mansion-logo :global(.logo-outline),
+    .software-mansion-logo :global(.logo-wordmark) {
+      transition: none;
+    }
+  }
+</style>
