@@ -11,8 +11,6 @@ npm-debug.*
 web-build/
 <% if (props.navigationPackage?.name === "expo-router") { %># expo router
 expo-env.d.ts<% } %>
-<% if (props.stylingPackage?.name === "tamagui") { %># tamagui
-.tamagui/<% } %>
 <% if ((props.authenticationPackage?.name === "supabase") || (props.authenticationPackage?.name === "firebase" || (props.analyticsPackage?.name === 'vexo-analytics'))) { %># firebase/supabase/vexo
 .env<% } %>
 
