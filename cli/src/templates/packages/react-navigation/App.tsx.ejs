@@ -21,7 +21,7 @@ import { useMemo } from 'react';
 import "react-native-gesture-handler";
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
-  const vexoApiKey = process.env.VEXO_API_KEY;
+  const vexoApiKey = process.env.EXPO_PUBLIC_VEXO_API_KEY;
   if (vexoApiKey) {
     const { vexo } = require('vexo-analytics');
     vexo(vexoApiKey); // eslint-disable-line
