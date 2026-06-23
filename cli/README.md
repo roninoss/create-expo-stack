@@ -410,6 +410,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/DavidJGrimsley">
+            <img src="https://avatars.githubusercontent.com/u/114373822?v=4" width="100;" alt="DavidJGrimsley"/>
+            <br />
+            <sub><b>David Grimsley</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/claudesortwell">
             <img src="https://avatars.githubusercontent.com/u/41422239?v=4" width="100;" alt="claudesortwell"/>
             <br />
