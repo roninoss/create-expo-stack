@@ -347,13 +347,15 @@ exports[`generates a project with --stylesheet --no-install --bun --overwrite: -
 exports[`generates a project with --stylesheet --expo-router --bun --overwrite: --stylesheet, --expo-router, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
+    "@expo/log-box": "",
     "@expo/vector-icons": "",
     "@react-navigation/native": "",
     "expo": "",
-    "expo-splash-screen": "",
     "expo-constants": "",
+    "expo-font": "",
     "expo-linking": "",
     "expo-router": "",
+    "expo-splash-screen": "",
     "expo-status-bar": "",
     "expo-system-ui": "",
     "expo-web-browser": "",
@@ -460,13 +462,15 @@ exports[`generates a project with --stylesheet --expo-router --bun --overwrite: 
 exports[`generates a project with --stylesheet --expo-router --no-install --bun --overwrite: --stylesheet, --expo-router, --no-install, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
+    "@expo/log-box": "",
     "@expo/vector-icons": "",
     "@react-navigation/native": "",
     "expo": "",
-    "expo-splash-screen": "",
     "expo-constants": "",
+    "expo-font": "",
     "expo-linking": "",
     "expo-router": "",
+    "expo-splash-screen": "",
     "expo-status-bar": "",
     "expo-system-ui": "",
     "expo-web-browser": "",
@@ -761,13 +765,15 @@ exports[`generates a project with --nativewind --no-install --bun --overwrite: -
 exports[`generates a project with --nativewind --expo-router --bun --overwrite: --nativewind, --expo-router, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
+    "@expo/log-box": "",
     "@expo/vector-icons": "",
     "@react-navigation/native": "",
     "expo": "",
-    "expo-splash-screen": "",
     "expo-constants": "",
+    "expo-font": "",
     "expo-linking": "",
     "expo-router": "",
+    "expo-splash-screen": "",
     "expo-status-bar": "",
     "expo-system-ui": "",
     "expo-web-browser": "",
@@ -881,13 +887,15 @@ exports[`generates a project with --nativewind --expo-router --bun --overwrite: 
 exports[`generates a project with --nativewind --expo-router --no-install --bun --overwrite: --nativewind, --expo-router, --no-install, --bun, --overwrite-package-json 1`] = `
 {
   "dependencies": {
+    "@expo/log-box": "",
     "@expo/vector-icons": "",
     "@react-navigation/native": "",
     "expo": "",
-    "expo-splash-screen": "",
     "expo-constants": "",
+    "expo-font": "",
     "expo-linking": "",
     "expo-router": "",
+    "expo-splash-screen": "",
     "expo-status-bar": "",
     "expo-system-ui": "",
     "expo-web-browser": "",
