@@ -1,4 +1,5 @@
 import { SymbolView } from 'expo-symbols';
+import type { ComponentProps } from 'react';
 
 import type { IconProps } from './types';
 
@@ -14,14 +15,16 @@ function Icon({
   ...props
 }: IconProps) {
   const { colors } = useColorScheme();
+  const symbolName = (name ?? 'questionmark') as ComponentProps<typeof SymbolView>['name'];
+
   return (
     <SymbolView
-      name={name ?? 'questionmark'}
+      {...props}
+      {...sfSymbol}
+      name={symbolName}
       tintColor={rgbaToHex(color ?? colors.foreground)}
       size={size}
       resizeMode="scaleAspectFit"
-      {...props}
-      {...sfSymbol}
     />
   );
 }
