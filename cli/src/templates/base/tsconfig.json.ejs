@@ -4,6 +4,7 @@
     <% if (props.flags.importAlias) { %>
     "strict": true,
     <% if (props.navigationPackage?.name !== 'expo-router') { %>
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     <% } %>
     "paths": {
