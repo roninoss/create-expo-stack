@@ -140,7 +140,9 @@ const listProjectFiles = async (dir: string, displayPath: string): Promise<strin
 
     if (
       childDisplayPath.startsWith(`${getPathToProject()}/node_modules`) ||
-      childDisplayPath.startsWith(`${getPathToProject()}/.git`)
+      childDisplayPath.startsWith(`${getPathToProject()}/.git`) ||
+      entry.name === 'bun.lock' ||
+      entry.name === 'bun.lockb'
     ) {
       continue;
     }
