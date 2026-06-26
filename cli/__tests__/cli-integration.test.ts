@@ -2,7 +2,7 @@ import Bun from 'bun';
 
 import { version } from '../package.json';
 
-import { test, expect, afterEach } from 'bun:test';
+import { test, expect } from 'bun:test';
 import * as path from 'node:path';
 import * as fs from 'node:fs/promises';
 
@@ -51,7 +51,8 @@ const packageManagers = process.env.ALL_PACKAGE_MANAGERS
 
 const skipSnapshots = process.env.SKIP_SNAPSHOTS === '1';
 const shouldSkipInstallsInTests = process.platform === 'win32';
-let currentProjectName = 'myTestProject';
+const retryableCleanupErrorCodes = new Set(['EBUSY', 'EPERM', 'ENOTEMPTY']);
+const snapshotIgnoredEntries = new Set(['bun.lock', 'bun.lockb', 'package-lock.json', 'pnpm-lock.yaml', 'yarn.lock']);
 
 test(`outputs version`, async () => {
   const output = await cli([`--version`]);
@@ -110,15 +111,13 @@ const popularCombinations = [
   ...reactNavigationCombinations
 ];
 
-const getPathToProject = () => `./${currentProjectName}`;
-
-const cleanupProject = async () => {
+const cleanupProject = async (pathToProject: string) => {
   for (let attempt = 0; attempt < 5; attempt++) {
     try {
-      await fs.rm(getPathToProject(), { recursive: true, force: true });
+      await fs.rm(pathToProject, { recursive: true, force: true });
       return;
     } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== 'EBUSY' || attempt === 4) {
+      if (!retryableCleanupErrorCodes.has((error as NodeJS.ErrnoException).code ?? '') || attempt === 4) {
         throw error;
       }
 
@@ -127,11 +126,7 @@ const cleanupProject = async () => {
   }
 };
 
-afterEach(async () => {
-  await cleanupProject();
-});
-
-const listProjectFiles = async (dir: string, displayPath: string): Promise<string[]> => {
+const listProjectFiles = async (dir: string, displayPath: string, pathToProject: string): Promise<string[]> => {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   const files: string[] = [];
 
@@ -139,10 +134,9 @@ const listProjectFiles = async (dir: string, displayPath: string): Promise<strin
     const childDisplayPath = `${displayPath}/${entry.name}`;
 
     if (
-      childDisplayPath.startsWith(`${getPathToProject()}/node_modules`) ||
-      childDisplayPath.startsWith(`${getPathToProject()}/.git`) ||
-      entry.name === 'bun.lock' ||
-      entry.name === 'bun.lockb'
+      childDisplayPath.startsWith(`${pathToProject}/node_modules`) ||
+      childDisplayPath.startsWith(`${pathToProject}/.git`) ||
+      snapshotIgnoredEntries.has(entry.name)
     ) {
       continue;
     }
@@ -150,7 +144,7 @@ const listProjectFiles = async (dir: string, displayPath: string): Promise<strin
     files.push(childDisplayPath);
 
     if (entry.isDirectory()) {
-      files.push(...(await listProjectFiles(path.join(dir, entry.name), childDisplayPath)));
+      files.push(...(await listProjectFiles(path.join(dir, entry.name), childDisplayPath, pathToProject)));
     }
   }
 
@@ -167,84 +161,88 @@ for (const packageManager of packageManagers) {
         : requestedFlags;
 
     test(`generates a project with ${requestedFlags.join(' ')}`, async () => {
-      currentProjectName = `myTestProject-${packageManager}-${index}`;
-      const pathToProject = getPathToProject();
+      const projectName = `myTestProject-${packageManager}-${index}`;
+      const pathToProject = `./${projectName}`;
 
-      const output = await generateProject({
-        projectName: currentProjectName,
-        flags: effectiveFlags
-      });
+      try {
+        const output = await generateProject({
+          projectName,
+          flags: effectiveFlags
+        });
 
-      expect(output).toContain(packageManager);
+        expect(output).toContain(packageManager);
 
-      if (!effectiveFlags.includes('--no-install')) {
-        expect(output).toContain('Installing dependencies');
-      }
-
-      const pkgjson = await Bun.file(`${pathToProject}/package.json`).json();
-
-      const pkgJsonWithoutVersions = {
-        ...pkgjson,
-        name: 'myTestProject',
-        dependencies: Object.keys(pkgjson.dependencies).reduce((acc, key) => {
-          return {
-            ...acc,
-            [key]: ''
-          };
-        }, {}),
-        devDependencies: Object.keys(pkgjson.devDependencies).reduce((acc, key) => {
-          return {
-            ...acc,
-            [key]: ''
-          };
-        }, {})
-      };
-
-      if (!skipSnapshots) {
-        expect(pkgJsonWithoutVersions).toMatchSnapshot(`${requestedFlags.join(', ')}-package-json`);
-      }
-
-      const cesconfigText = await Bun.file(`${pathToProject}/cesconfig.jsonc`).text();
-      // Strip single-line comments from JSONC
-      const cleanedText = cesconfigText.replace(/^\s*\/\/.*$/gm, '');
-      const cesconfig = JSON.parse(cleanedText);
-
-      const cesconfigWithoutOS = {
-        ...cesconfig,
-        projectName: 'myTestProject',
-        cesVersion: undefined,
-        os: {},
-        packageManager: { ...cesconfig.packageManager, version: undefined },
-        flags: {
-          ...cesconfig.flags,
-          noInstall: requestedFlags.includes('--no-install'),
-          publish: false
-        }
-      };
-
-      if (!skipSnapshots) {
-        expect(cesconfigWithoutOS).toMatchSnapshot(`${requestedFlags.join(', ')}-ces-config-json`);
-      }
-
-      // sort the file list for consistent snapshotting
-      const sortedFileList = [pathToProject, ...(await listProjectFiles(pathToProject, pathToProject))]
-        .map((filePath) => filePath.replaceAll(currentProjectName, 'myTestProject'))
-        .toSorted((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
-
-      if (!skipSnapshots) {
-        expect(sortedFileList).toMatchSnapshot(`${requestedFlags.join(', ')}-file-list`);
-      }
-
-      // typecheck only works if we have packages installed
-      if (!effectiveFlags.includes('--no-install')) {
-        const { stderr, stdout, exitCode } = await Bun.$`cd ${currentProjectName} && bun run tsc --noEmit`;
-
-        if (exitCode !== 0) {
-          console.warn('stdout', stdout.toString());
-          console.warn('stderr', stderr.toString());
+        if (!effectiveFlags.includes('--no-install')) {
+          expect(output).toContain('Installing dependencies');
         }
 
-        expect(exitCode).toBe(0);
+        const pkgjson = await Bun.file(`${pathToProject}/package.json`).json();
+
+        const pkgJsonWithoutVersions = {
+          ...pkgjson,
+          name: 'myTestProject',
+          dependencies: Object.keys(pkgjson.dependencies).reduce((acc, key) => {
+            return {
+              ...acc,
+              [key]: ''
+            };
+          }, {}),
+          devDependencies: Object.keys(pkgjson.devDependencies).reduce((acc, key) => {
+            return {
+              ...acc,
+              [key]: ''
+            };
+          }, {})
+        };
+
+        if (!skipSnapshots) {
+          expect(pkgJsonWithoutVersions).toMatchSnapshot(`${requestedFlags.join(', ')}-package-json`);
+        }
+
+        const cesconfigText = await Bun.file(`${pathToProject}/cesconfig.jsonc`).text();
+        // Strip single-line comments from JSONC
+        const cleanedText = cesconfigText.replace(/^\s*\/\/.*$/gm, '');
+        const cesconfig = JSON.parse(cleanedText);
+
+        const cesconfigWithoutOS = {
+          ...cesconfig,
+          projectName: 'myTestProject',
+          cesVersion: undefined,
+          os: {},
+          packageManager: { ...cesconfig.packageManager, version: undefined },
+          flags: {
+            ...cesconfig.flags,
+            noInstall: requestedFlags.includes('--no-install'),
+            publish: false
+          }
+        };
+
+        if (!skipSnapshots) {
+          expect(cesconfigWithoutOS).toMatchSnapshot(`${requestedFlags.join(', ')}-ces-config-json`);
+        }
+
+        // sort the file list for consistent snapshotting
+        const sortedFileList = [pathToProject, ...(await listProjectFiles(pathToProject, pathToProject, pathToProject))]
+          .map((filePath) => filePath.replaceAll(projectName, 'myTestProject'))
+          .toSorted((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+
+        if (!skipSnapshots) {
+          expect(sortedFileList).toMatchSnapshot(`${requestedFlags.join(', ')}-file-list`);
+        }
+
+        // typecheck only works if we have packages installed
+        if (!effectiveFlags.includes('--no-install')) {
+          const { stderr, stdout, exitCode } = await Bun.$`cd ${projectName} && bun run tsc --noEmit`;
+
+          if (exitCode !== 0) {
+            console.warn('stdout', stdout.toString());
+            console.warn('stderr', stderr.toString());
+          }
+
+          expect(exitCode).toBe(0);
+        }
+      } finally {
+        await cleanupProject(pathToProject);
       }
     });
   }

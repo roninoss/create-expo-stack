@@ -13,3 +13,4 @@ package-lock.json
 cli/my-expo-app
 .playwright-mcp
 cli/my-*-app*
+cli/myTestProject-*

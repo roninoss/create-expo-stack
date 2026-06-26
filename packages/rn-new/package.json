@@ -15,8 +15,8 @@
   ],
   "scripts": {
     "build": "bun run clean && bun run compile",
-    "clean": "node -e \"const fs=require('fs'); fs.rmSync('bin', { recursive: true, force: true });\"",
-    "compile": "node -e \"const fs=require('fs'); const path=require('path'); const out=path.join('bin','rn-new.js'); const contents=\\`#!/usr/bin/env node\\n\\ntry {\\n  require('create-expo-stack/bin/create-expo-stack.js');\\n} catch (error) {\\n  console.error('Error: Could not find create-expo-stack package.');\\n  console.error('Please ensure create-expo-stack is installed globally.');\\n  process.exit(1);\\n}\\n\\`; fs.mkdirSync(path.dirname(out), { recursive: true }); fs.writeFileSync(out, contents); fs.chmodSync(out, 0o755);\"",
+    "clean": "node ./scripts/build-bin.mjs clean",
+    "compile": "node ./scripts/build-bin.mjs compile",
     "prepublishOnly": "bun run build"
   },
   "dependencies": {
