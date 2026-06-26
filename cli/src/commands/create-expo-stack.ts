@@ -430,11 +430,6 @@ const command: GluegunCommand = {
               }
             }
 
-            const stateManagementPackage = cliResults.packages.find((p) => p.type === 'state-management');
-
-            if (stateManagementPackage) {
-              script += `--${stateManagementPackage.name} `;
-            }
           } else {
             // Add the packages
             cliResults.packages.forEach((p) => {
@@ -449,6 +444,20 @@ const command: GluegunCommand = {
               }
             });
           }
+
+          if (isNativewindUISelected) {
+            cliResults.packages.forEach((p) => {
+              if (
+                p.type === 'state-management' ||
+                p.type === 'internationalization' ||
+                p.type === 'analytics' ||
+                p.type === 'software-mansion'
+              ) {
+                script += `--${p.name} `;
+              }
+            });
+          }
+
           // Check if the user wants to skip installing packages
           if (cliResults.flags.noInstall) {
             script += '--no-install ';
