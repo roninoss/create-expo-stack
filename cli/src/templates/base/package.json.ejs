@@ -70,7 +70,7 @@
         "react-native-edge-to-edge": "1.6.0",
     <% } %>
 
-    <% if (props.navigationPackage?.name === "react-navigation") { %>
+    <% if (props.navigationPackage?.type === "navigation") { %>
       "@react-navigation/native": "^7.1.6",
     <% } %>
 
@@ -105,6 +105,9 @@
     <% } %>
 
     <% if ((props.navigationPackage?.options.type === "drawer + tabs") && (props.navigationPackage?.name === "react-navigation")) { %>
+      "@react-navigation/drawer": "^7.0.0",
+      "@react-navigation/bottom-tabs": "^7.0.5",
+    <% } else if (props.navigationPackage?.options.type === "drawer + tabs") { %>
       "@react-navigation/drawer": "^7.0.0",
       "@react-navigation/bottom-tabs": "^7.0.5",
     <% } %>
