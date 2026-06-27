@@ -42,6 +42,63 @@ async function patchNativewindUIPickerForWeb(projectName: string) {
   }
 }
 
+async function patchNativewindUIDatePickerForAndroid(projectName: string) {
+  const datePickerPath = path.join(projectName, 'components', 'nativewindui', 'DatePicker', 'DatePicker.android.tsx');
+
+  try {
+    const currentSource = await readFile(datePickerPath, 'utf8');
+    let nextSource = currentSource;
+    const deprecatedAndroidOpenBlock = `  const show = (currentMode: 'time' | 'date') => () => {
+    DateTimePickerAndroid.open({
+      value: props.value,
+      onChange: props.onChange,
+      mode: currentMode,
+      minimumDate: props.minimumDate,
+      maximumDate: props.maximumDate,
+    });
+  };`;
+
+    if (!nextSource.includes(deprecatedAndroidOpenBlock)) {
+      return;
+    }
+
+    nextSource = nextSource.replace(
+      `import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';`,
+      `import DateTimePicker, {
+  DateTimePickerAndroid,
+  type DateTimePickerChangeEvent,
+} from '@react-native-community/datetimepicker';`
+    );
+
+    nextSource = nextSource.replace(
+      deprecatedAndroidOpenBlock,
+      `  const handleValueChange =
+    props.onValueChange ??
+    ((event: DateTimePickerChangeEvent, date: Date) => {
+      props.onChange?.({ ...event, type: 'set' }, date);
+    });
+
+  const show = (currentMode: 'time' | 'date') => () => {
+    DateTimePickerAndroid.open({
+      value: props.value,
+      onValueChange: handleValueChange,
+      onDismiss: props.onDismiss,
+      onNeutralButtonPress: props.onNeutralButtonPress,
+      mode: currentMode,
+      minimumDate: props.minimumDate,
+      maximumDate: props.maximumDate,
+    });
+  };`
+    );
+
+    if (nextSource !== currentSource) {
+      await writeFile(datePickerPath, nextSource);
+    }
+  } catch {
+    // NativewindUI components are optional, so skip if the date picker was not generated.
+  }
+}
+
 export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolbox) {
   const isNativewindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
@@ -92,6 +149,7 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
   });
 
   await patchNativewindUIPickerForWeb(cliResults.projectName);
+  await patchNativewindUIDatePickerForAndroid(cliResults.projectName);
 
   s.stop('Nativewindui components added!');
 }

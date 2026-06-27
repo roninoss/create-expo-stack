@@ -375,8 +375,8 @@ const COMPONENTS: ComponentItem[] = [
           <DatePicker
             value={date}
             mode='datetime'
-            onChange={(ev) => {
-              setDate(new Date(ev.nativeEvent.timestamp));
+            onValueChange={(_event, selectedDate) => {
+              setDate(selectedDate);
             }}
           />
         </View>
