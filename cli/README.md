@@ -166,6 +166,13 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/DavidJGrimsley">
+            <img src="https://avatars.githubusercontent.com/u/114373822?v=4" width="100;" alt="DavidJGrimsley"/>
+            <br />
+            <sub><b>David Grimsley</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/alejorod">
             <img src="https://avatars.githubusercontent.com/u/6730160?v=4" width="100;" alt="alejorod"/>
             <br />
@@ -178,15 +185,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Gaurav Bhandari</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/finnbayer">
             <img src="https://avatars.githubusercontent.com/u/115630860?v=4" width="100;" alt="finnbayer"/>
             <br />
             <sub><b>Finn Bayer</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/saimon24">
             <img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100;" alt="saimon24"/>
@@ -220,13 +227,6 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/9088288?v=4" width="100;" alt="jpudysz"/>
             <br />
             <sub><b>Jacek Pudysz</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/DavidJGrimsley">
-            <img src="https://avatars.githubusercontent.com/u/114373822?v=4" width="100;" alt="DavidJGrimsley"/>
-            <br />
-            <sub><b>David Grimsley</b></sub>
         </a>
     </td></tr>
 <tr>
