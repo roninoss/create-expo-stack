@@ -75,8 +75,6 @@ bun create expo-stack myapp --expo-router --nativewind --bun
 | `--react-native-screens`             | Add React Native Screens when navigation is not selected                       |
 | `--react-native-svg`                 | Add React Native SVG                                                           |
 | `--react-native-keyboard-controller` | Add React Native Keyboard Controller                                           |
-| `--reanimated`                       | React Native Reanimated is included by default                                 |
-| `--worklets`                         | React Native Worklets is included by default                                   |
 | `--zustand`                          | Use Zustand for state management                                               |
 | `--i18next`                          | Use i18next for internationalization                                           |
 | `-i`, `--ignite`                     | Initialize an opinionated starter using Infinite Red's Ignite                  |
