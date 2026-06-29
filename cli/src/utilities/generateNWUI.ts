@@ -7,24 +7,41 @@ import { getPackageManagerRunnerX } from './getPackageManager';
 import { ONLY_ERRORS, runSystemCommand } from './systemCommand';
 import { spinner } from '@clack/prompts';
 
-async function patchNativewindUIPickerForWeb(projectName: string) {
+function warnAboutSkippedNativewindUIPatch(toolbox: GluegunToolbox, patchName: string) {
+  if (process.env.NODE_ENV === 'development') {
+    toolbox.print.warning(`Skipped ${patchName}; generated NativeWindUI source did not match the expected shape.`);
+  }
+}
+
+async function patchNativewindUIPickerForWeb(projectName: string, toolbox: GluegunToolbox) {
   const pickerPath = path.join(projectName, 'components', 'nativewindui', 'Picker.tsx');
 
   try {
     const currentSource = await readFile(pickerPath, 'utf8');
     let nextSource = currentSource;
+    const nativeDropdownProps = `        dropdownIconColor={dropdownIconColor ?? colors.foreground}
+        dropdownIconRippleColor={dropdownIconRippleColor ?? colors.foreground}
+        {...props}`;
+    const patchedDropdownProps = `        {...(Platform.OS === 'android'`;
+    const nativeViewImport = "import { View } from 'react-native';";
+    const patchedViewImport = "import { Platform, View } from 'react-native';";
 
-    if (nextSource.includes("import { View } from 'react-native';")) {
-      nextSource = nextSource.replace(
-        "import { View } from 'react-native';",
-        "import { Platform, View } from 'react-native';"
-      );
+    if (nextSource.includes(nativeViewImport)) {
+      nextSource = nextSource.replace(nativeViewImport, patchedViewImport);
+    } else if (!nextSource.includes(patchedViewImport)) {
+      warnAboutSkippedNativewindUIPatch(toolbox, 'NativeWindUI Picker web patch');
+      return;
+    }
+
+    if (!nextSource.includes(nativeDropdownProps)) {
+      if (!nextSource.includes(patchedDropdownProps)) {
+        warnAboutSkippedNativewindUIPatch(toolbox, 'NativeWindUI Picker web patch');
+      }
+      return;
     }
 
     nextSource = nextSource.replace(
-      `        dropdownIconColor={dropdownIconColor ?? colors.foreground}
-        dropdownIconRippleColor={dropdownIconRippleColor ?? colors.foreground}
-        {...props}`,
+      nativeDropdownProps,
       `        {...(Platform.OS === 'android'
           ? {
               dropdownIconColor: dropdownIconColor ?? colors.foreground,
@@ -42,7 +59,7 @@ async function patchNativewindUIPickerForWeb(projectName: string) {
   }
 }
 
-async function patchNativewindUIDatePickerForAndroid(projectName: string) {
+async function patchNativewindUIDatePickerForAndroid(projectName: string, toolbox: GluegunToolbox) {
   const datePickerPath = path.join(projectName, 'components', 'nativewindui', 'DatePicker', 'DatePicker.android.tsx');
 
   try {
@@ -59,6 +76,9 @@ async function patchNativewindUIDatePickerForAndroid(projectName: string) {
   };`;
 
     if (!nextSource.includes(deprecatedAndroidOpenBlock)) {
+      if (!nextSource.includes('onValueChange: handleValueChange')) {
+        warnAboutSkippedNativewindUIPatch(toolbox, 'NativeWindUI DatePicker Android patch');
+      }
       return;
     }
 
@@ -148,8 +168,8 @@ export async function generateNWUI(cliResults: CliResults, toolbox: GluegunToolb
     }
   });
 
-  await patchNativewindUIPickerForWeb(cliResults.projectName);
-  await patchNativewindUIDatePickerForAndroid(cliResults.projectName);
+  await patchNativewindUIPickerForWeb(cliResults.projectName, toolbox);
+  await patchNativewindUIDatePickerForAndroid(cliResults.projectName, toolbox);
 
   s.stop('Nativewindui components added!');
 }
