@@ -9,7 +9,7 @@ import { spinner } from '@clack/prompts';
 
 function warnAboutSkippedNativewindUIPatch(toolbox: GluegunToolbox, patchName: string) {
   if (process.env.NODE_ENV === 'development') {
-    toolbox.print.warning(`Skipped ${patchName}; generated NativeWindUI source did not match the expected shape.`);
+    toolbox.print.warning(`Skipped ${patchName}; generated NativewindUI source did not match the expected shape.`);
   }
 }
 
@@ -29,13 +29,13 @@ async function patchNativewindUIPickerForWeb(projectName: string, toolbox: Glueg
     if (nextSource.includes(nativeViewImport)) {
       nextSource = nextSource.replace(nativeViewImport, patchedViewImport);
     } else if (!nextSource.includes(patchedViewImport)) {
-      warnAboutSkippedNativewindUIPatch(toolbox, 'NativeWindUI Picker web patch');
+      warnAboutSkippedNativewindUIPatch(toolbox, 'NativewindUI Picker web patch');
       return;
     }
 
     if (!nextSource.includes(nativeDropdownProps)) {
       if (!nextSource.includes(patchedDropdownProps)) {
-        warnAboutSkippedNativewindUIPatch(toolbox, 'NativeWindUI Picker web patch');
+        warnAboutSkippedNativewindUIPatch(toolbox, 'NativewindUI Picker web patch');
       }
       return;
     }
@@ -77,7 +77,7 @@ async function patchNativewindUIDatePickerForAndroid(projectName: string, toolbo
 
     if (!nextSource.includes(deprecatedAndroidOpenBlock)) {
       if (!nextSource.includes('onValueChange: handleValueChange')) {
-        warnAboutSkippedNativewindUIPatch(toolbox, 'NativeWindUI DatePicker Android patch');
+        warnAboutSkippedNativewindUIPatch(toolbox, 'NativewindUI DatePicker Android patch');
       }
       return;
     }
