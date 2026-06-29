@@ -18,40 +18,10 @@ import {
 } from '../types';
 import { loadConfigs, saveConfig } from './configStorage';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
+import { getSoftwareMansionPromptOptions, shouldAddSoftwareMansionPackage } from './softwareMansion';
 
 // based on eas default bun version https://docs.expo.dev/build-reference/infrastructure/#ios-server-images
 const minBunVersion = '1.1.13'; // or greater
-
-const softwareMansionOptions: Array<{ value: SoftwareMansionSelect; label: string }> = [
-  { value: 'react-native-gesture-handler', label: 'React Native Gesture Handler (included with navigation)' },
-  { value: 'react-native-reanimated', label: 'React Native Reanimated (included by default)' },
-  { value: 'react-native-screens', label: 'React Native Screens (included with navigation)' },
-  { value: 'react-native-svg', label: 'React Native SVG' },
-  { value: 'react-native-keyboard-controller', label: 'React Native Keyboard Controller' },
-  { value: 'react-native-worklets', label: 'React Native Worklets (included by default)' }
-];
-
-const defaultSoftwareMansionPackages: SoftwareMansionSelect[] = [
-  'react-native-gesture-handler',
-  'react-native-reanimated',
-  'react-native-screens',
-  'react-native-worklets'
-];
-
-function shouldAddSoftwareMansionPackage(name: SoftwareMansionSelect, cliResults: CliResults): boolean {
-  if (cliResults.packages.some((pkg) => pkg.name === name)) {
-    return false;
-  }
-
-  if (
-    (name === 'react-native-gesture-handler' || name === 'react-native-screens') &&
-    cliResults.packages.some((pkg) => pkg.type === 'navigation')
-  ) {
-    return false;
-  }
-
-  return name !== 'react-native-reanimated' && name !== 'react-native-worklets';
-}
 
 export async function runCLI(toolbox: Toolbox, projectName: string): Promise<CliResults> {
   const {
@@ -358,11 +328,16 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     );
   }
 
+  info('');
+  info('React Native Reanimated and React Native Worklets are included by default.');
+  if (cliResults.packages.some((pkg) => pkg.type === 'navigation')) {
+    info('React Native Gesture Handler and React Native Screens are included with navigation.');
+  }
+
   const softwareMansionSelect = await multiselect({
     message: 'Which optional Software Mansion packages would you like to add?',
-    options: softwareMansionOptions,
-    required: false,
-    initialValues: defaultSoftwareMansionPackages
+    options: getSoftwareMansionPromptOptions(cliResults),
+    required: false
   });
 
   if (isCancel(softwareMansionSelect)) {

@@ -7,7 +7,7 @@ Create Expo Stack includes React Native Reanimated and React Native Worklets by 
 
 ## Optional Packages
 
-The interactive prompt preselects Gesture Handler, Reanimated, Screens, and Worklets. Gesture Handler and Screens are automatically included when you choose Expo Router or React Navigation, so those defaults only add packages when they are actually needed.
+The interactive prompt only shows packages that can be added to the generated app. Gesture Handler and Screens are automatically included when you choose Expo Router or React Navigation, so they are only shown for apps without a navigation template.
 
 You can also add Software Mansion packages with flags:
 

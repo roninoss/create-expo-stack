@@ -21,13 +21,10 @@ export const availablePackages = [
   'reactNavigation',
   'gesture-handler',
   'gestureHandler',
-  'reanimated',
   'react-native-gesture-handler',
-  'react-native-reanimated',
   'react-native-keyboard-controller',
   'react-native-screens',
   'react-native-svg',
-  'react-native-worklets',
   'keyboard-controller',
   'keyboardController',
   'reactnavigation',
@@ -36,7 +33,6 @@ export const availablePackages = [
   'supabase',
   'svg',
   'unistyles',
-  'worklets',
   'i18next',
   'zustand',
   'vexo-analytics'
@@ -60,11 +56,9 @@ export type Analytics = 'vexo-analytics';
 
 export type SoftwareMansionSelect =
   | 'react-native-gesture-handler'
-  | 'react-native-reanimated'
   | 'react-native-keyboard-controller'
   | 'react-native-screens'
-  | 'react-native-svg'
-  | 'react-native-worklets';
+  | 'react-native-svg';
 
 export type SelectedComponents =
   | 'action-sheet'
