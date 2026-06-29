@@ -21,11 +21,9 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { SearchBarProps } from 'react-native-screens';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { useActionSheet } from '@expo/react-native-action-sheet';
 <% } %>
-import { useNavigation } from 'expo-router/react-navigation';
 <% if (props.stylingPackage?.options.selectedComponents.includes('button')) { %>
 import * as Haptics from 'expo-haptics';
 <% } else { %>
@@ -64,6 +62,7 @@ import { Text } from '@/components/nativewindui/Text';
 <% if (props.stylingPackage?.options.selectedComponents.includes('toggle')) { %>
 import { Toggle } from '@/components/nativewindui/Toggle';
 <% } %>
+import { useHeaderSearchBar } from '@/lib/useHeaderSearchBar';
 import { useColorScheme } from '@/lib/useColorScheme';
 import { COLORS } from '@/theme/colors';
 
@@ -93,32 +92,6 @@ export default function Screen() {
       ListEmptyComponent={COMPONENTS.length === 0 ? ListEmptyComponent : undefined}
     />
   );
-}
-
-function useHeaderSearchBar(props: SearchBarProps = {}) {
-  const { colorScheme, colors } = useColorScheme();
-  const navigation = useNavigation();
-  const [search, setSearch] = React.useState('');
-
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerSearchBarOptions: {
-        placeholder: 'Search...',
-        textColor: colors.foreground,
-        tintColor: colors.primary,
-        headerIconColor: colors.foreground,
-        hintTextColor: colors.grey,
-        hideWhenScrolling: false,
-        onChangeText(ev) {
-          setSearch(ev.nativeEvent.text);
-        },
-        ...props,
-      } satisfies SearchBarProps,
-    });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navigation, colorScheme]);
-  
-  return search;
 }
 
 function ListEmptyComponent() {
