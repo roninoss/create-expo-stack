@@ -145,6 +145,13 @@ Thanks go to these wonderful people:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/DavidJGrimsley">
+            <img src="https://avatars.githubusercontent.com/u/114373822?v=4" width="100;" alt="DavidJGrimsley"/>
+            <br />
+            <sub><b>David Grimsley</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/frankcalise">
             <img src="https://avatars.githubusercontent.com/u/374022?v=4" width="100;" alt="frankcalise"/>
             <br />
@@ -163,13 +170,6 @@ Thanks go to these wonderful people:
             <img src="https://avatars.githubusercontent.com/u/63797719?v=4" width="100;" alt="mrzachnugent"/>
             <br />
             <sub><b>Zach Nugent</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/DavidJGrimsley">
-            <img src="https://avatars.githubusercontent.com/u/114373822?v=4" width="100;" alt="DavidJGrimsley"/>
-            <br />
-            <sub><b>David Grimsley</b></sub>
         </a>
     </td>
     <td align="center">
