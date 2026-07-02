@@ -130,25 +130,25 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/DavidJGrimsley">
+            <img src="https://avatars.githubusercontent.com/u/114373822?v=4" width="100;" alt="DavidJGrimsley"/>
+            <br />
+            <sub><b>David Grimsley</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/ernestoresende">
             <img src="https://avatars.githubusercontent.com/u/55156145?v=4" width="100;" alt="ernestoresende"/>
             <br />
             <sub><b>Ernesto Resende</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/PickleNik">
             <img src="https://avatars.githubusercontent.com/u/31113245?v=4" width="100;" alt="PickleNik"/>
             <br />
             <sub><b>Null</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/DavidJGrimsley">
-            <img src="https://avatars.githubusercontent.com/u/114373822?v=4" width="100;" alt="DavidJGrimsley"/>
-            <br />
-            <sub><b>David Grimsley</b></sub>
         </a>
     </td>
     <td align="center">
