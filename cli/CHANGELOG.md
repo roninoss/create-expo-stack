@@ -445,7 +445,7 @@
 
 ### Patch Changes
 
-- [`9882067c1b7056db1683e99c4fd8a9397fc264f4`](https://github.com/roninoss/create-expo-stack/commit/9882067c1b7056db1683e99c4fd8a9397fc264f4) Thanks [@danstepanov](https://github.com/danstepanov)! - add comments to help users find where to add code for NativeWindUI
+- [`9882067c1b7056db1683e99c4fd8a9397fc264f4`](https://github.com/roninoss/create-expo-stack/commit/9882067c1b7056db1683e99c4fd8a9397fc264f4) Thanks [@danstepanov](https://github.com/danstepanov)! - add comments to help users find where to add code for NativewindUI
 
 - [`42157aca9cd3047b18f915188b9f57bee0ea1371`](https://github.com/roninoss/create-expo-stack/commit/42157aca9cd3047b18f915188b9f57bee0ea1371) Thanks [@danstepanov](https://github.com/danstepanov)! - i'm dumb and don't understand assertions
 
@@ -565,7 +565,7 @@
 
 ### Patch Changes
 
-- [#295](https://github.com/roninoss/create-expo-stack/pull/295) [`c548fdc9f15bbd3b5ae634cbe8db9dbed5e1e12c`](https://github.com/roninoss/create-expo-stack/commit/c548fdc9f15bbd3b5ae634cbe8db9dbed5e1e12c) Thanks [@mrzachnugent](https://github.com/mrzachnugent)! - Makes the dark mode android navigation bar more transparent for NativeWindUI
+- [#295](https://github.com/roninoss/create-expo-stack/pull/295) [`c548fdc9f15bbd3b5ae634cbe8db9dbed5e1e12c`](https://github.com/roninoss/create-expo-stack/commit/c548fdc9f15bbd3b5ae634cbe8db9dbed5e1e12c) Thanks [@mrzachnugent](https://github.com/mrzachnugent)! - Makes the dark mode android navigation bar more transparent for NativewindUI
 
 ## 2.9.4
 

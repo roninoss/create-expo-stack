@@ -100,7 +100,7 @@ const nativewindCombinations = [
 ] as const;
 
 // Note: nativewindui combinations are temporarily disabled on the next branch
-// until NativeWindUI supports Nativewind v5.
+// until NativewindUI supports Nativewind v5.
 // const nativewinduiCombinations = [
 //   ['--nativewindui'],
 //   ['--nativewindui', '--no-install'],
