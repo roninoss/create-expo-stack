@@ -1,7 +1,7 @@
 import { spinner } from "@clack/prompts";
 import color from "picocolors";
 
-const fetchURL = "https://dlp.rn.new";
+import { DOWNLOAD_SERVICE_URL as fetchURL } from "../constants.js";
 
 export async function initializeProject(cliResults) {
   const formattedCliResults = JSON.stringify(cliResults, (key, value) =>

@@ -5,6 +5,9 @@ export const DEFAULT_STYLING_PACAKGE = {
 
 export const PROJECT_NAME = "my-expo-app";
 
+// The service that generates the project zip (see packages/dlp in the repo)
+export const DOWNLOAD_SERVICE_URL = "https://dlp.rn.new";
+
 // Keep in sync with nativewindUIOptions in cli/src/constants.ts
 export const NATIVEWINDUI_COMPONENTS = [
   { value: "action-sheet", label: "Action Sheet" },

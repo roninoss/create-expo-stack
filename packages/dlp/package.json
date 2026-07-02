@@ -1,0 +1,17 @@
+{
+  "name": "dlp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Download service for the rn.new demo: generates a create-expo-stack project from a CLI-results payload and serves it as a zip",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1"
+  }
+}
