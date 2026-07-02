@@ -1,5 +1,80 @@
 # create-expo-stack
 
+## 2.23.0
+
+### Minor Changes
+
+- 51d7c49: Expose Software Mansion packages and supported stack options across the CLI, docs, and website.
+
+### Patch Changes
+
+- 2f6856c: Fix generated NativewindUI templates against the Expo Router v6 / SDK 56 template shape.
+
+  - Migrate NativewindUI template imports (`ThemeProvider`, `useNavigation`, `useHeaderHeight`, theme types) from `@react-navigation/*` to the `expo-router/react-navigation` surface.
+  - Add a shared `useHeaderSearchBar` helper and use it across the stack, tabs, and drawer NativewindUI screens instead of duplicating the hook inline.
+  - Clean up the stack, tabs, and drawer routes/layouts: drop the removed `useInitialAndroidBarSync` call, source `Icon`/`ThemeToggle` from the generated NativewindUI paths, and use valid SF Symbol icon names.
+  - Update the generated DatePicker usage to the current `onValueChange` listener and patch the generated Android DatePicker source accordingly, plus guard the generated Picker's Android-only dropdown props behind a `Platform.OS === 'android'` check for web.
+  - Remove the deprecated `estimatedItemSize` prop from FlashList and simplify the progress-indicator interval effect.
+  - Warn during development when a generated NativewindUI patch cannot be applied because the source no longer matches the expected shape.
+
+## 2.22.0
+
+### Minor Changes
+
+- 0c3c64f: Upgrade generated templates to Expo SDK 56 and harden the CLI tooling.
+
+  - Upgrade generated app dependencies to Expo SDK 56, React 19.2, React Native 0.85, Expo Router 6, React Navigation 7, Reanimated 4, and related Expo packages.
+  - Switch generated `app.json` splash configuration to the `expo-splash-screen` plugin, add a generated `css-env.d.ts` so TypeScript accepts CSS imports, and update generated `tsconfig.json` output for TypeScript 6 behavior.
+  - Derive Expo-safe `slug` and `scheme` from the project name via new `toExpoSlug` and `toExpoScheme` helpers, while preserving the display name the user entered.
+  - Raise the minimum Node version gate to 20.19.4 and clarify the error message branding.
+  - Remove remaining Restyle and Tamagui residue from templates, docs, and public assets.
+  - Guard `vexo()` initialization in the base, Expo Router, and React Navigation templates when no API key is present.
+  - Make the CLI test harness and generation tooling Windows safe, including cwd/env handling and shell quoting in system commands, and refresh integration snapshots to match the SDK 56 scaffold output.
+
+## 2.21.4
+
+### Patch Changes
+
+- 37cbbae: Point the post-scaffold CLI outro at the Ronin booking funnel (ronindevs.com) instead of a bare email.
+
+## 2.21.3
+
+### Patch Changes
+
+- 47f09af: Re-enable tabs and drawer+tabs navigation options in interactive CLI prompts.
+
+## 2.21.2
+
+### Patch Changes
+
+- cd7064e: Use p-safe without offset and add white background to Nativewind Container component.
+
+## 2.21.1
+
+### Patch Changes
+
+- dc9748c: Fix import alias mismatch in expo-router and Nativewind UI tabs/drawer templates by replacing `~/` with `@/` to match the generated tsconfig path alias.
+
+## 2.21.0
+
+### Minor Changes
+
+- 60fe131: Update Nativewind templates to follow v4 best practices: replace SafeAreaView with safe area utility classes, add SafeAreaProvider at app root, fix className concatenation bug, use interface + React.FC typing, and remove unused Container component from no-navigation projects. Re-enable react-navigation test coverage for stack, tabs, and drawer+tabs across all styling packages.
+
+## 2.20.2
+
+### Patch Changes
+
+- 674e22c: Update Nativewind templates to follow v4 best practices: replace SafeAreaView with safe area utility classes, add SafeAreaProvider at app root, fix className concatenation bug, use interface + React.FC typing, and remove unused Container component from no-navigation projects.
+
+## 2.20.1
+
+### Patch Changes
+
+- a722655: fix(build): add @types/node to resolve TypeScript compilation errors
+- a6dbb07: fix(cli): replace fs-jetpack type import with local definition
+- 48f80cc: set nativewind to latest rather than v4.1
+
 ## 2.20.0
 
 ### Minor Changes

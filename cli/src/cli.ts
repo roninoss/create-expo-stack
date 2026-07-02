@@ -17,11 +17,11 @@ export async function run() {
     .create();
 
   // Node version check
-  const [major, minor, _patch] = process.versions.node.split('.').map(Number);
-  const isVersionOk = major > 20 || (major === 20 && minor >= 19);
+  const [major, minor, patch] = process.versions.node.split('.').map(Number);
+  const isVersionOk = major > 20 || (major === 20 && (minor > 19 || (minor === 19 && patch >= 4)));
 
   if (!isVersionOk) {
-    console.error(`Error: rn-new requires Node.js version 20.19.0 or higher, or version 22.0.0 or higher.`);
+    console.error(`Error: create-expo-stack requires Node.js version 20.19.4 or higher.`);
     console.error(`You are currently running Node.js ${process.versions.node}.`);
     console.error('Please update your Node version.');
     process.exit(1);

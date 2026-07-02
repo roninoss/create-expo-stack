@@ -4,17 +4,21 @@ import { Toolbox } from 'gluegun/build/types/domain/toolbox';
 import { semver } from 'gluegun';
 import { bunInstallationError, defaultOptions, nativewindUIOptions } from '../constants';
 import {
+  Analytics,
   AuthenticationSelect,
   StateManagementSelect,
   CliResults,
+  Internalization,
   NavigationSelect,
   NavigationTypes,
   PackageManager,
   SelectedComponents,
+  SoftwareMansionSelect,
   StylingSelect
 } from '../types';
 import { loadConfigs, saveConfig } from './configStorage';
 import { getDefaultPackageManagerVersion } from './getPackageManager';
+import { getSoftwareMansionPromptOptions, shouldAddSoftwareMansionPackage } from './softwareMansion';
 
 // based on eas default bun version https://docs.expo.dev/build-reference/infrastructure/#ios-server-images
 const minBunVersion = '1.1.13'; // or greater
@@ -317,6 +321,31 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     );
   }
 
+  info('');
+  info('React Native Reanimated and React Native Worklets are included by default.');
+  if (cliResults.packages.some((pkg) => pkg.type === 'navigation')) {
+    info('React Native Gesture Handler and React Native Screens are included with navigation.');
+  }
+
+  const softwareMansionSelect = await multiselect({
+    message: 'Which optional Software Mansion packages would you like to add?',
+    options: getSoftwareMansionPromptOptions(cliResults),
+    required: false
+  });
+
+  if (isCancel(softwareMansionSelect)) {
+    cancel('Cancelled... ðŸ‘‹');
+    return process.exit(0);
+  }
+
+  const selectedSoftwareMansionPackages = softwareMansionSelect as SoftwareMansionSelect[];
+
+  selectedSoftwareMansionPackages
+    .filter((pkg) => shouldAddSoftwareMansionPackage(pkg, cliResults))
+    .forEach((pkg) => {
+      cliResults.packages.push({ name: pkg, type: 'software-mansion' });
+    });
+
   const stateManagementSelect = await select({
     message: 'What would you like to use for state management?',
     options: [
@@ -362,6 +391,49 @@ export async function runCLI(toolbox: Toolbox, projectName: string): Promise<Cli
     cliResults.packages.push({ name: authenticationSelect as AuthenticationSelect, type: 'authentication' });
   } else {
     success(`No problem, skipping authentication for now.`);
+  }
+
+  const internationalizationSelect = await select({
+    message: 'Would you like to include internationalization?',
+    options: [
+      { value: undefined, label: 'None' },
+      { value: 'i18next', label: 'i18next' }
+    ]
+  });
+
+  if (isCancel(internationalizationSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+
+  if (internationalizationSelect) {
+    cliResults.packages.push({
+      name: internationalizationSelect as Internalization,
+      type: 'internationalization'
+    });
+    success(`We'll add ${internationalizationSelect} for internationalization.`);
+  } else {
+    success(`No problem, skipping internationalization for now.`);
+  }
+
+  const analyticsSelect = await select({
+    message: 'Would you like to include analytics?',
+    options: [
+      { value: undefined, label: 'None' },
+      { value: 'vexo-analytics', label: 'Vexo Analytics' }
+    ]
+  });
+
+  if (isCancel(analyticsSelect)) {
+    cancel('Cancelled... 👋');
+    return process.exit(0);
+  }
+
+  if (analyticsSelect) {
+    cliResults.packages.push({ name: analyticsSelect as Analytics, type: 'analytics' });
+    success(`We'll add ${analyticsSelect} for analytics.`);
+  } else {
+    success(`No problem, skipping analytics for now.`);
   }
 
   const easEnabled = await confirm({

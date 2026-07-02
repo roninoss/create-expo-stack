@@ -22,6 +22,8 @@ import {
 } from '../constants';
 import { CliResults, availablePackages } from '../types';
 import clearStylingPackages from '../utilities/clearStylingPackages';
+import { shouldAddSoftwareMansionPackage, softwareMansionPackageOptions } from '../utilities/softwareMansion';
+import { quoteShellArg } from '../utilities/systemCommand';
 import { validateProjectName } from '../utilities/validateProjectName';
 import { cancel, intro, isCancel, text } from '@clack/prompts';
 import clearNavigationPackages from '../utilities/clearNavigationPackages';
@@ -329,6 +331,12 @@ const command: GluegunCommand = {
           cliResults.packages.push({ name: 'vexo-analytics', type: 'analytics' });
         }
 
+        softwareMansionPackageOptions.forEach(({ name, aliases }) => {
+          if (aliases.some((alias) => options[alias]) && shouldAddSoftwareMansionPackage(name, cliResults)) {
+            cliResults.packages.push({ name, type: 'software-mansion' });
+          }
+        });
+
         // By this point, all cliResults should be set
         info('');
         highlight('Your project configuration:');
@@ -339,7 +347,7 @@ const command: GluegunCommand = {
 
         // Function that outputs a string given the CLI results and the packageManager. The outputted string should be a command that can be run to recreate the project
         const generateRerunScript = (cliResults: CliResults) => {
-          let script = `npx rn-new@latest ${cliResults.projectName} `;
+          let script = `npx rn-new@latest ${quoteShellArg(cliResults.projectName)} `;
 
           const isNativewindUISelected = cliResults.packages.some((p) => p.name === 'nativewindui');
 
@@ -375,12 +383,6 @@ const command: GluegunCommand = {
                 script += '--drawer+tabs ';
               }
             }
-
-            const stateManagementPackage = cliResults.packages.find((p) => p.type === 'state-management');
-
-            if (stateManagementPackage) {
-              script += `--${stateManagementPackage.name} `;
-            }
           } else {
             // Add the packages
             cliResults.packages.forEach((p) => {
@@ -395,6 +397,20 @@ const command: GluegunCommand = {
               }
             });
           }
+
+          if (isNativewindUISelected) {
+            cliResults.packages.forEach((p) => {
+              if (
+                p.type === 'state-management' ||
+                p.type === 'internationalization' ||
+                p.type === 'analytics' ||
+                p.type === 'software-mansion'
+              ) {
+                script += `--${p.name} `;
+              }
+            });
+          }
+
           // Check if the user wants to skip installing packages
           if (cliResults.flags.noInstall) {
             script += '--no-install ';
@@ -435,7 +451,6 @@ const command: GluegunCommand = {
         const internalizationPackage = packages.find((p) => p.type === 'internationalization');
         const analyticsPackage = packages.find((p) => p.type === 'analytics');
 
-        //add the state management package if it is selected
         const stateManagementPackage = packages.find((p) => p.type === 'state-management') || undefined;
 
         let files: string[] = [];

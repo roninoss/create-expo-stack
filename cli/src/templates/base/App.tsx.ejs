@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 
 <% if (props.internalizationPackage?.name === "i18next") { %>
   import './translation';
-  import { InternalizationExample } from 'components/InternalizationExample';
+  import { InternalizationExample } from './components/InternalizationExample';
 <% } %>
 
 <% if (props.stylingPackage?.name === "nativewind") { %>
@@ -18,32 +18,30 @@ import { StatusBar } from 'expo-status-bar';
 <% } %>
 
 <% if (props.analyticsPackage?.name === "vexo-analytics") { %>
-  import { vexo } from 'vexo-analytics';
-
-  vexo(process.env.EXPO_PUBLIC_VEXO_API_KEY);
+  const vexoApiKey = process.env.EXPO_PUBLIC_VEXO_API_KEY;
+  if (vexoApiKey) {
+    const { vexo } = require('vexo-analytics');
+    vexo(vexoApiKey);
+  }
 <% } %>
 
 export default function App() {
   return (
     <% if (props.stylingPackage?.name === "nativewind") { %>
     <SafeAreaProvider>
-      <ScreenContent title="Home" path="App.tsx">
-      <% if (props.internalizationPackage?.name === "i18next") { %>
-        <InternalizationExample />
-      <% } %>
-      </ScreenContent>
-      <StatusBar style="auto" />
-    </SafeAreaProvider>
     <% } else { %>
     <>
+    <% } %>
       <ScreenContent title="Home" path="App.tsx">
       <% if (props.internalizationPackage?.name === "i18next") { %>
         <InternalizationExample />
       <% } %>
       </ScreenContent>
       <StatusBar style="auto" />
+    <% if (props.stylingPackage?.name === "nativewind") { %>
+    </SafeAreaProvider>
+    <% } else { %>
     </>
     <% } %>
   );
 }
-

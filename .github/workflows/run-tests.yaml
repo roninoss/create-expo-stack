@@ -1,15 +1,26 @@
 on:
   push:
+    branches: [main]
+    paths: ['cli/**']
+  pull_request:
     paths: ['cli/**']
 name: run-tests
+concurrency:
+  group: run-tests-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build-and-test:
-    name: build-and-test
-    runs-on: ubuntu-latest
+    name: build-and-test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     defaults:
       run:
         shell: bash
         working-directory: cli
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2

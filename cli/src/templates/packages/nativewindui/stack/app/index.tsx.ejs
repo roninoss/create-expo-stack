@@ -1,4 +1,4 @@
-import { useHeaderHeight } from '@react-navigation/elements';
+import { useHeaderHeight } from 'expo-router/react-navigation';
 import { FlashList } from '@shopify/flash-list';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
@@ -21,11 +21,9 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { SearchBarProps } from 'react-native-screens';
 <% if (props.stylingPackage?.options.selectedComponents.includes('action-sheet')) { %>
 import { useActionSheet } from '@expo/react-native-action-sheet';
 <% } %>
-import { useNavigation } from '@react-navigation/native';
 <% if (props.stylingPackage?.options.selectedComponents.includes('button')) { %>
 import * as Haptics from 'expo-haptics';
 <% } else { %>
@@ -64,6 +62,7 @@ import { Text } from '@/components/nativewindui/Text';
 <% if (props.stylingPackage?.options.selectedComponents.includes('toggle')) { %>
 import { Toggle } from '@/components/nativewindui/Toggle';
 <% } %>
+import { useHeaderSearchBar } from '@/lib/useHeaderSearchBar';
 import { useColorScheme } from '@/lib/useColorScheme';
 import { COLORS } from '@/theme/colors';
 
@@ -93,32 +92,6 @@ export default function Screen() {
       ListEmptyComponent={COMPONENTS.length === 0 ? ListEmptyComponent : undefined}
     />
   );
-}
-
-function useHeaderSearchBar(props: SearchBarProps = {}) {
-  const { colorScheme, colors } = useColorScheme();
-  const navigation = useNavigation();
-  const [search, setSearch] = React.useState('');
-
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerSearchBarOptions: {
-        placeholder: 'Search...',
-        textColor: colors.foreground,
-        tintColor: colors.primary,
-        headerIconColor: colors.foreground,
-        hintTextColor: colors.grey,
-        hideWhenScrolling: false,
-        onChangeText(ev) {
-          setSearch(ev.nativeEvent.text);
-        },
-        ...props,
-      } satisfies SearchBarProps,
-    });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navigation, colorScheme]);
-  
-  return search;
 }
 
 function ListEmptyComponent() {
@@ -315,16 +288,13 @@ const COMPONENTS: ComponentItem[] = [
     name: 'Progress Indicator',
     component: function ProgressIndicatorExample() {
       const [progress, setProgress] = React.useState(13);
+      React.useEffect(() => {
+        const intervalId = setInterval(() => {
+          setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
+        }, 1000);
 
-       React.useEffect(() => {
-        let id: ReturnType<typeof setInterval> | null = null;
-        if (!id) {
-          id = setInterval(() => {
-            setProgress((prev) => (prev >= 99 ? 0 : prev + 5));
-          }, 1000);
-        }
         return () => {
-          if (id) clearInterval(id);
+          clearInterval(intervalId);
         };
       }, []);
       return (
@@ -378,8 +348,8 @@ const COMPONENTS: ComponentItem[] = [
           <DatePicker
             value={date}
             mode='datetime'
-            onChange={(ev) => {
-              setDate(new Date(ev.nativeEvent.timestamp));
+            onValueChange={(_event, selectedDate) => {
+              setDate(selectedDate);
             }}
           />
         </View>
