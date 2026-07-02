@@ -1,10 +1,6 @@
 import { spinner } from "@clack/prompts";
 import color from "picocolors";
 
-var myHeaders = new Headers();
-myHeaders.append("Accept", "application/json");
-myHeaders.append("Content-Type", "application/json");
-
 const fetchURL = "https://dlp.rn.new";
 
 export async function initializeProject(cliResults) {
@@ -12,24 +8,40 @@ export async function initializeProject(cliResults) {
     typeof value === "string" ? value.replace(/'/g, '"') : value,
   );
 
-  var requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: formattedCliResults,
-    redirect: "follow",
-  };
-
   const s = spinner();
   s.start("Initializing your project...");
 
   try {
-    // CALL ENDPOINT HERE WITH CLI RESULTS
-    const response = await fetch(fetchURL, requestOptions);
+    const response = await fetch(fetchURL, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: formattedCliResults,
+      redirect: "follow",
+      signal: AbortSignal.timeout(30000),
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `The project generator responded with status ${response.status}.`,
+      );
+    }
+
     const { result } = await response.json();
+
+    if (typeof result !== "string" || result.length === 0) {
+      throw new Error("The project generator returned an unexpected response.");
+    }
+
+    s.stop("Project initialized!");
     return fetchURL + result;
   } catch (error) {
-    console.log(color.red(`error ${JSON.stringify({ error }, null, 2)}`));
-  } finally {
-    s.stop("Project initialized!");
+    s.stop(color.red("We couldn't generate a download link right now."));
+    console.log(
+      color.red(error instanceof Error ? error.message : String(error)),
+    );
+    return undefined;
   }
 }

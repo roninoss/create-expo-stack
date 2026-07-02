@@ -3,6 +3,7 @@ import color from "picocolors";
 import util from "util";
 
 import {
+  generateRerunCommand,
   initializeProject,
   printOutput,
   renderTitle,
@@ -52,26 +53,38 @@ async function main() {
 
   const output = printOutput(cliResults);
 
-  const myBox = new Box(
-    {
-      w: 50,
-      h: 5,
-      stringify: false,
-      marks: {
-        nw: color.yellow("╭"),
-        n: color.yellow("─"),
-        ne: color.yellow("╮"),
-        e: color.yellow("│"),
-        se: color.yellow("╯"),
-        s: color.yellow("─"),
-        sw: color.yellow("╰"),
-        w: color.yellow("│"),
+  let banner;
+  if (projectURL) {
+    const myBox = new Box(
+      {
+        w: 50,
+        h: 5,
+        stringify: false,
+        marks: {
+          nw: color.yellow("╭"),
+          n: color.yellow("─"),
+          ne: color.yellow("╮"),
+          e: color.yellow("│"),
+          se: color.yellow("╯"),
+          s: color.yellow("─"),
+          sw: color.yellow("╰"),
+          w: color.yellow("│"),
+        },
       },
-    },
-    `Click the link to download your project!\n\n${color.magenta(projectURL)}`,
-  );
+      `Click the link to download your project!\n\n${color.magenta(projectURL)}`,
+    );
+    banner = myBox.stringify();
+  } else {
+    banner = [
+      color.yellow(
+        "The download service is unavailable, but you can create the same project locally by running:",
+      ),
+      "",
+      color.magenta(`  ${generateRerunCommand(cliResults)}`),
+    ].join("\n");
+  }
 
-  outro(`\n${myBox.stringify()}\n${output}`);
+  outro(`\n${banner}\n${output}`);
 
   setTimeout(() => {
     console.log(color.yellow("you're still here?"));

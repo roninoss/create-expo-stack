@@ -1,3 +1,4 @@
+export * from "./generateRerunCommand.js";
 export * from "./initializeProject.js";
 export * from "./printOutput.js";
 export * from "./renderTitle.js";

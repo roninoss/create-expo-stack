@@ -1,6 +1,8 @@
 import { cancel, isCancel, multiselect, select } from "@clack/prompts";
 import color from "picocolors";
 
+import { NATIVEWINDUI_COMPONENTS } from "../constants.js";
+
 export async function setStyles(cliResults, navigationSelect) {
   const stylingSelect = await select({
     message: "What would you like to use for styling?",
@@ -29,35 +31,9 @@ export async function setStyles(cliResults, navigationSelect) {
   if (stylingSelect === "nativewindui") {
     let selectedComponents = await multiselect({
       message: "Which components would you like to explore?",
-      options: [
-        { value: "action-sheet", label: "Action Sheet" },
-        { value: "activity-indicator", label: "Activity Indicator" },
-        { value: "activity-view", label: "Activity View" },
-        { value: "avatar", label: "Avatar" },
-        { value: "date-picker", label: "Date Picker" },
-        { value: "picker", label: "Picker" },
-        { value: "progress-indicator", label: "Progress Indicator" },
-        { value: "ratings-indicator", label: "Ratings Indicator" },
-        { value: "selectable-text", label: "Selectable Text" },
-        { value: "slider", label: "Slider" },
-        { value: "text", label: "Text" },
-        { value: "toggle", label: "Toggle" },
-      ],
+      options: NATIVEWINDUI_COMPONENTS,
       required: false,
-      initialValues: [
-        "action-sheet",
-        "activity-indicator",
-        "activity-view",
-        "avatar",
-        "date-picker",
-        "picker",
-        "progress-indicator",
-        "ratings-indicator",
-        "selectable-text",
-        "slider",
-        "text",
-        "toggle",
-      ],
+      initialValues: NATIVEWINDUI_COMPONENTS.map((c) => c.value),
     });
 
     if (isCancel(selectedComponents)) {
