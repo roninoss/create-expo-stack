@@ -36,6 +36,8 @@ export default function Home() {
         <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
           <% if (props.stylingPackage?.name === "unistyles") { %>
               <Button title="Show Details" style={styles.button} />
+          <% } else if (props.stylingPackage?.name === "nativewind") { %>
+              <Button title="Show Details" className="mx-6" />
           <% } else { %>
               <Button title="Show Details" />
           <% } %>
