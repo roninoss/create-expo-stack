@@ -18,7 +18,7 @@ export const EditScreenInfo: React.FC<EditScreenInfoProps> = ({ path }) => {
   const description = "Change any of the text, save the file, and your app will automatically update."
 <% } %>
   return (
-    <View>
+    <View className={styles.container}>
       <View className={styles.getStartedContainer}>
         <Text className={styles.getStartedText}>{title}</Text>
         <View className={`${styles.codeHighlightContainer} ${styles.homeScreenFilename}`}>
@@ -33,6 +33,7 @@ export const EditScreenInfo: React.FC<EditScreenInfoProps> = ({ path }) => {
 };
 
 const styles = {
+  container: `w-full`,
   codeHighlightContainer: `rounded-md px-1`,
   getStartedContainer: `items-center mx-12`,
   getStartedText: `text-lg leading-6 text-center`,
