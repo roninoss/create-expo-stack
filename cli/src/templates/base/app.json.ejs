@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "<%= props.projectName %>",
-    "slug": "<%= props.projectName %>",
+    "slug": "<%= props.projectSlug %>",
     "version": "1.0.0",
     <% if (props.stylingPackage?.name === "unistyles") { %>
         "newArchEnabled": true,
     <% } %>
     <% if (props.navigationPackage?.name === 'expo-router') { %>
-      "scheme": "<%= props.projectName %>",
+      "scheme": "<%= props.projectScheme %>",
       "platforms": ["ios", "android"],
       "web": {
         "bundler": "metro",
@@ -15,7 +15,14 @@
         "favicon": "./assets/favicon.png"
       },
       "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "backgroundColor": "#ffffff"
+        }
+      ]
       <% if (props.internalizationPackage?.name === "i18next") { %>
         ,"expo-localization"
       <% } %>
@@ -36,8 +43,15 @@
         },
       <% } %>
       "plugins": [
+        [
+          "expo-splash-screen",
+          {
+            "image": "./assets/splash.png",
+            "backgroundColor": "#ffffff"
+          }
+        ]
         <% if (props.internalizationPackage?.name === "i18next") { %>
-          "expo-localization"
+          ,"expo-localization"
         <% } %>
       ],
     <% } %>
@@ -48,11 +62,6 @@
      <% } else { %>
      "userInterfaceStyle": "light",
     <% } %>
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "assetBundlePatterns": [
       "**/*"
     ],

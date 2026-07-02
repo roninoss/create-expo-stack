@@ -59,23 +59,23 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 
 | Library            | Category            | Version | Description                                    |
 | ------------------ | ------------------- | ------- | ---------------------------------------------- |
-| React Native       | Mobile Framework    | v0.81   | The best cross-platform mobile framework       |
-| React              | UI Framework        | v19.1   | The most popular UI framework in the world     |
-| TypeScript         | Language            | v5.9    | Static typechecking                            |
+| React Native       | Mobile Framework    | v0.85   | The best cross-platform mobile framework       |
+| React              | UI Framework        | v19.2   | The most popular UI framework in the world     |
+| TypeScript         | Language            | v6.0    | Static typechecking                            |
 | React Navigation   | Navigation          | v7.1    | Performant and consistent navigation framework |
-| Expo               | SDK                 | v54     | Opionated framework for building RN apps       |
-| Expo Linking       | URL Handling        | v8      | Open your app via a URL                        |
-| Expo Router        | Navigation          | v6      | File-based routing in React-Native             |
-| Expo Status Bar    | Status Bar Library  | v3      | Status bar support                             |
-| Expo System UI     | System UI Library   | v6      | System UI support                              |
-| Expo Web Browser   | Web Browser Library | v15     | Open links in the browser                      |
+| Expo               | SDK                 | v56     | Opionated framework for building RN apps       |
+| Expo Linking       | URL Handling        | v56     | Open your app via a URL                        |
+| Expo Router        | Navigation          | v56     | File-based routing in React-Native             |
+| Expo Status Bar    | Status Bar Library  | v56     | Status bar support                             |
+| Expo System UI     | System UI Library   | v56     | System UI support                              |
+| Expo Web Browser   | Web Browser Library | v56     | Open links in the browser                      |
 | Nativewind         | UI Framework        | v5      | Tailwind CSS for React Native                  |
 | Tailwind CSS       | CSS Framework       | v4.1    | Utility-first CSS framework                    |
 | React Native CSS   | CSS Engine          | latest  | CSS support for React Native                   |
 | Unistyles          | UI Framework        | v3      | Superset of StyleSheet                         |
-| Safe Area Context  | Safe Area Library   | v5.6    | Safe area support                              |
+| Safe Area Context  | Safe Area Library   | v5.7    | Safe area support                              |
 | React Native Web   | Web Support         | v0.21   | React Native for Web                           |
-| Firebase           | Backend and Auth    | v10.5   | Cloud-hosted NoSQL database from Google        |
+| Firebase           | Backend and Auth    | v12     | Cloud-hosted NoSQL database from Google        |
 | Supabase           | Backend and Auth    | v2.38   | Open source Firebase alternative               |
 
 ## Reporting Bugs & Feedback

@@ -52,6 +52,12 @@ export function showHelp(info, highlight, warning) {
   info('    	--unistyles       Use Unistyles for styling');
   info('	--stylesheet      Use StyleSheet for styling');
   info('');
+  highlight('   Software Mansion Package Options');
+  info('    	--react-native-gesture-handler  Add React Native Gesture Handler when navigation is not selected');
+  info('    	--react-native-screens          Add React Native Screens when navigation is not selected');
+  info('    	--react-native-svg              Add React Native SVG');
+  info('    	--react-native-keyboard-controller  Add React Native Keyboard Controller');
+  info('');
   highlight('   Internationalization');
   info('    	--i18next         Use i18next and react-i18next for internationalization');
   info('');

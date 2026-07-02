@@ -33,15 +33,12 @@ export function configureProjectFiles(
     'base/package.json.ejs',
     'base/eslint.config.js.ejs',
     'base/.gitignore.ejs',
-    'base/prettier.config.js.ejs'
+    'base/prettier.config.js.ejs',
+    'base/css-env.d.ts.ejs'
   ];
 
   if (stylingPackage?.name === 'stylesheet') {
-    baseFiles = baseFiles.concat([
-      'base/components/Container.tsx.ejs',
-      'base/components/ScreenContent.tsx.ejs',
-      'base/components/EditScreenInfo.tsx.ejs'
-    ]);
+    baseFiles = baseFiles.concat(['base/components/ScreenContent.tsx.ejs', 'base/components/EditScreenInfo.tsx.ejs']);
   }
 
   const packageManager = getPackageManager(toolbox, cliResults);
@@ -55,6 +52,7 @@ export function configureProjectFiles(
       'base/eslint.config.js.ejs',
       'base/.gitignore.ejs',
       'base/prettier.config.js.ejs',
+      'base/css-env.d.ts.ejs',
       'packages/expo-router/metro.config.js.ejs',
       'packages/nativewindui/components/nativewindui/ThemeToggle.tsx.ejs',
       'packages/nativewindui/components/nativewindui/Icon/index.ts.ejs',
@@ -62,6 +60,7 @@ export function configureProjectFiles(
       'packages/nativewindui/components/nativewindui/Icon/Icon.ios.tsx.ejs',
       'packages/nativewindui/components/nativewindui/Icon/types.ts.ejs',
       'packages/nativewindui/lib/useColorScheme.tsx.ejs',
+      'packages/nativewindui/lib/useHeaderSearchBar.tsx.ejs',
       'packages/nativewindui/lib/cn.ts.ejs',
       'packages/nativewindui/theme/colors.ts.ejs',
       'packages/nativewindui/theme/index.ts.ejs',
@@ -144,7 +143,6 @@ export function configureProjectFiles(
     // modify base files with unis specifications
     if (stylingPackage?.name === 'unistyles') {
       const unistylesFiles = [
-        'packages/unistyles/components/Container.tsx.ejs',
         'packages/unistyles/components/ScreenContent.tsx.ejs',
         'packages/unistyles/components/EditScreenInfo.tsx.ejs',
         'packages/unistyles/breakpoints.ts.ejs',
@@ -222,14 +220,14 @@ export function configureProjectFiles(
       let expoRouterFiles = ['packages/expo-router/expo-env.d.ts', 'packages/expo-router/metro.config.js.ejs'];
 
       if (stylingPackage?.name === 'nativewind') {
+        expoRouterFiles.push('packages/nativewind/components/Container.tsx.ejs');
         expoRouterFiles.push('packages/nativewind/components/Button.tsx.ejs');
-        if (navigationPackage?.options?.type === 'drawer + tabs') {
-          expoRouterFiles.push('packages/nativewind/components/Container.tsx.ejs');
-        }
       } else if (stylingPackage?.name === 'unistyles') {
+        expoRouterFiles.push('packages/unistyles/components/Container.tsx.ejs');
         expoRouterFiles.push('packages/unistyles/components/Button.tsx.ejs');
         expoRouterFiles.push('packages/expo-router/index.js.ejs');
       } else if (stylingPackage?.name === 'stylesheet') {
+        expoRouterFiles.push('base/components/Container.tsx.ejs');
         expoRouterFiles.push('base/components/Button.tsx.ejs');
       }
 

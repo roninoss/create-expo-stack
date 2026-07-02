@@ -59,23 +59,23 @@ Each project is generated based on the results of the CLI, on a per-file basis. 
 
 | Library            | Category            | Version | Description                                    |
 | ------------------ | ------------------- | ------- | ---------------------------------------------- |
-| React Native       | Mobile Framework    | v0.81   | The best cross-platform mobile framework       |
-| React              | UI Framework        | v19.1   | The most popular UI framework in the world     |
-| TypeScript         | Language            | v5.9    | Static typechecking                            |
+| React Native       | Mobile Framework    | v0.85   | The best cross-platform mobile framework       |
+| React              | UI Framework        | v19.2   | The most popular UI framework in the world     |
+| TypeScript         | Language            | v6.0    | Static typechecking                            |
 | React Navigation   | Navigation          | v7.1    | Performant and consistent navigation framework |
-| Expo               | SDK                 | v54     | Opionated framework for building RN apps       |
-| Expo Linking       | URL Handling        | v8      | Open your app via a URL                        |
-| Expo Router        | Navigation          | v6      | File-based routing in React-Native             |
-| Expo Status Bar    | Status Bar Library  | v3      | Status bar support                             |
-| Expo System UI     | System UI Library   | v6      | System UI support                              |
-| Expo Web Browser   | Web Browser Library | v15     | Open links in the browser                      |
+| Expo               | SDK                 | v56     | Opionated framework for building RN apps       |
+| Expo Linking       | URL Handling        | v56     | Open your app via a URL                        |
+| Expo Router        | Navigation          | v56     | File-based routing in React-Native             |
+| Expo Status Bar    | Status Bar Library  | v56     | Status bar support                             |
+| Expo System UI     | System UI Library   | v56     | System UI support                              |
+| Expo Web Browser   | Web Browser Library | v56     | Open links in the browser                      |
 | Nativewind         | UI Framework        | v5      | Tailwind CSS for React Native                  |
 | Tailwind CSS       | CSS Framework       | v4.1    | Utility-first CSS framework                    |
 | React Native CSS   | CSS Engine          | latest  | CSS support for React Native                   |
 | Unistyles          | UI Framework        | v3      | Superset of StyleSheet                         |
-| Safe Area Context  | Safe Area Library   | v5.6    | Safe area support                              |
+| Safe Area Context  | Safe Area Library   | v5.7    | Safe area support                              |
 | React Native Web   | Web Support         | v0.21   | React Native for Web                           |
-| Firebase           | Backend and Auth    | v10.5   | Cloud-hosted NoSQL database from Google        |
+| Firebase           | Backend and Auth    | v12     | Cloud-hosted NoSQL database from Google        |
 | Supabase           | Backend and Auth    | v2.38   | Open source Firebase alternative               |
 
 ## Reporting Bugs & Feedback
@@ -130,20 +130,27 @@ Thanks go to these wonderful people:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/DavidJGrimsley">
+            <img src="https://avatars.githubusercontent.com/u/114373822?v=4" width="100;" alt="DavidJGrimsley"/>
+            <br />
+            <sub><b>David Grimsley</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/ernestoresende">
             <img src="https://avatars.githubusercontent.com/u/55156145?v=4" width="100;" alt="ernestoresende"/>
             <br />
             <sub><b>Ernesto Resende</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/PickleNik">
             <img src="https://avatars.githubusercontent.com/u/31113245?v=4" width="100;" alt="PickleNik"/>
             <br />
             <sub><b>Null</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/frankcalise">
             <img src="https://avatars.githubusercontent.com/u/374022?v=4" width="100;" alt="frankcalise"/>
@@ -178,15 +185,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Gaurav Bhandari</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/finnbayer">
             <img src="https://avatars.githubusercontent.com/u/115630860?v=4" width="100;" alt="finnbayer"/>
             <br />
             <sub><b>Finn Bayer</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/saimon24">
             <img src="https://avatars.githubusercontent.com/u/2514208?v=4" width="100;" alt="saimon24"/>
@@ -221,15 +228,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Jacek Pudysz</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/coyksdev">
             <img src="https://avatars.githubusercontent.com/u/19565694?v=4" width="100;" alt="coyksdev"/>
             <br />
             <sub><b>Gerald</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/VadimNotJustDev">
             <img src="https://avatars.githubusercontent.com/u/16936043?v=4" width="100;" alt="VadimNotJustDev"/>
@@ -264,15 +271,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Gilson Alencar</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/mwarger">
             <img src="https://avatars.githubusercontent.com/u/686823?v=4" width="100;" alt="mwarger"/>
             <br />
             <sub><b>Mat Warger</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/gabimoncha">
             <img src="https://avatars.githubusercontent.com/u/39256258?v=4" width="100;" alt="gabimoncha"/>
@@ -307,15 +314,15 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Sean Boult</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Viraj-10">
             <img src="https://avatars.githubusercontent.com/u/66306233?v=4" width="100;" alt="Viraj-10"/>
             <br />
             <sub><b>Viraj Joshi</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/YounessHassoune">
             <img src="https://avatars.githubusercontent.com/u/36106440?v=4" width="100;" alt="YounessHassoune"/>
@@ -350,18 +357,25 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>TheBlondeAlex</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/imranbarbhuiya">
             <img src="https://avatars.githubusercontent.com/u/74945038?v=4" width="100;" alt="imranbarbhuiya"/>
             <br />
             <sub><b>Parbez</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/NomadNiko">
             <img src="https://avatars.githubusercontent.com/u/123768788?v=4" width="100;" alt="NomadNiko"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/marcm0de">
+            <img src="https://avatars.githubusercontent.com/u/141629050?v=4" width="100;" alt="marcm0de"/>
             <br />
             <sub><b>Null</b></sub>
         </a>
@@ -386,7 +400,8 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Joar Karlsson</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/boek">
             <img src="https://avatars.githubusercontent.com/u/1250545?v=4" width="100;" alt="boek"/>
@@ -400,8 +415,7 @@ Thanks go to these wonderful people:
             <br />
             <sub><b>Null</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/claudesortwell">
             <img src="https://avatars.githubusercontent.com/u/41422239?v=4" width="100;" alt="claudesortwell"/>
