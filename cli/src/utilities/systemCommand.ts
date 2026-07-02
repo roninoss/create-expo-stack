@@ -5,6 +5,11 @@ type STDIO = 'inherit' | 'ignore' | 'pipe' | 'overlapped';
 export const ONLY_ERRORS = ['ignore', 'ignore', 'inherit'] as const;
 
 export function quoteShellArg(value: string): string {
+  // Values made of safe characters don't need quoting on any platform
+  if (/^[A-Za-z0-9._-]+$/.test(value)) {
+    return value;
+  }
+
   if (process.platform === 'win32') {
     return `"${value.replace(/"/g, '""')}"`;
   }
