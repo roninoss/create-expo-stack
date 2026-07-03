@@ -30,6 +30,9 @@ export default function Home() {
           <InternalizationExample />
         <% } %>
         </ScreenContent>
+        <% if (props.stylingPackage?.name === "nativewind") { %>
+        <View className={styles.buttonWrapper}>
+        <% } %>
         <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
           <% if (props.stylingPackage?.name === "unistyles") { %>
               <Button title="Show Details" style={styles.button} />
@@ -37,6 +40,9 @@ export default function Home() {
               <Button title="Show Details" />
           <% } %>
         </Link>
+        <% if (props.stylingPackage?.name === "nativewind") { %>
+        </View>
+        <% } %>
       </Container>
     </View>
   );
@@ -45,7 +51,8 @@ export default function Home() {
 <% if (props.stylingPackage?.name === "nativewind") { %>
 const styles = {
   container: "flex flex-1 bg-white",
-}
+  buttonWrapper: "mx-4",
+};
 <% } else if (props.stylingPackage?.name === "stylesheet") { %>
 const styles = StyleSheet.create({
   container: {
