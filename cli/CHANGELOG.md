@@ -1,5 +1,16 @@
 # create-expo-stack
 
+## 2.23.1
+
+### Patch Changes
+
+- 3d84352: Add horizontal margins to button wrapper in Nativewind templates to prevent full-width buttons.
+
+  - Add button wrapper View with `mx-4` class (16px horizontal margins) around Link/Button components in the Nativewind Expo Router stack template
+  - Ensures buttons have proper spacing and don't stretch to fill the entire screen width
+
+- bbe0628: Fix Nativewind template layout: inset the Show Details button from the screen edges, constrain EditScreenInfo so its description text wraps instead of clipping, type TabBarIcon color as ColorValue for SDK 56 tabs, and only quote the rerun-hint project name when it needs shell quoting.
+
 ## 2.23.0
 
 ### Minor Changes
