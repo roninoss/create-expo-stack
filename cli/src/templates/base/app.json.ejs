@@ -3,9 +3,6 @@
     "name": "<%= props.projectName %>",
     "slug": "<%= props.projectSlug %>",
     "version": "1.0.0",
-    <% if (props.stylingPackage?.name === "unistyles") { %>
-        "newArchEnabled": true,
-    <% } %>
     <% if (props.navigationPackage?.name === 'expo-router') { %>
       "scheme": "<%= props.projectScheme %>",
       "platforms": ["ios", "android"],
