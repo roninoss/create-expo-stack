@@ -263,7 +263,7 @@ export async function printOutput(
     info(`To build for development:`);
     info(``);
     highlight(`${step}. cd ${projectDir}`);
-    if (!flags.noInstall) highlight(`${++step}. ${packageManager} install`);
+    if (flags.noInstall) highlight(`${++step}. ${packageManager} install`);
     highlight(`${++step}. eas build --profile=development`);
     highlight(`${++step}. ${runCommand} start`);
 
@@ -274,7 +274,7 @@ export async function printOutput(
     info(`To create a build to share with others:`);
     info(``);
     highlight(`${step}. cd ${projectDir}`);
-    if (!flags.noInstall) highlight(`${++step}. ${packageManager} install`);
+    if (flags.noInstall) highlight(`${++step}. ${packageManager} install`);
     highlight(`${++step}. eas build --profile=preview`);
 
     info(``);
