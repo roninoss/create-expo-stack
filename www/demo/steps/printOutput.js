@@ -16,7 +16,7 @@ function generateStepsToRunProject(cliResults) {
       stylingPackage.name === "unistyles" ||
       stylingPackage.name === "nativewindui"
     ) {
-      output += color.blue(`${++step}. npx expo prebuild --clean\n`);
+      output += color.blue(`${++step}. npx expo prebuild\n`);
     }
     output += color.blue(`${++step}. npm run ios`);
   } else if (cliResults.flags.packageManager === "pnpm") {
@@ -25,7 +25,7 @@ function generateStepsToRunProject(cliResults) {
       stylingPackage.name === "unistyles" ||
       stylingPackage.name === "nativewindui"
     ) {
-      output += color.blue(`${++step}. pnpm expo prebuild --clean\n`);
+      output += color.blue(`${++step}. pnpm expo prebuild\n`);
     }
     output += color.blue(`${++step}. pnpm run ios`);
   } else if (cliResults.flags.packageManager === "bun") {
@@ -34,7 +34,7 @@ function generateStepsToRunProject(cliResults) {
       stylingPackage.name === "unistyles" ||
       stylingPackage.name === "nativewindui"
     ) {
-      output += color.blue(`${++step}. bun expo prebuild --clean\n`);
+      output += color.blue(`${++step}. bun expo prebuild\n`);
     }
     output += color.blue(`${++step}. bun run ios`);
   } else {
@@ -43,7 +43,7 @@ function generateStepsToRunProject(cliResults) {
       stylingPackage.name === "unistyles" ||
       stylingPackage.name === "nativewindui"
     ) {
-      output += color.blue(`${++step}. yarn expo prebuild --clean\n`);
+      output += color.blue(`${++step}. yarn expo prebuild\n`);
     }
     output += color.blue(`${++step}. yarn ios`);
   }
