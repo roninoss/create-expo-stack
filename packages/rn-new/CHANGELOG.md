@@ -1,5 +1,13 @@
 # rn-new
 
+## 2.23.2
+
+### Patch Changes
+
+- ede4092: Correct EAS completion output so install steps are shown only for no-install flows.
+- Updated dependencies [ede4092]
+  - create-expo-stack@2.23.2
+
 ## 2.23.1
 
 ### Patch Changes
