@@ -15,7 +15,14 @@ module.exports = function(api) {
   plugins.push('react-native-worklets/plugin');
 
   return {
-    presets: ['babel-preset-expo'],
+    presets: [
+      <% if (props.stylingPackage?.name === "nativewindui") { %>
+      ['babel-preset-expo', { jsxImportSource: 'nativewind' }],
+      'nativewind/babel',
+      <% } else { %>
+      'babel-preset-expo',
+      <% } %>
+    ],
     plugins,
   };
 };
