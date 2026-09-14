@@ -51,6 +51,27 @@ To get started, use npx to run the CLI tool. You will be prompted to opt into th
 
 <img src="https://github.com/roninoss/create-expo-stack/assets/5482800/e709dd66-cb9b-463c-91f9-b842bb80585c" />
 
+## Try the Nativewind v5 release candidate
+
+Create a new Expo 57 project with the `next` release:
+
+```sh
+npx rn-new@next my-app --nativewind --expo-router
+```
+
+The equivalent command is `npx create-expo-stack@next my-app --nativewind --expo-router`.
+Omit `--expo-router` for a project without Router.
+
+Nativewind starters pin `nativewind@5.0.0-rc.0`, `react-native-css@3.1.0-rc.0`, and Tailwind CSS 4.1.12.
+NativewindUI starters continue to use Nativewind 4.2.6 and Tailwind CSS 3.
+
+For an existing v5 preview project, update Nativewind and its engine together. Follow the
+[RC release notes](https://github.com/nativewind/nativewind/releases/tag/5.0.0-rc.0)
+for Expo alignment, configuration checks, and migration details.
+
+For v4 projects, the [migration skill draft](https://github.com/nativewind/nativewind/tree/main/skills/nativewind-v4-to-v5)
+is available for evaluation. It has not yet passed independent application migration verification.
+
 ## Tech Stack for the templates
 
 Currently, all of the [templates](https://github.com/roninoss/create-expo-stack/tree/main/cli/src/templates) use the same versions of the following libraries. Not all of the templates include all of the libraries, but they are all available for use.

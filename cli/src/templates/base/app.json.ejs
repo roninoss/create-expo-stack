@@ -5,7 +5,7 @@
     "version": "1.0.0",
     <% if (props.navigationPackage?.name === 'expo-router') { %>
       "scheme": "<%= props.projectScheme %>",
-      "platforms": ["ios", "android"],
+      "platforms": ["ios", "android"<% if (props.stylingPackage?.name === "nativewind") { %>, "web"<% } %>],
       "web": {
         "bundler": "metro",
         "output": "static",
@@ -54,7 +54,7 @@
     <% } %>
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    <% if (props.stylingPackage?.name === "nativewindui" || props.stylingPackage?.name === "unistyles") { %>
+    <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui" || props.stylingPackage?.name === "unistyles") { %>
     "userInterfaceStyle": "automatic",
      <% } else { %>
      "userInterfaceStyle": "light",
