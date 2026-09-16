@@ -32,6 +32,9 @@
   "dependencies": {
     <% if (props.stylingPackage?.name === "nativewind" || props.stylingPackage?.name === "nativewindui") { %>
       "nativewind": "latest",
+      <% if (props.packageManager === "pnpm") { %>
+        "react-native-css-interop": "^0.2.7",
+      <% } %>
     <% } %>
     <% if (props.stylingPackage?.name === "nativewindui") { %>
       "@react-navigation/elements": "^2.9.25",
