@@ -1,5 +1,11 @@
 # create-expo-stack
 
+## 2.23.3
+
+### Patch Changes
+
+- bf58e51: Declare the Nativewind JSX runtime dependency directly in pnpm projects using Nativewind or NativewindUI so Metro can resolve it from application files.
+
 ## 2.23.2
 
 ### Patch Changes
