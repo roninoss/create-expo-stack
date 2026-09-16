@@ -7,13 +7,15 @@
     "main": "expo-router/entry",
 <% } %>
   "scripts": {
-  <% if (props.flags?.eas) { %>
+  <% if (props.flags?.eas || props.stylingPackage?.name === "nativewindui" || props.stylingPackage?.name === "unistyles") { %>
     "start": "expo start --dev-client",
     "ios": "expo run:ios",
     "android": "expo run:android",
+  <% if (props.flags?.eas) { %>
     "build:dev": "eas build --profile development",
     "build:preview": "eas build --profile preview",
     "build:prod": "eas build --profile production",
+  <% } %>
     "prebuild": "expo prebuild",
   <% } else if (props.stylingPackage?.name === "nativewind") { %>
     "android": "expo start --android",

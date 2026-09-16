@@ -285,7 +285,10 @@ export async function printOutput(
   } else {
     highlight(`${step}. cd ${projectDir}`);
     if (flags.noInstall) highlight(`${++step}. ${packageManager} install`);
-    if (stylingPackage.name === 'unistyles' || stylingPackage.name === 'nativewindui') {
+    if (stylingPackage?.name === 'unistyles' || stylingPackage?.name === 'nativewindui') {
+      warning(
+        `\n  Notice: ${stylingPackage.name === 'unistyles' ? 'Unistyles' : 'NativewindUI'} requires a Development Build and is not supported in Expo Go.`
+      );
       highlight(`${++step}. ${expoCommand} prebuild --clean`);
     }
     highlight(`${++step}. ${runCommand} ios`);
